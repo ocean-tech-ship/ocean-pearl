@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button class="button-test">Test</button>
+    <button class="bg-primary hover:bg-primary text-secondary font-bold py-2 px-4 border border-primary rounded">Test</button>
   </div>
 </template>
 
@@ -10,13 +10,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.button-test {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 2px 10px;
-}
-</style>
+<style scoped></style>
