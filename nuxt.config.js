@@ -1,4 +1,9 @@
 export default {
+
+  tailwindcss: {
+    cssPath: '~/assets/style/main.css',
+    configPath: 'tailwind.config.js'
+  },
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
