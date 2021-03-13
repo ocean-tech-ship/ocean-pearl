@@ -5,7 +5,7 @@ export default {
       "section",
       {
         class: {
-          "px-20 sm:px-30 md:px-64 mx-auto max-w-1300": true,
+          "px-20 sm:px-30 mx-auto max-w-1440": true,
         },
       },
       this.$slots.default
