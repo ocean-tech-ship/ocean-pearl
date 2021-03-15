@@ -1,13 +1,12 @@
 <template>
-  <div >
-      <landing-hero-section />
+  <div>
+    <landing-hero-section />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import LandingHeroSection from "@/components/app/landing/LandingHeroSection.vue";
-
+import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue'
 
 export default Vue.extend({
   components: {

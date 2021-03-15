@@ -1,6 +1,10 @@
 <template>
   <div>
-    <button class="bg-primary hover:bg-primary text-secondary font-bold py-2 px-4 border border-primary rounded">Test</button>
+    <button
+      class="bg-primary hover:bg-primary text-secondary font-bold py-2 px-4 border border-primary rounded"
+    >
+      Test
+    </button>
   </div>
 </template>
 
