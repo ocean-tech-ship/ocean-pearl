@@ -35,6 +35,10 @@ module.exports = {
     maxWidth: {
       1440: '1440px',
     },
+    boxShadow: {
+      default: '4px 4px 20px rgba(0, 0, 0, 0.1)',
+      none: 'none',
+    },
     extend: {},
   },
   variants: {},
