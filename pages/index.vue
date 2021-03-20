@@ -6,6 +6,7 @@
     <landing-featured-project-section />
     <landing-dao-proposals />
     <landing-job-offers />
+    <landing-latest-projects />
   </div>
 </template>
 
@@ -17,8 +18,8 @@ import LandingPearlSpaceSection from '@/components/app/landing/LandingPearlSpace
 import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vue'
 import LandingFeaturedProjectSection from '@/components/app/landing/LandingFeaturedProjectSection.vue'
 import LandingJobOffers from '@/components/app/landing/LandingJobOffers.vue'
+import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue'
 
-LandingDaoProposals
 
 export default Vue.extend({
   components: {
@@ -27,7 +28,8 @@ export default Vue.extend({
     LandingPearlSpaceSection,
     LandingFeaturedProjectSection,
     LandingDaoProposals,
-    LandingJobOffers
+    LandingJobOffers,
+    LandingLatestProjects
   },
 })
 </script>
