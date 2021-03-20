@@ -3,7 +3,6 @@
     <div class="w-full grid grid-cols-2 md:grid-flow-col gap-4">
       <div class="pt-6">
         <h1>
-          yessssur
           We are on track with the newest
           <span class="text-primary">projects</span> powered by the ocean
           protocol.
