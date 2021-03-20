@@ -30,6 +30,7 @@
   
   body {
     @apply font-main;
+    @apply text-third;
   }
   
   a {
@@ -69,10 +70,14 @@
   h4,
   .h4 {
     @apply text-lg;
-    line-height: 44px;
+    line-height: 12px;
   }
   
   p {
     @apply text-base;
     line-height: 41px;
+  }
+
+  .text-sm {
+    line-height: 26px;
   }
