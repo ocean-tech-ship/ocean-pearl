@@ -7,6 +7,16 @@ module.exports = {
   },
   purge: [],
   theme: {
+    extend: {
+      spacing: {
+        auto: 'auto',
+        0: 0,
+        '31px': '31px',
+        '42px': '42px',
+        '62px': '62px',
+        '275px': '275px'
+      },
+    },
     screens: {
       '2sm': '375px',
       sm: '540px',
@@ -39,7 +49,6 @@ module.exports = {
       default: '4px 4px 20px rgba(0, 0, 0, 0.1)',
       none: 'none',
     },
-    extend: {},
   },
   variants: {},
   plugins: [],
