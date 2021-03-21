@@ -1,6 +1,6 @@
 <template>
-  <LandingSectionContainer>
-    <div class="w-full grid grid-cols-1 xl:grid-cols-2 md:grid-flow-col gap-4">
+  <LandingSectionContainer class="md:mb-32 xl:mb-64">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div class="pt-6">
         <h1>
           We are on track with the newest
@@ -13,9 +13,9 @@
         </p>
         <AppButton class="pt-8" />
       </div>
-      <div class="flex">
+      <div class="hidden md:flex">
         <img
-          class="self-center w-full"
+          class="self-center w-full pt-8 lg:pt-0"
           src="@/assets/images/kraken.webp"
           alt="kraken"
         />
