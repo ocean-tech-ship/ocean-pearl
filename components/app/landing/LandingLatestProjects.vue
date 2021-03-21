@@ -15,10 +15,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">poseidon</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border text-sm text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-24">2h ago</p>
         </div>
       </div>
 
@@ -30,10 +30,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">poseidon</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border text-sm text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-24">2h ago</p>
         </div>
       </div>
 
@@ -45,10 +45,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">poseidon</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border text-sm text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-24">2h ago</p>
         </div>
       </div>
 
@@ -60,10 +60,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">poseidon</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border text-sm text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-24">2h ago</p>
         </div>
       </div>
 
@@ -75,10 +75,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">poseidon</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border text-sm text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-24">2h ago</p>
         </div>
       </div>
 
@@ -90,10 +90,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">poseidon</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border text-sm text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-24">2h ago</p>
         </div>
       </div>
     </div>
