@@ -4,13 +4,19 @@
       <h1>Pearl <span class="text-primary">space</span></h1>
       <p>These are the main features of ocean pearl.</p>
     </div>
-    <div class="flex flex-wrap justify-between">
-      <div v-for="card in cards" :key="card.title" class="card shadow flex flex-col items-center">
-        <div class="h-275 pt-42px px-42px pb-62px flex items-center">
-        <img class="" :src="card.imageURL" :alt="card.title" />
+    <div class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div
+        v-for="card in cards"
+        :key="card.title"
+        class="card shadow flex flex-col items-center"
+      >
+        <div class="h-275px pt-42px px-42px pb-62px flex items-center">
+          <img class="w-full" :src="card.imageURL" :alt="card.title" />
         </div>
-        <span class="font-poppins-bold text-lg pb-31px"> {{ card.title }} </span>
-        <app-button/>
+        <span class="font-poppins-bold text-lg px-42px pb-31px text-center">
+          {{ card.title }}
+        </span>
+        <app-button class="mb-70px" />
       </div>
     </div>
   </LandingSectionContainer>
@@ -52,8 +58,4 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-.card {
-  height: 525px;
-  width: 362px;
-}
 </style>
