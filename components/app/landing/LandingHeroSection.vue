@@ -11,7 +11,9 @@
           An absolute random example of some text being randomly put together to
           make it look like someone has written something meaningful already.
         </p>
+       <NuxtLink to="/project-overview"> 
         <AppButton class="pt-8" />
+       </NuxtLink>
       </div>
       <div class="hidden md:flex">
         <img

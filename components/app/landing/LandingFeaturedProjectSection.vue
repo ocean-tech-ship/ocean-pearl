@@ -108,9 +108,9 @@
         </div>
       </div>
     </div>
-    <NuxtLink to="/">
+    <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">See all listed projects</p>
+        <p class="mr-2 text-primary">See all featured projects</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
       </div>
     </NuxtLink>

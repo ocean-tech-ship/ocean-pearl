@@ -107,7 +107,7 @@
      </div>
   </div>
 </div>
-<NuxtLink to="/">
+<NuxtLink to="/job-overview">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">See all listed projects</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
