@@ -1,12 +1,14 @@
 <template>
  <nav>
      <div class="px-20 sm:px-30 mx-auto max-w-1440 flex justify-between items-center py-12">
+        <NuxtLink to="/">
          <div class="flex items-center">
              <img src="@/assets/images/logo/pearl-logo.png" alt="pearl-logo">
-             <p class="pl-2 text-primary">Ocean Pearl</p>
+             <p class="pl-2 text-primary">Ocean Pearl</p>   
          </div>
+        </NuxtLink>
          <div class="flex space-x-12 pr-12">
-             <NuxtLink class="px-8" to="/">Projects</NuxtLink>
+             <NuxtLink class="px-8" to="/project-overview">Projects</NuxtLink>
              <NuxtLink class="px-8" to="/">Tracker</NuxtLink>
              <NuxtLink class="px-8" to="/">Jobs</NuxtLink>
          </div>
