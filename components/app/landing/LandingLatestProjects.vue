@@ -5,7 +5,7 @@
     <p>The listed projects shown were added by members of the community.</p>
 
     <!-- projects ------------------------------------------------------------------>
-    <div class="grid grid-flow-col grid-cols-6 gap-4 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10">
 
       <!-- #1 ------------------------------------------------------------------>
       <div class="shadow p-4 pb-12 text-center">
