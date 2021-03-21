@@ -1,6 +1,6 @@
 <template>
   <LandingSectionContainer>
-    <div class="w-full grid grid-cols-2 md:grid-flow-col gap-4">
+    <div class="w-full grid grid-cols-1 xl:grid-cols-2 md:grid-flow-col gap-4">
       <div class="pt-6">
         <h1>
           We are on track with the newest
@@ -15,8 +15,8 @@
       </div>
       <div class="flex">
         <img
-          class="self-center"
-          src="../../../assets/images/kraken.webp"
+          class="self-center w-full"
+          src="@/assets/images/kraken.webp"
           alt="kraken"
         />
       </div>
