@@ -1,20 +1,20 @@
 <template>
   <div>
-    <projects-header />
+    <job-overview-header />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import ProjectsHeader from '@/components/app/project-overview/ProjectsHeader.vue'
+import JobOverviewHeader from '@/components/app/job-overview/JobOverviewHeader.vue'
 
 
 
 export default Vue.extend({
 
-  name: "ProjectOverview",
+  name: "JobOverview",
   components: {
-    ProjectsHeader
+    JobOverviewHeader
   },
 })
 </script>
