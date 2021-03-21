@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer>
     <div class="mb-42px">
-      <h1>Pearl <span class="text-primary">space</span></h1>
+      <h2>Pearl <span class="text-primary">space</span></h2>
       <p>These are the main features of ocean pearl.</p>
     </div>
     <div class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
      <!-- Headline ------------------------------------------------------------------>
-    <h1>DAO <span class="text-primary">proposals</span></h1>
+    <h2>DAO <span class="text-primary">proposals</span></h2>
     <p>These projects are currently waiting or applying for a DAO funding.</p>
 
 <!-- projects ------------------------------------------------------------------>
