@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
      <!-- Headline ------------------------------------------------------------------>
-    <h1>Job <span class="text-primary">offers</span></h1>
+    <h2>Job <span class="text-primary">offers</span></h2>
     <p>These ocean projects are currently hiring in the web 3 space</p>
 
 <!-- projects ------------------------------------------------------------------>

@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
     <!-- Headline ------------------------------------------------------------------>
-    <h1>Latest <span class="text-primary">projects</span></h1>
+    <h2>Latest <span class="text-primary">projects</span></h2>
     <p>The listed projects shown were added by members of the community.</p>
 
     <!-- projects ------------------------------------------------------------------>
