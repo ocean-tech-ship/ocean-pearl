@@ -9,8 +9,8 @@
         </NuxtLink>
          <div class="flex space-x-12 pr-12">
              <NuxtLink class="px-8" to="/project-overview">Projects</NuxtLink>
+             <NuxtLink class="px-8" to="/job-overview">Jobs</NuxtLink>
              <NuxtLink class="px-8" to="/">Tracker</NuxtLink>
-             <NuxtLink class="px-8" to="/">Jobs</NuxtLink>
          </div>
          <div class="flex space-x-4">
            <NuxtLink to="/">
