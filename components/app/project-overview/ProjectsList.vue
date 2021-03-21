@@ -1,6 +1,6 @@
 <template>
       <!-- projects ------------------------------------------------------------------>
-    <div class="grid grid-cols-5 gap-4 mt-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-12">
 
       <!-- #1 ------------------------------------------------------------------>
       <div class="shadow p-2 pb-12 text-center relative">
