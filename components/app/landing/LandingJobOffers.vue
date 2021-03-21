@@ -5,7 +5,7 @@
     <p>These ocean projects are currently hiring in the web 3 space</p>
 
 <!-- projects ------------------------------------------------------------------>
-<div class="grid grid-flow-col grid-cols-4 gap-4 mt-10">
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10">
 
   <!-- #1 ------------------------------------------------------------------>  
   <div class="shadow p-12">
