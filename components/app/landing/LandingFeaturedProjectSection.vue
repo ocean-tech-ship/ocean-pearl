@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
     <!-- Headline ------------------------------------------------------------------>
-    <h1>Featured <span class="text-primary">projects</span></h1>
+    <h2>Featured <span class="text-primary">projects</span></h2>
     <p>A handpicked collection of our favourite projects at the moment.</p>
 
     <!-- Listed project illustration ------------------------------------------------------------------>
