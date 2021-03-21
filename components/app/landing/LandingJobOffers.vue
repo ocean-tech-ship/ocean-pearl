@@ -16,17 +16,17 @@
             </div>
             <div>
               <p class="text-primary p-line-head">poseidon</p>
-              <p class="text-sm">Data analyst</p>
+              <p class="small-text">Data analyst</p>
             </div>
        </div>
      <div class="mt-5">
-        <p class="text-sm">
+        <p class="small-text">
             Data analyst who is on track with registring new
             data assets and maintaining them aswell.
         </p>
      </div>
      <div class="mt-8">
-        <p class="text-sm text-primary">
+        <p class="small-text text-primary">
             50000€ - 60000€ a year
         </p>
      </div>
@@ -41,17 +41,17 @@
             </div>
             <div>
               <p class="text-primary p-line-head">poseidon</p>
-              <p class="text-sm">Data analyst</p>
+              <p class="small-text">Data analyst</p>
             </div>
        </div>
      <div class="mt-5">
-        <p class="text-sm">
+        <p class="small-text">
             Data analyst who is on track with registring new
             data assets and maintaining them aswell.
         </p>
      </div>
      <div class="mt-8">
-        <p class="text-sm text-primary">
+        <p class="small-text text-primary">
             50000€ - 60000€ a year
         </p>
      </div>
@@ -66,17 +66,17 @@
             </div>
             <div>
               <p class="text-primary p-line-head">poseidon</p>
-              <p class="text-sm">Data analyst</p>
+              <p class="small-text">Data analyst</p>
             </div>
        </div>
      <div class="mt-5">
-        <p class="text-sm">
+        <p class="small-text">
             Data analyst who is on track with registring new
             data assets and maintaining them aswell.
         </p>
      </div>
      <div class="mt-8">
-        <p class="text-sm text-primary">
+        <p class="small-text text-primary">
             50000€ - 60000€ a year
         </p>
      </div>
@@ -91,17 +91,17 @@
             </div>
             <div>
               <p class="text-primary p-line-head">poseidon</p>
-              <p class="text-sm">Data analyst</p>
+              <p class="small-text">Data analyst</p>
             </div>
        </div>
      <div class="mt-5">
-        <p class="text-sm">
+        <p class="small-text">
             Data analyst who is on track with registring new
             data assets and maintaining them aswell.
         </p>
      </div>
      <div class="mt-8">
-        <p class="text-sm text-primary">
+        <p class="small-text text-primary">
             50000€ - 60000€ a year
         </p>
      </div>

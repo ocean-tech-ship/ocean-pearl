@@ -16,29 +16,29 @@
             </div>
             <div>
               <p class="text-primary p-line-head">jellyfish</p>
-              <p class="text-sm">category</p>
+              <p class="small-text">category</p>
             </div>
        </div>
      <div class="mt-5">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/start-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Start</p>
+            <p class="small-text text-primary">Start</p>
          </div>
-         <p class="text-sm">12. Nov 2021 12PM</p>
+         <p class="small-text">12. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/finish-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Finish</p>
+            <p class="small-text text-primary">Finish</p>
          </div>
-         <p class="text-sm">22. Nov 2021 12PM</p>
+         <p class="small-text">22. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/fund-round.png" alt="rocket">
-            <p class="text-sm text-primary">Fund round</p>
+            <p class="small-text text-primary">Fund round</p>
          </div>
-         <p class="text-sm">Round 2</p>
+         <p class="small-text">Round 2</p>
      </div>
   </div>
 
@@ -51,29 +51,29 @@
             </div>
             <div>
               <p class="text-primary p-line-head">jellyfish</p>
-              <p class="text-sm">category</p>
+              <p class="small-text">category</p>
             </div>
        </div>
      <div class="mt-5">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/start-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Start</p>
+            <p class="small-text text-primary">Start</p>
          </div>
-         <p class="text-sm">12. Nov 2021 12PM</p>
+         <p class="small-text">12. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/finish-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Finish</p>
+            <p class="small-text text-primary">Finish</p>
          </div>
-         <p class="text-sm">22. Nov 2021 12PM</p>
+         <p class="small-text">22. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/fund-round.png" alt="rocket">
-            <p class="text-sm text-primary">Fund round</p>
+            <p class="small-text text-primary">Fund round</p>
          </div>
-         <p class="text-sm">Round 2</p>
+         <p class="small-text">Round 2</p>
      </div>
   </div>
 
@@ -86,29 +86,29 @@
             </div>
             <div>
               <p class="text-primary p-line-head">jellyfish</p>
-              <p class="text-sm">category</p>
+              <p class="small-text">category</p>
             </div>
        </div>
      <div class="mt-5">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/start-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Start</p>
+            <p class="small-text text-primary">Start</p>
          </div>
-         <p class="text-sm">12. Nov 2021 12PM</p>
+         <p class="small-text">12. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/finish-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Finish</p>
+            <p class="small-text text-primary">Finish</p>
          </div>
-         <p class="text-sm">22. Nov 2021 12PM</p>
+         <p class="small-text">22. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/fund-round.png" alt="rocket">
-            <p class="text-sm text-primary">Fund round</p>
+            <p class="small-text text-primary">Fund round</p>
          </div>
-         <p class="text-sm">Round 2</p>
+         <p class="small-text">Round 2</p>
      </div>
   </div>
 
@@ -121,29 +121,29 @@
             </div>
             <div>
               <p class="text-primary p-line-head">jellyfish</p>
-              <p class="text-sm">category</p>
+              <p class="small-text">category</p>
             </div>
        </div>
      <div class="mt-5">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/start-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Start</p>
+            <p class="small-text text-primary">Start</p>
          </div>
-         <p class="text-sm">12. Nov 2021 12PM</p>
+         <p class="small-text">12. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/finish-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Finish</p>
+            <p class="small-text text-primary">Finish</p>
          </div>
-         <p class="text-sm">22. Nov 2021 12PM</p>
+         <p class="small-text">22. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/fund-round.png" alt="rocket">
-            <p class="text-sm text-primary">Fund round</p>
+            <p class="small-text text-primary">Fund round</p>
          </div>
-         <p class="text-sm">Round 2</p>
+         <p class="small-text">Round 2</p>
      </div>
   </div>
 
@@ -156,29 +156,29 @@
             </div>
             <div>
               <p class="text-primary p-line-head">jellyfish</p>
-              <p class="text-sm">category</p>
+              <p class="small-text">category</p>
             </div>
        </div>
      <div class="mt-5">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/start-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Start</p>
+            <p class="small-text text-primary">Start</p>
          </div>
-         <p class="text-sm">12. Nov 2021 12PM</p>
+         <p class="small-text">12. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/finish-fund.png" alt="rocket">
-            <p class="text-sm text-primary">Finish</p>
+            <p class="small-text text-primary">Finish</p>
          </div>
-         <p class="text-sm">22. Nov 2021 12PM</p>
+         <p class="small-text">22. Nov 2021 12PM</p>
      </div>
      <div class="mt-3">
          <div class="flex">
             <img class="mr-2" src="@/assets/images/icons/fund-round.png" alt="rocket">
-            <p class="text-sm text-primary">Fund round</p>
+            <p class="small-text text-primary">Fund round</p>
          </div>
-         <p class="text-sm">Round 2</p>
+         <p class="small-text">Round 2</p>
      </div>
   </div>
 </div>

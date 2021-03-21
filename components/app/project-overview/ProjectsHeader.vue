@@ -11,7 +11,7 @@
       <div class="text-primary">
         <div class="flex border py-1 px-2">
             <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
-            <p class="text-sm pr-3">Category</p>
+            <p class="small-text pr-3">Category</p>
         </div>
       </div>
 
@@ -19,31 +19,31 @@
       <div class="space-x-4 flex">
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
-          <p class="text-sm">All</p>
+          <p class="small-text">All</p>
         </div>
         </NuxtLink>
 
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
-          <p class="text-sm">Latest</p>
+          <p class="small-text">Latest</p>
         </div>
         </NuxtLink>
 
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
-          <p class="text-sm">Hiring</p>
+          <p class="small-text">Hiring</p>
         </div>
         </NuxtLink>
 
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
-          <p class="text-sm">Featured</p>
+          <p class="small-text">Featured</p>
         </div>
         </NuxtLink>
 
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
-          <p class="text-sm">Awaiting Fund</p>
+          <p class="small-text">Awaiting Fund</p>
         </div>
         </NuxtLink>
       </div>
@@ -51,15 +51,15 @@
       <!-- Badges -->
       <div class="grid space-y-1">
         <div class="justify-self-end flex items-center">
-            <p class="text-sm mr-2 text-primary">Featured</p>
+            <p class="small-text mr-2 text-primary">Featured</p>
             <img src="@/assets/images/icons/featured-badge.png" alt="featured-projects">
         </div>
         <div class="justify-self-end flex items-center">
-            <p class="text-sm mr-2 text-primary">Need Funding</p>
+            <p class="small-text mr-2 text-primary">Need Funding</p>
             <img src="@/assets/images/icons/bitcoin-badge.png" alt="funding project">
         </div>
         <div class="justify-self-end flex items-center">
-            <p class="text-sm mr-2 text-primary">Hiring</p>
+            <p class="small-text mr-2 text-primary">Hiring</p>
             <img src="@/assets/images/icons/hiring-badge.png" alt="hiring job">
         </div>
         
@@ -81,10 +81,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -100,10 +100,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -118,10 +118,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -138,10 +138,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -156,10 +156,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -174,10 +174,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -193,10 +193,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -211,10 +211,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -230,10 +230,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -248,10 +248,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -267,10 +267,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -286,10 +286,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -304,10 +304,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -324,10 +324,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>
@@ -342,10 +342,10 @@
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">jellyfish</p>
-          <p class="text-sm">DeFi</p>
+          <p class="small-text">DeFi</p>
         </div>
         <div class="mt-6 px-3 flex place-content-center">
-          <p class="text-sm">
+          <p class="small-text">
               This text describes the project
               in one pretty cool sentence.
           </p>

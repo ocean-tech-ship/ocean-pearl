@@ -23,17 +23,17 @@
             </div>
             <div>
               <h4 class="text-primary">Parsiq</h4>
-              <p class="text-sm mt-2">category</p>
+              <p class="small-text mt-2">category</p>
             </div>
           </div>
           <div>
-            <p class="text-sm mt-4">
+            <p class="small-text mt-4">
               This is a nice project. It does so nice things. And this
               so leave some love and like this description.
             </p>
           </div>
           <div class="justify-self-end flex items-center mt-8">
-            <p class="text-sm mr-2 text-primary">check out</p>
+            <p class="small-text mr-2 text-primary">check out</p>
             <img src="@/assets/images/icons/check-out.png" alt="">
           </div>
         </div>
@@ -46,17 +46,17 @@
             </div>
             <div>
               <h4 class="text-primary">Parsiq</h4>
-              <p class="text-sm mt-2">category</p>
+              <p class="small-text mt-2">category</p>
             </div>
           </div>
           <div>
-            <p class="text-sm mt-4">
+            <p class="small-text mt-4">
               This is a nice project. It does so nice things. And this
               so leave some love and like this description.
             </p>
           </div>
           <div class="justify-self-end flex items-center mt-8">
-            <p class="text-sm mr-2 text-primary">check out</p>
+            <p class="small-text mr-2 text-primary">check out</p>
             <img src="@/assets/images/icons/check-out.png" alt="">
           </div>
         </div>
@@ -69,17 +69,17 @@
             </div>
             <div>
               <h4 class="text-primary">Parsiq</h4>
-              <p class="text-sm mt-2">category</p>
+              <p class="small-text mt-2">category</p>
             </div>
           </div>
           <div>
-            <p class="text-sm mt-4">
+            <p class="small-text mt-4">
               This is a nice project. It does so nice things. And this
               so leave some love and like this description.
             </p>
           </div>
           <div class="justify-self-end flex items-center mt-8">
-            <p class="text-sm mr-2 text-primary">check out</p>
+            <p class="small-text mr-2 text-primary">check out</p>
             <img src="@/assets/images/icons/check-out.png" alt="">
           </div>
         </div>
@@ -92,17 +92,17 @@
             </div>
             <div>
               <h4 class="text-primary">Parsiq</h4>
-              <p class="text-sm mt-2">category</p>
+              <p class="small-text mt-2">category</p>
             </div>
           </div>
           <div>
-            <p class="text-sm mt-4">
+            <p class="small-text mt-4">
               This is a nice project. It does so nice things. And this
               so leave some love and like this description.
             </p>
           </div>
           <div class="justify-self-end flex items-center mt-8">
-            <p class="text-sm mr-2 text-primary">check out</p>
+            <p class="small-text mr-2 text-primary">check out</p>
             <img src="@/assets/images/icons/check-out.png" alt="">
           </div>
         </div>
