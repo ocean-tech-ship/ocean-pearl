@@ -10,7 +10,7 @@
       <div class="listed-project-container shadow rounded-md pb-12 pt-6 px-4 col-span-1">
         <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.png"
           alt="kraken" />
-        <h4 class="content-center text-center my-12">2021 listed <span class="text-primary">projects</span></h4>
+        <p class="content-center text-center my-12 thin-heading">2021 listed <span class="text-primary">projects</span></p>
       </div>
 
       <!-- projects ------------------------------------------------------------------>
@@ -22,7 +22,7 @@
                 src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
             </div>
             <div>
-              <h4 class="text-primary">Parsiq</h4>
+              <p class="text-primary thin-heading">Parsiq</p>
               <p class="small-text mt-2">category</p>
             </div>
           </div>
@@ -45,7 +45,7 @@
                 src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
             </div>
             <div>
-              <h4 class="text-primary">Parsiq</h4>
+              <p class="text-primary thin-heading">Parsiq</p>
               <p class="small-text mt-2">category</p>
             </div>
           </div>
@@ -68,7 +68,7 @@
                 src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
             </div>
             <div>
-              <h4 class="text-primary">Parsiq</h4>
+              <p class="text-primary thin-heading">Parsiq</p>
               <p class="small-text mt-2">category</p>
             </div>
           </div>
@@ -91,7 +91,7 @@
                 src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
             </div>
             <div>
-              <h4 class="text-primary">Parsiq</h4>
+              <p class="text-primary thin-heading">Parsiq</p>
               <p class="small-text mt-2">category</p>
             </div>
           </div>
