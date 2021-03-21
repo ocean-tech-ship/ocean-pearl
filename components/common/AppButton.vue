@@ -1,9 +1,10 @@
 <template>
   <div>
     <button
-      class="bg-primary hover:bg-primary text-secondary font-bold py-2 px-4 border border-primary rounded"
+      class="call-to-action text-secondary font-medium py-2 px-6 shadow-md flex items-center justify-center gap-3"
     >
-      Test
+      <img src="~/assets/icons/sailing_ship.svg" alt="ocean_pearl" width="20" />
+      <span> Explore </span>
     </button>
   </div>
 </template>
@@ -14,4 +15,8 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+.call-to-action {
+  background: linear-gradient(to right, #bb2c75 1%, #ff98cd);
+}
+</style>
