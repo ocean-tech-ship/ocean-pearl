@@ -76,7 +76,7 @@
   import AppButton from '@/components/common/AppButton'
 
   export default {
-    name: 'LandingDaoProposal',
+    name: 'ProjectsHeader',
 
     components: {
       LandingSectionContainer,
