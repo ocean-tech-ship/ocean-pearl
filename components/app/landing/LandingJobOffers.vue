@@ -6,106 +6,33 @@
 
 <!-- projects ------------------------------------------------------------------>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-10">
-
-  <!-- #1 ------------------------------------------------------------------>  
+  <div v-for="project in projects" :key="project.title">
+  <!-- single ------------------------------------------------------------------> 
+  <NuxtLink to="/job-overview"> 
   <div class="shadow p-12">
       <div class="flex">
             <div class="mr-3">
               <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src="@/assets/images/project-logos/poseidon.png" alt="poseidon-network" />
+                :src="project.imageURL" :alt="project.title" />
             </div>
             <div>
-              <p class="text-primary p-line-head">poseidon</p>
-              <p class="small-text">Data analyst</p>
+              <p class="text-primary p-line-head">{{project.title}}</p>
+              <p class="small-text">{{project.job}}</p>
             </div>
        </div>
      <div class="mt-5">
         <p class="small-text">
-            Data analyst who is on track with registring new
-            data assets and maintaining them aswell.
+            {{project.description}}
         </p>
      </div>
      <div class="mt-8">
         <p class="small-text text-primary">
-            50000€ - 60000€ a year
+            {{project.loan}} a year
         </p>
      </div>
   </div>
-
-  <!-- #2 ------------------------------------------------------------------>  
-  <div class="shadow p-12">
-      <div class="flex">
-            <div class="mr-3">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src="@/assets/images/project-logos/poseidon.png" alt="poseidon-network" />
-            </div>
-            <div>
-              <p class="text-primary p-line-head">poseidon</p>
-              <p class="small-text">Data analyst</p>
-            </div>
-       </div>
-     <div class="mt-5">
-        <p class="small-text">
-            Data analyst who is on track with registring new
-            data assets and maintaining them aswell.
-        </p>
-     </div>
-     <div class="mt-8">
-        <p class="small-text text-primary">
-            50000€ - 60000€ a year
-        </p>
-     </div>
-  </div>
-
-  <!-- #3 ------------------------------------------------------------------>  
-  <div class="shadow p-12">
-      <div class="flex">
-            <div class="mr-3">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src="@/assets/images/project-logos/poseidon.png" alt="poseidon-network" />
-            </div>
-            <div>
-              <p class="text-primary p-line-head">poseidon</p>
-              <p class="small-text">Data analyst</p>
-            </div>
-       </div>
-     <div class="mt-5">
-        <p class="small-text">
-            Data analyst who is on track with registring new
-            data assets and maintaining them aswell.
-        </p>
-     </div>
-     <div class="mt-8">
-        <p class="small-text text-primary">
-            50000€ - 60000€ a year
-        </p>
-     </div>
-  </div>
-
-   <!-- #4 ------------------------------------------------------------------>  
-  <div class="shadow p-12">
-      <div class="flex">
-            <div class="mr-3">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                src="@/assets/images/project-logos/poseidon.png" alt="poseidon-network" />
-            </div>
-            <div>
-              <p class="text-primary p-line-head">poseidon</p>
-              <p class="small-text">Data analyst</p>
-            </div>
-       </div>
-     <div class="mt-5">
-        <p class="small-text">
-            Data analyst who is on track with registring new
-            data assets and maintaining them aswell.
-        </p>
-     </div>
-     <div class="mt-8">
-        <p class="small-text text-primary">
-            50000€ - 60000€ a year
-        </p>
-     </div>
-  </div>
+  </NuxtLink>
+</div>
 </div>
 <NuxtLink to="/job-overview">
       <div class="flex items-center mt-6">
@@ -120,11 +47,49 @@
 import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
-  name: 'LandingDaoProposal',
+  name: 'LandingJobOffers',
 
   components: {
     LandingSectionContainer,
   },
+  data() {
+      return {
+        projects: [
+          {
+            title: 'poseidon',
+            job: 'Data analyst',
+            description: 'Data analyst which is on track with registring new data assets and maintaining them aswell.',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            loan: "50000€ - 60000€"
+          },
+          {
+            title: 'poseidon',
+            job: 'Data scientist',
+            description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            loan: "20000€ - 30000€"
+          },
+          {
+            title: 'poseidon',
+            job: 'Content creator',
+            description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            loan: "10000€ - 90000€"
+          },
+          {
+            title: 'poseidon',
+            job: 'Rocket Scientist',
+            description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            loan: "50000€ - 60000€"
+          },    
+        ],
+      }
+    },
 }
 </script>
 
