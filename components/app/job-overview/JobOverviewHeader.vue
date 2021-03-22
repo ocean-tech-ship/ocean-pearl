@@ -11,7 +11,7 @@
       <div class="text-primary">
         <div class="flex border py-1 px-2">
             <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
-            <p class="small-text pr-3">Latest</p>
+            <p class="small-text pr-8">Latest</p>
         </div>
       </div>
 
