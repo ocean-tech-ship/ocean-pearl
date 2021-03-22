@@ -6,103 +6,41 @@
 
     <!-- projects ------------------------------------------------------------------>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10">
+      <div v-for="project in projects" :key="project.title">
 
-      <!-- #1 ------------------------------------------------------------------>
+      <!-- single ------------------------------------------------------------------>
+      <NuxtLink to="/project-overview">
       <div class="shadow p-4 pb-12 text-center">
         <div class="mt-3">
           <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
+            :src="project.imageURL" :alt="project.title" />
         </div>
         <div class="mt-4">
-          <p class="text-primary p-line-head">poseidon</p>
-          <p class="small-text">DeFi</p>
+          <p class="text-primary p-line-head">{{project.title}}</p>
+          <p class="small-text">{{project.category}}</p>
         </div>
         <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-24">2h ago</p>
+          <p class="border small-text text-primary w-32">{{project.createdAt}}</p>
         </div>
       </div>
+      </NuxtLink>
+      <!-------------------------------------------------------------------->
 
-      <!-- #2 ------------------------------------------------------------------>
-     <div class="shadow p-4 pb-12 text-center">
-        <div class="mt-3">
-          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
-        </div>
-        <div class="mt-4">
-          <p class="text-primary p-line-head">poseidon</p>
-          <p class="small-text">DeFi</p>
-        </div>
-        <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-24">2h ago</p>
-        </div>
-      </div>
-
-      <!-- #3 ------------------------------------------------------------------>
-      <div class="shadow p-4 pb-12 text-center">
-        <div class="mt-3">
-          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
-        </div>
-        <div class="mt-4">
-          <p class="text-primary p-line-head">poseidon</p>
-          <p class="small-text">DeFi</p>
-        </div>
-        <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-24">2h ago</p>
-        </div>
-      </div>
-
-      <!-- #4 ------------------------------------------------------------------>
-      <div class="shadow p-4 pb-12 text-center">
-        <div class="mt-3">
-          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
-        </div>
-        <div class="mt-4">
-          <p class="text-primary p-line-head">poseidon</p>
-          <p class="small-text">DeFi</p>
-        </div>
-        <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-24">2h ago</p>
-        </div>
-      </div>
-
-      <!-- #5 ------------------------------------------------------------------>
-      <div class="shadow p-4 pb-12 text-center">
-        <div class="mt-3">
-          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
-        </div>
-        <div class="mt-4">
-          <p class="text-primary p-line-head">poseidon</p>
-          <p class="small-text">DeFi</p>
-        </div>
-        <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-24">2h ago</p>
-        </div>
-      </div>
-
-      <!-- #6 ------------------------------------------------------------------>
-      <div class="shadow p-4 pb-12 text-center">
-        <div class="mt-3">
-          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            src="@/assets/images/project-logos/poseidon-network.png" alt="poseidon-network" />
-        </div>
-        <div class="mt-4">
-          <p class="text-primary p-line-head">poseidon</p>
-          <p class="small-text">DeFi</p>
-        </div>
-        <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-24">2h ago</p>
-        </div>
-      </div>
+     </div>
     </div>
+    
+    <!-- project-overview-link --------------------------------------------->
     <NuxtLink to="/project-overview">
-      <div class="flex items-center mt-6">
+      <div class="flex items-center mt-6 mb-32">
         <p class="mr-2 text-primary">See all listed projects</p>
         <img src="@/assets/images/icons/check-out.png" alt="arrow">
       </div>
     </NuxtLink>
+
+    <!-- gets removed after adding footer -->
+    <div class="mt-32">
+      -
+    </div>
   </LandingSectionContainer>
 </template>
 
@@ -114,6 +52,54 @@
 
     components: {
       LandingSectionContainer,
+    },
+    data() {
+      return {
+        projects: [
+          {
+            title: 'GreenSquare',
+            category: 'LoFi',
+            createdAt: '2h ago',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          },
+          {
+            title: 'GreenSquare',
+            category: 'LoFi',
+            createdAt: '2h ago',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          },
+          {
+            title: 'GreenSquare',
+            category: 'LoFi',
+            createdAt: '8h ago',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          },
+          {
+            title: 'GreenSquare',
+            category: 'LoFi',
+            createdAt: '1 day ago',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          },
+          {
+            title: 'GreenSquare',
+            category: 'LoFi',
+            createdAt: '9h ago',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          },
+          {
+            title: 'GreenSquare',
+            category: 'LoFi',
+            createdAt: '1 month ago',
+            projectTarget: '',
+            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          },
+        ],
+      }
     },
   }
 </script>
