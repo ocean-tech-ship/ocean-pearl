@@ -32,7 +32,6 @@ import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
   name: 'LandingHeroSection',
-
   components: {
     AppButton,
     LandingSectionContainer,
