@@ -7,10 +7,10 @@
              <p class="pl-2 text-primary">Ocean Pearl</p>   
          </div>
         </NuxtLink>
-         <div class="flex space-x-12 pr-12">
-             <NuxtLink class="px-8" to="/project-overview">Projects</NuxtLink>
-             <NuxtLink class="px-8" to="/job-overview">Jobs</NuxtLink>
-             <NuxtLink class="px-8" to="/">Tracker</NuxtLink>
+         <div class="flex space-x-128px pr-12">
+             <NuxtLink to="/project-overview">Projects</NuxtLink>
+             <NuxtLink to="/job-overview">Jobs</NuxtLink>
+             <NuxtLink to="/">Tracker</NuxtLink>
          </div>
          <div class="flex space-x-4">
            <NuxtLink to="/">
