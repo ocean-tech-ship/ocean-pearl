@@ -19,7 +19,7 @@ module.exports = {
         '70px': '70px',
         '128px': '128px',
         '177px': '177px',
-        '275px': '275px'
+        '275px': '275px',
       },
     },
     screens: {
@@ -41,7 +41,7 @@ module.exports = {
     },
     fontSize: {
       sm: '14px',
-      'smbase': '18px',
+      smbase: '18px',
       base: '22px',
       lg: '30px',
       xl: '36px',
@@ -54,6 +54,10 @@ module.exports = {
     boxShadow: {
       default: '4px 4px 20px rgba(0, 0, 0, 0.1)',
       none: 'none',
+    },
+    borderRadius: {
+      none: '0',
+      default: '8px',
     },
   },
   variants: {},
