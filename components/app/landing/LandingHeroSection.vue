@@ -11,9 +11,12 @@
           An absolute random example of some text being randomly put together to
           make it look like someone has written something meaningful already.
         </p>
-       <NuxtLink to="/project-overview"> 
-        <AppButton :icon="require('@/assets/images/icons/sailing_ship.svg')" text="Explore" class="pt-8" />
-       </NuxtLink>
+          <AppButton
+            :icon="require('@/assets/images/icons/sailing_ship.svg')"
+            text="Explore"
+            class="pt-8"
+            target="/project-overview"
+          />
       </div>
       <div class="hidden md:flex">
         <img
