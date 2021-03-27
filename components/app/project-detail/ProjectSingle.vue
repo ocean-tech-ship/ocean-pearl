@@ -109,7 +109,7 @@
           </div>
 
           <div class="pl-16 mt-4">
-            <AppButton />
+            <AppButton :icon="require('@/assets/images/icons/fund-here.png')" text="fund here" />
           </div>
         </div>
 

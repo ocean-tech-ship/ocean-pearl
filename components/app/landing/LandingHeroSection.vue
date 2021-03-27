@@ -12,7 +12,7 @@
           make it look like someone has written something meaningful already.
         </p>
        <NuxtLink to="/project-overview"> 
-        <AppButton :icon="require('@/assets/images/icons/sailing_ship.svg')" class="pt-8" />
+        <AppButton :icon="require('@/assets/images/icons/sailing_ship.svg')" text="Explore" class="pt-8" />
        </NuxtLink>
       </div>
       <div class="hidden md:flex">

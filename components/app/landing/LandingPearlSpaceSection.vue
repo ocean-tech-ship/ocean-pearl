@@ -16,7 +16,7 @@
         <span class="font-poppins-bold text-lg px-42px pb-31px text-center">
           {{ card.title }}
         </span>
-        <app-button class="mb-70px" />
+        <AppButton :text="card.buttonText" class="mb-70px" />
       </div>
     </div>
   </LandingSectionContainer>
@@ -40,16 +40,19 @@ export default {
           title: 'Track Projects',
           buttonTarget: '',
           imageURL: require('@/assets/images/illustrations/track-projects.png'),
+          buttonText: 'Track'
         },
         {
           title: 'Submit Project',
           buttonTarget: '',
           imageURL: require('@/assets/images/illustrations/submit-projects.png'),
+          buttonText: 'Submit'
         },
         {
           title: 'Find Jobs',
           buttonTarget: '',
           imageURL: require('@/assets/images/illustrations/find-jobs.png'),
+          buttonText: 'Find'
         },
       ],
     }
