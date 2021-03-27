@@ -1,5 +1,5 @@
 <template>
-  <div class="inline-block">
+  <div class="inline-block select-none">
     <AppLink
       :to="target"
       class="call-to-action text-secondary font-medium py-2 px-6 shadow-md flex items-center justify-center gap-3"
