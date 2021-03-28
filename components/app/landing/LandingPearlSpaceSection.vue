@@ -4,7 +4,9 @@
       <h2>Pearl <span class="text-primary">space</span></h2>
       <p>These are the main features of ocean pearl.</p>
     </div>
-    <div class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div
+      class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+    >
       <div
         v-for="card in cards"
         :key="card.title"
@@ -16,21 +18,21 @@
         <span class="font-poppins-bold text-lg px-42px pb-31px text-center">
           {{ card.title }}
         </span>
-        <AppButton :text="card.buttonText" class="mb-70px" />
+        <AppButtonStyle :text="card.buttonText" class="mb-70px" />
       </div>
     </div>
   </LandingSectionContainer>
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton.vue'
 import LandingSectionContainer from './LandingSectionContainer'
+import AppButtonStyle from '~/components/common/AppButtonStyle.vue'
 
 export default {
   name: 'LandingPearlSpaceSection',
 
   components: {
-    AppButton,
+    AppButtonStyle,
     LandingSectionContainer,
   },
   data() {
@@ -40,19 +42,19 @@ export default {
           title: 'Track Projects',
           buttonTarget: '',
           imageURL: require('@/assets/images/illustrations/track-projects.png'),
-          buttonText: 'Track'
+          buttonText: 'Track',
         },
         {
           title: 'Submit Project',
           buttonTarget: '',
           imageURL: require('@/assets/images/illustrations/submit-projects.png'),
-          buttonText: 'Submit'
+          buttonText: 'Submit',
         },
         {
           title: 'Find Jobs',
           buttonTarget: '',
           imageURL: require('@/assets/images/illustrations/find-jobs.png'),
-          buttonText: 'Find'
+          buttonText: 'Find',
         },
       ],
     }
@@ -60,5 +62,4 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>

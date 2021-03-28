@@ -11,12 +11,16 @@
           An absolute random example of some text being randomly put together to
           make it look like someone has written something meaningful already.
         </p>
-          <AppButton
+        <AppLink class="mt-8" to="/project-overview">
+          <AppButtonStyle
             :icon="require('@/assets/images/icons/sailing_ship.svg')"
             text="Explore"
-            class="pt-8"
-            target="/project-overview"
           />
+        </AppLink>
+        <AppButton
+          :icon="require('@/assets/images/icons/sailing_ship.svg')"
+          text="Explore"
+        />
       </div>
       <div class="hidden md:flex">
         <img
@@ -30,13 +34,15 @@
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton.vue'
+import AppLink from '@/components/common/AppLink.vue'
 import LandingSectionContainer from './LandingSectionContainer'
+import AppButtonStyle from '~/components/common/AppButtonStyle.vue'
 
 export default {
   name: 'LandingHeroSection',
   components: {
-    AppButton,
+    AppButtonStyle,
+    AppLink,
     LandingSectionContainer,
   },
 }
