@@ -17,10 +17,6 @@
             text="Explore"
           />
         </AppLink>
-        <AppButton
-          :icon="require('@/assets/images/icons/sailing_ship.svg')"
-          text="Explore"
-        />
       </div>
       <div class="hidden md:flex">
         <img
