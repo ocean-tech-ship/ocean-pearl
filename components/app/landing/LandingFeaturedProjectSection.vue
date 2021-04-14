@@ -1,10 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <!-- Headline ------------------------------------------------------------------>
     <h2>Featured <span class="text-primary">projects</span></h2>
     <p>A handpicked collection of our favourite projects at the moment.</p>
-
-    <!-- Listed project illustration ------------------------------------------------------------------>
     <div class="w-full pt-6 grid grid-cols-3 md:grid-flow-col gap-4">
         <div class="listed-project-container shadow rounded-md pb-12 pt-16 px-4 col-span-1">
           <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.png"
@@ -13,10 +10,8 @@
               class="text-primary">projects</span>
           </p>
         </div>
-      <!-- projects ------------------------------------------------------------------>
       <div class="grid grid-flow-col col-span-2 grid-cols-2 grid-rows-2 gap-4">
         <div v-for="project in projects" :key="project.title">
-          <!-- single ---------------------------------------------------------------->
           <NuxtLink to="/project-overview">
             <div class="shadow p-8 grid">
               <div class="flex">
@@ -39,11 +34,9 @@
               </div>
             </div>
           </NuxtLink>
-          <!------------------------------------------------------------------------->
         </div>
       </div>
     </div>
-    <!-- project-overview-link ------------------------------------------------------>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">See all featured projects</p>
