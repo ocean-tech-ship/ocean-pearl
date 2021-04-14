@@ -1,8 +1,6 @@
 <template>
-  <!-- projects ------------------------------------------------------------------>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-12">
     <div v-for="project in projects" :key="project.title">
-      <!-- single ------------------------------------------------------------------>
       <div class="shadow p-2 pb-12 text-center relative">
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
           <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.png" alt="hiring job">
@@ -23,7 +21,6 @@
           </p>
         </div>
       </div>
-      <!-- --------------------------------------------------->
     </div>
   </div>
 </template>

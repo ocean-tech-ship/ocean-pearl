@@ -1,8 +1,6 @@
 <template>
-  <!-- projects ------------------------------------------------------------------>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12">
     <div v-for="project in projects" :key="project.title">
-      <!-- single ------------------------------------------------------------------>
       <NuxtLink to="/project-detail">
         <div class="shadow p-12">
           <div class="flex">

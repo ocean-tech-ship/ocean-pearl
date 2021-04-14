@@ -8,8 +8,6 @@
 import Vue from 'vue'
 import JobOverviewHeader from '@/components/app/job-overview/JobOverviewHeader.vue'
 
-
-
 export default Vue.extend({
 
   name: "JobOverview",

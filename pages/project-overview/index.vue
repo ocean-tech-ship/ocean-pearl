@@ -8,8 +8,6 @@
 import Vue from 'vue'
 import ProjectsHeader from '@/components/app/project-overview/ProjectsHeader.vue'
 
-
-
 export default Vue.extend({
 
   name: "ProjectOverview",

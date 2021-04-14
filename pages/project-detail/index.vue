@@ -8,8 +8,6 @@
 import Vue from 'vue'
 import ProjectSingle from '~/components/app/project-detail/ProjectSingle.vue'
 
-
-
 export default Vue.extend({
 
   name: "ProjectDetail",

@@ -8,8 +8,7 @@
       <div
         v-for="card in cards"
         :key="card.title"
-        class="card shadow flex flex-col items-center rounded"
-      >
+        class="card shadow flex flex-col items-center rounded">
         <div class="h-275px pt-42px px-42px pb-62px flex items-center">
           <img class="w-full" :src="card.imageURL" :alt="card.title" />
         </div>
@@ -28,7 +27,6 @@ import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
   name: 'LandingPearlSpaceSection',
-
   components: {
     AppButton,
     LandingSectionContainer,
@@ -57,5 +55,3 @@ export default {
 }
 </script>
 
-<style lang='scss' scoped>
-</style>

@@ -31,7 +31,6 @@
 
   export default {
     name: 'ProjectSingleHeader',
-
     components: {
       AppButton
     },
