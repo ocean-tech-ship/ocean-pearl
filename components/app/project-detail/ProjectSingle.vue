@@ -1,8 +1,5 @@
 <template>
   <div>
-    <LandingSectionContainer>
-      <ProjectSingleHeader />
-    </LandingSectionContainer>
     <div class="body-single py-8">
       <LandingSectionContainer>
         <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
@@ -109,7 +106,6 @@
 
 <script>
   import LandingSectionContainer from '../landing/LandingSectionContainer'
-  import ProjectSingleHeader from './ProjectSingleHeader'
   import AppButton from '@/components/common/AppButton'
 
   export default {
@@ -117,7 +113,6 @@
 
     components: {
       LandingSectionContainer,
-      ProjectSingleHeader,
       AppButton
     },
   }
