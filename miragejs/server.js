@@ -1,49 +1,26 @@
-// src/server.js
-import { createServer, Model, Factory } from 'miragejs'
+import { createServer } from 'miragejs'
+//import fixtures from './fixtures'
+import factories from './factories'
+import routes from './routes'
+import models from './models'
+import seeds from './seeds'
+
+const config = (environment) => {
+  const config = {
+    environment,
+    factories,
+    models,
+    routes,
+    seeds,
+  }
+
+  // if (Object.keys(fixtures).length) {
+  //   config.fixtures = fixtures
+  // }
+
+  return config
+}
 
 export function makeServer({ environment = 'development' } = {}) {
-  let server = createServer({
-    environment,
-
-    models: {
-      user: Model,
-      project: Model,
-    },
-
-    factories: {
-      user: Factory.extend({
-        name(i) {
-          return `Name ${i + 1}`
-        },
-      }),
-      project: Factory.extend({
-        title(i) {
-          return `Project ${i}` // Movie 1, Movie 2, etc.
-        },
-        description:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.',
-        website: 'https://oceanprotocol.com/',
-        logo: require('@/assets/images/project-logos/poseidon-network.png'),
-        category: 'Category1'
-      }),
-    },
-
-    seeds(server) {
-      server.createList('user', 20)
-      server.createList('project', 15)
-    },
-
-    routes() {
-      this.namespace = 'api'
-
-      this.get('/users', (schema) => {
-        return schema.users.all()
-      }),
-      this.get('/projects', (schema) => {
-        return schema.projects.all()
-      })
-    },
-  })
-
-  return server
+  return new createServer(config(environment))
 }
