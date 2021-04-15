@@ -1,4 +1,5 @@
 <template>
+<LandingSectionContainer>
   <div class="flex justify-between content-center">
     <div class="flex">
       <div class="mr-4">
@@ -24,15 +25,18 @@
       <AppButton />
     </div>
   </div>
+  </LandingSectionContainer>
 </template>
 
 <script>
+  import LandingSectionContainer from '../landing/LandingSectionContainer'
   import AppButton from '@/components/common/AppButton'
 
   export default {
     name: 'ProjectSingleHeader',
     components: {
-      AppButton
+      AppButton,
+      LandingSectionContainer
     },
   }
 </script>
