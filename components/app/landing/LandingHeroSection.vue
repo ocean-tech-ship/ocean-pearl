@@ -3,13 +3,12 @@
     <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div class="pt-6">
         <h1>
-          We are on track with the newest
-          <span class="text-primary">projects</span> powered by the ocean
-          protocol.
+          {{ $t('landing.hero.titleBlack') }} 
+          <span class="text-primary">{{ $t('landing.hero.titlePink') }}</span> 
+          {{ $t('landing.hero.titleBlack2') }}
         </h1>
         <p class="pt-6">
-          An absolute random example of some text being randomly put together to
-          make it look like someone has written something meaningful already.
+          {{ $t('landing.hero.text') }}
         </p>
        <NuxtLink to="/project-overview"> 
         <AppButton class="pt-8" />

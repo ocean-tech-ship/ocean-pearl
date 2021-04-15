@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer>
-    <h2>Project <span class="text-primary">overview</span></h2>
-    <p>See what the community has to offer.</p>
+    <h2>{{ $t('projects.titleBlack') }} <span class="text-primary">{{ $t('projects.titlePink') }}</span></h2>
+    <p>{{ $t('projects.text') }}</p>
     <div class="flex items-center justify-between my-8">
       <div class="text-primary">
         <div class="flex border py-1 px-2">

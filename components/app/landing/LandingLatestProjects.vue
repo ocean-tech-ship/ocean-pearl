@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <h2>Latest <span class="text-primary">projects</span></h2>
-    <p>The listed projects shown were added by members of the community.</p>
+    <h2>{{ $t('landing.latest_projects.titleBlack') }} <span class="text-primary">{{ $t('landing.latest_projects.titlePink') }}</span></h2>
+    <p>{{ $t('landing.latest_projects.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
       <NuxtLink to="/project-overview">
@@ -23,7 +23,7 @@
     </div>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6 mb-32">
-        <p class="mr-2 text-primary">See all listed projects</p>
+        <p class="mr-2 text-primary">{{ $t('landing.latest_projects.link') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="arrow">
       </div>
     </NuxtLink>

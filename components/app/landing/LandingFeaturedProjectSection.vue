@@ -1,13 +1,13 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <h2>Featured <span class="text-primary">projects</span></h2>
-    <p>A handpicked collection of our favourite projects at the moment.</p>
+    <h2>{{ $t('landing.featured_projects.titleBlack') }} <span class="text-primary">{{ $t('landing.featured_projects.titlePink') }}</span></h2>
+    <p>{{ $t('landing.featured_projects.text') }}</p>
     <div class="w-full pt-6 grid grid-cols-3 md:grid-flow-col gap-4">
         <div class="listed-project-container shadow rounded-md pb-12 pt-16 px-4 col-span-1">
           <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.png"
             alt="kraken" />
-          <p class="content-center text-center my-12 pt-8 thin-heading">2021 listed <span
-              class="text-primary">projects</span>
+          <p class="content-center text-center my-12 pt-8 thin-heading">{{ $t('landing.featured_projects.secondTitleBlack') }} <span
+              class="text-primary">{{ $t('landing.featured_projects.secondTitlePink') }}</span>
           </p>
         </div>
       <div class="grid grid-flow-col col-span-2 grid-cols-2 grid-rows-2 gap-4">
@@ -29,7 +29,7 @@
                 </p>
               </div>
               <div class="justify-self-end flex items-center mt-8">
-                <p class="small-text mr-2 text-primary">check out</p>
+                <p class="small-text mr-2 text-primary">{{ $t('landing.featured_projects.checkOut') }}</p>
                 <img src="@/assets/images/icons/check-out.png" alt="">
               </div>
             </div>
@@ -39,7 +39,7 @@
     </div>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">See all featured projects</p>
+        <p class="mr-2 text-primary">{{ $t('landing.featured_projects.link') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
       </div>
     </NuxtLink>
