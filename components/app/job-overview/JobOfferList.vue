@@ -1,4 +1,5 @@
 <template>
+  <LandingSectionContainer>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12">
     <div v-for="project in projects" :key="project.title">
       <NuxtLink to="/project-detail">
@@ -27,11 +28,17 @@
       </NuxtLink>
     </div>
   </div>
+</LandingSectionContainer>
 </template>
 
 <script>
+  import LandingSectionContainer from '../landing/LandingSectionContainer'
+
   export default {
     name: 'JobOfferList',
+    components: {
+      LandingSectionContainer   
+    },
 
     data() {
       return {

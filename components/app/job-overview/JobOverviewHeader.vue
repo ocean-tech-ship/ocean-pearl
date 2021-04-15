@@ -73,13 +73,11 @@
         </div>
       </div>
     </div>
-    <JobOfferList/>
   </LandingSectionContainer>
 </template>
 
 <script>
   import LandingSectionContainer from '../landing/LandingSectionContainer'
-  import JobOfferList from './JobOfferList'
   import AppButton from '@/components/common/AppButton'
 
   export default {
@@ -87,8 +85,7 @@
 
     components: {
       LandingSectionContainer,
-      AppButton,
-      JobOfferList
+      AppButton
     },
   }
 </script>
