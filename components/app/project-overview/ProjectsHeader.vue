@@ -56,13 +56,11 @@
         </div>
       </div>
     </div>
-    <ProjectsList />
   </LandingSectionContainer>
 </template>
 
 <script>
   import LandingSectionContainer from '../landing/LandingSectionContainer'
-  import ProjectsList from './ProjectsList'
   import AppButton from '@/components/common/AppButton'
 
   export default {
@@ -70,7 +68,6 @@
 
     components: {
       LandingSectionContainer,
-      ProjectsList,
       AppButton
     },
   }
