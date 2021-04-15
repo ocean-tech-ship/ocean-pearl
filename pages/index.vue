@@ -18,7 +18,6 @@ import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vu
 import LandingFeaturedProjectSection from '@/components/app/landing/LandingFeaturedProjectSection.vue'
 import LandingJobOffers from '@/components/app/landing/LandingJobOffers.vue'
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue'
-import TestDeleteLater from '@/components/common/TestDeleteLater.vue'
 
 export default Vue.extend({
   components: {
@@ -27,8 +26,7 @@ export default Vue.extend({
     LandingFeaturedProjectSection,
     LandingDaoProposals,
     LandingJobOffers,
-    LandingLatestProjects,
-    TestDeleteLater
+    LandingLatestProjects
   },
 })
 </script>
