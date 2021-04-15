@@ -95,6 +95,6 @@ export default {
 
 <style scoped>
     .p-line-head {
-        line-height: 20px !important;
+        line-height: 20px;
     }
 </style>
