@@ -13,7 +13,7 @@
       <div class="shadow p-4 pb-12 text-center">
         <div class="mt-3">
           <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            :src="project.imageURL" :alt="project.title" />
+            :src="project.logo" :alt="project.title" />
         </div>
         <div class="mt-4">
           <p class="text-primary p-line-head">{{project.title}}</p>
@@ -55,52 +55,16 @@
     },
     data() {
       return {
-        projects: [
-          {
-            title: 'GreenSquare',
-            category: 'LoFi',
-            createdAt: '2h ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
-          },
-          {
-            title: 'GreenSquare',
-            category: 'LoFi',
-            createdAt: '2h ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
-          },
-          {
-            title: 'GreenSquare',
-            category: 'LoFi',
-            createdAt: '8h ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
-          },
-          {
-            title: 'GreenSquare',
-            category: 'LoFi',
-            createdAt: '1 day ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
-          },
-          {
-            title: 'GreenSquare',
-            category: 'LoFi',
-            createdAt: '9h ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
-          },
-          {
-            title: 'GreenSquare',
-            category: 'LoFi',
-            createdAt: '1 month ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
-          },
-        ],
+        projects: [],
       }
     },
+    created() {
+    fetch('/api/projects')
+      .then((res) => res.json())
+      .then((json) => {
+        this.projects = json.projects.slice(0, 6)
+      })
+  },
   }
 </script>
 
