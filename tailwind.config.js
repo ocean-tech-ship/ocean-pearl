@@ -35,6 +35,7 @@ module.exports = {
       primary: colors.primary,
       secondary: colors.secondary,
       third: colors.third,
+      grey: colors.grey,
     },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="body-single py-8">
+    <div class="bg-grey py-8">
       <LandingSectionContainer>
         <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
           <div class="shadow rounded-md">
@@ -123,9 +123,4 @@
   .p-line-head {
     line-height: 20px !important;
   }
-
-  .body-single {
-    background: #FAFAFA;
-  }
-
 </style>
