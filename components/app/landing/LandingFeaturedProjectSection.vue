@@ -4,7 +4,7 @@
     <p>A handpicked collection of our favourite projects at the moment.</p>
     <div class="w-full pt-6 grid grid-cols-3 md:grid-flow-col gap-4">
         <div class="listed-project-container shadow rounded-md pb-12 pt-16 px-4 col-span-1">
-          <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.png"
+          <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.svg"
             alt="kraken" />
           <p class="content-center text-center my-12 pt-8 thin-heading">2021 listed <span
               class="text-primary">projects</span>

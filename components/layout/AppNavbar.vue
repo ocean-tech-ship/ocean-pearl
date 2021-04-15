@@ -3,7 +3,7 @@
      <div class="px-1 mb-12 2sm:px-4 sm:px-16 md:px-32 mx-auto max-w-1440 flex justify-between items-center py-12">
         <NuxtLink to="/">
          <div class="flex items-center">
-             <img src="@/assets/images/logo/pearl-logo.png" alt="pearl-logo">
+             <img src="@/assets/images/logo/pearl-logo.svg" alt="pearl-logo">
              <p class="pl-2 text-primary">Ocean Pearl</p>   
          </div>
         </NuxtLink>
