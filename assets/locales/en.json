@@ -1,0 +1,54 @@
+{
+    "landing":{
+        "hero":{
+            "titleBlack":"We are on track with the newest ",
+            "titlePink":"projects ",
+            "titleBlack2":"powered by the ocean protocol.",
+            "text":"An absolute random example of some text being randomly put together to make it look like someone has written something meaningful already."
+        },
+        "pearl_space":{
+            "titleBlack":"Pearl ",
+            "titlePink":"space",
+            "text":"These are the main features of ocean pearl."
+        },
+        "featured_projects":{
+            "titleBlack":"Featured ",
+            "titlePink":"projects",
+            "text":"A handpicked collection of our favourite projects at the moment.",
+            "secondTitleBlack":"2021 listed",
+            "secondTitlePink":"projects",
+            "checkOut":"check out",
+            "link":"See all featured projects"
+        },
+        "dao_proposals":{
+            "titleBlack":"DAO ",
+            "titlePink":"proposals",
+            "text":"These projects are currently waiting or applying for a DAO funding.",
+            "link":"See all listed projects"
+        },
+        "job_offers":{
+            "titleBlack":"Job ",
+            "titlePink":"offers",
+            "text":"These ocean projects are currently hiring in the web 3 space",
+            "link":"See all listed jobs"
+        },
+        "latest_projects":{
+            "titleBlack":"Latest ",
+            "titlePink":"projects",
+            "text":"The listed projects shown were added by members of the community.",
+            "link":"See all listed projects"
+        }
+    },
+    "projects":{
+        "titleBlack":"Project ",
+        "titlePink":"overview",
+        "text":"See what the community has to offer."
+    },
+    "jobs":{
+        "titleBlack":"Job ",
+        "titlePink":"offers",
+        "text":"Find out which companys are currently looking for your support."
+    }
+
+
+}
