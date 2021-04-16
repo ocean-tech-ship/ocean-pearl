@@ -12,7 +12,7 @@
     "test": "jest --coverage false",
     "test_ci": "yarn test --ci",
     "heroku-prebuild": "yarn install",
-    "heroku-postbuild": "yarn generate && yarn start"
+    "heroku-postbuild": "yarn generate"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.1",
