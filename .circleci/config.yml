@@ -1,10 +1,10 @@
 version: 2.1
 orbs:
-  heroku: circleci/heroku@1.0.0
+  heroku: circleci/heroku@1.2.6
 jobs:
   run-test-suite:
     docker:
-      - image: circleci/node:10.20.0
+      - image: circleci/node:12.22.1
     working_directory: ~/project
     steps:
       - checkout
@@ -20,7 +20,7 @@ jobs:
             - .
   deploy-to-heroku:
     docker:
-      - image: circleci/node:10.20.0
+      - image: circleci/node:12.22.1
     working_directory: ~/project
     steps:
       - attach_workspace:
