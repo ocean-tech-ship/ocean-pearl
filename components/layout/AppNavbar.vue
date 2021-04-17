@@ -12,22 +12,18 @@
              <NuxtLink to="/job-overview">Jobs</NuxtLink>
              <NuxtLink to="/">Tracker</NuxtLink>
          </div>
-         <div class="flex space-x-4">
-           <NuxtLink to="/">
-            <img src="@/assets/images/icons/icons8-plus.png" alt="pearl-plus">
-           </NuxtLink>
-           <NuxtLink to="/">
-             <img src="@/assets/images/icons/icons8-search.png" alt="pearl-search">
-           </NuxtLink>  
+         <div class="flex space-x-4"> 
+           <button-with-dropdown />
          </div>
      </div>
  </nav>
 </template>
 
 <script>
+import ButtonWithDropdown from "@/components/common/ButtonWithDropdown";
 export default {
-
-}
+  components: { ButtonWithDropdown }
+};
 </script>
 
 <style>
