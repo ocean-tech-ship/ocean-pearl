@@ -17,9 +17,9 @@
       >
         <div
           v-if="context.open"
-          class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-white border border-primary rounded overflow-hidden shadow-md"
+          class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
         >
-          <ul>
+          <ul @click="context.toggleOpen">
             <li class="hover:bg-primary-100 ">
               <NuxtLink class="font-bold block px-4 py-3" to="/">Home</NuxtLink>
             </li>
