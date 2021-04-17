@@ -10,9 +10,7 @@
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "test": "jest --coverage false",
-    "test_ci": "yarn test --ci",
-    "heroku-prebuild": "yarn install",
-    "heroku-postbuild": "yarn generate"
+    "test_ci": "yarn test --ci"
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.1",
