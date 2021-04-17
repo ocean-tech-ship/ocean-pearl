@@ -3,13 +3,17 @@
     <h2>Project <span class="text-primary">overview</span></h2>
     <p>See what the community has to offer.</p>
     <div class="flex items-center justify-between my-8">
-      <div class="text-primary">
-        <div class="flex border py-1 px-2">
+      <div class="flex flex-wrap text-primary">
+        <div class="flex border py-1 px-2 mr-1 mt-1">
             <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
-            <p class="small-text pr-3">Category</p>
+            <p class="small-text pr-2">Category</p>
+        </div>
+        <div class="flex border py-1 px-2 mt-1 lg:hidden">
+            <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
+            <p class="small-text">Latest</p>
         </div>
       </div>
-      <div class="space-x-4 flex">
+      <div class="space-x-4 flex hidden lg:flex">
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
           <p class="small-text">All</p>
