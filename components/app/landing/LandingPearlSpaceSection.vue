@@ -37,17 +37,17 @@ export default {
         {
           title: 'Track Projects',
           buttonTarget: '',
-          imageURL: require('@/assets/images/illustrations/track-projects.png'),
+          imageURL: require('@/assets/images/illustrations/track-projects.svg'),
         },
         {
           title: 'Submit Project',
           buttonTarget: '',
-          imageURL: require('@/assets/images/illustrations/submit-projects.png'),
+          imageURL: require('@/assets/images/illustrations/submit-projects.svg'),
         },
         {
           title: 'Find Jobs',
           buttonTarget: '',
-          imageURL: require('@/assets/images/illustrations/find-jobs.png'),
+          imageURL: require('@/assets/images/illustrations/find-jobs.svg'),
         },
       ],
     }
