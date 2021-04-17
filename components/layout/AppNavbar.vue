@@ -7,12 +7,12 @@
              <p class="pl-2 text-primary">Ocean Pearl</p>   
          </div>
         </NuxtLink>
-         <div class="flex space-x-128px pr-12">
+         <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
              <NuxtLink to="/project-overview">Projects</NuxtLink>
              <NuxtLink to="/job-overview">Jobs</NuxtLink>
              <NuxtLink to="/">Tracker</NuxtLink>
          </div>
-         <div class="flex space-x-4"> 
+         <div class="md:hidden"> 
            <button-with-dropdown />
          </div>
      </div>
