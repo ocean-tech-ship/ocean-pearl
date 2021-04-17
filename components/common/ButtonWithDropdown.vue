@@ -4,7 +4,7 @@
       <img
         @click="context.toggleOpen"
         class="h-10 w-10 cursor-pointer rounded-full object-cover"
-        src="@/assets/images/icons/bitcoin-badge.png"
+        src="@/assets/images/icons/treasure-card.svg"
         alt="profile image"
       >
       <transition
@@ -17,14 +17,17 @@
       >
         <div
           v-if="context.open"
-          class="origin-top-right absolute right-0 mt-2 w-64 bg-white border overflow-hidden rounded-lg shadow-md"
+          class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-white border border-primary rounded overflow-hidden shadow-md"
         >
           <ul>
-            <li class="hover:bg-gray-100">
-              <a class="font-semibold block px-4 py-3" to="/profile">Profile</a>
+            <li class="hover:bg-primary-100 ">
+              <NuxtLink class="font-bold block px-4 py-3" to="/">Home</NuxtLink>
             </li>
-            <li class="hover:bg-gray-100">
-              <a class="font-semibold block px-4 py-3" to="/profile">Sign Out</a>
+            <li class="hover:bg-primary-100">
+              <NuxtLink class="font-bold block px-4 py-3" to="/project-overview">Projects</NuxtLink>
+            </li>
+            <li class="hover:bg-primary-100">
+              <NuxtLink class="font-bold block px-4 py-3" to="/job-overview">Jobs</NuxtLink>
             </li>
           </ul>
         </div>
@@ -46,3 +49,13 @@ export default {
   components: { MainDropdown }
 };
 </script>
+
+
+<style scoped>
+
+ li > a:hover {
+     background: #bb2c7636;
+     transition: 200ms;
+ }
+
+</style>
