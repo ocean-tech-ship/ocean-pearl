@@ -1,6 +1,7 @@
 <template>
  <nav>
-     <div class="px-1 mb-12 2sm:px-4 sm:px-16 md:px-32 mx-auto max-w-1440 flex justify-between items-center py-12">
+   <div class="mb-32 md:mb-16 ">
+     <div class="px-1 shadow md:shadow-none mb-12 2sm:px-4 sm:px-16 md:px-32 bg-secondary fixed md:relative top-0 mx-auto w-full md:max-w-1440 flex justify-between items-center py-4 md:py-12">
         <NuxtLink to="/">
          <div class="flex items-center">
              <img src="@/assets/images/logo/pearl-logo.svg" alt="pearl-logo">
@@ -10,11 +11,11 @@
          <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
              <NuxtLink to="/project-overview">Projects</NuxtLink>
              <NuxtLink to="/job-overview">Jobs</NuxtLink>
-             <NuxtLink to="/">Tracker</NuxtLink>
          </div>
          <div class="md:hidden"> 
            <button-with-dropdown />
          </div>
+     </div>
      </div>
  </nav>
 </template>
