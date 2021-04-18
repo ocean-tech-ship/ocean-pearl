@@ -21,7 +21,7 @@
           </div>
           <div class="mt-8">
             <p class="small-text text-primary">
-              {{job.loan}} a year
+              {{job.salary}} a year
             </p>
           </div>
         </div>

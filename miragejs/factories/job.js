@@ -14,7 +14,7 @@ export default {
     website: 'https://oceanprotocol.com/',
     logo: require('@/assets/images/project-logos/poseidon-network.png'),
     pictures: ['@/assets/images/poseidon-cover.png'],
-    loan: '50000€ - 60000€',
+    salary: '50000€ - 60000€',
     company: 'Company',
   }),
 }
