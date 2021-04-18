@@ -13,13 +13,13 @@
         >
           <ul @click="context.toggleOpen">
             <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/">Home</NuxtLink>
+              <NuxtLink class="font-bold block px-4 py-3" to="/">{{ $t('navbar.navbarLinkDefault') }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/project-overview">Projects</NuxtLink>
+              <NuxtLink class="font-bold block px-4 py-3" to="/project-overview">{{ $t('navbar.navbarLink1') }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/job-overview">Jobs</NuxtLink>
+              <NuxtLink class="font-bold block px-4 py-3" to="/job-overview">{{ $t('navbar.navbarLink2') }}</NuxtLink>
             </li>
           </ul>
         </div>

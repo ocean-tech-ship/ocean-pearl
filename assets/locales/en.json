@@ -48,7 +48,12 @@
         "title":"Job ",
         "titleHighlight":"offers",
         "text":"Find out which companys are currently looking for your support."
+    },
+    "navbar":{
+        "logoText":"Ocean Pearl",
+        "navbarLinkDefault":"Home",
+        "navbarLink1":"Projects",
+        "navbarLink2":"Jobs"
     }
-
 
 }
