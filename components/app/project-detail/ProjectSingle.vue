@@ -168,13 +168,12 @@
       </LandingSectionContainer>
     </div>
 
-    <!-- DAO ------------------------------------------------------------------>
     <LandingSectionContainer>
       <h4 class="mt-16">Open <span class="text-primary">positions</span></h4>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-12">
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-12">
         <div v-for="job in jobs" :key="job.id">
-          <!-- single ------------------------------------------------------------------>
-          <div class="shadow p-12">
+          <div class="shadow p-6 md:p-12">
+            <div class="block md:flex align-center justify-between">
             <div class="flex">
               <div class="mr-3">
                 <img
@@ -188,13 +187,27 @@
                 <p class="small-text">{{ job.job }}</p>
               </div>
             </div>
+            <div class="flex align-center mt-4 md:mt-1">
+              <p class="small-text text-right">added on <span class="text-primary">{{job.date}}</span></p>
+              <img
+                  class="ml-2 h-6 w-6"
+                  src="@/assets/images/icons/time.png"
+                  alt="time-date"
+                />
+            </div>
+            </div>
             <div class="mt-5">
               <p class="small-text">
                 {{ job.description }}
               </p>
             </div>
-            <div class="mt-8">
-              <p class="small-text text-primary">{{ job.loan }} a year</p>
+            <div class="mt-6 md:mt-8 flex align-center justify-between">
+              <div>
+                <p class="small-text text-primary mt-1 w-32 md:w-full">{{ job.loan }} a year</p>
+              </div>
+              <div>
+                <AppButton />
+              </div>
             </div>
           </div>
         </div>
@@ -227,6 +240,7 @@ export default {
             'Data analyst which is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
           imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          date: '11.03.21',
           loan: '50000€ - 60000€',
         },
         {
@@ -237,6 +251,29 @@ export default {
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
           imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          date: '18.03.21',
+          loan: '20000€ - 30000€',
+        },
+        {
+          id: 1,
+          title: 'poseidon',
+          job: 'Data scientist',
+          description:
+            'Data analyst who is on track with all new data assets and maintaining them aswell.',
+          projectTarget: '',
+          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          date: '18.03.21',
+          loan: '20000€ - 30000€',
+        },
+        {
+          id: 1,
+          title: 'poseidon',
+          job: 'Data scientist',
+          description:
+            'Data analyst who is on track with registring new data assets and maintaining them aswell.',
+          projectTarget: '',
+          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          date: '18.03.21',
           loan: '20000€ - 30000€',
         },
       ],
