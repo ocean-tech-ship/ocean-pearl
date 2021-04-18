@@ -5,12 +5,12 @@
         <NuxtLink to="/">
          <div class="flex items-center">
              <img src="@/assets/images/logo/pearl-logo.svg" alt="pearl-logo">
-             <p class="pl-2 text-primary">Ocean Pearl</p>   
+             <p class="pl-2 text-primary">{{ $t('navbar.logoText') }}</p>   
          </div>
         </NuxtLink>
          <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
-             <NuxtLink to="/project-overview">Projects</NuxtLink>
-             <NuxtLink to="/job-overview">Jobs</NuxtLink>
+             <NuxtLink to="/project-overview">{{ $t('navbar.navbarLink1') }}</NuxtLink>
+             <NuxtLink to="/job-overview">{{ $t('navbar.navbarLink2') }}</NuxtLink>
          </div>
          <div class="md:hidden"> 
            <button-with-dropdown />
