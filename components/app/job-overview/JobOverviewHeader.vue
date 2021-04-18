@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer>
-    <h2>Job <span class="text-primary">offers</span></h2>
-    <p>Find out which companys are currently looking for your support.</p>
+    <h2>{{ $t('jobs.title') }} <span class="text-primary">{{ $t('jobs.titleHighlight') }}</span></h2>
+    <p>{{ $t('jobs.text') }}</p>
     <div class="flex items-center justify-between my-8">
       <JobStatus />
       <JobCategories />

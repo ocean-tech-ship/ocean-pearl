@@ -1,8 +1,8 @@
 <template>
   <LandingSectionContainer>
     <div class="mb-42px">
-      <h2>Pearl <span class="text-primary">space</span></h2>
-      <p>These are the main features of ocean pearl.</p>
+      <h2>{{ $t('landing.pearl_space.title') }} <span class="text-primary">{{ $t('landing.pearl_space.titleHighlight') }}</span></h2>
+      <p>{{ $t('landing.pearl_space.text') }}</p>
     </div>
     <div class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
       <div
@@ -37,17 +37,17 @@ export default {
         {
           title: 'Track Projects',
           buttonTarget: '',
-          imageURL: require('@/assets/images/illustrations/track-projects.png'),
+          imageURL: require('@/assets/images/illustrations/track-projects.svg'),
         },
         {
           title: 'Submit Project',
           buttonTarget: '',
-          imageURL: require('@/assets/images/illustrations/submit-projects.png'),
+          imageURL: require('@/assets/images/illustrations/submit-projects.svg'),
         },
         {
           title: 'Find Jobs',
           buttonTarget: '',
-          imageURL: require('@/assets/images/illustrations/find-jobs.png'),
+          imageURL: require('@/assets/images/illustrations/find-jobs.svg'),
         },
       ],
     }
