@@ -169,7 +169,7 @@
     </div>
 
     <LandingSectionContainer>
-      <h4 class="mt-16">Open <span class="text-primary">positions</span></h4>
+      <h2 class="mt-16 thin-heading">Open <span class="text-primary">positions</span></h2>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-12">
         <div v-for="job in jobs" :key="job.id">
           <div class="shadow p-6 md:p-12">
