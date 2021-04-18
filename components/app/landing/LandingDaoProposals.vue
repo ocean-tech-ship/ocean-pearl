@@ -1,6 +1,6 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <h2>{{ $t('landing.dao_proposals.titleBlack') }} <span class="text-primary">{{ $t('landing.dao_proposals.titlePink') }}</span></h2>
+    <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary">{{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
@@ -45,7 +45,7 @@
     </div>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">{{ $t('landing.dao_proposals.link') }}</p>
+        <p class="mr-2 text-primary">{{ $t('landing.dao_proposals.link_text') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
       </div>
     </NuxtLink>

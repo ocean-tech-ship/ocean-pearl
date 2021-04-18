@@ -1,6 +1,6 @@
 <template>
   <LandingSectionContainer>
-    <h2>{{ $t('projects.titleBlack') }} <span class="text-primary">{{ $t('projects.titlePink') }}</span></h2>
+    <h2>{{ $t('projects.title') }} <span class="text-primary">{{ $t('projects.titleHighlight') }}</span></h2>
     <p>{{ $t('projects.text') }}</p>
     <div class="flex items-center justify-between my-8">
       <div class="text-primary">

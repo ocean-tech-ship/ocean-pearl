@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer>
     <div class="mb-42px">
-      <h2>{{ $t('landing.pearl_space.titleBlack') }} <span class="text-primary">{{ $t('landing.pearl_space.titlePink') }}</span></h2>
+      <h2>{{ $t('landing.pearl_space.title') }} <span class="text-primary">{{ $t('landing.pearl_space.titleHighlight') }}</span></h2>
       <p>{{ $t('landing.pearl_space.text') }}</p>
     </div>
     <div class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3">

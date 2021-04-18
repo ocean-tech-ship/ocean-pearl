@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer class="my-32">
      <!-- Headline ------------------------------------------------------------------>
-    <h2>{{ $t('landing.job_offers.titleBlack') }} <span class="text-primary">{{ $t('landing.job_offers.titlePink') }}</span></h2>
+    <h2>{{ $t('landing.job_offers.title') }} <span class="text-primary">{{ $t('landing.job_offers.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.job_offers.text') }}</p>
 
 <!-- projects ------------------------------------------------------------------>
@@ -36,7 +36,7 @@
 </div>
 <NuxtLink to="/job-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">{{ $t('landing.job_offers.link') }}</p>
+        <p class="mr-2 text-primary">{{ $t('landing.job_offers.link_text') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
       </div>
 </NuxtLink>
