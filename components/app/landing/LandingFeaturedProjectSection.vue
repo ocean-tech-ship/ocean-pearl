@@ -6,8 +6,8 @@
         <div class="listed-project-container shadow rounded-md pb-12 pt-16 px-4 col-span-1">
           <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.png"
             alt="kraken" />
-          <p class="content-center text-center my-12 pt-8 thin-heading">{{ $t('landing.featured_projects.secondTitleBlack') }} <span
-              class="text-primary">{{ $t('landing.featured_projects.secondTitlePink') }}</span>
+          <p class="content-center text-center my-12 pt-8 thin-heading">{{ $t('landing.featured_projects.secondTitle') }} <span
+              class="text-primary">{{ $t('landing.featured_projects.secondTitleHighlight') }}</span>
           </p>
         </div>
       <div class="grid grid-flow-col col-span-2 grid-cols-2 grid-rows-2 gap-4">

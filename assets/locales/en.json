@@ -15,8 +15,8 @@
             "title":"Featured ",
             "titleHighlight":"projects",
             "text":"A handpicked collection of our favourite projects at the moment.",
-            "secondTitleBlack":"2021 listed",
-            "secondTitlePink":"projects",
+            "secondTitle":"2021 listed",
+            "secondTitleHighlight":"projects",
             "checkOut":"check out",
             "link_text":"See all featured projects"
         },
