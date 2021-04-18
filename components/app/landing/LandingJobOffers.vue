@@ -1,8 +1,8 @@
 <template>
   <LandingSectionContainer class="my-32">
      <!-- Headline ------------------------------------------------------------------>
-    <h2>Job <span class="text-primary">offers</span></h2>
-    <p>These ocean projects are currently hiring in the web 3 space</p>
+    <h2>{{ $t('landing.job_offers.title') }} <span class="text-primary">{{ $t('landing.job_offers.titleHighlight') }}</span></h2>
+    <p>{{ $t('landing.job_offers.text') }}</p>
 
 <!-- projects ------------------------------------------------------------------>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-4 mt-10">
@@ -36,7 +36,7 @@
 </div>
 <NuxtLink to="/job-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">See all listed jobs</p>
+        <p class="mr-2 text-primary">{{ $t('landing.job_offers.link_text') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
       </div>
 </NuxtLink>
@@ -69,6 +69,6 @@ export default {
 
 <style scoped>
     .p-line-head {
-        line-height: 20px !important;
+        line-height: 20px;
     }
 </style>

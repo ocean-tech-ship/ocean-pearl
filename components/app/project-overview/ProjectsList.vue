@@ -1,10 +1,7 @@
 <template>
-  <!-- projects ------------------------------------------------------------------>
-  <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-12"
-  >
+  <LandingSectionContainer>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-12">
     <div v-for="project in projects" :key="project.id">
-      <!-- single ------------------------------------------------------------------>
       <div class="shadow p-2 pb-12 text-center relative">
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
           <img
@@ -40,9 +37,9 @@
           </p>
         </div>
       </div>
-      <!-- --------------------------------------------------->
     </div>
   </div>
+  </LandingSectionContainer>
 </template>
 
 <script>

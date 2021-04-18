@@ -1,21 +1,14 @@
 <template>
   <LandingSectionContainer>
-    <!-- Headline ------------------------------------------------------------------>
-    <h2>Project <span class="text-primary">overview</span></h2>
-    <p>See what the community has to offer.</p>
-
-    <!-- Header ------------------------------------------------------------------>
+    <h2>{{ $t('projects.title') }} <span class="text-primary">{{ $t('projects.titleHighlight') }}</span></h2>
+    <p>{{ $t('projects.text') }}</p>
     <div class="flex items-center justify-between my-8">
-
-      <!-- Categories -->
       <div class="text-primary">
         <div class="flex border py-1 px-2">
             <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
             <p class="small-text pr-3">Category</p>
         </div>
       </div>
-
-      <!-- Status -->
       <div class="space-x-4 flex">
         <NuxtLink to="/project-overview">
         <div class="border text-primary py-1 px-2 flex">
@@ -48,7 +41,6 @@
         </NuxtLink>
       </div>
 
-      <!-- Badges -->
       <div class="grid space-y-1">
         <div class="justify-self-end flex items-center">
             <p class="small-text mr-2 text-primary">Featured</p>
@@ -64,15 +56,11 @@
         </div>
       </div>
     </div>
-
-    <ProjectsList />
-    
   </LandingSectionContainer>
 </template>
 
 <script>
   import LandingSectionContainer from '../landing/LandingSectionContainer'
-  import ProjectsList from './ProjectsList'
   import AppButton from '@/components/common/AppButton'
 
   export default {
@@ -80,7 +68,6 @@
 
     components: {
       LandingSectionContainer,
-      ProjectsList,
       AppButton
     },
   }
@@ -88,6 +75,6 @@
 
 <style scoped>
   .p-line-head {
-    line-height: 20px !important;
+    line-height: 20px;
   }
 </style>
