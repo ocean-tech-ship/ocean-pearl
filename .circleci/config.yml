@@ -1,0 +1,22 @@
+ version: 2.1
+ jobs:
+ run-test-suite:
+ docker:
+ - image: circleci/node:10.20.0
+ working_directory: ~/project
+ steps:
+ - checkout
+ - run:
+ name: Fetch dependencies
+  command: yarn install --no-progress --non-interactive --silent --pure-lockfile
+ - run:
+ name: Run test suite
+ command: yarn test_ci
+ - persist_to_workspace:
+ root: ~/project
+ paths:
+ - .
+ workflows:
+ test-and-deploy:
+ jobs:
+    - run-test-suite
