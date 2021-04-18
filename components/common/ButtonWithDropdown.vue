@@ -5,33 +5,24 @@
         @click="context.toggleOpen"
         class="h-10 w-10 cursor-pointer rounded-full object-cover"
         src="@/assets/images/icons/treasure-card.svg"
-        alt="profile image"
-      >
-      <transition
-        enter-active-class="transition-all duration-100 ease-out"
-        leave-active-class="transition-all duration-100 ease-in"
-        enter-class="opacity-0 scale-75"
-        enter-to-class="opacity-100 scale-100"
-        leave-class="opacity-100 scale-100"
-        leave-to-class="opacity-0 scale-75"
+        alt="treasure icon navbar"
       >
         <div
           v-if="context.open"
           class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
         >
           <ul @click="context.toggleOpen">
-            <li class="hover:bg-primary-100 ">
+            <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/">Home</NuxtLink>
             </li>
-            <li class="hover:bg-primary-100">
+            <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/project-overview">Projects</NuxtLink>
             </li>
-            <li class="hover:bg-primary-100">
+            <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/job-overview">Jobs</NuxtLink>
             </li>
           </ul>
         </div>
-      </transition>
     </template>
   </main-dropdown>
 </template>
