@@ -1,6 +1,6 @@
 <template>
   <div
-    class="inline-block select-none call-to-action text-secondary font-medium py-2 px-6 shadow-md flex items-center justify-center gap-3"
+    class="inline-block select-none call-to-action text-secondary font-medium py-2 px-6 shadow flex items-center justify-center gap-3"
   >
     <img v-if="icon" :src="icon" alt="ocean_pearl" width="20" />
     <span> {{ text }} </span>
