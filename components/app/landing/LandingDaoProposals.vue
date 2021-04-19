@@ -80,7 +80,7 @@ export default {
     }
   },
   created() {
-    fetch('/api/daoproposals')
+    fetch(`${this.$config.baseURL}/api/daoproposals`)
       .then((res) => res.json())
       .then((json) => {
         this.daoProposals = json.daoproposals

@@ -67,7 +67,7 @@ export default {
     }
   },
   created() {
-    fetch('/api/projects')
+    fetch(`${this.$config.baseURL}/api/projects`)
       .then((res) => res.json())
       .then((json) => {
         this.projects = json.projects.slice(0, 4)

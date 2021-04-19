@@ -47,7 +47,7 @@
       }
     },
     created() {
-    fetch('/api/jobs')
+    fetch(`${this.$config.baseURL}/api/jobs`)
       .then((res) => res.json())
       .then((json) => {
         this.jobs = json.jobs
