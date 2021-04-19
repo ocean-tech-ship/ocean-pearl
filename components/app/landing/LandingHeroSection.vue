@@ -3,17 +3,19 @@
     <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div class="pt-6">
         <h1>
-          We are on track with the newest
-          <span class="text-primary">projects</span> powered by the ocean
-          protocol.
+          {{ $t('landing.hero.titlePart1') }} 
+          <span class="text-primary">{{ $t('landing.hero.titleHighlight') }}</span> 
+          {{ $t('landing.hero.titlePart2') }}
         </h1>
         <p class="pt-6">
-          An absolute random example of some text being randomly put together to
-          make it look like someone has written something meaningful already.
+          {{ $t('landing.hero.text') }}
         </p>
-       <NuxtLink to="/project-overview"> 
-        <AppButton class="pt-8" />
-       </NuxtLink>
+        <AppLink class="mt-8" to="/project-overview">
+          <AppButtonStyle
+            :icon="require('@/assets/images/icons/sailing_ship.svg')"
+            :text="$t('landing.hero.buttonText')"
+          />
+        </AppLink>
       </div>
       <div class="hidden md:flex">
         <img
@@ -27,13 +29,15 @@
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton.vue'
+import AppLink from '@/components/common/AppLink.vue'
 import LandingSectionContainer from './LandingSectionContainer'
+import AppButtonStyle from '~/components/common/AppButtonStyle.vue'
 
 export default {
   name: 'LandingHeroSection',
   components: {
-    AppButton,
+    AppButtonStyle,
+    AppLink,
     LandingSectionContainer,
   },
 }

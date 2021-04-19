@@ -7,7 +7,7 @@
           alt="Logo parsiq" />
       </div>
       <div class="mt-2">
-        <p class="text-primary thin-heading">Parsiq</p>
+        <h1 class="text-primary thin-heading">Parsiq</h1>
         <p class="mt-2">DeFi</p>
       </div>
     </div>
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div>
-      <AppButton />
+      <AppButton :icon="require('@/assets/images/icons/copy-link.png')" text="copy link" />
     </div>
   </div>
   </LandingSectionContainer>

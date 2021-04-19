@@ -4,7 +4,7 @@ export default {
     configPath: 'tailwind.config.js',
   },
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -38,7 +38,21 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    'nuxt-i18n',
+  ],
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        file: "en.json",
+      }
+    ],
+    lazy: true,
+    langDir: "~/assets/locales/",
+    defaultLocale: "en",
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

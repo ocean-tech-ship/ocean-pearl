@@ -1,33 +1,30 @@
 <template>
  <nav>
-     <div class="px-1 mb-12 2sm:px-4 sm:px-16 md:px-32 mx-auto max-w-1440 flex justify-between items-center py-12">
+   <div class="mb-32 md:mb-16 ">
+     <div class="px-1 shadow md:shadow-none mb-12 2sm:px-4 sm:px-16 md:px-32 bg-secondary fixed md:relative top-0 mx-auto w-full md:max-w-1440 flex justify-between items-center py-4 md:py-12">
         <NuxtLink to="/">
          <div class="flex items-center">
              <img src="@/assets/images/pearl-logo.svg" alt="pearl-logo">
-             <p class="pl-2 text-primary">Ocean Pearl</p>   
+             <p class="pl-2 text-primary">{{ $t('navbar.logoText') }}</p>   
          </div>
         </NuxtLink>
-         <div class="flex space-x-128px pr-12">
-             <NuxtLink to="/project-overview">Projects</NuxtLink>
-             <NuxtLink to="/job-overview">Jobs</NuxtLink>
-             <NuxtLink to="/">Tracker</NuxtLink>
+         <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
+             <NuxtLink to="/project-overview">{{ $t('navbar.navbarLink1') }}</NuxtLink>
+             <NuxtLink to="/job-overview">{{ $t('navbar.navbarLink2') }}</NuxtLink>
          </div>
-         <div class="flex space-x-4">
-           <NuxtLink to="/">
-            <img src="@/assets/images/icons/icons8-plus.png" alt="pearl-plus">
-           </NuxtLink>
-           <NuxtLink to="/">
-             <img src="@/assets/images/icons/icons8-search.png" alt="pearl-search">
-           </NuxtLink>  
+         <div class="md:hidden"> 
+           <button-with-dropdown />
          </div>
+     </div>
      </div>
  </nav>
 </template>
 
 <script>
+import ButtonWithDropdown from "@/components/common/ButtonWithDropdown";
 export default {
-
-}
+  components: { ButtonWithDropdown }
+};
 </script>
 
 <style>
