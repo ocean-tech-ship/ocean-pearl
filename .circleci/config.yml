@@ -35,4 +35,4 @@ workflows:
           - run-test-suite
         filters:
           branches:
-            only: test
+            only: development
