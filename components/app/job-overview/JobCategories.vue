@@ -1,5 +1,5 @@
 <template>
-  <div class="space-x-4 flex flex-wrap mx-64 ">
+  <div class="space-x-4 flex flex-wrap mx-56 hidden xl:flex">
         <div v-for="Category in EnumCategory" :key="Category" class="border text-primary py-1 px-2 my-2 flex">
           <p class="small-text">{{Category}}</p>
         </div> 
