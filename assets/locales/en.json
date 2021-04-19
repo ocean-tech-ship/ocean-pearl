@@ -4,7 +4,8 @@
             "titlePart1":"We are on track with the newest ",
             "titleHighlight":"projects ",
             "titlePart2":"powered by the ocean protocol.",
-            "text":"An absolute random example of some text being randomly put together to make it look like someone has written something meaningful already."
+            "text":"An absolute random example of some text being randomly put together to make it look like someone has written something meaningful already.",
+            "buttonText":"Explore"
         },
         "pearl_space":{
             "title":"Pearl ",
@@ -54,6 +55,14 @@
         "navbarLinkDefault":"Home",
         "navbarLink1":"Projects",
         "navbarLink2":"Jobs"
+    },
+    "project_detail":{
+        "fundHereButton":"fund here",
+        "openPositions":{
+            "title":"Open",
+            "titleHighlight":"positions",
+            "addedOn":"added on"
+        }
     }
 
 }

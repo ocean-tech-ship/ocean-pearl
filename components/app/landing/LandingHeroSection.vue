@@ -13,7 +13,7 @@
         <AppLink class="mt-8" to="/project-overview">
           <AppButtonStyle
             :icon="require('@/assets/images/icons/sailing_ship.svg')"
-            text="Explore"
+            :text="$t('landing.hero.buttonText')"
           />
         </AppLink>
       </div>

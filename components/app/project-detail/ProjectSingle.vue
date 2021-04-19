@@ -149,7 +149,7 @@
           <div class="pl-16 mt-4">
             <AppButtonStyle
               :icon="require('@/assets/images/icons/fund-here.png')"
-              text="fund here"
+              :text="$t('project_detail.fundHereButton')"
             />
           </div>
         </div>
@@ -158,7 +158,7 @@
 
     <LandingSectionContainer>
       <h2 class="mt-16 thin-heading">
-        Open <span class="text-primary">positions</span>
+        {{ $t('project_detail.openPositions.title') }} <span class="text-primary">{{ $t('project_detail.openPositions.titleHighlight') }}</span>
       </h2>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-12">
         <div v-for="job in jobs" :key="job.id">
@@ -174,12 +174,12 @@
                 </div>
                 <div>
                   <p class="text-primary p-line-head">{{ job.title }}</p>
-                  <p class="small-text">{{ job.job }}</p>
+                  <p class="small-text">{{ job.position }}</p>
                 </div>
               </div>
               <div class="flex align-center mt-4 md:mt-1">
                 <p class="small-text text-right">
-                  added on <span class="text-primary">{{ job.date }}</span>
+                  {{ $t('project_detail.openPositions.addedOn') }} <span class="text-primary">{{ job.date }}</span>
                 </p>
                 <img
                   class="ml-2 h-6 w-6"
@@ -236,7 +236,7 @@ export default {
         {
           id: 0,
           title: 'poseidon',
-          job: 'Data analyst',
+          position: 'Data analyst',
           description:
             'Data analyst which is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
@@ -247,7 +247,7 @@ export default {
         {
           id: 1,
           title: 'poseidon',
-          job: 'Data scientist',
+          position: 'Data scientist',
           description:
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
@@ -258,7 +258,7 @@ export default {
         {
           id: 1,
           title: 'poseidon',
-          job: 'Data scientist',
+          position: 'Data scientist',
           description:
             'Data analyst who is on track with all new data assets and maintaining them aswell.',
           projectTarget: '',
@@ -269,7 +269,7 @@ export default {
         {
           id: 1,
           title: 'poseidon',
-          job: 'Data scientist',
+          position: 'Data scientist',
           description:
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
