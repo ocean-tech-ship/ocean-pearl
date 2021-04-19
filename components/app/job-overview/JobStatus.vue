@@ -1,10 +1,14 @@
 <template>
-  <div class="text-primary">
-        <div class="flex border py-1 px-2">
+  <div class="flex flex-wrap text-primary">
+        <div class="flex border py-1 px-2 mt-1">
             <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
-            <p class="small-text pr-8">Latest</p>
+            <p class="small-text pr-8">{{ $t('jobs.status.dropDown1') }}</p>
         </div>
-   </div>
+        <div class="flex border py-1 px-2 mt-1 xl:hidden">
+            <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
+            <p class="small-text pr-4">{{ $t('jobs.status.dropDown2') }}</p>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
