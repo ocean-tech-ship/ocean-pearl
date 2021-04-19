@@ -28,7 +28,11 @@ export default {
 
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+    baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000'
+  },
+
+  env: {
+    baseURL: process.env.NUXT_ENV_BASE_URL
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components

@@ -46,6 +46,7 @@
 
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
+import { getProjects } from '@/api.js'
 export default {
   name: 'ProjectsList',
   components: {
@@ -58,11 +59,8 @@ export default {
     }
   },
   created() {
-    fetch(`${this.$config.baseURL}/api/projects`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.projects = json.projects
-      })
+    this.projects = getProjects
+    console.log(this.projects)
   },
 }
 </script>
