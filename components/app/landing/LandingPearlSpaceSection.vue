@@ -1,7 +1,12 @@
 <template>
   <LandingSectionContainer>
     <div class="mb-42px">
-      <h2>{{ $t('landing.pearl_space.title') }} <span class="text-primary">{{ $t('landing.pearl_space.titleHighlight') }}</span></h2>
+      <h2>
+        {{ $t('landing.pearl_space.title') }}
+        <span class="text-primary">{{
+          $t('landing.pearl_space.titleHighlight')
+        }}</span>
+      </h2>
       <p>{{ $t('landing.pearl_space.text') }}</p>
     </div>
     <div
@@ -10,14 +15,17 @@
       <div
         v-for="card in cards"
         :key="card.title"
-        class="card shadow flex flex-col items-center rounded">
+        class="card shadow flex flex-col items-center rounded"
+      >
         <div class="h-275px pt-42px px-42px pb-62px flex items-center">
           <img class="w-full" :src="card.imageURL" :alt="card.title" />
         </div>
         <span class="font-poppins-bold text-lg px-42px pb-31px text-center">
           {{ card.title }}
         </span>
-        <AppButtonStyle :text="card.buttonText" class="mb-70px" />
+        <AppLink :to="card.buttonTarget" class="mb-70px">
+          <AppButtonStyle :text="card.buttonText" />
+        </AppLink>
       </div>
     </div>
   </LandingSectionContainer>
@@ -25,32 +33,34 @@
 
 <script>
 import LandingSectionContainer from './LandingSectionContainer'
-import AppButtonStyle from '~/components/common/AppButtonStyle.vue'
+import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppLink from '@/components/common/AppLink'
 
 export default {
   name: 'LandingPearlSpaceSection',
   components: {
     AppButtonStyle,
     LandingSectionContainer,
+    AppLink,
   },
   data() {
     return {
       cards: [
         {
           title: 'Track Projects',
-          buttonTarget: '',
+          buttonTarget: '/project-overview',
           imageURL: require('@/assets/images/illustrations/track-projects.svg'),
           buttonText: 'Track',
         },
         {
           title: 'Submit Project',
-          buttonTarget: '',
+          buttonTarget: '/project-overview',
           imageURL: require('@/assets/images/illustrations/submit-projects.svg'),
           buttonText: 'Submit',
         },
         {
           title: 'Find Jobs',
-          buttonTarget: '',
+          buttonTarget: '/job-overview',
           imageURL: require('@/assets/images/illustrations/find-jobs.svg'),
           buttonText: 'Find',
         },
@@ -59,4 +69,3 @@ export default {
   },
 }
 </script>
-
