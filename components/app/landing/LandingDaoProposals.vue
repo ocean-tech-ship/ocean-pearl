@@ -1,13 +1,9 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <!-- Headline ------------------------------------------------------------------>
-    <h2>DAO <span class="text-primary">proposals</span></h2>
-    <p>These projects are currently waiting or applying for a DAO funding.</p>
-
-    <!-- grid ------------------------------------------------------------------>
+    <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary">{{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
+    <p>{{ $t('landing.dao_proposals.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
-        <!-- #single ------------------------------------------------------------------>
         <NuxtLink to="/project-overview">
           <div class="shadow p-8">
             <div class="flex">
@@ -47,16 +43,14 @@
         </NuxtLink>
       </div>
     </div>
-    <!-- Link to all projects ----------------------------------------->
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">See all listed projects</p>
+        <p class="mr-2 text-primary">{{ $t('landing.dao_proposals.link_text') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="">
       </div>
     </NuxtLink>
   </LandingSectionContainer>
 </template>
-
 <script>
   import LandingSectionContainer from './LandingSectionContainer'
 
@@ -122,6 +116,6 @@
 
 <style scoped>
   .p-line-head {
-    line-height: 20px !important;
+    line-height: 20px;
   }
 </style>

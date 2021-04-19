@@ -1,10 +1,6 @@
 <template>
   <div>
-    <LandingSectionContainer>
-      <ProjectSingleHeader />
-    </LandingSectionContainer>
-
-    <div class="body-single py-8">
+    <div class="bg-grey py-8">
       <LandingSectionContainer>
         <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
           <div class="shadow rounded-md">
@@ -14,7 +10,6 @@
               alt="poseidon network cover"
             />
           </div>
-          <!-- social ------------------------------------------------------------------>
           <div>
             <div>
               <p class="text-primary small-text">Description</p>
@@ -24,8 +19,6 @@
                 unused bandwidth.
               </p>
             </div>
-
-            <!-- links ------------------------------------------------------------------>
             <div class="flex mt-4">
               <div class="flex content-center">
                 <img
@@ -41,7 +34,6 @@
                 >
               </div>
             </div>
-
             <div class="flex mt-4">
               <div class="flex content-center">
                 <img
@@ -57,7 +49,6 @@
                 >
               </div>
             </div>
-
             <div class="flex mt-4">
               <div class="flex content-center">
                 <img
@@ -73,7 +64,6 @@
                 >
               </div>
             </div>
-
             <div class="flex mt-4">
               <div class="flex content-center">
                 <img
@@ -89,7 +79,6 @@
                 >
               </div>
             </div>
-
             <div class="flex mt-4">
               <div class="flex content-center">
                 <img
@@ -105,7 +94,6 @@
                 >
               </div>
             </div>
-
             <div class="flex mt-4">
               <div class="flex content-center">
                 <img
@@ -123,8 +111,6 @@
             </div>
           </div>
         </div>
-
-        <!-- DAO ------------------------------------------------------------------>
         <h4 class="mt-24">DAO <span class="text-primary">proposal</span></h4>
         <div class="flex content-center space-x-40 mt-8">
           <div>
@@ -160,7 +146,6 @@
             </div>
             <p class="small-text">Round 3</p>
           </div>
-
           <div class="pl-16 mt-4">
             <AppButton />
           </div>

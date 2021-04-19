@@ -1,14 +1,9 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <!-- Headline ------------------------------------------------------------------>
-    <h2>Latest <span class="text-primary">projects</span></h2>
-    <p>The listed projects shown were added by members of the community.</p>
-
-    <!-- projects ------------------------------------------------------------------>
+    <h2>{{ $t('landing.latest_projects.title') }} <span class="text-primary">{{ $t('landing.latest_projects.titleHighlight') }}</span></h2>
+    <p>{{ $t('landing.latest_projects.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
-
-      <!-- single ------------------------------------------------------------------>
       <NuxtLink to="/project-overview">
       <div class="shadow p-4 pb-12 text-center">
         <div class="mt-3">
@@ -24,23 +19,14 @@
         </div>
       </div>
       </NuxtLink>
-      <!-------------------------------------------------------------------->
-
      </div>
     </div>
-    
-    <!-- project-overview-link --------------------------------------------->
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6 mb-32">
-        <p class="mr-2 text-primary">See all listed projects</p>
+        <p class="mr-2 text-primary">{{ $t('landing.latest_projects.link_text') }}</p>
         <img src="@/assets/images/icons/check-out.png" alt="arrow">
       </div>
     </NuxtLink>
-
-    <!-- gets removed after adding footer -->
-    <div class="mt-32">
-      -
-    </div>
   </LandingSectionContainer>
 </template>
 
@@ -106,6 +92,6 @@
 
 <style scoped>
   .p-line-head {
-    line-height: 20px !important;
+    line-height: 20px;
   }
 </style>
