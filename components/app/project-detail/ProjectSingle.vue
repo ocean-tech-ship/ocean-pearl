@@ -175,7 +175,7 @@
               <div>
               <AppLink to="/">
                 <AppButtonStyle
-                  :icon="require('@/assets/images/icons/apply-here.png')"
+                  :icon="require('@/assets/images/detail/apply-here.png')"
                   text="apply here"
                 />
               </AppLink>
@@ -213,7 +213,7 @@ export default {
           description:
             'Data analyst which is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '11.03.21',
           loan: '50000€ - 60000€',
         },
@@ -224,7 +224,7 @@ export default {
           description:
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '18.03.21',
           loan: '20000€ - 30000€',
         },
@@ -235,7 +235,7 @@ export default {
           description:
             'Data analyst who is on track with all new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '18.03.21',
           loan: '20000€ - 30000€',
         },
@@ -246,7 +246,7 @@ export default {
           description:
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '18.03.21',
           loan: '20000€ - 30000€',
         },
