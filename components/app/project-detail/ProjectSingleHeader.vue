@@ -22,7 +22,7 @@
       </div>
     </div>
     <div>
-      <AppButton />
+      <AppButton :icon="require('@/assets/images/icons/copy-link.png')" text="copy link" />
     </div>
   </div>
   </LandingSectionContainer>

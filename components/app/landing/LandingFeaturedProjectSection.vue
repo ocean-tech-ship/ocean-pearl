@@ -69,14 +69,12 @@
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton.vue'
 import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
   name: 'LandingFeaturedProjectSection',
 
   components: {
-    AppButton,
     LandingSectionContainer,
   },
   data() {
