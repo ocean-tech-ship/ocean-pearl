@@ -147,39 +147,46 @@
             <p class="small-text">Round 3</p>
           </div>
           <div class="pl-16 mt-4">
-            <AppButton :icon="require('@/assets/images/icons/fund-here.png')" text="fund here" />
+            <AppButtonStyle
+              :icon="require('@/assets/images/icons/fund-here.png')"
+              text="fund here"
+            />
           </div>
         </div>
       </LandingSectionContainer>
     </div>
 
     <LandingSectionContainer>
-      <h2 class="mt-16 thin-heading">Open <span class="text-primary">positions</span></h2>
+      <h2 class="mt-16 thin-heading">
+        Open <span class="text-primary">positions</span>
+      </h2>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-12">
         <div v-for="job in jobs" :key="job.id">
           <div class="shadow p-6 md:p-12">
             <div class="block md:flex align-center justify-between">
-            <div class="flex">
-              <div class="mr-3">
+              <div class="flex">
+                <div class="mr-3">
+                  <img
+                    class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                    :src="job.imageURL"
+                    :alt="job.title"
+                  />
+                </div>
+                <div>
+                  <p class="text-primary p-line-head">{{ job.title }}</p>
+                  <p class="small-text">{{ job.job }}</p>
+                </div>
+              </div>
+              <div class="flex align-center mt-4 md:mt-1">
+                <p class="small-text text-right">
+                  added on <span class="text-primary">{{ job.date }}</span>
+                </p>
                 <img
-                  class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  :src="job.imageURL"
-                  :alt="job.title"
-                />
-              </div>
-              <div>
-                <p class="text-primary p-line-head">{{ job.title }}</p>
-                <p class="small-text">{{ job.job }}</p>
-              </div>
-            </div>
-            <div class="flex align-center mt-4 md:mt-1">
-              <p class="small-text text-right">added on <span class="text-primary">{{job.date}}</span></p>
-              <img
                   class="ml-2 h-6 w-6"
                   src="@/assets/images/icons/time.png"
                   alt="time-date"
                 />
-            </div>
+              </div>
             </div>
             <div class="mt-5">
               <p class="small-text">
@@ -188,10 +195,17 @@
             </div>
             <div class="mt-6 md:mt-8 flex align-center justify-between">
               <div>
-                <p class="small-text text-primary mt-1 w-32 md:w-full">{{ job.loan }} a year</p>
+                <p class="small-text text-primary mt-1 w-32 md:w-full">
+                  {{ job.loan }} a year
+                </p>
               </div>
               <div>
-                <AppButton />
+              <AppLink to="/">
+                <AppButtonStyle
+                  :icon="require('@/assets/images/icons/apply-here.png')"
+                  text="apply here"
+                />
+              </AppLink>
               </div>
             </div>
           </div>
@@ -204,7 +218,8 @@
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
 import ProjectSingleHeader from './ProjectSingleHeader'
-import AppButton from '@/components/common/AppButton'
+import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppLink from '@/components/common/AppLink'
 
 export default {
   name: 'ProjectSingle',
@@ -212,7 +227,8 @@ export default {
   components: {
     LandingSectionContainer,
     ProjectSingleHeader,
-    AppButton,
+    AppButtonStyle,
+    AppLink
   },
   data() {
     return {
