@@ -10,9 +10,12 @@
         <p class="pt-6">
           {{ $t('landing.hero.text') }}
         </p>
-       <NuxtLink to="/project-overview"> 
-        <AppButton class="pt-8" />
-       </NuxtLink>
+        <AppLink class="mt-8" to="/project-overview">
+          <AppButtonStyle
+            :icon="require('@/assets/images/icons/sailing_ship.svg')"
+            :text="$t('landing.hero.buttonText')"
+          />
+        </AppLink>
       </div>
       <div class="hidden md:flex">
         <img
@@ -26,13 +29,15 @@
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton.vue'
+import AppLink from '@/components/common/AppLink.vue'
 import LandingSectionContainer from './LandingSectionContainer'
+import AppButtonStyle from '~/components/common/AppButtonStyle.vue'
 
 export default {
   name: 'LandingHeroSection',
   components: {
-    AppButton,
+    AppButtonStyle,
+    AppLink,
     LandingSectionContainer,
   },
 }
