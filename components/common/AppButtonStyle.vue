@@ -14,11 +14,11 @@ export default {
   props: {
     icon: {
       type: String,
-      default: null,
+      default: '',
     },
     text: {
       type: String,
-      default: null,
+      default: '',
     },
   },
 }
