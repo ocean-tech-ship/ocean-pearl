@@ -1,5 +1,5 @@
 <template>
-  <div class="space-x-4 flex">
+  <div class="space-x-4 flex hidden lg:flex">
      <div v-for="Status in EnumStatus" :key="Status" class="border text-primary py-1 px-2 flex">
         <p class="small-text">{{Status}}</p>
       </div>

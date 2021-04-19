@@ -1,10 +1,14 @@
 <template>
-  <div class="text-primary">
-    <div class="flex border py-1 px-2">
-      <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
-      <p class="small-text pr-3">Category</p>
-    </div>
-  </div>
+  <div class="flex flex-wrap text-primary">
+        <div class="flex border py-1 px-2 mr-1 mt-1">
+            <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
+            <p class="small-text pr-2">Category</p>
+        </div>
+        <div class="flex border py-1 px-2 mt-1 lg:hidden">
+            <img class="mr-1 p-1" src="@/assets/images/icons/dropdown.png" alt="dropdown">
+            <p class="small-text">Latest</p>
+        </div>
+      </div>
 </template>
 
 <script>
