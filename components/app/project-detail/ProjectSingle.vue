@@ -4,7 +4,7 @@
       <LandingSectionContainer>
         <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
           <div class="shadow rounded-md">
-            <img class="self-center align-center" src="@/assets/images/poseidon-cover.png"
+            <img class="self-center align-center" src="@/assets/images/detail/poseidon-cover.png"
               alt="poseidon network cover" />
           </div>
           <div>
@@ -15,7 +15,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/icons/website.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -24,7 +24,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/icons/discord.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/discord.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -33,7 +33,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/icons/facebook.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/facebook.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -42,7 +42,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/icons/linkedIn.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/linkedIn.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -51,7 +51,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/icons/github.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/github.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -60,7 +60,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/icons/website.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">

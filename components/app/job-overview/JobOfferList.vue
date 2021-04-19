@@ -47,7 +47,7 @@
             job: 'Data analyst',
             description: 'Data analyst which is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "50000€ - 60000€"
           },
           {
@@ -55,7 +55,7 @@
             job: 'Data scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "20000€ - 30000€"
           },
           {
@@ -63,7 +63,7 @@
             job: 'Content creator',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "10000€ - 90000€"
           },
           {
@@ -71,7 +71,7 @@
             job: 'Rocket Scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "50000€ - 60000€"
           },
           {
@@ -79,7 +79,7 @@
             job: 'Data analyst',
             description: 'Data analyst which is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "50000€ - 60000€"
           },
           {
@@ -87,7 +87,7 @@
             job: 'Data scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "20000€ - 30000€"
           },
           {
@@ -95,7 +95,7 @@
             job: 'Content creator',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "10000€ - 90000€"
           },
           {
@@ -103,7 +103,7 @@
             job: 'Rocket Scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "50000€ - 60000€"
           },
           {
@@ -111,7 +111,7 @@
             job: 'Data analyst',
             description: 'Data analyst which is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "50000€ - 60000€"
           },
           {
@@ -119,7 +119,7 @@
             job: 'Data scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "20000€ - 30000€"
           },
           {
@@ -127,7 +127,7 @@
             job: 'Content creator',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "10000€ - 90000€"
           },
           {
@@ -135,7 +135,7 @@
             job: 'Rocket Scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             loan: "50000€ - 60000€"
           },
         ],

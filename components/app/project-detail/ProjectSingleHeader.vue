@@ -3,7 +3,7 @@
   <div class="flex justify-between content-center">
     <div class="flex">
       <div class="mr-4">
-        <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="@/assets/images/project-logos/poseidon-network.png"
+        <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="@/assets/images/poseidon-network.png"
           alt="Logo parsiq" />
       </div>
       <div class="mt-2">

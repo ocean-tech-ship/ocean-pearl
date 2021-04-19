@@ -67,7 +67,7 @@
             title: 'Jellyfish',
             category: 'DeFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/jellyfish.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
@@ -76,7 +76,7 @@
             title: 'Jellyfish',
             category: 'HiFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/jellyfish.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
@@ -85,7 +85,7 @@
             title: 'Jellyfish',
             category: 'SciFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/jellyfish.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
@@ -94,7 +94,7 @@
             title: 'Jellyfish',
             category: 'MiFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/jellyfish.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
@@ -103,7 +103,7 @@
             title: 'Jellyfish',
             category: 'WiFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/project-logos/jellyfish.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'

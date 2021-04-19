@@ -3,7 +3,7 @@
     <button
       class="call-to-action text-secondary font-medium py-2 px-6 shadow-md flex items-center justify-center gap-3"
     >
-      <img src="~/assets/icons/sailing_ship.svg" alt="ocean_pearl" width="20" />
+      <img src="~/assets/images/landing/sailing_ship.svg" alt="ocean_pearl" width="20" />
       <span> Explore </span>
     </button>
   </div>
