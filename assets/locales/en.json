@@ -41,14 +41,26 @@
         }
     },
     "projects":{
-        "title":"Project ",
-        "titleHighlight":"overview",
-        "text":"See what the community has to offer."
+        "header":{
+            "title":"Project ",
+            "titleHighlight":"overview",
+            "text":"See what the community has to offer."
+        },
+        "status":{
+            "dropDown1":"Latest",
+            "dropDown2":"Category"
+        }
     },
     "jobs":{
-        "title":"Job ",
-        "titleHighlight":"offers",
-        "text":"Find out which companys are currently looking for your support."
+        "header":{
+            "title":"Job ",
+            "titleHighlight":"offers",
+            "text":"Find out which companys are currently looking for your support."
+        },
+        "status":{
+            "dropDown1":"Latest",
+            "dropDown2":"Category"
+        }
     },
     "navbar":{
         "logoText":"Ocean Pearl",

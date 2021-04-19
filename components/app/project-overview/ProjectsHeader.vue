@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer>
-    <h2>{{ $t('projects.title') }} <span class="text-primary">{{ $t('projects.titleHighlight') }}</span></h2>
-    <p>{{ $t('projects.text') }}</p>
+    <h2>{{ $t('projects.header.title') }} <span class="text-primary">{{ $t('projects.header.titleHighlight') }}</span></h2>
+    <p>{{ $t('projects.header.text') }}</p>
     <div class="flex items-center justify-between my-8">
       <ProjectsCategories />
       <ProjectsStatus />
