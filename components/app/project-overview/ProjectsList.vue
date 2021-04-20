@@ -47,22 +47,19 @@
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
 import { getProjects } from '@/api.js'
+
 export default {
   name: 'ProjectsList',
   components: {
     LandingSectionContainer,
   },
-
   data() {
     return {
       projects: [],
     }
   },
-  created() {
-    this.projects = getProjects
-    console.log(this.projects)
+  async created() {
+    this.projects = await getProjects()
   },
 }
 </script>
-
-<style scoped></style>

@@ -1,15 +1,28 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <h2>{{ $t('landing.featured_projects.title') }} <span class="text-primary">{{ $t('landing.featured_projects.titleHighlight') }}</span></h2>
+    <h2>
+      {{ $t('landing.featured_projects.title') }}
+      <span class="text-primary">{{
+        $t('landing.featured_projects.titleHighlight')
+      }}</span>
+    </h2>
     <p>{{ $t('landing.featured_projects.text') }}</p>
     <div class="w-full pt-6 grid grid-cols-3 md:grid-flow-col gap-4">
-        <div class="listed-project-container shadow rounded-md pb-12 pt-16 px-4 col-span-1">
-          <img class="self-center align-center" src="@/assets/images/illustrations/listed-illustration.png"
-            alt="kraken" />
-          <p class="content-center text-center my-12 pt-8 thin-heading">{{ $t('landing.featured_projects.secondTitle') }} <span
-              class="text-primary">{{ $t('landing.featured_projects.secondTitleHighlight') }}</span>
-          </p>
-        </div>
+      <div
+        class="listed-project-container shadow rounded-md pb-12 pt-16 px-4 col-span-1"
+      >
+        <img
+          class="self-center align-center"
+          src="@/assets/images/illustrations/listed-illustration.png"
+          alt="kraken"
+        />
+        <p class="content-center text-center my-12 pt-8 thin-heading">
+          {{ $t('landing.featured_projects.secondTitle') }}
+          <span class="text-primary">{{
+            $t('landing.featured_projects.secondTitleHighlight')
+          }}</span>
+        </p>
+      </div>
       <div class="grid grid-flow-col col-span-2 grid-cols-2 grid-rows-2 gap-4">
         <div v-for="project in projects" :key="project.id">
           <NuxtLink to="/project-overview">
@@ -33,8 +46,10 @@
                 </p>
               </div>
               <div class="justify-self-end flex items-center mt-8">
-                <p class="small-text mr-2 text-primary">{{ $t('landing.featured_projects.checkOut') }}</p>
-                <img src="@/assets/images/icons/check-out.png" alt="">
+                <p class="small-text mr-2 text-primary">
+                  {{ $t('landing.featured_projects.checkOut') }}
+                </p>
+                <img src="@/assets/images/icons/check-out.png" alt="" />
               </div>
             </div>
           </NuxtLink>
@@ -43,8 +58,10 @@
     </div>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">{{ $t('landing.featured_projects.link_text') }}</p>
-        <img src="@/assets/images/icons/check-out.png" alt="">
+        <p class="mr-2 text-primary">
+          {{ $t('landing.featured_projects.link_text') }}
+        </p>
+        <img src="@/assets/images/icons/check-out.png" alt="" />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
@@ -53,6 +70,7 @@
 <script>
 import AppButton from '@/components/common/AppButton.vue'
 import LandingSectionContainer from './LandingSectionContainer'
+import { getProjects } from '@/api.js'
 
 export default {
   name: 'LandingFeaturedProjectSection',
@@ -66,12 +84,8 @@ export default {
       projects: [],
     }
   },
-  created() {
-    fetch(`${this.$config.baseURL}/api/projects`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.projects = json.projects.slice(0, 4)
-      })
+  async created() {
+    this.projects = (await getProjects()).slice(0, 4)
   },
 }
 </script>

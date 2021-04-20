@@ -1,61 +1,72 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <h2>{{ $t('landing.latest_projects.title') }} <span class="text-primary">{{ $t('landing.latest_projects.titleHighlight') }}</span></h2>
+    <h2>
+      {{ $t('landing.latest_projects.title') }}
+      <span class="text-primary">{{
+        $t('landing.latest_projects.titleHighlight')
+      }}</span>
+    </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10"
+    >
       <div v-for="project in projects" :key="project.title">
-      <NuxtLink to="/project-overview">
-      <div class="shadow p-4 pb-12 text-center">
-        <div class="mt-3">
-          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-            :src="project.logo" :alt="project.title" />
-        </div>
-        <div class="mt-4">
-          <p class="text-primary p-line-head">{{project.title}}</p>
-          <p class="small-text">{{project.category}}</p>
-        </div>
-        <div class="mt-4 flex place-content-center">
-          <p class="border small-text text-primary w-32">{{project.createdAt}}</p>
-        </div>
+        <NuxtLink to="/project-overview">
+          <div class="shadow p-4 pb-12 text-center">
+            <div class="mt-3">
+              <img
+                class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
+                :src="project.logo"
+                :alt="project.title"
+              />
+            </div>
+            <div class="mt-4">
+              <p class="text-primary p-line-head">{{ project.title }}</p>
+              <p class="small-text">{{ project.category }}</p>
+            </div>
+            <div class="mt-4 flex place-content-center">
+              <p class="border small-text text-primary w-32">
+                {{ project.createdAt }}
+              </p>
+            </div>
+          </div>
+        </NuxtLink>
       </div>
-      </NuxtLink>
-     </div>
     </div>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6 mb-32">
-        <p class="mr-2 text-primary">{{ $t('landing.latest_projects.link_text') }}</p>
-        <img src="@/assets/images/icons/check-out.png" alt="arrow">
+        <p class="mr-2 text-primary">
+          {{ $t('landing.latest_projects.link_text') }}
+        </p>
+        <img src="@/assets/images/icons/check-out.png" alt="arrow" />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
 </template>
 
 <script>
-  import LandingSectionContainer from './LandingSectionContainer'
+import LandingSectionContainer from './LandingSectionContainer'
+import { getProjects } from '@/api.js'
 
-  export default {
-    name: 'LandingDaoProposal',
+export default {
+  name: 'LandingDaoProposal',
 
-    components: {
-      LandingSectionContainer,
-    },
-    data() {
-      return {
-        projects: [],
-      }
-    },
-    created() {
-    fetch(`${this.$config.baseURL}/api/projects`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.projects = json.projects.slice(0, 6)
-      })
+  components: {
+    LandingSectionContainer,
   },
-  }
+  data() {
+    return {
+      projects: [],
+    }
+  },
+  async created() {
+    this.projects = (await getProjects()).slice(0, 6)
+  },
+}
 </script>
 
 <style scoped>
-  .p-line-head {
-    line-height: 20px;
-  }
+.p-line-head {
+  line-height: 20px;
+}
 </style>

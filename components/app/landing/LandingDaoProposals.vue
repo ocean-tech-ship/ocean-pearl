@@ -65,6 +65,7 @@
   </LandingSectionContainer>
 </template>
 <script>
+import { getDaoProposals } from '~/api'
 import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
@@ -79,12 +80,8 @@ export default {
       ],
     }
   },
-  created() {
-    fetch(`${this.$config.baseURL}/api/daoproposals`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.daoProposals = json.daoproposals
-      })
+  async created() {
+    this.daoProposals = (await getDaoProposals()).slice(0, 5)
   },
 }
 </script>
