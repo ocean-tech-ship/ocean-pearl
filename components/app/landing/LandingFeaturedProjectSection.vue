@@ -15,7 +15,7 @@
       >
         <img
           class="max-h-260px lg:max-h-none hidden sm:block"
-          src="@/assets/images/illustrations/listed-illustration.svg"
+          src="@/assets/images/landing/listed-illustration.svg"
           alt="kraken"
         />
         <h3 class="content-center text-center sm:my-12 sm:pt-8">
@@ -86,7 +86,7 @@ export default {
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          imageURL: require('@/assets/images/poseidon-network.png'),
         },
         {
           title: 'Parsiq',
@@ -94,7 +94,7 @@ export default {
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          imageURL: require('@/assets/images/poseidon-network.png'),
         },
         {
           title: 'Parsiq',
@@ -102,7 +102,7 @@ export default {
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          imageURL: require('@/assets/images/poseidon-network.png'),
         },
         {
           title: 'Parsiq',
@@ -110,7 +110,7 @@ export default {
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon-network.png'),
+          imageURL: require('@/assets/images/poseidon-network.png'),
         },
       ],
     }

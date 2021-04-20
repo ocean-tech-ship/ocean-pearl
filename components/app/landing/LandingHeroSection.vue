@@ -20,7 +20,7 @@
       <div class="hidden md:flex">
         <img
           class="self-center w-full pt-8 lg:pt-0"
-          src="@/assets/images/kraken.webp"
+          src="@/assets/images/landing/kraken.webp"
           alt="kraken"
         />
       </div>

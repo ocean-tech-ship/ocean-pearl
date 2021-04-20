@@ -4,11 +4,8 @@
       <LandingSectionContainer>
         <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
           <div class="shadow rounded-md">
-            <img
-              class="self-center align-center"
-              src="@/assets/images/poseidon-cover.png"
-              alt="poseidon network cover"
-            />
+            <img class="self-center align-center" src="@/assets/images/detail/poseidon-cover.png"
+              alt="poseidon network cover" />
           </div>
           <div>
             <div>
@@ -21,11 +18,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/icons/website.png"
-                  alt="website"
-                />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -36,11 +29,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/icons/discord.png"
-                  alt="website"
-                />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/discord.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -51,11 +40,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/icons/facebook.png"
-                  alt="website"
-                />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/facebook.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -66,11 +51,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/icons/linkedIn.png"
-                  alt="website"
-                />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/linkedIn.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -81,11 +62,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/icons/github.png"
-                  alt="website"
-                />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/github.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -96,11 +73,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/icons/website.png"
-                  alt="website"
-                />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.png" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -202,7 +175,7 @@
               <div>
               <AppLink to="/">
                 <AppButtonStyle
-                  :icon="require('@/assets/images/icons/apply-here.png')"
+                  :icon="require('@/assets/images/detail/apply-here.png')"
                   text="apply here"
                 />
               </AppLink>
@@ -240,7 +213,7 @@ export default {
           description:
             'Data analyst which is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '11.03.21',
           loan: '50000€ - 60000€',
         },
@@ -251,7 +224,7 @@ export default {
           description:
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '18.03.21',
           loan: '20000€ - 30000€',
         },
@@ -262,7 +235,7 @@ export default {
           description:
             'Data analyst who is on track with all new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '18.03.21',
           loan: '20000€ - 30000€',
         },
@@ -273,7 +246,7 @@ export default {
           description:
             'Data analyst who is on track with registring new data assets and maintaining them aswell.',
           projectTarget: '',
-          imageURL: require('@/assets/images/project-logos/poseidon.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
           date: '18.03.21',
           loan: '20000€ - 30000€',
         },
