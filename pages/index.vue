@@ -6,7 +6,6 @@
     <landing-dao-proposals />
     <landing-job-offers />
     <landing-latest-projects />
-    <test-delete-later />
   </div>
 </template>
 
