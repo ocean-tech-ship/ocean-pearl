@@ -13,7 +13,7 @@
     </div>
     <div class="flex">
       <div class="mr-4">
-        <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="@/assets/images/icons/rocket.png"
+        <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="@/assets/images/icons/rocket.svg"
           alt="Icon rocket" />
       </div>
       <div>
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div>
-      <AppButton :icon="require('@/assets/images/icons/copy-link.png')" text="copy link" />
+      <AppButton :icon="require('@/assets/images/detail/copy-link.svg')" text="copy link" />
     </div>
   </div>
   </LandingSectionContainer>

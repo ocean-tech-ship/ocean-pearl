@@ -18,8 +18,8 @@
           [EnumBadges.Fund]: 'Needs Funding'
         },
          BadgeIcons: {
-          'Featured': require('@/assets/images/icons/featured-badge.png'),
-          'Needs Funding': require('@/assets/images/icons/bitcoin-badge.png')
+          'Featured': require('@/assets/images/icons/featured-badge.svg'),
+          'Needs Funding': require('@/assets/images/icons/bitcoin-badge.svg')
         }
       }
     }

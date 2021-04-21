@@ -20,21 +20,21 @@
             </div>
             <div class="mt-5">
               <div class="flex">
-                <img class="mr-2" src="@/assets/images/icons/start-fund.png" alt="funding-start">
+                <img class="mr-2" src="@/assets/images/icons/start-fund.svg" alt="funding-start">
                 <p class="small-text text-primary">Start</p>
               </div>
               <p class="small-text">{{project.startDate}}</p>
             </div>
             <div class="mt-3">
               <div class="flex">
-                <img class="mr-2" src="@/assets/images/icons/finish-fund.png" alt="funding-finish">
+                <img class="mr-2" src="@/assets/images/icons/finish-fund.svg" alt="funding-finish">
                 <p class="small-text text-primary">Finish</p>
               </div>
               <p class="small-text">{{project.endDate}}</p>
             </div>
             <div class="mt-3">
               <div class="flex">
-                <img class="mr-2" src="@/assets/images/icons/fund-round.png" alt="funding-round">
+                <img class="mr-2" src="@/assets/images/icons/fund-round.svg" alt="funding-round">
                 <p class="small-text text-primary">Fund round</p>
               </div>
               <p class="small-text">Round {{project.fundRound}}</p>
@@ -46,7 +46,7 @@
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">{{ $t('landing.dao_proposals.link_text') }}</p>
-        <img src="@/assets/images/icons/check-out.png" alt="">
+        <img src="@/assets/images/landing/check-out.svg" alt="">
       </div>
     </NuxtLink>
   </LandingSectionContainer>
@@ -64,10 +64,10 @@
       return {
         projects: [
           {
-            title: 'Jellyfish',
+            title: 'Pearl',
             category: 'DeFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/jellyfish.png'),
+            imageURL: require('@/assets/images/logo/pearl-logo.svg'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
@@ -82,28 +82,28 @@
             fundRound: '2'
           },
           {
-            title: 'Jellyfish',
+            title: 'Poseidon',
             category: 'SciFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/jellyfish.png'),
+            imageURL: require('@/assets/images/poseidon-network.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
           },
           {
-            title: 'Jellyfish',
-            category: 'MiFi',
+            title: 'DataDAO',
+            category: 'Finance',
             projectTarget: '',
-            imageURL: require('@/assets/images/jellyfish.png'),
+            imageURL: require('@/assets/images/dataDao.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
           },
           {
-            title: 'Jellyfish',
+            title: 'Poseidon',
             category: 'WiFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/jellyfish.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
