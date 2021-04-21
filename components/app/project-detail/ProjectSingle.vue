@@ -18,7 +18,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.svg" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -29,7 +29,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/discord.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/discord.svg" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -40,7 +40,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/facebook.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/facebook.svg" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -51,7 +51,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/linkedIn.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/linkedIn.svg" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -62,7 +62,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/github.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/github.svg" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -73,7 +73,7 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.png" alt="website" />
+                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.svg" alt="website" />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -90,7 +90,7 @@
             <div class="flex">
               <img
                 class="mr-1 py-2"
-                src="@/assets/images/icons/start-fund.png"
+                src="@/assets/images/icons/start-fund.svg"
                 alt="funding-start"
               />
               <p class="text-primary">Start</p>
@@ -101,7 +101,7 @@
             <div class="flex">
               <img
                 class="mr-1 py-2"
-                src="@/assets/images/icons/finish-fund.png"
+                src="@/assets/images/icons/finish-fund.svg"
                 alt="funding-finish"
               />
               <p class="text-primary">Finish</p>
@@ -112,7 +112,7 @@
             <div class="flex">
               <img
                 class="mr-1 py-2"
-                src="@/assets/images/icons/fund-round.png"
+                src="@/assets/images/icons/fund-round.svg"
                 alt="funding-round"
               />
               <p class="text-primary">Fund round</p>
@@ -121,7 +121,7 @@
           </div>
           <div class="pl-16 mt-4">
             <AppButtonStyle
-              :icon="require('@/assets/images/icons/fund-here.png')"
+              :icon="require('@/assets/images/detail/fund-here.svg')"
               :text="$t('project_detail.fundHereButton')"
             />
           </div>
@@ -156,7 +156,7 @@
                 </p>
                 <img
                   class="ml-2 h-6 w-6"
-                  src="@/assets/images/icons/time.png"
+                  src="@/assets/images/detail/time.svg"
                   alt="time-date"
                 />
               </div>
@@ -175,7 +175,7 @@
               <div>
               <AppLink to="/">
                 <AppButtonStyle
-                  :icon="require('@/assets/images/detail/apply-here.png')"
+                  :icon="require('@/assets/images/detail/apply-here.svg')"
                   text="apply here"
                 />
               </AppLink>

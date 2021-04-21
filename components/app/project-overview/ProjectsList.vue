@@ -4,9 +4,9 @@
     <div v-for="project in projects" :key="project.title">
       <div class="shadow p-2 pb-12 text-center relative">
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
-          <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.png" alt="hiring job">
-          <img v-if="project.badgeFund" src="@/assets/images/icons/bitcoin-badge.png" alt="looking for funding">
-          <img v-if="project.badgeFeatured" src="@/assets/images/icons/featured-badge.png" alt="featured project">
+          <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.svg" alt="hiring job">
+          <img v-if="project.badgeFund" src="@/assets/images/icons/bitcoin-badge.svg" alt="looking for funding">
+          <img v-if="project.badgeFeatured" src="@/assets/images/icons/featured-badge.svg" alt="featured project">
         </div>
         <div class="mt-3">
           <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white" :src="project.imageURL"

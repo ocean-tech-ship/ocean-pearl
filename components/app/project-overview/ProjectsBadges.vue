@@ -19,9 +19,9 @@
           [EnumBadges.Hiring]: 'Hiring'
         },
         BadgeIcons: {
-          'Featured': require('@/assets/images/icons/featured-badge.png'),
-          'Needs Funding': require('@/assets/images/icons/bitcoin-badge.png'),
-          'Hiring': require('@/assets/images/icons/hiring-badge.png'),
+          'Featured': require('@/assets/images/icons/featured-badge.svg'),
+          'Needs Funding': require('@/assets/images/icons/bitcoin-badge.svg'),
+          'Hiring': require('@/assets/images/icons/hiring-badge.svg'),
         }
       }
     }
