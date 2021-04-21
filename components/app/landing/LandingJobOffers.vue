@@ -37,7 +37,7 @@
 <NuxtLink to="/job-overview">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">{{ $t('landing.job_offers.link_text') }}</p>
-        <img src="@/assets/images/icons/check-out.png" alt="">
+        <img src="@/assets/images/landing/check-out.svg" alt="">
       </div>
 </NuxtLink>
 </LandingSectionContainer>
@@ -56,11 +56,11 @@ export default {
       return {
         projects: [
           {
-            title: 'poseidon',
+            title: 'pearl',
             job: 'Data analyst',
             description: 'Data analyst which is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon.png'),
+            imageURL: require('@/assets/images/logo/pearl-logo.svg'),
             loan: "50000€ - 60000€"
           },
           {
@@ -72,19 +72,19 @@ export default {
             loan: "20000€ - 30000€"
           },
           {
-            title: 'poseidon',
+            title: 'jellyfish',
             job: 'Content creator',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
             loan: "10000€ - 90000€"
           },
           {
-            title: 'poseidon',
+            title: 'network',
             job: 'Rocket Scientist',
             description: 'Data analyst who is on track with registring new data assets and maintaining them aswell.',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon-network.png'),
             loan: "50000€ - 60000€"
           },    
         ],

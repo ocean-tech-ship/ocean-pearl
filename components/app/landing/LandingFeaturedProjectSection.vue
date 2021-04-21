@@ -51,7 +51,7 @@
               <p class="small-text mr-2 text-primary">
                 {{ $t('landing.featured_projects.checkOut') }}
               </p>
-              <img src="@/assets/images/icons/check-out.png" alt="" />
+              <img src="@/assets/images/landing/check-out.svg" alt="" />
             </div>
           </div>
         </NuxtLink>
@@ -62,7 +62,7 @@
         <p class="mr-2 text-primary">
           {{ $t('landing.featured_projects.link_text') }}
         </p>
-        <img src="@/assets/images/icons/check-out.png" alt="" />
+        <img src="@/assets/images/landing/check-out.svg" alt="" />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
@@ -81,7 +81,15 @@ export default {
     return {
       projects: [
         {
-          title: 'Parsiq',
+          title: 'Ocean Pearl',
+          category: 'LoFi',
+          description:
+            'This is a nice project. It does so nice things. And this so leave some love and like this description.',
+          projectTarget: '',
+          imageURL: require('@/assets/images/logo/pearl-logo.svg'),
+        },
+        {
+          title: 'Network',
           category: 'LoFi',
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
@@ -89,28 +97,20 @@ export default {
           imageURL: require('@/assets/images/poseidon-network.png'),
         },
         {
-          title: 'Parsiq',
+          title: 'Poseidon',
           category: 'LoFi',
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
-          imageURL: require('@/assets/images/poseidon-network.png'),
+          imageURL: require('@/assets/images/poseidon.png'),
         },
         {
-          title: 'Parsiq',
+          title: 'Jellyfish',
           category: 'LoFi',
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
-          imageURL: require('@/assets/images/poseidon-network.png'),
-        },
-        {
-          title: 'Parsiq',
-          category: 'LoFi',
-          description:
-            'This is a nice project. It does so nice things. And this so leave some love and like this description.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon-network.png'),
+          imageURL: require('@/assets/images/jellyfish.png'),
         },
       ],
     }

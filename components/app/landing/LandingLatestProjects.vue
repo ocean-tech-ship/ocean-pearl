@@ -24,7 +24,7 @@
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6 mb-32">
         <p class="mr-2 text-primary">{{ $t('landing.latest_projects.link_text') }}</p>
-        <img src="@/assets/images/icons/check-out.png" alt="arrow">
+        <img src="@/assets/images/landing/check-out.svg" alt="arrow">
       </div>
     </NuxtLink>
   </LandingSectionContainer>
@@ -50,35 +50,35 @@
             imageURL: require('@/assets/images/poseidon-network.png'),
           },
           {
-            title: 'GreenSquare',
+            title: 'Poseidon',
             category: 'LoFi',
             createdAt: '2h ago',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon-network.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
           },
           {
-            title: 'GreenSquare',
+            title: 'Jellyfish',
             category: 'LoFi',
             createdAt: '8h ago',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon-network.png'),
+            imageURL: require('@/assets/images/jellyfish.png'),
           },
           {
-            title: 'GreenSquare',
+            title: 'Pearl',
             category: 'LoFi',
             createdAt: '1 day ago',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon-network.png'),
+            imageURL: require('@/assets/images/logo/pearl-logo.svg'),
           },
           {
-            title: 'GreenSquare',
+            title: 'Poseidon',
             category: 'LoFi',
             createdAt: '9h ago',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon-network.png'),
+            imageURL: require('@/assets/images/poseidon.png'),
           },
           {
-            title: 'GreenSquare',
+            title: 'Network',
             category: 'LoFi',
             createdAt: '1 month ago',
             projectTarget: '',
