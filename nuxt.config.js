@@ -1,4 +1,7 @@
 export default {
+
+  ssr: process.env.NODE_ENV === 'development' ? false : true,
+
   tailwindcss: {
     cssPath: '~/assets/style/main.scss',
     configPath: 'tailwind.config.js',
