@@ -70,6 +70,7 @@
 
 <script>
 import LandingSectionContainer from './LandingSectionContainer'
+import { getProjects } from '@/api.js'
 
 export default {
   name: 'LandingFeaturedProjectSection',
