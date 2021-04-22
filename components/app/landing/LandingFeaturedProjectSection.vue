@@ -83,7 +83,7 @@ export default {
       projects: [],
     }
   },
-  async created() {
+  async fetch() {
     this.projects = (await getProjects()).slice(0, 4)
   },
 }

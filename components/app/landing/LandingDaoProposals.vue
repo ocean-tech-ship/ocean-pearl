@@ -68,7 +68,7 @@ export default {
       ],
     }
   },
-  async created() {
+  async fetch() {
     this.daoProposals = (await getDaoProposals()).slice(0, 5)
   },
 }

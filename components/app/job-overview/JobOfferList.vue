@@ -49,7 +49,7 @@ export default {
       jobs: [],
     }
   },
-  async created() {
+  async fetch() {
     this.jobs = await getJobs()
   },
 }

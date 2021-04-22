@@ -66,7 +66,7 @@ export default {
       jobs: [],
     }
   },
-  async created() {
+  async fetch() {
     this.jobs = (await getJobs()).slice(0, 4)
   },
 }
