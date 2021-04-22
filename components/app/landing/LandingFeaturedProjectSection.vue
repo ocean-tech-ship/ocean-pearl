@@ -33,7 +33,7 @@
               <div class="mr-3">
                 <img
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  :src="project.imageURL"
+                  :src="project.logo"
                   :alt="project.title"
                 />
               </div>
