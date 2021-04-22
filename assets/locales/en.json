@@ -1,4 +1,8 @@
 {
+    "global":{
+        "fetchingLoading":"Loading...",
+        "fetchingError":"An error occurred :("
+    },
     "landing":{
         "hero":{
             "titlePart1":"We are on track with the newest ",

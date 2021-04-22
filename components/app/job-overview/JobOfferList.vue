@@ -1,5 +1,7 @@
 <template>
   <LandingSectionContainer>
+    <p v-if="$fetchState.pending">{{ $t('global.fetchingLoading') }}</p>
+    <p v-else-if="$fetchState.error">{{ $t('global.fetchingError') }}</p>
     <div
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12"
     >
