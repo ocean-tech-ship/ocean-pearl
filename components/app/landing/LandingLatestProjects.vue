@@ -35,10 +35,8 @@
     </div>
     <NuxtLink to="/project-overview">
       <div class="flex items-center mt-6 mb-32">
-        <p class="mr-2 text-primary">
-          {{ $t('landing.latest_projects.link_text') }}
-        </p>
-        <img src="@/assets/images/icons/check-out.png" alt="arrow" />
+        <p class="mr-2 text-primary">{{ $t('landing.latest_projects.link_text') }}</p>
+        <img src="@/assets/images/landing/check-out.svg" alt="arrow">
       </div>
     </NuxtLink>
   </LandingSectionContainer>

@@ -44,10 +44,8 @@
     </div>
     <NuxtLink to="/job-overview">
       <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">
-          {{ $t('landing.job_offers.link_text') }}
-        </p>
-        <img src="@/assets/images/icons/check-out.png" alt="" />
+        <p class="mr-2 text-primary">{{ $t('landing.job_offers.link_text') }}</p>
+        <img src="@/assets/images/landing/check-out.svg" alt="">
       </div>
     </NuxtLink>
   </LandingSectionContainer>
