@@ -10,7 +10,7 @@ export default {
     },
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.',
-    logo: require('@/assets/images/project-logos/poseidon-network.png'),
+    logo: require('@/assets/images/poseidon-network.png'),
     startDate: '12. Nov 2021 12PM',
     endDate: '12. Nov 2021 12PM',
     category: 'Category1',

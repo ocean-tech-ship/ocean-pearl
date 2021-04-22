@@ -11,7 +11,7 @@ export default {
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.',
     website: 'https://oceanprotocol.com/',
-    logo: require('@/assets/images/project-logos/poseidon-network.png'),
+    logo: require('@/assets/images/poseidon-network.png'),
     pictures: ['@/assets/images/poseidon-cover.png'],
     category: 'Category1',
     createdAt: '1 month ago'

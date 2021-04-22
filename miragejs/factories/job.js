@@ -12,7 +12,7 @@ export default {
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.',
     position: 'Data Analyst',
     website: 'https://oceanprotocol.com/',
-    logo: require('@/assets/images/project-logos/poseidon-network.png'),
+    logo: require('@/assets/images/poseidon-network.png'),
     pictures: ['@/assets/images/poseidon-cover.png'],
     salary: '50000€ - 60000€',
     company: 'Company',
