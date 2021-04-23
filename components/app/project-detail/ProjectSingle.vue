@@ -2,9 +2,9 @@
   <div>
     <div class="bg-grey py-8">
       <LandingSectionContainer>
-        <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
+        <div class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 lg:grid-flow-col gap-10">
           <div class="shadow rounded-md">
-            <img class="self-center align-center" src="@/assets/images/detail/poseidon-cover.png"
+            <img class="w-full h-100 self-center align-center" src="@/assets/images/detail/poseidon-cover.png"
               alt="poseidon network cover" />
           </div>
           <div>
@@ -85,11 +85,12 @@
           </div>
         </div>
         <h4 class="mt-24">DAO <span class="text-primary">proposal</span></h4>
-        <div class="flex content-center space-x-40 mt-8">
+        <div class="block lg:flex justify-between content-center mt-8">
+          <div class="space-y-5 md:flex md:space-x-40">
           <div>
             <div class="flex">
               <img
-                class="mr-1 py-2"
+                class="mr-1"
                 src="@/assets/images/icons/start-fund.svg"
                 alt="funding-start"
               />
@@ -111,7 +112,7 @@
           <div>
             <div class="flex">
               <img
-                class="mr-1 py-2"
+                class="mr-1"
                 src="@/assets/images/icons/fund-round.svg"
                 alt="funding-round"
               />
@@ -119,7 +120,8 @@
             </div>
             <p class="small-text">Round 3</p>
           </div>
-          <div class="pl-16 mt-4">
+          </div>
+          <div class="mt-4">
             <AppButtonStyle
               :icon="require('@/assets/images/detail/fund-here.svg')"
               :text="$t('project_detail.fundHereButton')"
