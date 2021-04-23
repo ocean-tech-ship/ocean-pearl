@@ -17,7 +17,7 @@
     "test_ci": "yarn test --ci"
   },
   "dependencies": {
-    "core-js": "^3.10.1",
+    "core-js": "^3.11.0",
     "nuxt": "^2.15.4",
     "nuxt-i18n": "^6.25.0"
   },
