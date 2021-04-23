@@ -21,7 +21,7 @@
         <p class="small-text">17.03.21</p>
       </div>
     </div>
-    <div>
+    <div class="hidden md:block">
       <AppButton :icon="require('@/assets/images/detail/copy-link.svg')" text="copy link" />
     </div>
   </div>
