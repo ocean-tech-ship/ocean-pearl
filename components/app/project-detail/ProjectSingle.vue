@@ -101,7 +101,7 @@
           <div>
             <div class="flex">
               <img
-                class="mr-1 py-2"
+                class="mr-1"
                 src="@/assets/images/icons/finish-fund.svg"
                 alt="funding-finish"
               />
