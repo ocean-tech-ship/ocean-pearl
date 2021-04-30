@@ -2,7 +2,7 @@
   <LandingSectionContainer class="my-32">
     <h2>{{ $t('landing.latest_projects.title') }} <span class="text-primary">{{ $t('landing.latest_projects.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
       <NuxtLink to="/project-overview">
       <div class="shadow p-4 pb-12 text-center">
@@ -11,7 +11,7 @@
             :src="project.imageURL" :alt="project.title" />
         </div>
         <div class="mt-4">
-          <p class="text-primary p-line-head">{{project.title}}</p>
+          <p class="text-primary p-line-head">{{project.title | truncate(14)}}</p>
           <p class="small-text">{{project.category}}</p>
         </div>
         <div class="mt-4 flex place-content-center">
@@ -43,7 +43,7 @@
       return {
         projects: [
           {
-            title: 'GreenSquare',
+            title: 'GreenSquareExample',
             category: 'LoFi',
             createdAt: '2h ago',
             projectTarget: '',
@@ -76,13 +76,6 @@
             createdAt: '9h ago',
             projectTarget: '',
             imageURL: require('@/assets/images/poseidon.png'),
-          },
-          {
-            title: 'Network',
-            category: 'LoFi',
-            createdAt: '1 month ago',
-            projectTarget: '',
-            imageURL: require('@/assets/images/poseidon-network.png'),
           },
         ],
       }
