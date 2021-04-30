@@ -38,13 +38,14 @@
                 />
               </div>
               <div>
-                <p class="text-primary thin-heading">{{ project.title }}</p>
-                <p class="small-text mt-2">{{ project.category }}</p>
+                <p class="text-primary p-line-head truncate">{{ project.title | truncate(18) }}</p>
               </div>
+              
             </div>
+            <p class="small-text mt-2 text-primary">{{ project.category }}</p>
             <div>
               <p class="small-text mt-4">
-                {{ project.description }}
+                {{ project.description | truncate(90)}}
               </p>
             </div>
             <div class="justify-self-end flex items-center mt-8">
@@ -90,15 +91,15 @@ export default {
         },
         {
           title: 'Network',
-          category: 'LoFi',
+          category: 'Finance',
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
           imageURL: require('@/assets/images/poseidon-network.png'),
         },
         {
-          title: 'Poseidon',
-          category: 'LoFi',
+          title: 'Poseidon Network',
+          category: 'DeFi',
           description:
             'This is a nice project. It does so nice things. And this so leave some love and like this description.',
           projectTarget: '',
