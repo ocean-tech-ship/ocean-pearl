@@ -18,9 +18,11 @@
             <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/project-overview">{{ $t('navbar.navbarLink1') }}</NuxtLink>
             </li>
+            <!--
             <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/job-overview">{{ $t('navbar.navbarLink2') }}</NuxtLink>
             </li>
+            -->
           </ul>
         </div>
     </template>

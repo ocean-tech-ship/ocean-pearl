@@ -2,7 +2,7 @@
   <LandingSectionContainer class="my-32">
     <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary">{{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
         <NuxtLink to="/project-overview">
           <div class="shadow p-8">
@@ -14,7 +14,7 @@
                      />
               </div>
               <div>
-                <p class="text-primary p-line-head">{{project.title}}</p>
+                <p class="text-primary p-line-head">{{project.title | truncate(14)}}</p>
                 <p class="small-text">{{project.category}}</p>
               </div>
             </div>
@@ -91,23 +91,15 @@
             fundRound: '2'
           },
           {
-            title: 'DataDAO',
-            category: 'Finance',
-            projectTarget: '',
-            imageURL: require('@/assets/images/dataDao.png'),
-            startDate: '12. Nov 2021 12PM',
-            endDate: '12. Nov 2021 12PM',
-            fundRound: '2'
-          },
-          {
             title: 'Poseidon',
-            category: 'WiFi',
+            category: 'SciFi',
             projectTarget: '',
-            imageURL: require('@/assets/images/poseidon.png'),
+            imageURL: require('@/assets/images/poseidon-network.png'),
             startDate: '12. Nov 2021 12PM',
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
           },
+          
         ],
       }
     },
