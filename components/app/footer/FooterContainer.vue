@@ -7,7 +7,7 @@
         <img
           v-if="item.id === 'supreme'"
           :src="item.icon"
-          alt="_ocean_pearl_logo"
+          alt="ocean pearl logo"
           class="w-10 h-10 mx-5 block"
         />
         <footer-item v-else :to="item.route" :src="item.icon" :ext="item.ext">
@@ -21,14 +21,10 @@
 </template>
 
 <script>
-import oceanPearl from '../../../assets/icons/footer/ocean_pearl_footer_logo.png'
-import discord from '../../../assets/icons/footer/discord_footer.png'
-import twitter from '../../../assets/icons/footer/twitter_footer.png'
-import telegram from '../../../assets/icons/footer/telegram_footer.png'
-import protocol from '../../../assets/icons/footer/protocol_footer.png'
-import whitePaper from '../../../assets/icons/footer/white_paper_footer.png'
+import Vue from 'vue'
 import FooterItem from './FooterItem.vue'
-export default {
+
+export default Vue.extend({
   components: { FooterItem },
   data: () => ({
     footerItems: [
@@ -41,47 +37,47 @@ export default {
       {
         id: 1,
         name: 'Twitter',
-        icon: twitter,
+        icon: require('@/assets/icons/footer/twitter_footer.svg'),
         route: 'https://t.co/handle',
         ext: true,
       },
       {
         id: 2,
         name: 'Telegram',
-        icon: telegram,
+        icon: require('@/assets/icons/footer/telegram_footer.svg'),
         route: 'https://t.co/handle',
         ext: true,
       },
       {
         id: 'supreme',
         name: '',
-        icon: oceanPearl,
+        icon: require('@/assets/icons/footer/ocean_pearl_footer_logo.svg'),
         route: '/',
       },
       {
         id: 3,
         name: 'Protocol',
-        icon: protocol,
+        icon: require('@/assets/icons/footer/protocol_footer.svg'),
         route: 'https://t.co/handle',
         ext: true,
       },
       {
         id: 4,
         name: 'Whitepaper',
-        icon: whitePaper,
+        icon: require('@/assets/icons/footer/white_paper_footer.svg'),
         route: 'https://t.co/handle',
         ext: true,
       },
       {
         id: 5,
         name: 'Discord',
-        icon: discord,
+        icon: require('@/assets/icons/footer/discord_footer.svg'),
         route: 'https://t.co/handle',
         ext: true,
       },
     ],
   }),
-}
+})
 </script>
 
 <style></style>
