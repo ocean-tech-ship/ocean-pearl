@@ -1,0 +1,80 @@
+{
+    "landing":{
+        "hero":{
+            "titlePart1":"We are on track with the newest ",
+            "titleHighlight":"projects ",
+            "titlePart2":"powered by the ocean protocol.",
+            "text":"An absolute random example of some text being randomly put together to make it look like someone has written something meaningful already.",
+            "buttonText":"Explore"
+        },
+        "pearl_space":{
+            "title":"Pearl ",
+            "titleHighlight":"space",
+            "text":"These are the main features of ocean pearl."
+        },
+        "featured_projects":{
+            "title":"Featured ",
+            "titleHighlight":"projects",
+            "text":"A handpicked collection of our favourite projects at the moment.",
+            "secondTitle":"2021 listed",
+            "secondTitleHighlight":"projects",
+            "checkOut":"check out",
+            "link_text":"See all featured projects"
+        },
+        "dao_proposals":{
+            "title":"DAO ",
+            "titleHighlight":"proposals",
+            "text":"These projects are currently waiting or applying for a DAO funding.",
+            "link_text":"See all listed projects"
+        },
+        "job_offers":{
+            "title":"Job ",
+            "titleHighlight":"offers",
+            "text":"These ocean projects are currently hiring in the web 3 space",
+            "link_text":"See all listed jobs"
+        },
+        "latest_projects":{
+            "title":"Latest ",
+            "titleHighlight":"projects",
+            "text":"The listed projects shown were added by members of the community.",
+            "link_text":"See all listed projects"
+        }
+    },
+    "projects":{
+        "header":{
+            "title":"Project ",
+            "titleHighlight":"overview",
+            "text":"See what the community has to offer."
+        },
+        "status":{
+            "dropDown1":"Latest",
+            "dropDown2":"Category"
+        }
+    },
+    "jobs":{
+        "header":{
+            "title":"Job ",
+            "titleHighlight":"offers",
+            "text":"Find out which companys are currently looking for your support."
+        },
+        "status":{
+            "dropDown1":"Latest",
+            "dropDown2":"Category"
+        }
+    },
+    "navbar":{
+        "logoText":"Ocean Pearl",
+        "navbarLinkDefault":"Home",
+        "navbarLink1":"Projects",
+        "navbarLink2":"Jobs"
+    },
+    "project_detail":{
+        "fundHereButton":"fund here",
+        "openPositions":{
+            "title":"Open",
+            "titleHighlight":"positions",
+            "addedOn":"added on"
+        }
+    }
+
+}

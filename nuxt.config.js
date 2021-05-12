@@ -1,14 +1,14 @@
 export default {
   tailwindcss: {
-    cssPath: '~/assets/style/main.css',
+    cssPath: '~/assets/style/main.scss',
     configPath: 'tailwind.config.js',
   },
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'ocean-pearl',
+    title: 'Ocean Pearl',
     htmlAttrs: {
       lang: 'en',
     },
@@ -17,14 +17,14 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [{ src: "~/plugins/vue-globals", ssr: true }], 
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -38,7 +38,21 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    'nuxt-i18n',
+  ],
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        name: "English",
+        file: "en.json",
+      }
+    ],
+    lazy: true,
+    langDir: "~/assets/locales/",
+    defaultLocale: "en",
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
