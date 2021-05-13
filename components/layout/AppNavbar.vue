@@ -10,7 +10,7 @@
         </NuxtLink>
          <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
              <NuxtLink to="/project-overview">{{ $t('navbar.navbarLink1') }}</NuxtLink>
-             <NuxtLink to="/job-overview">{{ $t('navbar.navbarLink2') }}</NuxtLink>
+             <!--<NuxtLink to="/job-overview">{{ $t('navbar.navbarLink2') }}</NuxtLink>-->
          </div>
          <div class="md:hidden"> 
            <button-with-dropdown />
