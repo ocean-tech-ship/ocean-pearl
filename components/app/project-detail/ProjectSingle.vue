@@ -86,7 +86,7 @@
         </div>
         <h4 class="mt-24">DAO <span class="text-primary">proposal</span></h4>
         <div class="block lg:flex justify-between content-center mt-8">
-          <div class="space-y-5 md:flex md:space-x-40">
+          <div class="md:flex md:space-x-40">
           <div>
             <div class="flex">
               <img
