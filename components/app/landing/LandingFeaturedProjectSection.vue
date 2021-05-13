@@ -28,7 +28,7 @@
 
       <div v-for="project in projects" :key="project.title">
         <NuxtLink to="/project-overview">
-          <div class="shadow p-8 grid h-full overflow-hidden">
+          <div class="shadow p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
                 <img

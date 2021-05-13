@@ -5,7 +5,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
       <NuxtLink to="/project-overview">
-      <div class="shadow p-4 pb-12 text-center">
+      <div class="shadow p-4 pb-12 h-275px text-center">
         <div class="mt-3">
           <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
             :src="project.imageURL" :alt="project.title" />
