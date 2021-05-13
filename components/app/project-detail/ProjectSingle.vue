@@ -2,10 +2,15 @@
   <div>
     <div class="bg-grey py-8">
       <LandingSectionContainer>
-        <div class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 lg:grid-flow-col gap-10">
+        <div
+          class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 lg:grid-flow-col gap-10"
+        >
           <div class="shadow rounded-md">
-            <img class="w-full h-100 self-center align-center" src="@/assets/images/detail/poseidon-cover.png"
-              alt="poseidon network cover" />
+            <img
+              class="w-full h-100 self-center align-center"
+              src="@/assets/images/detail/poseidon-cover.png"
+              alt="poseidon network cover"
+            />
           </div>
           <div>
             <div>
@@ -18,7 +23,11 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.svg" alt="website" />
+                <img
+                  class="w-4 h-4 mt-1 mr-2"
+                  src="@/assets/images/detail/website.svg"
+                  alt="website"
+                />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -29,7 +38,11 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/discord.svg" alt="website" />
+                <img
+                  class="w-4 h-4 mt-1 mr-2"
+                  src="@/assets/images/detail/discord.svg"
+                  alt="website"
+                />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -40,7 +53,11 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/facebook.svg" alt="website" />
+                <img
+                  class="w-4 h-4 mt-1 mr-2"
+                  src="@/assets/images/detail/facebook.svg"
+                  alt="website"
+                />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -51,7 +68,11 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/linkedIn.svg" alt="website" />
+                <img
+                  class="w-4 h-4 mt-1 mr-2"
+                  src="@/assets/images/detail/linkedIn.svg"
+                  alt="website"
+                />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -62,7 +83,11 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/github.svg" alt="website" />
+                <img
+                  class="w-4 h-4 mt-1 mr-2"
+                  src="@/assets/images/detail/github.svg"
+                  alt="website"
+                />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -73,7 +98,11 @@
             </div>
             <div class="flex mt-4">
               <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.svg" alt="website" />
+                <img
+                  class="w-4 h-4 mt-1 mr-2"
+                  src="@/assets/images/detail/website.svg"
+                  alt="website"
+                />
                 <p class="small-text">website</p>
               </div>
               <div class="ml-12">
@@ -84,43 +113,56 @@
             </div>
           </div>
         </div>
+
+        <!-- DAO proposal -->
         <h4 class="mt-24">DAO <span class="text-primary">proposal</span></h4>
         <div class="block lg:flex justify-between content-center mt-8">
           <div class="space-y-5 md:flex md:space-x-40">
-          <div>
-            <div class="flex">
-              <img
-                class="mr-1"
-                src="@/assets/images/icons/start-fund.svg"
-                alt="funding-start"
-              />
-              <p class="text-primary">Start</p>
+            <!-- Start Date -->
+            <div>
+              <div class="flex">
+                <img
+                  class="mr-1"
+                  src="@/assets/images/icons/start-fund.svg"
+                  alt="funding-start"
+                />
+                <p class="text-primary">Start</p>
+              </div>
+
+              <p class="small-text">12.03.21</p>
             </div>
-            <p class="small-text">12.03.21</p>
-          </div>
-          <div>
-            <div class="flex">
-              <img
-                class="mr-1"
-                src="@/assets/images/icons/finish-fund.svg"
-                alt="funding-finish"
-              />
-              <p class="text-primary">Finish</p>
+
+            <!-- Finish Date -->
+            <div>
+              <div class="flex">
+                <img
+                  class="mr-1"
+                  src="@/assets/images/icons/finish-fund.svg"
+                  alt="funding-finish"
+                />
+
+                <p class="text-primary">Finish</p>
+              </div>
+
+              <p class="small-text">18.03.21</p>
             </div>
-            <p class="small-text">18.03.21</p>
-          </div>
-          <div>
-            <div class="flex">
-              <img
-                class="mr-1"
-                src="@/assets/images/icons/fund-round.svg"
-                alt="funding-round"
-              />
-              <p class="text-primary">Fund round</p>
+
+            <!-- Fund round -->
+            <div>
+              <div class="flex">
+                <img
+                  class="mr-1"
+                  src="@/assets/images/icons/fund-round.svg"
+                  alt="funding-round"
+                />
+
+                <p class="text-primary">Fund round</p>
+              </div>
+
+              <p class="small-text">Round 3</p>
             </div>
-            <p class="small-text">Round 3</p>
           </div>
-          </div>
+
           <div class="mt-4">
             <AppButtonStyle
               :icon="require('@/assets/images/detail/fund-here.svg')"
@@ -192,10 +234,10 @@
 </template>
 
 <script>
-import LandingSectionContainer from '../landing/LandingSectionContainer'
-import ProjectSingleHeader from './ProjectSingleHeader'
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink'
+import LandingSectionContainer from '../landing/LandingSectionContainer'
+import ProjectSingleHeader from './ProjectSingleHeader'
 
 export default {
   name: 'ProjectSingle',
@@ -204,7 +246,7 @@ export default {
     LandingSectionContainer,
     ProjectSingleHeader,
     AppButtonStyle,
-    AppLink
+    AppLink,
   },
   data() {
     return {
