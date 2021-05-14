@@ -4,7 +4,7 @@
 
     <div class="flex flex-col justify-between md:flex-row mt-8">
       <!-- Start Date -->
-      <div class="flex justify-between md:flex-col">
+      <div class="flex justify-between my-1 md:flex-col">
         <div class="flex">
           <img
             class="mr-1"
@@ -19,7 +19,7 @@
       </div>
 
       <!-- Finish Date -->
-      <div class="flex justify-between md:flex-col">
+      <div class="flex justify-between my-1 md:flex-col">
         <div class="flex">
           <img
             class="mr-1"
@@ -34,7 +34,7 @@
       </div>
 
       <!-- Fund Round -->
-      <div class="flex justify-between md:flex-col">
+      <div class="flex justify-between my-1 md:flex-col">
         <div class="flex">
           <img
             class="mr-1"
@@ -49,7 +49,7 @@
       </div>
 
       <!-- Fund Action -->
-      <div class="mt-4">
+      <div class="mt-5">
         <AppButtonStyle
           :icon="require('@/assets/images/detail/fund-here.svg')"
           :text="$t('project_detail.fundHereButton')"
