@@ -115,6 +115,7 @@
         </div>
 
         <project-single-dao-proposal
+          class="mt-24"
           start="12.03.21"
           finish="18.03.21"
           round="Round 3"

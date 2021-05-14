@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h4 class="mt-24">DAO <span class="text-primary">proposal</span></h4>
+    <h4>DAO <span class="text-primary">proposal</span></h4>
 
     <div class="flex flex-col justify-between md:flex-row mt-8">
       <!-- Start Date -->
