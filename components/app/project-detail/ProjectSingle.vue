@@ -131,6 +131,7 @@
     </div>
 
     <LandingSectionContainer>
+      <!--
       <h2 class="mt-16 thin-heading">
         {{ $t('project_detail.openPositions.title') }} <span class="text-primary">{{ $t('project_detail.openPositions.titleHighlight') }}</span>
       </h2>
@@ -184,7 +185,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
     </LandingSectionContainer>
   </div>
 </template>

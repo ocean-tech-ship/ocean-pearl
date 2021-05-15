@@ -7,30 +7,21 @@
       }}</span>
     </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6 gap-4 mt-10"
-    >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink to="/project-overview">
-          <div class="shadow p-4 pb-12 text-center">
-            <div class="mt-3">
-              <img
-                class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-                :src="project.logo"
-                :alt="project.title"
-              />
-            </div>
-            <div class="mt-4">
-              <p class="text-primary p-line-head">{{ project.title }}</p>
-              <p class="small-text">{{ project.category }}</p>
-            </div>
-            <div class="mt-4 flex place-content-center">
-              <p class="border small-text text-primary w-32">
-                {{ project.createdAt }}
-              </p>
-            </div>
-          </div>
-        </NuxtLink>
+      <NuxtLink to="/project-overview">
+      <div class="shadow p-4 pb-12 h-275px text-center">
+        <div class="mt-3">
+          <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
+            :src="project.logo" :alt="project.title" />
+        </div>
+        <div class="mt-4">
+          <p class="text-primary p-line-head">{{project.title | truncate(14)}}</p>
+          <p class="small-text">{{project.category}}</p>
+        </div>
+        <div class="mt-4 flex place-content-center">
+          <p class="border small-text text-primary w-32">{{project.createdAt}}</p>
+        </div>
       </div>
     </div>
     <NuxtLink to="/project-overview">

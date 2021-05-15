@@ -2,10 +2,10 @@
   <LandingSectionContainer class="my-32">
     <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary">{{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-10">
-     <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10">
+      <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <NuxtLink to="/project-overview">
-          <div class="shadow p-8">
+          <div class="shadow h-300px p-8">
             <div class="flex">
               <div class="mr-3">
                 <img
@@ -15,8 +15,8 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head">{{ daoProposal.title }}</p>
-                <p class="small-text">{{ daoProposal.category }}</p>
+                <p class="text-primary p-line-head">{{daoProposal.title | truncate(14)}}</p>
+                <p class="small-text">{{daoProposal.category}}</p>
               </div>
             </div>
             <div class="mt-5">

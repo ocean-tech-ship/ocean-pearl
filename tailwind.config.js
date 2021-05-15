@@ -19,7 +19,9 @@ module.exports = {
         '70px': '70px',
         '128px': '128px',
         '177px': '177px',
+        '225px': '225px',
         '275px': '275px',
+        '300px': '300px',
       },
     },
     screens: {
