@@ -50,6 +50,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-i18n',
+    '@nuxtjs/axios'
   ],
   i18n: {
     locales: [

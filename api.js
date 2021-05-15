@@ -1,33 +1,21 @@
-export function getProjects() {
-    return fetch(`${process.env.NUXT_ENV_BASE_URL}/api/projects`)
-      .then((res) => res.json())
-      .then((json) => {
-        return json.projects
-      })
+export function getProjects(axios) {
+  return axios.$get('https://oceanpear-api.herokuapp.com/project')
 }
 
-export function getProjectById(id) {
-  return fetch(`${process.env.NUXT_ENV_BASE_URL}/api/projects/${id}`)
-    .then((res) => res.json())
-    .then((json) => {
-      return json.project
-    })
+export function getFeaturedProjects(axios) {
+  return axios.$get(`https://oceanpear-api.herokuapp.com/project/featured`)
 }
 
-export function getJobs() {
-  return fetch(`${process.env.NUXT_ENV_BASE_URL}/api/jobs`)
-    .then((res) => res.json())
-    .then((json) => {
-      return json.jobs
-    })
+export function getProjectById(axios, id) {
+  return axios.$get(`https://oceanpear-api.herokuapp.com/project/detail/${id}`)
 }
 
-export function getDaoProposals() {
-  return fetch(`${process.env.NUXT_ENV_BASE_URL}/api/daoproposals`)
-    .then((res) => res.json())
-    .then((json) => {
-      return json.daoproposals
-    })
+
+
+export function getJobs(axios) {
+}
+
+export function getDaoProposals(axios) {
 }
 
 

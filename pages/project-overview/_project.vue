@@ -1,6 +1,5 @@
 <template>
   <div>
-    
     <project-single-header :project="this.projectObj" />
     <project-single :project="this.projectObj" />
   </div>
@@ -14,19 +13,17 @@ import ProjectSingle from '~/components/app/project-detail/ProjectSingle.vue'
 import { getProjectById } from '@/api.js'
 
 export default Vue.extend({
-
-  name: "ProjectDetail",
+  name: 'ProjectDetail',
   components: {
     ProjectSingle,
-    ProjectSingleHeader
+    ProjectSingleHeader,
   },
 
-  async asyncData({ params }) {
-      const projectObj = await getProjectById(params.project)
-      return { projectObj }
-    }
+  async asyncData({ $axios, params }) {
+    const projectObj = await getProjectById($axios, params.project)
+    return { projectObj }
+  }
 })
 </script>
 
-<style>
-</style>
+<style></style>
