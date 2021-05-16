@@ -27,7 +27,7 @@
       </div>
 
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink to="/project-overview">
+        <AppLink :to="`/project-overview/${project._id}`">
           <div class="shadow p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
@@ -55,7 +55,7 @@
               <img src="@/assets/images/landing/check-out.svg" alt="" />
             </div>
           </div>
-        </NuxtLink>
+        </AppLink>
       </div>
     </div>
     <NuxtLink to="/project-overview">
@@ -71,21 +71,24 @@
 
 <script>
 import LandingSectionContainer from './LandingSectionContainer'
-import { getProjects } from '@/api.js'
+import AppLink from '@/components/common/AppLink'
+import { getFeaturedProjects } from '@/api.js'
 
 export default {
   name: 'LandingFeaturedProjectSection',
 
   components: {
     LandingSectionContainer,
+    AppLink
   },
   data() {
     return {
       projects: [],
     }
   },
-  async fetch() {
-    this.projects = (await getProjects()).slice(0, 4)
+ async fetch() {
+    const projects = await getFeaturedProjects(this.$axios)
+    this.projects = projects
   },
 }
 </script>
