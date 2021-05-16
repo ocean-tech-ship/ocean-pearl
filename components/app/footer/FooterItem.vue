@@ -1,18 +1,24 @@
 <template>
   <div>
-    <nuxt-link v-if="!ext" :to="to">
+    <nuxt-link v-if="!item.ext" :to="item.route">
       <div class="flex items-center justify-center gap-4">
+        <img
+          v-if="item.icon"
+          :src="item.icon"
+          :alt="`${item.name} logo`"
+          class="w-10 h-10"
+        />
         <p class="text-sm">
           <slot name="title" />
         </p>
       </div>
     </nuxt-link>
-    <a v-else :href="to" rel="noopener noreferrer" class="table">
+    <a v-else :href="item.route" rel="noopener noreferrer" class="table">
       <div class="flex items-center justify-center gap-1">
         <img
-          v-if="src"
-          :src="src"
-          alt="ocean pearl social link"
+          v-if="item.icon"
+          :src="item.icon"
+          :alt="`${item.name} logo`"
           class="w-6 h-6"
         />
         <p class="text-sm">
@@ -28,16 +34,9 @@ import Vue from 'vue'
 
 export default Vue.extend({
   props: {
-    to: {
-      type: String,
+    item: {
+      type: Object,
       required: true,
-    },
-    src: {
-      type: String,
-      default: null,
-    },
-    ext: {
-      type: Boolean,
     },
   },
 })

@@ -10,7 +10,7 @@
           :alt="`${item.name} logo`"
           class="w-10 h-10 mx-5 block"
         />
-        <footer-item v-else :to="item.route" :src="item.icon" :ext="item.ext">
+        <footer-item v-else :item="item">
           <template #title>
             {{ item.name }}
           </template>
@@ -50,7 +50,7 @@ export default Vue.extend({
       },
       {
         id: 'supreme',
-        name: '',
+        name: 'ocean pearl',
         icon: require('@/assets/icons/ocean_pearl_footer_logo.svg'),
         route: '/',
       },
