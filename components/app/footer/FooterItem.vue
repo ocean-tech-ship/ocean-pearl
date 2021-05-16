@@ -2,12 +2,6 @@
   <div>
     <nuxt-link v-if="!ext" :to="to">
       <div class="flex items-center justify-center gap-4">
-        <img
-          v-if="src"
-          src=""
-          alt="ocean pearl social link"
-          class="w-10 h-10"
-        />
         <p class="text-sm">
           <slot name="title" />
         </p>
