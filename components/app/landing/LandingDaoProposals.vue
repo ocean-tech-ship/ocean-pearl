@@ -3,7 +3,7 @@
     <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary">{{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10">
-      <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
+      <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <NuxtLink to="/project-overview">
           <div class="shadow h-300px p-8">
             <div class="flex">
@@ -53,7 +53,7 @@
   </LandingSectionContainer>
 </template>
 <script>
-import { getDaoProposals } from '~/api'
+//import { getFeaturedDaoProposals } from '~/api'
 import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
@@ -68,9 +68,11 @@ export default {
       ],
     }
   },
-  async fetch() {
-    this.daoProposals = (await getDaoProposals()).slice(0, 5)
-  },
+// TODO activate when backend delivers associeted project in the same response
+//  async fetch() {
+//     const daoProposals = await getFeaturedDaoProposals(this.$axios)
+//     this.daoProposals = daoProposals
+//   },
 }
 </script>
 
