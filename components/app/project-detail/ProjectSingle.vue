@@ -21,96 +21,38 @@
                 unused bandwidth.
               </p>
             </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/detail/website.svg"
-                  alt="website"
-                />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/detail/discord.svg"
-                  alt="website"
-                />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/detail/facebook.svg"
-                  alt="website"
-                />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/detail/linkedIn.svg"
-                  alt="website"
-                />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/detail/github.svg"
-                  alt="website"
-                />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img
-                  class="w-4 h-4 mt-1 mr-2"
-                  src="@/assets/images/detail/website.svg"
-                  alt="website"
-                />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
+
+            <table>
+              <project-single-link
+                :icon="require('@/assets/images/detail/website.svg')"
+                title="website"
+                url="https://poseidon.network/"
+              />
+
+              <project-single-link
+                :icon="require('@/assets/images/detail/discord.svg')"
+                title="discord"
+                url="https://poseidon.netowkr/"
+              />
+
+              <project-single-link
+                :icon="require('@/assets/images/detail/facebook.svg')"
+                title="facebook"
+                url="https://poseidon.network/"
+              />
+
+              <project-single-link
+                :icon="require('@/assets/images/detail/linkedIn.svg')"
+                title="linkedin"
+                url="https://poseidon.network/"
+              />
+
+              <project-single-link
+                :icon="require('@/assets/images/detail/github.svg')"
+                title="github"
+                url="https://poseidon.network/"
+              />
+            </table>
           </div>
         </div>
 
@@ -188,6 +130,7 @@ import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink'
 import LandingSectionContainer from '../landing/LandingSectionContainer'
 import ProjectSingleHeader from './ProjectSingleHeader'
+import ProjectSingleLink from '~/components/app/project-detail/ProjectSingleLink'
 import ProjectSingleDaoProposal from './ProjectSingleDaoProposal'
 
 export default {
@@ -196,6 +139,7 @@ export default {
   components: {
     LandingSectionContainer,
     ProjectSingleHeader,
+    ProjectSingleLink,
     ProjectSingleDaoProposal,
     AppButtonStyle,
     AppLink,
