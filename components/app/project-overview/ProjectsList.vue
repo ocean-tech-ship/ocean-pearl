@@ -29,6 +29,7 @@
       </div>
       </AppLink>
     </div>
+  </div>
   </LandingSectionContainer>
 </template>
 
