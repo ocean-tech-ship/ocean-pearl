@@ -24,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/vue-globals", ssr: true }], 
+  plugins: [{ src: "~/plugins/vue-globals", ssr: true }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -52,6 +52,14 @@ export default {
     lazy: true,
     langDir: "~/assets/locales/",
     defaultLocale: "en",
+  },
+
+  render: {
+    bundleRenderer: {
+      shouldPreload: (file, type) => {
+        return ['font'].includes(type)
+      }
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
