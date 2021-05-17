@@ -13,7 +13,7 @@
         </p>
       </div>
     </nuxt-link>
-    <a v-else :href="item.route" rel="noopener noreferrer" class="table">
+    <a v-else target="_blank" :href="item.route" rel="noopener noreferrer" class="table">
       <div class="flex items-center justify-center gap-1">
         <img
           v-if="item.icon"
