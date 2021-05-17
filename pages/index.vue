@@ -12,24 +12,22 @@
 <script lang="ts">
 import Vue from 'vue'
 import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue'
-//import LandingPearlSpaceSection from '@/components/app/landing/LandingPearlSpaceSection.vue'
+// import LandingPearlSpaceSection from '@/components/app/landing/LandingPearlSpaceSection.vue'
 import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vue'
 import LandingFeaturedProjectSection from '@/components/app/landing/LandingFeaturedProjectSection.vue'
-//import LandingJobOffers from '@/components/app/landing/LandingJobOffers.vue'
+// import LandingJobOffers from '@/components/app/landing/LandingJobOffers.vue'
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue'
-
 
 export default Vue.extend({
   components: {
     LandingHeroSection,
-    //LandingPearlSpaceSection,
+    // LandingPearlSpaceSection,
     LandingFeaturedProjectSection,
     LandingDaoProposals,
-    //LandingJobOffers,
-    LandingLatestProjects
+    // LandingJobOffers,
+    LandingLatestProjects,
   },
 })
 </script>
 
-<style>
-</style>
+<style></style>
