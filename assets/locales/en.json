@@ -1,4 +1,8 @@
 {
+  "general": {
+    "icon": "icon",
+    "logo": "logo"
+  },
   "jobs": {
     "header": {
       "text": "Find out which companys are currently looking for your support.",

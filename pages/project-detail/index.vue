@@ -1,6 +1,11 @@
 <template>
   <div>
-    <project-single-header />
+    <project-single-header
+      title="Parsiq"
+      category="DeFi"
+      submit="17.03.21"
+      :logo="require('@/assets/images/poseidon-network.png')"
+    />
     <project-single />
   </div>
 </template>

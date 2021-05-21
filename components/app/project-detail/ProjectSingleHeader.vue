@@ -1,17 +1,18 @@
 <template>
   <LandingSectionContainer>
     <div class="flex justify-between content-center">
-      <div class="flex">
-        <div class="mr-4">
+      <div class="flex items">
+        <div class="mr-4 w-12 h-12">
           <img
-            class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
-            src="@/assets/images/poseidon-network.png"
-            alt="Logo parsiq"
+            class="inline-block rounded-full ring-2 ring-white"
+            :src="logo"
+            :alt="$t('general.logo') + ' ' + title"
           />
         </div>
+
         <div class="mt-2">
-          <h1 class="text-primary thin-heading">Parsiq</h1>
-          <p class="mt-2">DeFi</p>
+          <h1 class="text-primary thin-heading" v-text="title" />
+          <p class="mt-2" v-text="category" />
         </div>
       </div>
       <div class="flex">
@@ -19,7 +20,7 @@
           <img
             class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
             src="@/assets/images/icons/rocket.svg"
-            alt="Icon rocket"
+            :alt="$t('general.icon') + ' rocket'"
           />
         </div>
         <div>
@@ -27,7 +28,7 @@
             class="text-primary small-text p-line-head"
             v-text="$t('project.added')"
           />
-          <p class="small-text">17.03.21</p>
+          <p class="small-text" v-text="submit" />
         </div>
       </div>
       <div class="hidden md:block">
@@ -46,9 +47,32 @@ import LandingSectionContainer from '../landing/LandingSectionContainer'
 
 export default {
   name: 'ProjectSingleHeader',
+
   components: {
     AppButton,
     LandingSectionContainer,
+  },
+
+  props: {
+    title: {
+      type: String,
+      required: true,
+    },
+
+    category: {
+      type: String,
+      required: true,
+    },
+
+    submit: {
+      type: String,
+      required: true,
+    },
+
+    logo: {
+      type: String,
+      required: true,
+    },
   },
 }
 </script>
