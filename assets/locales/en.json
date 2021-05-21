@@ -38,6 +38,12 @@
             "titleHighlight":"projects",
             "text":"The listed projects shown were added by members of the community.",
             "link_text":"See all listed projects"
+        },
+        "pearlx_dao":{
+            "title":"Ocean ",
+            "titleHighlight":"Pearl x DAO",
+            "text":"All infos about the current funding round of the Ocean Dao.",
+            "link_text":"See all listed projects"
         }
     },
     "projects":{
