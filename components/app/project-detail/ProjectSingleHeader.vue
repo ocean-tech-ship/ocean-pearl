@@ -23,14 +23,17 @@
           />
         </div>
         <div>
-          <p class="text-primary small-text p-line-head">added at</p>
+          <p
+            class="text-primary small-text p-line-head"
+            v-text="$t('project.added')"
+          />
           <p class="small-text">17.03.21</p>
         </div>
       </div>
       <div class="hidden md:block">
         <AppButton
           :icon="require('@/assets/images/detail/copy-link.svg')"
-          text="copy link"
+          :text="$t('project.copy')"
         />
       </div>
     </div>
