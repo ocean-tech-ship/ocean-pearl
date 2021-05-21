@@ -10,7 +10,6 @@ module.exports = {
     extend: {
       spacing: {
         auto: 'auto',
-        0: 0,
         '16px': '16px',
         '31px': '31px',
         '42px': '42px',
@@ -30,7 +29,7 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xl: '1200px',
-      '2xl':'1300px',
+      '2xl': '1300px',
       '3xl': '1600px',
     },
     colors: {
