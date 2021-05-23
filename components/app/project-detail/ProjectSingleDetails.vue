@@ -51,7 +51,7 @@
 <script>
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember'
-import ProjectSingleDetailsSocial from '~/components/app/project-detail/ProjectSingleDetailsSocial'
+import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
 
 export default {
   name: 'ProjectSingleDetails',

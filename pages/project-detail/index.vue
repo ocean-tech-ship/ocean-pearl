@@ -122,7 +122,7 @@ export default Vue.extend({
             },
           ],
         },
-        cover: require('~/assets/images/detail/poseidon-cover.png'),
+        cover: require('@/assets/images/detail/poseidon-cover.png'),
         socials: [
           {
             type: EnumSocial.WEBSITE,

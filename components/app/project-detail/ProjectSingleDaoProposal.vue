@@ -97,7 +97,7 @@
 
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
-import LandingSectionContainer from '~/components/app/landing/LandingSectionContainer'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 
 export default {
   name: 'ProjectSingleDaoProposal',

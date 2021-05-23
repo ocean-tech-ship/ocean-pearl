@@ -128,10 +128,10 @@
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink'
-import LandingSectionContainer from '../landing/LandingSectionContainer'
-import ProjectSingleHeader from './ProjectSingleHeader'
-import ProjectSingleLink from '~/components/app/project-detail/ProjectSingleLink'
-import ProjectSingleDaoProposal from './ProjectSingleDaoProposal'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader'
+import ProjectSingleLink from '@/components/app/project-detail/ProjectSingleLink'
+import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal'
 
 export default {
   name: 'ProjectSingle',
