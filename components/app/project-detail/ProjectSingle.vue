@@ -24,31 +24,31 @@
 
             <table>
               <project-single-link
-                :icon="require('@/assets/images/detail/website.svg')"
+                :icon="require('assets/images/social/website.svg')"
                 title="website"
                 url="https://poseidon.network/"
               />
 
               <project-single-link
-                :icon="require('@/assets/images/detail/discord.svg')"
+                :icon="require('assets/images/social/discord.svg')"
                 title="discord"
                 url="https://poseidon.netowkr/"
               />
 
               <project-single-link
-                :icon="require('@/assets/images/detail/facebook.svg')"
+                :icon="require('assets/images/social/facebook.svg')"
                 title="facebook"
                 url="https://poseidon.network/"
               />
 
               <project-single-link
-                :icon="require('@/assets/images/detail/linkedIn.svg')"
+                :icon="require('assets/images/social/linkedin.svg')"
                 title="linkedin"
                 url="https://poseidon.network/"
               />
 
               <project-single-link
-                :icon="require('@/assets/images/detail/github.svg')"
+                :icon="require('assets/images/social/github.svg')"
                 title="github"
                 url="https://poseidon.network/"
               />
