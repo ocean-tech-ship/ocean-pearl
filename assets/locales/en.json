@@ -63,7 +63,23 @@
   },
   "project": {
     "added": "addet at",
-    "copy": "copy project link"
+    "copy": "copy project link",
+    "description": "Description",
+    "proposal": {
+      "requested": "Requested Funding",
+      "round": "Funding Round",
+      "total": "Total Fundings",
+      "vote": "vote here",
+      "wallet": "Proposal Wallet Address"
+    },
+    "roi": {
+      "bang": "Bang",
+      "buck": "Buck",
+      "calculation": "Roughly estimated ROI over a year",
+      "success-chance": "Chance of Success",
+      "title": "ROI"
+    },
+    "team": "Team"
   },
   "project_detail": {
     "fundHereButton": "fund here",
