@@ -5,7 +5,6 @@
     <p>{{ $t('landing.pearlx_dao.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="card in daoInfoCards" :key="card.title">
-      <NuxtLink to="/project-overview">
       <div class="shadow p-4 pb-4">
           <div class="flex align-center">
               <div class="mr-3">
@@ -21,7 +20,6 @@
               </div>  
             </div>
       </div>
-      </NuxtLink>
      </div>
     </div>
   </LandingSectionContainer>
