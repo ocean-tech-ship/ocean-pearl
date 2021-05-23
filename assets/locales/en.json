@@ -22,10 +22,12 @@
             "link_text":"See all featured projects"
         },
         "dao_proposals":{
-            "title":"DAO ",
+            "title":"Open DAO ",
             "titleHighlight":"proposals",
             "text":"These projects are currently waiting or applying for a DAO funding.",
-            "link_text":"See all listed projects"
+            "link_text":"See all DAO projects",
+            "requestedAmount": "Requested Amount",
+            "ocean": "OCEAN"
         },
         "job_offers":{
             "title":"Job ",
