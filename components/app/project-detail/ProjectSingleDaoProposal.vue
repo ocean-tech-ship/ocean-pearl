@@ -61,9 +61,7 @@
       <div class="grid lg:flex lg:justify-end">
         <!-- Total Fundings -->
         <div>
-          <div
-            class="shadow rounded p-2 overflow-y-auto lg:max-h-52"
-          >
+          <div class="shadow rounded p-2 overflow-y-auto lg:max-h-52">
             <div class="flex items-center">
               <img
                 class="h-16px w-16px mr-2"
@@ -133,6 +131,4 @@ export default {
 }
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
