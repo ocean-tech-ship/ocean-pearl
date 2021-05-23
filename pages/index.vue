@@ -6,7 +6,7 @@
     <landing-dao-proposals />
     <!--<landing-job-offers />-->
     <landing-latest-projects />
-    <landing-pearlx-Dao />
+    <landing-pearl-dao />
   </div>
 </template>
 
@@ -18,7 +18,7 @@ import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vu
 import LandingFeaturedProjectSection from '@/components/app/landing/LandingFeaturedProjectSection.vue'
 // import LandingJobOffers from '@/components/app/landing/LandingJobOffers.vue'
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue'
-import LandingPearlxDao from '@/components/app/landing/LandingPearlxDao.vue'
+import LandingPearlDao from '~/components/app/landing/LandingPearlDao.vue'
 
 export default Vue.extend({
   components: {
@@ -28,7 +28,7 @@ export default Vue.extend({
     LandingDaoProposals,
     // LandingJobOffers,
     LandingLatestProjects,
-    LandingPearlxDao
+    LandingPearlDao
   },
 })
 </script>

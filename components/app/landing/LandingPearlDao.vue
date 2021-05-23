@@ -29,7 +29,7 @@
   import LandingSectionContainer from './LandingSectionContainer'
 
   export default {
-    name: 'LandingPearlxDao',
+    name: 'LandingPearlDao',
 
     components: {
       LandingSectionContainer,
