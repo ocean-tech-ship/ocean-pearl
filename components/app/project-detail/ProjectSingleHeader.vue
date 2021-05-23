@@ -6,13 +6,13 @@
           <img
             class="inline-block rounded-full ring-2 ring-white"
             :src="logo"
-            :alt="$t('general.logo') + ' ' + title"
+            :alt="title + ' ' + $t('general.logo')"
           />
         </div>
 
         <div class="mt-2">
-          <h1 class="text-primary thin-heading" v-text="title" />
-          <p class="mt-2" v-text="category" />
+          <h1 class="text-primary thin-heading">{{ title }}</h1>
+          <p class="mt-2">{{ category }}</p>
         </div>
       </div>
       <div class="flex">
@@ -20,15 +20,14 @@
           <img
             class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
             src="@/assets/images/icons/rocket.svg"
-            :alt="$t('general.icon') + ' rocket'"
+            :alt="$t('project.added') + ' ' + $t('general.icon')"
           />
         </div>
         <div>
-          <p
-            class="text-primary small-text p-line-head"
-            v-text="$t('project.added')"
-          />
-          <p class="small-text" v-text="submit" />
+          <p class="text-primary small-text p-line-head">
+            {{ $t('project.added') }}
+          </p>
+          <p class="small-text">{{ submit }}</p>
         </div>
       </div>
       <div class="hidden md:block">
