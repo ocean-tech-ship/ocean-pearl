@@ -1,12 +1,14 @@
 <template>
   <tr>
     <td class="flex my-2">
-      <img class="mr-2" :src="icon" :alt="title" />
-      <p class="small-text" v-text="title" />
+      <img class="mr-2" :src="icon" :alt="title + ' ' + $t('general.icon')" />
+      <p class="small-text">
+        {{ title }}
+      </p>
     </td>
 
     <td class="my-2">
-      <a class="text-primary small-text ml-12" :href="url" v-text="url" />
+      <a class="text-primary small-text ml-12" :href="url">{{ url }}</a>
     </td>
   </tr>
 </template>
