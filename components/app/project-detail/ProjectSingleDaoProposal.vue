@@ -62,8 +62,7 @@
         <!-- Total Fundings -->
         <div>
           <div
-            class="shadow rounded p-2 overflow-y-auto"
-            style="max-height: 13rem"
+            class="shadow rounded p-2 overflow-y-auto lg:max-h-52"
           >
             <div class="flex items-center">
               <img
@@ -134,4 +133,6 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
