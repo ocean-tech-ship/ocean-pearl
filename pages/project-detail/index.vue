@@ -9,6 +9,7 @@
 
     <div class="bg-grey pt-8 pb-1">
       <project-single-details
+        :title="project.title"
         :description="project.description"
         :team="project.team"
         :cover="project.cover"

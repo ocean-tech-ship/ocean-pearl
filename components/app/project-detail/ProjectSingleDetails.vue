@@ -28,7 +28,11 @@
 
       <div class="order-first lg:order-last">
         <!-- Cover -->
-        <img width="100%" :src="cover" alt="project cover" />
+        <img
+          width="100%"
+          :src="cover"
+          :alt="title + ' ' + $t('general.logo')"
+        />
 
         <!-- Project Socials (lg only) -->
         <div class="hidden lg:flex justify-end mt-6">
@@ -59,6 +63,11 @@ export default {
   },
 
   props: {
+    title: {
+      type: String,
+      required: true,
+    },
+
     description: {
       type: String,
       required: true,
