@@ -5,12 +5,12 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
         <NuxtLink to="/project-overview">
-          <div class="shadow h-300px p-8">
+          <div class="shadow rounded h-300px p-8">
             <div class="flex">
               <div class="mr-3">
-                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" 
+                <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                      :src="project.imageURL"
-                     :alt="project.title" 
+                     :alt="project.title"
                      />
               </div>
               <div>
@@ -99,7 +99,7 @@
             endDate: '12. Nov 2021 12PM',
             fundRound: '2'
           },
-          
+
         ],
       }
     },
