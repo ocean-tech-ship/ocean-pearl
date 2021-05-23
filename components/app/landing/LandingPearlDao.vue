@@ -1,8 +1,8 @@
 <template>
   <LandingSectionContainer class="my-32">
       <hr class="text-primary mb-32">
-    <h2>{{ $t('landing.pearlx_dao.title') }} <span class="text-primary">{{ $t('landing.pearlx_dao.titleHighlight') }}</span></h2>
-    <p>{{ $t('landing.pearlx_dao.text') }}</p>
+    <h2>{{ $t('landing.pearl_dao.title') }} <span class="text-primary">{{ $t('landing.pearl_dao.titleHighlight') }}</span></h2>
+    <p>{{ $t('landing.pearl_dao.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="card in daoInfoCards" :key="card.title">
       <div class="shadow p-4 pb-4">
