@@ -8,7 +8,7 @@
       />
 
       <span class="small-text">
-        {{ member.name + ', ' + member.purpose }}
+        {{ fullMemberTitle }}
       </span>
     </div>
 
@@ -39,6 +39,12 @@ export default {
     member: {
       type: Object,
       required: true,
+    },
+  },
+
+  computed: {
+    fullMemberTitle() {
+      return this.$props.member.name + ', ' + this.$props.member.purpose
     },
   },
 
