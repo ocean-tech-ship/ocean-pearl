@@ -4,7 +4,7 @@
       <div class="pt-6">
         <h1>
           {{ $t('landing.hero.titlePart1') }} 
-          <span class="text-primary">{{ $t('landing.hero.titleHighlight') }}</span> 
+          <span class="text-primary"> {{ $t('landing.hero.titleHighlight') }} </span> 
           {{ $t('landing.hero.titlePart2') }}
         </h1>
         <p class="pt-6">

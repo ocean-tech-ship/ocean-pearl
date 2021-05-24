@@ -4,7 +4,7 @@
     <p>{{ $t('landing.latest_projects.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
-      <NuxtLink to="/project-overview">
+      <NuxtLink :prefetch="false" to="/project-overview">
       <div class="shadow rounded p-4 pb-12 h-275px text-center">
         <div class="mt-3">
           <img class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
@@ -21,7 +21,7 @@
       </NuxtLink>
      </div>
     </div>
-    <NuxtLink to="/project-overview">
+    <NuxtLink :prefetch="false" to="/project-overview">
       <div class="flex items-center mt-6 mb-32">
         <p class="mr-2 text-primary">{{ $t('landing.latest_projects.link_text') }}</p>
         <img src="@/assets/images/landing/check-out.svg" alt="arrow">

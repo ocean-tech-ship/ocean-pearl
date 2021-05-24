@@ -1,13 +1,9 @@
 <template>
   <LandingSectionContainer class="my-32">
-     <!-- Headline ------------------------------------------------------------------>
-    <h2>{{ $t('landing.job_offers.title') }} <span class="text-primary">{{ $t('landing.job_offers.titleHighlight') }}</span></h2>
+    <h2>{{ $t('landing.job_offers.title') }} <span class="text-primary">{{ $t('landing.job_offers.titleHighlight') }} </span></h2>
     <p>{{ $t('landing.job_offers.text') }}</p>
-
-<!-- projects ------------------------------------------------------------------>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-4 mt-10">
   <div v-for="project in projects" :key="project.title">
-  <!-- single ------------------------------------------------------------------> 
   <NuxtLink to="/job-overview"> 
   <div class="shadow p-12">
       <div class="flex">

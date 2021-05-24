@@ -3,9 +3,7 @@
     <div class="mb-42px">
       <h2>
         {{ $t('landing.pearl_space.title') }}
-        <span class="text-primary">{{
-          $t('landing.pearl_space.titleHighlight')
-        }}</span>
+        <span class="text-primary"> {{$t('landing.pearl_space.titleHighlight')}}</span>
       </h2>
       <p>{{ $t('landing.pearl_space.text') }}</p>
     </div>
