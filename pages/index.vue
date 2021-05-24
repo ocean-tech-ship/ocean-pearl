@@ -3,10 +3,10 @@
     <landing-hero-section />
     <!--<landing-pearl-space-section />-->
     <landing-featured-project-section />
-    <landing-dao-proposals />
     <!--<landing-job-offers />-->
     <landing-latest-projects />
     <landing-pearl-dao />
+    <landing-dao-proposals />
   </div>
 </template>
 
