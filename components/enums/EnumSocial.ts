@@ -3,7 +3,7 @@ enum EnumSocial {
   GITHUB = 'GitHub',
   TWITTER = 'Twitter',
   LINKEDIN = 'LinkedIn',
-  REDDIT = 'reddit',
+  REDDIT = 'Reddit',
   FACEBOOK = 'Facebook',
   TELEGRAM = 'Telegram',
   DISCORD = 'Discord',
