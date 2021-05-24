@@ -5,6 +5,9 @@ import { Factory } from 'miragejs'
 
 export default {
   daoproposal: Factory.extend({
+    _id(i) {
+      return i
+    },
     project(i) {
       return `Project ${i + 1}` // Project 1, Project 2, etc.
     },

@@ -53,7 +53,7 @@
   </LandingSectionContainer>
 </template>
 <script>
-//import { getFeaturedDaoProposals } from '~/api'
+import { getFeaturedDaoProposals } from '@/api'
 import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
@@ -64,15 +64,13 @@ export default {
   },
   data() {
     return {
-      daoProposals: [
-      ],
+      daoProposals: [],
     }
   },
-// TODO activate when backend delivers associeted project in the same response
-//  async fetch() {
-//     const daoProposals = await getFeaturedDaoProposals(this.$axios)
-//     this.daoProposals = daoProposals
-//   },
+ async fetch() {
+    const daoProposals = await getFeaturedDaoProposals(this.$axios)
+    this.daoProposals = process.env.useMirage === 'true' ? daoProposals.daoproposals : daoProposals
+  },
 }
 </script>
 

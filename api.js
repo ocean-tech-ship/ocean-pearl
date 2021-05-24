@@ -1,21 +1,26 @@
+// projects
 export function getProjects(axios) {
-  return axios.$get('https://oceanpear-api.herokuapp.com/project')
+  return axios.$get('/project')
 }
 
 export function getFeaturedProjects(axios) {
-  return axios.$get(`https://oceanpear-api.herokuapp.com/project/featured`)
+  return axios.$get('/project/featured')
 }
 
 export function getProjectById(axios, id) {
-  return axios.$get(`https://oceanpear-api.herokuapp.com/project/detail/${id}`)
+  return axios.$get(`/project/detail/${id}`)
 }
 
-
-
-export function getJobs(axios) {
-}
-
+// dao-proposals
 export function getDaoProposals(axios) {
+  return axios.$get('/dao-proposal')
 }
 
+export function getFeaturedDaoProposals(axios) {
+  return axios.$get('/dao-proposal/featured')
+}
 
+// jobs
+export function getJobs(axios) {
+  return axios.$get('/job')
+}

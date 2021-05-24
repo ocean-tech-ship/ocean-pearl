@@ -5,6 +5,9 @@ import { Factory } from 'miragejs'
 
 export default {
   job: Factory.extend({
+    _id(i) {
+      return i
+    },
     title(i) {
       return `Job ${i + 1}` // Project 1, Project 2, etc.
     },
