@@ -48,7 +48,20 @@
             "link_text":"See all listed projects"
         }
     },
-    "projects":{
+    "dao-projects":{
+        "header":{
+            "title":"Ocean",
+            "titleHighlight":"Pearl x DAO",
+            "text":"All infos about the current funding round of the Ocean Dao."
+        },
+        "projects":{
+            "requestedAmount": "Requested Amount",
+            "yesVotes": "Yes Votes",
+            "noVotes": "No Votes",
+            "ocean": "OCEAN"
+        }
+    },
+        "projects":{
         "header":{
             "title":"Project",
             "titleHighlight":"overview",
@@ -74,7 +87,8 @@
         "logoText":"Ocean Pearl",
         "navbarLinkDefault":"Home",
         "navbarLink1":"Projects",
-        "navbarLink2":"Jobs"
+        "navbarLink2":"Dao",
+        "navbarLink3":"Jobs"
     },
     "project_detail":{
         "fundHereButton":"fund here",
