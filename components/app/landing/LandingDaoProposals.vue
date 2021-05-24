@@ -4,7 +4,7 @@
     <p>{{ $t('landing.dao_proposals.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink :prefetch="false" to="/project-overview">
+        <NuxtLink :prefetch="false" to="/project-detail">
           <div class="shadow rounded h-275px p-8">
             <div class="flex">
               <div class="mr-3">
@@ -32,8 +32,7 @@
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink to="/project-overview">
-      <!-- will update link when active dao proposal page gets implemented -->
+    <NuxtLink to="/dao-project-overview">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">{{ $t('landing.dao_proposals.link_text') }}</p>
         <img src="@/assets/images/landing/check-out.svg" alt="">
