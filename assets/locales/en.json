@@ -68,6 +68,10 @@
     "proposal": {
       "requested": "Requested Funding",
       "round": "Funding Round",
+      "title": {
+        "dao": "DAO",
+        "proposal": "proposal"
+      },
       "total": "Total Fundings",
       "vote": "vote here",
       "wallet": "Proposal Wallet Address"

@@ -1,6 +1,11 @@
 <template>
   <landing-section-container>
-    <h4>DAO <span class="text-primary">proposal</span></h4>
+    <h4>
+      {{ $t('project.proposal.title.dao') }}
+      <span class="text-primary">
+        {{ $t('project.proposal.title.proposal') }}
+      </span>
+    </h4>
 
     <div class="grid lg:grid-cols-2 gap-4 mt-6">
       <div class="grid lg:grid-cols-2 gap-4">
