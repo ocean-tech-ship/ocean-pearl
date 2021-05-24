@@ -56,21 +56,25 @@ export default {
     title: {
       type: String,
       required: true,
+      default: '/',
     },
 
     category: {
       type: String,
       required: true,
+      default: '/',
     },
 
     submit: {
       type: String,
       required: true,
+      default: '/',
     },
 
     logo: {
       type: String,
       required: true,
+      default: '',
     },
   },
 }
