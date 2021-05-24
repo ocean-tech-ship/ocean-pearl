@@ -67,7 +67,10 @@
     "description": "Description",
     "proposal": {
       "requested": "Requested Funding",
-      "round": "Funding Round",
+      "round": {
+        "numbered": "Round {round}",
+        "title": "Funding Round"
+      },
       "title": {
         "dao": "DAO",
         "proposal": "proposal"

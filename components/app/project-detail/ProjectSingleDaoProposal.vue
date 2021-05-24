@@ -19,7 +19,7 @@
             />
 
             <p class="small-text text-primary">
-              {{ $t('project.proposal.round') }}
+              {{ $t('project.proposal.round.title') }}
             </p>
           </div>
 
@@ -84,9 +84,12 @@
               :key="proposal.fundingRound"
               class="small-text pr-8"
             >
-              {{
-                proposal.fundingRequested + ' (' + proposal.fundingRound + ')'
-              }}
+              {{ proposal.fundingRequested }}
+              ({{
+                $t('project.proposal.round.numbered', {
+                  round: proposal.fundingRound,
+                })
+              }})
             </p>
           </div>
         </div>
