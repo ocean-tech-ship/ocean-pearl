@@ -22,6 +22,7 @@
           class="text-primary small-text"
           :href="url"
           target="_blank"
+          rel="noopener noreferrer"
           >{{ getSocialTitle(type) }}</a
         >)
       </span>
