@@ -14,15 +14,15 @@
 
     <div class="flex">
       <span
-        v-for="social in member.socials"
-        :key="social.type"
+        v-for="(url, type) in member.socialMedia"
+        :key="type"
         class="small-text"
       >
         &nbsp;(<a
           class="text-primary small-text"
-          :href="social.url"
+          :href="url"
           target="_blank"
-          >{{ social.type }}</a
+          >{{ getSocialTitle(type) }}</a
         >)
       </span>
     </div>
@@ -30,6 +30,8 @@
 </template>
 
 <script>
+import { SocialMedia } from '~/model/SocialMedia'
+
 export default {
   name: 'ProjectSingleDetailsMember',
 
@@ -37,6 +39,12 @@ export default {
     member: {
       type: Object,
       required: true,
+    },
+  },
+
+  methods: {
+    getSocialTitle(type) {
+      return SocialMedia.parse(type).Title
     },
   },
 }

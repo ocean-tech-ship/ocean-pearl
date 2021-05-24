@@ -80,11 +80,13 @@
             </div>
 
             <p
-              v-for="fundRound in rounds"
-              :key="fundRound.name"
+              v-for="proposal in daoProposals"
+              :key="proposal.fundingRound"
               class="small-text pr-8"
             >
-              {{ fundRound.funding + ' (' + fundRound.name + ')' }}
+              {{
+                proposal.fundingRequested + ' (' + proposal.fundingRound + ')'
+              }}
             </p>
           </div>
         </div>
@@ -116,21 +118,25 @@ export default {
     round: {
       type: String,
       required: true,
+      default: '/',
     },
 
     requested: {
       type: String,
       required: true,
+      default: '/',
     },
 
     wallet: {
       type: String,
       required: true,
+      default: '/',
     },
 
-    rounds: {
+    daoProposals: {
       type: Array,
       required: true,
+      default: () => [],
     },
   },
 }

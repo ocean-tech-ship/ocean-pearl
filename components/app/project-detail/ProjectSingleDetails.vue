@@ -19,9 +19,11 @@
         <!-- Project Socials (until lg) -->
         <div class="flex justify-between mt-6 md:justify-start lg:hidden">
           <project-single-details-social
-            v-for="social in socials"
-            :key="social.type"
-            :social="social"
+            v-for="(url, type) in socialMedia"
+            :key="type"
+            class="md:mr-4"
+            :type="type"
+            :url="url"
           />
         </div>
       </div>
@@ -30,17 +32,18 @@
         <!-- Cover -->
         <img
           width="100%"
-          :src="cover"
+          :src="pictures.length > 0 && pictures[0]"
           :alt="title + ' ' + $t('general.logo')"
         />
 
         <!-- Project Socials (lg only) -->
         <div class="hidden lg:flex justify-end mt-6">
           <project-single-details-social
-            v-for="social in socials"
-            :key="social.type"
+            v-for="(url, type) in socialMedia"
+            :key="type"
             class="ml-4"
-            :social="social"
+            :type="type"
+            :url="url"
           />
         </div>
       </div>
@@ -66,27 +69,32 @@ export default {
     title: {
       type: String,
       required: true,
+      default: '/',
     },
 
     description: {
       type: String,
       required: true,
+      default: '/',
     },
 
-    cover: {
-      type: String,
+    pictures: {
+      type: Array,
       required: true,
+      default: () => [],
     },
 
     team: {
-      // { name, purpose, socials: {type, url} }
+      // { name, purpose, socialMedia: {type, url} }
       type: Array,
       required: true,
+      default: () => [],
     },
 
-    socials: {
-      type: Array,
+    socialMedia: {
+      type: Object,
       required: true,
+      default: () => {},
     },
   },
 }
