@@ -19,9 +19,7 @@
     <p class="small-text text-primary pt-4">
       {{ $t('project.roi.calculation') }}
     </p>
-    <p class="small-text">
-      {{ chance }}
-    </p>
+    <p class="small-text">{{ calculation }}</p>
   </landing-section-container>
 </template>
 
@@ -39,26 +37,31 @@ export default {
     description: {
       type: String,
       required: true,
+      default: '/',
     },
 
     bang: {
       type: String,
       required: true,
+      default: '/',
     },
 
     buck: {
       type: String,
       required: true,
+      default: '/',
     },
 
     chance: {
       type: String,
       required: true,
+      default: '/',
     },
 
     calculation: {
       type: String,
       required: true,
+      default: '/',
     },
   },
 }
