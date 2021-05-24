@@ -20,14 +20,14 @@
         />
         <h3 class="content-center text-center sm:my-12 sm:pt-8">
           {{ $t('landing.featured_projects.secondTitle') }}
-          <span class="text-primary">{{
+          <span class="text-primary"> {{
             $t('landing.featured_projects.secondTitleHighlight')
           }}</span>
         </h3>
       </div>
 
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink to="/project-overview">
+        <NuxtLink :prefetch="false" to="/project-overview">
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">

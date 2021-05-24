@@ -2,7 +2,7 @@
   <LandingSectionContainer>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-12">
     <div v-for="project in projects" :key="project.title">
-      <NuxtLink to="/project-detail">
+      <NuxtLink :prefetch="false" to="/project-detail">
       <div class="shadow rounded h-300px p-2  text-center relative">
         <!--
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
