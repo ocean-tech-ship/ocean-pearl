@@ -85,6 +85,7 @@
               class="small-text pr-8"
             >
               {{ proposal.fundingRequested }}
+
               ({{
                 $t('project.proposal.round.numbered', {
                   round: proposal.fundingRound,
