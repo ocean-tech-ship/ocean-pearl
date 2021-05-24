@@ -1,5 +1,4 @@
 export default {
-
   tailwindcss: {
     cssPath: '~/assets/style/main.scss',
     configPath: 'tailwind.config.js',
@@ -25,15 +24,24 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/mirage.js', { src: "~/plugins/vue-globals", ssr: true }],
+  plugins: ['@/plugins/mirage.js', { src: '@/plugins/vue-globals', ssr: true }],
 
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   publicRuntimeConfig: {
-    baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000'
+    baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000',
   },
 
+  ssr: process.env.NUXT_ENV_USE_MIRAGE === 'true' ? false : true, // Disable Server Side rendering for development because of miragejs
+
   env: {
-    baseURL: process.env.NUXT_ENV_BASE_URL
+    useMirage: process.env.NUXT_ENV_USE_MIRAGE,
+  },
+
+  axios: {
+    baseURL:
+      process.env.NUXT_ENV_USE_MIRAGE === 'true'
+        ? process.env.NUXT_ENV_BASE_URL_LOCAL
+        : process.env.NUXT_ENV_BASE_URL, 
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -48,21 +56,18 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    'nuxt-i18n',
-    '@nuxtjs/axios'
-  ],
+  modules: ['nuxt-i18n', '@nuxtjs/axios'],
   i18n: {
     locales: [
       {
-        code: "en",
-        name: "English",
-        file: "en.json",
-      }
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+      },
     ],
     lazy: true,
-    langDir: "~/assets/locales/",
-    defaultLocale: "en",
+    langDir: '~/assets/locales/',
+    defaultLocale: 'en',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

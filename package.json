@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "nuxt",
+    "devm": "NUXT_ENV_USE_MIRAGE=true nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

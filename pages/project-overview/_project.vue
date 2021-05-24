@@ -1,7 +1,7 @@
 <template>
   <div>
-    <project-single-header :project="this.projectObj" />
-    <project-single :project="this.projectObj" />
+    <project-single-header :project="project" />
+    <project-single :project="project" />
   </div>
 </template>
 
@@ -20,8 +20,8 @@ export default Vue.extend({
   },
 
   async asyncData({ $axios, params }) {
-    const projectObj = await getProjectById($axios, params.project)
-    return { projectObj }
+    const project = await getProjectById($axios, params.project)
+    return process.env.useMirage === 'true' ? project :  { project }
   }
 })
 </script>

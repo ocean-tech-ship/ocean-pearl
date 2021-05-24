@@ -62,8 +62,8 @@ export default {
     }
   },
  async fetch() {
-    const projects = (await getProjects(this.$axios)).slice(0, 5)
-    this.projects = projects
+    const projects = await getProjects(this.$axios)
+    this.projects = process.env.useMirage === 'true' ? projects.projects.slice(0, 5) : projects.slice(0, 5)
   },
 }
 </script>

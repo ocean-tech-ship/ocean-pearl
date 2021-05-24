@@ -88,7 +88,7 @@ export default {
   },
  async fetch() {
     const projects = await getFeaturedProjects(this.$axios)
-    this.projects = projects
+    this.projects = process.env.useMirage === 'true' ? projects.projects : projects
   },
 }
 </script>
