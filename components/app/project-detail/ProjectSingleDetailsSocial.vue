@@ -1,5 +1,5 @@
 <template>
-  <a :href="url" target="_blank">
+  <a :href="url" target="_blank" rel="noopener noreferrer">
     <img
       class="h-8 w-8"
       :src="getIcon(type)"
