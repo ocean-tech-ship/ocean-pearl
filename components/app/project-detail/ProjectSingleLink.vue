@@ -8,7 +8,9 @@
     </td>
 
     <td class="my-2">
-      <a class="text-primary small-text ml-12" :href="url">{{ url }}</a>
+      <a class="text-primary small-text ml-12" target="_blank" :href="url">
+        {{ url }}
+      </a>
     </td>
   </tr>
 </template>
