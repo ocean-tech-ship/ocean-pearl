@@ -86,9 +86,9 @@
     "navbar":{
         "logoText":"Ocean Pearl",
         "navbarLinkDefault":"Home",
-        "navbarLink1":"Projects",
-        "navbarLink2":"Dao",
-        "navbarLink3":"Jobs"
+        "navbarProjects":"Projects",
+        "navbarDao":"Dao",
+        "navbarJobs":"Jobs"
     },
     "project_detail":{
         "fundHereButton":"fund here",
