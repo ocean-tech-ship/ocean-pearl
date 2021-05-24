@@ -1,10 +1,10 @@
 <template>
   <LandingSectionContainer class="my-32">
-    <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary">{{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
+    <h2>{{ $t('landing.dao_proposals.title') }} <span class="text-primary"> {{ $t('landing.dao_proposals.titleHighlight') }}</span></h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10">
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink to="/project-overview">
+        <NuxtLink :prefetch="false" to="/project-overview">
           <div class="shadow rounded h-275px p-8">
             <div class="flex">
               <div class="mr-3">
