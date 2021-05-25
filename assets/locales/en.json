@@ -1,4 +1,32 @@
 {
+  "dao-projects": {
+    "header": {
+      "title": "Ocean",
+      "titleHighlight": "Pearl x DAO",
+      "text": "All infos about the current funding round of the Ocean Dao."
+    },
+    "projects": {
+      "requestedAmount": "Requested Amount",
+      "yesVotes": "Yes Votes",
+      "noVotes": "No Votes",
+      "ocean": "OCEAN"
+    }
+  },
+  "general": {
+    "icon": "icon",
+    "logo": "logo"
+  },
+  "jobs": {
+    "header": {
+      "title": "Job ",
+      "titleHighlight": "offers",
+      "text": "Find out which companys are currently looking for your support."
+    },
+    "status": {
+      "dropDown1": "Latest",
+      "dropDown2": "Category"
+    }
+  },
   "landing": {
     "hero": {
       "titlePart1": "We are on track with the newest",
@@ -48,26 +76,12 @@
       "link_text": "See all listed projects"
     }
   },
-  "general": {
-    "icon": "icon",
-    "logo": "logo"
-  },
-  "jobs": {
-    "header": {
-      "text": "Find out which companys are currently looking for your support.",
-      "title": "Job ",
-      "titleHighlight": "offers"
-    },
-    "status": {
-      "dropDown1": "Latest",
-      "dropDown2": "Category"
-    }
-  },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarLink1": "Projects",
-    "navbarLink2": "Jobs",
-    "navbarLinkDefault": "Home"
+    "navbarLinkDefault": "Home",
+    "navbarProjects": "Projects",
+    "navbarDao": "Dao",
+    "navbarJobs": "Jobs"
   },
   "project": {
     "added": "addet at",
@@ -106,9 +120,9 @@
   },
   "projects": {
     "header": {
-      "text": "See what the community has to offer.",
       "title": "Project",
-      "titleHighlight": "overview"
+      "titleHighlight": "overview",
+      "text": "See what the community has to offer."
     },
     "status": {
       "dropDown1": "Latest",
