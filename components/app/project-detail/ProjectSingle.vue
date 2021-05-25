@@ -2,10 +2,15 @@
   <div>
     <div class="bg-grey py-8">
       <LandingSectionContainer>
-        <div class="w-full pt-6 grid grid-cols-2 md:grid-flow-col gap-10">
+        <div
+          class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 lg:grid-flow-col gap-10"
+        >
           <div class="shadow rounded-md">
-            <img class="self-center align-center" src="@/assets/images/detail/poseidon-cover.png"
-              alt="poseidon network cover" />
+            <img
+              class="w-full h-100 self-center align-center"
+              src="@/assets/images/detail/poseidon-cover.png"
+              alt="poseidon network cover"
+            />
           </div>
           <div>
             <div>
@@ -16,116 +21,47 @@
                 unused bandwidth.
               </p>
             </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.svg" alt="website" />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/discord.svg" alt="website" />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/facebook.svg" alt="website" />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/linkedIn.svg" alt="website" />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/github.svg" alt="website" />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
-            <div class="flex mt-4">
-              <div class="flex content-center">
-                <img class="w-4 h-4 mt-1 mr-2" src="@/assets/images/detail/website.svg" alt="website" />
-                <p class="small-text">website</p>
-              </div>
-              <div class="ml-12">
-                <a class="text-primary small-text" href="/"
-                  >https://poseidon.network/</a
-                >
-              </div>
-            </div>
+
+            <table>
+              <project-single-link
+                :icon="require('assets/images/social/website.svg')"
+                title="website"
+                url="https://poseidon.network/"
+              />
+
+              <project-single-link
+                :icon="require('assets/images/social/discord.svg')"
+                title="discord"
+                url="https://poseidon.netowkr/"
+              />
+
+              <project-single-link
+                :icon="require('assets/images/social/facebook.svg')"
+                title="facebook"
+                url="https://poseidon.network/"
+              />
+
+              <project-single-link
+                :icon="require('assets/images/social/linkedin.svg')"
+                title="linkedin"
+                url="https://poseidon.network/"
+              />
+
+              <project-single-link
+                :icon="require('assets/images/social/github.svg')"
+                title="github"
+                url="https://poseidon.network/"
+              />
+            </table>
           </div>
         </div>
-        <h4 class="mt-24">DAO <span class="text-primary">proposal</span></h4>
-        <div class="flex content-center space-x-40 mt-8">
-          <div>
-            <div class="flex">
-              <img
-                class="mr-1 py-2"
-                src="@/assets/images/icons/start-fund.svg"
-                alt="funding-start"
-              />
-              <p class="text-primary">Start</p>
-            </div>
-            <p class="small-text">12.03.21</p>
-          </div>
-          <div>
-            <div class="flex">
-              <img
-                class="mr-1 py-2"
-                src="@/assets/images/icons/finish-fund.svg"
-                alt="funding-finish"
-              />
-              <p class="text-primary">Finish</p>
-            </div>
-            <p class="small-text">18.03.21</p>
-          </div>
-          <div>
-            <div class="flex">
-              <img
-                class="mr-1 py-2"
-                src="@/assets/images/icons/fund-round.svg"
-                alt="funding-round"
-              />
-              <p class="text-primary">Fund round</p>
-            </div>
-            <p class="small-text">Round 3</p>
-          </div>
-          <div class="pl-16 mt-4">
-            <AppButtonStyle
-              :icon="require('@/assets/images/detail/fund-here.svg')"
-              :text="$t('project_detail.fundHereButton')"
-            />
-          </div>
-        </div>
+
+        <project-single-dao-proposal
+          class="mt-24"
+          start="12.03.21"
+          finish="18.03.21"
+          round="Round 3"
+        />
       </LandingSectionContainer>
     </div>
 
@@ -190,10 +126,12 @@
 </template>
 
 <script>
-import LandingSectionContainer from '../landing/LandingSectionContainer'
-import ProjectSingleHeader from './ProjectSingleHeader'
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader'
+import ProjectSingleLink from '@/components/app/project-detail/ProjectSingleLink'
+import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal'
 
 export default {
   name: 'ProjectSingle',
@@ -201,8 +139,10 @@ export default {
   components: {
     LandingSectionContainer,
     ProjectSingleHeader,
+    ProjectSingleLink,
+    ProjectSingleDaoProposal,
     AppButtonStyle,
-    AppLink
+    AppLink,
   },
   data() {
     return {
