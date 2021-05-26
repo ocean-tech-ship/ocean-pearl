@@ -10,7 +10,6 @@ module.exports = {
     extend: {
       spacing: {
         auto: 'auto',
-        0: 0,
         '16px': '16px',
         '31px': '31px',
         '42px': '42px',
@@ -30,7 +29,7 @@ module.exports = {
       md: '768px',
       lg: '992px',
       xl: '1200px',
-      '2xl':'1300px',
+      '2xl': '1300px',
       '3xl': '1600px',
     },
     colors: {
@@ -54,6 +53,9 @@ module.exports = {
     },
     maxWidth: {
       1440: '1440px',
+    },
+    maxHeight: {
+      52: '13rem',
     },
     boxShadow: {
       default: '4px 4px 20px rgba(0, 0, 0, 0.1)',

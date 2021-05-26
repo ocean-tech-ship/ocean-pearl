@@ -1,26 +1,42 @@
 <template>
-<LandingSectionContainer>
-  <div class="flex justify-between content-center">
-    <div class="flex">
-      <div class="mr-4">
-        <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="@/assets/images/poseidon-network.png"
-          alt="Logo parsiq" />
+  <LandingSectionContainer>
+    <div class="flex justify-between content-center">
+      <div class="flex">
+        <div class="mr-4 w-12 h-12">
+          <img
+            class="inline-block rounded-full ring-2 ring-white"
+            :src="project.logo"
+            :alt="project.title + ' ' + $t('general.logo')"
+          />
+        </div>
+
+        <div class="mt-2">
+          <h1 class="text-primary thin-heading">{{ project.title }}</h1>
+          <p class="mt-2">{{ project.category }}</p>
+        </div>
       </div>
-      <div class="mt-2">
-        <h1 class="text-primary thin-heading">{{ project.title }}</h1>
-        <p class="mt-2">{{ project.category }}</p>
+      <div class="flex">
+        <div class="mr-4">
+          <img
+            class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
+            src="@/assets/images/icons/rocket.svg"
+            :alt="$t('project.added') + ' ' + $t('general.icon')"
+          />
+        </div>
+        <div>
+          <p class="text-primary small-text p-line-head">
+            {{ $t('project.added') }}
+          </p>
+          <p class="small-text">{{ submit }}</p>
+        </div>
+      </div>
+      <div class="hidden md:block">
+        <AppButton
+          :icon="require('@/assets/images/detail/copy-link.svg')"
+          :text="$t('project.copy')"
+        />
       </div>
     </div>
-    <div class="flex">
-      <div class="mr-4">
-        <img class="inline-block h-14 w-14 rounded-full ring-2 ring-white" src="@/assets/images/icons/rocket.svg"
-          alt="Icon rocket" />
-      </div>
-      <div>
-      <AppButton :icon="require('@/assets/images/detail/copy-link.svg')" text="copy link" />
-    </div>
-    </div>
-  </div>
   </LandingSectionContainer>
 </template>
 
