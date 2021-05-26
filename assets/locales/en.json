@@ -74,6 +74,17 @@
       "titleHighlight": "Pearl x DAO",
       "text": "All infos about the current funding round of the Ocean Dao.",
       "link_text": "See all listed projects"
+    },
+    "featured_dao_projects": {
+      "title": "Featured Dao",
+      "titleHighlight": "projects",
+      "text": "A handpicked collection of our favourite projects for this funding round.",
+      "secondTitle": "2021 listed",
+      "secondTitleHighlight": "projects",
+      "requestedAmount": "Requested Amount",
+      "ocean": "OCEAN",
+      "checkOut": "check out",
+      "link_text": "See all featured projects"
     }
   },
   "navbar": {
