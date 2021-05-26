@@ -55,7 +55,7 @@
               <img src="@/assets/images/landing/check-out.svg" alt="" />
             </div>
           </div>
-        </AppLink>
+        </NuxtLink>
       </div>
     </div>
     <NuxtLink to="/project-overview">

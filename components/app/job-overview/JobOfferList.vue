@@ -1,23 +1,29 @@
 <template>
   <LandingSectionContainer>
-  <p v-if="$fetchState.pending">{{ $t('general.fetchingLoading') }}</p>
-  <p v-else-if="$fetchState.error">{{ $t('general.fetchingError') }}</p>
-  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12">
-    <div v-for="job in jobs" :key="job._id">
-      <NuxtLink :prefetch="false" to="/project-detail">
-        <div class="shadow p-12">
-          <div class="flex">
-            <div class="mr-3">
-              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white" :src="job.imageURL"
-                :alt="job.title" />
-            </div>
-            <div class="mt-5">
-              <p class="small-text">
-                {{ job.description }}
-              </p>
-            </div>
-            <div class="mt-8">
-              <p class="small-text text-primary">{{ job.salary }} a year</p>
+    <p v-if="$fetchState.pending">{{ $t('general.fetchingLoading') }}</p>
+    <p v-else-if="$fetchState.error">{{ $t('general.fetchingError') }}</p>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12"
+    >
+      <div v-for="job in jobs" :key="job._id">
+        <NuxtLink :prefetch="false" to="/project-detail">
+          <div class="shadow p-12">
+            <div class="flex">
+              <div class="mr-3">
+                <img
+                  class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  :src="job.imageURL"
+                  :alt="job.title"
+                />
+              </div>
+              <div class="mt-5">
+                <p class="small-text">
+                  {{ job.description }}
+                </p>
+              </div>
+              <div class="mt-8">
+                <p class="small-text text-primary">{{ job.salary }} a year</p>
+              </div>
             </div>
           </div>
         </NuxtLink>
