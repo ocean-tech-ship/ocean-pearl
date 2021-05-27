@@ -7,7 +7,7 @@
       :logo="project.logo"
     />
 
-    <div class="bg-grey pt-8 pb-1">
+    <div class="bg-grey pt-8 pb-1 mb-8">
       <project-single-details
         :title="project.title"
         :description="project.description"

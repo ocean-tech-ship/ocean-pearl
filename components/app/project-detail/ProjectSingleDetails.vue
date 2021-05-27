@@ -1,6 +1,6 @@
 <template>
   <landing-section-container>
-    <div class="grid lg:grid-cols-2 gap-12 pb-8 border-b border-primary">
+    <div class="grid lg:grid-cols-2 gap-12 border-b border-primary">
       <div>
         <!-- Description -->
         <p class="text-primary small-text">
@@ -9,19 +9,21 @@
         <p class="small-text">{{ description }}</p>
 
         <!-- Team -->
-        <p class="text-primary small-text mt-6">{{ $t('project.team') }}</p>
-        <project-single-details-member
-          v-for="(member, index) in team"
-          :key="index"
-          :member="member"
-        />
+        <div class="mb-10">
+          <p class="text-primary small-text mt-6">{{ $t('project.team') }}</p>
+          <project-single-details-member
+            v-for="(member, index) in team"
+            :key="index"
+            :member="member"
+          />
+        </div>
 
         <!-- Project Socials (until lg) -->
-        <div class="flex justify-between mt-6 md:justify-start lg:hidden">
+        <div class="flex justify-between my-10 md:justify-start lg:hidden">
           <project-single-details-social
             v-for="(url, type) in socialMedia"
             :key="type"
-            class="md:mr-4"
+            class="h-6 w-6 md:mr-6"
             :type="type"
             :url="url"
           />
@@ -37,11 +39,11 @@
         />
 
         <!-- Project Socials (lg only) -->
-        <div class="hidden lg:flex justify-end mt-6">
+        <div class="hidden lg:flex justify-end my-10">
           <project-single-details-social
             v-for="(url, type) in socialMedia"
             :key="type"
-            class="ml-4"
+            class="h-6 w-6 ml-6"
             :type="type"
             :url="url"
           />
