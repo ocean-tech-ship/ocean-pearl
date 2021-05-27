@@ -1,38 +1,33 @@
 <template>
-  <footer class="w-full">
+  <footer class="w-full bg-secondary">
     <div
-      class="w-full max-w-1440 mx-auto flex items-center justify-center gap-8 bg-secondary py-10"
+      class="w-full max-w-1440 mx-auto py-10 grid gap-10 lg:flex lg:items-center lg:justify-center lg:gap-5"
     >
-      <div v-for="item in footerItems" :key="item.id">
-        <img
-          v-if="item.id === 'supreme'"
-          :src="item.icon"
-          :alt="`${item.name} logo`"
-          class="w-10 h-10 mx-5 block"
-        />
-        <footer-item v-else :item="item">
-          <template #title>
-            {{ item.name }}
-          </template>
-        </footer-item>
-      </div>
+      <footer-block theme="text-primary" :items="footerItems.slice(0, 3)" />
+      <img
+        :src="footerDivider.icon"
+        :alt="`${footerDivider.name} logo`"
+        class="w-10 h-10 lg:block hidden"
+      />
+      <footer-block :items="footerItems.slice(4, 7)" />
     </div>
   </footer>
 </template>
 
 <script>
 import Vue from 'vue'
-import FooterItem from './FooterItem.vue'
+import FooterBlock from './FooterBlock.vue'
 
 export default Vue.extend({
-  components: { FooterItem },
+  components: { FooterBlock },
   data: () => ({
     footerItems: [
       {
         id: 0,
-        name: '© Ocean Pearl',
-        route: '',
-        icon: '',
+        name: 'Ocean Pearl',
+        icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
+        route: '/',
+        block: true,
       },
       {
         id: 1,
@@ -56,10 +51,11 @@ export default Vue.extend({
       },
       {
         id: 3,
-        name: 'Protocol',
+        name: 'Ocean Protocol',
         icon: require('@/assets/images/footer/protocol_footer.svg'),
         route: 'https://oceanprotocol.com/',
         ext: true,
+        block: true,
       },
       {
         id: 4,
@@ -77,6 +73,12 @@ export default Vue.extend({
       },
     ],
   }),
+
+  computed: {
+    footerDivider() {
+      return this.footerItems.find((el) => el.id === 'supreme')
+    },
+  },
 })
 </script>
 
