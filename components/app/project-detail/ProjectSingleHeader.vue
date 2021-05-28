@@ -27,7 +27,9 @@
           <p class="text-primary small-text p-line-head">
             {{ $t('project.added') }}
           </p>
-          <p class="small-text">{{ submit }}</p>
+          <p class="small-text">
+            {{ formatDate(submit) }}
+          </p>
         </div>
       </div>
       <div class="hidden md:block">
@@ -75,6 +77,14 @@ export default {
       type: String,
       required: true,
       default: '',
+    },
+  },
+
+  methods: {
+    formatDate(timestamp) {
+      return this.$dateFns.format(new Date(timestamp), 'PPP', {
+        locale: this.$i18n.locale,
+      })
     },
   },
 }
