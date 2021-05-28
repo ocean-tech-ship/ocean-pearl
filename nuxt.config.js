@@ -24,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: "~/plugins/vue-globals", ssr: true }], 
+  plugins: [{ src: "~/plugins/vue-globals", ssr: true }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -35,12 +35,20 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/nuxt-community/date-fns-module
+    '@nuxtjs/date-fns',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     'nuxt-i18n',
   ],
+
+  dateFns: {
+    locales: ['en-US', 'de'],
+    fallbackLocale: 'en-US',
+  },
+
   i18n: {
     locales: [
       {
