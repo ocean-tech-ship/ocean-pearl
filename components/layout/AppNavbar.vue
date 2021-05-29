@@ -9,7 +9,7 @@
          </div>
         </NuxtLink>
          <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
-             <NuxtLink to="/project-overview">{{ $t('navbar.navbarProjects') }}</NuxtLink>
+             <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
              <NuxtLink to="/dao-project-overview">{{ $t('navbar.navbarDao') }}</NuxtLink>
          </div>
          <div class="md:hidden"> 

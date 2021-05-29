@@ -11,7 +11,7 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink :prefetch="false" to="/project-overview">
+        <NuxtLink :prefetch="false" to="/projects">
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <div class="mt-3">
               <img
@@ -35,7 +35,7 @@
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink :prefetch="false" to="/project-overview">
+    <NuxtLink :prefetch="false" to="/projects">
       <div class="flex items-center mt-6 mb-32">
         <p class="mr-2 text-primary">
           {{ $t('landing.latest_projects.link_text') }}

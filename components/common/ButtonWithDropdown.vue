@@ -16,7 +16,7 @@
               <NuxtLink class="font-bold block px-4 py-3" to="/">{{ $t('navbar.navbarLinkDefault') }}</NuxtLink>
             </li>
             <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/project-overview">{{ $t('navbar.navbarProjects') }}</NuxtLink>
+              <NuxtLink class="font-bold block px-4 py-3" to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
             </li>  
             <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/dao-project-overview">{{ $t('navbar.navbarDao') }}</NuxtLink>
