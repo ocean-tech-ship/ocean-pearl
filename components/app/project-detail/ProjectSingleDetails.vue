@@ -6,13 +6,13 @@
         <p class="text-primary small-text">
           {{ $t('project.description') }}
         </p>
-        <p class="small-text">{{ description }}</p>
+        <p class="small-text">{{ project.description }}</p>
 
         <!-- Team -->
         <div class="mb-10">
           <p class="text-primary small-text mt-6">{{ $t('project.team') }}</p>
           <project-single-details-member
-            v-for="(member, index) in team"
+            v-for="(member, index) in project.team"
             :key="index"
             :member="member"
           />
@@ -21,7 +21,7 @@
         <!-- Project Socials (until lg) -->
         <div class="flex justify-between my-10 md:justify-start lg:hidden">
           <project-single-details-social
-            v-for="(url, type) in socialMedia"
+            v-for="(url, type) in project.socialMedia"
             :key="type"
             class="h-6 w-6 md:mr-6"
             :type="type"
@@ -34,14 +34,14 @@
         <!-- Cover -->
         <img
           width="100%"
-          :src="pictures.length > 0 && pictures[0]"
-          :alt="title + ' ' + $t('general.logo')"
+          :src="project.pictures.length > 0 && project.pictures[0]"
+          :alt="project.title + ' ' + $t('general.logo')"
         />
 
         <!-- Project Socials (lg only) -->
         <div class="hidden lg:flex justify-end my-10">
           <project-single-details-social
-            v-for="(url, type) in socialMedia"
+            v-for="(url, type) in project.socialMedia"
             :key="type"
             class="h-6 w-6 ml-6"
             :type="type"
@@ -68,35 +68,16 @@ export default {
   },
 
   props: {
-    title: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    description: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    pictures: {
-      type: Array,
-      required: true,
-      default: () => [],
-    },
-
-    team: {
-      // { name, purpose, socialMedia: {type, url} }
-      type: Array,
-      required: true,
-      default: () => [],
-    },
-
-    socialMedia: {
+    project: {
       type: Object,
       required: true,
-      default: () => {},
+      default: () => ({
+        title: '/',
+        description: '/',
+        pictures: [],
+        team: [],
+        socialMedia: [],
+      }),
     },
   },
 }

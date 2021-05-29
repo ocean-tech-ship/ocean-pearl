@@ -23,7 +23,7 @@
             </p>
           </div>
 
-          <p class="small-text">{{ round }}</p>
+          <p class="small-text">{{ project.round }}</p>
         </div>
 
         <!-- Requested Funding -->
@@ -41,7 +41,7 @@
           </div>
 
           <p class="small-text">
-            {{ requested }}
+            {{ project.requested }}
           </p>
         </div>
 
@@ -51,7 +51,7 @@
             {{ $t('project.proposal.wallet') }}
           </p>
 
-          <p class="small-text break-all">{{ wallet }}</p>
+          <p class="small-text break-all">{{ project.walletAddress }}</p>
         </div>
 
         <!-- Action (lg only) -->
@@ -80,7 +80,7 @@
             </div>
 
             <p
-              v-for="proposal in daoProposals"
+              v-for="proposal in project.daoProposals"
               :key="proposal.fundingRound"
               class="small-text pr-8"
             >
@@ -119,28 +119,15 @@ export default {
   },
 
   props: {
-    round: {
-      type: String,
+    project: {
+      type: Object,
       required: true,
-      default: '/',
-    },
-
-    requested: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    wallet: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    daoProposals: {
-      type: Array,
-      required: true,
-      default: () => [],
+      default: () => ({
+        round: '/',
+        requested: '/',
+        walletAddress: '/',
+        daoProposals: [],
+      }),
     },
   },
 }

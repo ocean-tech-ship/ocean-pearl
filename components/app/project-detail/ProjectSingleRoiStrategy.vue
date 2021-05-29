@@ -3,23 +3,23 @@
     <h4>ROI <span class="text-primary">strategy</span></h4>
 
     <p class="small-text text-primary pt-4">{{ $t('project.roi.title') }}</p>
-    <p class="small-text">{{ description }}</p>
+    <p class="small-text">{{ project.description }}</p>
 
     <p class="small-text text-primary pt-4">{{ $t('project.roi.bang') }}</p>
-    <p class="small-text">{{ bang }}</p>
+    <p class="small-text">{{ project.bang }}</p>
 
     <p class="small-text text-primary pt-4">{{ $t('project.roi.buck') }}</p>
-    <p class="small-text">{{ buck }}</p>
+    <p class="small-text">{{ project.buck }}</p>
 
     <p class="small-text text-primary pt-4">
       {{ $t('project.roi.success-chance') }}
     </p>
-    <p class="small-text">{{ chance }}</p>
+    <p class="small-text">{{ project.chance }}</p>
 
     <p class="small-text text-primary pt-4">
       {{ $t('project.roi.calculation') }}
     </p>
-    <p class="small-text">{{ calculation }}</p>
+    <p class="small-text">{{ project.calculation }}</p>
   </landing-section-container>
 </template>
 
@@ -34,34 +34,16 @@ export default {
   },
 
   props: {
-    description: {
-      type: String,
+    project: {
+      type: Object,
       required: true,
-      default: '/',
-    },
-
-    bang: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    buck: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    chance: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    calculation: {
-      type: String,
-      required: true,
-      default: '/',
+      default: () => ({
+        description: '/',
+        bang: '/',
+        buck: '/',
+        chance: '/',
+        calculation: '/',
+      }),
     },
   },
 }

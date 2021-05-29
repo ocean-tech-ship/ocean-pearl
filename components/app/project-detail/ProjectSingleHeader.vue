@@ -56,6 +56,12 @@ export default {
     project: {
       type: Object,
       required: true,
+      default: () => ({
+        logo: require('@/assets/images/detail/pearl-background.png'),
+        title: '/',
+        category: '/',
+        createdAt: -1,
+      }),
     },
   },
 
