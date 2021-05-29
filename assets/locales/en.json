@@ -1,26 +1,32 @@
 {
   "dao-projects": {
     "header": {
+      "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
-      "titleHighlight": "Pearl x DAO",
-      "text": "All infos about the current funding round of the Ocean Dao."
+      "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "requestedAmount": "Requested Amount",
-      "yesVotes": "Yes Votes",
       "noVotes": "No Votes",
-      "ocean": "OCEAN"
+      "ocean": "OCEAN",
+      "requestedAmount": "Requested Amount",
+      "yesVotes": "Yes Votes"
     }
   },
   "general": {
+    "error": {
+      "retry": "Please try again later.",
+      "unknown": "The requested resource could not be found."
+    },
+    "fetchingError": "An error occurred :(",
+    "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo"
   },
   "jobs": {
     "header": {
+      "text": "Find out which companys are currently looking for your support.",
       "title": "Job ",
-      "titleHighlight": "offers",
-      "text": "Find out which companys are currently looking for your support."
+      "titleHighlight": "offers"
     },
     "status": {
       "dropDown1": "Latest",
@@ -28,60 +34,60 @@
     }
   },
   "landing": {
-    "hero": {
-      "titlePart1": "We are on track with the newest",
-      "titleHighlight": "projects",
-      "titlePart2": "powered by the ocean protocol.",
-      "text": "An absolute random example of some text being randomly put together to make it look like someone has written something meaningful already.",
-      "buttonText": "Explore"
-    },
-    "pearl_space": {
-      "title": "Pearl",
-      "titleHighlight": "space",
-      "text": "These are the main features of ocean pearl."
+    "dao_proposals": {
+      "link_text": "See all DAO projects",
+      "ocean": "OCEAN",
+      "requestedAmount": "Requested Amount",
+      "text": "These projects are currently waiting or applying for a DAO funding.",
+      "title": "Open DAO",
+      "titleHighlight": "proposals"
     },
     "featured_projects": {
-      "title": "Featured",
-      "titleHighlight": "projects",
-      "text": "A handpicked collection of our favourite projects at the moment.",
+      "checkOut": "check out",
+      "link_text": "See all featured projects",
       "secondTitle": "2021 listed",
       "secondTitleHighlight": "projects",
-      "checkOut": "check out",
-      "link_text": "See all featured projects"
+      "text": "A handpicked collection of our favourite projects at the moment.",
+      "title": "Featured",
+      "titleHighlight": "projects"
     },
-    "dao_proposals": {
-      "title": "Open DAO",
-      "titleHighlight": "proposals",
-      "text": "These projects are currently waiting or applying for a DAO funding.",
-      "link_text": "See all DAO projects",
-      "requestedAmount": "Requested Amount",
-      "ocean": "OCEAN"
+    "hero": {
+      "buttonText": "Explore",
+      "text": "An absolute random example of some text being randomly put together to make it look like someone has written something meaningful already.",
+      "titleHighlight": "projects",
+      "titlePart1": "We are on track with the newest",
+      "titlePart2": "powered by the ocean protocol."
     },
     "job_offers": {
-      "title": "Job",
-      "titleHighlight": "offers",
+      "link_text": "See all listed jobs",
       "text": "These ocean projects are currently hiring in the web 3 space",
-      "link_text": "See all listed jobs"
+      "title": "Job",
+      "titleHighlight": "offers"
     },
     "latest_projects": {
-      "title": "Latest",
-      "titleHighlight": "projects",
+      "link_text": "See all listed projects",
       "text": "The listed projects shown were added by members of the community.",
-      "link_text": "See all listed projects"
+      "title": "Latest",
+      "titleHighlight": "projects"
     },
     "pearl_dao": {
-      "title": "Ocean",
-      "titleHighlight": "Pearl x DAO",
+      "link_text": "See all listed projects",
       "text": "All infos about the current funding round of the Ocean Dao.",
-      "link_text": "See all listed projects"
+      "title": "Ocean",
+      "titleHighlight": "Pearl x DAO"
+    },
+    "pearl_space": {
+      "text": "These are the main features of ocean pearl.",
+      "title": "Pearl",
+      "titleHighlight": "space"
     }
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarLinkDefault": "Home",
-    "navbarProjects": "Projects",
     "navbarDao": "Dao",
-    "navbarJobs": "Jobs"
+    "navbarJobs": "Jobs",
+    "navbarLinkDefault": "Home",
+    "navbarProjects": "Projects"
   },
   "project": {
     "added": "addet at",
@@ -120,9 +126,9 @@
   },
   "projects": {
     "header": {
+      "text": "See what the community has to offer.",
       "title": "Project",
-      "titleHighlight": "overview",
-      "text": "See what the community has to offer."
+      "titleHighlight": "overview"
     },
     "status": {
       "dropDown1": "Latest",
