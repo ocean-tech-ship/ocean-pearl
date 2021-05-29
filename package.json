@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nuxt",
-    "devm": "NUXT_ENV_USE_MIRAGE=true nuxt",
+    "devm": "cross-env NUXT_ENV_USE_MIRAGE=true nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -33,6 +33,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
+    "cross-env": "^7.0.3",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-nuxt": "^2.0.0",
