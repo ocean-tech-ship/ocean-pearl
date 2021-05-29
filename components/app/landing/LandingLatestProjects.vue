@@ -28,7 +28,7 @@
             </div>
             <div class="mt-4 flex place-content-center">
               <p class="border small-text text-primary w-32">
-                {{ project.createdAt }}
+                {{ formatDistance(project.createdAt) }}
               </p>
             </div>
           </div>
@@ -47,8 +47,8 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
 import { getProjects } from '@/api.js'
+import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
   name: 'LandingDaoProposal',
@@ -56,17 +56,28 @@ export default {
   components: {
     LandingSectionContainer,
   },
+
   data() {
     return {
       projects: [],
     }
   },
+
   async fetch() {
     const projects = await getProjects(this.$axios)
     this.projects =
       process.env.useMirage === 'true'
         ? projects.projects.slice(0, 5)
         : projects.slice(0, 5)
+  },
+
+  methods: {
+    formatDistance(timestamp) {
+      return this.$dateFns.formatDistanceToNowStrict(new Date(timestamp), {
+        addSuffix: true,
+        locale: this.$i18n.locale,
+      })
+    },
   },
 }
 </script>

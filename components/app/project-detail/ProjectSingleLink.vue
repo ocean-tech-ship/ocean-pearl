@@ -1,7 +1,7 @@
 <template>
   <tr>
     <td class="flex my-2">
-      <img class="mr-2" :src="icon" :alt="title + ' ' + $t('general.icon')" />
+      <img class="ml-2" :src="icon" :alt="title + ' ' + $t('general.icon')" />
       <p class="small-text">
         {{ title }}
       </p>

@@ -27,7 +27,9 @@
           <p class="text-primary small-text p-line-head">
             {{ $t('project.added') }}
           </p>
-          <p class="small-text">{{ submit }}</p>
+          <p class="small-text">
+            {{ formatDate(project.createdAt) }}
+          </p>
         </div>
       </div>
       <div class="hidden md:block">
@@ -41,8 +43,8 @@
 </template>
 
 <script>
-import LandingSectionContainer from '../landing/LandingSectionContainer'
 import AppButton from '@/components/common/AppButton'
+import LandingSectionContainer from '../landing/LandingSectionContainer'
 
 export default {
   name: 'ProjectSingleHeader',
@@ -54,6 +56,14 @@ export default {
     project: {
       type: Object,
       required: true,
+    },
+  },
+
+  methods: {
+    formatDate(timestamp) {
+      return this.$dateFns.format(new Date(timestamp), 'PPP', {
+        locale: this.$i18n.locale,
+      })
     },
   },
 }
