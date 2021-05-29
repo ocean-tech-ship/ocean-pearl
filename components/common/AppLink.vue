@@ -1,12 +1,6 @@
 <template>
-  <nuxt-link v-if="isNuxtLink"  :to="to"
-    ><slot></slot
-  ></nuxt-link>
-  <a
-    v-else
-    :href="to"
-    target="_blank"
-    rel="noopener noreferrer"
+  <nuxt-link v-if="isNuxtLink" :to="to"><slot></slot></nuxt-link>
+  <a v-else :href="to" target="_blank" rel="noopener noreferrer"
     ><slot></slot>
   </a>
 </template>
