@@ -7,8 +7,8 @@
       </span>
     </h4>
 
-    <div class="grid lg:grid-cols-2 gap-4 mt-6">
-      <div class="grid lg:grid-cols-2 gap-4">
+    <div class="grid lg:grid-cols-2 gap-4 xl:gap-32 mt-6">
+      <div class="grid lg:grid-cols-2 gap-4 xl:gap-8">
         <!-- Funding Round -->
         <div class="shadow rounded p-2">
           <div class="flex items-center">

@@ -28,7 +28,7 @@
             {{ $t('project.added') }}
           </p>
           <p class="small-text">
-            {{ formatDate(submit) }}
+            {{ formatDate(project.createdAt) }}
           </p>
         </div>
       </div>
@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import LandingSectionContainer from '../landing/LandingSectionContainer'
 import AppButton from '@/components/common/AppButton'
+import LandingSectionContainer from '../landing/LandingSectionContainer'
 
 export default {
   name: 'ProjectSingleHeader',
