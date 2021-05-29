@@ -37,7 +37,13 @@ export default Vue.extend({
         return { error: 'general.error.unknown', project: null }
       }
 
-      return { error: null, project: response.data }
+      return {
+        error: null,
+        project:
+          process.env.NUXT_ENV_USE_MIRAGE === 'true'
+            ? response.data.project
+            : response.data,
+      }
     } catch (error) {
       return { error: 'general.error.retry', project: null }
     }

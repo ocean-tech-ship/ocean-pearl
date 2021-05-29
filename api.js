@@ -8,7 +8,7 @@ export function getFeaturedProjects(axios) {
 }
 
 export function getProjectById(axios, id) {
-  return axios.$get(`/projects/detail/${id}`)
+  return axios.get(`/projects/detail/${id}`)
 }
 
 // dao-proposals
