@@ -9,6 +9,9 @@ $ yarn install
 # serve with hot reload at localhost:3000
 $ yarn dev
 
+# serves like dev but uses mock-db using miragejs
+$ yarn devm
+
 # build for production and launch server
 $ yarn build
 $ yarn start
