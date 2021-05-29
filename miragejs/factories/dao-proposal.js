@@ -14,8 +14,8 @@ export default {
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.',
     logo: require('@/assets/images/poseidon-network.png'),
-    startDate: '12. Nov 2021 12PM',
-    endDate: '12. Nov 2021 12PM',
+    startDate: '2021-05-20T22:03:19.072Z',
+    endDate: '2021-05-28T22:03:19.072Z',
     category: 'Category1',
     fundRound: '2',
   }),
