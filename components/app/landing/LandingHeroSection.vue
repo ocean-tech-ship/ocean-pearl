@@ -10,7 +10,7 @@
         <p class="pt-6 mb-8">
           {{ $t('landing.hero.text') }}
         </p>
-        <AppLink to="/project-overview">
+        <AppLink to="/projects">
           <AppButtonStyle
             :icon="require('@/assets/images/icons/sailing_ship.svg')"
             :text="$t('landing.hero.buttonText')"

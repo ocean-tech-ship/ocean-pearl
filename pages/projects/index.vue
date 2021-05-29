@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ProjectsHeader from '@/components/app/project-overview/ProjectsHeader.vue'
-import ProjectsList from '@/components/app/project-overview/ProjectsList.vue'
+import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue'
+import ProjectsList from '@/components/app/projects/ProjectsList.vue'
 
 export default Vue.extend({
 

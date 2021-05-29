@@ -27,7 +27,7 @@
       </div>
 
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink :prefetch="false" :to="`/project-overview/${project._id}`">
+        <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
@@ -59,7 +59,7 @@
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink to="/project-overview">
+    <NuxtLink to="/projects">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.featured_projects.link_text') }}

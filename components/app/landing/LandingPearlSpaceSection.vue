@@ -46,13 +46,13 @@ export default {
       cards: [
         {
           title: 'Track Projects',
-          buttonTarget: '/project-overview',
+          buttonTarget: '/projects',
           imageURL: require('@/assets/images/landing/track-projects.svg'),
           buttonText: 'Track',
         },
         {
           title: 'Submit Project',
-          buttonTarget: '/project-overview',
+          buttonTarget: '/projects',
           imageURL: require('@/assets/images/landing/submit-projects.svg'),
           buttonText: 'Submit',
         },
