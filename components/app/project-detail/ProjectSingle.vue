@@ -7,8 +7,8 @@
         >
           <div class="shadow rounded-md">
             <img
-              class="w-full h-100 self-center align-center"
-              src="@/assets/images/detail/poseidon-cover.png"
+              class="self-center align-center"
+              :src="project.pictures[0]"
               alt="poseidon network cover"
             />
           </div>
@@ -16,9 +16,7 @@
             <div>
               <p class="text-primary small-text">Description</p>
               <p class="small-text">
-                Next-Generation Content Acceleration Layer (CDN + DSN),
-                incentivized by Token Economy, it’s cheaper yet faster. Utilized
-                unused bandwidth.
+                {{ project.description }}
               </p>
             </div>
 
@@ -144,65 +142,17 @@ export default {
     AppButtonStyle,
     AppLink,
   },
-  data() {
-    return {
-      jobs: [
-        {
-          id: 0,
-          title: 'poseidon',
-          position: 'Data analyst',
-          description:
-            'Data analyst which is on track with registring new data assets and maintaining them aswell.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-          date: '11.03.21',
-          loan: '50000€ - 60000€',
-        },
-        {
-          id: 1,
-          title: 'poseidon',
-          position: 'Data scientist',
-          description:
-            'Data analyst who is on track with registring new data assets and maintaining them aswell.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-          date: '18.03.21',
-          loan: '20000€ - 30000€',
-        },
-        {
-          id: 1,
-          title: 'poseidon',
-          position: 'Data scientist',
-          description:
-            'Data analyst who is on track with all new data assets and maintaining them aswell.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-          date: '18.03.21',
-          loan: '20000€ - 30000€',
-        },
-        {
-          id: 1,
-          title: 'poseidon',
-          position: 'Data scientist',
-          description:
-            'Data analyst who is on track with registring new data assets and maintaining them aswell.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-          date: '18.03.21',
-          loan: '20000€ - 30000€',
-        },
-      ],
-    }
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
   },
 }
 </script>
 
 <style scoped>
 .p-line-head {
-  line-height: 20px !important;
-}
-
-.body-single {
-  background: #fafafa;
+  line-height: 20px;
 }
 </style>
