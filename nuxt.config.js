@@ -24,11 +24,16 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/mirage.js', { src: '~/plugins/vue-globals', ssr: true }],
+  plugins: [
+    '@/plugins/mirage.js',
+    { src: '~/plugins/vue-globals', ssr: true },
+    { src: '~/plugins/plausible', ssr: false },
+  ],
 
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   publicRuntimeConfig: {
     baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000',
+    plausibleDomain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
   },
 
   ssr: !(process.env.NUXT_ENV_USE_MIRAGE === 'true'), // Disable Server Side rendering for development because of miragejs
