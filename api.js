@@ -1,6 +1,6 @@
 // projects
 export function getProjects(axios) {
-    return axios.$get('/projects')
+  return axios.$get('/projects')
 }
 
 export function getFeaturedProjects(axios) {
