@@ -71,7 +71,7 @@ function enableAutoOutboundTracking(plausible: any) {
 
 const plausible = Plausible({
   domain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
-  trackLocalhost: process.env.NODE_ENV === 'development',
+  trackLocalhost: false,
 })
 
 plausible.enableAutoPageviews()
