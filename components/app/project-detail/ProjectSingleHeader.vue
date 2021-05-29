@@ -5,14 +5,14 @@
         <div class="mr-4 w-12 h-12">
           <img
             class="inline-block rounded-full ring-2 ring-white"
-            :src="logo"
-            :alt="title + ' ' + $t('general.logo')"
+            :src="project.logo"
+            :alt="project.title + ' ' + $t('general.logo')"
           />
         </div>
 
         <div class="mt-2">
-          <h1 class="text-primary thin-heading">{{ title }}</h1>
-          <p class="mt-2">{{ category }}</p>
+          <h1 class="text-primary thin-heading">{{ project.title }}</h1>
+          <p class="mt-2">{{ project.category }}</p>
         </div>
       </div>
       <div class="flex">
@@ -43,40 +43,19 @@
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton'
 import LandingSectionContainer from '../landing/LandingSectionContainer'
+import AppButton from '@/components/common/AppButton'
 
 export default {
   name: 'ProjectSingleHeader',
-
   components: {
     AppButton,
     LandingSectionContainer,
   },
-
   props: {
-    title: {
-      type: String,
+    project: {
+      type: Object,
       required: true,
-      default: '/',
-    },
-
-    category: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    submit: {
-      type: String,
-      required: true,
-      default: '/',
-    },
-
-    logo: {
-      type: String,
-      required: true,
-      default: '',
     },
   },
 

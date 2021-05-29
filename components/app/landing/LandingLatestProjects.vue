@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { getProjects } from '@/api.js'
 import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
@@ -55,46 +56,19 @@ export default {
   components: {
     LandingSectionContainer,
   },
+
   data() {
     return {
-      projects: [
-        {
-          title: 'GreenSquareExample',
-          category: 'LoFi',
-          createdAt: '2021-05-08T21:39:46.378Z',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon-network.png'),
-        },
-        {
-          title: 'Poseidon',
-          category: 'LoFi',
-          createdAt: Date.now(),
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-        },
-        {
-          title: 'Jellyfish',
-          category: 'LoFi',
-          createdAt: '2021-05-27T21:39:46.378Z',
-          projectTarget: '',
-          imageURL: require('@/assets/images/jellyfish.png'),
-        },
-        {
-          title: 'Pearl',
-          category: 'LoFi',
-          createdAt: '2021-04-08T21:39:46.378Z',
-          projectTarget: '',
-          imageURL: require('@/assets/images/logo/pearl-logo.svg'),
-        },
-        {
-          title: 'Poseidon',
-          category: 'LoFi',
-          createdAt: '2021-05-20T21:39:46.378Z',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-        },
-      ],
+      projects: [],
     }
+  },
+
+  async fetch() {
+    const projects = await getProjects(this.$axios)
+    this.projects =
+      process.env.useMirage === 'true'
+        ? projects.projects.slice(0, 5)
+        : projects.slice(0, 5)
   },
 
   methods: {
