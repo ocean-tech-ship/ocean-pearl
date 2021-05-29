@@ -1,26 +1,26 @@
 // projects
 export function getProjects(axios) {
-  return axios.$get('/project')
+    return axios.$get('/projects')
 }
 
 export function getFeaturedProjects(axios) {
-  return axios.$get('/project/featured')
+  return axios.$get('/projects/featured')
 }
 
 export function getProjectById(axios, id) {
-  return axios.$get(`/project/detail/${id}`)
+  return axios.$get(`/projects/detail/${id}`)
 }
 
 // dao-proposals
 export function getDaoProposals(axios) {
-  return axios.$get('/dao-proposal')
+  return axios.$get('/dao-proposals')
 }
 
 export function getFeaturedDaoProposals(axios) {
-  return axios.$get('/dao-proposal/featured')
+  return axios.$get('/dao-proposals/featured')
 }
 
 // jobs
 export function getJobs(axios) {
-  return axios.$get('/job')
+  return axios.$get('/jobs')
 }
