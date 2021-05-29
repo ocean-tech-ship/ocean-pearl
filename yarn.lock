@@ -1545,13 +1545,6 @@
     webpack-node-externals "^2.5.2"
     webpackbar "^4.0.0"
 
-"@nuxtjs/date-fns@^1.5.0":
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/date-fns/-/date-fns-1.5.0.tgz#9a37d97b97b08075f19619ffcb045ef46ce4c19a"
-  integrity sha512-mE+D3+XmmMcn1lhgMlQdQiWiPhW6KO0AW6cwm/jP7fD5CtEtYuNuAxD8iUaeadM1Cw5ZwjkiMlQsnWLiKGe+bQ==
-  dependencies:
-    date-fns "^2.19.0"
-
 "@nuxtjs/axios@^5.13.1":
   version "5.13.1"
   resolved "https://registry.yarnpkg.com/@nuxtjs/axios/-/axios-5.13.1.tgz#70c7444e6be8989372c249637f9287c844340f42"
@@ -1562,6 +1555,13 @@
     axios-retry "^3.1.9"
     consola "^2.15.3"
     defu "^3.2.2"
+
+"@nuxtjs/date-fns@^1.5.0":
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/date-fns/-/date-fns-1.5.0.tgz#9a37d97b97b08075f19619ffcb045ef46ce4c19a"
+  integrity sha512-mE+D3+XmmMcn1lhgMlQdQiWiPhW6KO0AW6cwm/jP7fD5CtEtYuNuAxD8iUaeadM1Cw5ZwjkiMlQsnWLiKGe+bQ==
+  dependencies:
+    date-fns "^2.19.0"
 
 "@nuxtjs/eslint-config-typescript@^5.0.0":
   version "5.0.0"
@@ -3846,10 +3846,10 @@ core-js@^2.4.0, core-js@^2.6.5:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.12.tgz#d9333dfa7b065e347cc5682219d6f690859cc2ec"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
-core-js@^3.10.1:
-  version "3.10.1"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.10.1.tgz#e683963978b6806dcc6c0a4a8bd4ab0bdaf3f21a"
-  integrity sha512-pwCxEXnj27XG47mu7SXAwhLP3L5CrlvCB91ANUkIz40P27kUcvNfSdvyZJ9CLHiVoKSp+TTChMQMSKQEH/IQxA==
+core-js@^3.13.1:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.13.1.tgz#30303fabd53638892062d8b4e802cac7599e9fb7"
+  integrity sha512-JqveUc4igkqwStL2RTRn/EPFGBOfEZHxJl/8ej1mXJR75V3go2mFF4bmUYkEIT1rveHKnkUlcJX/c+f1TyIovQ==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
