@@ -71,9 +71,10 @@
       "titleHighlight": "projects"
     },
     "pearl_dao": {
+      "title": "Ocean",
+      "titleHighlight": "Pearl x DAO",
       "link_text": "See all listed projects",
-      "text": "All infos about the current funding round of the Ocean Dao.",
-      "link_text": "See all listed projects"
+      "text": "All infos about the current funding round of the Ocean Dao."
     },
     "featured_dao_projects": {
       "title": "Featured Dao",
