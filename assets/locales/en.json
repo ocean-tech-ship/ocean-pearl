@@ -71,15 +71,21 @@
       "titleHighlight": "projects"
     },
     "pearl_dao": {
-      "link_text": "See all listed projects",
-      "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
-      "titleHighlight": "Pearl x DAO"
+      "titleHighlight": "Pearl x DAO",
+      "link_text": "See all listed projects",
+      "text": "All infos about the current funding round of the Ocean Dao."
     },
-    "pearl_space": {
-      "text": "These are the main features of ocean pearl.",
-      "title": "Pearl",
-      "titleHighlight": "space"
+    "featured_dao_projects": {
+      "title": "Featured Dao",
+      "titleHighlight": "projects",
+      "text": "A handpicked collection of our favourite projects for this funding round.",
+      "secondTitle": "Funding",
+      "secondTitleHighlight": "Round 6",
+      "requestedAmount": "Requested Amount",
+      "ocean": "OCEAN",
+      "checkOut": "check out",
+      "link_text": "See all featured projects"
     }
   },
   "navbar": {
