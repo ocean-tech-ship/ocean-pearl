@@ -61,21 +61,21 @@ export default {
   modules: ['nuxt-i18n', '@nuxtjs/axios'],
 
   dateFns: {
-    locales: ['en-US', 'de'],
+    locales: ['en-US'],
     fallbackLocale: 'en-US',
   },
 
   i18n: {
     locales: [
       {
-        code: 'en',
+        code: 'en-US',
         name: 'English',
         file: 'en.json',
       },
     ],
     lazy: true,
     langDir: '~/assets/locales/',
-    defaultLocale: 'en',
+    defaultLocale: 'en-US',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
