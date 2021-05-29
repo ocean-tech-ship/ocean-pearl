@@ -10,7 +10,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
     >
-      <div v-for="project in projects" :key="project.title">
+      <div v-for="project in projects" :key="project._id">
         <NuxtLink :prefetch="false" to="/project-overview">
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <div class="mt-3">
