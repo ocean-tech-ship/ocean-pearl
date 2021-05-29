@@ -24,7 +24,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ['@/plugins/mirage.js', { src: '@/plugins/vue-globals', ssr: true }],
+  plugins: ['@/plugins/mirage.js', { src: '~/plugins/vue-globals', ssr: true }],
 
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
   publicRuntimeConfig: {
@@ -41,7 +41,7 @@ export default {
     baseURL:
       process.env.NUXT_ENV_USE_MIRAGE === 'true'
         ? process.env.NUXT_ENV_BASE_URL_LOCAL
-        : process.env.NUXT_ENV_BASE_URL, 
+        : process.env.NUXT_ENV_BASE_URL,
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,21 +53,29 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/nuxt-community/date-fns-module
+    '@nuxtjs/date-fns',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ['nuxt-i18n', '@nuxtjs/axios'],
+
+  dateFns: {
+    locales: ['en-US'],
+    fallbackLocale: 'en-US',
+  },
+
   i18n: {
     locales: [
       {
-        code: 'en',
+        code: 'en-US',
         name: 'English',
         file: 'en.json',
       },
     ],
     lazy: true,
     langDir: '~/assets/locales/',
-    defaultLocale: 'en',
+    defaultLocale: 'en-US',
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

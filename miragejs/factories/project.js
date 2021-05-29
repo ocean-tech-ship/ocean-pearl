@@ -17,6 +17,6 @@ export default {
     logo: require('@/assets/images/poseidon-network.png'),
     pictures: [require('@/assets/images/detail/poseidon-cover.png')], 
     category: 'Category1',
-    createdAt: '1 month ago'
+    createdAt: '2021-05-20T22:03:19.072Z'
   }),
 }
