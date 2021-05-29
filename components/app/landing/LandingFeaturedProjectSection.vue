@@ -20,9 +20,9 @@
         />
         <h3 class="content-center text-center sm:my-12 sm:pt-8">
           {{ $t('landing.featured_projects.secondTitle') }}
-          <span class="text-primary"> {{
-            $t('landing.featured_projects.secondTitleHighlight')
-          }}</span>
+          <span class="text-primary">
+            {{ $t('landing.featured_projects.secondTitleHighlight') }}</span
+          >
         </h3>
       </div>
 
@@ -38,14 +38,15 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head truncate">{{ project.title | truncate(18) }}</p>
+                <p class="text-primary p-line-head truncate">
+                  {{ project.title | truncate(18) }}
+                </p>
               </div>
-
             </div>
             <p class="small-text mt-2 text-primary">{{ project.category }}</p>
             <div>
               <p class="small-text mt-4">
-                {{ project.description | truncate(90)}}
+                {{ project.description | truncate(90) }}
               </p>
             </div>
             <div class="justify-self-end flex items-center mt-8">
@@ -79,16 +80,22 @@ export default {
 
   components: {
     LandingSectionContainer,
-    AppLink
+    AppLink,
   },
   data() {
     return {
       projects: [],
     }
   },
- async fetch() {
-    const projects = await getFeaturedProjects(this.$axios)
-    this.projects = process.env.useMirage === 'true' ? projects.projects : projects
+  async fetch() {
+    await getFeaturedProjects(this.$axios)
+      .then((projects) => {
+        this.projects =
+          process.env.useMirage === 'true' ? projects.projects : projects
+      })
+      .catch(() => {
+        this.projects = []
+      })
   },
 }
 </script>

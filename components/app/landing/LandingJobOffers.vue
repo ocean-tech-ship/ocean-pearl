@@ -61,7 +61,16 @@ export default {
     }
   },
   async fetch() {
-    this.jobs = (await getJobs()).slice(0, 4)
+    await getJobs(this.$axios)
+      .then((jobs) => {
+        this.jobs =
+          process.env.useMirage === 'true'
+            ? jobs.jobs.slice(0, 4)
+            : jobs.slice(0, 4)
+      })
+      .catch(() => {
+        this.jobs = []
+      })
   },
 }
 </script>
