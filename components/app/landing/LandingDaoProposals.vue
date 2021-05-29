@@ -79,7 +79,7 @@ export default {
     }
   },
   async fetch() {
-    await getFeaturedDaoProposals(this.$axios)
+    await getFeaturedDaoProposals(this.$axios, 4)
       .then((daoProposals) => {
         this.projects = this.daoProposals =
           process.env.useMirage === 'true'

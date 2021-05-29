@@ -88,12 +88,13 @@ export default {
     }
   },
   async fetch() {
-    await getFeaturedProjects(this.$axios)
+    await getFeaturedProjects(this.$axios, 4)
       .then((projects) => {
         this.projects =
           process.env.useMirage === 'true' ? projects.projects : projects
       })
-      .catch(() => {
+      .catch((error) => {
+        console.log(error)
         this.projects = []
       })
   },
