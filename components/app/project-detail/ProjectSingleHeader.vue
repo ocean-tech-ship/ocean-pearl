@@ -2,7 +2,7 @@
   <LandingSectionContainer>
     <div class="flex justify-between content-center">
       <div class="flex">
-        <div class="mr-4 w-12 h-12">
+        <div v-if="!!project.logo" class="mr-4 w-12 h-12">
           <img
             class="inline-block rounded-full ring-2 ring-white"
             :src="project.logo"
