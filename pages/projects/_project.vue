@@ -15,7 +15,7 @@
         <project-single-dao-proposal :project="project" />
       </div>
 
-      <project-single-roi-strategy :project="project" />
+      <!--<project-single-roi-strategy :project="project" />-->
     </div>
   </div>
 </template>
