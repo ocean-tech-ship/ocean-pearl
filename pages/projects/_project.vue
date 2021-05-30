@@ -6,9 +6,16 @@
         <p class="small-text">{{ $t(error) }}</p>
       </landing-section-container>
     </div>
+
     <div v-if="!!project">
       <project-single-header :project="project" />
-      <project-single :project="project" />
+
+      <div class="bg-grey pt-8 pb-1 mb-8">
+        <project-single-details :project="project" />
+        <project-single-dao-proposal :project="project" />
+      </div>
+
+      <!--<project-single-roi-strategy :project="project" />-->
     </div>
   </div>
 </template>
@@ -16,14 +23,18 @@
 <script lang="ts">
 import Vue from 'vue'
 import { getProjectById } from '@/api.js'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
+import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue'
+import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue'
+import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue'
-import ProjectSingle from '@/components/app/project-detail/ProjectSingle.vue'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
 
 export default Vue.extend({
   name: 'ProjectDetail',
   components: {
-    ProjectSingle,
+    ProjectSingleRoiStrategy,
+    ProjectSingleDetails,
+    ProjectSingleDaoProposal,
     ProjectSingleHeader,
     LandingSectionContainer,
   },
@@ -33,7 +44,7 @@ export default Vue.extend({
       const response = await getProjectById($axios, params.project)
 
       if (response.status === 204) {
-        return { error: 'general.error.unknown', project: null }
+        return { error: 'project.unknown', project: null }
       }
 
       return {

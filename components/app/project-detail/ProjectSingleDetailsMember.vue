@@ -14,7 +14,7 @@
 
     <div class="flex">
       <span
-        v-for="(url, type) in member.socialMedia"
+        v-for="(url, type) in filteredMemberSocialMedia"
         :key="type"
         class="small-text"
       >
@@ -40,12 +40,34 @@ export default {
     member: {
       type: Object,
       required: true,
+      default: () => ({
+        firstname: '/',
+        lastname: '/',
+        purpose: '/',
+        socialMedia: [],
+      }),
     },
   },
 
   computed: {
     fullMemberTitle() {
-      return this.$props.member.name + ', ' + this.$props.member.purpose
+      const member = this.$props.member
+      return `${member.firstname} ${member.lastname}`
+      // return `${member.firstname} ${member.lastname}, ${member.purpose}`
+    },
+
+    filteredMemberSocialMedia() {
+      const socials = {}
+
+      for (const [type, url] of Object.entries(
+        this.$props.member.socialMedia
+      )) {
+        if (SocialMedia.parse(type) != null) {
+          socials[type] = url
+        }
+      }
+
+      return socials
     },
   },
 
