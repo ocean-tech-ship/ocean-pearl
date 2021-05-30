@@ -4,7 +4,10 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
     >
       <div v-for="daoProposal in daoData.daoProposals" :key="daoProposal._id">
-        <NuxtLink :prefetch="false" :to="`/projects/${daoProposal.project._id}`">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${daoProposal.project._id}`"
+        >
           <div class="shadow rounded pb-10 p-8">
             <div class="flex">
               <div class="mr-3">
@@ -38,7 +41,11 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.requestedGrantToken}) }}
+                {{
+                  $t('general.ocean', {
+                    ocean: daoProposal.requestedGrantToken,
+                  })
+                }}
               </p>
             </div>
             <div class="mt-5">
@@ -53,7 +60,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.votes}) }}
+                {{ $t('general.ocean', { ocean: daoProposal.votes }) }}
               </p>
             </div>
             <div class="mt-5">
@@ -68,7 +75,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.counterVotes}) }}
+                {{ $t('general.ocean', { ocean: daoProposal.counterVotes }) }}
               </p>
             </div>
           </div>
@@ -90,6 +97,7 @@ export default {
     daoData: {
       type: Object,
       required: true,
+      default: { daoProposals: [] },
     },
   },
 }

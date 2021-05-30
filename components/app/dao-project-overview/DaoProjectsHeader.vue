@@ -46,6 +46,15 @@ export default {
     daoData: {
       type: Object,
       required: true,
+      default: {
+        metrics: {
+          fundingRound: '',
+          totalDaoProposals: '',
+          endDate: '',
+          totalRequestedFunding: '',
+          totalVotes: '',
+        },
+      },
     },
   },
   data() {
@@ -68,12 +77,16 @@ export default {
         },
         {
           title: this.$i18n.t('daoRoundData.totalAmount'),
-          daoInfo: `${this.$i18n.t('general.ocean', { ocean: this.daoData.metrics.totalRequestedFunding})}`,
+          daoInfo: `${this.$i18n.t('general.ocean', {
+            ocean: this.daoData.metrics.totalRequestedFunding,
+          })}`,
           imageURL: require('@/assets/images/icons/transaction.svg'),
         },
         {
           title: this.$i18n.t('daoRoundData.totalVotes'),
-          daoInfo: `${this.$i18n.t('general.ocean', { ocean: this.daoData.metrics.totalVotes})}`,
+          daoInfo: `${this.$i18n.t('general.ocean', {
+            ocean: this.daoData.metrics.totalVotes,
+          })}`,
           imageURL: require('@/assets/images/icons/vote.svg'),
         },
       ],
