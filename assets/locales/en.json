@@ -42,6 +42,17 @@
       "title": "Open DAO",
       "titleHighlight": "proposals"
     },
+    "featured_dao_projects": {
+      "checkOut": "check out",
+      "link_text": "See all featured projects",
+      "ocean": "OCEAN",
+      "requestedAmount": "Requested Amount",
+      "secondTitle": "Funding",
+      "secondTitleHighlight": "Round 6",
+      "text": "A handpicked collection of our favourite projects for this funding round.",
+      "title": "Featured Dao",
+      "titleHighlight": "projects"
+    },
     "featured_projects": {
       "checkOut": "check out",
       "link_text": "See all featured projects",
@@ -71,21 +82,10 @@
       "titleHighlight": "projects"
     },
     "pearl_dao": {
-      "title": "Ocean",
-      "titleHighlight": "Pearl x DAO",
       "link_text": "See all listed projects",
-      "text": "All infos about the current funding round of the Ocean Dao."
-    },
-    "featured_dao_projects": {
-      "title": "Featured Dao",
-      "titleHighlight": "projects",
-      "text": "A handpicked collection of our favourite projects for this funding round.",
-      "secondTitle": "Funding",
-      "secondTitleHighlight": "Round 6",
-      "requestedAmount": "Requested Amount",
-      "ocean": "OCEAN",
-      "checkOut": "check out",
-      "link_text": "See all featured projects"
+      "text": "All infos about the current funding round of the Ocean Dao.",
+      "title": "Ocean",
+      "titleHighlight": "Pearl x DAO"
     }
   },
   "navbar": {
@@ -120,7 +120,8 @@
       "success-chance": "Chance of Success",
       "title": "ROI"
     },
-    "team": "Team"
+    "team": "Team",
+    "unknown": "The requested project could not be found."
   },
   "project_detail": {
     "fundHereButton": "fund here",

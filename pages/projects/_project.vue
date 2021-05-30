@@ -44,7 +44,7 @@ export default Vue.extend({
       const response = await getProjectById($axios, params.project)
 
       if (response.status === 204) {
-        return { error: 'general.error.unknown', project: null }
+        return { error: 'project.unknown', project: null }
       }
 
       return {
