@@ -1,6 +1,6 @@
 <template>
   <div class="lg:flex lg:gap-10">
-    <a class="table mx-auto">
+    <a class="table mx-auto" :href="items[0].route" >
       <div class="lg:flex lg:items-center lg:justify-center lg:gap-2">
         <img
           :src="items[0].icon"
