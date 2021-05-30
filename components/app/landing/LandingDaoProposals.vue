@@ -45,8 +45,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ daoProposal.fundAmount }}
-                {{ $t('landing.dao_proposals.ocean') }}
+                {{ $t('general.ocean', { ocean: daoProposal.fundAmount }) }}
               </p>
             </div>
           </div>

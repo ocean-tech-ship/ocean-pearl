@@ -27,7 +27,7 @@ import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSin
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue'
 import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue'
-import LandingSectionContainer from '~/components/app/landing/LandingSectionContainer.vue'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
 
 export default Vue.extend({
   name: 'ProjectDetail',

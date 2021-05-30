@@ -1,4 +1,11 @@
 {
+  "daoRoundData": {
+    "fundingRound": "Funding Round",
+    "amountProposals": "Amount proposals",
+    "countdown": "Countdown",
+    "totalAmount": "Total Amount",
+    "totalVotes": "Total Votes"
+  },
   "dao-projects": {
     "header": {
       "text": "All infos about the current funding round of the Ocean Dao.",
@@ -6,10 +13,9 @@
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "noVotes": "No Votes",
-      "ocean": "OCEAN",
+      "votes": "Yes Votes",
       "requestedAmount": "Requested Amount",
-      "yesVotes": "Yes Votes"
+      "counterVotes": "No Votes"
     }
   },
   "general": {
@@ -37,22 +43,20 @@
   "landing": {
     "dao_proposals": {
       "link_text": "See all DAO projects",
-      "ocean": "OCEAN",
       "requestedAmount": "Requested Amount",
       "text": "These projects are currently waiting or applying for a DAO funding.",
       "title": "Open DAO",
       "titleHighlight": "proposals"
     },
     "featured_dao_projects": {
-      "checkOut": "check out",
-      "link_text": "See all featured projects",
-      "ocean": "OCEAN",
-      "requestedAmount": "Requested Amount",
+      "title": "Featured Dao",
+      "titleHighlight": "projects",
+      "text": "A handpicked collection of our favourite projects for this funding round.",
       "secondTitle": "Funding",
       "secondTitleHighlight": "Round 6",
-      "text": "A handpicked collection of our favourite projects for this funding round.",
-      "title": "Featured Dao",
-      "titleHighlight": "projects"
+      "requestedAmount": "Requested Amount",
+      "checkOut": "check out",
+      "link_text": "See all featured projects"
     },
     "featured_projects": {
       "checkOut": "check out",
