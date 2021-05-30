@@ -37,7 +37,7 @@
         <!-- Cover -->
         <img
           width="100%"
-          :src="project.pictures.length > 0 && project.pictures[0]"
+          :src="coverImage"
           :alt="project.title + ' ' + $t('general.logo')"
         />
 
@@ -86,6 +86,12 @@ export default {
   },
 
   computed: {
+    coverImage() {
+      return this.$props.project.pictures.length > 0
+        ? this.$props.project.pictures[0]
+        : require('@/assets/images/detail/pearl-background.png')
+    },
+
     filteredProjectSocialMedia() {
       const socials = {}
 
