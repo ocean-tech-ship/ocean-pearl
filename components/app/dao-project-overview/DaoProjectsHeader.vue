@@ -72,7 +72,11 @@ export default {
         },
         {
           title: this.$i18n.t('daoRoundData.countdown'),
-          daoInfo: this.daoData.metrics.endDate,
+          daoInfo: this.$dateFns.formatDistanceStrict(
+            new Date(this.daoData.metrics.endDate),
+            Date.now(),
+            { addSuffix: true, locale: this.$i18n.locale }
+          ),
           imageURL: require('@/assets/images/icons/countdown.svg'),
         },
         {
