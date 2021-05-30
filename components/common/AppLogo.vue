@@ -1,5 +1,5 @@
 <template>
-  <img :src="conditionalSource" :alt="alt + ' ' + $t('general.logo')" />
+  <img :src="conditionalSource" :alt="`${alt} ${$t('general.logo')}`" />
 </template>
 
 <script>
