@@ -23,7 +23,13 @@
             </p>
           </div>
 
-          <p class="small-text">{{ project.round }}</p>
+          <p class="small-text">
+            {{
+              $t('project.proposal.round.numbered', {
+                round: newestProposal.fundingRound,
+              })
+            }}
+          </p>
         </div>
 
         <!-- Requested Funding -->
@@ -41,7 +47,9 @@
           </div>
 
           <p class="small-text">
-            {{ project.requested }}
+            {{
+              $t('general.ocean', { ocean: newestProposal.requestedGrantToken })
+            }}
           </p>
         </div>
 
@@ -51,7 +59,7 @@
             {{ $t('project.proposal.wallet') }}
           </p>
 
-          <p class="small-text break-all">{{ project.walletAddress }}</p>
+          <p class="small-text break-all">{{ newestProposal.walletAddress }}</p>
         </div>
 
         <!-- Action (lg only) -->
@@ -84,7 +92,7 @@
               :key="proposal.fundingRound"
               class="small-text pr-8"
             >
-              {{ proposal.fundingRequested }}
+              {{ $t('general.ocean', { ocean: proposal.requestedGrantToken }) }}
 
               ({{
                 $t('project.proposal.round.numbered', {
@@ -110,6 +118,12 @@
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 
+const EMPTY_PROPOSAL = {
+  fundingRound: '/',
+  requestedGrantToken: '/',
+  walletAddress: '/',
+}
+
 export default {
   name: 'ProjectSingleDaoProposal',
 
@@ -123,11 +137,17 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        round: '/',
-        requested: '/',
-        walletAddress: '/',
         daoProposals: [],
       }),
+    },
+  },
+
+  computed: {
+    newestProposal() {
+      const proposals = this.$props.project.daoProposals
+      return proposals.length === 0
+        ? EMPTY_PROPOSAL
+        : proposals[proposals.length - 1]
     },
   },
 }

@@ -20,7 +20,8 @@
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
     "icon": "icon",
-    "logo": "logo"
+    "logo": "logo",
+    "ocean": "{ocean} OCEAN"
   },
   "jobs": {
     "header": {
