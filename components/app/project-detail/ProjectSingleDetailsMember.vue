@@ -41,7 +41,8 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        name: '/',
+        firstname: '/',
+        lastname: '/',
         purpose: '/',
         socialMedia: [],
       }),
@@ -50,7 +51,8 @@ export default {
 
   computed: {
     fullMemberTitle() {
-      return this.$props.member.name + ', ' + this.$props.member.purpose
+      const member = this.$props.member
+      return `${member.firstname} ${member.lastname}, ${member.purpose}`
     },
 
     filteredMemberSocialMedia() {
