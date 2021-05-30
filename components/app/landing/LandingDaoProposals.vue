@@ -11,7 +11,7 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
-        <NuxtLink :prefetch="false" to="/project-detail">
+        <NuxtLink :prefetch="false" :to="`/projects/${daoProposal.project._id}`">
           <div class="shadow rounded h-275px p-8">
             <div class="flex">
               <div class="mr-3">
@@ -45,7 +45,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.fundAmount }) }}
+                {{ $t('general.ocean', { ocean: daoProposal.requestedGrantToken }) }}
               </p>
             </div>
           </div>
