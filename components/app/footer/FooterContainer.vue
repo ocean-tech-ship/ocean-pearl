@@ -1,7 +1,7 @@
 <template>
   <footer class="w-full bg-secondary">
     <div
-      class="w-full max-w-1440 mx-auto py-10 grid gap-10 lg:flex lg:items-center lg:justify-center lg:gap-5"
+      class="w-full max-w-1440 mx-auto py-10 grid gap-10 md:flex md:items-center md:gap-20 md:justify-center lg:gap-5"
     >
       <footer-block theme="text-primary" :items="footerItems.slice(0, 3)" />
       <img
