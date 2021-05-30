@@ -65,6 +65,7 @@
         <!-- Action (lg only) -->
         <div class="hidden lg:block lg:col-span-2">
           <app-button-style
+            class="w-full text-center"
             :icon="require('@/assets/images/detail/fund-here.svg')"
             :text="$t('project.proposal.vote')"
           />
@@ -106,6 +107,7 @@
 
       <div class="lg:hidden">
         <app-button-style
+          class="w-full text-center"
           :icon="require('@/assets/images/detail/fund-here.svg')"
           :text="$t('project.proposal.vote')"
         />
