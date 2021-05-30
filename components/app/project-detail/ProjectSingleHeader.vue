@@ -2,11 +2,11 @@
   <LandingSectionContainer>
     <div class="flex justify-between content-center">
       <div class="flex">
-        <div v-if="!!project.logo" class="mr-4 w-12 h-12">
-          <img
+        <div class="mr-4 w-12 h-12">
+          <app-logo
             class="inline-block rounded-full ring-2 ring-white"
             :src="project.logo"
-            :alt="project.title + ' ' + $t('general.logo')"
+            :alt="project.title"
           />
         </div>
 
@@ -44,11 +44,13 @@
 
 <script>
 import AppButton from '@/components/common/AppButton'
-import LandingSectionContainer from '../landing/LandingSectionContainer'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import AppLogo from '@/components/common/AppLogo'
 
 export default {
   name: 'ProjectSingleHeader',
   components: {
+    AppLogo,
     AppButton,
     LandingSectionContainer,
   },
