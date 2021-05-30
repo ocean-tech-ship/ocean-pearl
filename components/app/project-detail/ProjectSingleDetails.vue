@@ -9,10 +9,8 @@
         <p class="small-text">{{ project.description }}</p>
 
         <!-- Team -->
-        <div class="mb-10">
+        <div v-if="!!project.team" class="mb-10">
           <p class="text-primary small-text mt-6">{{ $t('project.team') }}</p>
-
-          <p v-if="!project.team" class="small-text">/</p>
 
           <project-single-details-member
             v-for="(member, index) in project.team"
