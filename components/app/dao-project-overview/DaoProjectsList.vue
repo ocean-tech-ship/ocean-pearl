@@ -31,7 +31,7 @@
                 <img
                   class="mr-2"
                   src="@/assets/images/icons/transaction.svg"
-                  alt="funding-finish"
+                  :alt="`${$t('dao-projects.projects.requestedAmount')} icon`"
                 />
                 <p class="small-text text-primary">
                   {{ $t('dao-projects.projects.requestedAmount') }}
@@ -46,7 +46,7 @@
                 <img
                   class="mr-2"
                   src="@/assets/images/icons/yes-vote.svg"
-                  alt="funding-finish"
+                  :alt="`${$t('dao-projects.projects.votes')} icon`"
                 />
                 <p class="small-text text-primary">
                   {{ $t('dao-projects.projects.votes') }}
@@ -61,7 +61,7 @@
                 <img
                   class="mr-2"
                   src="@/assets/images/icons/no-vote.svg"
-                  alt="funding-finish"
+                  :alt="`${$t('dao-projects.projects.counterVotes')} icon`"
                 />
                 <p class="small-text text-primary">
                   {{ $t('dao-projects.projects.counterVotes') }}
