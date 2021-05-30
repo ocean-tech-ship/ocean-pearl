@@ -11,7 +11,7 @@
                 <img
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                   :src="daoProposal.project.logo"
-                  :alt="daoProposal.project.title + ' logo'"
+                  :alt="`${daoProposal.project.title} ${$t('general.logo')}`"
                 />
               </div>
               <div>
@@ -38,8 +38,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ daoProposal.requestedGrantToken }}
-                {{ $t('general.ocean') }}
+                {{ $t('general.ocean', { ocean: daoProposal.requestedGrantToken}) }}
               </p>
             </div>
             <div class="mt-5">
@@ -54,7 +53,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ daoProposal.votes }} {{ $t('general.ocean') }}
+                {{ $t('general.ocean', { ocean: daoProposal.votes}) }}
               </p>
             </div>
             <div class="mt-5">
@@ -69,8 +68,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ daoProposal.counterVotes }}
-                {{ $t('general.ocean') }}
+                {{ $t('general.ocean', { ocean: daoProposal.counterVotes}) }}
               </p>
             </div>
           </div>
