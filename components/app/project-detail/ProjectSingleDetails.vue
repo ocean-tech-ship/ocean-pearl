@@ -21,7 +21,7 @@
         <!-- Project Socials (until lg) -->
         <div class="flex justify-between my-10 md:justify-start lg:hidden">
           <project-single-details-social
-            v-for="(url, type) in project.socialMedia"
+            v-for="(url, type) in filteredProjectSocialMedia"
             :key="type"
             class="h-6 w-6 md:mr-6"
             :type="type"
@@ -41,7 +41,7 @@
         <!-- Project Socials (lg only) -->
         <div class="hidden lg:flex justify-end my-10">
           <project-single-details-social
-            v-for="(url, type) in project.socialMedia"
+            v-for="(url, type) in filteredProjectSocialMedia"
             :key="type"
             class="h-6 w-6 ml-6"
             :type="type"
@@ -57,6 +57,7 @@
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember'
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
+import { SocialMedia } from '~/model/SocialMedia'
 
 export default {
   name: 'ProjectSingleDetails',
@@ -78,6 +79,22 @@ export default {
         team: [],
         socialMedia: [],
       }),
+    },
+  },
+
+  computed: {
+    filteredProjectSocialMedia() {
+      const socials = {}
+
+      for (const [type, url] of Object.entries(
+        this.$props.project.socialMedia
+      )) {
+        if (SocialMedia.parse(type) != null) {
+          socials[type] = url
+        }
+      }
+
+      return socials
     },
   },
 }

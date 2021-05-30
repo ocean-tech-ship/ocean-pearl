@@ -1,5 +1,5 @@
 export class SocialMedia {
-  public static parse(id: string): SocialMedia {
+  public static parse(id: string): SocialMedia | null {
     switch (id.toLowerCase()) {
       case 'website':
         return this.WEBSITE
@@ -18,7 +18,7 @@ export class SocialMedia {
       case 'discord':
         return this.DISCORD
       default:
-        throw new Error('Provided social media ´' + id + '` cannot be resolved')
+        return null
     }
   }
 
