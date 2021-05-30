@@ -52,28 +52,28 @@ export default {
     return {
       daoInfoCards: [
         {
-          title: 'Funding Round',
-          daoInfo: `${this.daoData.metrics.fundingRound} OCEAN`,
+          title: this.$i18n.t('daoRoundData.fundingRound'),
+          daoInfo: `${this.daoData.metrics.fundingRound}`,
           imageURL: require('@/assets/images/icons/fund-round.svg'),
         },
         {
-          title: 'Amount proposals',
+          title: this.$i18n.t('daoRoundData.amountProposals'),
           daoInfo: `${this.daoData.metrics.totalDaoProposals} proposals`,
           imageURL: require('@/assets/images/icons/amount.svg'),
         },
         {
-          title: 'Countdown',
+          title: this.$i18n.t('daoRoundData.countdown'),
           daoInfo: this.daoData.metrics.endDate,
           imageURL: require('@/assets/images/icons/countdown.svg'),
         },
         {
-          title: 'Total Amount',
-          daoInfo: `${this.daoData.metrics.totalRequestedFunding} OCEAN`,
+          title: this.$i18n.t('daoRoundData.totalAmount'),
+          daoInfo: `${this.$i18n.t('general.ocean', { ocean: this.daoData.metrics.totalRequestedFunding})}`,
           imageURL: require('@/assets/images/icons/transaction.svg'),
         },
         {
-          title: 'Total Votes',
-          daoInfo: this.daoData.metrics.totalVotes,
+          title: this.$i18n.t('daoRoundData.totalVotes'),
+          daoInfo: `${this.$i18n.t('general.ocean', { ocean: this.daoData.metrics.totalVotes})}`,
           imageURL: require('@/assets/images/icons/vote.svg'),
         },
       ],

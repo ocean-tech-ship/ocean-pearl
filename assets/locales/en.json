@@ -1,4 +1,11 @@
 {
+  "daoRoundData": {
+    "fundingRound": "Funding Round",
+    "amountProposals": "Amount proposals",
+    "countdown": "Countdown",
+    "totalAmount": "Total Amount",
+    "totalVotes": "Total Votes"
+  },
   "dao-projects": {
     "header": {
       "text": "All infos about the current funding round of the Ocean Dao.",
@@ -6,9 +13,9 @@
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "votes": "No Votes",
+      "votes": "Yes Votes",
       "requestedAmount": "Requested Amount",
-      "counterVotes": "Yes Votes"
+      "counterVotes": "No Votes"
     }
   },
   "general": {
@@ -20,7 +27,7 @@
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
-    "ocean": "OCEAN"
+    "ocean": "{ocean} OCEAN"
   },
   "jobs": {
     "header": {
