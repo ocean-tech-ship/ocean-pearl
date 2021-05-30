@@ -6,10 +6,9 @@
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "noVotes": "No Votes",
-      "ocean": "OCEAN",
+      "votes": "No Votes",
       "requestedAmount": "Requested Amount",
-      "yesVotes": "Yes Votes"
+      "counterVotes": "Yes Votes"
     }
   },
   "general": {
@@ -20,7 +19,8 @@
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
     "icon": "icon",
-    "logo": "logo"
+    "logo": "logo",
+    "ocean": "OCEAN"
   },
   "jobs": {
     "header": {
@@ -36,7 +36,6 @@
   "landing": {
     "dao_proposals": {
       "link_text": "See all DAO projects",
-      "ocean": "OCEAN",
       "requestedAmount": "Requested Amount",
       "text": "These projects are currently waiting or applying for a DAO funding.",
       "title": "Open DAO",
@@ -83,7 +82,6 @@
       "secondTitle": "Funding",
       "secondTitleHighlight": "Round 6",
       "requestedAmount": "Requested Amount",
-      "ocean": "OCEAN",
       "checkOut": "check out",
       "link_text": "See all featured projects"
     }
