@@ -36,7 +36,7 @@
         <img
           width="100%"
           :src="coverImage"
-          :alt="project.title + ' ' + $t('general.logo')"
+          :alt="`${project.title} ${$t('general.logo')}`"
         />
 
         <!-- Project Socials (lg only) -->
