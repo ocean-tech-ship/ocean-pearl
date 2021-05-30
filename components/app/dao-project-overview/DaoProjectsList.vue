@@ -11,10 +11,10 @@
           <div class="shadow rounded pb-10 p-8">
             <div class="flex">
               <div class="mr-3">
-                <img
+                <app-logo
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                   :src="daoProposal.project.logo"
-                  :alt="`${daoProposal.project.title} ${$t('general.logo')}`"
+                  :alt="daoProposal.project.title"
                 />
               </div>
               <div>
@@ -87,10 +87,12 @@
 
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
+import AppLogo from '~/components/common/AppLogo'
 
 export default {
   name: 'DaoProjectsList',
   components: {
+    AppLogo,
     LandingSectionContainer,
   },
   props: {

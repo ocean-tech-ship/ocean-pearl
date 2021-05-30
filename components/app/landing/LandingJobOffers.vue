@@ -15,7 +15,7 @@
           <div class="shadow p-12">
             <div class="flex">
               <div class="mr-3">
-                <img
+                <app-logo
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                   :src="job.imageURL"
                   :alt="job.title"
@@ -46,13 +46,15 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
 import { getJobs } from '@/api.js'
+import AppLogo from '../../common/AppLogo'
+import LandingSectionContainer from './LandingSectionContainer'
 
 export default {
   name: 'LandingJobOffers',
 
   components: {
+    AppLogo,
     LandingSectionContainer,
   },
   data() {
