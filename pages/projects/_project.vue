@@ -6,7 +6,6 @@
         <p class="small-text">{{ $t(error) }}</p>
       </landing-section-container>
     </div>
-
     <div v-if="!!project">
       <project-single-header :project="project" />
       <project-single :project="project" />
@@ -17,9 +16,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { getProjectById } from '@/api.js'
-import LandingSectionContainer from '~/components/app/landing/LandingSectionContainer.vue'
-import ProjectSingleHeader from '~/components/app/project-detail/ProjectSingleHeader.vue'
-import ProjectSingle from '~/components/app/project-detail/ProjectSingle.vue'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
+import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue'
+import ProjectSingle from '@/components/app/project-detail/ProjectSingle.vue'
 
 export default Vue.extend({
   name: 'ProjectDetail',
