@@ -52,7 +52,8 @@ export default {
   computed: {
     fullMemberTitle() {
       const member = this.$props.member
-      return `${member.firstname} ${member.lastname}, ${member.purpose}`
+      return `${member.firstname} ${member.lastname}`
+      // return `${member.firstname} ${member.lastname}, ${member.purpose}`
     },
 
     filteredMemberSocialMedia() {
