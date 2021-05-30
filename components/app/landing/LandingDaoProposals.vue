@@ -15,7 +15,7 @@
           <div class="shadow rounded h-275px p-8">
             <div class="flex">
               <div class="mr-3">
-                <img
+                <app-logo
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                   :src="daoProposal.imageURL"
                   :alt="daoProposal.title"
@@ -65,11 +65,13 @@
 <script>
 import { getFeaturedDaoProposals } from '@/api'
 import LandingSectionContainer from './LandingSectionContainer'
+import AppLogo from '~/components/common/AppLogo'
 
 export default {
   name: 'LandingDaoProposal',
 
   components: {
+    AppLogo,
     LandingSectionContainer,
   },
   data() {

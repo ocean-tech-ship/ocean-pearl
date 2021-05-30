@@ -32,7 +32,7 @@
             <NuxtLink :prefetch="false" to="/project-detail">
               <div class="flex">
                 <div class="mr-3">
-                  <img
+                  <app-logo
                     class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                     :src="project.imageURL"
                     :alt="project.title"
@@ -100,13 +100,15 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
+import LandingSectionContainer from './LandingSectionContainer'
+import AppLogo from '~/components/common/AppLogo'
 
 export default {
   name: 'LandingFeaturedProjectSection',
 
   components: {
+    AppLogo,
     LandingSectionContainer,
     ProjectSingleDetailsSocial,
   },

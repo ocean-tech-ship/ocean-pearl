@@ -31,7 +31,7 @@
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
-                <img
+                <app-logo
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                   :src="project.logo"
                   :alt="project.title"
@@ -71,16 +71,16 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLink from '@/components/common/AppLink'
 import { getFeaturedProjects } from '@/api.js'
+import LandingSectionContainer from './LandingSectionContainer'
+import AppLogo from '~/components/common/AppLogo'
 
 export default {
   name: 'LandingFeaturedProjectSection',
 
   components: {
+    AppLogo,
     LandingSectionContainer,
-    AppLink,
   },
   data() {
     return {

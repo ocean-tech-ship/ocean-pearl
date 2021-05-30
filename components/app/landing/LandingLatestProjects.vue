@@ -14,7 +14,7 @@
         <NuxtLink :prefetch="false" to="/projects">
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <div class="mt-3">
-              <img
+              <app-logo
                 class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
                 :src="project.imageURL"
                 :alt="project.title"
@@ -49,11 +49,13 @@
 <script>
 import { getProjects } from '@/api.js'
 import LandingSectionContainer from './LandingSectionContainer'
+import AppLogo from '~/components/common/AppLogo'
 
 export default {
   name: 'LandingDaoProposal',
 
   components: {
+    AppLogo,
     LandingSectionContainer,
   },
 
