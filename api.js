@@ -24,3 +24,8 @@ export function getFeaturedDaoProposals(axios, limit) {
 export function getJobs(axios) {
   return axios.$get('/jobs') // not implemented yet
 }
+
+//dao-projects-page
+export function getDaoData(axios) {
+  return axios.get('/index/info')
+}
