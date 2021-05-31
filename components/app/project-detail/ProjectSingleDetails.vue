@@ -3,10 +3,12 @@
     <div class="grid lg:grid-cols-2 gap-12 border-b border-primary">
       <div>
         <!-- Description -->
-        <p class="text-primary small-text">
-          {{ $t('project.description') }}
-        </p>
-        <p class="small-text">{{ project.description }}</p>
+        <div v-if="!!project.description" class="mb-10">
+          <p class="text-primary small-text">
+            {{ $t('project.description') }}
+          </p>
+          <p class="small-text">{{ project.description }}</p>
+        </div>
 
         <!-- Team -->
         <div v-if="!!project.team" class="mb-10">
@@ -92,6 +94,10 @@ export default {
 
     filteredProjectSocialMedia() {
       const socials = {}
+
+      if (!this.$props.project.socialMedia) {
+        return socials
+      }
 
       for (const [type, url] of Object.entries(
         this.$props.project.socialMedia

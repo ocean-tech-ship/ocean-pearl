@@ -59,6 +59,10 @@ export default {
     filteredMemberSocialMedia() {
       const socials = {}
 
+      if (!this.$props.member.socialMedia) {
+        return socials
+      }
+
       for (const [type, url] of Object.entries(
         this.$props.member.socialMedia
       )) {
