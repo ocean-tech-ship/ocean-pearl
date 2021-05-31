@@ -15,6 +15,7 @@
     "noEmit": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
+    "resolveJsonModule": true,
     "paths": {
       "~/*": [
         "./*"
@@ -25,7 +26,10 @@
     },
     "types": [
       "@nuxt/types",
-      "@types/node"
+      "@types/node",
+      "@nuxtjs/axios",
+      "nuxt-i18n",
+      "@nuxtjs/date-fns"
     ]
   },
   "exclude": [

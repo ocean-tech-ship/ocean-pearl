@@ -1,0 +1,150 @@
+{
+  "daoRoundData": {
+    "fundingRound": "Funding Round",
+    "amountProposals": "Amount proposals",
+    "countdown": "Countdown",
+    "totalAmount": "Total Amount",
+    "totalVotes": "Total Votes"
+  },
+  "dao-projects": {
+    "header": {
+      "text": "All infos about the current funding round of the Ocean Dao.",
+      "title": "Ocean",
+      "titleHighlight": "Pearl x DAO"
+    },
+    "projects": {
+      "votes": "Yes Votes",
+      "requestedAmount": "Requested Amount",
+      "counterVotes": "No Votes"
+    }
+  },
+  "general": {
+    "error": {
+      "retry": "Please try again later.",
+      "unknown": "The requested resource could not be found."
+    },
+    "fetchingError": "An error occurred :(",
+    "fetchingLoading": "Loading...",
+    "icon": "icon",
+    "logo": "logo",
+    "ocean": "{ocean} OCEAN"
+  },
+  "jobs": {
+    "header": {
+      "text": "Find out which companys are currently looking for your support.",
+      "title": "Job ",
+      "titleHighlight": "offers"
+    },
+    "status": {
+      "dropDown1": "Latest",
+      "dropDown2": "Category"
+    }
+  },
+  "landing": {
+    "dao_proposals": {
+      "link_text": "See all DAO projects",
+      "requestedAmount": "Requested Amount",
+      "text": "These projects are currently waiting or applying for a DAO funding.",
+      "title": "Open DAO",
+      "titleHighlight": "proposals"
+    },
+    "featured_dao_projects": {
+      "title": "Featured Dao",
+      "titleHighlight": "projects",
+      "text": "A handpicked collection of our favourite projects for this funding round.",
+      "secondTitle": "Funding",
+      "secondTitleHighlight": "Round 6",
+      "requestedAmount": "Requested Amount",
+      "checkOut": "check out",
+      "link_text": "See all featured projects"
+    },
+    "featured_projects": {
+      "checkOut": "check out",
+      "link_text": "See all featured projects",
+      "secondTitle": "2021 listed",
+      "secondTitleHighlight": "projects",
+      "text": "A handpicked collection of our favourite projects at the moment.",
+      "title": "Featured",
+      "titleHighlight": "projects"
+    },
+    "hero": {
+      "buttonText": "Explore",
+      "text": "Community-based project tracking platform for the Ocean ecosystem with an early focus on the OceanDAO community.",
+      "titleHighlight": "projects",
+      "titlePart1": "We are on track with the newest",
+      "titlePart2": "powered by the ocean protocol."
+    },
+    "job_offers": {
+      "link_text": "See all listed jobs",
+      "text": "These ocean projects are currently hiring in the web 3 space",
+      "title": "Job",
+      "titleHighlight": "offers"
+    },
+    "latest_projects": {
+      "link_text": "See all listed projects",
+      "text": "The listed projects shown were added by members of the community.",
+      "title": "Latest",
+      "titleHighlight": "projects"
+    },
+    "pearl_dao": {
+      "link_text": "See all listed projects",
+      "text": "All infos about the current funding round of the Ocean Dao.",
+      "title": "Ocean",
+      "titleHighlight": "Pearl x DAO"
+    }
+  },
+  "navbar": {
+    "logoText": "Ocean Pearl",
+    "navbarDao": "Dao",
+    "navbarJobs": "Jobs",
+    "navbarLinkDefault": "Home",
+    "navbarProjects": "Projects"
+  },
+  "project": {
+    "added": "addet at",
+    "copy": "copy project link",
+    "description": "Description",
+    "proposal": {
+      "requested": "Requested Funding",
+      "round": {
+        "numbered": "Round {round}",
+        "title": "Funding Round"
+      },
+      "title": {
+        "dao": "DAO",
+        "proposal": "proposal"
+      },
+      "total": "Total Fundings",
+      "vote": "vote here",
+      "wallet": "Proposal Wallet Address"
+    },
+    "roi": {
+      "bang": "Bang",
+      "buck": "Buck",
+      "calculation": "Roughly estimated ROI over a year",
+      "success-chance": "Chance of Success",
+      "title": "ROI"
+    },
+    "team": "Team",
+    "unknown": "The requested project could not be found."
+  },
+  "project_detail": {
+    "fundHereButton": "fund here",
+    "openPositions": {
+      "addedOn": "added on",
+      "title": "Open",
+      "titleHighlight": "positions"
+    }
+  },
+  "projects": {
+    "header": {
+      "text": "See what the community has to offer.",
+      "title": "Project",
+      "titleHighlight": "overview"
+    },
+    "status": {
+      "dropDown1": "Latest",
+      "dropDown2": "Category"
+    }
+  }
+}
