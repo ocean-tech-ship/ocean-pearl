@@ -8,7 +8,7 @@
           :prefetch="false"
           :to="`/projects/${daoProposal.project._id}`"
         >
-          <div class="shadow rounded pb-10 p-8">
+          <div class="shadow rounded pb-10 p-8 h-full">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
