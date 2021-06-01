@@ -27,7 +27,7 @@
               <p class="small-text">{{ project.category }}</p>
             </div>
             <div class="mt-4 flex place-content-center">
-              <p class="border small-text text-primary w-32">
+              <p class="border rounded small-text text-primary w-32">
                 {{ formatDistance(project.createdAt) }}
               </p>
             </div>
