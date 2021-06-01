@@ -48,8 +48,8 @@
             imageURL: require('@/assets/images/icons/amount.svg'),
           },
           {
-            title: 'Countdown',
-            daoInfo: 'ends in 4 days',
+            title: 'Voting ends in',
+            daoInfo: '01d 3h 23min',
             imageURL: require('@/assets/images/icons/countdown.svg'),
           },
           {
