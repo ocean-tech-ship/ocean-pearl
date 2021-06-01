@@ -25,7 +25,7 @@
               </div>
             </div>
             <div class="mt-5">
-              <p class="small-text">
+              <p class="small-text h-128px">
                 {{ daoProposal.description | truncate(90) }}
               </p>
             </div>
