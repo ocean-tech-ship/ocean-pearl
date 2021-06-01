@@ -64,11 +64,13 @@
 
         <!-- Action (lg only) -->
         <div class="hidden lg:block lg:col-span-2">
+          <app-link to="https://vote.oceanprotocol.com/#/officialoceandao.eth">
           <app-button-style
             class="w-full text-center"
             :icon="require('@/assets/images/detail/fund-here.svg')"
             :text="$t('project.proposal.vote')"
           />
+          </app-link>
         </div>
       </div>
 
@@ -118,6 +120,7 @@
 
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppLink from '@/components/common/AppLink.vue'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 
 const EMPTY_PROPOSAL = {
@@ -131,7 +134,8 @@ export default {
 
   components: {
     AppButtonStyle,
-    LandingSectionContainer,
+    AppLink,
+    LandingSectionContainer
   },
 
   props: {
