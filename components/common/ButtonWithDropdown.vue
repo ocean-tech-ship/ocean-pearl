@@ -21,6 +21,15 @@
             <li>
               <NuxtLink class="font-bold block px-4 py-3" to="/dao-project-overview">{{ $t('navbar.navbarDao') }}</NuxtLink>
             </li>
+            <li>
+             <app-link to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template">
+                <app-button-style
+                  class="px-4 py-3 w-full text-center"
+                  :icon="require('@/assets/images/icons/vote-white.svg')"
+                  :text="$t('project.proposal.submit')"
+                />
+             </app-link>
+            </li>
           </ul>
         </div>
     </template>
@@ -28,7 +37,10 @@
 </template>
 
 <script>
-import MainDropdown from "@/components/common/MainDropdown";
+import MainDropdown from "@/components/common/MainDropdown"
+import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppLink from '@/components/common/AppLink.vue'
+
 export default {
   name: "button-with-dropdown",
   data() {
@@ -37,7 +49,11 @@ export default {
       email: "dontkillmydog@johnwick.com"
     };
   },
-  components: { MainDropdown }
+  components: { 
+    MainDropdown,
+    AppButtonStyle,
+    AppLink
+  }
 };
 </script>
 
