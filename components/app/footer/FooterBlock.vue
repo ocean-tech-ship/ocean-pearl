@@ -14,7 +14,7 @@
     </a>
 
     <div class="table mx-auto md:mt-0 mt-4">
-      <div class="grid md:grid-cols-2 gap-2 md:gap-10">
+      <div class="grid sm:grid-cols-2 gap-2 sm:gap-10">
         <a
           :href="items[1].route"
           rel="noopener noreferrer"
