@@ -3,9 +3,7 @@
     <div class="mb-42px">
       <h2>
         {{ $t('landing.pearl_space.title') }}
-        <span class="text-primary">{{
-          $t('landing.pearl_space.titleHighlight')
-        }}</span>
+        <span class="text-primary"> {{$t('landing.pearl_space.titleHighlight')}}</span>
       </h2>
       <p>{{ $t('landing.pearl_space.text') }}</p>
     </div>
@@ -48,13 +46,13 @@ export default {
       cards: [
         {
           title: 'Track Projects',
-          buttonTarget: '/project-overview',
+          buttonTarget: '/projects',
           imageURL: require('@/assets/images/landing/track-projects.svg'),
           buttonText: 'Track',
         },
         {
           title: 'Submit Project',
-          buttonTarget: '/project-overview',
+          buttonTarget: '/projects',
           imageURL: require('@/assets/images/landing/submit-projects.svg'),
           buttonText: 'Submit',
         },

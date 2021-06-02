@@ -20,8 +20,8 @@
   import ProjectsCategories from './ProjectsCategories'
   import AppButton from '@/components/common/AppButton'
 
-  export default {
-    name: 'ProjectsHeader',
+export default {
+  name: 'ProjectsHeader',
 
     components: {
       LandingSectionContainer,
@@ -34,7 +34,7 @@
 </script>
 
 <style scoped>
-  .p-line-head {
-    line-height: 20px;
-  }
+.p-line-head {
+  line-height: 20px;
+}
 </style>

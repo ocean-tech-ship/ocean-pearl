@@ -3,14 +3,17 @@
     <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div class="pt-6">
         <h1>
-          {{ $t('landing.hero.titlePart1') }} 
-          <span class="text-primary">{{ $t('landing.hero.titleHighlight') }}</span> 
+          {{ $t('landing.hero.titlePart1') }}
+          <span class="text-primary">
+            {{ $t('landing.hero.titleHighlight') }}
+          </span>
           {{ $t('landing.hero.titlePart2') }}
         </h1>
-        <p class="pt-6">
-          {{ $t('landing.hero.text') }}
+        <p class="pt-6 mb-8">
+          {{ $t('landing.hero.text') }}<br />
+          <span class="text-primary"><strong>THIS VERSION IS WORK IN PROGRESS.</strong></span>
         </p>
-        <AppLink class="mt-8" to="/project-overview">
+        <AppLink to="/projects">
           <AppButtonStyle
             :icon="require('@/assets/images/icons/sailing_ship.svg')"
             :text="$t('landing.hero.buttonText')"
@@ -42,4 +45,3 @@ export default {
   },
 }
 </script>
-
