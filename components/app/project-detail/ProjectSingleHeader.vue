@@ -1,44 +1,42 @@
 <template>
   <LandingSectionContainer>
-    <div class="flex justify-between content-center">
-      <div class="flex">
-        <div class="mr-4 w-12 h-12">
-          <app-logo
-            class="inline-block rounded-full ring-2 ring-white"
-            :src="project.logo"
-            :alt="project.title"
-          />
-        </div>
+    <div
+      class="flex flex-wrap items-center justify-between gap-4 xl:flex-no-wrap"
+    >
+      <div class="flex items-center">
+        <app-logo
+          class="w-16 h-16 mr-4 inline-block rounded-full ring-2 ring-white"
+          :src="project.logo"
+          :alt="project.title"
+        />
 
-        <div class="mt-2">
-          <h1 class="text-primary thin-heading">{{ project.title }}</h1>
-          <p class="mt-2">{{ project.category }}</p>
+        <div>
+          <h3 class="text-primary">{{ project.title }}</h3>
+          <p class="leading-none">{{ project.category }}</p>
         </div>
       </div>
+
       <div class="flex">
-        <div class="mr-4">
-          <img
-            class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
-            src="@/assets/images/icons/rocket.svg"
-            :alt="$t('project.added') + ' ' + $t('general.icon')"
-          />
-        </div>
+        <img
+          class="h-14 w-14 mr-4"
+          :src="require('@/assets/images/icons/rocket.svg')"
+          :alt="`${$t('project.added')} ${$t('general.icon')}`"
+        />
+
         <div>
-          <p class="text-primary small-text p-line-head">
-            {{ $t('project.added') }}
-          </p>
-          <p class="small-text">
+          <p class="small-text">{{ $t('project.added') }}</p>
+          <p class="text-primary small-text">
             {{ formatDate(project.createdAt) }}
           </p>
         </div>
       </div>
-      <div class="hidden md:block">
-        <AppButton
-          :icon="require('@/assets/images/detail/copy-link.svg')"
-          :text="$t(copyButtonTitle)"
-          @click="copyProjectLink()"
-        />
-      </div>
+
+      <app-button
+        class="hidden xl:block w-225px"
+        :icon="require('@/assets/images/detail/copy-link.svg')"
+        :text="$t(copyButtonTitle)"
+        @click="copyProjectLink()"
+      />
     </div>
   </LandingSectionContainer>
 </template>
@@ -91,8 +89,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>
+<style scoped></style>
