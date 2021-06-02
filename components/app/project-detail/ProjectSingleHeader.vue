@@ -35,7 +35,8 @@
       <div class="hidden md:block">
         <AppButton
           :icon="require('@/assets/images/detail/copy-link.svg')"
-          :text="$t('project.copy')"
+          :text="$t(copyButtonTitle)"
+          @click="copyProjectLink()"
         />
       </div>
     </div>
@@ -67,10 +68,23 @@ export default {
     },
   },
 
+  data() {
+    return {
+      copyButtonTitle: 'project.copy',
+    }
+  },
+
   methods: {
     formatDate(timestamp) {
       return this.$dateFns.format(new Date(timestamp), 'PPP', {
         locale: this.$i18n.locale,
+      })
+    },
+
+    copyProjectLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        this.copyButtonTitle = 'project.copied'
+        setTimeout(() => (this.copyButtonTitle = 'project.copy'), 1500)
       })
     },
   },
