@@ -13,7 +13,7 @@
   },
   "daoRoundData": {
     "amountProposals": "Amount proposals",
-    "countdown": "Countdown",
+    "countdown": "Voting ends in",
     "fundingRound": "Funding Round",
     "totalAmount": "Total Amount",
     "totalVotes": "Total Votes"
@@ -118,6 +118,7 @@
       },
       "total": "Total Fundings",
       "vote": "vote here",
+      "submit": "Submit Proposal",
       "wallet": "Proposal Wallet Address"
     },
     "roi": {
