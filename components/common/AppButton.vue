@@ -9,7 +9,7 @@
     <img
       v-if="icon"
       :src="icon"
-      alt="ocean_pearl"
+      :alt="`${$t('general.button')} ${$t('general.icon')}`"
       class="inline-block mr-2"
       width="20"
     />
