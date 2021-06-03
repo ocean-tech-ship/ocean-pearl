@@ -108,11 +108,13 @@
       </div>
 
       <div class="lg:hidden">
-        <app-button-style
-          class="w-full text-center"
-          :icon="require('@/assets/images/detail/fund-here.svg')"
-          :text="$t('project.proposal.vote')"
-        />
+        <app-link to="https://vote.oceanprotocol.com/#/officialoceandao.eth">
+          <app-button-style
+            class="w-full text-center"
+            :icon="require('@/assets/images/detail/fund-here.svg')"
+            :text="$t('project.proposal.vote')"
+          />
+        </app-link>
       </div>
     </div>
   </landing-section-container>
