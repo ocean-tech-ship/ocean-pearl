@@ -1,7 +1,7 @@
 <template>
   <LandingSectionContainer>
     <div class="flex flex-wrap items-center justify-between xl:flex-no-wrap">
-      <div class="flex items-center">
+      <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
         <app-logo
           class="w-16 h-16 mr-4 inline-block rounded-full ring-2 ring-white"
           :src="project.logo"
