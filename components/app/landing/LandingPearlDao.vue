@@ -43,32 +43,58 @@ export default {
   components: {
     LandingSectionContainer,
   },
+
+  props: {
+    metrics: {
+      type: Object,
+      required: true,
+      default: () => ({
+        fundingRound: '',
+        totalDaoProposals: '',
+        endDate: Date.now(),
+        totalRequestedFunding: '',
+        totalVotes: '',
+      }),
+    },
+  },
+
   data() {
     return {
       daoInfoCards: [
         {
-          title: 'Funding Round',
-          daoInfo: 'Round 6',
+          title: this.$t('daoRoundData.fundingRound'),
+          daoInfo: this.$t('project.proposal.round.numbered', {
+            round: this.$props.metrics.fundingRound,
+          }),
           imageURL: require('@/assets/images/icons/fund-round.svg'),
         },
         {
-          title: 'Amount proposals',
-          daoInfo: '24 projects',
+          title: this.$t('daoRoundData.amountProposals'),
+          daoInfo: this.$t('daoRoundData.numberedProjects', {
+            projects: this.$props.metrics.totalDaoProposals,
+          }),
           imageURL: require('@/assets/images/icons/amount.svg'),
         },
         {
-          title: 'Voting ends in',
-          daoInfo: '01d 3h 23min',
+          title: this.$t('daoRoundData.countdown'),
+          daoInfo: this.$dateFns.formatDistanceToNowStrict(
+            new Date(this.$props.metrics.endDate),
+            { locale: this.$i18n.locale }
+          ),
           imageURL: require('@/assets/images/icons/countdown.svg'),
         },
         {
-          title: 'Total Amount',
-          daoInfo: '1800000 OCEAN',
+          title: this.$t('daoRoundData.totalAmount'),
+          daoInfo: this.$t('general.ocean', {
+            ocean: this.$props.metrics.totalRequestedFunding,
+          }),
           imageURL: require('@/assets/images/icons/transaction.svg'),
         },
         {
-          title: 'Total Votes',
-          daoInfo: '30032992 OCEAN',
+          title: this.$t('daoRoundData.totalVotes'),
+          daoInfo: this.$t('general.ocean', {
+            ocean: this.$props.metrics.totalVotes,
+          }),
           imageURL: require('@/assets/images/icons/vote.svg'),
         },
       ],
@@ -77,8 +103,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>
+<style scoped></style>
