@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import { getProjects } from '@/api.js'
 import LandingSectionContainer from './LandingSectionContainer'
 import AppLogo from '~/components/common/AppLogo'
 
@@ -59,18 +58,12 @@ export default {
     LandingSectionContainer,
   },
 
-  data() {
-    return {
-      projects: [],
-    }
-  },
-
-  async fetch() {
-    const projects = await getProjects(this.$axios)
-    this.projects =
-      process.env.useMirage === 'true'
-        ? projects.projects.slice(0, 5)
-        : projects.slice(0, 5)
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
   },
 
   methods: {
