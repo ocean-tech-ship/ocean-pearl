@@ -2,16 +2,17 @@
   <div>
     <landing-hero-section />
     <!--<landing-pearl-space-section />-->
-    <landing-featured-project-section />
+    <landing-featured-project-section :projects="featuredProjects" />
     <!--<landing-job-offers />-->
-    <landing-latest-projects />
-    <landing-pearl-dao />
-    <landing-featured-dao-proposals />
-    <landing-dao-proposals />
+    <landing-latest-projects :projects="latestProjects" />
+    <landing-pearl-dao :metrics="metrics" />
+    <landing-featured-dao-proposals :projects="daoFeaturedProjects" />
+    <landing-dao-proposals :dao-proposals="daoProposals" />
   </div>
 </template>
 
 <script lang="ts">
+import { getLandingData } from '@/api'
 import Vue from 'vue'
 import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue'
 // import LandingPearlSpaceSection from '@/components/app/landing/LandingPearlSpaceSection.vue'
@@ -32,6 +33,33 @@ export default Vue.extend({
     // LandingJobOffers,
     LandingLatestProjects,
     LandingPearlDao,
+  },
+
+  data() {
+    return {
+      error: '',
+      featuredProjects: [],
+      latestProjects: [],
+      daoFeaturedProjects: [],
+      daoProposals: [],
+      metrics: undefined,
+    }
+  },
+
+  async fetch() {
+    await getLandingData(this.$axios)
+      .then((response: any) => {
+        const data = response.data
+
+        this.featuredProjects = data.featuredProjects
+        this.latestProjects = data.latestProjects
+        this.daoFeaturedProjects = data.daoFeaturedProjects
+        this.daoProposals = data.daoProposals
+        this.metrics = data.metrics
+      })
+      .catch(() => {
+        this.error = 'general.error.retry'
+      })
   },
 })
 </script>
