@@ -31,7 +31,7 @@ export default Vue.extend({
     LandingFeaturedDaoProposals,
     // LandingJobOffers,
     LandingLatestProjects,
-    LandingPearlDao
+    LandingPearlDao,
   },
 })
 </script>
