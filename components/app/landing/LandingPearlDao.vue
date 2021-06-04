@@ -58,9 +58,9 @@ export default {
     },
   },
 
-  data() {
-    return {
-      daoInfoCards: [
+  computed: {
+    daoInfoCards() {
+      return [
         {
           title: this.$t('daoRoundData.fundingRound'),
           daoInfo: this.$t('project.proposal.round.numbered', {
@@ -97,8 +97,8 @@ export default {
           }),
           imageURL: require('@/assets/images/icons/vote.svg'),
         },
-      ],
-    }
+      ]
+    },
   },
 }
 </script>
