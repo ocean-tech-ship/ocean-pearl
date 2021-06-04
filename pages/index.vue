@@ -42,7 +42,13 @@ export default Vue.extend({
       latestProjects: [],
       daoFeaturedProjects: [],
       daoProposals: [],
-      metrics: undefined,
+      metrics: {
+        fundingRound: '',
+        totalDaoProposals: '',
+        endDate: Date.now(),
+        totalRequestedFunding: '',
+        totalVotes: '',
+      },
     }
   },
 
