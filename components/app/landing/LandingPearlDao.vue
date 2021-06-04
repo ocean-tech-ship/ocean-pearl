@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 
 export default {
   name: 'LandingPearlDao',
