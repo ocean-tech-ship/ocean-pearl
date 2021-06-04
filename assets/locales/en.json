@@ -15,6 +15,7 @@
     "amountProposals": "Amount proposals",
     "countdown": "Voting ends in",
     "fundingRound": "Funding Round",
+    "numberedProjects": "{projects} projects",
     "totalAmount": "Total Amount",
     "totalVotes": "Total Votes"
   },
@@ -112,13 +113,13 @@
         "numbered": "Round {round}",
         "title": "Funding Round"
       },
+      "submit": "Submit Proposal",
       "title": {
         "dao": "DAO",
         "proposal": "proposal"
       },
       "total": "Total Fundings",
       "vote": "vote here",
-      "submit": "Submit Proposal",
       "wallet": "Proposal Wallet Address"
     },
     "roi": {
