@@ -29,3 +29,8 @@ export function getJobs(axios) {
 export function getDaoData(axios) {
   return axios.get('/index/info')
 }
+
+// landing page
+export function getLandingData(axios) {
+  return axios.get('/index/info')
+}
