@@ -29,12 +29,12 @@
       <div v-for="project in projects" :key="project.title" class="col-span-2">
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
-            <NuxtLink :prefetch="false" to="/project-detail">
+            <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
               <div class="flex">
                 <div class="mr-3">
                   <app-logo
                     class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                    :src="project.imageURL"
+                    :src="project.logo"
                     :alt="project.title"
                   />
                 </div>
@@ -72,16 +72,19 @@
                 {{ $t('landing.featured_dao_projects.requestedAmount') }}
               </p>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: project.fundAmount }) }}
+                {{ $t('general.ocean', { ocean: '/' }) }}
               </p>
             </div>
 
-            <NuxtLink :prefetch="false" to="/project-detail">
+            <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
               <div class="flex items-center mt-12 sm:m-0">
                 <p class="small-text mr-2 text-primary">
                   {{ $t('landing.featured_dao_projects.checkOut') }}
                 </p>
-                <img src="@/assets/images/landing/check-out.svg" alt="" />
+                <img
+                  src="@/assets/images/landing/check-out.svg"
+                  :alt="`${$t('general.button')} ${$t('general.logo')}`"
+                />
               </div>
             </NuxtLink>
           </div>
@@ -93,7 +96,10 @@
         <p class="mr-2 text-primary">
           {{ $t('landing.featured_dao_projects.link_text') }}
         </p>
-        <img src="@/assets/images/landing/check-out.svg" alt="" />
+        <img
+          src="@/assets/images/landing/check-out.svg"
+          :alt="`${$t('general.button')} ${$t('general.logo')}`"
+        />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
@@ -112,50 +118,13 @@ export default {
     LandingSectionContainer,
     ProjectSingleDetailsSocial,
   },
-  data() {
-    return {
-      props: {
-        socialMedia: {
-          type: Object,
-          required: true,
-          default: () => {},
-        },
-      },
-      projects: [
-        {
-          title: 'Poseidon Network',
-          category: 'DeFi',
-          description:
-            'This is a nice project and this so leave some love and like this description. so leave some love and like this description. It does so nice things. And this so leave some love and like this description.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-          fundAmount: '20000',
-          socialMedia: {
-            website: 'https://oceanpearl.io/',
-            facebook: 'https://www.facebook.com/',
-            discord: 'https://discord.gg/eswPj8QZRH',
-            telegram: 'https://poseidon.network/',
-            twitter: 'https://twitter.com/oceanpearlio',
-          },
-        },
-        {
-          title: 'Jellyfish',
-          category: 'LoFi',
-          description:
-            'This is a nice project and this so leave some love and like this description. so leave some love and like this description. It does so nice things. And this so leave some love and like this description.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/jellyfish.png'),
-          fundAmount: '10000',
-          socialMedia: {
-            website: 'https://oceanpearl.io/',
-            facebook: 'https://www.facebook.com/',
-            discord: 'https://discord.gg/eswPj8QZRH',
-            telegram: 'https://poseidon.network/',
-            twitter: 'https://twitter.com/oceanpearlio',
-          },
-        },
-      ],
-    }
+
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
   },
 }
 </script>
