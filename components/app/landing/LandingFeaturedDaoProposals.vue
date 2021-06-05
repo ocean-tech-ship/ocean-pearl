@@ -18,7 +18,7 @@
           src="@/assets/images/landing/yacht.svg"
           alt="kraken"
         />
-        <h3 class="content-center text-center sm:my-12 sm:pt-8">
+        <h3 class="content-center text-center sm:my-6 sm:pt-8">
           {{ $t('landing.featured_dao_projects.secondTitle') }}
           <span class="text-primary">
             {{ $t('landing.featured_dao_projects.secondTitleHighlight') }}
