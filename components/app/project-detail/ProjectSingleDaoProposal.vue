@@ -65,11 +65,11 @@
         <!-- Action (lg only) -->
         <div class="hidden lg:block lg:col-span-2">
           <app-link to="https://vote.oceanprotocol.com/#/officialoceandao.eth">
-          <app-button-style
-            class="w-full text-center"
-            :icon="require('@/assets/images/detail/fund-here.svg')"
-            :text="$t('project.proposal.vote')"
-          />
+            <app-button-style
+              class="w-full text-center"
+              :icon="require('@/assets/images/detail/fund-here.svg')"
+              :text="$t('project.proposal.vote')"
+            />
           </app-link>
         </div>
       </div>
@@ -137,7 +137,7 @@ export default {
   components: {
     AppButtonStyle,
     AppLink,
-    LandingSectionContainer
+    LandingSectionContainer,
   },
 
   props: {
@@ -153,7 +153,7 @@ export default {
   computed: {
     newestProposal() {
       const proposals = this.$props.project.daoProposals
-      return proposals.length === 0
+      return !proposals || proposals.length === 0
         ? EMPTY_PROPOSAL
         : proposals[proposals.length - 1]
     },
