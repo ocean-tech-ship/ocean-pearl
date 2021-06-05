@@ -11,7 +11,7 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink :prefetch="false" to="/projects">
+        <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <div class="mt-3">
               <app-logo
