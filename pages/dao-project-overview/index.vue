@@ -6,9 +6,9 @@
         <p class="small-text">{{ $t(error) }}</p>
       </landing-section-container>
     </div>
-    <div v-if="!!daoData">
-        <dao-projects-header :daoData="daoData" />
-        <dao-projects-list :daoData="daoData" />
+    <div v-if="!!metrics && !!daoProposals">
+      <dao-projects-header :metrics="metrics" />
+      <dao-projects-list :daoProposals="daoProposals" />
     </div>
   </div>
 </template>
@@ -18,32 +18,48 @@ import Vue from 'vue'
 import DaoProjectsHeader from '@/components/app/dao-project-overview/DaoProjectsHeader.vue'
 import DaoProjectsList from '@/components/app/dao-project-overview/DaoProjectsList.vue'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
-import { getDaoData } from '@/api'
+import { getDaoRoundMetrics, getDaoProposals } from '@/api'
 
 export default Vue.extend({
   name: 'DaoProjectOverview',
   components: {
     DaoProjectsHeader,
     DaoProjectsList,
-    LandingSectionContainer
+    LandingSectionContainer,
   },
   async asyncData({ $axios }) {
     try {
-      const response = await getDaoData($axios)
+      // const metricsResponse = await getDaoRoundMetrics($axios)
+      // const daoProposalResponse = await getDaoProposals($axios)
+      const [metricsResponse, daoProposalResponse] = await Promise.all([
+        getDaoRoundMetrics($axios),
+        getDaoProposals($axios),
+      ])
 
-      if (response.status === 204) {
-        return { error: 'general.error.unknown', daoData: null }
+      if (
+        metricsResponse.status === 204 ||
+        daoProposalResponse.status === 204
+      ) {
+        return {
+          error: 'general.error.unknown',
+          metrics: null,
+          daoProposals: null,
+        }
       }
 
       return {
         error: null,
-        daoData:
+        metrics:
           process.env.NUXT_ENV_USE_MIRAGE === 'true'
-            ? response.data.project // TODO setup mirage route
-            : response.data,
+            ? metricsResponse.data.project // TODO setup mirage route
+            : metricsResponse.data,
+        daoProposals:
+          process.env.NUXT_ENV_USE_MIRAGE === 'true'
+            ? daoProposalResponse.data.project // TODO setup mirage route
+            : daoProposalResponse.data,
       }
     } catch (error) {
-      return { error: 'general.error.retry', daoData: null }
+      return { error: 'general.error.retry', metrics: null, daoProposals: null }
     }
   },
 })
