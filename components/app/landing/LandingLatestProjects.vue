@@ -20,7 +20,7 @@
                 :alt="project.title"
               />
             </div>
-            <div class="mt-4">
+            <div class="mt-4 h-62px">
               <p class="text-primary p-line-head">
                 {{ project.title | truncate(14) }}
               </p>
