@@ -72,7 +72,11 @@
                 {{ $t('landing.featured_dao_projects.requestedAmount') }}
               </p>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: '/' }) }}
+                {{
+                  $t('general.ocean', {
+                    ocean: project.featuredDaoProposal[0].requestedGrantToken,
+                  })
+                }}
               </p>
             </div>
 
