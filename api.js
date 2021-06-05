@@ -8,12 +8,12 @@ export function getFeaturedProjects(axios, limit) {
 }
 
 export function getProjectById(axios, id) {
-  return axios.get(`/projects/detail/${id}`)
+  return axios.get(`/projects/detail/${id}`) // dont filter for data object
 }
 
 // dao-proposals
 export function getDaoProposals(axios) {
-  return axios.$get('/dao-proposals')
+  return axios.get('/dao-proposals') // dont filter for data object
 }
 
 export function getFeaturedDaoProposals(axios, limit) {
@@ -25,12 +25,12 @@ export function getJobs(axios) {
   return axios.$get('/jobs') // not implemented yet
 }
 
-// dao-projects-page
-export function getDaoData(axios) {
-  return axios.get('/index/info')
-}
-
 // landing page
 export function getLandingData(axios) {
-  return axios.get('/index/info')
+  return axios.get('/index/info') // dont filter for data object
+}
+
+// dao round
+export function getDaoRoundMetrics(axios) {
+  return axios.get('/metrics') // dont filter for data object
 }
