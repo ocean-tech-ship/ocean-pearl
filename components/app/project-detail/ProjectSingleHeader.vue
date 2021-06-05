@@ -3,12 +3,12 @@
     <div class="flex flex-wrap items-center justify-between xl:flex-no-wrap">
       <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
         <app-logo
-          class="w-16 h-16 mr-4 inline-block rounded-full ring-2 ring-white"
+          class="w-16 h-16 mx-4 inline-block rounded-full ring-2 ring-white"
           :src="project.logo"
           :alt="project.title"
         />
 
-        <div>
+        <div class="text-center md:text-left">
           <h3 class="text-primary">{{ project.title }}</h3>
           <p class="leading-none">{{ project.category }}</p>
         </div>
