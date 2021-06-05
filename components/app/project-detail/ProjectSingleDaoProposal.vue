@@ -91,7 +91,7 @@
             </div>
 
             <p
-              v-for="proposal in project.daoProposals"
+              v-for="proposal in grantedProposals"
               :key="proposal.fundingRound"
               class="small-text pr-8"
             >
@@ -124,6 +124,7 @@
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import EnumDaoProposalStatus from '@/components/enums/EnumDaoProposalStatus'
 
 const EMPTY_PROPOSAL = {
   fundingRound: '/',
@@ -151,6 +152,22 @@ export default {
   },
 
   computed: {
+    grantedProposals() {
+      const proposals = this.$props.project.daoProposals
+        ? this.$props.project.daoProposals
+        : []
+
+      const allowedStates = [
+        EnumDaoProposalStatus.Granted,
+        EnumDaoProposalStatus.Funded,
+        EnumDaoProposalStatus.Received,
+      ]
+
+      return proposals.filter((proposal) =>
+        allowedStates.includes(proposal.status)
+      )
+    },
+
     newestProposal() {
       const proposals = this.$props.project.daoProposals
       return !proposals || proposals.length === 0
