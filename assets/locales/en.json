@@ -108,6 +108,7 @@
     "copy": "copy project link",
     "description": "Description",
     "proposal": {
+      "empty": "no funding yet",
       "requested": "Requested Funding",
       "round": {
         "numbered": "Round {round}",

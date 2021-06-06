@@ -91,6 +91,13 @@
             </div>
 
             <p
+              v-if="!grantedProposals || grantedProposals.length === 0"
+              class="small-text pr-8"
+            >
+              {{ $t('project.proposal.empty') }}
+            </p>
+
+            <p
               v-for="proposal in grantedProposals"
               :key="proposal.fundingRound"
               class="small-text pr-8"
