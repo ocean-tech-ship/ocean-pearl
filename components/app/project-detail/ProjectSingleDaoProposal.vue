@@ -164,14 +164,8 @@ export default {
         ? this.$props.project.daoProposals
         : []
 
-      const allowedStates = [
-        EnumDaoProposalStatus.Granted,
-        EnumDaoProposalStatus.Funded,
-        EnumDaoProposalStatus.Received,
-      ]
-
-      return proposals.filter((proposal) =>
-        allowedStates.includes(proposal.status)
+      return proposals.filter(
+        (proposal) => proposal.status === EnumDaoProposalStatus.Funded
       )
     },
 
