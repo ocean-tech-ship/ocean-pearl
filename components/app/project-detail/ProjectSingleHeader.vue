@@ -31,7 +31,7 @@
 
       <app-button
         class="hidden xl:block w-225px"
-        :icon="require('@/assets/images/detail/copy-link.svg')"
+        :icon="require('@/assets/images/detail/copy-primary.svg')"
         :text="$t(copyButtonTitle)"
         secondary
         @click="copyProjectLink()"
