@@ -75,7 +75,7 @@ export default {
           daoInfo: this.$dateFns.formatDistanceStrict(
             new Date(this.metrics.endDate),
             Date.now(),
-            { addSuffix: true, locale: this.$i18n.locale }
+            { locale: this.$i18n.locale }
           ),
           imageURL: require('@/assets/images/icons/countdown.svg'),
         },
