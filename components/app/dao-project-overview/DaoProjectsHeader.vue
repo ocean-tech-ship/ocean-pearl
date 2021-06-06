@@ -62,7 +62,9 @@ export default {
       daoInfoCards: [
         {
           title: this.$i18n.t('daoRoundData.fundingRound'),
-          daoInfo: `${this.metrics.fundingRound}`,
+          daoInfo: this.$t('project.proposal.round.numbered', {
+            round: this.metrics.fundingRound,
+          }),
           imageURL: require('@/assets/images/icons/fund-round.svg'),
         },
         {
