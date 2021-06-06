@@ -1,6 +1,8 @@
 <template>
   <LandingSectionContainer>
-    <div class="flex flex-wrap items-center justify-between xl:flex-no-wrap">
+    <div
+      class="flex flex-wrap items-center justify-center md:justify-between xl:flex-no-wrap"
+    >
       <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
         <app-logo
           class="w-16 h-16 mx-4 inline-block rounded-full ring-2 ring-white"
@@ -14,7 +16,7 @@
         </div>
       </div>
 
-      <div class="flex my-4">
+      <div class="flex my-8 md:my-4">
         <img
           class="h-14 w-14 mr-4"
           :src="require('@/assets/images/icons/rocket.svg')"
