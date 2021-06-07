@@ -4,19 +4,20 @@
       <div>
         <!-- Description -->
         <div class="mb-10">
-          <div class="mb-4" v-if="!!project.description" >
+          <div v-if="!!project.description" class="mb-4">
             <p class="text-primary small-text">
               {{ $t('project.description') }}
             </p>
             <p class="small-text">{{ project.description }}</p>
           </div>
-          <div v-if="!!`${project.oceanProtocalPortUrl}`">
-            <app-link :to="project.oceanProtocalPortUrl">
-                <app-button-style
-                  class="text-center"
-                  :icon="require('@/assets/images/detail/read-full.svg')"
-                  :text="$t('project.readFull')"
-                />
+
+          <div v-if="!!oceanPortLink" class="mb-4">
+            <app-link :to="oceanPortLink">
+              <app-button-style
+                class="text-center"
+                :icon="require('@/assets/images/detail/read-full.svg')"
+                :text="$t('project.readFull')"
+              />
             </app-link>
           </div>
         </div>
@@ -83,7 +84,7 @@ export default {
     ProjectSingleDetailsMember,
     ProjectSingleDetailsSocial,
     AppButtonStyle,
-    AppLink
+    AppLink,
   },
 
   props: {
@@ -105,6 +106,13 @@ export default {
       return this.$props.project.pictures.length > 0
         ? this.$props.project.pictures[0]
         : require('@/assets/images/detail/pearl-background.png')
+    },
+
+    oceanPortLink() {
+      const proposals = this.$props.project.daoProposals
+      return !proposals || proposals.length === 0
+        ? null
+        : proposals[proposals.length - 1].oceanProtocalPortUrl
     },
 
     filteredProjectSocialMedia() {
