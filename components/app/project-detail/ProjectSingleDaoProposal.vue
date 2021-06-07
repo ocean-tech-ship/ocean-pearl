@@ -10,7 +10,7 @@
     <div class="grid lg:grid-cols-2 gap-4 xl:gap-32 mt-6">
       <div class="grid lg:grid-cols-2 gap-4 xl:gap-8">
         <!-- Funding Round -->
-        <div class="shadow rounded p-2">
+        <div class="shadow rounded p-4">
           <div class="flex items-center">
             <img
               class="h-16px w-16px mr-2"
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Requested Funding -->
-        <div class="shadow rounded p-2">
+        <div class="shadow rounded p-4">
           <div class="flex items-center">
             <img
               class="h-16px w-16px mr-2"
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Proposal Wallet Address -->
-        <div class="shadow rounded p-2 lg:col-span-2">
+        <div class="shadow rounded p-4 lg:col-span-2">
           <p class="small-text text-primary">
             {{ $t('project.proposal.wallet') }}
           </p>
@@ -77,7 +77,7 @@
       <div class="grid lg:flex lg:justify-end">
         <!-- Total Fundings -->
         <div>
-          <div class="shadow rounded p-2 overflow-y-auto lg:max-h-52">
+          <div class="shadow rounded p-4 overflow-y-auto lg:max-h-52">
             <div class="flex items-center">
               <img
                 class="h-16px w-16px mr-2"
