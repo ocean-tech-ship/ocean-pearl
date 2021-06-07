@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="flex my-8 md:my-4">
+      <div class="flex my-8 mx-8 md:my-4">
         <img
           class="h-14 w-14 mr-4"
           :src="require('@/assets/images/icons/rocket.svg')"
