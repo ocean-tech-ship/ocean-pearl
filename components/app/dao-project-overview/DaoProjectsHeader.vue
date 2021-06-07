@@ -46,7 +46,7 @@ export default {
     metrics: {
       type: Object,
       required: true,
-      default: {
+      default: () => ({
         metrics: {
           fundingRound: '',
           totalDaoProposals: '',
@@ -54,9 +54,10 @@ export default {
           totalRequestedFunding: '',
           totalVotes: '',
         },
-      },
+      }),
     },
   },
+
   data() {
     return {
       daoInfoCards: [
@@ -73,11 +74,14 @@ export default {
           imageURL: require('@/assets/images/icons/amount.svg'),
         },
         {
-          title: this.$i18n.t('daoRoundData.countdown'),
-          daoInfo: this.$dateFns.formatDistanceStrict(
+          title: this.$i18n.t(
+            this.$dateFns.isPast(new Date(this.metrics.endDate))
+              ? 'daoRoundData.countdown.after'
+              : 'daoRoundData.countdown.before'
+          ),
+          daoInfo: this.$dateFns.formatDistanceToNowStrict(
             new Date(this.metrics.endDate),
-            Date.now(),
-            { locale: this.$i18n.locale }
+            { locale: this.$i18n.locale, addSuffix: true }
           ),
           imageURL: require('@/assets/images/icons/countdown.svg'),
         },

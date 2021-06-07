@@ -76,10 +76,14 @@ export default {
           imageURL: require('@/assets/images/icons/amount.svg'),
         },
         {
-          title: this.$t('daoRoundData.countdown'),
+          title: this.$i18n.t(
+            this.$dateFns.isPast(new Date(this.metrics.endDate))
+              ? 'daoRoundData.countdown.after'
+              : 'daoRoundData.countdown.before'
+          ),
           daoInfo: this.$dateFns.formatDistanceToNowStrict(
             new Date(this.$props.metrics.endDate),
-            { locale: this.$i18n.locale }
+            { locale: this.$i18n.locale, addSuffix: true }
           ),
           imageURL: require('@/assets/images/icons/countdown.svg'),
         },
