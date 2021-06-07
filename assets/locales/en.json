@@ -107,6 +107,7 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
+    "readFull": "read full proposal",
     "proposal": {
       "empty": "no funding yet",
       "requested": "Requested Funding",
