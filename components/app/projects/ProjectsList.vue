@@ -3,11 +3,11 @@
     <p v-if="$fetchState.pending">{{ $t('general.fetchingLoading') }}</p>
     <p v-else-if="$fetchState.error">{{ $t('general.fetchingError') }}</p>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 mt-12"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-12"
     >
       <div v-for="project in projects" :key="project._id">
         <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
-          <div class="shadow rounded h-300px p-2 text-center">
+          <div class="shadow rounded h-330px p-2 text-center">
             <!--
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
           <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.svg" alt="hiring job">
@@ -23,10 +23,12 @@
               />
             </div>
             <div class="mt-4">
-              <p class="text-primary p-line-head">
-                {{ project.title | truncate(18) }}
+              <p class="text-primary p-head">
+                {{ project.title | truncate(20) }}
               </p>
-              <p class="small-text">{{ project.category }}</p>
+              <p class="small-text text-quad">
+                {{ project.category }}
+              </p>
             </div>
             <div class="mt-6 px-3 flex place-content-center">
               <p class="small-text">
@@ -69,3 +71,4 @@ export default {
   },
 }
 </script>
+
