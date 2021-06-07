@@ -22,6 +22,7 @@ module.exports = {
         '225px': '225px',
         '275px': '275px',
         '300px': '300px',
+        '330px': '330px',
       },
     },
     screens: {
@@ -37,6 +38,7 @@ module.exports = {
       primary: colors.primary,
       secondary: colors.secondary,
       third: colors.third,
+      quad: colors.quad,
       grey: colors.grey,
     },
     fontFamily: {
