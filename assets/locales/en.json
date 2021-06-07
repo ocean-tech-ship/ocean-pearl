@@ -13,7 +13,10 @@
   },
   "daoRoundData": {
     "amountProposals": "Amount proposals",
-    "countdown": "Voting ends in",
+    "countdown": {
+      "after": "Voting ended",
+      "before": "Voting ends"
+    },
     "fundingRound": "Funding Round",
     "numberedProjects": "{projects} projects",
     "totalAmount": "Total Amount",
@@ -107,7 +110,6 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
-    "readFull": "read full proposal",
     "proposal": {
       "empty": "no funding yet",
       "requested": "Requested Funding",
@@ -124,6 +126,7 @@
       "vote": "vote here",
       "wallet": "Proposal Wallet Address"
     },
+    "readFull": "read full proposal",
     "roi": {
       "bang": "Bang",
       "buck": "Buck",
