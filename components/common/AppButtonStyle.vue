@@ -1,8 +1,19 @@
 <template>
   <div
-    class="inline-block select-none call-to-action text-secondary font-medium py-2 px-6 shadow items-center justify-center"
+    class="inline-block rounded select-none font-medium py-2 px-6 shadow items-center justify-center"
+    v-bind:class="[
+      secondary
+        ? 'bg-white text-primary border-2 border-primary'
+        : 'call-to-action text-secondary',
+    ]"
   >
-    <img v-if="icon" :src="icon" alt="ocean_pearl" class="inline-block mr-2" width="20" />
+    <img
+      v-if="icon"
+      :src="icon"
+      :alt="`${$t('general.button')} ${$t('general.icon')}`"
+      class="inline-block mr-2"
+      width="20"
+    />
     <span> {{ text }} </span>
   </div>
 </template>
@@ -19,6 +30,10 @@ export default {
     text: {
       type: String,
       default: '',
+    },
+    secondary: {
+      type: Boolean,
+      default: false,
     },
   },
 }

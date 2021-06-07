@@ -11,7 +11,7 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink :prefetch="false" to="/projects">
+        <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <div class="mt-3">
               <app-logo
@@ -20,14 +20,14 @@
                 :alt="project.title"
               />
             </div>
-            <div class="mt-4">
+            <div class="mt-4 h-62px">
               <p class="text-primary p-line-head">
                 {{ project.title | truncate(14) }}
               </p>
               <p class="small-text">{{ project.category }}</p>
             </div>
             <div class="mt-4 flex place-content-center">
-              <p class="border small-text text-primary w-32">
+              <p class="border rounded small-text text-primary w-32">
                 {{ formatDistance(project.createdAt) }}
               </p>
             </div>
@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import { getProjects } from '@/api.js'
 import LandingSectionContainer from './LandingSectionContainer'
 import AppLogo from '~/components/common/AppLogo'
 
@@ -59,18 +58,12 @@ export default {
     LandingSectionContainer,
   },
 
-  data() {
-    return {
-      projects: [],
-    }
-  },
-
-  async fetch() {
-    const projects = await getProjects(this.$axios)
-    this.projects =
-      process.env.useMirage === 'true'
-        ? projects.projects.slice(0, 5)
-        : projects.slice(0, 5)
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
   },
 
   methods: {

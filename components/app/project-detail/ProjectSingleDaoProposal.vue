@@ -10,7 +10,7 @@
     <div class="grid lg:grid-cols-2 gap-4 xl:gap-32 mt-6">
       <div class="grid lg:grid-cols-2 gap-4 xl:gap-8">
         <!-- Funding Round -->
-        <div class="shadow rounded p-2">
+        <div class="shadow rounded p-4">
           <div class="flex items-center">
             <img
               class="h-16px w-16px mr-2"
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Requested Funding -->
-        <div class="shadow rounded p-2">
+        <div class="shadow rounded p-4">
           <div class="flex items-center">
             <img
               class="h-16px w-16px mr-2"
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Proposal Wallet Address -->
-        <div class="shadow rounded p-2 lg:col-span-2">
+        <div class="shadow rounded p-4 lg:col-span-2">
           <p class="small-text text-primary">
             {{ $t('project.proposal.wallet') }}
           </p>
@@ -64,18 +64,20 @@
 
         <!-- Action (lg only) -->
         <div class="hidden lg:block lg:col-span-2">
-          <app-button-style
-            class="w-full text-center"
-            :icon="require('@/assets/images/detail/fund-here.svg')"
-            :text="$t('project.proposal.vote')"
-          />
+          <app-link to="https://vote.oceanprotocol.com/#/officialoceandao.eth">
+            <app-button-style
+              class="w-full text-center"
+              :icon="require('@/assets/images/detail/fund-here.svg')"
+              :text="$t('project.proposal.vote')"
+            />
+          </app-link>
         </div>
       </div>
 
       <div class="grid lg:flex lg:justify-end">
         <!-- Total Fundings -->
         <div>
-          <div class="shadow rounded p-2 overflow-y-auto lg:max-h-52">
+          <div class="shadow rounded p-4 overflow-y-auto lg:max-h-52">
             <div class="flex items-center">
               <img
                 class="h-16px w-16px mr-2"
@@ -89,7 +91,14 @@
             </div>
 
             <p
-              v-for="proposal in project.daoProposals"
+              v-if="!grantedProposals || grantedProposals.length === 0"
+              class="small-text pr-8"
+            >
+              {{ $t('project.proposal.empty') }}
+            </p>
+
+            <p
+              v-for="proposal in grantedProposals"
               :key="proposal.fundingRound"
               class="small-text pr-8"
             >
@@ -106,11 +115,13 @@
       </div>
 
       <div class="lg:hidden">
-        <app-button-style
-          class="w-full text-center"
-          :icon="require('@/assets/images/detail/fund-here.svg')"
-          :text="$t('project.proposal.vote')"
-        />
+        <app-link to="https://vote.oceanprotocol.com/#/officialoceandao.eth">
+          <app-button-style
+            class="w-full text-center"
+            :icon="require('@/assets/images/detail/fund-here.svg')"
+            :text="$t('project.proposal.vote')"
+          />
+        </app-link>
       </div>
     </div>
   </landing-section-container>
@@ -118,7 +129,9 @@
 
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppLink from '@/components/common/AppLink.vue'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import EnumDaoProposalStatus from '@/components/enums/EnumDaoProposalStatus'
 
 const EMPTY_PROPOSAL = {
   fundingRound: '/',
@@ -131,6 +144,7 @@ export default {
 
   components: {
     AppButtonStyle,
+    AppLink,
     LandingSectionContainer,
   },
 
@@ -145,9 +159,19 @@ export default {
   },
 
   computed: {
+    grantedProposals() {
+      const proposals = this.$props.project.daoProposals
+        ? this.$props.project.daoProposals
+        : []
+
+      return proposals.filter(
+        (proposal) => proposal.status === EnumDaoProposalStatus.Funded
+      )
+    },
+
     newestProposal() {
       const proposals = this.$props.project.daoProposals
-      return proposals.length === 0
+      return !proposals || proposals.length === 0
         ? EMPTY_PROPOSAL
         : proposals[proposals.length - 1]
     },

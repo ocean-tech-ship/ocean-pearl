@@ -71,7 +71,6 @@
 </template>
 
 <script>
-import { getFeaturedProjects } from '@/api.js'
 import LandingSectionContainer from './LandingSectionContainer'
 import AppLogo from '~/components/common/AppLogo'
 
@@ -82,21 +81,13 @@ export default {
     AppLogo,
     LandingSectionContainer,
   },
-  data() {
-    return {
-      projects: [],
-    }
-  },
-  async fetch() {
-    await getFeaturedProjects(this.$axios, 4)
-      .then((projects) => {
-        this.projects =
-          process.env.useMirage === 'true' ? projects.projects : projects
-      })
-      .catch((error) => {
-        console.log(error)
-        this.projects = []
-      })
+
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
   },
 }
 </script>

@@ -3,7 +3,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
     >
-      <div v-for="daoProposal in daoData.daoProposals" :key="daoProposal._id">
+      <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${daoProposal.project._id}`"
@@ -19,13 +19,13 @@
               </div>
               <div>
                 <p class="text-primary p-line-head">
-                  {{ daoProposal.title | truncate(14) }}
+                  {{ daoProposal.project.title | truncate(14) }}
                 </p>
                 <p class="small-text">{{ daoProposal.category }}</p>
               </div>
             </div>
             <div class="mt-5">
-              <p class="small-text">
+              <p class="small-text h-128px">
                 {{ daoProposal.description | truncate(90) }}
               </p>
             </div>
@@ -96,10 +96,10 @@ export default {
     LandingSectionContainer,
   },
   props: {
-    daoData: {
-      type: Object,
+    daoProposals: {
+      type: Array,
       required: true,
-      default: { daoProposals: [] },
+      default: [],
     },
   },
 }

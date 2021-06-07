@@ -11,26 +11,29 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
-        <NuxtLink :prefetch="false" :to="`/projects/${daoProposal.project._id}`">
-          <div class="shadow rounded h-275px p-8">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${daoProposal.project._id}`"
+        >
+          <div class="shadow rounded h-300px p-8">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  :src="daoProposal.imageURL"
-                  :alt="daoProposal.title"
+                  :src="daoProposal.project.logo"
+                  :alt="daoProposal.project.title"
                 />
               </div>
-              <div>
+              <div class="h-62px">
                 <p class="text-primary p-line-head">
-                  {{ daoProposal.title | truncate(14) }}
+                  {{ daoProposal.project.title | truncate(14) }}
                 </p>
                 <p class="small-text">{{ daoProposal.category }}</p>
               </div>
             </div>
-            <div class="mt-5">
+            <div class="mt-5 h-78px">
               <p class="small-text">
-                {{ daoProposal.description | truncate(90) }}
+                {{ daoProposal.description | truncate(75) }}
               </p>
             </div>
             <div class="mt-5">
@@ -45,7 +48,11 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.requestedGrantToken }) }}
+                {{
+                  $t('general.ocean', {
+                    ocean: daoProposal.requestedGrantToken,
+                  })
+                }}
               </p>
             </div>
           </div>
@@ -63,9 +70,8 @@
   </LandingSectionContainer>
 </template>
 <script>
-import { getFeaturedDaoProposals } from '@/api'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import AppLogo from '@/components/common/AppLogo'
 
 export default {
   name: 'LandingDaoProposal',
@@ -74,22 +80,13 @@ export default {
     AppLogo,
     LandingSectionContainer,
   },
-  data() {
-    return {
-      daoProposals: [],
-    }
-  },
-  async fetch() {
-    await getFeaturedDaoProposals(this.$axios, 4)
-      .then((daoProposals) => {
-        this.projects = this.daoProposals =
-          process.env.useMirage === 'true'
-            ? daoProposals.daoproposals
-            : daoProposals
-      })
-      .catch(() => {
-        this.daoProposals = []
-      })
+
+  props: {
+    daoProposals: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
   },
 }
 </script>
