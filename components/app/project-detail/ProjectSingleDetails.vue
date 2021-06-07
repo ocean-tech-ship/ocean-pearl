@@ -3,11 +3,22 @@
     <div class="grid lg:grid-cols-2 gap-12 border-b border-primary">
       <div>
         <!-- Description -->
-        <div v-if="!!project.description" class="mb-10">
-          <p class="text-primary small-text">
-            {{ $t('project.description') }}
-          </p>
-          <p class="small-text">{{ project.description }}</p>
+        <div class="mb-10">
+          <div class="mb-4" v-if="!!project.description" >
+            <p class="text-primary small-text">
+              {{ $t('project.description') }}
+            </p>
+            <p class="small-text">{{ project.description }}</p>
+          </div>
+          <div v-if="!!`${project.oceanProtocalPortUrl}`">
+            <app-link :to="project.oceanProtocalPortUrl">
+                <app-button-style
+                  class="text-center"
+                  :icon="require('@/assets/images/detail/read-full.svg')"
+                  :text="$t('project.readFull')"
+                />
+            </app-link>
+          </div>
         </div>
 
         <!-- Team -->
@@ -60,6 +71,8 @@
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember'
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
+import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppLink from '@/components/common/AppLink.vue'
 import { SocialMedia } from '~/model/SocialMedia'
 
 export default {
@@ -69,6 +82,8 @@ export default {
     LandingSectionContainer,
     ProjectSingleDetailsMember,
     ProjectSingleDetailsSocial,
+    AppButtonStyle,
+    AppLink
   },
 
   props: {
