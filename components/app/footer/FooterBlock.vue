@@ -1,13 +1,13 @@
 <template>
-  <div class="lg:flex lg:gap-10">
+  <div class="mx-4 xl:flex xl:gap-10">
     <AppLink class="table mx-auto" :to="item.route">
-      <div class="lg:flex lg:items-center lg:justify-center">
+      <div class="xl:flex xl:items-center xl:justify-center">
         <img
           :src="item.icon"
           :alt="item.name + ' logo'"
-          class="lg:w-6 lg:h-6 w-10 h-10 block lg:mr-2 mx-auto"
+          class="xl:w-6 xl:h-6 w-10 h-10 block xl:mr-2 mx-auto"
         />
-        <p :class="`mt-0 lg:mt-0 font-semibold ${theme} lg:text-sm`">
+        <p :class="`mt-0 xl:mt-0 font-semibold ${theme} xl:text-sm`">
           {{ item.name }}
         </p>
       </div>
