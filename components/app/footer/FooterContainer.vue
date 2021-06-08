@@ -50,7 +50,7 @@ export default Vue.extend({
             },
             {
               id: 2,
-              name: this.$t('analytics'),
+              name: this.$t('footer.analytics'),
               icon: require('@/assets/images/footer/analytics.svg'),
               route: 'https://plausible.io/oceanpearl.io',
               ext: true,
