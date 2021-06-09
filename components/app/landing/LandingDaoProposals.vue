@@ -15,7 +15,7 @@
           :prefetch="false"
           :to="`/projects/${daoProposal.project._id}`"
         >
-          <div class="shadow rounded h-300px p-8">
+          <div class="shadow rounded h-330px p-8">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
@@ -31,12 +31,12 @@
                 <p class="small-text">{{ daoProposal.category }}</p>
               </div>
             </div>
-            <div class="mt-5 h-78px">
+            <div class="mt-5 h-128px">
               <p class="small-text">
                 {{ daoProposal.description | truncate(75) }}
               </p>
             </div>
-            <div class="mt-5">
+            <div>
               <div class="flex">
                 <img
                   class="mr-2"
