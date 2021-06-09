@@ -27,7 +27,7 @@
                 <img
                   class="mr-2"
                   src="@/assets/images/icons/vote.svg"
-                  :alt="$t('project.proposal.submit') + ' ' + $t('general.icon')"
+                  :alt="`${$t('project.proposal.submit')} ${$t('general.icon')}`"
                 />
                 <p>{{$t('project.proposal.submit')}}</p>
               </div>
