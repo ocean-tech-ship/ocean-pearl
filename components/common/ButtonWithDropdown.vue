@@ -23,11 +23,14 @@
             </li>
             <li>
              <app-link to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template">
-                <app-button-style
-                  class="px-4 py-3 w-full text-center"
-                  :icon="require('@/assets/images/icons/vote-white.svg')"
-                  :text="$t('project.proposal.submit')"
+              <div class="flex px-4 py-3 text-primary">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/vote.svg"
+                  :alt="$t('project.proposal.submit') + ' ' + $t('general.icon')"
                 />
+                <p>{{$t('project.proposal.submit')}}</p>
+              </div>
              </app-link>
             </li>
           </ul>
@@ -38,7 +41,7 @@
 
 <script>
 import MainDropdown from "@/components/common/MainDropdown"
-import AppButtonStyle from '@/components/common/AppButtonStyle'
+import AppButton from '@/components/common/AppButton'
 import AppLink from '@/components/common/AppLink.vue'
 
 export default {
@@ -51,8 +54,8 @@ export default {
   },
   components: { 
     MainDropdown,
-    AppButtonStyle,
-    AppLink
+    AppLink,
+    AppButton
   }
 };
 </script>
