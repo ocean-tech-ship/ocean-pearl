@@ -62,15 +62,18 @@
             </p>
           </div>
           <div class="flex justify-between items-center mt-8 flex-wrap">
-            <div class="flex items-center flex-wrap">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/transaction.svg"
-                alt="funding-finish"
-              />
-              <p class="small-text text-primary mr-4">
-                {{ $t('landing.featured_dao_projects.requestedAmount') }}
-              </p>
+            <div>
+              <div class="flex items-center flex-wrap">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/transaction.svg"
+                  alt="funding-finish"
+                />
+                <p class="small-text text-primary mr-4">
+                  {{ $t('landing.featured_dao_projects.requestedAmount') }}
+                </p>
+              </div>
+
               <p class="small-text">
                 {{
                   $t('general.ocean', {
