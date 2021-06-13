@@ -21,8 +21,8 @@
               />
             </div>
             <div>
-              <p class="text-primary small-text truncate">
-                {{ card.title | truncate(18) }}
+              <p class="text-primary small-text line-clamp-1">
+                {{ card.title }}
               </p>
               <p class="small-text">{{ card.daoInfo }}</p>
             </div>

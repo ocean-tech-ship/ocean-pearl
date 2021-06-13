@@ -38,15 +38,15 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head truncate">
-                  {{ project.title | truncate(18) }}
+                <p class="text-primary p-line-head line-clamp-1 break-all">
+                  {{ project.title }}
                 </p>
               </div>
             </div>
             <p class="small-text mt-2 text-primary">{{ project.category }}</p>
             <div>
-              <p class="small-text mt-4">
-                {{ project.description | truncate(90) }}
+              <p class="small-text mt-4 line-clamp-3">
+                {{ project.description }}
               </p>
             </div>
             <div class="justify-self-end flex items-center mt-8">

@@ -21,8 +21,8 @@
               />
             </div>
             <div class="mt-4 h-62px">
-              <p class="text-primary p-line-head">
-                {{ project.title | truncate(14) }}
+              <p class="text-primary p-line-head line-clamp-1 break-all">
+                {{ project.title }}
               </p>
               <p class="small-text">{{ project.category }}</p>
             </div>
