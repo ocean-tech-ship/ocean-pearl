@@ -17,6 +17,7 @@ module.exports = {
         '62px': '62px',
         '70px': '70px',
         '78px': '78px',
+        '112px': '112px',
         '128px': '128px',
         '177px': '177px',
         '225px': '225px',
@@ -70,5 +71,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
