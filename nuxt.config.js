@@ -77,6 +77,7 @@ export default {
         img: '~/static/pearl-background.jpg',
         locale: 'en_US',
         twitter: '@oceanpearlio',
+        twitter_card: 'summary_large_image',
         themeColor: '#BB2C75',
       },
     ],
