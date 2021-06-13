@@ -23,7 +23,7 @@
               />
             </div>
             <div class="mt-4">
-              <p class="text-primary p-head line-clamp-1">
+              <p class="text-primary p-head line-clamp-1 break-all">
                 {{ project.title }}
               </p>
               <p class="small-text text-quad">
