@@ -1,5 +1,9 @@
 <template>
-  <img :src="conditionalSource" :alt="`${alt} ${$t('general.logo')}`" />
+  <img
+    class="max-w-none max-h-none"
+    :src="conditionalSource"
+    :alt="`${alt} ${$t('general.logo')}`"
+  />
 </template>
 
 <script>

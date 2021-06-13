@@ -11,7 +11,7 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow rounded-md pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
+        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
       >
         <img
           class="max-h-260px lg:max-h-none hidden sm:block"
@@ -38,15 +38,15 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head truncate">
-                  {{ project.title | truncate(18) }}
+                <p class="text-primary p-line-head line-clamp-1 break-all">
+                  {{ project.title }}
                 </p>
               </div>
             </div>
             <p class="small-text mt-2 text-primary">{{ project.category }}</p>
             <div>
-              <p class="small-text mt-4">
-                {{ project.description | truncate(90) }}
+              <p class="small-text mt-4 line-clamp-3">
+                {{ project.description }}
               </p>
             </div>
             <div class="justify-self-end flex items-center mt-8">

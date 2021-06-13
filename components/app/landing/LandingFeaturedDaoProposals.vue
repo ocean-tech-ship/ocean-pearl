@@ -26,7 +26,11 @@
         </h3>
       </div>
 
-      <div v-for="project in projects" :key="project.title" class="col-span-2">
+      <div
+        v-for="project in projects"
+        :key="project.title"
+        class="col-span-1 lg:col-span-2"
+      >
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
             <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
@@ -39,8 +43,8 @@
                   />
                 </div>
                 <div>
-                  <p class="text-primary p-line-head truncate">
-                    {{ project.title | truncate(18) }}
+                  <p class="text-primary p-line-head line-clamp-1">
+                    {{ project.title }}
                   </p>
                 </div>
               </div>
@@ -57,20 +61,23 @@
           </div>
           <p class="small-text text-primary">{{ project.category }}</p>
           <div>
-            <p class="small-text mt-4">
-              {{ project.description | truncate(180) }}
+            <p class="small-text mt-4 line-clamp-3">
+              {{ project.description }}
             </p>
           </div>
           <div class="flex justify-between items-center mt-8 flex-wrap">
-            <div class="flex items-center flex-wrap">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/transaction.svg"
-                alt="funding-finish"
-              />
-              <p class="small-text text-primary mr-4">
-                {{ $t('landing.featured_dao_projects.requestedAmount') }}
-              </p>
+            <div>
+              <div class="flex items-center flex-wrap">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/transaction.svg"
+                  alt="funding-finish"
+                />
+                <p class="small-text text-primary mr-4">
+                  {{ $t('landing.featured_dao_projects.requestedAmount') }}
+                </p>
+              </div>
+
               <p class="small-text">
                 {{
                   $t('general.ocean', {

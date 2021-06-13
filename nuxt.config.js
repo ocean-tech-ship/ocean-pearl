@@ -63,7 +63,24 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['nuxt-i18n', '@nuxtjs/axios'],
+  modules: [
+    'nuxt-i18n',
+    '@nuxtjs/axios',
+    [
+      'nuxt-social-meta',
+      {
+        url: 'https://oceanpearl.io/',
+        title: 'Ocean Pearl',
+        site_name: 'Ocean Pearl',
+        description:
+          'The community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.',
+        img: '~/static/pearl-background.jpg',
+        locale: 'en_US',
+        twitter: '@oceanpearlio',
+        themeColor: '#BB2C75',
+      },
+    ],
+  ],
 
   dateFns: {
     locales: ['en-US'],

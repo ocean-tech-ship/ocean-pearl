@@ -17,6 +17,7 @@ module.exports = {
         '62px': '62px',
         '70px': '70px',
         '78px': '78px',
+        '112px': '112px',
         '128px': '128px',
         '177px': '177px',
         '225px': '225px',
@@ -55,9 +56,11 @@ module.exports = {
       '3xl': '48px',
     },
     maxWidth: {
+      none: 'none',
       1440: '1440px',
     },
     maxHeight: {
+      none: 'none',
       52: '13rem',
     },
     boxShadow: {
@@ -70,5 +73,5 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
