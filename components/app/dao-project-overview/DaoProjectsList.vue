@@ -8,7 +8,7 @@
           :prefetch="false"
           :to="`/projects/${daoProposal.project._id}`"
         >
-          <div class="shadow rounded pb-10 p-8 h-full">
+          <div class="shadow rounded p-8 h-full">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
@@ -18,15 +18,15 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head">
-                  {{ daoProposal.project.title | truncate(14) }}
+                <p class="text-primary p-line-head line-clamp-1 break-all">
+                  {{ daoProposal.project.title }}
                 </p>
                 <p class="small-text">{{ daoProposal.category }}</p>
               </div>
             </div>
-            <div class="mt-5">
-              <p class="small-text h-128px">
-                {{ daoProposal.description | truncate(90) }}
+            <div class="mt-5 h-112px">
+              <p class="small-text line-clamp-4">
+                {{ daoProposal.description }}
               </p>
             </div>
             <div class="mt-5">

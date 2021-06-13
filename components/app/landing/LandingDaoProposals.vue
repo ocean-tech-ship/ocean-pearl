@@ -25,15 +25,15 @@
                 />
               </div>
               <div class="h-62px">
-                <p class="text-primary p-line-head">
-                  {{ daoProposal.project.title | truncate(14) }}
+                <p class="text-primary leading-tight line-clamp-1 break-all">
+                  {{ daoProposal.project.title }}
                 </p>
                 <p class="small-text">{{ daoProposal.category }}</p>
               </div>
             </div>
             <div class="mt-5 h-128px">
-              <p class="small-text">
-                {{ daoProposal.description | truncate(75) }}
+              <p class="small-text line-clamp-3">
+                {{ daoProposal.description }}
               </p>
             </div>
             <div>

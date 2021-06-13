@@ -23,16 +23,16 @@
               />
             </div>
             <div class="mt-4">
-              <p class="text-primary p-head">
-                {{ project.title | truncate(20) }}
+              <p class="text-primary p-head line-clamp-1">
+                {{ project.title }}
               </p>
               <p class="small-text text-quad">
                 {{ project.category }}
               </p>
             </div>
             <div class="mt-6 px-3 flex place-content-center">
-              <p class="small-text">
-                {{ project.description | truncate(60) }}
+              <p class="small-text line-clamp-3">
+                {{ project.description }}
               </p>
             </div>
           </div>
@@ -71,4 +71,3 @@ export default {
   },
 }
 </script>
-
