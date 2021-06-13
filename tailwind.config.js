@@ -56,9 +56,11 @@ module.exports = {
       '3xl': '48px',
     },
     maxWidth: {
+      none: 'none',
       1440: '1440px',
     },
     maxHeight: {
+      none: 'none',
       52: '13rem',
     },
     boxShadow: {
