@@ -8359,6 +8359,11 @@ nuxt-i18n@^6.25.0:
     ufo "^0.6.11"
     vue-i18n "^8.24.3"
 
+nuxt-social-meta@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/nuxt-social-meta/-/nuxt-social-meta-0.0.5.tgz#60dc2e8dc00401a122fc069fd9aa541894db5b2b"
+  integrity sha512-HVBuw2/ci4wiJxkEZDWP9t/vP7knM2APN9Swhslgi28uD4jgOUqWsEeljRP/TWB+kg1nEM3JhyiPIn3EdmuUFQ==
+
 nuxt@^2.15.4:
   version "2.15.4"
   resolved "https://registry.yarnpkg.com/nuxt/-/nuxt-2.15.4.tgz#5e2b441acec7344a1124bb550904b5576c850cef"

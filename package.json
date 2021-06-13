@@ -24,6 +24,7 @@
     "date-fns": "^2.22.1",
     "nuxt": "^2.15.4",
     "nuxt-i18n": "^6.25.0",
+    "nuxt-social-meta": "^0.0.5",
     "plausible-tracker": "^0.3.1"
   },
   "devDependencies": {
