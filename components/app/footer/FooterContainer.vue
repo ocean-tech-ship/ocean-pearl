@@ -1,16 +1,21 @@
 <template>
   <footer class="w-full">
     <div
-      class="w-full max-w-1440 mx-auto py-10 grid gap-10 md:flex md:items-center md:gap-20 md:justify-center lg:gap-5"
+      class="w-full max-w-1440 mx-auto py-10 grid gap-10 md:flex md:items-center md:gap-0 md:justify-center lg:gap-5"
     >
-      <div v-for="item in footerItems" :key="item.id">
+      <div v-for="(item, i) in footerItems" :key="item.id">
         <img
           v-if="item.id === 'supreme'"
           :src="item.icon"
           :alt="`${item.name} logo`"
           class="w-10 h-10 lg:block hidden"
         />
-        <footer-block v-else theme="text-primary" :item="item" />
+        <footer-block
+          v-else
+          theme="text-primary"
+          :item="item"
+          :class="{ 'md:mr-20 lg:mr-0': i < footerItems.length - 1 }"
+        />
       </div>
     </div>
   </footer>

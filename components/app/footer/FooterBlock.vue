@@ -1,7 +1,7 @@
 <template>
-  <div class="lg:flex lg:gap-10">
+  <div class="lg:flex">
     <AppLink class="table mx-auto" :to="item.route">
-      <div class="lg:flex lg:items-center lg:justify-center">
+      <div class="lg:flex lg:items-center lg:justify-center lg:mr-10">
         <img
           :src="item.icon"
           :alt="item.name + ' logo'"
