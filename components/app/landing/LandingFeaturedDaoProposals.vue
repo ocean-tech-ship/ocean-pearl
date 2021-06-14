@@ -46,6 +46,8 @@
                   <p class="text-primary p-line-head line-clamp-1">
                     {{ project.title }}
                   </p>
+
+                  <p class="small-text text-primary">{{ project.category }}</p>
                 </div>
               </div>
             </NuxtLink>
@@ -59,7 +61,6 @@
               />
             </div>
           </div>
-          <p class="small-text text-primary">{{ project.category }}</p>
           <div>
             <p class="small-text mt-4 line-clamp-3">
               {{ project.description }}
