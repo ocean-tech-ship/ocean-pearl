@@ -18,7 +18,7 @@
                 />
               </div>
               <div>
-                <p class="text-primary leading-tight line-clamp-1 break-all">
+                <p class="text-primary leading-snug line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
                 <p class="small-text">{{ daoProposal.category }}</p>
