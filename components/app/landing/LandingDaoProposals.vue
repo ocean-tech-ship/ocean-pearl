@@ -24,10 +24,11 @@
                   :alt="daoProposal.project.title"
                 />
               </div>
-              <div class="h-62px">
-                <p class="text-primary leading-tight line-clamp-1 break-all">
+              <div>
+                <p class="text-primary leading-snug line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
+
                 <p class="small-text">{{ daoProposal.category }}</p>
               </div>
             </div>
@@ -91,8 +92,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>
+<style scoped></style>
