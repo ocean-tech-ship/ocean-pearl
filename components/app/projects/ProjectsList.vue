@@ -23,10 +23,8 @@
               />
             </div>
             <div class="mt-4">
-
               <p class="text-primary leading-tight line-clamp-1 break-all">
                 {{ project.title }}
-
               </p>
               <p class="small-text text-quad">
                 {{ project.category }}
@@ -73,4 +71,3 @@ export default {
   },
 }
 </script>
-
