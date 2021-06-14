@@ -18,7 +18,7 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head line-clamp-1 break-all">
+                <p class="text-primary leading-tight line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
                 <p class="small-text">{{ daoProposal.category }}</p>
@@ -105,8 +105,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>
+<style scoped></style>
