@@ -7,9 +7,7 @@
     >
       <div v-for="project in projects" :key="project._id">
         <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
-
-          <div class="shadow rounded p-2 text-center">
-
+          <div class="shadow rounded p-2 pb-8 text-center">
             <!--
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
           <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.svg" alt="hiring job">
