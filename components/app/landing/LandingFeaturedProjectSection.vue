@@ -30,7 +30,7 @@
         <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
-              <div class="self-center mr-3">
+              <div class="mr-3">
                 <app-logo
                   class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
                   :src="project.logo"
@@ -38,7 +38,7 @@
                 />
               </div>
               <div>
-                <p class="text-primary p-line-head line-clamp-1 break-all">
+                <p class="text-primary leading-tight line-clamp-1 break-all">
                   {{ project.title }}
                 </p>
 
