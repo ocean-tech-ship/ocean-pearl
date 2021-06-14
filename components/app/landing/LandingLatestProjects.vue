@@ -21,7 +21,7 @@
               />
             </div>
             <div class="mt-4 h-62px">
-              <p class="text-primary p-line-head line-clamp-1 break-all">
+              <p class="text-primary leading-tight line-clamp-1 break-all">
                 {{ project.title }}
               </p>
               <p class="small-text">{{ project.category }}</p>
@@ -77,8 +77,4 @@ export default {
 }
 </script>
 
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>
+<style scoped></style>
