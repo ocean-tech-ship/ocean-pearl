@@ -21,7 +21,7 @@
               />
             </div>
             <div class="mt-4 h-62px">
-              <p class="text-primary leading-tight line-clamp-1 break-all">
+              <p class="text-primary leading-snug line-clamp-1 break-all">
                 {{ project.title }}
               </p>
               <p class="small-text">{{ project.category }}</p>

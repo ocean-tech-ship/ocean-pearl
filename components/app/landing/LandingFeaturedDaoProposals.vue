@@ -43,7 +43,7 @@
                   />
                 </div>
                 <div>
-                  <p class="text-primary leading-tight line-clamp-1">
+                  <p class="text-primary leading-snug line-clamp-1">
                     {{ project.title }}
                   </p>
 
