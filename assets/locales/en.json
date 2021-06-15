@@ -22,6 +22,9 @@
     "totalAmount": "Total Amount",
     "totalVotes": "Total Votes"
   },
+  "footer": {
+    "analytics": "Analytics"
+  },
   "general": {
     "button": "button",
     "error": {
