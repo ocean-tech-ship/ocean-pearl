@@ -27,67 +27,76 @@ import FooterBlock from './FooterBlock.vue'
 
 export default Vue.extend({
   components: { FooterBlock },
-  data: () => ({
-    footerItems: [
-      {
-        id: 0,
-        name: 'Ocean Pearl',
-        theme: 'text-primary',
-        icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
-        route: '/',
-        block: true,
-        hasSubItem: true,
-        subItems: [
-          {
-            id: 0,
-            name: 'Twitter',
-            icon: require('@/assets/images/footer/twitter_footer.svg'),
-            route: 'https://twitter.com/oceanpearlio',
-            ext: true,
-          },
-          {
-            id: 1,
-            name: 'Discord',
-            icon: require('@/assets/images/footer/discord_footer.svg'),
-            route: 'https://discord.gg/eswPj8QZRH',
-            ext: true,
-          },
-        ],
-      },
-      {
-        id: 'supreme',
-        name: 'ocean pearl',
-        icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
-        route: '/',
-      },
-      {
-        id: 1,
-        name: 'Ocean Protocol',
-        theme: 'text-third',
-        icon: require('@/assets/images/footer/protocol_footer.svg'),
-        route: 'https://oceanprotocol.com/',
-        ext: true,
-        block: true,
-        hasSubItem: true,
-        subItems: [
-          {
-            id: 4,
-            name: 'Whitepaper',
-            icon: require('@/assets/images/footer/white_paper_footer.svg'),
-            route: 'https://oceanprotocol.com/tech-whitepaper.pdf',
-            ext: true,
-          },
-          {
-            id: 5,
-            name: 'Discord',
-            icon: require('@/assets/images/footer/discord_footer.svg'),
-            route: 'https://discord.gg/Yuawx9EP6e',
-            ext: true,
-          },
-        ],
-      },
-    ],
-  }),
+  data() {
+    return {
+      footerItems: [
+        {
+          id: 0,
+          name: 'Ocean Pearl',
+          theme: 'text-primary',
+          icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
+          route: '/',
+          block: true,
+          hasSubItem: true,
+          subItems: [
+            {
+              id: 0,
+              name: 'Twitter',
+              icon: require('@/assets/images/footer/twitter_footer.svg'),
+              route: 'https://twitter.com/oceanpearlio',
+              ext: true,
+            },
+            {
+              id: 1,
+              name: 'Discord',
+              icon: require('@/assets/images/footer/discord_footer.svg'),
+              route: 'https://discord.gg/eswPj8QZRH',
+              ext: true,
+            },
+            {
+              id: 2,
+              name: this.$t('footer.analytics'),
+              icon: require('@/assets/images/footer/analytics.svg'),
+              route: 'https://plausible.io/oceanpearl.io',
+              ext: true,
+            },
+          ],
+        },
+        {
+          id: 'supreme',
+          name: 'ocean pearl',
+          icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
+          route: '/',
+        },
+        {
+          id: 1,
+          name: 'Ocean Protocol',
+          theme: 'text-third',
+          icon: require('@/assets/images/footer/protocol_footer.svg'),
+          route: 'https://oceanprotocol.com/',
+          ext: true,
+          block: true,
+          hasSubItem: true,
+          subItems: [
+            {
+              id: 4,
+              name: 'Whitepaper',
+              icon: require('@/assets/images/footer/white_paper_footer.svg'),
+              route: 'https://oceanprotocol.com/tech-whitepaper.pdf',
+              ext: true,
+            },
+            {
+              id: 5,
+              name: 'Discord',
+              icon: require('@/assets/images/footer/discord_footer.svg'),
+              route: 'https://discord.gg/Yuawx9EP6e',
+              ext: true,
+            },
+          ],
+        },
+      ],
+    }
+  },
 })
 </script>
 
