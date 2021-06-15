@@ -1,5 +1,5 @@
 <template>
-  <div class="lg:flex">
+  <div class="mx-4 xl:flex">
     <AppLink class="table mx-auto" :to="item.route">
       <div class="lg:flex lg:items-center lg:justify-center lg:mr-10">
         <img
