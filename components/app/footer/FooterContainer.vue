@@ -8,7 +8,7 @@
           v-if="item.id === 'supreme'"
           :src="item.icon"
           :alt="`${item.name} logo`"
-          class="w-10 h-10 lg:block hidden"
+          class="w-10 h-10 xl:block hidden"
         />
         <footer-block
           v-else
