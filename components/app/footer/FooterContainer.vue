@@ -12,7 +12,7 @@
         />
         <footer-block
           v-else
-          theme="text-primary"
+          :theme="item.theme"
           :item="item"
           :class="{ 'md:mr-20 lg:mr-0': i < footerItems.length - 1 }"
         />
@@ -32,6 +32,7 @@ export default Vue.extend({
       {
         id: 0,
         name: 'Ocean Pearl',
+        theme: 'text-primary',
         icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
         route: '/',
         block: true,
@@ -62,6 +63,7 @@ export default Vue.extend({
       {
         id: 1,
         name: 'Ocean Protocol',
+        theme: 'text-third',
         icon: require('@/assets/images/footer/protocol_footer.svg'),
         route: 'https://oceanprotocol.com/',
         ext: true,
