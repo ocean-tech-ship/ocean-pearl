@@ -4,14 +4,7 @@
       class="w-full max-w-1440 mx-auto py-10 grid gap-10 md:flex md:items-center md:gap-0 md:justify-center lg:gap-5"
     >
       <div v-for="(item, i) in footerItems" :key="item.id">
-        <img
-          v-if="item.id === 'supreme'"
-          :src="item.icon"
-          :alt="`${item.name} logo`"
-          class="w-10 h-10 xl:block hidden"
-        />
         <footer-block
-          v-else
           :theme="item.theme"
           :item="item"
           :class="{ 'md:mr-20 lg:mr-0': i < footerItems.length - 1 }"
@@ -55,18 +48,19 @@ export default Vue.extend({
             },
             {
               id: 2,
+              name: 'GitHub',
+              icon: require('@/assets/images/social/github.svg'),
+              route: 'https://github.com/ocean-tech-ship',
+              ext: true,
+            },
+            {
+              id: 3,
               name: this.$t('footer.analytics'),
               icon: require('@/assets/images/footer/analytics.svg'),
               route: 'https://plausible.io/oceanpearl.io',
               ext: true,
             },
           ],
-        },
-        {
-          id: 'supreme',
-          name: 'ocean pearl',
-          icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
-          route: '/',
         },
         {
           id: 1,
