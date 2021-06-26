@@ -63,6 +63,7 @@ module.exports = {
     borderRadius: {
       none: 'none',
       DEFAULT: '8px',
+      full: '50%',
     },
     boxShadow: {
       none: 'none',
