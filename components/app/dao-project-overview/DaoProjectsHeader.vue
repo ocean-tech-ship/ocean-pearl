@@ -15,7 +15,7 @@
           <div class="flex align-center">
             <div class="mr-3">
               <img
-                class="inline-block mt-3 h-6 w-6 rounded-full ring-2 ring-white"
+                class="inline-block mt-3 h-6 w-6"
                 :src="card.imageURL"
                 :alt="card.title"
               />
