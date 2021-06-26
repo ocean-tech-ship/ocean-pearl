@@ -22,6 +22,9 @@ module.exports = {
         '300px': '300px',
         '330px': '330px',
       },
+      borderRadius: {
+        default: '8px',
+      },
     },
     screens: {
       '2sm': '375px',
@@ -61,12 +64,8 @@ module.exports = {
       52: '13rem',
     },
     boxShadow: {
-      default: '4px 4px 20px rgba(0, 0, 0, 0.1)',
+      DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
       none: 'none',
-    },
-    borderRadius: {
-      none: '0',
-      default: '8px',
     },
   },
   variants: {},
