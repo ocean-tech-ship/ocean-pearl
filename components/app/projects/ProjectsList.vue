@@ -17,7 +17,7 @@
         -->
             <div class="mt-3">
               <app-logo
-                class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
+                class="inline-block h-16 w-16 rounded-full"
                 :src="project.imageURL"
                 :alt="project.title"
               />
