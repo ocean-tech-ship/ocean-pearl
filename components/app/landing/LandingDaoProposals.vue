@@ -19,7 +19,7 @@
             <div class="flex">
               <div class="mr-3">
                 <app-logo
-                  class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  class="inline-block h-10 w-10 rounded-full"
                   :src="daoProposal.project.logo"
                   :alt="daoProposal.project.title"
                 />
