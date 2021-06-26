@@ -61,11 +61,12 @@ module.exports = {
       52: '13rem',
     },
     borderRadius: {
+      none: 'none',
       DEFAULT: '8px',
     },
     boxShadow: {
-      DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
       none: 'none',
+      DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
     },
   },
   variants: {},
