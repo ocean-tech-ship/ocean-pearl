@@ -3,7 +3,7 @@
     <template slot-scope="context">
       <img
         alt="treasure icon navbar"
-        class="h-10 w-10 cursor-pointer rounded-full object-cover"
+        class="h-10 w-10 cursor-pointer object-cover"
         src="@/assets/images/icons/treasure-card.svg"
         @click="context.toggleOpen"
       />
