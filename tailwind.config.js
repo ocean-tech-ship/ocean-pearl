@@ -1,10 +1,7 @@
 const colors = require('./tailwind.colors.json')
 
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
+  mode: 'jit',
   purge: [],
   theme: {
     extend: {
@@ -63,13 +60,14 @@ module.exports = {
       none: 'none',
       52: '13rem',
     },
-    boxShadow: {
-      default: '4px 4px 20px rgba(0, 0, 0, 0.1)',
-      none: 'none',
-    },
     borderRadius: {
-      none: '0',
-      default: '8px',
+      none: 'none',
+      DEFAULT: '8px',
+      full: '50%',
+    },
+    boxShadow: {
+      none: 'none',
+      DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
     },
   },
   variants: {},

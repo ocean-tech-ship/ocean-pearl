@@ -3,7 +3,7 @@
     <div class="flex flex-wrap items-center justify-center md:justify-between">
       <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
         <app-logo
-          class="w-16 h-16 mx-4 inline-block rounded-full ring-2 ring-white"
+          class="w-16 h-16 mx-4 inline-block rounded-full"
           :src="project.logo"
           :alt="project.title"
         />
@@ -14,9 +14,9 @@
         </div>
       </div>
 
-      <div class="flex my-8 mx-8 md:my-4">
+      <div class="flex items-center my-8 mx-8 md:my-4">
         <img
-          class="h-14 w-14 mr-4"
+          class="h-10 w-10 mr-4"
           :src="require('@/assets/images/icons/rocket.svg')"
           :alt="`${$t('project.added')} ${$t('general.icon')}`"
         />
