@@ -11,8 +11,16 @@
       <project-single-header :project="project" />
 
       <div class="bg-grey pt-8 pb-1 mb-8">
-        <project-single-details :project="project" />
-        <project-single-dao-proposal :project="project" />
+        <landing-section-container
+          class="grid gap-12 lg:mb-0"
+          :class="coverImage ? 'lg:grid-cols-1' : 'lg:grid-cols-2'"
+        >
+          <project-single-details :project="project" />
+
+          <hr v-if="!!coverImage" class="text-primary" />
+
+          <project-single-dao-proposal :project="project" />
+        </landing-section-container>
       </div>
 
       <!--<project-single-roi-strategy :project="project" />-->
@@ -25,14 +33,15 @@ import Vue from 'vue'
 import { getProjectById } from '@/api.js'
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue'
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue'
-import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
+// import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
 
 export default Vue.extend({
   name: 'ProjectDetail',
+
   components: {
-    ProjectSingleRoiStrategy,
+    // ProjectSingleRoiStrategy,
     ProjectSingleDetails,
     ProjectSingleDaoProposal,
     ProjectSingleHeader,
@@ -57,6 +66,14 @@ export default Vue.extend({
     } catch (error) {
       return { error: 'general.error.retry', project: null }
     }
+  },
+
+  computed: {
+    coverImage() {
+      return this.project.pictures.length > 0
+        ? this.project.pictures[0]
+        : null /* require('@/assets/images/detail/pearl-background.png') */
+    },
   },
 })
 </script>
