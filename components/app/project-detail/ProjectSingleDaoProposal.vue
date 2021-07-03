@@ -1,13 +1,16 @@
 <template>
-  <landing-section-container>
-    <h4>
+  <div>
+    <h4 v-if="!!coverImage">
       {{ $t('project.proposal.title.dao') }}
       <span class="text-primary">
         {{ $t('project.proposal.title.proposal') }}
       </span>
     </h4>
 
-    <div class="grid lg:grid-cols-2 gap-4 xl:gap-32 mt-6">
+    <div
+      class="grid gap-4"
+      :class="coverImage ? 'my-6 lg:grid-cols-2 xl:gap-32' : 'mb-6 xl:gap-8'"
+    >
       <div class="grid lg:grid-cols-2 gap-4 xl:gap-8">
         <!-- Funding Round -->
         <div class="shadow rounded p-4">
@@ -74,7 +77,7 @@
         </div>
       </div>
 
-      <div class="grid lg:flex lg:justify-end">
+      <div :class="coverImage ? 'grid lg:flex lg:justify-end' : ''">
         <!-- Total Fundings -->
         <div>
           <div class="shadow rounded p-4 overflow-y-auto lg:max-h-52">
@@ -124,13 +127,12 @@
         </app-link>
       </div>
     </div>
-  </landing-section-container>
+  </div>
 </template>
 
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import EnumDaoProposalStatus from '@/components/enums/EnumDaoProposalStatus'
 
 const EMPTY_PROPOSAL = {
@@ -145,7 +147,6 @@ export default {
   components: {
     AppButtonStyle,
     AppLink,
-    LandingSectionContainer,
   },
 
   props: {
@@ -159,6 +160,12 @@ export default {
   },
 
   computed: {
+    coverImage() {
+      return this.$props.project.pictures.length > 0
+        ? this.$props.project.pictures[0]
+        : null /* require('@/assets/images/detail/pearl-background.png') */
+    },
+
     grantedProposals() {
       const proposals = this.$props.project.daoProposals
         ? this.$props.project.daoProposals

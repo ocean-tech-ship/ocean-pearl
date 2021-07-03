@@ -1,75 +1,82 @@
 <template>
-  <landing-section-container>
-    <div class="grid lg:grid-cols-2 gap-12 border-b border-primary">
-      <div>
-        <!-- Description -->
-        <div class="mb-10">
-          <div v-if="!!project.description" class="mb-4">
-            <p class="text-primary small-text">
-              {{ $t('project.description') }}
-            </p>
-            <p class="small-text">{{ project.description }}</p>
-          </div>
-
-          <div v-if="!!oceanPortLink" class="mb-4">
-            <app-link :to="oceanPortLink">
-              <app-button-style
-                class="text-center"
-                :icon="require('@/assets/images/detail/read-full.svg')"
-                :text="$t('project.readFull')"
-              />
-            </app-link>
-          </div>
+  <div
+    class="grid"
+    :class="coverImage ? 'gap-12 lg:grid-cols-2' : 'gap-4 lg:grid-cols-1'"
+  >
+    <div>
+      <!-- Description -->
+      <div :class="{ coverImage: 'mb-10' }">
+        <div v-if="!!project.description" class="mb-4">
+          <p class="text-primary small-text">
+            {{ $t('project.description') }}
+          </p>
+          <p class="small-text">{{ project.description }}</p>
         </div>
 
-        <!-- Team -->
-        <div v-if="!!project.team" class="mb-10">
-          <p class="text-primary small-text mt-6">{{ $t('project.team') }}</p>
-
-          <project-single-details-member
-            v-for="(member, index) in project.team"
-            :key="index"
-            :member="member"
-          />
-        </div>
-
-        <!-- Project Socials (until lg) -->
-        <div class="flex justify-between my-10 md:justify-start lg:hidden">
-          <project-single-details-social
-            v-for="(url, type) in filteredProjectSocialMedia"
-            :key="type"
-            class="h-6 w-6 md:mr-6"
-            :type="type"
-            :url="url"
-          />
+        <div v-if="!!oceanPortLink" class="mb-4">
+          <app-link :to="oceanPortLink">
+            <app-button-style
+              class="text-center"
+              :icon="require('@/assets/images/detail/read-full.svg')"
+              :text="$t('project.readFull')"
+            />
+          </app-link>
         </div>
       </div>
 
-      <div class="order-first lg:order-last">
-        <!-- Cover -->
-        <img
-          width="100%"
-          :src="coverImage"
-          :alt="`${project.title} ${$t('general.logo')}`"
-        />
+      <!-- Team -->
+      <div v-if="!!project.team" class="mb-10">
+        <p class="text-primary small-text mt-6">{{ $t('project.team') }}</p>
 
-        <!-- Project Socials (lg only) -->
-        <div class="hidden lg:flex justify-end my-10">
-          <project-single-details-social
-            v-for="(url, type) in filteredProjectSocialMedia"
-            :key="type"
-            class="h-6 w-6 ml-6"
-            :type="type"
-            :url="url"
-          />
-        </div>
+        <project-single-details-member
+          v-for="(member, index) in project.team"
+          :key="index"
+          :member="member"
+        />
+      </div>
+
+      <!-- Project Socials (until lg) -->
+      <div
+        v-if="filteredProjectSocialMedia.length > 0"
+        class="flex justify-between my-10 md:justify-start lg:hidden"
+      >
+        <project-single-details-social
+          v-for="(url, type) in filteredProjectSocialMedia"
+          :key="type"
+          class="h-6 w-6 md:mr-6"
+          :type="type"
+          :url="url"
+        />
       </div>
     </div>
-  </landing-section-container>
+
+    <div class="order-first lg:order-last">
+      <!-- Cover -->
+      <img
+        v-if="!!coverImage"
+        width="100%"
+        :src="coverImage"
+        :alt="`${project.title} ${$t('general.logo')}`"
+      />
+
+      <!-- Project Socials (lg only) -->
+      <div
+        v-if="filteredProjectSocialMedia.length > 0"
+        class="hidden lg:flex justify-end my-10"
+      >
+        <project-single-details-social
+          v-for="(url, type) in filteredProjectSocialMedia"
+          :key="type"
+          class="h-6 w-6 ml-6"
+          :type="type"
+          :url="url"
+        />
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember'
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
 import AppButtonStyle from '@/components/common/AppButtonStyle'
@@ -80,7 +87,6 @@ export default {
   name: 'ProjectSingleDetails',
 
   components: {
-    LandingSectionContainer,
     ProjectSingleDetailsMember,
     ProjectSingleDetailsSocial,
     AppButtonStyle,
@@ -105,7 +111,7 @@ export default {
     coverImage() {
       return this.$props.project.pictures.length > 0
         ? this.$props.project.pictures[0]
-        : require('@/assets/images/detail/pearl-background.png')
+        : null /* require('@/assets/images/detail/pearl-background.png') */
     },
 
     oceanPortLink() {
