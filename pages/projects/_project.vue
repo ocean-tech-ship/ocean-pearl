@@ -28,7 +28,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 import { getProjectById } from '@/api.js'
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue'
