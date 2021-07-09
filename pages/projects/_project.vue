@@ -40,20 +40,6 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 export default Vue.extend({
   name: 'ProjectDetail',
 
-  head() {
-    return {
-      title: `Ocean Pearl | ${this.project.title}`,
-    }
-  },
-
-  components: {
-    // ProjectSingleRoiStrategy,
-    ProjectSingleDetails,
-    ProjectSingleDaoProposal,
-    ProjectSingleHeader,
-    LandingSectionContainer,
-  },
-
   async asyncData({ $axios, params }) {
     try {
       const response = await getProjectById($axios, params.project)
@@ -72,6 +58,20 @@ export default Vue.extend({
     } catch (error) {
       return { error: 'general.error.retry', project: null }
     }
+  },
+
+  head() {
+    return {
+      title: `Ocean Pearl | ${this.project.title}`,
+    }
+  },
+
+  components: {
+    // ProjectSingleRoiStrategy,
+    ProjectSingleDetails,
+    ProjectSingleDaoProposal,
+    ProjectSingleHeader,
+    LandingSectionContainer,
   },
 
   computed: {
