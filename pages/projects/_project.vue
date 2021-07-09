@@ -40,6 +40,12 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 export default Vue.extend({
   name: 'ProjectDetail',
 
+  head() {
+    return {
+      title: `Ocean Pearl | ${this.project.title}`,
+    }
+  },
+
   components: {
     // ProjectSingleRoiStrategy,
     ProjectSingleDetails,
