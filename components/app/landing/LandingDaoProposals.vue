@@ -13,7 +13,7 @@
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <NuxtLink
           :prefetch="false"
-          :to="`/projects/${daoProposal.project._id}`"
+          :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
         >
           <div class="shadow rounded h-330px p-8">
             <div class="flex">
@@ -73,6 +73,7 @@
 <script>
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import AppLogo from '@/components/common/AppLogo'
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
 
 export default {
   name: 'LandingDaoProposal',
@@ -81,6 +82,8 @@ export default {
     AppLogo,
     LandingSectionContainer,
   },
+
+  mixins: [ProjectBeautifyId],
 
   props: {
     daoProposals: {

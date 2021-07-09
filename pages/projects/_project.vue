@@ -31,6 +31,7 @@
 <script>
 import Vue from 'vue'
 import { getProjectById } from '@/api.js'
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId'
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue'
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue'
 // import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
@@ -50,7 +51,10 @@ export default Vue.extend({
 
   async asyncData({ $axios, params }) {
     try {
-      const response = await getProjectById($axios, params.project)
+      const response = await getProjectById(
+        $axios,
+        ProjectBeautifyId.methods.readBeautifiedProjectId(params.project)
+      )
 
       if (response.status === 204) {
         return { error: 'project.unknown', project: null }
