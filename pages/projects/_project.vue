@@ -49,6 +49,8 @@ export default Vue.extend({
     LandingSectionContainer,
   },
 
+  mixins: [ProjectBeautifyId],
+
   async asyncData({ $axios, params }) {
     try {
       const response = await getProjectById(
@@ -85,6 +87,14 @@ export default Vue.extend({
         ? this.project.pictures[0]
         : null /* require('@/assets/images/detail/pearl-background.png') */
     },
+  },
+
+  mounted() {
+    history.replaceState(
+      {},
+      null,
+      `/projects/${this.beautifyProjectId(this.project)}`
+    )
   },
 
   methods: {
