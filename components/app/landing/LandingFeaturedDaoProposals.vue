@@ -28,12 +28,15 @@
 
       <div
         v-for="project in projects"
-        :key="project.title"
+        :key="project.id"
         class="col-span-1 lg:col-span-2"
       >
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
-            <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
+            <NuxtLink
+              :prefetch="false"
+              :to="`/projects/${beautifyProjectId(project)}`"
+            >
               <div class="flex">
                 <div class="mr-3">
                   <app-logo
