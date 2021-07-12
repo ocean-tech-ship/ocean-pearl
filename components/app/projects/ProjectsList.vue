@@ -6,7 +6,10 @@
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-12"
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${beautifyProjectId(project)}`"
+        >
           <div class="shadow rounded p-2 pb-8 text-center">
             <!--
         <div class="absolute top-0 right-0 mr-3 flex space-x-2">
@@ -44,8 +47,9 @@
 
 <script>
 import { getProjects } from '@/api.js'
-import LandingSectionContainer from '../landing/LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import AppLogo from '@/components/common/AppLogo'
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId'
 
 export default {
   name: 'ProjectsList',
@@ -53,6 +57,9 @@ export default {
     AppLogo,
     LandingSectionContainer,
   },
+
+  mixins: [ProjectBeautifyId],
+
   data() {
     return {
       projects: [],

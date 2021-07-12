@@ -31,6 +31,7 @@
 <script>
 import Vue from 'vue'
 import { getProjectById } from '@/api.js'
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId'
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue'
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue'
 // import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
@@ -48,9 +49,14 @@ export default Vue.extend({
     LandingSectionContainer,
   },
 
+  mixins: [ProjectBeautifyId],
+
   async asyncData({ $axios, params }) {
     try {
-      const response = await getProjectById($axios, params.project)
+      const response = await getProjectById(
+        $axios,
+        ProjectBeautifyId.methods.readBeautifiedProjectId(params.project)
+      )
 
       if (response.status === 204) {
         return { error: 'project.unknown', project: null }
@@ -68,11 +74,52 @@ export default Vue.extend({
     }
   },
 
+  head() {
+    return {
+      title: `Ocean Pearl | ${this.project.title}`,
+      meta: this.createTags(),
+    }
+  },
+
   computed: {
     coverImage() {
       return this.project.pictures.length > 0
         ? this.project.pictures[0]
         : null /* require('@/assets/images/detail/pearl-background.png') */
+    },
+  },
+
+  mounted() {
+    history.replaceState(
+      {},
+      null,
+      `/projects/${this.beautifyProjectId(this.project)}`
+    )
+  },
+
+  methods: {
+    createTags() {
+      const meta = []
+
+      meta.push(this.addTag('title', `Ocean Pearl | ${this.project.title}`))
+      meta.push(this.addTag('description', this.project.description))
+
+      // og tags
+      meta.push(this.addTag('og:title', this.project.title))
+      meta.push(this.addTag('og:description', this.project.description))
+      meta.push(this.addTag('og:site_name', 'Ocean Pearl'))
+      meta.push(this.addTag('og:type', 'website'))
+      this.coverImage && meta.push(this.addTag('og:image', this.coverImage))
+
+      return meta
+    },
+
+    addTag(property, content) {
+      return {
+        hid: property,
+        property,
+        content,
+      }
     },
   },
 })

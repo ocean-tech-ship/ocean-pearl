@@ -33,7 +33,7 @@
       >
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
-            <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
+            <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
               <div class="flex">
                 <div class="mr-3">
                   <app-logo
@@ -121,6 +121,7 @@
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
 import LandingSectionContainer from './LandingSectionContainer'
 import AppLogo from '~/components/common/AppLogo'
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
 
 export default {
   name: 'LandingFeaturedProjectSection',
@@ -130,6 +131,8 @@ export default {
     LandingSectionContainer,
     ProjectSingleDetailsSocial,
   },
+
+  mixins: [ProjectBeautifyId],
 
   props: {
     projects: {
