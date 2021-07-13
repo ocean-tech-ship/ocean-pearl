@@ -30,6 +30,11 @@
             >
           </li>
           <li>
+            <NuxtLink class="font-bold block px-4 py-3" to="/manage">
+              Manage
+            </NuxtLink>
+          </li>
+          <li>
             <app-link
               to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template"
             >
