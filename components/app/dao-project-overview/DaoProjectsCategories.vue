@@ -1,12 +1,7 @@
 <template>
   <div class="flex flex-wrap text-primary">
-    <div class="flex border py-1 px-2 mr-1 mt-1">
-      <img
-        class="mr-1 p-1"
-        src="@/assets/images/icons/dropdown.svg"
-        alt="dropdown"
-      />
-      <p class="small-text pr-2">Round</p>
+    <div class="flex border py-1 px-2 mr-1 mt-1 cursor-pointer">
+      <ButtonRoundSelect />
     </div>
     <div class="flex border py-1 px-2 mt-1">
       <img
@@ -20,9 +15,11 @@
 </template>
 
 <script>
+import ButtonRoundSelect from '@/components/common/ButtonRoundSelect.vue'
 import EnumCategory from '../../enums/EnumCategory'
 
 export default {
+  components: { ButtonRoundSelect },
   data() {
     return {
       EnumCategory: {
