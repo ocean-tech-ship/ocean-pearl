@@ -31,16 +31,27 @@
       </div>
     </div>
     <hr class="text-primary my-16" />
+    <div class="flex items-center justify-between my-8">
+      <DaoProjectsCategories />
+      <DaoProjectsSearchbar />
+      <DaoProjectsBadges />
+    </div>
   </LandingSectionContainer>
 </template>
 
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
+import DaoProjectsCategories from './DaoProjectsCategories'
+import DaoProjectsSearchbar from './DaoProjectsSearchbar'
+import DaoProjectsBadges from './DaoProjectsBadges'
 export default {
   name: 'DaoProjectsHeader',
 
   components: {
     LandingSectionContainer,
+    DaoProjectsSearchbar,
+    DaoProjectsBadges,
+    DaoProjectsCategories,
   },
   props: {
     metrics: {
