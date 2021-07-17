@@ -6,13 +6,15 @@
         <span class="text-primary">panel</span>
       </h2>
 
-      <div class="flex justify-between py-2">
+      <div class="flex flex-wrap justify-between py-2">
         <div class="shadow rounded p-4">
           <p class="text-primary small-text">Wallet Address</p>
-          <span class="small-text">{{ $store.state.wallet.account }}</span>
+          <span class="small-text break-all">{{
+            $store.state.wallet.account
+          }}</span>
         </div>
 
-        <div>
+        <div class="py-4">
           <AppButton
             text="Disconnect wallet"
             @click="$store.dispatch('wallet/disconnect')"
@@ -29,19 +31,19 @@
         <span class="text-primary">Project</span>
       </h2>
 
-      <div class="flex py-2">
-        <div class="shadow rounded p-4 mr-4">
+      <div class="flex flex-wrap py-2">
+        <div class="shadow rounded p-4 mr-4 mb-2">
           <p class="text-primary small-text">Title</p>
           <span class="small-text">{{ project.title }}</span>
         </div>
 
-        <div class="shadow rounded p-4 mr-4">
+        <div class="shadow rounded p-4 mr-4 mb-2">
           <p class="text-primary small-text">Category</p>
           <span class="small-text">{{ project.category }}</span>
         </div>
       </div>
 
-      <div class="flex py-2">
+      <div class="flex pb-2">
         <div class="shadow rounded p-4">
           <p class="text-primary small-text">Description</p>
           <span class="small-text">{{ project.description }}</span>
@@ -49,22 +51,24 @@
       </div>
 
       <div class="flex py-2">
-        <div class="shadow rounded p-4 mr-4">
+        <div class="shadow rounded p-4">
           <p class="text-primary small-text">Logo</p>
 
-          <div class="flex items-center">
+          <div class="flex flex-wrap items-center">
             <app-logo
               class="w-16 h-16 mx-4 inline-block rounded-full"
               :src="project.logo"
               :alt="project.title"
             />
 
-            <div class="px-2">
-              <app-upload text="upload" @change="setLogo($event)" />
-            </div>
+            <div class="flex">
+              <div class="px-2">
+                <app-upload text="upload" @change="setLogo($event)" />
+              </div>
 
-            <div class="px-2">
-              <app-button text="delete" @click="project.logo = ''" />
+              <div class="px-2">
+                <app-button text="delete" @click="project.logo = ''" />
+              </div>
             </div>
           </div>
         </div>
