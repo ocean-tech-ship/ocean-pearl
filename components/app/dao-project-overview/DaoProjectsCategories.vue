@@ -1,8 +1,17 @@
 <template>
   <div class="flex flex-wrap text-primary">
-    <div class="flex border py-1 px-2 mr-1 mt-1 cursor-pointer">
-      <ButtonRoundSelect />
-    </div>
+    <ButtonRoundSelect
+      text="Select Round"
+      :menu-items="[
+        { value: 7, text: 'Round 7' },
+        { value: 6, text: 'Round 6' },
+        { value: 5, text: 'Round 5' },
+        { value: 4, text: 'Round 4' },
+        { value: 3, text: 'Round 3' },
+        { value: 2, text: 'Round 2' },
+        { value: 1, text: 'Round 1' },
+      ]"
+    />
     <div class="flex border py-1 px-2 mt-1">
       <img
         class="mr-1 p-1"

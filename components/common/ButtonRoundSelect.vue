@@ -1,51 +1,79 @@
 <template>
-  <main-dropdown>
-    <template slot-scope="context">
-      <p class="small-text" @click="context.toggleOpen">Select Round</p>
-      <div
-        v-if="context.open"
-        class="shadow origin-top-right absolute left-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
-      >
-        <ul @click="context.toggleOpen">
-          <li v-for="(item, index) of items" :key="index">
-            <NuxtLink class="small-text block px-4 py-3" to="/projects">
-              <p class="small-text">{{ item }}</p>
-            </NuxtLink>
-          </li>
-        </ul>
-      </div>
-    </template>
-  </main-dropdown>
+  <section tabindex="0" class="flex border py-1 pr-2.5 pl-1 mr-1 mt-1 relative">
+    <button class="h-full flex items-center small-text" @click="toggleOpen()">
+      {{ text }}
+    </button>
+    <div v-if="open" class="fixed inset-0" @click="open = false"></div>
+    <section
+      v-if="open"
+      tabindex="0"
+      class="border bg-grey rounded shadow absolute top-10"
+      @click="open = false"
+    >
+      <ul>
+        <li v-for="menuItem of menuItems" :key="menuItem.value">
+          {{ menuItem.text }}
+        </li>
+      </ul>
+    </section>
+  </section>
 </template>
 
 <script>
-import MainDropdown from '@/components/common/MainDropdown'
-
 export default {
   name: 'ButtonWithDropdown',
-  components: {
-    MainDropdown,
-  },
+  components: {},
   props: {
-    items: {
+    text: {
+      type: String,
+      required: true,
+      default: () => '',
+    },
+    menuItems: {
       type: Array,
-      default: () => [
-        'Round 7',
-        'Round 6',
-        'Round 5',
-        'Round 4',
-        'Round 3',
-        'Round 2',
-        'Round 1',
-      ],
+      required: true,
+      default: () => [],
+    },
+  },
+  data() {
+    return {
+      open: false,
+    }
+  },
+  methods: {
+    toggleOpen() {
+      this.open = !this.open
     },
   },
 }
 </script>
 
 <style scoped>
-li > a:hover {
+button:focus {
+  outline: none;
+}
+button::before {
+  content: '';
+  background: url('@/assets/images/icons/dropdown.svg') center center no-repeat;
+  display: block;
+  width: 23px;
+  height: 26px;
+}
+
+ul {
+  min-width: 140px;
+  max-width: auto;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+
+li {
+  padding: 0.5rem;
+}
+
+li:hover {
   background: #bb2c7636;
   transition: 200ms;
+  cursor: pointer;
 }
 </style>
