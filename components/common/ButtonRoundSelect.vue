@@ -1,18 +1,17 @@
 <template>
   <section tabindex="0" class="flex border py-1 pr-2.5 pl-1 mr-1 mt-1 relative">
     <button class="h-full flex items-center small-text" @click="toggleOpen()">
-      {{ text }}
+      {{ button.content }}
     </button>
     <div v-if="open" class="fixed inset-0" @click="open = false"></div>
     <section
       v-if="open"
-      tabindex="0"
       class="border bg-grey rounded shadow absolute top-10"
       @click="open = false"
     >
       <ul>
-        <li v-for="menuItem of menuItems" :key="menuItem.value">
-          {{ menuItem.text }}
+        <li v-for="menuItem of menuItems" :key="menuItem.value" tabindex="0">
+          {{ menuItem.content }}
         </li>
       </ul>
     </section>
@@ -24,10 +23,10 @@ export default {
   name: 'ButtonWithDropdown',
   components: {},
   props: {
-    text: {
-      type: String,
+    button: {
+      type: Object,
       required: true,
-      default: () => '',
+      default: () => {},
     },
     menuItems: {
       type: Array,

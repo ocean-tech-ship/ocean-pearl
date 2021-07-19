@@ -1,15 +1,15 @@
 <template>
   <div class="flex flex-wrap text-primary">
     <ButtonRoundSelect
-      text="Select Round"
+      :button="{ content: 'Select Round' }"
       :menu-items="[
-        { value: 7, text: 'Round 7' },
-        { value: 6, text: 'Round 6' },
-        { value: 5, text: 'Round 5' },
-        { value: 4, text: 'Round 4' },
-        { value: 3, text: 'Round 3' },
-        { value: 2, text: 'Round 2' },
-        { value: 1, text: 'Round 1' },
+        { value: 7, content: 'Round 7' },
+        { value: 6, content: 'Round 6' },
+        { value: 5, content: 'Round 5' },
+        { value: 4, content: 'Round 4' },
+        { value: 3, content: 'Round 3' },
+        { value: 2, content: 'Round 2' },
+        { value: 1, content: 'Round 1' },
       ]"
     />
     <div class="flex border py-1 px-2 mt-1">
