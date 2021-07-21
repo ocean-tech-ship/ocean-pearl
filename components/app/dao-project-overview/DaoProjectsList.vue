@@ -3,7 +3,7 @@
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
     >
-      <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
+      <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
