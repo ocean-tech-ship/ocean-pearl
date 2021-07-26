@@ -9057,10 +9057,10 @@ nuxt-i18n@^6.28.0:
     ufo "^0.7.7"
     vue-i18n "^8.25.0"
 
-nuxt-social-meta@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/nuxt-social-meta/-/nuxt-social-meta-0.0.5.tgz#60dc2e8dc00401a122fc069fd9aa541894db5b2b"
-  integrity sha512-HVBuw2/ci4wiJxkEZDWP9t/vP7knM2APN9Swhslgi28uD4jgOUqWsEeljRP/TWB+kg1nEM3JhyiPIn3EdmuUFQ==
+nuxt-social-meta@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/nuxt-social-meta/-/nuxt-social-meta-1.0.0.tgz#1c2458d33726b1a87c8afc74446a6d0a7ba03583"
+  integrity sha512-IL0jGSqj7eRq7YxkMTHLPBX+mDtmnxOiyhle35xWwQL7CwIau05SysQyjMrQSvEqKL4zQAOM5+DGuPVcthfZ7Q==
 
 nuxt@^2.15.7:
   version "2.15.7"
