@@ -61,6 +61,7 @@ export const actions = {
       return
     }
 
+    // TODO: Account change is not supported. We need to re-login first
     walletProvider.on('accountsChanged', (accounts) => {
       if (accounts.length === 0) {
         // No account is connected
@@ -110,11 +111,10 @@ export const actions = {
 
   /**
    * Make a signature request for the connected wallet
-   *
-   * @param state
-   * @param payload
+   * @param state Vuex state
+   * @param payload Data so sign
    * @returns {Promise<string>}
-   * @throws Error wallet disconnected / user declines to sign
+   * @throws Error wallet disconnected or user declines to sign
    */
   async signData({ state }, payload) {
     if (!walletProvider || !state.account) {
@@ -122,9 +122,6 @@ export const actions = {
     }
 
     const web3 = new Web3(walletProvider)
-    return await web3.eth.personal.sign(
-      `oceanpearl.io - update project - ${payload}`,
-      state.account
-    )
+    return await web3.eth.personal.sign(payload, state.account)
   },
 }
