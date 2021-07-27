@@ -47,7 +47,7 @@ export const actions = {
     })
 
     console.log('initialized')
-    commit('initialized')
+    commit('initialized', true)
   },
 
   async connect({ commit, dispatch }) {
