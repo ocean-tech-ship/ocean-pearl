@@ -66,6 +66,7 @@ export default {
   modules: [
     'nuxt-i18n',
     '@nuxtjs/axios',
+    'cookie-universal-nuxt',
     [
       'nuxt-social-meta',
       {
