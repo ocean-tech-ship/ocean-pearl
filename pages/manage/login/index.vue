@@ -3,7 +3,7 @@
     <div class="grid justify-center">
       <h1>Login to manage your project or proposal</h1>
       <app-button
-        text="Connect your Wallet"
+        text="Login via Wallet"
         @click="$store.dispatch('wallet/connect')"
       />
     </div>
@@ -23,6 +23,4 @@ export default Vue.extend({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
