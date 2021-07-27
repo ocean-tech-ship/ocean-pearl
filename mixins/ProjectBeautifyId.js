@@ -6,7 +6,7 @@ export default {
         .replace(/\s+/g, '-')
         .toLowerCase()
 
-      return `${project.id}-${title}`
+      return `${project._id}-${title}`
     },
 
     readBeautifiedProjectId(beautifiedId) {
