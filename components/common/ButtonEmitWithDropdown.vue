@@ -1,7 +1,7 @@
 <template>
   <section tabindex="0" class="flex border py-1 pr-2.5 pl-1 mr-1 mt-1 relative">
-    <button class="h-full flex items-center small-text" @click="toggleOpen()">
-      {{ button.content }}
+    <button class="h-full flex items-center small-text" @click="toggleOpen">
+      {{ buttonName }}
     </button>
     <div v-if="open" class="fixed inset-0" @click="open = false"></div>
     <section
@@ -23,15 +23,15 @@ export default {
   name: 'ButtonWithDropdown',
   components: {},
   props: {
-    button: {
-      type: Object,
+    buttonName: {
+      type: String,
       required: true,
-      default: () => {},
+      default() {},
     },
     menuItems: {
       type: Array,
       required: true,
-      default: () => [],
+      default() {},
     },
   },
   data() {
@@ -58,18 +58,15 @@ button::before {
   width: 23px;
   height: 26px;
 }
-
 ul {
   min-width: 140px;
   max-width: auto;
   max-height: 160px;
   overflow-y: scroll;
 }
-
 li {
   padding: 0.5rem;
 }
-
 li:hover {
   background: #bb2c7636;
   transition: 200ms;

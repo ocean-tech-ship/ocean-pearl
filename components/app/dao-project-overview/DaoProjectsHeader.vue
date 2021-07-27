@@ -32,8 +32,8 @@
     </div>
     <hr class="text-primary my-16" />
     <div class="flex items-center justify-between my-8">
-      <DaoProjectsCategories />
-      <DaoProjectsSearchbar />
+      <DaoProjectsDropdowns />
+      <DaoProjectsSearchbar @search-projects="filterProjects" />
       <DaoProjectsBadges />
     </div>
   </LandingSectionContainer>
@@ -41,7 +41,7 @@
 
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
-import DaoProjectsCategories from './DaoProjectsCategories'
+import DaoProjectsDropdowns from './DaoProjectsDropdowns'
 import DaoProjectsSearchbar from './DaoProjectsSearchbar'
 import DaoProjectsBadges from './DaoProjectsBadges'
 export default {
@@ -51,7 +51,7 @@ export default {
     LandingSectionContainer,
     DaoProjectsSearchbar,
     DaoProjectsBadges,
-    DaoProjectsCategories,
+    DaoProjectsDropdowns,
   },
   props: {
     metrics: {
@@ -111,7 +111,25 @@ export default {
           imageURL: require('@/assets/images/icons/vote.svg'),
         },
       ],
+      filter: {
+        round: '',
+        category: '',
+        search: '',
+      },
     }
+  },
+  methods: {
+    filterProjects(payload) {
+      const { category, round, searchValue } = payload
+
+      if (category !== undefined) this.filter.category = category
+      if (round !== undefined) this.filter.round = round
+      if (searchValue !== undefined) this.filter.search = searchValue
+
+      console.log(
+        `fetch(dumdum?round=${this.filter.round}?category=${this.filter.category}?search=${this.filter.search}`
+      )
+    },
   },
 }
 </script>
