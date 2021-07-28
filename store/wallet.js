@@ -9,7 +9,6 @@ let walletProvider
 export const state = () => ({
   initialized: false,
   connected: false,
-  account: null,
 })
 
 export const mutations = {
@@ -19,10 +18,6 @@ export const mutations = {
 
   connected(state, payload) {
     state.connected = payload
-  },
-
-  account(state, payload) {
-    state.account = payload
   },
 }
 
@@ -61,7 +56,7 @@ export const actions = {
       return
     }
 
-    // TODO: Account change is not supported. We need to re-login first
+    // TODO: We need to re-login to switch account
     walletProvider.on('accountsChanged', (accounts) => {
       if (accounts.length === 0) {
         // No account is connected
@@ -75,6 +70,13 @@ export const actions = {
     console.log('Wallet connected', walletProvider)
     commit('connected', true)
     dispatch('fetchAccount')
+
+    const web3 = new Web3(walletProvider)
+    console.log('Web3 instance', web3)
+
+    // Always use first account provided. Most providers only support one account
+    const account = (await web3.eth.getAccounts())[0]
+    return account
   },
 
   async disconnect({ commit }) {
@@ -93,6 +95,7 @@ export const actions = {
     await this.$router.push('/manage/connect')
   },
 
+  /* deprecated */
   async fetchAccount({ commit }) {
     if (!walletProvider) {
       throw new Error('Could not fetch account without wallet provider')
