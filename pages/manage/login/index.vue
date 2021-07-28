@@ -4,7 +4,7 @@
       <h1>Login to manage your project or proposal</h1>
       <app-button
         text="Login via Wallet"
-        @click="$store.dispatch('wallet/connect')"
+        @click="$store.dispatch('auth/login')"
       />
     </div>
   </landing-section-container>
@@ -20,6 +20,8 @@ export default Vue.extend({
     LandingSectionContainer,
     AppButton,
   },
+
+  middleware: ['session'],
 })
 </script>
 
