@@ -1,12 +1,5 @@
 <template>
   <LandingSectionContainer>
-    <h2>
-      {{ $t('dao-projects.header.title') }}
-      <span class="text-primary">{{
-        $t('dao-projects.header.titleHighlight')
-      }}</span>
-    </h2>
-    <p>{{ $t('dao-projects.header.text') }}</p>
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
     >
@@ -36,12 +29,14 @@
 
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
+
 export default {
-  name: 'DaoProjectsHeader',
+  name: 'RoundMetrics',
 
   components: {
     LandingSectionContainer,
   },
+  
   props: {
     metrics: {
       type: Object,

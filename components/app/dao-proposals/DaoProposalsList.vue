@@ -21,7 +21,7 @@
                 <p class="text-primary leading-snug line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
-                <p class="small-text">{{ daoProposal.category }}</p>
+                <p class="small-text">{{ categoryMap[daoProposal.category] }}</p>
               </div>
             </div>
             <div class="mt-5 h-112px">
@@ -89,13 +89,20 @@
 import LandingSectionContainer from '../landing/LandingSectionContainer'
 import AppLogo from '~/components/common/AppLogo'
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'DaoProjectsList',
+  name: 'DaoProposalsList',
 
   components: {
     AppLogo,
     LandingSectionContainer,
+  },
+
+  data() {
+    return {
+        categoryMap: CategoryMap,
+    }
   },
 
   mixins: [ProjectBeautifyId],
