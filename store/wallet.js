@@ -9,6 +9,7 @@ let walletProvider
 export const state = () => ({
   initialized: false,
   connected: false,
+  address: null,
 })
 
 export const mutations = {
@@ -18,6 +19,10 @@ export const mutations = {
 
   connected(state, payload) {
     state.connected = payload
+  },
+
+  address(state, payload) {
+    state.address = payload
   },
 }
 
@@ -45,7 +50,7 @@ export const actions = {
     commit('initialized', true)
   },
 
-  async connect({ commit, dispatch }) {
+  async connect({ commit, dispatch, state }) {
     dispatch('initialize')
     console.log('Opening wallet chooser', web3Modal)
 
@@ -56,27 +61,11 @@ export const actions = {
       return
     }
 
-    // TODO: We need to re-login to switch account
-    walletProvider.on('accountsChanged', (accounts) => {
-      if (accounts.length === 0) {
-        // No account is connected
-        dispatch('disconnect')
-      } else {
-        // Update account
-        commit('account', accounts[0])
-      }
-    })
-
     console.log('Wallet connected', walletProvider)
     commit('connected', true)
-    dispatch('fetchAccount')
 
-    const web3 = new Web3(walletProvider)
-    console.log('Web3 instance', web3)
-
-    // Always use first account provided. Most providers only support one account
-    const account = (await web3.eth.getAccounts())[0]
-    return account
+    await dispatch('fetchAccount')
+    return state.address
   },
 
   async disconnect({ commit }) {
@@ -89,15 +78,12 @@ export const actions = {
     }
 
     // Erase sensitive data
-    commit('account', null)
-
+    commit('address', null)
     commit('connected', false)
-    await this.$router.push('/manage/connect')
   },
 
-  /* deprecated */
-  async fetchAccount({ commit }) {
-    if (!walletProvider) {
+  async fetchAccount({ commit, state }) {
+    if (!walletProvider || !state.connected) {
       throw new Error('Could not fetch account without wallet provider')
     }
 
@@ -105,9 +91,9 @@ export const actions = {
     console.log('Web3 instance', web3)
 
     // Always use first account provided. Most providers only support one account
-    const account = (await web3.eth.getAccounts())[0]
-    commit('account', account)
-    console.log('Fetched account', account)
+    const address = (await web3.eth.getAccounts())[0]
+    commit('address', address)
+    console.log('Fetched wallet', address)
   },
 
   /**
@@ -118,11 +104,11 @@ export const actions = {
    * @throws Error wallet disconnected or user declines to sign
    */
   async signData({ state }, payload) {
-    if (!walletProvider || !state.account) {
+    if (!walletProvider || !state.address) {
       throw new Error('Could not sign data without wallet provider')
     }
 
     const web3 = new Web3(walletProvider)
-    return await web3.eth.personal.sign(payload, state.account)
+    return await web3.eth.personal.sign(payload, state.address)
   },
 }
