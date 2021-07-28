@@ -60,7 +60,7 @@
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink to="/dao-projects">
+    <NuxtLink to="/dao-proposals">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.dao_proposals.link_text') }}
