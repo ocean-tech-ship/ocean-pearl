@@ -2,6 +2,11 @@
   <landing-section-container>
     <div class="grid justify-center">
       <h1>Login to manage your project or proposal</h1>
+
+      <p v-if="!!$store.state.auth.message">
+        {{ $store.state.auth.message }}
+      </p>
+
       <app-button
         text="Login via Wallet"
         @click="$store.dispatch('auth/login')"
