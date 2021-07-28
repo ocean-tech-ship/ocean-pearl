@@ -122,7 +122,7 @@ export default Vue.extend({
     AppUpload,
   },
 
-  middleware: ['wallet'],
+  middleware: ['session'],
 
   data() {
     return {
