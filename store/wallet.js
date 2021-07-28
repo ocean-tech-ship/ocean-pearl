@@ -46,31 +46,20 @@ export const actions = {
       providerOptions,
     })
 
-    console.log('initialized')
     commit('initialized', true)
   },
 
   async connect({ commit, dispatch, state }) {
     dispatch('initialize')
-    console.log('Opening wallet chooser', web3Modal)
 
-    try {
-      walletProvider = await web3Modal.connect()
-    } catch (e) {
-      console.log('Could not connect wallet', e)
-      return
-    }
-
-    console.log('Wallet connected', walletProvider)
+    walletProvider = await web3Modal.connect()
     commit('connected', true)
 
-    await dispatch('fetchAccount')
+    await dispatch('fetchAddress')
     return state.address
   },
 
   async disconnect({ commit }) {
-    console.log('Disconnect wallet', walletProvider)
-
     if (walletProvider && walletProvider.close) {
       await walletProvider.close()
       await web3Modal.clearCachedProvider()
@@ -82,27 +71,18 @@ export const actions = {
     commit('connected', false)
   },
 
-  async fetchAccount({ commit, state }) {
+  async fetchAddress({ commit, state }) {
     if (!walletProvider || !state.connected) {
       throw new Error('Could not fetch account without wallet provider')
     }
 
     const web3 = new Web3(walletProvider)
-    console.log('Web3 instance', web3)
 
     // Always use first account provided. Most providers only support one account
     const address = (await web3.eth.getAccounts())[0]
     commit('address', address)
-    console.log('Fetched wallet', address)
   },
 
-  /**
-   * Make a signature request for the connected wallet
-   * @param state Vuex state
-   * @param payload Data so sign
-   * @returns {Promise<string>}
-   * @throws Error wallet disconnected or user declines to sign
-   */
   async signData({ state }, payload) {
     if (!walletProvider || !state.address) {
       throw new Error('Could not sign data without wallet provider')
