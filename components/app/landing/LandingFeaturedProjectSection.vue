@@ -26,11 +26,8 @@
         </h3>
       </div>
 
-      <div v-for="project in projects" :key="project.id">
-        <NuxtLink
-          :prefetch="false"
-          :to="`/projects/${beautifyProjectId(project)}`"
-        >
+      <div v-for="project in projects" :key="project.title">
+        <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
