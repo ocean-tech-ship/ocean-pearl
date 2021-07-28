@@ -29,7 +29,7 @@
           <p class="small-text">
             {{
               $t('project.proposal.round.numbered', {
-                round: newestProposal.fundingRound,
+                round: newestProposal.fundingRound.round,
               })
             }}
           </p>
@@ -102,14 +102,14 @@
 
             <p
               v-for="proposal in grantedProposals"
-              :key="proposal.fundingRound"
+              :key="proposal.fundingRound.round"
               class="small-text pr-8"
             >
-              {{ $t('general.ocean', { ocean: proposal.requestedGrantToken }) }}
+              {{ $t('general.ocean', { ocean: proposal.grantedToken }) }}
 
               ({{
                 $t('project.proposal.round.numbered', {
-                  round: proposal.fundingRound,
+                  round: proposal.fundingRound.round,
                 })
               }})
             </p>
@@ -133,7 +133,7 @@
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
-import EnumDaoProposalStatus from '@/components/enums/EnumDaoProposalStatus'
+import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum'
 
 const EMPTY_PROPOSAL = {
   fundingRound: '/',
@@ -172,7 +172,7 @@ export default {
         : []
 
       return proposals.filter(
-        (proposal) => proposal.status === EnumDaoProposalStatus.Funded
+        (proposal) => proposal.status === DaoProposalStatusEnum.Funded
       )
     },
 
@@ -185,5 +185,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>
