@@ -50,7 +50,7 @@
                     {{ project.title }}
                   </p>
 
-                  <p class="small-text text-primary">{{ project.category }}</p>
+                  <p class="small-text text-primary">{{ categoryMap[project.category] }}</p>
                 </div>
               </div>
             </NuxtLink>
@@ -106,7 +106,7 @@
         </div>
       </div>
     </div>
-    <NuxtLink to="/dao-project-overview">
+    <NuxtLink to="/dao-projects">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.featured_dao_projects.link_text') }}
@@ -123,36 +123,43 @@
 <script>
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
 import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import AppLogo from '@/components/common/AppLogo'
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'LandingFeaturedProjectSection',
+    name: 'LandingFeaturedProjectSection',
 
-  components: {
-    AppLogo,
-    LandingSectionContainer,
-    ProjectSingleDetailsSocial,
-  },
-
-  mixins: [ProjectBeautifyId],
-
-  props: {
-    projects: {
-      type: Array,
-      required: true,
-      default: () => [],
+    components: {
+        AppLogo,
+        LandingSectionContainer,
+        ProjectSingleDetailsSocial,
     },
-  },
+
+    data() {
+        return {
+            categoryMap: CategoryMap,
+        }
+    },
+
+    mixins: [ProjectBeautifyId],
+
+    props: {
+        projects: {
+            type: Array,
+            required: true,
+            default: () => [],
+        },
+    },
 }
 </script>
 
 <style scoped>
 .listed-project-container {
-  background: linear-gradient(
-    180deg,
-    #e183b3 0%,
-    rgba(255, 255, 255, 0.77) 100%
-  );
+    background: linear-gradient(
+        180deg,
+        #e183b3 0%,
+        rgba(255, 255, 255, 0.77) 100%
+    );
 }
 </style>

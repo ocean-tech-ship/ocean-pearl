@@ -27,7 +27,7 @@
               <p class="text-primary leading-snug line-clamp-1 break-all">
                 {{ project.title }}
               </p>
-              <p class="small-text">{{ project.category }}</p>
+              <p class="small-text">{{ categoryMap[project.category] }}</p>
             </div>
             <div class="mt-4 flex place-content-center">
               <p class="border rounded small-text text-primary w-32">
@@ -50,37 +50,42 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import AppLogo from '@/components/common/AppLogo'
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'LandingDaoProposal',
+    name: 'LandingDaoProposal',
 
-  components: {
-    AppLogo,
-    LandingSectionContainer,
-  },
-
-  mixins: [ProjectBeautifyId],
-
-  props: {
-    projects: {
-      type: Array,
-      required: true,
-      default: () => [],
+    components: {
+        AppLogo,
+        LandingSectionContainer,
     },
-  },
 
-  methods: {
-    formatDistance(timestamp) {
-      return this.$dateFns.formatDistanceToNowStrict(new Date(timestamp), {
-        addSuffix: true,
-        locale: this.$i18n.locale,
-      })
+    data() {
+        return {
+            categoryMap: CategoryMap
+        }
     },
-  },
+
+    mixins: [ProjectBeautifyId],
+
+    props: {
+        projects: {
+        type: Array,
+        required: true,
+        default: () => [],
+        },
+    },
+
+    methods: {
+        formatDistance(timestamp) {
+        return this.$dateFns.formatDistanceToNowStrict(new Date(timestamp), {
+            addSuffix: true,
+            locale: this.$i18n.locale,
+        })
+        },
+    },
 }
 </script>
-
-<style scoped></style>

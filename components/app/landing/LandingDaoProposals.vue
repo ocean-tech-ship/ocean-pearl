@@ -29,7 +29,7 @@
                   {{ daoProposal.project.title }}
                 </p>
 
-                <p class="small-text">{{ daoProposal.category }}</p>
+                <p class="small-text">{{ categoryMap[daoProposal.category] }}</p>
               </div>
             </div>
             <div class="mt-5 h-128px">
@@ -60,7 +60,7 @@
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink to="/dao-project-overview">
+    <NuxtLink to="/dao-projects">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.dao_proposals.link_text') }}
@@ -70,28 +70,36 @@
     </NuxtLink>
   </LandingSectionContainer>
 </template>
+
 <script>
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import AppLogo from '@/components/common/AppLogo'
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'LandingDaoProposal',
+    name: 'LandingDaoProposal',
 
-  components: {
-    AppLogo,
-    LandingSectionContainer,
-  },
-
-  mixins: [ProjectBeautifyId],
-
-  props: {
-    daoProposals: {
-      type: Array,
-      required: true,
-      default: () => [],
+    components: {
+        AppLogo,
+        LandingSectionContainer,
     },
-  },
+
+    mixins: [ProjectBeautifyId],
+
+    props: {
+        daoProposals: {
+        type: Array,
+        required: true,
+        default: () => [],
+        },
+    },
+
+    data() {
+        return {
+            categoryMap: CategoryMap,
+        }
+    }
 }
 </script>
 
