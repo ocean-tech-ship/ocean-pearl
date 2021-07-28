@@ -75,8 +75,6 @@ export const actions = {
     console.log('Wallet connected', walletProvider)
     commit('connected', true)
     dispatch('fetchAccount')
-
-    await this.$router.push('/manage')
   },
 
   async disconnect({ commit }) {
