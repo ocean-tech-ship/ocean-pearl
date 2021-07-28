@@ -124,35 +124,35 @@
 </template>
 
 <script>
-import AppButtonStyle from '@/components/common/AppButtonStyle'
-import AppLink from '@/components/common/AppLink'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader'
-import ProjectSingleLink from '@/components/app/project-detail/ProjectSingleLink'
-import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal'
+import AppButtonStyle from '@/components/common/AppButtonStyle';
+import AppLink from '@/components/common/AppLink';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader';
+import ProjectSingleLink from '@/components/app/project-detail/ProjectSingleLink';
+import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal';
 
 export default {
-  name: 'ProjectSingle',
+    name: 'ProjectSingle',
 
-  components: {
-    LandingSectionContainer,
-    ProjectSingleHeader,
-    ProjectSingleLink,
-    ProjectSingleDaoProposal,
-    AppButtonStyle,
-    AppLink,
-  },
-  props: {
-    project: {
-      type: Object,
-      required: true,
+    components: {
+        LandingSectionContainer,
+        ProjectSingleHeader,
+        ProjectSingleLink,
+        ProjectSingleDaoProposal,
+        AppButtonStyle,
+        AppLink,
     },
-  },
+    props: {
+        project: {
+            type: Object,
+            required: true,
+        },
+    },
 }
 </script>
 
 <style scoped>
 .p-line-head {
-  line-height: 20px;
+   line-height: 20px;
 }
 </style>
