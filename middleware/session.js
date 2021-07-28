@@ -1,6 +1,10 @@
-export default function ({ store, redirect, route }) {
+import { SESSION_COOKIE } from '@/store/auth'
+
+export default function ({ app, redirect, route }) {
+  const cookie = app.$cookies.get(SESSION_COOKIE)
+
   // Redirect to login page if not logged in
-  if (!store.state.auth.loggedIn) {
+  if (!cookie) {
     redirect('/manage/login')
     return
   }
