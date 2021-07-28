@@ -34,6 +34,7 @@ export default {
   publicRuntimeConfig: {
     baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000',
     plausibleDomain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
+    infuraId: process.env.NUXT_ENV_INFURA_ID,
   },
 
   ssr: !(process.env.NUXT_ENV_USE_MIRAGE === 'true'), // Disable Server Side rendering for development because of miragejs

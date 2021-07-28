@@ -36,7 +36,7 @@ export const actions = {
       walletconnect: {
         package: WalletConnectProvider,
         options: {
-          infuraId: process.env.NUXT_ENV_INFURA_ID,
+          infuraId: this.$config.infuraId,
         },
       },
     }
