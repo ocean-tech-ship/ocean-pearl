@@ -50,7 +50,7 @@ export const actions = {
         return
       }
 
-      console.log('Error on backend communication', error)
+      console.error('Error on backend communication', error)
       commit('message', 'An error occurred. Please try again later.')
       return
     }
