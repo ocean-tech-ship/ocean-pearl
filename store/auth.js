@@ -59,4 +59,16 @@ export const actions = {
     await this.$router.push('/manage')
     await dispatch('wallet/disconnect', null, { root: true })
   },
+
+  async logout({ commit }) {
+    try {
+      await logout(this.$axios)
+    } catch (error) {
+      console.error('Error on logging out', error)
+    }
+
+    // Logout was successful
+    commit('message', 'Successfully logged out')
+    await this.$router.push('/manage/login')
+  },
 }
