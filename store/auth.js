@@ -3,37 +3,16 @@ import { login, logout } from '@/api'
 export const SESSION_COOKIE = 'session'
 
 export const state = () => ({
-  initialized: false,
-  loggedIn: false,
   message: null,
 })
 
 export const mutations = {
-  initialized(state, payload) {
-    state.initialized = payload
-  },
-
-  loggedIn(state, payload) {
-    state.loggedIn = payload
-  },
-
   message(state, payload) {
     state.message = payload
   },
 }
 
 export const actions = {
-  initialize({ commit, state }) {
-    // TODO: idk how we should proceed with this, maybe uneeded
-    if (!state.initialized) {
-      // Refresh page functionality to reenter session
-      // TODO: check for cookie
-      console.log(this.$cookies.getAll())
-
-      commit('initialized', true)
-    }
-  },
-
   async login({ dispatch, commit }) {
     commit('message', null) // Reset
     let wallet, signature
