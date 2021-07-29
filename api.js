@@ -34,3 +34,23 @@ export function getLandingData(axios) {
 export function getDaoRoundMetrics(axios) {
   return axios.get('/metrics') // dont filter for data object
 }
+
+// account login
+export function login(axios, payload) {
+  return axios.post('/account/login', payload, { withCredentials: true })
+}
+
+// account logout
+export function logout(axios) {
+  return axios.post('/account/logout', null, { withCredentials: true })
+}
+
+// account retrieval
+export function getAccount(axios) {
+  return axios.get('/account', { withCredentials: true })
+}
+
+// account save changes
+export function updateAccount(axios, payload) {
+  return axios.put('/account', payload, { withCredentials: true })
+}
