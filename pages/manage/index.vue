@@ -15,10 +15,7 @@
         </div>
 
         <div class="py-4">
-          <AppButton
-            text="Disconnect wallet"
-            @click="$store.dispatch('wallet/disconnect')"
-          />
+          <AppButton text="Logout" @click="$store.dispatch('auth/logout')" />
         </div>
       </div>
     </section>
