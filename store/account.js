@@ -1,4 +1,4 @@
-import { getAccount } from 'api'
+import { getAccount } from '@/api'
 
 export const state = () => ({
   info: null,
