@@ -1,119 +1,31 @@
 <template>
   <landing-section-container>
-    <section>
-      <h2>
-        Management
-        <span class="text-primary">panel</span>
-      </h2>
+    <account-header :projects="projects" :selected-project="selectedProject" />
 
-      <div class="flex flex-wrap justify-between py-2">
-        <div class="shadow rounded p-4">
-          <p class="text-primary small-text">Wallet Address</p>
-          <span class="small-text break-all">{{
-            $store.state.wallet.account
-          }}</span>
-        </div>
+    <!-- Loading indication -->
+    <p v-if="$fetchState.pending">Loading...</p>
 
-        <div class="py-4">
-          <AppButton text="Logout" @click="$store.dispatch('auth/logout')" />
-        </div>
-      </div>
-    </section>
+    <!-- Info Messages -->
+    <div v-if="!!info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
 
-    <hr class="text-primary my-8" />
-
-    <section>
-      <h2>
-        Update your
-        <span class="text-primary">Project</span>
-      </h2>
-
-      <div class="flex flex-wrap py-2">
-        <div class="shadow rounded p-4 mr-4 mb-2">
-          <p class="text-primary small-text">Title</p>
-          <span class="small-text">{{ project.title }}</span>
-        </div>
-
-        <div class="shadow rounded p-4 mr-4 mb-2">
-          <p class="text-primary small-text">Category</p>
-          <span class="small-text">{{ project.category }}</span>
-        </div>
-      </div>
-
-      <div class="flex pb-2">
-        <div class="shadow rounded p-4">
-          <p class="text-primary small-text">Description</p>
-          <span class="small-text">{{ project.description }}</span>
-        </div>
-      </div>
-
-      <div class="flex py-2">
-        <div class="shadow rounded p-4">
-          <p class="text-primary small-text">Logo</p>
-
-          <div class="flex flex-wrap items-center">
-            <app-logo
-              class="w-16 h-16 mx-4 inline-block rounded-full"
-              :src="project.logo"
-              :alt="project.title"
-            />
-
-            <div class="flex">
-              <div class="px-2">
-                <app-upload text="upload" @change="setLogo($event)" />
-              </div>
-
-              <div class="px-2">
-                <app-button text="delete" @click="project.logo = ''" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="py-2">
-        <div class="shadow rounded p-4">
-          <p class="text-primary small-text">Images</p>
-
-          <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
-            <div
-              v-for="picture in project.pictures"
-              :key="picture"
-              class="relative"
-            >
-              <div class="absolute w-full flex justify-end items-center">
-                <app-button text="X" @click="deleteImage(picture)" />
-              </div>
-
-              <img class="w-full h-64 rounded object-cover" :src="picture" />
-            </div>
-
-            <div
-              class="w-full h-64 border rounded border-primary flex justify-center items-center"
-            >
-              <app-upload text="add image" @change="addImages($event)" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex justify-center">
-        <AppButton class="mt-2" text="Sign and save changes" @click="sign()" />
-      </div>
-    </section>
+    <!-- Error Messages -->
+    <div v-if="!!error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
   </landing-section-container>
 </template>
 
 <script>
 import Vue from 'vue'
+import { mapState } from 'vuex'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import AppButton from '@/components/common/AppButton'
 import AppLogo from '@/components/common/AppLogo'
 import AppUpload from '@/components/common/AppUpload'
+import AccountHeader from '@/components/app/account/AccountHeader'
 
 export default Vue.extend({
   components: {
     LandingSectionContainer,
+    AccountHeader,
     AppButton,
     AppLogo,
     AppUpload,
@@ -121,20 +33,20 @@ export default Vue.extend({
 
   middleware: ['session'],
 
-  data() {
-    return {
-      project: {
-        title: 'Example Project',
-        description:
-          'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
-        category: 'buildAndIntegrate',
-        pictures: [
-          'https://dataunion.app/wp-content/uploads/2020/11/skateboard.jpg',
-          'https://dataunion.app/wp-content/uploads/2020/11/winsome-girl-with-straight-hair-standing-on-bridge-with-camera.jpg',
-        ],
-        logo: '',
-      },
-    }
+  async fetch() {
+    await this.$store.dispatch('account/loadAccount')
+  },
+
+  computed: {
+    ...mapState('account', {
+      info: 'info',
+      error: 'error',
+      projects: 'projects',
+    }),
+
+    selectedProject() {
+      return this.projects[0]
+    },
   },
 
   methods: {
