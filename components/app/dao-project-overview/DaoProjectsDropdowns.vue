@@ -24,19 +24,23 @@ export default {
   },
   created() {
     // set categories button content
-    Object.keys(EnumCategory).forEach((value, key) => {
-      this.categoryItems = [...this.categoryItems, { content: value, id: key }]
+    Object.keys(EnumCategory).forEach((value, key, i) => {
+      this.categoryItems = [
+        ...this.categoryItems,
+        // eslint-disable-next-line no-unneeded-ternary
+        { content: value, id: key, selected: i === 0 ? true : false },
+      ]
     })
 
     // TODO: CHANGE TO FETCH ROUNDS
     this.roundItems = [
-      { content: 'Round 7', id: 0 },
-      { content: 'Round 6', id: 1 },
-      { content: 'Round 5', id: 2 },
-      { content: 'Round 4', id: 3 },
-      { content: 'Round 3', id: 4 },
-      { content: 'Round 2', id: 5 },
-      { content: 'Round 1', id: 6 },
+      { content: 'Round 7', id: 7, selected: true },
+      { content: 'Round 6', id: 6, selected: false },
+      { content: 'Round 5', id: 5, selected: false },
+      { content: 'Round 4', id: 4, selected: false },
+      { content: 'Round 3', id: 3, selected: false },
+      { content: 'Round 2', id: 2, selected: false },
+      { content: 'Round 1', id: 1, selected: false },
     ]
   },
 }

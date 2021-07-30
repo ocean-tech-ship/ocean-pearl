@@ -1,16 +1,24 @@
 <template>
   <section tabindex="0" class="flex border py-1 pr-2.5 pl-1 mr-1 mt-1 relative">
-    <button class="h-full flex items-center small-text" @click="toggleOpen">
+    <button
+      class="h-full flex items-center small-text"
+      @click="toggleOpen"
+      @blur="toggleOpen"
+    >
       {{ buttonName }}
     </button>
-    <div v-if="open" class="fixed inset-0" @click="open = false"></div>
     <section
       v-if="open"
       class="border bg-grey rounded shadow absolute top-10"
       @click="open = false"
     >
       <ul>
-        <li v-for="menuItem of menuItems" :key="menuItem.value" tabindex="0">
+        <li
+          v-for="menuItem of menuItems"
+          :key="menuItem.value"
+          :class="menuItem.selected"
+          tabindex="0"
+        >
           {{ menuItem.content }}
         </li>
       </ul>
