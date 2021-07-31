@@ -132,11 +132,13 @@ export default {
   methods: {
     setFilter(payload) {
       const { category, round, searchValue } = payload
+      const filter = {
+        round: round || '',
+        category: category || '',
+        search: searchValue || '',
+      }
 
-      // set filter
-      if (category !== undefined) this.filter.category = category
-      if (round !== undefined) this.filter.round = round
-      if (searchValue !== undefined) this.filter.search = searchValue
+      this.filter = filter
     },
   },
 }

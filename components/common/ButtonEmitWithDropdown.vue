@@ -12,6 +12,7 @@
         <li
           v-for="menuItem of menuItems"
           :key="menuItem.value"
+          :class="{ isActive: menuItem.selected }"
           class="menuItem"
           tabindex="0"
           @click="handleSelection(menuItem)"
@@ -60,7 +61,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 button:focus {
   outline: none;
 }
@@ -84,5 +85,8 @@ li:hover {
   background: #bb2c7636;
   transition: 200ms;
   cursor: pointer;
+}
+.isActive {
+  background: lighten(#bb2c7636, 25);
 }
 </style>
