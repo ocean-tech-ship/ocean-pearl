@@ -1,19 +1,30 @@
 <template>
-  <landing-section-container>
-    <account-header :projects="projects" :selected-project="selectedProject" />
+  <div>
+    <landing-section-container>
+      <account-header
+        :projects="projects"
+        :selected-project="selectedProject"
+      />
 
-    <!-- Loading indication -->
-    <p v-if="$fetchState.pending">Loading...</p>
+      <!-- Loading indication -->
+      <p v-if="$fetchState.pending">Loading...</p>
 
-    <!-- Info Messages -->
-    <div v-if="!!info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
+      <!-- Info Messages -->
+      <div v-if="!!info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
 
-    <!-- Error Messages -->
-    <div v-if="!!error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
+      <!-- Error Messages -->
+      <div v-if="!!error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
 
-    <!-- Empty Project -->
-    <empty-account v-if="!!projects && projects.length === 0" />
-  </landing-section-container>
+      <!-- Empty Project -->
+      <empty-account v-if="!!projects && projects.length === 0" />
+    </landing-section-container>
+
+    <div v-if="!!selectedProject" class="bg-grey pt-8">
+      <landing-section-container>
+        todo
+      </landing-section-container>
+    </div>
+  </div>
 </template>
 
 <script>
