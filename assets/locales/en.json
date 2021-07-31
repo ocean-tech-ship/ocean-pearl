@@ -101,6 +101,16 @@
       "titleHighlight": "Pearl x DAO"
     }
   },
+  "manage": {
+    "admins": "Administrators",
+    "project": {
+      "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!"
+    },
+    "title": [
+      "Management",
+      "panel"
+    ]
+  },
   "navbar": {
     "logoText": "Ocean Pearl",
     "navbarDao": "Dao",
