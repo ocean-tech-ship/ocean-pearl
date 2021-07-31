@@ -3,21 +3,18 @@
     <button
       class="h-full flex items-center small-text"
       @click="toggleOpen"
-      @blur="toggleOpen"
+      @blur="handleBlur"
     >
       {{ buttonName }}
     </button>
-    <section
-      v-if="open"
-      class="border bg-grey rounded shadow absolute top-10"
-      @click="open = false"
-    >
+    <section v-if="open" class="border bg-grey rounded shadow absolute top-10">
       <ul>
         <li
           v-for="menuItem of menuItems"
           :key="menuItem.value"
-          :class="menuItem.selected"
+          class="menuItem"
           tabindex="0"
+          @click="handleSelection(menuItem)"
         >
           {{ menuItem.content }}
         </li>
@@ -50,6 +47,14 @@ export default {
   methods: {
     toggleOpen() {
       this.open = !this.open
+    },
+    handleSelection(menuItem) {
+      this.$emit('selected', menuItem)
+      this.toggleOpen()
+    },
+    handleBlur(e) {
+      if (!e.relatedTarget || !e.relatedTarget.classList.contains('menuItem'))
+        this.toggleOpen()
     },
   },
 }

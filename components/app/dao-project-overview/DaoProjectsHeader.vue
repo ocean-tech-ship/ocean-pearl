@@ -32,7 +32,7 @@
     </div>
     <hr class="text-primary my-16" />
     <div class="flex items-center justify-between my-8">
-      <DaoProjectsDropdowns />
+      <DaoProjectsDropdowns @selected-items="setFilter" />
       <DaoProjectsSearchbar @search-projects="setFilter" />
       <DaoProjectsBadges />
     </div>
@@ -123,9 +123,6 @@ export default {
       deep: true,
       handler: function callFilter() {
         const { round, category, search } = this.filter
-        // if (round) den api
-        // if (!round && category) den api callFilter
-        // if (!round && !category && search)
         const query = `MEGAFILTERROUTE?round=${round}?category=${category}?search=${search}`
 
         console.log('API CALL: ', query)
