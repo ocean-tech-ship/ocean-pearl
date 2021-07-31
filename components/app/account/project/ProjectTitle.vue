@@ -5,7 +5,7 @@
         {{ $t('manage.project.title') }}
       </span>
 
-      <h4 class="leading-none">{{ project.title }}</h4>
+      <h3 class="leading-none">{{ project.title }}</h3>
     </div>
   </div>
 </template>
