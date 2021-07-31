@@ -5,7 +5,7 @@
     </span>
 
     <div class="flex flex-wrap items-center">
-      <div class="w-16 h-16 mx-4">
+      <div class="w-16 h-16 mr-4">
         <img
           v-if="!!project.logo"
           :src="project.logo"

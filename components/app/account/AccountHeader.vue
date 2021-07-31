@@ -1,5 +1,5 @@
 <template>
-  <div class="grid lg:grid-cols-2 gap-4">
+  <div class="grid xl:grid-cols-2 gap-4">
     <div>
       <h2>
         {{ $t('manage.title[0]') }}

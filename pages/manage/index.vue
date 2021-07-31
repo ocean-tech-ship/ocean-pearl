@@ -22,7 +22,7 @@
     <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
       <landing-section-container>
         <div class="flex justify-between flex-wrap">
-          <project-title :project="selectedProject" />
+          <project-title class="mb-4" :project="selectedProject" />
           <project-logo :project="selectedProject" />
         </div>
       </landing-section-container>
