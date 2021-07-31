@@ -27,7 +27,7 @@
     </div>
 
     <div>
-      <div class="shadow rounded">
+      <div v-if="!!selectedProject" class="shadow rounded">
         <h6 class="text-primary pt-4 pl-4 pb-2">{{ $t('manage.admins') }}</h6>
 
         <hr class="text-primary" />

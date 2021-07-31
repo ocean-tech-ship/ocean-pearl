@@ -50,7 +50,7 @@ export default Vue.extend({
     }),
 
     selectedProject() {
-      return this.projects[0]
+      return this.projects ? this.projects[0] : null
     },
   },
 
