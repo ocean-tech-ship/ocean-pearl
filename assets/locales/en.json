@@ -104,7 +104,8 @@
   "manage": {
     "admins": "Administrators",
     "project": {
-      "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!"
+      "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!",
+      "title": "Title"
     },
     "title": [
       "Management",

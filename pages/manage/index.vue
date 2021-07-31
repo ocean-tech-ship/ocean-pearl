@@ -19,9 +19,9 @@
       <empty-account v-if="!!projects && projects.length === 0" />
     </landing-section-container>
 
-    <div v-if="!!selectedProject" class="bg-grey pt-8">
+    <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
       <landing-section-container>
-        todo
+        <project-title :project="selectedProject" />
       </landing-section-container>
     </div>
   </div>
@@ -36,6 +36,7 @@ import AppLogo from '@/components/common/AppLogo'
 import AppUpload from '@/components/common/AppUpload'
 import AccountHeader from '@/components/app/account/AccountHeader'
 import EmptyAccount from '@/components/app/account/EmptyAccount'
+import ProjectTitle from '@/components/app/account/project/ProjectTitle'
 
 export default Vue.extend({
   components: {
@@ -45,6 +46,7 @@ export default Vue.extend({
     AppLogo,
     AppUpload,
     EmptyAccount,
+    ProjectTitle,
   },
 
   middleware: ['session'],
