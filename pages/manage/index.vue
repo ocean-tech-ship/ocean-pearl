@@ -22,11 +22,13 @@
     <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
       <landing-section-container>
         <div class="flex justify-between flex-wrap">
-          <project-title class="mb-4" :project="selectedProject" />
-          <project-logo class="mb-4" :project="selectedProject" />
+          <project-title class="pb-4" :project="selectedProject" />
+          <project-logo class="pb-4" :project="selectedProject" />
         </div>
 
-        <project-description :project="selectedProject" />
+        <project-description class="py-8" :project="selectedProject" />
+
+        <project-images class="py-8" :project="selectedProject" />
       </landing-section-container>
     </div>
   </div>
@@ -44,6 +46,7 @@ import EmptyAccount from '@/components/app/account/EmptyAccount'
 import ProjectTitle from '@/components/app/account/project/ProjectTitle'
 import ProjectLogo from '@/components/app/account/project/ProjectLogo'
 import ProjectDescription from '@/components/app/account/project/ProjectDescription'
+import ProjectImages from '@/components/app/account/project/ProjectImages'
 
 export default Vue.extend({
   components: {
@@ -56,6 +59,7 @@ export default Vue.extend({
     ProjectTitle,
     ProjectLogo,
     ProjectDescription,
+    ProjectImages,
   },
 
   middleware: ['session'],
