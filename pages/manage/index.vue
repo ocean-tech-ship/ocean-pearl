@@ -29,6 +29,11 @@
         <project-description class="py-8" :project="selectedProject" />
 
         <project-images class="py-8" :project="selectedProject" />
+
+        <!-- save action -->
+        <div class="flex justify-center pt-8">
+          <app-button :text="$t('general.save')" />
+        </div>
       </landing-section-container>
     </div>
   </div>
@@ -39,8 +44,6 @@ import Vue from 'vue'
 import { mapState } from 'vuex'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import AppButton from '@/components/common/AppButton'
-import AppLogo from '@/components/common/AppLogo'
-import AppUpload from '@/components/common/AppUpload'
 import AccountHeader from '@/components/app/account/AccountHeader'
 import EmptyAccount from '@/components/app/account/EmptyAccount'
 import ProjectTitle from '@/components/app/account/project/ProjectTitle'
@@ -53,8 +56,6 @@ export default Vue.extend({
     LandingSectionContainer,
     AccountHeader,
     AppButton,
-    AppLogo,
-    AppUpload,
     EmptyAccount,
     ProjectTitle,
     ProjectLogo,
