@@ -10,6 +10,9 @@
 
     <!-- Error Messages -->
     <div v-if="!!error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
+
+    <!-- Empty Project -->
+    <empty-account v-if="!!projects && projects.length === 0" />
   </landing-section-container>
 </template>
 
@@ -21,6 +24,7 @@ import AppButton from '@/components/common/AppButton'
 import AppLogo from '@/components/common/AppLogo'
 import AppUpload from '@/components/common/AppUpload'
 import AccountHeader from '@/components/app/account/AccountHeader'
+import EmptyAccount from '@/components/app/account/EmptyAccount'
 
 export default Vue.extend({
   components: {
@@ -29,6 +33,7 @@ export default Vue.extend({
     AppButton,
     AppLogo,
     AppUpload,
+    EmptyAccount,
   },
 
   middleware: ['session'],
