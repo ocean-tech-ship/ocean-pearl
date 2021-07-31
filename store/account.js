@@ -45,8 +45,14 @@ export const actions = {
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         category: 'buildAndIntegrate',
         pictures: [
-          'https://dataunion.app/wp-content/uploads/2020/11/skateboard.jpg',
-          'https://dataunion.app/wp-content/uploads/2020/11/winsome-girl-with-straight-hair-standing-on-bridge-with-camera.jpg',
+          {
+            id: '1',
+            url: 'https://dataunion.app/wp-content/uploads/2020/11/skateboard.jpg'
+          },
+          {
+            id: '2',
+            url: 'https://dataunion.app/wp-content/uploads/2020/11/winsome-girl-with-straight-hair-standing-on-bridge-with-camera.jpg'
+          },
         ],
         logo: 'https://alpha.dataunion.app/DataUnion.svg',
       },
