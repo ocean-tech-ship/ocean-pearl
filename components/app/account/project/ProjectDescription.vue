@@ -1,8 +1,8 @@
 <template>
   <div>
-    <span class="text-primary">
+    <p class="text-primary">
       {{ $t('manage.project.description') }}
-    </span>
+    </p>
 
     <div v-if="!edit">
       <p class="mb-2 line-clamp-5">

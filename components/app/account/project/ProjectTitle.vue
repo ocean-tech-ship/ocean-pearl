@@ -1,9 +1,9 @@
 <template>
   <div class="flex">
     <div>
-      <span class="text-primary">
+      <p class="text-primary leading-tight">
         {{ $t('manage.project.title') }}
-      </span>
+      </p>
 
       <h3 class="leading-none">{{ project.title }}</h3>
     </div>
