@@ -27,6 +27,7 @@
   },
   "general": {
     "button": "button",
+    "delete": "delete",
     "error": {
       "retry": "Please try again later.",
       "unknown": "The requested resource could not be found."
@@ -35,7 +36,8 @@
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
-    "ocean": "{ocean} OCEAN"
+    "ocean": "{ocean} OCEAN",
+    "upload": "upload"
   },
   "jobs": {
     "header": {
@@ -105,6 +107,7 @@
     "admins": "Administrators",
     "project": {
       "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!",
+      "logo": "Logo",
       "title": "Title"
     },
     "title": [

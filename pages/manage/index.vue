@@ -21,7 +21,10 @@
 
     <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
       <landing-section-container>
-        <project-title :project="selectedProject" />
+        <div class="flex justify-between flex-wrap">
+          <project-title :project="selectedProject" />
+          <project-logo :project="selectedProject" />
+        </div>
       </landing-section-container>
     </div>
   </div>
@@ -37,6 +40,7 @@ import AppUpload from '@/components/common/AppUpload'
 import AccountHeader from '@/components/app/account/AccountHeader'
 import EmptyAccount from '@/components/app/account/EmptyAccount'
 import ProjectTitle from '@/components/app/account/project/ProjectTitle'
+import ProjectLogo from '@/components/app/account/project/ProjectLogo'
 
 export default Vue.extend({
   components: {
@@ -47,6 +51,7 @@ export default Vue.extend({
     AppUpload,
     EmptyAccount,
     ProjectTitle,
+    ProjectLogo,
   },
 
   middleware: ['session'],
