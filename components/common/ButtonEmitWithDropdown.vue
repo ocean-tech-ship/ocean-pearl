@@ -1,6 +1,7 @@
 <template>
   <section tabindex="0" class="flex border py-1 pr-2.5 pl-1 mr-1 mt-1 relative">
     <button
+      :class="{ open: open }"
       class="h-full flex items-center small-text"
       @click="toggleOpen"
       @blur="handleBlur"
@@ -72,6 +73,10 @@ button::before {
   width: 23px;
   height: 26px;
 }
+button.open::before {
+  transform: rotate(180deg);
+}
+
 ul {
   min-width: 140px;
   max-width: auto;
