@@ -1,14 +1,17 @@
 <template>
-  <section tabindex="0" class="flex border py-1 pr-2.5 pl-1 mr-1 mt-1 relative">
+  <section tabindex="0" class="flex border py-1 pr-2.5 pl-1">
     <button
       :class="{ open: open }"
-      class="h-full flex items-center small-text"
+      class="h-full flex items-center small-text relative"
       @click="toggleOpen"
       @blur="handleBlur"
     >
       {{ buttonName }}
     </button>
-    <section v-if="open" class="border bg-grey rounded shadow absolute top-10">
+    <section
+      v-if="open"
+      class="border bg-grey rounded shadow absolute top-10 z-50"
+    >
       <ul>
         <li
           v-for="menuItem of menuItems"
@@ -55,7 +58,10 @@ export default {
       this.toggleOpen()
     },
     handleBlur(e) {
-      if (!e.relatedTarget || !e.relatedTarget.classList.contains('menuItem'))
+      if (
+        (!e.relatedTarget && this.open) ||
+        (!e.relatedTarget?.classList.contains('menuItem') && this.open)
+      )
         this.toggleOpen()
     },
   },
@@ -82,6 +88,8 @@ ul {
   max-width: auto;
   max-height: 160px;
   overflow-y: scroll;
+  background: white;
+  border-radius: 7px;
 }
 li {
   padding: 0.5rem;

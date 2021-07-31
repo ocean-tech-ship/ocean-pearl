@@ -31,10 +31,16 @@
       </div>
     </div>
     <hr class="text-primary my-16" />
-    <div class="flex items-center justify-between my-8">
+    <div
+      class="relative my-8 flex flex-col-reverse items-start lg:flex-row lg:items-center lg:justify-between"
+    >
       <DaoProjectsDropdowns @selected-items="setFilter" />
-      <DaoProjectsSearchbar @search-projects="setFilter" />
-      <DaoProjectsBadges />
+      <div class="flex w-full lg:w-auto">
+        <DaoProjectsSearchbar @search-projects="setFilter" />
+      </div>
+      <div class="flex w-full justify-end lg:w-auto">
+        <DaoProjectsBadges />
+      </div>
     </div>
   </LandingSectionContainer>
 </template>
