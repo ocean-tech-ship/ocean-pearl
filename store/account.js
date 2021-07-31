@@ -48,7 +48,7 @@ export const actions = {
           'https://dataunion.app/wp-content/uploads/2020/11/skateboard.jpg',
           'https://dataunion.app/wp-content/uploads/2020/11/winsome-girl-with-straight-hair-standing-on-bridge-with-camera.jpg',
         ],
-        logo: '',
+        logo: 'https://alpha.dataunion.app/DataUnion.svg',
       },
       {
         id: '2',
