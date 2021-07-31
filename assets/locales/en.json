@@ -28,6 +28,7 @@
   "general": {
     "button": "button",
     "delete": "delete",
+    "edit": "edit",
     "error": {
       "retry": "Please try again later.",
       "unknown": "The requested resource could not be found."
@@ -37,6 +38,7 @@
     "icon": "icon",
     "logo": "logo",
     "ocean": "{ocean} OCEAN",
+    "undo": "undo",
     "upload": "upload"
   },
   "jobs": {
@@ -106,6 +108,7 @@
   "manage": {
     "admins": "Administrators",
     "project": {
+      "description": "Description",
       "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!",
       "logo": "Logo",
       "title": "Title"

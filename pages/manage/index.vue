@@ -23,8 +23,10 @@
       <landing-section-container>
         <div class="flex justify-between flex-wrap">
           <project-title class="mb-4" :project="selectedProject" />
-          <project-logo :project="selectedProject" />
+          <project-logo class="mb-4" :project="selectedProject" />
         </div>
+
+        <project-description :project="selectedProject" />
       </landing-section-container>
     </div>
   </div>
@@ -41,6 +43,7 @@ import AccountHeader from '@/components/app/account/AccountHeader'
 import EmptyAccount from '@/components/app/account/EmptyAccount'
 import ProjectTitle from '@/components/app/account/project/ProjectTitle'
 import ProjectLogo from '@/components/app/account/project/ProjectLogo'
+import ProjectDescription from '@/components/app/account/project/ProjectDescription'
 
 export default Vue.extend({
   components: {
@@ -52,6 +55,7 @@ export default Vue.extend({
     EmptyAccount,
     ProjectTitle,
     ProjectLogo,
+    ProjectDescription,
   },
 
   middleware: ['session'],
