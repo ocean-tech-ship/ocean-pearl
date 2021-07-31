@@ -36,6 +36,11 @@ export const actions = {
       {
         id: '1',
         title: 'Example Project',
+        admins: [
+          '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2',
+          '0x00000000219ab540356cbb839cbe05303d7705fa',
+          '0xbe0eb53f46cd790cd13851d5eff43d12404d33e8',
+        ],
         description:
           'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.',
         category: 'buildAndIntegrate',
