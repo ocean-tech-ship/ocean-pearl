@@ -26,10 +26,10 @@ export default Vue.extend({
     data() {
         return {
             error: '',
-            featuredProjects: [],
-            latestProjects: [],
-            daoFeaturedProjects: [],
-            daoProposals: [],
+            featuredProjects: null,
+            latestProjects: null,
+            daoFeaturedProjects: null,
+            daoProposals: null,
             metrics: {
                 fundingRound: '',
                 totalDaoProposals: '',
@@ -47,12 +47,11 @@ export default Vue.extend({
             if (
                 indexResponse.status === 204
             ) {
-                this.error = 'general.error.unknown',
+                this.error = 'general.error.unknown';
                 this.featuredProjects = [];
                 this.latestProjects = [];
                 this.daoFeaturedProjects = [];
                 this.daoProposals = [];
-                this.metrics = {};
             }
 
             const data = indexResponse.data;
@@ -69,7 +68,6 @@ export default Vue.extend({
                 this.latestProjects = [];
                 this.daoFeaturedProjects = [];
                 this.daoProposals = [];
-                this.metrics = {};
         };
     },
 

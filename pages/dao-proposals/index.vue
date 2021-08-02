@@ -43,8 +43,14 @@ export default Vue.extend({
     data() {
         return {
             error: null,
-            metrics: null,
             daoProposals: null,
+            metrics: {
+                fundingRound: '',
+                totalDaoProposals: '',
+                endDate: Date.now(),
+                totalRequestedFunding: '',
+                totalVotes: '',
+            },
         }
     },
 
@@ -60,8 +66,7 @@ export default Vue.extend({
                 daoProposalResponse.status === 204
             ) {
                 this.error = 'general.error.unknown';
-                this.metrics = {};
-                this.daoProposals = [null];
+                this.daoProposals = [];
             }
 
             this.error = null,
@@ -75,7 +80,6 @@ export default Vue.extend({
                     : daoProposalResponse.data;
         } catch (error) {
             this.error = 'general.error.retry';
-            this.metrics = {};
             this.daoProposals = [];
         }
     },
