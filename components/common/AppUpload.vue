@@ -1,7 +1,16 @@
 <template>
   <label>
     <div
-      class="select-none rounded font-medium py-2 px-6 shadow items-center justify-center"
+      class="
+        select-none
+        rounded
+        font-medium
+        py-2
+        px-6
+        shadow
+        items-center
+        justify-center
+      "
       :class="[
         secondary
           ? 'bg-white text-primary border-2 border-primary'
@@ -10,7 +19,12 @@
     >
       <span>{{ text }}</span>
     </div>
-    <input type="file" class="hidden" @change="$emit('change', $event)" />
+    <input
+      type="file"
+      :accept="accept"
+      class="hidden"
+      @change="$emit('change', $event)"
+    />
   </label>
 </template>
 
@@ -26,6 +40,10 @@ export default {
     secondary: {
       type: Boolean,
       default: false,
+    },
+    accept: {
+      type: String,
+      default: '',
     },
   },
 }
