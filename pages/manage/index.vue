@@ -4,6 +4,7 @@
       <account-header
         :projects="projects"
         :selected-project="selectedProject"
+        @selectProject="projectIndex = $event"
       />
 
       <!-- Loading indication -->
@@ -69,6 +70,12 @@ export default Vue.extend({
     await this.$store.dispatch('account/loadAccount')
   },
 
+  data() {
+    return {
+      projectIndex: 0,
+    }
+  },
+
   computed: {
     ...mapState('account', {
       info: 'info',
@@ -77,7 +84,7 @@ export default Vue.extend({
     }),
 
     selectedProject() {
-      return this.projects ? this.projects[0] : null
+      return this.projects ? this.projects[this.projectIndex] : null
     },
   },
 

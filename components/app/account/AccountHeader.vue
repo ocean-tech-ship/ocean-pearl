@@ -6,19 +6,20 @@
         <span class="text-primary">{{ $t('manage.title[1]') }}</span>
       </h2>
 
-      <div class="flex flex-wrap">
-        <div
-          v-for="project in projects"
+      <div class="flex flex-wrap my-2">
+        <button
+          v-for="(project, index) in projects"
           :key="project.id"
-          class="rounded border-2 p-2 mr-2 mb-2"
+          class="shadow rounded text-primary border-2 p-2 mr-2 mb-2"
           :class="[
             project.id === selectedProject.id
               ? 'border-primary'
-              : 'border-third',
+              : 'border-none',
           ]"
+          @click="$emit('selectProject', index)"
         >
           {{ project.title }}
-        </div>
+        </button>
       </div>
 
       <p v-if="!!projects && projects.length === 0">
