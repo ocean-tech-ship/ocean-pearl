@@ -1,6 +1,6 @@
 <template>
   <div class="shadow rounded p-4">
-    <span class="text-primary">
+    <span class="text-primary small-text">
       {{ $t('manage.project.logo') }}
     </span>
 

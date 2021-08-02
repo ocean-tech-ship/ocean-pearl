@@ -1,10 +1,10 @@
 <template>
   <div>
-    <p class="text-primary">
+    <span class="text-primary small-text">
       {{ $t('manage.project.images.title') }}
-    </p>
+    </span>
 
-    <div class="grid gap-4 grid-cols-1 md:grid-cols-2">
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-2 mt-2">
       <div
         v-for="picture in project.pictures"
         :key="picture.id"

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <p class="text-primary">
+    <span class="text-primary small-text">
       {{ $t('manage.project.description') }}
-    </p>
+    </span>
 
     <div v-if="!edit">
-      <p class="mb-2 line-clamp-5">
+      <p class="mb-2 line-clamp-5 small-text">
         {{ project.description }}
       </p>
 
@@ -14,7 +14,7 @@
 
     <div v-else>
       <textarea
-        class="w-full shadow rounded text-base p-4 mb-2"
+        class="w-full shadow rounded small-text p-4 mb-2"
         rows="5"
         :value="project.description"
       />
