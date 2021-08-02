@@ -79,8 +79,9 @@ export default {
                 title: 'Ocean Pearl',
                 site_name: 'Ocean Pearl',
                 description:
-                    'The community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.',
+                'The community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.',
                 img: '~/static/pearl-background.jpg',
+                img_size: { width: '1920', height: '1080' },
                 locale: 'en_US',
                 twitter: '@oceanpearlio',
                 twitter_card: 'summary_large_image',
