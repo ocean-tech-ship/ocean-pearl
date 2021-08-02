@@ -45,16 +45,18 @@ export default {
         metrics: {
             type: Object,
             required: true,
-            default: () => {},
+            default: {
+                fundingRound: '',
+                totalDaoProposals: '',
+                endDate: Date.now(),
+                totalRequestedFunding: '',
+                totalVotes: '',
+            },
         },
     },
 
     computed: {
         daoInfoCards() {
-            if (Object.keys(this.metrics).length === 0) {
-                return []
-            }
-
             return [
                 {
                 title: this.$t('daoRoundData.fundingRound'),
