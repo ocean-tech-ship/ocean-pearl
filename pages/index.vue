@@ -48,11 +48,11 @@ export default Vue.extend({
                 indexResponse.status === 204
             ) {
                 this.error = 'general.error.unknown',
-                this.featuredProjects = null;
-                this.latestProjects = null;
-                this.daoFeaturedProjects = null;
-                this.daoProposals = null;
-                this.metrics = null;
+                this.featuredProjects = [];
+                this.latestProjects = [];
+                this.daoFeaturedProjects = [];
+                this.daoProposals = [];
+                this.metrics = {};
             }
 
             const data = indexResponse.data;
@@ -65,11 +65,11 @@ export default Vue.extend({
             this.metrics = data.metrics;
         } catch (error) {
                 this.error = 'general.error.retry';
-                this.featuredProjects = null;
-                this.latestProjects = null;
-                this.daoFeaturedProjects = null;
-                this.daoProposals = null;
-                this.metrics = null;
+                this.featuredProjects = [];
+                this.latestProjects = [];
+                this.daoFeaturedProjects = [];
+                this.daoProposals = [];
+                this.metrics = {};
         };
     },
 

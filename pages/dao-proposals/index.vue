@@ -13,7 +13,7 @@
             <p class="small-text">{{ $t(error) }}</p>
         </landing-section-container>
 
-        <landing-section-container v-else-if="$fetchState.pending">
+        <landing-section-container v-else-if="$fetchState.pending" class="h-screen">
             {{ $t('general.fetchingLoading') }}
         </landing-section-container>
 
@@ -60,8 +60,8 @@ export default Vue.extend({
                 daoProposalResponse.status === 204
             ) {
                 this.error = 'general.error.unknown';
-                this.metrics = null;
-                this.daoProposals = null;
+                this.metrics = {};
+                this.daoProposals = [null];
             }
 
             this.error = null,
@@ -75,8 +75,8 @@ export default Vue.extend({
                     : daoProposalResponse.data;
         } catch (error) {
             this.error = 'general.error.retry';
-            this.metrics = null;
-            this.daoProposals = null;
+            this.metrics = {};
+            this.daoProposals = [];
         }
     },
 });
