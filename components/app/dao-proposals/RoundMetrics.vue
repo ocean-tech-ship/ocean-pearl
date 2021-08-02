@@ -31,73 +31,69 @@
 import LandingSectionContainer from '../landing/LandingSectionContainer'
 
 export default {
-  name: 'RoundMetrics',
+    name: 'RoundMetrics',
 
-  components: {
-    LandingSectionContainer,
-  },
-  
-  props: {
-    metrics: {
-      type: Object,
-      required: true,
-      default: () => ({
-        metrics: {
-          fundingRound: '',
-          totalDaoProposals: '',
-          endDate: Date.now(),
-          totalRequestedFunding: '',
-          totalVotes: '',
-        },
-      }),
+    components: {
+        LandingSectionContainer,
     },
-  },
+  
+    props: {
+        metrics: {
+            type: Object,
+            required: true,
+            default: () => null,
+        },
+    },
 
-  data() {
-    return {
-      daoInfoCards: [
-        {
-          title: this.$i18n.t('daoRoundData.fundingRound'),
-          daoInfo: this.$t('project.proposal.round.numbered', {
-            round: this.metrics.fundingRound,
-          }),
-          imageURL: require('@/assets/images/icons/fund-round.svg'),
+    computed: {
+        daoInfoCards() {
+            if (Object.keys(this.metrics).length === 0) {
+                return []
+            }
+
+            return [
+                {
+                title: this.$t('daoRoundData.fundingRound'),
+                daoInfo: this.$t('project.proposal.round.numbered', {
+                    round: this.$props.metrics.fundingRound,
+                }),
+                imageURL: require('@/assets/images/icons/fund-round.svg'),
+                },
+                {
+                title: this.$t('daoRoundData.amountProposals'),
+                daoInfo: this.$t('daoRoundData.numberedProjects', {
+                    projects: this.$props.metrics.totalDaoProposals,
+                }),
+                imageURL: require('@/assets/images/icons/amount.svg'),
+                },
+                {
+                title: this.$i18n.t(
+                    this.$dateFns.isPast(new Date(this.metrics.endDate))
+                    ? 'daoRoundData.countdown.after'
+                    : 'daoRoundData.countdown.before'
+                ),
+                daoInfo: this.$dateFns.formatDistanceToNowStrict(
+                    new Date(this.$props.metrics.endDate),
+                    { locale: this.$i18n.locale, addSuffix: true }
+                ),
+                imageURL: require('@/assets/images/icons/countdown.svg'),
+                },
+                {
+                title: this.$t('daoRoundData.totalAmount'),
+                daoInfo: this.$t('general.ocean', {
+                    ocean: this.$props.metrics.totalRequestedFunding,
+                }),
+                imageURL: require('@/assets/images/icons/transaction.svg'),
+                },
+                {
+                title: this.$t('daoRoundData.totalVotes'),
+                daoInfo: this.$t('general.ocean', {
+                    ocean: this.$props.metrics.totalVotes,
+                }),
+                imageURL: require('@/assets/images/icons/vote.svg'),
+                },
+            ]
         },
-        {
-          title: this.$i18n.t('daoRoundData.amountProposals'),
-          daoInfo: `${this.metrics.totalDaoProposals} proposals`,
-          imageURL: require('@/assets/images/icons/amount.svg'),
-        },
-        {
-          title: this.$i18n.t(
-            this.$dateFns.isPast(new Date(this.metrics.endDate))
-              ? 'daoRoundData.countdown.after'
-              : 'daoRoundData.countdown.before'
-          ),
-          daoInfo: this.$dateFns.formatDistanceToNowStrict(
-            new Date(this.metrics.endDate),
-            { locale: this.$i18n.locale, addSuffix: true }
-          ),
-          imageURL: require('@/assets/images/icons/countdown.svg'),
-        },
-        {
-          title: this.$i18n.t('daoRoundData.totalAmount'),
-          daoInfo: `${this.$i18n.t('general.ocean', {
-            ocean: this.metrics.totalRequestedFunding,
-          })}`,
-          imageURL: require('@/assets/images/icons/transaction.svg'),
-        },
-        {
-          title: this.$i18n.t('daoRoundData.totalVotes'),
-          daoInfo: `${this.$i18n.t('general.ocean', {
-            ocean: this.metrics.totalVotes,
-          })}`,
-          imageURL: require('@/assets/images/icons/vote.svg'),
-        },
-      ],
-    }
-  },
+    },
 }
 </script>
-
-<style scoped></style>
