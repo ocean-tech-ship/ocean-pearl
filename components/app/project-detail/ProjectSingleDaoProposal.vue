@@ -59,10 +59,10 @@
         <!-- Proposal Wallet Address -->
         <div class="shadow rounded p-4 lg:col-span-2">
           <p class="small-text text-primary">
-            {{ $t('project.proposal.wallet') }}
+            {{ $t('project.wallet') }}
           </p>
 
-          <p class="small-text break-all">{{ newestProposal.walletAddress }}</p>
+          <p class="small-text break-all">{{ project.walletAddress }}</p>
         </div>
 
         <!-- Action (lg only) -->
