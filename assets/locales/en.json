@@ -115,11 +115,11 @@
     "project": {
       "description": "Description",
       "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!",
-      "images": {
+      "logo": "Logo",
+      "pictures": {
         "title": "Project images",
         "upload": "upload new image"
       },
-      "logo": "Logo",
       "title": "Title"
     },
     "title": [

@@ -37,7 +37,7 @@
           @unset="delete updateRequest.description"
         />
 
-        <project-images class="py-8" :project="selectedProject" />
+        <project-pictures class="py-8" :project="selectedProject" />
 
         <!-- save action -->
         <div class="flex justify-center pt-8">
@@ -58,7 +58,7 @@ import EmptyAccount from '@/components/app/account/EmptyAccount'
 import ProjectTitle from '@/components/app/account/project/ProjectTitle'
 import ProjectLogo from '@/components/app/account/project/ProjectLogo'
 import ProjectDescription from '@/components/app/account/project/ProjectDescription'
-import ProjectImages from '@/components/app/account/project/ProjectImages'
+import ProjectPictures from '@/components/app/account/project/ProjectPictures'
 
 export default Vue.extend({
   components: {
@@ -69,7 +69,7 @@ export default Vue.extend({
     ProjectTitle,
     ProjectLogo,
     ProjectDescription,
-    ProjectImages,
+    ProjectPictures,
   },
 
   middleware: ['session'],
