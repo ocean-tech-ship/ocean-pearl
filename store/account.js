@@ -59,6 +59,7 @@ export const actions = {
       {
         id: '2',
         title: 'Another really super cool project with long title',
+        pictures: [],
       },
     ])
 
