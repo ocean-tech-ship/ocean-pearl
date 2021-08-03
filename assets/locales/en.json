@@ -31,7 +31,11 @@
     "edit": "edit",
     "error": {
       "retry": "Please try again later.",
-      "unknown": "The requested resource could not be found."
+      "unknown": "The requested resource could not be found.",
+      "upload": {
+        "size": "The selected file must be smaller than {size}",
+        "type": "Only the following file types are allowed: {types}"
+      }
     },
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
