@@ -81,6 +81,14 @@ export default {
     },
   },
 
+  watch: {
+    project() {
+      // Reset if project gets switched
+      this.deletedIds = []
+      this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index))
+    },
+  },
+
   methods: {
     deletePicture(id) {
       if (
