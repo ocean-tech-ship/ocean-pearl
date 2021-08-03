@@ -4,7 +4,10 @@
       <account-header
         :projects="projects"
         :selected-project="selectedProject"
-        @selectProject="projectIndex = $event"
+        @selectProject="
+          updateRequest = {}
+          projectIndex = $event
+        "
       />
 
       <!-- Loading indication -->
@@ -27,7 +30,12 @@
           <project-logo class="pb-4" :project="selectedProject" />
         </div>
 
-        <project-description class="py-8" :project="selectedProject" />
+        <project-description
+          class="py-8"
+          :project="selectedProject"
+          @change="updateRequest.description = $event"
+          @unset="delete updateRequest.description"
+        />
 
         <project-images class="py-8" :project="selectedProject" />
 
@@ -73,6 +81,7 @@ export default Vue.extend({
   data() {
     return {
       projectIndex: 0,
+      updateRequest: {},
     }
   },
 

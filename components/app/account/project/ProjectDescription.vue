@@ -17,9 +17,17 @@
         class="w-full shadow rounded small-text p-4 mb-2"
         rows="5"
         :value="project.description"
+        @change="$emit('change', $event)"
       />
 
-      <app-button secondary :text="$t('general.undo')" @click="edit = false" />
+      <app-button
+        secondary
+        :text="$t('general.undo')"
+        @click="
+          edit = false
+          $emit('unset')
+        "
+      />
     </div>
   </div>
 </template>
