@@ -95,8 +95,8 @@ export default {
         this.$props.project.pictures.find((pic) => pic.id === id) &&
         !this.deletedIds.includes(id)
       ) {
-        this.$emit('delete', id)
         this.deletedIds.push(id)
+        this.$emit('delete', this.deletedIds)
       }
     },
 

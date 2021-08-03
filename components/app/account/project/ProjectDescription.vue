@@ -14,10 +14,10 @@
 
     <div v-else>
       <textarea
+        v-model="description"
         class="w-full shadow rounded small-text p-4 mb-2"
         rows="5"
-        :value="project.description"
-        @change="$emit('change', $event)"
+        @change="$emit('change', description)"
       />
 
       <app-button
@@ -53,7 +53,16 @@ export default {
   data() {
     return {
       edit: false,
+      description: this.$props.project.description,
     }
+  },
+
+  watch: {
+    project() {
+      // Reset if project gets switched
+      this.description = this.$props.project.description
+      this.edit = false
+    },
   },
 }
 </script>
