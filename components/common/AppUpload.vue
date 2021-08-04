@@ -1,31 +1,33 @@
 <template>
-  <label>
-    <div
-      class="
-        select-none
-        rounded
-        font-medium
-        py-2
-        px-6
-        shadow
-        items-center
-        justify-center
-      "
-      :class="[
-        secondary
-          ? 'bg-white text-primary border-2 border-primary'
-          : 'call-to-action text-secondary',
-      ]"
-    >
-      <span>{{ text }}</span>
-    </div>
+  <button
+    type="button"
+    class="
+      select-none
+      rounded
+      font-medium
+      py-2
+      px-6
+      shadow
+      items-center
+      justify-center
+    "
+    :class="[
+      secondary
+        ? 'bg-white text-primary border-2 border-primary'
+        : 'call-to-action text-secondary',
+    ]"
+    @click="$refs.upload.click()"
+  >
+    <span>{{ text }}</span>
+
     <input
+      ref="upload"
       type="file"
       :accept="accept"
       class="hidden"
       @change="$emit('change', $event)"
     />
-  </label>
+  </button>
 </template>
 
 <script>

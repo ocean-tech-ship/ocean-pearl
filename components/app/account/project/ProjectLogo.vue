@@ -14,7 +14,7 @@
         />
       </div>
 
-      <div class="flex">
+      <div class="flex items-center">
         <div class="mx-2">
           <app-upload
             secondary
