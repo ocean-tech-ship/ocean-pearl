@@ -17,7 +17,7 @@
 
     <div class="grid gap-8 lg:grid-cols-3 py-4">
       <!-- choose your wallet provider -->
-      <div class="shadow rounded">
+      <div class="shadow rounded border-primary border-2">
         <div class="flex justify-center">
           <img
             src="@/assets/images/account/login/step-1.svg"
@@ -33,7 +33,7 @@
       </div>
 
       <!-- select account to connect -->
-      <div class="shadow rounded">
+      <div class="shadow rounded border-primary border-2">
         <div class="flex justify-center">
           <img
             src="@/assets/images/account/login/step-2.svg"
@@ -49,7 +49,7 @@
       </div>
 
       <!-- sign login request -->
-      <div class="shadow rounded">
+      <div class="shadow rounded border-primary border-2">
         <div class="flex justify-center">
           <img
             src="@/assets/images/account/login/step-3.svg"
