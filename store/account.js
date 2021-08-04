@@ -31,7 +31,8 @@ export const actions = {
     commit('info', null)
     commit('error', null)
 
-    // test mockup
+    // MOCKUP DATA FOR TESTING PURPOSES
+    /*
     function wait(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms))
     }
@@ -69,6 +70,7 @@ export const actions = {
     if (console) {
       return
     }
+    */
     // end test mockup
 
     try {
