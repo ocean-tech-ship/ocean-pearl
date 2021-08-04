@@ -4,6 +4,7 @@ export const state = () => ({
   info: null,
   error: null,
   projects: null,
+  wallet: null,
 })
 
 export const mutations = {
@@ -17,6 +18,10 @@ export const mutations = {
 
   projects(state, payload) {
     state.projects = payload
+  },
+
+  wallet(state, payload) {
+    state.wallet = payload
   },
 }
 
@@ -32,6 +37,7 @@ export const actions = {
     }
 
     await wait(1800)
+    commit('wallet', '0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2')
     commit('projects', [
       {
         id: '1',
@@ -43,11 +49,11 @@ export const actions = {
         pictures: [
           {
             id: '1',
-            url: 'https://dataunion.app/wp-content/uploads/2020/11/skateboard.jpg'
+            url: 'https://dataunion.app/wp-content/uploads/2020/11/skateboard.jpg',
           },
           {
             id: '2',
-            url: 'https://dataunion.app/wp-content/uploads/2020/11/winsome-girl-with-straight-hair-standing-on-bridge-with-camera.jpg'
+            url: 'https://dataunion.app/wp-content/uploads/2020/11/winsome-girl-with-straight-hair-standing-on-bridge-with-camera.jpg',
           },
         ],
         logo: 'https://alpha.dataunion.app/DataUnion.svg',
@@ -67,7 +73,8 @@ export const actions = {
 
     try {
       const response = await getAccount(this.$axios)
-      commit('projects', response.data)
+      commit('wallet', response.data.wallet)
+      commit('projects', response.data.projects)
     } catch (error) {
       if (error.response) {
         const status = error.response.status
