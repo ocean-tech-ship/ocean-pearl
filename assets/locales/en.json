@@ -30,7 +30,7 @@
     "delete": "delete",
     "edit": "edit",
     "error": {
-      "retry": "Please try again later.",
+      "retry": "An error occurred. Please try again later.",
       "unknown": "The requested resource could not be found.",
       "upload": {
         "size": "The selected file must be smaller than {size}",
@@ -112,7 +112,11 @@
   },
   "manage": {
     "admins": "Administrators",
+    "auth": {
+      "timeout": "Authentication timeout. Please login again."
+    },
     "project": {
+      "changed": "The changes were saved successfully.",
       "description": "Description",
       "empty": "Hey sailor, no projects here so far.  Dive righ in and add your first one now!",
       "logo": "Logo",

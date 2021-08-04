@@ -27,7 +27,12 @@
       <landing-section-container>
         <div class="flex justify-between flex-wrap">
           <project-title class="pb-4" :project="selectedProject" />
-          <project-logo class="pb-4" :project="selectedProject" />
+
+          <project-logo
+            class="pb-4"
+            :project="selectedProject"
+            @change="updateRequest.logo = $event"
+          />
         </div>
 
         <project-description
@@ -37,11 +42,16 @@
           @unset="delete updateRequest.description"
         />
 
-        <project-pictures class="py-8" :project="selectedProject" />
+        <project-pictures
+          class="py-8"
+          :project="selectedProject"
+          @delete="updateRequest.deletePictures = $event"
+          @change="updateRequest.newPictures = $event"
+        />
 
         <!-- save action -->
         <div class="flex justify-center pt-8">
-          <app-button :text="$t('general.save')" />
+          <app-button :text="$t('general.save')" @click="saveProject()" />
         </div>
       </landing-section-container>
     </div>
@@ -74,15 +84,15 @@ export default Vue.extend({
 
   middleware: ['session'],
 
-  async fetch() {
-    await this.$store.dispatch('account/loadAccount')
-  },
-
   data() {
     return {
       projectIndex: 0,
       updateRequest: {},
     }
+  },
+
+  async fetch() {
+    await this.$store.dispatch('account/loadAccount')
   },
 
   computed: {
@@ -98,32 +108,9 @@ export default Vue.extend({
   },
 
   methods: {
-    deleteImage(image) {
-      const index = this.project.pictures.indexOf(image)
-      if (index > -1) {
-        this.project.pictures.splice(index, 1)
-      }
-    },
-
-    setLogo(event) {
-      if (event.target.files.length > 0) {
-        this.project.logo = URL.createObjectURL(event.target.files[0])
-      }
-    },
-
-    addImages(event) {
-      for (const file of event.target.files) {
-        this.project.pictures.push(URL.createObjectURL(file))
-      }
-    },
-
-    async sign() {
-      try {
-        const sign = await this.$store.dispatch('wallet/signData', 'payload')
-        console.log('sign', sign)
-      } catch (e) {
-        console.log('error on sign', e)
-      }
+    saveProject() {
+      this.updateRequest.project = this.selectedProject.id
+      this.$store.dispatch('account/updateProject', this.updateRequest)
     },
   },
 })

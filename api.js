@@ -51,6 +51,11 @@ export function getAccount(axios) {
 }
 
 // account save changes
-export function updateAccount(axios, payload) {
-  return axios.put('/account', payload, { withCredentials: true })
+export function updateProject(axios, projectId, formData) {
+  return axios.put(`/account/${projectId}`, formData, {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
 }

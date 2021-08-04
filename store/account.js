@@ -1,4 +1,4 @@
-import { getAccount } from '@/api'
+import { getAccount, updateProject } from '@/api'
 
 export const state = () => ({
   info: null,
@@ -77,7 +77,7 @@ export const actions = {
 
         if (status === 401) {
           // Authentication failure / timeout
-          commit('auth/message', 'Authentication timeout. Please try again.', {
+          commit('auth/message', this.$t('manage.auth.timeout'), {
             root: true,
           })
           await this.$router.push('/manage/login')
@@ -86,14 +86,57 @@ export const actions = {
 
         if (status === 404) {
           // No projects available for this account
+          // UI has special component for visualization
           commit('projects', [])
-          commit('info', 'There is no project for this account yet.')
           return
         }
-
-        commit('error', 'An error occurred. Please try again later.')
-        console.error('Error on backend communication', error)
       }
+
+      commit('error', this.$t('general.error.retry'))
+      console.error('Error on backend communication', error)
+    }
+  },
+
+  async updateProject({ commit }, payload) {
+    // Reset
+    commit('info', null)
+    commit('error', null)
+
+    const formData = new FormData()
+
+    for (const [key, value] of Object.entries(payload)) {
+      if (Array.isArray(value)) {
+        value.forEach((val) => formData.append(key, val))
+      } else {
+        formData.append(key, String(value))
+      }
+    }
+
+    try {
+      const response = await updateProject(
+        this.$axios,
+        payload.project,
+        formData
+      )
+
+      commit('projects', response.data)
+      commit('info', this.$t('manage.project.changed'))
+    } catch (error) {
+      if (error.response) {
+        const status = error.response.status
+
+        if (status === 401) {
+          // Authentication failure / timeout
+          commit('auth/message', this.$t('manage.auth.timeout'), {
+            root: true,
+          })
+          await this.$router.push('/manage/login')
+          return
+        }
+      }
+
+      commit('error', this.$t('general.error.retry'))
+      console.error('Error on project update', error)
     }
   },
 }
