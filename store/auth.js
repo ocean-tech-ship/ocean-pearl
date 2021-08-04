@@ -21,7 +21,7 @@ export const actions = {
       wallet = await dispatch('wallet/connect', null, { root: true })
     } catch (error) {
       console.error('Could not connect wallet', error)
-      commit('message', this.$t('manage.auth.error.wallet'))
+      commit('message', this.$i18n.t('manage.auth.error.wallet'))
       return
     }
 
@@ -32,7 +32,7 @@ export const actions = {
       signature = await dispatch('wallet/signData', doc, { root: true })
     } catch (error) {
       console.error('Could not sign login request', error)
-      commit('message', this.$t('manage.auth.error.sign'))
+      commit('message', this.$i18n.t('manage.auth.error.sign'))
       return
     }
 
@@ -46,12 +46,12 @@ export const actions = {
       await login(this.$axios, payload)
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        commit('message', this.$t('manage.auth.error.invalid'))
+        commit('message', this.$i18n.t('manage.auth.error.invalid'))
         return
       }
 
       console.error('Error on backend communication', error)
-      commit('message', this.$t('general.error.retry'))
+      commit('message', this.$i18n.t('general.error.retry'))
       return
     }
 
@@ -68,7 +68,7 @@ export const actions = {
     }
 
     // Logout was successful
-    commit('message', this.$t('manage.auth.logout.completed'))
+    commit('message', this.$i18n.t('manage.auth.logout.completed'))
     await this.$router.push('/manage/login')
   },
 }
