@@ -118,6 +118,14 @@
         "sign": "Could not sign login request. Please try again.",
         "wallet": "Could not connect wallet. Please try again."
       },
+      "login": {
+        "action": "Login via Wallet",
+        "subtitle": [
+          "3-Step-",
+          "Login"
+        ],
+        "title": "Login here to manage your projects"
+      },
       "logout": {
         "completed": "Successfully logged out."
       },
