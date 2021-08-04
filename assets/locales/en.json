@@ -127,7 +127,8 @@
         "title": "Login here to manage your projects"
       },
       "logout": {
-        "completed": "Successfully logged out."
+        "completed": "Successfully logged out.",
+        "title": "Logout"
       },
       "timeout": "Authentication timeout. Please login again."
     },

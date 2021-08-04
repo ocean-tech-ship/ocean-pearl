@@ -9,7 +9,19 @@
       />
       <div
         v-if="context.open"
-        class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
+        class="
+          shadow
+          origin-top-right
+          absolute
+          right-0
+          mt-2
+          w-64
+          bg-grey
+          border border-primary
+          rounded
+          overflow-hidden
+          shadow-md
+        "
       >
         <ul @click="context.toggleOpen">
           <li>
@@ -29,26 +41,36 @@
               >{{ $t('navbar.navbarDao') }}</NuxtLink
             >
           </li>
-          <li>
-            <NuxtLink class="font-bold block px-4 py-3" to="/manage">
-              Manage
+          <li v-if="!$store.state.account.wallet">
+            <NuxtLink to="/manage">
+              <div class="flex px-4 py-3 text-primary">
+                <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
+                <p>{{ $t('manage.auth.login.action') }}</p>
+              </div>
             </NuxtLink>
           </li>
-          <li>
-            <app-link
-              to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template"
+          <li v-if="$store.state.account.wallet">
+            <div
+              class="rounded p-2 m-4 flex items-center"
+              style="background-color: black; color: white"
             >
-              <div class="flex px-4 py-3 text-primary">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/vote.svg"
-                  :alt="`${$t('project.proposal.submit')} ${$t(
-                    'general.icon'
-                  )}`"
-                />
-                <p>{{ $t('project.proposal.submit') }}</p>
-              </div>
-            </app-link>
+              {{ shrinkAddress($store.state.account.wallet) }}
+              <div
+                class="ml-2"
+                v-html="createIcon($store.state.account.wallet, 24)"
+              />
+            </div>
+          </li>
+          <li v-if="$store.state.account.wallet">
+            <div class="flex justify-end">
+              <button
+                type="button"
+                class="font-bold block px-4 py-3"
+                @click="$store.dispatch('auth/logout')"
+              >
+                {{ $t('manage.auth.logout.title') }}
+              </button>
+            </div>
           </li>
         </ul>
       </div>
@@ -57,15 +79,19 @@
 </template>
 
 <script>
+import EthAddress from '@/mixins/EthAddress'
+import Identicon from '@/mixins/Identicon'
 import MainDropdown from '@/components/common/MainDropdown'
-import AppLink from '@/components/common/AppLink.vue'
 
 export default {
   name: 'ButtonWithDropdown',
+
   components: {
     MainDropdown,
-    AppLink,
   },
+
+  mixins: [EthAddress, Identicon],
+
   data() {
     return {
       username: 'John Wick',

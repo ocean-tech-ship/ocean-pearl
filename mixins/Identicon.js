@@ -2,7 +2,7 @@ import jdenticon from 'jdenticon/standalone'
 
 export default {
   methods: {
-    updateIcons(input, size) {
+    createIcon(input, size) {
       return jdenticon.toSvg(input, size)
     },
   },
