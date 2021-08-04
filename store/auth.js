@@ -21,7 +21,7 @@ export const actions = {
       wallet = await dispatch('wallet/connect', null, { root: true })
     } catch (error) {
       console.error('Could not connect wallet', error)
-      commit('message', 'Could not connect wallet. Please try again.')
+      commit('message', this.$t('manage.auth.error.wallet'))
       return
     }
 
@@ -32,7 +32,7 @@ export const actions = {
       signature = await dispatch('wallet/signData', doc, { root: true })
     } catch (error) {
       console.error('Could not sign login request', error)
-      commit('message', 'Could not sign login request. Please try again.')
+      commit('message', this.$t('manage.auth.error.sign'))
       return
     }
 
@@ -46,12 +46,12 @@ export const actions = {
       await login(this.$axios, payload)
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        commit('message', 'Authentication failure. Please try again.')
+        commit('message', this.$t('manage.auth.error.invalid'))
         return
       }
 
       console.error('Error on backend communication', error)
-      commit('message', 'An error occurred. Please try again later.')
+      commit('message', this.$t('general.error.retry'))
       return
     }
 
@@ -68,7 +68,7 @@ export const actions = {
     }
 
     // Logout was successful
-    commit('message', 'Successfully logged out')
+    commit('message', this.$t('manage.auth.logout.completed'))
     await this.$router.push('/manage/login')
   },
 }

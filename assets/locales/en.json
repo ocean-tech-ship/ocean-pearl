@@ -113,6 +113,14 @@
   "manage": {
     "admins": "Administrators",
     "auth": {
+      "error": {
+        "invalid": "Authentication was invalid. Please try again.",
+        "sign": "Could not sign login request. Please try again.",
+        "wallet": "Could not connect wallet. Please try again."
+      },
+      "logout": {
+        "completed": "Successfully logged out."
+      },
       "timeout": "Authentication timeout. Please login again."
     },
     "project": {
