@@ -23,7 +23,7 @@
     "core-js": "^3.15.2",
     "date-fns": "^2.23.0",
     "nuxt": "^2.15.7",
-    "nuxt-i18n": "^6.28.0",
+    "nuxt-i18n": "^6.28.1",
     "nuxt-social-meta": "^1.0.0",
     "plausible-tracker": "^0.3.1"
   },
