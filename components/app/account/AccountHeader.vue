@@ -35,9 +35,9 @@
 
         <div class="p-4">
           <p
-            v-for="address in selectedProject.admins"
+            v-for="address in [selectedProject.wallet]"
             :key="address"
-            class="small-text break-all"
+            class="text-primary small-text break-all"
           >
             - {{ address }}
           </p>
