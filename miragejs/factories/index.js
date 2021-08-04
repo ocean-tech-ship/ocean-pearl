@@ -1,10 +1,7 @@
-/*
- * Mirage JS guide on Factories: https://miragejs.com/docs/data-layer/factories
- */
-
-import project from './project'
-import job from './job'
-import daoproposal from './dao-proposal'
+import project from './project';
+import job from './job';
+import daoproposal from './dao-proposal';
+import round from './round';
 
 /*
  * factories are contained in a single object, that's why we
@@ -12,7 +9,8 @@ import daoproposal from './dao-proposal'
  * be done for all future factories
  */
 export default {
-  ...project,
-  ...job,
-  ...daoproposal
-}
+    ...project,
+    ...daoproposal,
+    ...round,
+    ...job,
+};

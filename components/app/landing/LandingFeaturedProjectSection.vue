@@ -42,7 +42,7 @@
                   {{ project.title }}
                 </p>
 
-                <p class="small-text text-primary">{{ project.category }}</p>
+                <p class="small-text text-primary">{{ categoryMap[project.category] }}</p>
               </div>
             </div>
             <div>
@@ -72,36 +72,43 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import AppLogo from '@/components/common/AppLogo'
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'LandingFeaturedProjectSection',
+    name: 'LandingFeaturedProjectSection',
 
-  components: {
-    AppLogo,
-    LandingSectionContainer,
-  },
-
-  mixins: [ProjectBeautifyId],
-
-  props: {
-    projects: {
-      type: Array,
-      required: true,
-      default: () => [],
+    components: {
+        AppLogo,
+        LandingSectionContainer,
     },
-  },
+
+    data() {
+        return {
+            categoryMap: CategoryMap,
+        }
+    },
+
+    mixins: [ProjectBeautifyId],
+
+    props: {
+        projects: {
+        type: Array,
+        required: true,
+        default: () => [],
+        },
+    },
 }
 </script>
 
 <style scoped>
 .listed-project-container {
-  background: linear-gradient(
-    180deg,
-    #e183b3 0%,
-    rgba(255, 255, 255, 0.77) 100%
-  );
+    background: linear-gradient(
+        180deg,
+        #e183b3 0%,
+        rgba(255, 255, 255, 0.77) 100%
+    );
 }
 </style>

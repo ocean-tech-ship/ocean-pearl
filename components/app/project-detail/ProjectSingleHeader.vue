@@ -10,7 +10,7 @@
 
         <div class="text-center md:text-left">
           <h3 class="text-primary">{{ project.title }}</h3>
-          <p class="leading-none">{{ project.category }}</p>
+          <p class="leading-none">{{ categoryMap[project.category] }}</p>
         </div>
       </div>
 
@@ -44,48 +44,49 @@
 import AppButton from '@/components/common/AppButton'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import AppLogo from '@/components/common/AppLogo'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'ProjectSingleHeader',
-  components: {
-    AppLogo,
-    AppButton,
-    LandingSectionContainer,
-  },
-  props: {
-    project: {
-      type: Object,
-      required: true,
-      default: () => ({
-        logo: require('@/assets/images/detail/pearl-background.png'),
-        title: '/',
-        category: '/',
-        createdAt: -1,
-      }),
-    },
-  },
-
-  data() {
-    return {
-      copyButtonTitle: 'project.copy',
-    }
-  },
-
-  methods: {
-    formatDate(timestamp) {
-      return this.$dateFns.format(new Date(timestamp), 'PPP', {
-        locale: this.$i18n.locale,
-      })
+    name: 'ProjectSingleHeader',
+    components: {
+      AppLogo,
+      AppButton,
+      LandingSectionContainer,
     },
 
-    copyProjectLink() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
-        this.copyButtonTitle = 'project.copied'
-        setTimeout(() => (this.copyButtonTitle = 'project.copy'), 1500)
-      })
+    props: {
+      project: {
+        type: Object,
+        required: true,
+        default: () => ({
+          logo: require('@/assets/images/detail/pearl-background.png'),
+          title: '/',
+          category: '/',
+          createdAt: -1,
+        }),
+      },
     },
-  },
+
+    data() {
+      return {
+        copyButtonTitle: 'project.copy',
+        categoryMap: CategoryMap,
+      }
+    },
+
+    methods: {
+      formatDate(timestamp) {
+        return this.$dateFns.format(new Date(timestamp), 'PPP', {
+          locale: this.$i18n.locale,
+        })
+      },
+
+      copyProjectLink() {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+          this.copyButtonTitle = 'project.copied'
+          setTimeout(() => (this.copyButtonTitle = 'project.copy'), 1500)
+        })
+      },
+    },
 }
 </script>
-
-<style scoped></style>

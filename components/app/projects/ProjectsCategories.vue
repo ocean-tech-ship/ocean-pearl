@@ -12,21 +12,19 @@
 </template>
 
 <script>
-import EnumCategory from '../../enums/EnumCategory';
+import CategoryEnum from '../../enums/Category.enum';
 
   export default {
     data() {
       return {
-        EnumCategory: {
-          [EnumCategory.All]: 'All',
-          [EnumCategory.DeFi]: 'DeFi',
-          [EnumCategory.Marketplace]: 'Marketplace',
-          [EnumCategory.Identity]: 'Identity',
-          [EnumCategory.Trading]: 'Trading',
-          [EnumCategory.Usage]: 'Usage',
-          [EnumCategory.BigData]: 'Big Data',
-          [EnumCategory.Ai]: 'AI',
-          [EnumCategory.Token]: 'Token'
+        CategoryEnumMap: {
+          [CategoryEnum.Other]: 'Other',
+          [CategoryEnum.BuildAndIntegrate]: 'Build & Integrate',
+          [CategoryEnum.CoreSoftware]: 'Core Software',
+          [CategoryEnum.DAO]: 'DAO',
+          [CategoryEnum.NewEntrants]: 'New Entrants',
+          [CategoryEnum.Outreach]: 'Outreach',
+          [CategoryEnum.UnleashData]: 'Unleach Date',
         }
       }
     }

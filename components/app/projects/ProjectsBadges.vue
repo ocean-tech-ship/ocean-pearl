@@ -1,6 +1,6 @@
 <template>
   <div class="grid space-y-1">
-    <div v-for="Badge in EnumBadges" :key="Badge" class="justify-self-end flex items-center">
+    <div v-for="Badge in BadgesEnumMap" :key="Badge" class="justify-self-end flex items-center">
       <p class="small-text  text-right mr-2 text-primary">{{Badge}}</p>
       <img :src="BadgeIcons[Badge]" :alt="Badge">
     </div>
@@ -8,15 +8,15 @@
 </template>
 
 <script lang="ts">
-  import EnumBadges from '../../enums/EnumBadges';
+  import BadgesEnum from '../../enums/Badges.enum';
 
   export default {
     data() {
       return {
-        EnumBadges: {
-          [EnumBadges.Featured]: 'Featured',
-          [EnumBadges.Fund]: 'Needs Funding',
-          [EnumBadges.Hiring]: 'Hiring'
+        BadgesEnumMap: {
+          [BadgesEnum.Featured]: 'Featured',
+          [BadgesEnum.Fund]: 'Needs Funding',
+          [BadgesEnum.Hiring]: 'Hiring'
         },
         BadgeIcons: {
           'Featured': require('@/assets/images/icons/featured-badge.svg'),
