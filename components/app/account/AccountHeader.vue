@@ -34,13 +34,14 @@
         <hr class="text-primary" />
 
         <div class="p-4">
-          <p
+          <div
             v-for="address in [selectedProject.wallet]"
             :key="address"
-            class="text-primary small-text break-all"
+            class="flex items-center"
           >
-            - {{ address }}
-          </p>
+            <div class="mr-2" v-html="createIcon(address, 24)" />
+            <span class="text-primary">{{ address }}</span>
+          </div>
         </div>
       </div>
     </div>
@@ -48,6 +49,8 @@
 </template>
 
 <script>
+import Identicon from '@/mixins/Identicon'
+
 export default {
   name: 'AccountHeader',
 
@@ -64,6 +67,8 @@ export default {
       default: () => {},
     },
   },
+
+  mixins: [Identicon],
 }
 </script>
 

@@ -26,7 +26,7 @@
           />
         </div>
 
-        <p class="p-4 font-bold">
+        <p class="p-4 font-bold leading-snug">
           <span class="text-primary">1.</span>
           Choose your wallet provider
         </p>
@@ -42,7 +42,7 @@
           />
         </div>
 
-        <p class="p-4 font-bold">
+        <p class="p-4 font-bold leading-snug">
           <span class="text-primary">2.</span>
           Select account to connect
         </p>
@@ -59,7 +59,7 @@
         </div>
 
         <p class="p-4 font-bold">
-          <span class="text-primary">3.</span>
+          <span class="text-primary leading-snug">3.</span>
           Sign login request
         </p>
       </div>
