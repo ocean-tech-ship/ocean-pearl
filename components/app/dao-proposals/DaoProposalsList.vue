@@ -26,7 +26,7 @@
             </div>
             <div class="mt-5 h-112px">
               <p class="small-text line-clamp-4">
-                {{ daoProposal.description }}
+                {{ daoProposal.oneLiner }}
               </p>
             </div>
             <div class="mt-5">
