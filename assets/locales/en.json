@@ -35,7 +35,8 @@
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
-    "ocean": "{ocean} OCEAN"
+    "ocean": "{ocean} OCEAN",
+    "usd": "{usd} USD"
   },
   "jobs": {
     "header": {

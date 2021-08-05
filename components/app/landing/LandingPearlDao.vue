@@ -86,9 +86,11 @@ export default {
                 },
                 {
                 title: this.$t('daoRoundData.totalAmount'),
-                daoInfo: this.$t('general.ocean', {
-                    ocean: this.$props.metrics.totalRequestedFunding,
-                }),
+                daoInfo: this.$props.metrics.paymentOption === 'ocean' 
+                    ? this.$t('general.ocean', {
+                    ocean: this.$props.metrics.totalRequestedFunding,})
+                    : this.$t('general.usd', {
+                    usd: this.$props.metrics.totalRequestedFunding,}),
                 imageURL: require('@/assets/images/icons/transaction.svg'),
                 },
                 {
