@@ -1,7 +1,7 @@
 const enviroments = {
   mirage: process.env.NUXT_ENV_BASE_URL_LOCAL,
   mongo: process.env.NUXT_ENV_BASE_URL_LOCAL_API,
-  prod: process.env.NUXT_ENV_BASE_URL,
+  production: process.env.NUXT_ENV_BASE_URL,
 }
 
 export default {

@@ -11,7 +11,7 @@
     "dev:mirage": "cross-env API_ENV=mirage nuxt",
     "dev:mongo": "cross-env API_ENV=mongo nuxt",
     "build": "nuxt build",
-    "start": "cross-env API_ENV=prod nuxt start",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
