@@ -64,7 +64,7 @@ export default Vue.extend({
             return {
                 error: null,
                 project:
-                process.env.API_ENV === 'mirage'
+                process.env.NODE_ENV === 'mirage'
                     ? response.data.project
                     : response.data,
             }

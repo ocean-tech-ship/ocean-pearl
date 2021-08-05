@@ -45,14 +45,14 @@ export default {
         plausibleDomain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
     },
 
-    ssr: process.env.API_ENV !== 'mirage', // Disable Server Side rendering for development because of miragejs
+    ssr: process.env.NODE_ENV !== 'mirage', // Disable Server Side rendering for development because of miragejs
 
     env: {
-        useMirage: process.env.API_ENV === 'mirage',
+        useMirage: process.env.NODE_ENV === 'mirage',
     },
 
     axios: {
-        baseURL: enviroments[process.env.API_ENV],
+        baseURL: enviroments[process.env.NODE_ENV],
     },
 
     // Auto import components: https://go.nuxtjs.dev/config-components

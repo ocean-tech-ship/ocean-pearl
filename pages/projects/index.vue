@@ -48,7 +48,7 @@ export default Vue.extend({
 
             this.error = null;
             this.projects = 
-                process.env.API_ENV === 'mirage'
+                process.env.NODE_ENV === 'mirage'
                 ? projectsResponse.data.projects
                 : projectsResponse.data;
         } catch (error) {

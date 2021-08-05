@@ -71,11 +71,11 @@ export default Vue.extend({
 
             this.error = null,
             this.metrics =
-                process.env.API_ENV === 'mirage'
+                process.env.NODE_ENV === 'mirage'
                     ? metricsResponse.data.metrics
                     : metricsResponse.data;
             this.daoProposals =
-                process.env.API_ENV === 'mirage'
+                process.env.NODE_ENV === 'mirage'
                     ? daoProposalResponse.data.daoproposals
                     : daoProposalResponse.data;
         } catch (error) {
