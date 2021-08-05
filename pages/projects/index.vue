@@ -1,7 +1,7 @@
 <template>
     <div>
         <projects-header />
-        <landing-section-container v-if="$fetchState.error">
+        <landing-section-container v-if="$fetchState.error || error" class="h-screen">
             <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
             <p class="small-text">{{ $t(error) }}</p>
         </landing-section-container>
