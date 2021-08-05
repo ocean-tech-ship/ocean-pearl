@@ -7,9 +7,9 @@
     "npm": "6.x"
   },
   "scripts": {
-    "dev": "nuxt",
-    "dev:mirage": "cross-env API_ENV=mirage nuxt",
-    "dev:mongo": "cross-env API_ENV=mongo nuxt",
+    "dev": "cross-env NODE_ENV=stage nuxt",
+    "dev:mirage": "cross-env NODE_ENV=mirage nuxt",
+    "dev:mongo": "cross-env NODE_ENV=mongo nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
