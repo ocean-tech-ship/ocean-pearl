@@ -2,8 +2,16 @@
     <div>
         <landing-hero-section />
         <landing-pearl-dao :metrics="metrics" />
-        <landing-dao-proposals :dao-proposals="daoProposals" />
-        <landing-latest-projects :projects="latestProjects" />
+
+        <landingSectionContainer v-if="$fetchState.error || error" class="h-screen my-32">
+            <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
+            <p class="small-text">{{ $t(error) }}</p>
+        </landingSectionContainer>
+
+        <div v-else>
+            <landing-dao-proposals :dao-proposals="daoProposals" />
+            <landing-latest-projects :projects="latestProjects" />
+        </div>
     </div>
 </template>
 
@@ -14,6 +22,7 @@ import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue'
 import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vue';
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue';
 import LandingPearlDao from '~/components/app/landing/LandingPearlDao.vue';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 
 export default Vue.extend({
     components: {
@@ -21,19 +30,29 @@ export default Vue.extend({
         LandingDaoProposals,
         LandingLatestProjects,
         LandingPearlDao,
+        LandingSectionContainer,
     },
 
     data() {
         return {
-            error: '',
-            featuredProjects: null,
+            error: null,
             latestProjects: null,
-            daoFeaturedProjects: null,
             daoProposals: null,
             metrics: {
                 fundingRound: '',
                 totalDaoProposals: '',
-                endDate: Date.now(),
+                currentRound: {
+                    startDate: new Date(),
+                    submissionEndDate: new Date(),
+                    votingStartDate: new Date(),
+                    endDate: new Date(),
+                },
+                nextRound: {
+                    startDate: new Date(),
+                    submissionEndDate: new Date(),
+                    votingStartDate: new Date(),
+                    endDate: new Date(),
+                },
                 totalRequestedFunding: '',
                 totalVotes: '',
             },
@@ -48,25 +67,19 @@ export default Vue.extend({
                 indexResponse.status === 204
             ) {
                 this.error = 'general.error.unknown';
-                this.featuredProjects = [];
                 this.latestProjects = [];
-                this.daoFeaturedProjects = [];
                 this.daoProposals = [];
             }
 
             const data = indexResponse.data;
 
             this.error = null,
-            this.featuredProjects = data.featuredProjects;
             this.latestProjects = data.latestProjects;
-            this.daoFeaturedProjects = data.daoFeaturedProjects;
             this.daoProposals = data.daoProposals;
             this.metrics = data.metrics;
         } catch (error) {
                 this.error = 'general.error.retry';
-                this.featuredProjects = [];
                 this.latestProjects = [];
-                this.daoFeaturedProjects = [];
                 this.daoProposals = [];
         };
     },

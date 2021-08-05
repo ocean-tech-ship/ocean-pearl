@@ -48,7 +48,18 @@ export default {
             default: {
                 fundingRound: '',
                 totalDaoProposals: '',
-                endDate: Date.now(),
+                currentRound: {
+                    startDate: new Date(),
+                    submissionEndDate: new Date(),
+                    votingStartDate: new Date(),
+                    endDate: new Date(),
+                },
+                nextRound: {
+                    startDate: new Date(),
+                    submissionEndDate: new Date(),
+                    votingStartDate: new Date(),
+                    endDate: new Date(),
+                },
                 totalRequestedFunding: '',
                 totalVotes: '',
             },
@@ -74,12 +85,12 @@ export default {
                 },
                 {
                 title: this.$i18n.t(
-                    this.$dateFns.isPast(new Date(this.metrics.endDate))
+                    this.$dateFns.isPast(new Date(this.metrics.currentRound.endDate))
                     ? 'daoRoundData.countdown.after'
                     : 'daoRoundData.countdown.before'
                 ),
                 daoInfo: this.$dateFns.formatDistanceToNowStrict(
-                    new Date(this.$props.metrics.endDate),
+                    new Date(this.$props.metrics.currentRound.endDate),
                     { locale: this.$i18n.locale, addSuffix: true }
                 ),
                 imageURL: require('@/assets/images/icons/countdown.svg'),

@@ -8,7 +8,7 @@
             <p>{{ $t('dao-projects.header.text') }}</p>
         </landing-section-container>
 
-        <landing-section-container v-if="$fetchState.error">
+        <landing-section-container v-if="$fetchState.error || error" class="h-screen">
             <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
             <p class="small-text">{{ $t(error) }}</p>
         </landing-section-container>
@@ -47,7 +47,18 @@ export default Vue.extend({
             metrics: {
                 fundingRound: '',
                 totalDaoProposals: '',
-                endDate: Date.now(),
+                currentRound: {
+                    startDate: new Date(),
+                    submissionEndDate: new Date(),
+                    votingStartDate: new Date(),
+                    endDate: new Date(),
+                },
+                nextRound: {
+                    startDate: new Date(),
+                    submissionEndDate: new Date(),
+                    votingStartDate: new Date(),
+                    endDate: new Date(),
+                },
                 totalRequestedFunding: '',
                 totalVotes: '',
             },
