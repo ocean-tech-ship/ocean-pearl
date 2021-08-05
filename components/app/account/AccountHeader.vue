@@ -40,7 +40,7 @@
             class="flex items-center"
           >
             <div class="mr-2" v-html="createIcon(address, 24)" />
-            <span class="text-primary">{{ address }}</span>
+            <span class="text-primary break-all">{{ address }}</span>
           </div>
         </div>
       </div>
