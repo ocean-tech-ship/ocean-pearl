@@ -53,7 +53,7 @@ export default Vue.extend({
                     votingStartDate: new Date(),
                     endDate: new Date(),
                 },
-                totalRequestedFunding: '',
+                totalRequestedFundingOcean: '',
                 totalVotes: '',
             },
         };
