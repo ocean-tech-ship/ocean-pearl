@@ -38,7 +38,7 @@
 
                         <div class="mt-5 h-128px">
                             <p class="small-text line-clamp-3">
-                                {{ daoProposal.description }}
+                                {{ daoProposal.oneLiner }}
                             </p>
                         </div>
 
