@@ -60,7 +60,7 @@ export default {
                     votingStartDate: new Date(),
                     endDate: new Date(),
                 },
-                totalRequestedFunding: '',
+                totalRequestedFundingOcean: '',
                 totalVotes: '',
             },
         },
@@ -99,9 +99,9 @@ export default {
                 title: this.$t('daoRoundData.totalAmount'),
                 daoInfo: this.$props.metrics.paymentOption === 'ocean' 
                     ? this.$t('general.ocean', {
-                    ocean: this.$props.metrics.totalRequestedFunding,})
+                    ocean: this.$props.metrics.totalRequestedFundingOcean,})
                     : this.$t('general.usd', {
-                    usd: this.$props.metrics.totalRequestedFunding,}),
+                    usd: this.$props.metrics.totalRequestedFundingUsd,}),
                 imageURL: require('@/assets/images/icons/transaction.svg'),
                 },
                 {
