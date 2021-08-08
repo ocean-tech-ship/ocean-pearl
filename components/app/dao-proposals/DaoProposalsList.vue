@@ -6,13 +6,13 @@
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <NuxtLink
           :prefetch="false"
-          :to="`/projects/${daoProposal.project._id}`"
+          :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
         >
           <div class="shadow rounded p-8 h-full">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
-                  class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  class="inline-block h-10 w-10 rounded-full"
                   :src="daoProposal.project.logo"
                   :alt="daoProposal.project.title"
                 />
@@ -21,12 +21,12 @@
                 <p class="text-primary leading-snug line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
-                <p class="small-text">{{ daoProposal.category }}</p>
+                <p class="small-text">{{ categoryMap[daoProposal.category] }}</p>
               </div>
             </div>
             <div class="mt-5 h-112px">
               <p class="small-text line-clamp-4">
-                {{ daoProposal.description }}
+                {{ daoProposal.oneLiner }}
               </p>
             </div>
             <div class="mt-5">
@@ -88,21 +88,31 @@
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer'
 import AppLogo from '~/components/common/AppLogo'
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'DaoProjectsList',
+  name: 'DaoProposalsList',
+
   components: {
     AppLogo,
     LandingSectionContainer,
   },
+
+  data() {
+    return {
+        categoryMap: CategoryMap,
+    }
+  },
+
+  mixins: [ProjectBeautifyId],
+
   props: {
     daoProposals: {
       type: Array,
       required: true,
-      default: [],
+      default: () => [],
     },
   },
 }
 </script>
-
-<style scoped></style>

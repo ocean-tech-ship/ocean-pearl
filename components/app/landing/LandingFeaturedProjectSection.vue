@@ -27,12 +27,12 @@
       </div>
 
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
+        <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
-                  class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                  class="inline-block h-10 w-10 rounded-full"
                   :src="project.logo"
                   :alt="project.title"
                 />
@@ -42,7 +42,7 @@
                   {{ project.title }}
                 </p>
 
-                <p class="small-text text-primary">{{ project.category }}</p>
+                <p class="small-text text-primary">{{ categoryMap[project.category] }}</p>
               </div>
             </div>
             <div>
@@ -72,33 +72,43 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import AppLogo from '@/components/common/AppLogo'
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId'
+import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
-  name: 'LandingFeaturedProjectSection',
+    name: 'LandingFeaturedProjectSection',
 
-  components: {
-    AppLogo,
-    LandingSectionContainer,
-  },
-
-  props: {
-    projects: {
-      type: Array,
-      required: true,
-      default: () => [],
+    components: {
+        AppLogo,
+        LandingSectionContainer,
     },
-  },
+
+    data() {
+        return {
+            categoryMap: CategoryMap,
+        }
+    },
+
+    mixins: [ProjectBeautifyId],
+
+    props: {
+        projects: {
+        type: Array,
+        required: true,
+        default: () => [],
+        },
+    },
 }
 </script>
 
 <style scoped>
 .listed-project-container {
-  background: linear-gradient(
-    180deg,
-    #e183b3 0%,
-    rgba(255, 255, 255, 0.77) 100%
-  );
+    background: linear-gradient(
+        180deg,
+        #e183b3 0%,
+        rgba(255, 255, 255, 0.77) 100%
+    );
 }
 </style>

@@ -35,7 +35,8 @@
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
-    "ocean": "{ocean} OCEAN"
+    "ocean": "{ocean} OCEAN",
+    "usd": "{usd} USD"
   },
   "jobs": {
     "header": {
@@ -103,7 +104,7 @@
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarDao": "Dao",
+    "navbarDao": "Dao Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarProjects": "Projects"
@@ -113,6 +114,7 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
+    "wallet": "Project Wallet Address",
     "proposal": {
       "empty": "no funding yet",
       "requested": "Requested Funding",
@@ -126,8 +128,7 @@
         "proposal": "proposal"
       },
       "total": "Total Fundings",
-      "vote": "vote here",
-      "wallet": "Proposal Wallet Address"
+      "vote": "vote here"
     },
     "readFull": "read full proposal",
     "roi": {

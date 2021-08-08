@@ -5,21 +5,21 @@
         <NuxtLink to="/">
          <div class="flex items-center">
              <img src="@/assets/images/pearl-logo.svg" alt="pearl-logo">
-             <p class="xs:block md:hidden xl:block pl-2 text-primary">{{ $t('navbar.logoText') }}</p>   
+             <p class="xs:block md:hidden xl:block pl-2 text-primary">{{ $t('navbar.logoText') }}</p>
          </div>
         </NuxtLink>
          <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
              <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
-             <NuxtLink to="/dao-project-overview">{{ $t('navbar.navbarDao') }}</NuxtLink>
+             <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
              <app-link to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template">
                 <app-button-style
-                  class="px-4 text-center"
+                  class="text-center"
                   :icon="require('@/assets/images/icons/vote-white.svg')"
                   :text="$t('project.proposal.submit')"
                 />
              </app-link>
          </div>
-         <div class="md:hidden"> 
+         <div class="md:hidden">
            <button-with-dropdown />
          </div>
      </div>
@@ -33,8 +33,8 @@ import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
 
 export default {
-  components: 
-  { 
+  components:
+  {
     ButtonWithDropdown,
     AppButtonStyle,
     AppLink

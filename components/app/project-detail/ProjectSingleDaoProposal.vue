@@ -1,13 +1,16 @@
 <template>
-  <landing-section-container>
-    <h4>
+  <div>
+    <h4 v-if="!!coverImage">
       {{ $t('project.proposal.title.dao') }}
       <span class="text-primary">
         {{ $t('project.proposal.title.proposal') }}
       </span>
     </h4>
 
-    <div class="grid lg:grid-cols-2 gap-4 xl:gap-32 mt-6">
+    <div
+      class="grid gap-4"
+      :class="coverImage ? 'my-6 lg:grid-cols-2 xl:gap-32' : 'mb-6 xl:gap-8'"
+    >
       <div class="grid lg:grid-cols-2 gap-4 xl:gap-8">
         <!-- Funding Round -->
         <div class="shadow rounded p-4">
@@ -26,7 +29,7 @@
           <p class="small-text">
             {{
               $t('project.proposal.round.numbered', {
-                round: newestProposal.fundingRound,
+                round: newestProposal.fundingRound.round,
               })
             }}
           </p>
@@ -56,10 +59,10 @@
         <!-- Proposal Wallet Address -->
         <div class="shadow rounded p-4 lg:col-span-2">
           <p class="small-text text-primary">
-            {{ $t('project.proposal.wallet') }}
+            {{ $t('project.wallet') }}
           </p>
 
-          <p class="small-text break-all">{{ newestProposal.walletAddress }}</p>
+          <p class="small-text break-all">{{ project.walletAddress }}</p>
         </div>
 
         <!-- Action (lg only) -->
@@ -74,7 +77,7 @@
         </div>
       </div>
 
-      <div class="grid lg:flex lg:justify-end">
+      <div :class="coverImage ? 'grid lg:flex lg:justify-end' : ''">
         <!-- Total Fundings -->
         <div>
           <div class="shadow rounded p-4 overflow-y-auto lg:max-h-52">
@@ -99,14 +102,14 @@
 
             <p
               v-for="proposal in grantedProposals"
-              :key="proposal.fundingRound"
+              :key="proposal.fundingRound.round"
               class="small-text pr-8"
             >
-              {{ $t('general.ocean', { ocean: proposal.requestedGrantToken }) }}
+              {{ $t('general.ocean', { ocean: proposal.grantedToken }) }}
 
               ({{
                 $t('project.proposal.round.numbered', {
-                  round: proposal.fundingRound,
+                  round: proposal.fundingRound.round,
                 })
               }})
             </p>
@@ -124,14 +127,13 @@
         </app-link>
       </div>
     </div>
-  </landing-section-container>
+  </div>
 </template>
 
 <script>
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import EnumDaoProposalStatus from '@/components/enums/EnumDaoProposalStatus'
+import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum'
 
 const EMPTY_PROPOSAL = {
   fundingRound: '/',
@@ -145,7 +147,6 @@ export default {
   components: {
     AppButtonStyle,
     AppLink,
-    LandingSectionContainer,
   },
 
   props: {
@@ -159,13 +160,19 @@ export default {
   },
 
   computed: {
+    coverImage() {
+      return this.$props.project.pictures.length > 0
+        ? this.$props.project.pictures[0]
+        : null /* require('@/assets/images/detail/pearl-background.png') */
+    },
+
     grantedProposals() {
       const proposals = this.$props.project.daoProposals
         ? this.$props.project.daoProposals
         : []
 
       return proposals.filter(
-        (proposal) => proposal.status === EnumDaoProposalStatus.Funded
+        (proposal) => proposal.status === DaoProposalStatusEnum.Funded
       )
     },
 
@@ -178,5 +185,3 @@ export default {
   },
 }
 </script>
-
-<style scoped></style>
