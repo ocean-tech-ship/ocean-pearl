@@ -1,16 +1,21 @@
 <template>
-  <section tabindex="0" class="flex border py-1 pr-2.5 pl-1">
+  <section class="relative flex border w-full">
     <button
+      id="dropdown-emit"
+      tabindex="0"
       :class="{ open: open }"
-      class="h-full flex items-center small-text relative"
+      class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
       @click="toggleOpen"
       @blur="handleBlur"
     >
-      {{ buttonName }}
+      {{ selectedName }}
     </button>
+    <label for="dropdown-emit" class="label absolute p-1 z-10">{{
+      buttonName
+    }}</label>
     <section
       v-if="open"
-      class="border bg-grey rounded shadow absolute top-10 z-50"
+      class="border bg-grey rounded shadow absolute top-10 z-40"
     >
       <ul>
         <li
@@ -47,20 +52,26 @@ export default {
   data() {
     return {
       open: false,
+      selectedName: 'All',
     }
   },
   methods: {
+    setselectedName(selected) {
+      this.selectedName = selected
+    },
     toggleOpen() {
       this.open = !this.open
     },
     handleSelection(menuItem) {
+      this.setselectedName(menuItem.content)
       this.$emit('selected', menuItem)
       this.toggleOpen()
     },
     handleBlur(e) {
       if (
         (!e.relatedTarget && this.open) ||
-        (!e.relatedTarget?.classList.contains('menuItem') && this.open)
+        (!e.relatedTarget?.classList.contains('menuItem') && this.open) ||
+        (!e.relatedTarget?.classList.contains('label') && this.open)
       )
         this.toggleOpen()
     },
@@ -69,9 +80,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-button:focus {
-  outline: none;
+label {
+  font-size: 0.7rem;
+  top: -13px;
+  left: 12px;
+  transition: 200ms;
+  background: #fff;
 }
+
 button::before {
   content: '';
   background: url('@/assets/images/icons/dropdown.svg') center center no-repeat;
@@ -86,7 +102,7 @@ button.open::before {
 ul {
   min-width: 140px;
   max-width: auto;
-  max-height: 160px;
+  max-height: 222px;
   overflow-y: scroll;
   background: white;
   border-radius: 7px;

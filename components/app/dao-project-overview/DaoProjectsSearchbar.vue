@@ -1,11 +1,19 @@
 <template>
-  <div class="space-x-4 min-w-full mt-6 2sm:mt-3 flex lg:mt-0 lg:min-w-0">
+  <div class="w-full">
     <input
+      id="dao-projects-search"
       v-model="searchValue"
       type="text"
-      placeholder="search project..."
       class="py-3 pl-3 w-96 border-primary rounded border min-w-full"
+      @focus="focused = true"
+      @blur="focused = false"
     />
+    <label
+      class="absolute text-primary p-1"
+      :class="{ isFocused: focused }"
+      for="dao-projects-search"
+      >Search Projects</label
+    >
   </div>
 </template>
 
@@ -16,6 +24,7 @@ export default {
   data() {
     return {
       searchValue: '',
+      focused: false,
     }
   },
   watch: {
@@ -26,5 +35,16 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
->
+<style lang="scss" scoped>
+label {
+  top: 9.2px;
+  left: 12px;
+  transition: 200ms;
+  z-index: 50;
+  background: #fff;
+}
+.isFocused {
+  font-size: 0.7rem;
+  top: -11.7px;
+}
+</style>

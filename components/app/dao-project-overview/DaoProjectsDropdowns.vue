@@ -1,16 +1,14 @@
 <template>
-  <div
-    class="flex flex-col 2sm:flex-row -top-1 2sm:top-4 flex-col text-primary absolute lg:top-0 lg:relative"
-  >
+  <div class="text-primary">
     <ButtonEmitWithDropdown
       button-name="Rounds"
-      class="mr-1 mb-1 mt-0 lg:mb-0 lg:mt-1"
+      class="rounded my-2 mr-2 w-36"
       :menu-items="roundItems"
       @selected="setItems"
     />
     <ButtonEmitWithDropdown
       button-name="Category"
-      class="mr-1 mb-1 mt-0 lg:mb-0 lg:mt-1"
+      class="rounded my-2 mr-2 w-36"
       :menu-items="categoryItems"
       @selected="setItems"
     />

@@ -32,15 +32,19 @@
     </div>
     <hr class="text-primary my-16" />
     <div
-      class="relative my-8 flex flex-col-reverse items-start lg:flex-row lg:items-center lg:justify-between"
+      class="relative my-8 h-40 sm:h-32 lg:h-auto lg:grid lg:grid-flow-col lg:grid-cols-3 lg:gap-4 lg:items-center"
     >
-      <DaoProjectsDropdowns @selected-items="setFilter" />
-      <div class="flex w-full lg:w-auto">
-        <DaoProjectsSearchbar @search-projects="setFilter" />
-      </div>
-      <div class="flex w-full justify-end lg:w-auto">
-        <DaoProjectsBadges />
-      </div>
+      <DaoProjectsDropdowns
+        class="flex flex-col items-start sm:items-center sm:h-16 sm:flex-row sm:flex-wrap sm:items-center lg:h-auto"
+        @selected-items="setFilter"
+      />
+      <DaoProjectsSearchbar
+        class="absolute bottom-0 z-10 flex w-full lg:relative lg:w-auto"
+        @search-projects="setFilter"
+      />
+      <DaoProjectsBadges
+        class="absolute top-2 right-0 flex justify-end sm:top-0 lg:w-auto lg:relative"
+      />
     </div>
   </LandingSectionContainer>
 </template>
@@ -129,7 +133,9 @@ export default {
       deep: true,
       handler: function callFilter() {
         const { round, category, search } = this.filter
-        const query = `MEGAFILTERROUTE?round=${round}?category=${category}?search=${search}`
+        const query = `MEGAFILTERROUTE?round=${round}&category=${category}${
+          search && '&search=' + search
+        }`
 
         console.log('API CALL: ', query)
       },
