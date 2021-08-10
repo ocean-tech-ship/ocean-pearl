@@ -13,25 +13,45 @@
   },
   "daoRoundData": {
     "amountProposals": "Amount proposals",
-    "countdown": {
-      "after": "Voting ended",
-      "before": "Voting ends"
-    },
     "fundingRound": "Funding Round",
     "numberedProjects": "{projects} projects",
     "submit": {
-      "active": "Proposal submission ends",
-      "after": "Proposal submission ended",
-      "before": "Proposal submission begins",
-      "next": "Submit proposal next round"
+      "active": {
+        "title": "Proposal submission ends",
+        "tooltip": "Proposals can be submitted until {timestamp}."
+      },
+      "after": {
+        "title": "Proposal submission ended",
+        "tooltip": "Proposal submission ended on {timestamp}."
+      },
+      "before": {
+        "title": "Proposal submission begins",
+        "tooltip": "Proposal submission begins on {timestamp}."
+      },
+      "next": {
+        "title": "Submit proposal next round",
+        "tooltip": "Proposal submission for the next round starts on {timestamp}."
+      }
     },
     "totalAmount": "Total Amount",
     "totalVotes": "Total Votes",
     "vote": {
-      "active": "Voting ends",
-      "after": "Voting ended",
-      "before": "Voting begins",
-      "next": "Voting next round"
+      "active": {
+        "title": "Voting ends",
+        "tooltip": "The voting ends on {timestamp}."
+      },
+      "after": {
+        "title": "Voting ended",
+        "tooltip": "The voting ended on {timestamp}."
+      },
+      "before": {
+        "title": "Voting begins",
+        "tooltip": "The voting starts on {timestamp}."
+      },
+      "next": {
+        "title": "Voting next round",
+        "tooltip": "The voting for the next round starts on {timestamp}."
+      }
     }
   },
   "footer": {
