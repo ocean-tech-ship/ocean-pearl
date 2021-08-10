@@ -19,8 +19,20 @@
     },
     "fundingRound": "Funding Round",
     "numberedProjects": "{projects} projects",
+    "submit": {
+      "active": "Proposal submission ends",
+      "after": "Proposal submission ended",
+      "before": "Proposal submission begins",
+      "next": "Submit proposal next round"
+    },
     "totalAmount": "Total Amount",
-    "totalVotes": "Total Votes"
+    "totalVotes": "Total Votes",
+    "vote": {
+      "active": "Voting ends",
+      "after": "Voting ended",
+      "before": "Voting begins",
+      "next": "Voting next round"
+    }
   },
   "footer": {
     "analytics": "Analytics"
@@ -114,7 +126,6 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
-    "wallet": "Project Wallet Address",
     "proposal": {
       "empty": "no funding yet",
       "requested": "Requested Funding",
@@ -139,7 +150,8 @@
       "title": "ROI"
     },
     "team": "Team",
-    "unknown": "The requested project could not be found."
+    "unknown": "The requested project could not be found.",
+    "wallet": "Project Wallet Address"
   },
   "project_detail": {
     "fundHereButton": "fund here",
