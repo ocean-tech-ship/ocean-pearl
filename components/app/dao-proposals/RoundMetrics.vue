@@ -1,41 +1,36 @@
 <template>
-  <LandingSectionContainer>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
-      <div v-for="card in daoInfoCards" :key="card.title">
-        <app-tooltip :hint="card.tooltip">
-          <div class="shadow rounded p-4 pb-4">
-            <div class="flex align-center">
-              <div class="mr-3">
-                <img
-                  class="inline-block mt-3 h-6 w-6"
-                  :src="card.imageURL"
-                  :alt="card.title"
-                />
-              </div>
-              <div>
-                <p class="text-primary small-text line-clamp-1">
-                  {{ card.title }}
-                </p>
-                <p class="small-text">{{ card.daoInfo }}</p>
-              </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-10">
+    <div v-for="card in daoInfoCards" :key="card.title">
+      <app-tooltip :hint="card.tooltip">
+        <div class="shadow rounded p-4 pb-4">
+          <div class="flex align-center">
+            <div class="mr-3">
+              <img
+                class="inline-block mt-3 h-6 w-6"
+                :src="card.imageURL"
+                :alt="card.title"
+              />
+            </div>
+            <div>
+              <p class="text-primary small-text line-clamp-1">
+                {{ card.title }}
+              </p>
+              <p class="small-text">{{ card.daoInfo }}</p>
             </div>
           </div>
-        </app-tooltip>
-      </div>
+        </div>
+      </app-tooltip>
     </div>
-    <hr class="text-primary my-16" />
-  </LandingSectionContainer>
+  </div>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
 import AppTooltip from '@/components/common/AppTooltip';
 
 export default {
   name: 'RoundMetrics',
 
   components: {
-    LandingSectionContainer,
     AppTooltip,
   },
 
