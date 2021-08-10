@@ -18,7 +18,7 @@
     </div>
 
     <div v-else>
-      <round-metrics :metrics="metrics" />
+      <round-metrics class="mt-10" :metrics="metrics" />
       <hr class="text-primary my-16" />
       <dao-proposals-list :dao-proposals="daoProposals" />
     </div>
