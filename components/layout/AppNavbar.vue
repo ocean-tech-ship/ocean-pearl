@@ -10,7 +10,7 @@
         </NuxtLink>
          <div class="flex md:space-x-62px lg:space-x-128px hidden md:block">
              <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
-             <NuxtLink to="/dao-project-overview">{{ $t('navbar.navbarDao') }}</NuxtLink>
+             <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
              <app-link to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template">
                 <app-button-style
                   class="text-center"

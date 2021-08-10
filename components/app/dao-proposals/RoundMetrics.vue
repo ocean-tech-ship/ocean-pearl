@@ -1,46 +1,42 @@
 <template>
-    <LandingSectionContainer class="my-32">
-        <hr class="text-primary mb-32" />
-        <h2>
-            {{ $t('landing.pearl_dao.title') }}
-            <span class="text-primary">{{ $t('landing.pearl_dao.titleHighlight') }}</span>
-        </h2>
-        <p>{{ $t('landing.pearl_dao.text') }}</p>
-        <div
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
-            <div v-for="card in daoInfoCards" :key="card.title">
-                <div class="rounded shadow p-4 pb-4">
-                <div class="flex align-center">
-                    <div class="mr-3">
-                    <img
-                        class="inline-block mt-3 h-6 w-6"
-                        :src="card.imageURL"
-                        :alt="card.title"
-                    />
-                    </div>
-                    <div>
-                    <p class="text-primary small-text line-clamp-1">
-                        {{ card.title }}
-                    </p>
-                    <p class="small-text">{{ card.daoInfo }}</p>
-                    </div>
-                </div>
-                </div>
+  <LandingSectionContainer>
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
+    >
+      <div v-for="card in daoInfoCards" :key="card.title">
+        <div class="shadow rounded p-4 pb-4">
+          <div class="flex align-center">
+            <div class="mr-3">
+              <img
+                class="inline-block mt-3 h-6 w-6"
+                :src="card.imageURL"
+                :alt="card.title"
+              />
             </div>
+            <div>
+              <p class="text-primary small-text line-clamp-1">
+                {{ card.title }}
+              </p>
+              <p class="small-text">{{ card.daoInfo }}</p>
+            </div>
+          </div>
         </div>
-    </LandingSectionContainer>
+      </div>
+    </div>
+    <hr class="text-primary my-16" />
+  </LandingSectionContainer>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import LandingSectionContainer from '../landing/LandingSectionContainer'
 
 export default {
-    name: 'LandingPearlDao',
+    name: 'RoundMetrics',
 
     components: {
         LandingSectionContainer,
     },
-
+  
     props: {
         metrics: {
             type: Object,
@@ -62,7 +58,7 @@ export default {
                 },
                 totalRequestedFundingOcean: '',
                 totalVotes: '',
-            },
+            }
         },
     },
 

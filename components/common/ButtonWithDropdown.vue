@@ -25,7 +25,7 @@
           <li>
             <NuxtLink
               class="font-bold block px-4 py-3"
-              to="/dao-project-overview"
+              to="/dao-projects"
               >{{ $t('navbar.navbarDao') }}</NuxtLink
             >
           </li>
@@ -60,13 +60,7 @@ export default {
   components: {
     MainDropdown,
     AppLink,
-  },
-  data() {
-    return {
-      username: 'John Wick',
-      email: 'dontkillmydog@johnwick.com',
-    }
-  },
+  }
 }
 </script>
 

@@ -12,17 +12,17 @@
 </template>
 
 <script lang="ts">
-  import EnumStatus from '../../enums/EnumStatus';
+  import StatusEnum from '../../enums/Status.enum';
 
   export default {
     data() {
       return {
-        EnumStatus: {
-          [EnumStatus.All]: 'All',
-          [EnumStatus.Latest]: 'Latest',
-          [EnumStatus.Hiring]: 'Hiring',
-          [EnumStatus.Featured]: 'Featured',
-          [EnumStatus.Fund]: 'Awaiting Fund'
+        StatusEnum: {
+          [StatusEnum.All]: 'All',
+          [StatusEnum.Latest]: 'Latest',
+          [StatusEnum.Hiring]: 'Hiring',
+          [StatusEnum.Featured]: 'Featured',
+          [StatusEnum.Fund]: 'Awaiting Fund'
         }
       }
     }
