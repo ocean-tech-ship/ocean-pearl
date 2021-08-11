@@ -28,7 +28,7 @@ export default {
     },
   },
 
-  beforeMount() {
+  mounted() {
     update('[data-jdenticon-value]');
   },
 };
