@@ -1,12 +1,17 @@
 <template>
   <div>
-    <landing-section-container v-if="error">
+    <!-- error visualization -->
+    <section-container v-if="error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t(error) }}</p>
-    </landing-section-container>
+    </section-container>
 
+    <!-- content -->
     <div v-if="project">
-      <project-single-header :project="project" />
+      <section-container>
+        <hr class="text-darkgrey hidden md:block -mt-16" />
+        <project-single-header class="my-8" :project="project" />
+      </section-container>
 
       <div class="bg-grey pt-8 pb-1 mb-8">
         <landing-section-container
@@ -29,21 +34,21 @@
 <script>
 import Vue from 'vue';
 import { getProjectById } from '@/api.js';
+import SectionContainer from '@/components/common/SectionContainer';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue';
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue';
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 
 export default Vue.extend({
   name: 'ProjectDetail',
 
   components: {
     // ProjectSingleRoiStrategy,
+    SectionContainer,
     ProjectSingleDetails,
     ProjectSingleDaoProposal,
     ProjectSingleHeader,
-    LandingSectionContainer,
   },
 
   mixins: [ProjectBeautifyId],
