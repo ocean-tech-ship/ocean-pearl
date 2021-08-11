@@ -1,9 +1,9 @@
 <template>
-  <canvas :width="size" :height="size" :data-jdenticon-value="value" />
+  <div v-html="createIdenticon(value, size)" />
 </template>
 
 <script>
-import { update } from 'jdenticon';
+import { toSvg } from 'jdenticon';
 
 export default {
   name: 'AppIdenticon',
@@ -22,16 +22,10 @@ export default {
     },
   },
 
-  watch: {
-    value() {
-      update('[data-jdenticon-value]');
+  methods: {
+    createIdenticon(value, size) {
+      return toSvg(value, size);
     },
-  },
-
-  mounted() {
-    update('[data-jdenticon-value]');
   },
 };
 </script>
-
-<style scoped></style>
