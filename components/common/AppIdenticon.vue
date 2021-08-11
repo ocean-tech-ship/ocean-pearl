@@ -1,5 +1,5 @@
 <template>
-  <svg :width="size" :height="size" :data-jdenticon-value="value" />
+  <canvas :width="size" :height="size" :data-jdenticon-value="value" />
 </template>
 
 <script>
