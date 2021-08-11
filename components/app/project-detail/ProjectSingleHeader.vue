@@ -3,9 +3,10 @@
     <div class="flex flex-wrap items-center justify-center md:justify-between">
       <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
         <app-logo
-          class="w-16 h-16 mx-4 inline-block rounded-full"
+          class="mx-4 inline-block rounded-full self-end"
           :src="project.logo"
           :alt="project.title"
+          :size="64"
         />
 
         <div class="text-center md:text-left">
@@ -44,13 +45,16 @@
 import AppButton from '@/components/common/AppButton'
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
 import AppLogo from '@/components/common/AppLogo'
+import AppIdenticon from '@/components/common/AppIdenticon';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {
     name: 'ProjectSingleHeader',
+
     components: {
       AppLogo,
       AppButton,
+      AppIdenticon,
       LandingSectionContainer,
     },
 

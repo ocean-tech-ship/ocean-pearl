@@ -1,14 +1,27 @@
 <template>
-  <img
-    class="max-w-none max-h-none"
-    :src="conditionalSource"
-    :alt="`${alt} ${$t('general.logo')}`"
-  />
+  <div>
+    <img
+      v-if="!!src"
+      class="max-w-none max-h-none"
+      :width="`${size}px`"
+      :height="`${size}px`"
+      :src="src"
+      :alt="`${alt} ${$t('general.logo')}`"
+    />
+
+    <app-identicon :value="alt" :size="size" />
+  </div>
 </template>
 
 <script>
+import AppIdenticon from '@/components/common/AppIdenticon';
+
 export default {
   name: 'AppLogo',
+
+  components: {
+    AppIdenticon,
+  },
 
   props: {
     src: {
@@ -17,22 +30,19 @@ export default {
       default: '',
     },
 
+    size: {
+      type: Number,
+      required: false,
+      default: 64,
+    },
+
     alt: {
       type: String,
       required: true,
       default: '',
     },
   },
-
-  computed: {
-    conditionalSource() {
-      const src = this.$props.src
-      return !!src && src.length > 0 && src.includes('/')
-        ? src
-        : require('@/assets/images/logo/pearl-logo.svg')
-    },
-  },
-}
+};
 </script>
 
 <style scoped></style>

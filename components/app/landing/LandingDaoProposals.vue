@@ -20,11 +20,12 @@
                 :to="`/projects/${beautifyProjectId(daoProposal.project)}`">
                     <div class="shadow rounded h-330px p-8">
                         <div class="flex">
-                            <div class="mr-3">
+                            <div class="mr-3 self-end">
                                 <app-logo
-                                class="inline-block h-10 w-10 rounded-full"
+                                class="inline-block rounded-full"
                                 :src="daoProposal.project.logo"
                                 :alt="daoProposal.project.title"
+                                :size="45"
                                 />
                             </div>
 
