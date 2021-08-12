@@ -55,7 +55,7 @@
           class="flex items-center"
         >
           <app-identicon class="mr-2" :size="20" :value="address" />
-          <span>{{ address }}</span>
+          <span class="break-all">{{ address }}</span>
         </div>
       </template>
 
