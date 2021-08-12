@@ -13,6 +13,12 @@
         <project-single-header class="my-8" :project="project" />
       </section-container>
 
+      <div class="bg-grey">
+        <section-container class="py-8">
+          <project-single-description :project="project" />
+        </section-container>
+      </div>
+
       <div class="bg-grey pt-8 pb-1 mb-8">
         <landing-section-container
           class="grid gap-12 lg:mb-0"
@@ -39,6 +45,7 @@ import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue';
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue';
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
+import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription';
 
 export default Vue.extend({
   name: 'ProjectDetail',
@@ -46,6 +53,7 @@ export default Vue.extend({
   components: {
     // ProjectSingleRoiStrategy,
     SectionContainer,
+    ProjectSingleDescription,
     ProjectSingleDetails,
     ProjectSingleDaoProposal,
     ProjectSingleHeader,
