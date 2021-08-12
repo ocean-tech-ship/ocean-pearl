@@ -22,6 +22,8 @@
 
           <hr class="text-primary my-8" />
 
+          <project-single-dao-proposal-header />
+
           <project-single-dao-proposal-metrics :project="project" />
 
           <hr class="my-8" />
@@ -29,21 +31,6 @@
           <project-single-dao-proposal-history :project="project" />
         </section-container>
       </div>
-
-      <div class="bg-grey pt-8 pb-1 mb-8">
-        <landing-section-container
-          class="grid gap-12 lg:mb-0"
-          :class="coverImage ? 'lg:grid-cols-1' : 'lg:grid-cols-2'"
-        >
-          <project-single-details :project="project" />
-
-          <hr v-if="coverImage" class="text-primary" />
-
-          <project-single-dao-proposal :project="project" />
-        </landing-section-container>
-      </div>
-
-      <!--<project-single-roi-strategy :project="project" />-->
     </div>
   </div>
 </template>
@@ -60,6 +47,7 @@ import ProjectSingleDescription from '@/components/app/project-detail/ProjectSin
 import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam';
 import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery';
 import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
+import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader';
 import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics';
 import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory';
 
@@ -76,6 +64,7 @@ export default Vue.extend({
     ProjectSingleTeam,
     ProjectSingleGallery,
     ProjectSingleSocials,
+    ProjectSingleDaoProposalHeader,
     ProjectSingleDaoProposalMetrics,
     ProjectSingleDaoProposalHistory,
   },
