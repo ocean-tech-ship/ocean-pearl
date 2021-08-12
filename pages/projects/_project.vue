@@ -21,6 +21,8 @@
           <project-single-socials :project="project" />
 
           <hr class="text-primary my-8" />
+
+          <project-single-dao-proposal-metrics :project="project" />
         </section-container>
       </div>
 
@@ -54,6 +56,7 @@ import ProjectSingleDescription from '@/components/app/project-detail/ProjectSin
 import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam';
 import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery';
 import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
+import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics';
 
 export default Vue.extend({
   name: 'ProjectDetail',
@@ -68,6 +71,7 @@ export default Vue.extend({
     ProjectSingleTeam,
     ProjectSingleGallery,
     ProjectSingleSocials,
+    ProjectSingleDaoProposalMetrics,
   },
 
   mixins: [ProjectBeautifyId],

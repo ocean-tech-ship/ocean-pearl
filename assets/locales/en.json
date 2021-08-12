@@ -114,7 +114,6 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
-    "wallet": "Project Wallet Address",
     "proposal": {
       "empty": "no funding yet",
       "requested": "Requested Funding",
@@ -128,7 +127,12 @@
         "proposal": "proposal"
       },
       "total": "Total Fundings",
-      "vote": "vote here"
+      "vote": "vote here",
+      "wallet": {
+        "less": "show less",
+        "more": "show all",
+        "title": "Project Wallet Address"
+      }
     },
     "readFull": "read full proposal",
     "roi": {
