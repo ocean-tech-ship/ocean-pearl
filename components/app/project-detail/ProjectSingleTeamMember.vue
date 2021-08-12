@@ -34,7 +34,7 @@
 import { SocialMedia } from '@/model/SocialMedia';
 
 export default {
-  name: 'ProjectSingleDetailsMember',
+  name: 'ProjectSingleTeamMember',
 
   props: {
     member: {
