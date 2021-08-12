@@ -77,7 +77,7 @@
 </template>
 
 <script>
-import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember'
+import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleTeamMember'
 import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
