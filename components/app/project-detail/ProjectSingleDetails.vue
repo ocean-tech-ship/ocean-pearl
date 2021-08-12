@@ -78,7 +78,7 @@
 
 <script>
 import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleTeamMember'
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
+import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleSocialsItem'
 import AppButtonStyle from '@/components/common/AppButtonStyle'
 import AppLink from '@/components/common/AppLink.vue'
 import { SocialMedia } from '~/model/SocialMedia'

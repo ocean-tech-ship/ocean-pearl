@@ -118,7 +118,7 @@
 </template>
 
 <script>
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
+import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleSocialsItem'
 import LandingSectionContainer from './LandingSectionContainer'
 import AppLogo from '@/components/common/AppLogo'
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'

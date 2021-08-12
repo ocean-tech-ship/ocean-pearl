@@ -18,6 +18,9 @@
           <project-single-description :project="project" />
           <project-single-team :project="project" />
           <project-single-gallery :project="project" />
+          <project-single-socials :project="project" />
+
+          <hr class="text-primary my-8" />
         </section-container>
       </div>
 
@@ -50,6 +53,7 @@ import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHe
 import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription';
 import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam';
 import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery';
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
 
 export default Vue.extend({
   name: 'ProjectDetail',
@@ -63,6 +67,7 @@ export default Vue.extend({
     ProjectSingleHeader,
     ProjectSingleTeam,
     ProjectSingleGallery,
+    ProjectSingleSocials,
   },
 
   mixins: [ProjectBeautifyId],

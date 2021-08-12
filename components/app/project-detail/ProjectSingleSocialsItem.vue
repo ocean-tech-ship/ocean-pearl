@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import { SocialMedia } from '@/model/SocialMedia'
+import { SocialMedia } from '@/model/SocialMedia';
 
 export default {
-  name: 'ProjectSingleDetailsSocial',
+  name: 'ProjectSingleSocialsItem',
 
   props: {
     type: {
@@ -30,10 +30,10 @@ export default {
 
   methods: {
     getIcon(type) {
-      return SocialMedia.parse(type).Icon
+      return SocialMedia.parse(type).Icon;
     },
   },
-}
+};
 </script>
 
 <style scoped></style>
