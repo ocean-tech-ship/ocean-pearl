@@ -16,6 +16,8 @@
       <div class="bg-grey">
         <section-container class="py-8">
           <project-single-description :project="project" />
+          <project-single-team :project="project" />
+          <project-single-gallery :project="project" />
         </section-container>
       </div>
 
@@ -46,6 +48,8 @@ import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSin
 import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue';
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
 import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription';
+import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam';
+import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery';
 
 export default Vue.extend({
   name: 'ProjectDetail',
@@ -57,6 +61,8 @@ export default Vue.extend({
     ProjectSingleDetails,
     ProjectSingleDaoProposal,
     ProjectSingleHeader,
+    ProjectSingleTeam,
+    ProjectSingleGallery,
   },
 
   mixins: [ProjectBeautifyId],
