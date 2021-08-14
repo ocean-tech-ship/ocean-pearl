@@ -9,8 +9,8 @@ import round from './round';
  * be done for all future factories
  */
 export default {
-    ...project,
-    ...daoproposal,
-    ...round,
-    ...job,
+  ...project,
+  ...daoproposal,
+  ...round,
+  ...job,
 };

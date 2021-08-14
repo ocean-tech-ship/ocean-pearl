@@ -26,13 +26,13 @@ export default {
 
   computed: {
     conditionalSource() {
-      const {src} = this.$props
+      const { src } = this.$props;
       return !!src && src.length > 0 && src.includes('/')
         ? src
-        : require('@/assets/images/logo/pearl-logo.svg')
+        : require('@/assets/images/logo/pearl-logo.svg');
     },
   },
-}
+};
 </script>
 
 <style scoped></style>

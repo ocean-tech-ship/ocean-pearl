@@ -76,7 +76,7 @@ export default Vue.extend({
         this.daoProposals = [];
       }
 
-      const {data} = indexResponse;
+      const { data } = indexResponse;
 
       this.error = null;
       this.latestProjects = data.latestProjects;

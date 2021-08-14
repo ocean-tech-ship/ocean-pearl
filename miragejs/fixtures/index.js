@@ -1,4 +1,3 @@
-
 /*
  * Mirage JS guide on Fixtures: https://miragejs.com/docs/data-layer/fixtures
  */

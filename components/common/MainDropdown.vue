@@ -11,13 +11,13 @@
 export default {
   data() {
     return {
-      open: false
+      open: false,
     };
   },
   methods: {
     toggleOpen() {
       this.open = !this.open;
-    }
-  }
+    },
+  },
 };
 </script>

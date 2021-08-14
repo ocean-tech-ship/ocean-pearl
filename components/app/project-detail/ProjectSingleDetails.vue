@@ -77,11 +77,11 @@
 </template>
 
 <script>
-import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember'
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
-import AppButtonStyle from '@/components/common/AppButtonStyle'
-import AppLink from '@/components/common/AppLink.vue'
-import { SocialMedia } from '~/model/SocialMedia'
+import ProjectSingleDetailsMember from '@/components/app/project-detail/ProjectSingleDetailsMember';
+import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial';
+import AppButtonStyle from '@/components/common/AppButtonStyle';
+import AppLink from '@/components/common/AppLink.vue';
+import { SocialMedia } from '~/model/SocialMedia';
 
 export default {
   name: 'ProjectSingleDetails',
@@ -111,35 +111,35 @@ export default {
     coverImage() {
       return this.$props.project.pictures.length > 0
         ? this.$props.project.pictures[0]
-        : null /* require('@/assets/images/detail/pearl-background.png') */
+        : null; /* require('@/assets/images/detail/pearl-background.png') */
     },
 
     oceanPortLink() {
-      const proposals = this.$props.project.daoProposals
+      const proposals = this.$props.project.daoProposals;
       return !proposals || proposals.length === 0
         ? null
-        : proposals[proposals.length - 1].oceanProtocalPortUrl
+        : proposals[proposals.length - 1].oceanProtocalPortUrl;
     },
 
     filteredProjectSocialMedia() {
-      const socials = {}
+      const socials = {};
 
       if (!this.$props.project.socialMedia) {
-        return socials
+        return socials;
       }
 
       for (const [type, url] of Object.entries(
-        this.$props.project.socialMedia
+        this.$props.project.socialMedia,
       )) {
         if (SocialMedia.parse(type) != null) {
-          socials[type] = url
+          socials[type] = url;
         }
       }
 
-      return socials
+      return socials;
     },
   },
-}
+};
 </script>
 
 <style scoped></style>

@@ -20,7 +20,7 @@ export default {
   name: 'ProjectSingleLink',
 
   props: ['icon', 'title', 'url'],
-}
+};
 </script>
 
 <style scoped></style>
