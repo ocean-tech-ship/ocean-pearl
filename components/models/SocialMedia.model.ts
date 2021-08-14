@@ -1,10 +1,10 @@
 export interface SocialMedia {
-    website: string;
-    github: string;
-    twitter: string;
-    linkedIn: string;
-    reddit: string;
-    telegram: string;
-    facebook: string;
-    discord: string;
+  website: string;
+  github: string;
+  twitter: string;
+  linkedIn: string;
+  reddit: string;
+  telegram: string;
+  facebook: string;
+  discord: string;
 }

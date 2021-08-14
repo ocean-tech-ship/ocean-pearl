@@ -131,15 +131,15 @@
 </template>
 
 <script>
-import AppButtonStyle from '@/components/common/AppButtonStyle'
-import AppLink from '@/components/common/AppLink.vue'
-import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum'
+import AppButtonStyle from '@/components/common/AppButtonStyle';
+import AppLink from '@/components/common/AppLink.vue';
+import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum';
 
 const EMPTY_PROPOSAL = {
   fundingRound: '/',
   requestedGrantToken: '/',
   walletAddress: '/',
-}
+};
 
 export default {
   name: 'ProjectSingleDaoProposal',
@@ -163,25 +163,25 @@ export default {
     coverImage() {
       return this.$props.project.pictures.length > 0
         ? this.$props.project.pictures[0]
-        : null /* require('@/assets/images/detail/pearl-background.png') */
+        : null; /* require('@/assets/images/detail/pearl-background.png') */
     },
 
     grantedProposals() {
       const proposals = this.$props.project.daoProposals
         ? this.$props.project.daoProposals
-        : []
+        : [];
 
       return proposals.filter(
-        (proposal) => proposal.status === DaoProposalStatusEnum.Funded
-      )
+        (proposal) => proposal.status === DaoProposalStatusEnum.Funded,
+      );
     },
 
     newestProposal() {
-      const proposals = this.$props.project.daoProposals
+      const proposals = this.$props.project.daoProposals;
       return !proposals || proposals.length === 0
         ? EMPTY_PROPOSAL
-        : proposals[proposals.length - 1]
+        : proposals[proposals.length - 1];
     },
   },
-}
+};
 </script>

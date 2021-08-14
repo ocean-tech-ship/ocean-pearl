@@ -3,7 +3,13 @@
     <div class="bg-grey py-8">
       <LandingSectionContainer>
         <div
-          class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 lg:grid-flow-col gap-10"
+          class="
+            w-full
+            pt-6
+            grid grid-cols-1
+            lg:grid-cols-2 lg:grid-flow-col
+            gap-10
+          "
         >
           <div class="shadow rounded-md">
             <img
@@ -132,27 +138,27 @@ import ProjectSingleLink from '@/components/app/project-detail/ProjectSingleLink
 import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal';
 
 export default {
-    name: 'ProjectSingle',
+  name: 'ProjectSingle',
 
-    components: {
-        LandingSectionContainer,
-        ProjectSingleHeader,
-        ProjectSingleLink,
-        ProjectSingleDaoProposal,
-        AppButtonStyle,
-        AppLink,
+  components: {
+    LandingSectionContainer,
+    ProjectSingleHeader,
+    ProjectSingleLink,
+    ProjectSingleDaoProposal,
+    AppButtonStyle,
+    AppLink,
+  },
+  props: {
+    project: {
+      type: Object,
+      required: true,
     },
-    props: {
-        project: {
-            type: Object,
-            required: true,
-        },
-    },
-}
+  },
+};
 </script>
 
 <style scoped>
 .p-line-head {
-   line-height: 20px;
+  line-height: 20px;
 }
 </style>

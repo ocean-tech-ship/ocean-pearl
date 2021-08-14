@@ -1,17 +1,20 @@
 <template>
-    <div>
-        <projects-header />
-        <landing-section-container v-if="$fetchState.error || error" class="h-screen">
-            <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-            <p class="small-text">{{ $t(error) }}</p>
-        </landing-section-container>
+  <div>
+    <projects-header />
+    <landing-section-container
+      v-if="$fetchState.error || error"
+      class="h-screen"
+    >
+      <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
+      <p class="small-text">{{ $t(error) }}</p>
+    </landing-section-container>
 
-        <landing-section-container v-else-if="$fetchState.pending" class="h-screen">
-            {{ $t('general.fetchingLoading') }}
-        </landing-section-container>
+    <landing-section-container v-else-if="$fetchState.pending" class="h-screen">
+      {{ $t('general.fetchingLoading') }}
+    </landing-section-container>
 
-        <projects-list v-else :projects="projects" />
-    </div>
+    <projects-list v-else :projects="projects" />
+  </div>
 </template>
 
 <script>
@@ -22,39 +25,39 @@ import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
 
 export default Vue.extend({
-    name: 'ProjectOverview',
+  name: 'ProjectOverview',
 
-    components: {
-        ProjectsHeader,
-        ProjectsList,
-        LandingSectionContainer,
-    },
+  components: {
+    ProjectsHeader,
+    ProjectsList,
+    LandingSectionContainer,
+  },
 
-    data() {
-        return {
-            projects: null,
-            error: null,
-        }
-    },
+  data() {
+    return {
+      projects: null,
+      error: null,
+    };
+  },
 
-    async fetch() {
-        try {
-            const projectsResponse = await getProjects(this.$axios);
+  async fetch() {
+    try {
+      const projectsResponse = await getProjects(this.$axios);
 
-            if (projectsResponse.status === 204) {
-                    this.error = 'general.error.unknown';
-                    this.projects = [];
-            };
+      if (projectsResponse.status === 204) {
+        this.error = 'general.error.unknown';
+        this.projects = [];
+      }
 
-            this.error = null;
-            this.projects = 
-                process.env.NODE_ENV === 'mirage'
-                ? projectsResponse.data.projects
-                : projectsResponse.data;
-        } catch (error) {
-                this.error = 'general.error.retry';
-                this.projects = [];
-        }
-    },
+      this.error = null;
+      this.projects =
+        process.env.NODE_ENV === 'mirage'
+          ? projectsResponse.data.projects
+          : projectsResponse.data;
+    } catch (error) {
+      this.error = 'general.error.retry';
+      this.projects = [];
+    }
+  },
 });
 </script>
