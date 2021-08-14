@@ -15,34 +15,25 @@ export default function routes() {
     this.resource('daoproposals', { only: ['index', 'show'] });
     this.resource('rounds', { only: ['index', 'show'] });
 
-    this.get('/projects', (schema) => {
-        return schema.projects.all();
-    });
+    this.get('/projects', (schema) => schema.projects.all());
 
-    this.get('/projects/featured', (schema) => {
-        return schema.projects.all().slice(0, 4);
-    });
+    this.get('/projects/featured', (schema) => schema.projects.all().slice(0, 4));
 
     this.get('/projects/:id', (schema, request) => {
-        let id = request.params.id;
+        const {id} = request.params;
         return schema.projects.find(id);
     });
 
-    this.get('/dao-proposals', (schema) => {
-        return schema.daoproposals.all();
-    });
+    this.get('/dao-proposals', (schema) => schema.daoproposals.all());
 
-    this.get('/dao-proposals/featured', (schema) => {
-        return schema.daoproposals.all().slice(0, 4);
-    });
+    this.get('/dao-proposals/featured', (schema) => schema.daoproposals.all().slice(0, 4));
 
     this.get('/dao-proposals/:id', (schema, request) => {
-        let id = request.params.id;
+        const {id} = request.params;
         return schema.daoproposals.find(id);
     });
 
-    this.get('pages/index', (schema) => {
-        return {
+    this.get('pages/index', (schema) => ({
             featuredProjects: schema.projects.all().slice(0, 4),
             latestProjects: schema.projects.all().slice(0, 4),
             daoFeaturedProjects: schema.projects.all().slice(0, 4),
@@ -56,6 +47,5 @@ export default function routes() {
                 totalRequestedFunding: 150000,
                 totalVotes: 800000,
             },
-        };
-    });
+        }));
 }

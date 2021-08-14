@@ -51,7 +51,7 @@ export default {
 
   computed: {
     fullMemberTitle() {
-      const member = this.$props.member
+      const {member} = this.$props
       return `${member.firstname} ${member.lastname}`
       // return `${member.firstname} ${member.lastname}, ${member.purpose}`
     },

@@ -16,7 +16,7 @@ export default {
         logo: require('@/assets/images/poseidon-network.png'),
         pictures: [require('@/assets/images/detail/poseidon-cover.png')],
         category(i) {
-            let categories = [
+            const categories = [
                 'dao',
                 'newEntrants',
                 'buildAndIntegrate',
@@ -29,7 +29,7 @@ export default {
         updatedAt: faker.date.past().toLocaleDateString(),
         afterCreate(project, server) {
             project.update({
-                daoProposals: server.createList('daoproposal', 5, { project: project }),
+                daoProposals: server.createList('daoproposal', 5, { project }),
             })
         }
     }),

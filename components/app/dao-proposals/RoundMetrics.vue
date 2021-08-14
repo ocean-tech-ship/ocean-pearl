@@ -134,7 +134,7 @@ export default {
   methods: {
     getSubmissionState() {
       const now = Date.now();
-      const metrics = this.$props.metrics;
+      const {metrics} = this.$props;
       const startDate = new Date(metrics.currentRound.startDate);
       const submissionEndDate = new Date(
         metrics.currentRound.submissionEndDate,
@@ -179,7 +179,7 @@ export default {
 
     getVoteState() {
       const now = Date.now();
-      const metrics = this.$props.metrics;
+      const {metrics} = this.$props;
       const votingStartDate = new Date(metrics.currentRound.votingStartDate);
       const endDate = new Date(metrics.currentRound.endDate);
 

@@ -26,7 +26,7 @@ export default {
 
   computed: {
     conditionalSource() {
-      const src = this.$props.src
+      const {src} = this.$props
       return !!src && src.length > 0 && src.includes('/')
         ? src
         : require('@/assets/images/logo/pearl-logo.svg')
