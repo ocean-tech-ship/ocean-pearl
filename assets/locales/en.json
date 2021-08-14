@@ -13,14 +13,46 @@
   },
   "daoRoundData": {
     "amountProposals": "Amount proposals",
-    "countdown": {
-      "after": "Voting ended",
-      "before": "Voting ends"
-    },
     "fundingRound": "Funding Round",
     "numberedProjects": "{projects} projects",
+    "submission": {
+      "active": {
+        "title": "Proposal submission ends",
+        "tooltip": "Proposals can be submitted until {timestamp}."
+      },
+      "after": {
+        "title": "Proposal submission ended",
+        "tooltip": "Proposal submission ended on {timestamp}."
+      },
+      "before": {
+        "title": "Proposal submission begins",
+        "tooltip": "Proposal submission begins on {timestamp}."
+      },
+      "next": {
+        "title": "Submit proposal next round",
+        "tooltip": "Proposal submission for the next round starts on {timestamp}."
+      }
+    },
     "totalAmount": "Total Amount",
-    "totalVotes": "Total Votes"
+    "totalVotes": "Total Votes",
+    "vote": {
+      "active": {
+        "title": "Voting ends",
+        "tooltip": "The voting ends on {timestamp}."
+      },
+      "after": {
+        "title": "Voting ended",
+        "tooltip": "The voting ended on {timestamp}."
+      },
+      "before": {
+        "title": "Voting begins",
+        "tooltip": "The voting starts on {timestamp}."
+      },
+      "next": {
+        "title": "Voting next round",
+        "tooltip": "The voting for the next round starts on {timestamp}."
+      }
+    }
   },
   "footer": {
     "analytics": "Analytics"
@@ -114,7 +146,6 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
-    "wallet": "Project Wallet Address",
     "proposal": {
       "empty": "no funding yet",
       "requested": "Requested Funding",
@@ -139,7 +170,8 @@
       "title": "ROI"
     },
     "team": "Team",
-    "unknown": "The requested project could not be found."
+    "unknown": "The requested project could not be found.",
+    "wallet": "Project Wallet Address"
   },
   "project_detail": {
     "fundHereButton": "fund here",
