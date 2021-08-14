@@ -143,8 +143,8 @@ export default {
       if (now < startDate) {
         // Submission has not started yet
         return {
-          key: 'daoRoundData.submit.before.title',
-          tooltip: 'daoRoundData.submit.before.tooltip',
+          key: 'daoRoundData.submission.before.title',
+          tooltip: 'daoRoundData.submission.before.tooltip',
           timestamp: startDate,
         };
       }
@@ -152,8 +152,8 @@ export default {
       if (now < submissionEndDate) {
         // Submission is active
         return {
-          key: 'daoRoundData.submit.active.title',
-          tooltip: 'daoRoundData.submit.active.tooltip',
+          key: 'daoRoundData.submission.active.title',
+          tooltip: 'daoRoundData.submission.active.tooltip',
           timestamp: submissionEndDate,
         };
       }
@@ -162,8 +162,8 @@ export default {
         // Round ended. Show next round if possible
         if (metrics.nextRound && metrics.nextRound.startDate) {
           return {
-            key: 'daoRoundData.submit.next.title',
-            tooltip: 'daoRoundData.submit.next.tooltip',
+            key: 'daoRoundData.submission.next.title',
+            tooltip: 'daoRoundData.submission.next.tooltip',
             timestamp: new Date(metrics.nextRound.startDate),
           };
         }
@@ -171,8 +171,8 @@ export default {
 
       // Submission ended
       return {
-        key: 'daoRoundData.submit.after.title',
-        tooltip: 'daoRoundData.submit.after.tooltip',
+        key: 'daoRoundData.submission.after.title',
+        tooltip: 'daoRoundData.submission.after.tooltip',
         timestamp: submissionEndDate,
       };
     },

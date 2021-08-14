@@ -15,7 +15,7 @@
     "amountProposals": "Amount proposals",
     "fundingRound": "Funding Round",
     "numberedProjects": "{projects} projects",
-    "submit": {
+    "submission": {
       "active": {
         "title": "Proposal submission ends",
         "tooltip": "Proposals can be submitted until {timestamp}."
