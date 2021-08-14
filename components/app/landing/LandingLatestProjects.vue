@@ -60,12 +60,6 @@ export default {
         LandingSectionContainer,
     },
 
-    data() {
-        return {
-            categoryMap: CategoryMap,
-        }
-    },
-
     mixins: [ProjectBeautifyId],
 
     props: {
@@ -74,6 +68,12 @@ export default {
             required: true,
             default: null,
         },
+    },
+
+    data() {
+        return {
+            categoryMap: CategoryMap,
+        }
     },
 
     methods: {

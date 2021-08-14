@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { getLandingData } from '@/api';
 import Vue from 'vue';
+import { getLandingData } from '@/api';
 import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue';
 import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vue';
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue';
@@ -76,7 +76,7 @@ export default Vue.extend({
         this.daoProposals = [];
       }
 
-      const data = indexResponse.data;
+      const {data} = indexResponse;
 
       this.error = null;
       this.latestProjects = data.latestProjects;

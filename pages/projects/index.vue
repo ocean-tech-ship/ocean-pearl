@@ -15,11 +15,11 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import { getProjects } from '@/api';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
-import Vue from 'vue';
 
 export default Vue.extend({
     name: 'ProjectOverview',

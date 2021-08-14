@@ -133,12 +133,6 @@ export default {
         ProjectSingleDetailsSocial,
     },
 
-    data() {
-        return {
-            categoryMap: CategoryMap,
-        }
-    },
-
     mixins: [ProjectBeautifyId],
 
     props: {
@@ -147,6 +141,12 @@ export default {
             required: true,
             default: () => [],
         },
+    },
+
+    data() {
+        return {
+            categoryMap: CategoryMap,
+        }
     },
 }
 </script>

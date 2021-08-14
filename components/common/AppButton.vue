@@ -4,7 +4,7 @@
   <button
     type="button"
     class="select-none rounded font-medium py-2 px-6 shadow items-center justify-center"
-    v-bind:class="[
+    :class="[
       secondary
         ? 'bg-white text-primary border-2 border-primary'
         : 'call-to-action text-secondary',

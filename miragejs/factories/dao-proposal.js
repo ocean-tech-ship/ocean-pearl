@@ -24,7 +24,7 @@ export default {
         ipfsHash: 'randomHash123',
         snapshotBlock: '1234',
         category(i) {
-            let categories = [
+            const categories = [
                 'dao',
                 'newEntrants',
                 'buildAndIntegrate',

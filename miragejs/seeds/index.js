@@ -8,6 +8,6 @@ const projectsSeeder = async (server) => {
 };
 
 export default function seeds(server) {
-    //server.loadFixtures();
+    // server.loadFixtures();
     projectsSeeder(server);
 }
