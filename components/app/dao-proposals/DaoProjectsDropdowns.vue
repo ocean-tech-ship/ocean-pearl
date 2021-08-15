@@ -17,7 +17,8 @@
 
 <script>
 import ButtonEmitWithDropdown from '@/components/common/ButtonEmitWithDropdown.vue';
-import EnumCategory from '../../enums/Category.enum';
+import CategoryEnum from '../../enums/Category.enum';
+import { CategoryMap } from '~/components/constants/CategoryMap.constant';
 
 export default {
     components: {
@@ -78,15 +79,15 @@ export default {
     },
     created() {
         // set categories button content
-        Object.keys(EnumCategory).forEach((value, i) => {
+        Object.values(CategoryEnum).forEach((value, key) => {
             this.categoryItems = [
                 ...this.categoryItems,
                 {
                     type: 'categories',
-                    content: value,
+                    content: CategoryMap[value],
                     id: value,
                     // eslint-disable-next-line no-unneeded-ternary
-                    selected: i === 0 ? true : false,
+                    selected: key === 0 ? true : false,
                 },
             ];
         });

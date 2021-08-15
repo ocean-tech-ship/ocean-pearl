@@ -71,7 +71,7 @@ export default {
         return {
             filter: {
                 round: 0,
-                category: 'All',
+                category: 'all',
                 search: '',
             },
         };
@@ -82,13 +82,9 @@ export default {
             handler: function emit() {
                 // restructure filter items for backend compatibility
                 const filter = this.filter;
-                if (filter.category === 'All') delete filter.category;
+                if (filter.round === 0) delete filter.round;
+                if (filter.category === 'all') delete filter.category;
                 if (filter.search === '') delete filter.search;
-                if (
-                    (filter.category && filter.round === 0) ||
-                    (filter.search && filter.round === 0)
-                )
-                    delete filter.round;
 
                 this.$emit('filter', filter);
             },

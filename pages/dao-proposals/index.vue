@@ -28,7 +28,7 @@
         <div v-else>
             <round-metrics :metrics="metrics" />
             <dao-projects-filter
-                :rounds="metrics.fundingRound"
+                :rounds="maxRounds"
                 @filter="filterDaoProposals"
             />
             <dao-proposals-list :dao-proposals="daoProposals" />
@@ -58,6 +58,7 @@ export default Vue.extend({
         return {
             error: null,
             daoProposals: null,
+            maxRounds: null,
             metrics: {
                 fundingRound: '',
                 totalDaoProposals: '',
@@ -102,7 +103,11 @@ export default Vue.extend({
             this.daoProposals =
                 process.env.NODE_ENV === 'mirage'
                     ? daoProposalResponse.data.daoproposals
-                    : daoProposalResponse.data;
+                    : daoProposalResponse.data.daoProposals;
+            this.maxRounds =
+                process.env.NODE_ENV === 'mirage'
+                    ? daoProposalResponse.data.maxRounds
+                    : daoProposalResponse.data.maxRounds;
         } catch (error) {
             this.error = 'general.error.retry';
             this.daoProposals = [];
@@ -112,9 +117,20 @@ export default Vue.extend({
     methods: {
         async filterDaoProposals(payload) {
             try {
-                const { round, category, search } = payload;
+                const daoProposalResponse = await getDaoProposals(
+                    this.$axios,
+                    payload,
+                );
 
-                console.log(round, category, search);
+                if (daoProposalResponse.status === 204) {
+                    this.error = 'general.error.unknown';
+                    this.daoProposals = [];
+                }
+
+                this.daoProposals =
+                    process.env.NODE_ENV === 'mirage'
+                        ? daoProposalResponse.data.daoproposals
+                        : daoProposalResponse.data.daoProposals;
             } catch (error) {
                 this.error = 'general.error.retry';
                 this.daoProposals = [];
