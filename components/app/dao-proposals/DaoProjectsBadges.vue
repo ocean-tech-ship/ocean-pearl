@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import EnumBadges from '../../enums/EnumBadges'
+import EnumBadges from '../../enums/Badges.enum'
 
 export default {
   data() {

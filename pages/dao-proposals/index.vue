@@ -3,23 +3,35 @@
         <landing-section-container>
             <h2>
                 {{ $t('dao-projects.header.title') }}
-                <span class="text-primary">{{$t('dao-projects.header.titleHighlight')}}</span>
+                <span class="text-primary">{{
+                    $t('dao-projects.header.titleHighlight')
+                }}</span>
             </h2>
             <p>{{ $t('dao-projects.header.text') }}</p>
         </landing-section-container>
 
-        <landing-section-container v-if="$fetchState.error || error" class="h-screen">
+        <landing-section-container
+            v-if="$fetchState.error || error"
+            class="h-screen"
+        >
             <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
             <p class="small-text">{{ $t(error) }}</p>
         </landing-section-container>
 
-        <landing-section-container v-else-if="$fetchState.pending" class="h-screen">
+        <landing-section-container
+            v-else-if="$fetchState.pending"
+            class="h-screen"
+        >
             {{ $t('general.fetchingLoading') }}
         </landing-section-container>
 
         <div v-else>
             <round-metrics :metrics="metrics" />
-            <dao-proposals-list :daoProposals="daoProposals" />
+            <dao-projects-filter
+                :rounds="metrics.fundingRound"
+                @filter="filterDaoProposals"
+            />
+            <dao-proposals-list :dao-proposals="daoProposals" />
         </div>
     </div>
 </template>
@@ -30,6 +42,7 @@ import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
 import DaoProposalsList from '@/components/app/dao-proposals/DaoProposalsList.vue';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import { getDaoRoundMetrics, getDaoProposals } from '@/api';
+import DaoProjectsFilter from '~/components/app/dao-proposals/DaoProjectsFilter.vue';
 
 export default Vue.extend({
     name: 'DaoProjectOverview',
@@ -37,7 +50,8 @@ export default Vue.extend({
     components: {
         RoundMetrics,
         DaoProposalsList,
-        LandingSectionContainer
+        LandingSectionContainer,
+        DaoProjectsFilter,
     },
 
     data() {
@@ -62,7 +76,7 @@ export default Vue.extend({
                 totalRequestedFundingOcean: '',
                 totalVotes: '',
             },
-        }
+        };
     },
 
     async fetch() {
@@ -80,11 +94,11 @@ export default Vue.extend({
                 this.daoProposals = [];
             }
 
-            this.error = null,
-            this.metrics =
-                process.env.NODE_ENV === 'mirage'
-                    ? metricsResponse.data.metrics
-                    : metricsResponse.data;
+            (this.error = null),
+                (this.metrics =
+                    process.env.NODE_ENV === 'mirage'
+                        ? metricsResponse.data.metrics
+                        : metricsResponse.data);
             this.daoProposals =
                 process.env.NODE_ENV === 'mirage'
                     ? daoProposalResponse.data.daoproposals
@@ -93,6 +107,19 @@ export default Vue.extend({
             this.error = 'general.error.retry';
             this.daoProposals = [];
         }
+    },
+
+    methods: {
+        async filterDaoProposals(payload) {
+            try {
+                const { round, category, search } = payload;
+
+                console.log(round, category, search);
+            } catch (error) {
+                this.error = 'general.error.retry';
+                this.daoProposals = [];
+            }
+        },
     },
 });
 </script>
