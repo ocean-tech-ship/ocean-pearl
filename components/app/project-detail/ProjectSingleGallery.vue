@@ -21,7 +21,7 @@ export default {
 
   computed: {
     coverImageUrl() {
-      const pictures = this.$props.project;
+      const pictures = this.$props.project.pictures;
       return pictures && pictures.length > 0 ? pictures[0] : null;
     },
   },
