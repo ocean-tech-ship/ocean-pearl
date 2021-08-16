@@ -54,7 +54,11 @@
           :key="address"
           class="flex items-center"
         >
-          <app-identicon class="mr-2" :size="20" :value="address" />
+          <jazzicon
+            class="flex items-center mr-2"
+            :diameter="20"
+            :address="address"
+          />
           <span class="break-all">{{ address }}</span>
         </div>
       </template>
@@ -93,7 +97,7 @@
 </template>
 
 <script>
-import AppIdenticon from '@/components/common/AppIdenticon';
+import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink';
 import AppButtonStyle from '@/components/common/AppButtonStyle';
 
@@ -101,7 +105,7 @@ export default {
   name: 'ProjectSingleDaoProposalMetrics',
 
   components: {
-    AppIdenticon,
+    Jazzicon,
     AppLink,
     AppButtonStyle,
   },
