@@ -40,13 +40,11 @@ export default {
       for (const [type, url] of Object.entries(
         this.$props.project.socialMedia,
       )) {
-        console.log(type, url)
         if (SocialMedia.parse(type) != null) {
           socials[type] = url;
         }
       }
 
-      console.log(socials)
       return socials;
     },
   },
