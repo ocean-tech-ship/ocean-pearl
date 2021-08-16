@@ -1,5 +1,5 @@
 <template>
-  <div v-if="filteredSocials.length > 0" class="flex justify-between">
+  <div class="flex justify-between">
     <project-single-socials-item
       v-for="(url, type) in filteredSocials"
       :key="type"
@@ -40,11 +40,13 @@ export default {
       for (const [type, url] of Object.entries(
         this.$props.project.socialMedia,
       )) {
+        console.log(type, url)
         if (SocialMedia.parse(type) != null) {
           socials[type] = url;
         }
       }
 
+      console.log(socials)
       return socials;
     },
   },
