@@ -25,7 +25,7 @@
           <li>
             <NuxtLink
               class="font-bold block px-4 py-3"
-              to="/dao-projects"
+              to="/dao-proposals"
               >{{ $t('navbar.navbarDao') }}</NuxtLink
             >
           </li>
