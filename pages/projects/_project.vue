@@ -13,22 +13,51 @@
         <project-single-header class="my-8" :project="project" />
       </section-container>
 
-      <div class="bg-grey">
-        <section-container class="py-8">
-          <project-single-description :project="project" />
-          <project-single-team :project="project" />
-          <project-single-gallery :project="project" />
-          <project-single-socials :project="project" />
+      <div class="bg-grey py-16">
+        <!-- design with gallery -->
+        <section-container v-if="project.pictures && project.pictures.length > 0">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div>
+              <project-single-description :project="project" />
+              <project-single-team class="py-4" :project="project" />
+            </div>
+
+            <div>
+              <project-single-gallery :project="project" />
+              <project-single-socials class="py-4 lg:justify-start" :project="project" />
+            </div>
+          </div>
 
           <hr class="text-primary my-8" />
 
-          <project-single-dao-proposal-header />
+          <project-single-dao-proposal-header class="pb-4" />
 
-          <project-single-dao-proposal-metrics :project="project" />
+          <div class="block 3xl:flex 3xl:justify-between">
+            <div class="pb-8 3xl:pb-0">
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+            <div>
+              <project-single-dao-proposal-history :project="project" />
+            </div>
+          </div>
+        </section-container>
 
-          <hr class="my-8" />
+        <!-- without gallery -->
+        <section-container v-else>
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div>
+              <project-single-description :project="project" />
+              <project-single-socials class="py-4 justify-start" :project="project" />
+              <project-single-team class="py-4" :project="project" />
+            </div>
 
-          <project-single-dao-proposal-history :project="project" />
+            <div>
+              <project-single-dao-proposal-header class="pb-4" />
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+          </div>
+
+          <project-single-dao-proposal-history class="mt-4" :project="project" />
         </section-container>
       </div>
     </div>
@@ -84,6 +113,18 @@ export default Vue.extend({
           project: null,
         };
       }
+
+      response.data.team = [
+        {
+          firstname: 'Marcel',
+          lastname: 'Hasslinger',
+          purpose: 'Systems Engineer',
+          socialMedia: {
+            TWITTER: 'https://twitter.com',
+            GITHUB: 'https://github.com',
+          }
+        },
+      ];
 
       return {
         error: null,
