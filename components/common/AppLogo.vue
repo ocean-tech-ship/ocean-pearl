@@ -9,7 +9,7 @@
       :alt="`${alt} ${$t('general.logo')}`"
     />
 
-    <app-identicon :value="alt" :size="size" />
+    <app-identicon v-else :value="alt" :size="size" />
   </div>
 </template>
 

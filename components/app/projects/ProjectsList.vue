@@ -19,7 +19,7 @@
                 <div class="mt-3">
                 <app-logo
                     class="inline-block rounded-full"
-                    :src="project.imageURL"
+                    :src="project.logo"
                     :alt="project.title"
                     :size="64"
                 />
