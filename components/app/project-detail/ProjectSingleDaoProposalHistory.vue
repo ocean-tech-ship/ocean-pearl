@@ -56,15 +56,26 @@
               </td>
 
               <td class="text-right p-4 py-3">
-                {{ proposal.votes }}
+                <span v-if="proposal.votes > 0">
+                  {{ proposal.votes }}
+                </span>
+
+                <span v-else>-</span>
               </td>
 
               <td class="text-right p-4 py-3">
-                {{ proposal.counterVotes }}
+                <span v-if="proposal.counterVotes > 0">
+                  {{ proposal.counterVotes }}
+                </span>
+
+                <span v-else>-</span>
               </td>
 
-              <td>
-                <div class="flex items-center justify-end p-4 py-3">
+              <td class="text-right p-4 py-3">
+                <div
+                  v-if="proposal.grantedToken > 0"
+                  class="flex items-center justify-end"
+                >
                   {{ proposal.grantedToken }}
 
                   <img
@@ -73,6 +84,8 @@
                     alt=""
                   />
                 </div>
+
+                <span v-else>-</span>
               </td>
 
               <td class="text-right p-4 py-3">
