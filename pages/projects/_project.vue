@@ -13,10 +13,10 @@
         <project-single-header class="my-8" :project="project" />
       </section-container>
 
-      <div class="bg-grey py-16">
+      <div class="bg-grey py-8 md:py-16">
         <!-- design with gallery -->
         <section-container v-if="project.pictures && project.pictures.length > 0">
-          <div class="grid gap-8 lg:grid-cols-2">
+          <div class="grid gap-8 xl:grid-cols-2">
             <div>
               <project-single-description :project="project" />
               <project-single-team class="py-4" :project="project" />
