@@ -2,15 +2,15 @@
   <div class="flex flex-wrap items-center justify-center md:justify-between">
     <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
       <app-logo
-        class="mx-4 md:ml-0 inline-block rounded-full self-end"
+        class="mx-4 md:ml-0 inline-block"
         :src="project.logo"
         :alt="project.title"
         :size="64"
       />
 
       <div class="text-center md:text-left">
-        <h3 class="text-primary">{{ project.title }}</h3>
-        <p class="leading-none">{{ categoryMap[project.category] }}</p>
+        <h3 class="text-primary leading-tight">{{ project.title }}</h3>
+        <p class="leading-tight">{{ categoryMap[project.category] }}</p>
       </div>
     </div>
 

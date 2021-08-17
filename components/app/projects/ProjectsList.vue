@@ -27,7 +27,7 @@
             -->
             <div class="mt-3">
               <app-logo
-                class="inline-block rounded-full"
+                class="inline-block"
                 :src="project.logo"
                 :alt="project.title"
                 :size="64"

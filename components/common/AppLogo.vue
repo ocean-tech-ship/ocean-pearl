@@ -1,16 +1,13 @@
 <template>
-  <div>
-    <img
-      v-if="!!src"
-      class="max-w-none max-h-none"
-      :width="`${size}px`"
-      :height="`${size}px`"
-      :src="src"
-      :alt="`${alt} ${$t('general.logo')}`"
-    />
+  <img
+    v-if="!!src"
+    class="max-w-none max-h-none object-contain"
+    :style="{ width: `${size}px`, height: `${size}px`}"
+    :src="src"
+    :alt="`${alt} ${$t('general.logo')}`"
+  />
 
-    <app-identicon v-else :value="alt" :size="size" />
-  </div>
+  <app-identicon v-else :value="alt" :size="size" />
 </template>
 
 <script>

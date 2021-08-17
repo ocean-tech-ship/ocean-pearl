@@ -30,7 +30,7 @@
         >
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <app-logo
-              class="inline-block rounded-full mt-3"
+              class="inline-block mt-3"
               :src="project.logo"
               :alt="project.title"
               :size="64"
