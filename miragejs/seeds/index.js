@@ -3,11 +3,11 @@
  */
 
 const projectsSeeder = async (server) => {
-    await server.createList('round', 7);
-    await server.createList('project', 15);
+  await server.createList('round', 7);
+  await server.createList('project', 15);
 };
 
 export default function seeds(server) {
-    //server.loadFixtures();
-    projectsSeeder(server);
+  // server.loadFixtures();
+  projectsSeeder(server);
 }

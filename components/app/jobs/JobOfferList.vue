@@ -3,7 +3,14 @@
     <p v-if="$fetchState.pending">{{ $t('general.fetchingLoading') }}</p>
     <p v-else-if="$fetchState.error">{{ $t('general.fetchingError') }}</p>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        xl:grid-cols-3
+        2xl:grid-cols-4
+        gap-4
+        mt-12
+      "
     >
       <div v-for="job in jobs" :key="job._id">
         <NuxtLink :prefetch="false" to="/project-detail">
@@ -33,8 +40,8 @@
 </template>
 
 <script>
-import LandingSectionContainer from '../landing/LandingSectionContainer'
-import { getJobs } from '@/api.js'
+import LandingSectionContainer from '../landing/LandingSectionContainer';
+import { getJobs } from '@/api.js';
 
 export default {
   name: 'JobOfferList',
@@ -45,18 +52,18 @@ export default {
   data() {
     return {
       jobs: [],
-    }
+    };
   },
   async fetch() {
     await getJobs(this.$axios)
       .then((jobs) => {
-        this.jobs = process.env.useMirage === 'true' ? jobs.jobs : jobs
+        this.jobs = process.env.useMirage === 'true' ? jobs.jobs : jobs;
       })
       .catch(() => {
-        this.jobs = []
-      })
+        this.jobs = [];
+      });
   },
-}
+};
 </script>
 
 <style scoped>

@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { SocialMedia } from '@/model/SocialMedia';
+import { SocialMedia } from '~/model/SocialMedia';
 
 export default {
   name: 'ProjectSingleTeamMember',

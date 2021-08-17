@@ -12,12 +12,12 @@ export default {
   computed: {
     isNuxtLink() {
       if (this.to) {
-        return this.to.substring(0, 1) === '/'
+        return this.to.substring(0, 1) === '/';
       }
-      return false
+      return false;
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss"></style>

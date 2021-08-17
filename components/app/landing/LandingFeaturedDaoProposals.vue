@@ -11,7 +11,25 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow rounded-md pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
+        class="
+          flex
+          items-center
+          flex-col
+          rounded
+          lg:flex-row
+          xl:flex-col
+          shadow
+          rounded-md
+          pb-12
+          pt-16
+          px-4
+          col-span-1
+          lg:col-span-2
+          xl:col-span-1
+          row-span-1
+          xl:row-span-2
+          listed-project-container
+        "
       >
         <img
           class="h-225px hidden sm:block"
@@ -33,7 +51,10 @@
       >
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
-            <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
+            <NuxtLink
+              :prefetch="false"
+              :to="`/projects/${beautifyProjectId(project)}`"
+            >
               <div class="flex">
                 <div class="mr-3">
                   <app-logo
@@ -47,7 +68,9 @@
                     {{ project.title }}
                   </p>
 
-                  <p class="small-text text-primary">{{ categoryMap[project.category] }}</p>
+                  <p class="small-text text-primary">
+                    {{ categoryMap[project.category] }}
+                  </p>
                 </div>
               </div>
             </NuxtLink>
@@ -118,45 +141,45 @@
 </template>
 
 <script>
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleSocialsItem'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '@/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
-import { CategoryMap } from '@/components/constants/CategoryMap.constant'
+import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial';
+import LandingSectionContainer from './LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
-    name: 'LandingFeaturedProjectSection',
+  name: 'LandingFeaturedProjectSection',
 
-    components: {
-        AppLogo,
-        LandingSectionContainer,
-        ProjectSingleDetailsSocial,
+  components: {
+    AppLogo,
+    LandingSectionContainer,
+    ProjectSingleDetailsSocial,
+  },
+
+  mixins: [ProjectBeautifyId],
+
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
     },
+  },
 
-    data() {
-        return {
-            categoryMap: CategoryMap,
-        }
-    },
-
-    mixins: [ProjectBeautifyId],
-
-    props: {
-        projects: {
-            type: Array,
-            required: true,
-            default: () => [],
-        },
-    },
-}
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
+  },
+};
 </script>
 
 <style scoped>
 .listed-project-container {
-    background: linear-gradient(
-        180deg,
-        #e183b3 0%,
-        rgba(255, 255, 255, 0.77) 100%
-    );
+  background: linear-gradient(
+    180deg,
+    #e183b3 0%,
+    rgba(255, 255, 255, 0.77) 100%
+  );
 }
 </style>
