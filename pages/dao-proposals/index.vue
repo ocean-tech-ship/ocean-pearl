@@ -104,10 +104,11 @@ export default Vue.extend({
                 process.env.NODE_ENV === 'mirage'
                     ? daoProposalResponse.data.daoproposals
                     : daoProposalResponse.data.daoProposals;
-            this.maxRounds =
-                process.env.NODE_ENV === 'mirage'
-                    ? daoProposalResponse.data.maxRounds
-                    : daoProposalResponse.data.maxRounds;
+
+            // set maxRounds based on daoProposalResponse or metricsResponse fundingRound alternatively
+            this.maxRounds = daoProposalResponse.data.maxRounds
+                ? daoProposalResponse.data.maxRounds
+                : metricsResponse.data.fundingRound;
         } catch (error) {
             this.error = 'general.error.retry';
             this.daoProposals = [];
@@ -117,6 +118,9 @@ export default Vue.extend({
     methods: {
         async filterDaoProposals(payload) {
             try {
+                const { round, category, search } = payload;
+                console.log(round, category, search);
+
                 const daoProposalResponse = await getDaoProposals(
                     this.$axios,
                     payload,

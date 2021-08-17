@@ -14,7 +14,7 @@
                 lg:items-center
             "
         >
-            <DaoProjectsDropdowns
+            <DaoProposalsDropdowns
                 class="
                     flex flex-col
                     items-start
@@ -28,11 +28,11 @@
                 :rounds="rounds"
                 @selected-items="setFilter"
             />
-            <DaoProjectsSearchbar
+            <DaoProposalsSearchbar
                 class="absolute bottom-0 z-10 flex w-full lg:relative lg:w-auto"
                 @search-projects="setFilter"
             />
-            <DaoProjectsBadges
+            <DaoProposalsBadges
                 class="
                     absolute
                     top-4
@@ -49,17 +49,17 @@
 
 <script>
 import LandingSectionContainer from '../landing/LandingSectionContainer.vue';
-import DaoProjectsDropdowns from './DaoProjectsDropdowns';
-import DaoProjectsSearchbar from './DaoProjectsSearchbar';
-import DaoProjectsBadges from './DaoProjectsBadges';
+import DaoProposalsDropdowns from './DaoProposalsDropdowns';
+import DaoProposalsSearchbar from './DaoProposalsSearchbar';
+import DaoProposalsBadges from './DaoProposalsBadges';
 export default {
     name: 'DaoProjectsFilter',
 
     components: {
         LandingSectionContainer,
-        DaoProjectsSearchbar,
-        DaoProjectsBadges,
-        DaoProjectsDropdowns,
+        DaoProposalsSearchbar,
+        DaoProposalsBadges,
+        DaoProposalsDropdowns,
     },
     props: {
         rounds: {

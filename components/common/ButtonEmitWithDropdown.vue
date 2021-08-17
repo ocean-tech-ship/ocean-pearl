@@ -10,9 +10,12 @@
         >
             {{ selectedName }}
         </button>
-        <label for="dropdown-emit" class="label absolute p-1 z-10">{{
-            buttonName
-        }}</label>
+        <label
+            for="dropdown-emit"
+            class="label absolute p-1 z-10"
+            @click="toggleOpen"
+            >{{ buttonName }}</label
+        >
         <section
             v-if="open"
             class="border bg-grey rounded shadow absolute top-10 z-40"
@@ -52,8 +55,16 @@ export default {
     data() {
         return {
             open: false,
-            selectedName: 'All',
+            selectedName: '',
         };
+    },
+    created() {
+        this.selectedName = Object.values(
+            this.menuItems.reduce((accumulator, current) => {
+                if (current.selected) accumulator.push(current.content);
+                return accumulator;
+            }, []),
+        )[0];
     },
     methods: {
         setselectedName(selected) {
@@ -80,6 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 label {
+    cursor: pointer;
     font-size: 0.7rem;
     top: -13px;
     left: 12px;
