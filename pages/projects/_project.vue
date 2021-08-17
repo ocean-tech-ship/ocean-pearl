@@ -32,8 +32,8 @@
 
           <project-single-dao-proposal-header class="pb-4" />
 
-          <div class="block 3xl:flex 3xl:justify-between">
-            <div class="pb-8 3xl:pb-0">
+          <div class="block 2xl:flex 2xl:justify-between">
+            <div class="pb-8 2xl:pb-0">
               <project-single-dao-proposal-metrics :project="project" />
             </div>
             <div>
@@ -44,7 +44,7 @@
 
         <!-- without gallery -->
         <section-container v-else>
-          <div class="grid gap-8 lg:grid-cols-2">
+          <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
             <div>
               <project-single-description :project="project" />
               <project-single-socials class="py-4 justify-start" :project="project" />
@@ -57,7 +57,7 @@
             </div>
           </div>
 
-          <project-single-dao-proposal-history class="mt-4" :project="project" />
+          <project-single-dao-proposal-history class="mt-4 xl:mt-8" :project="project" />
         </section-container>
       </div>
     </div>

@@ -121,12 +121,12 @@
         "yes": "yes"
       },
       "history": {
-        "funding": "Granted Funding",
+        "funding": "Granted<br>Funding",
         "granted": "Granted",
-        "no": "No Votes",
+        "no": "No<br>Votes",
         "round": "Round",
-        "view": "View full proposal",
-        "yes": "Yes Votes"
+        "view": "View full<br>proposal",
+        "yes": "Yes<br>Votes"
       },
       "requested": "Requested Funding",
       "round": {

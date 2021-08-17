@@ -12,24 +12,30 @@
       <table class="w-full">
         <thead>
           <tr class="border-b border-primary">
-            <th class="p-2 text-left pl-4">
-              {{ $t('project.proposal.history.round') }}
-            </th>
-            <th class="p-2 text-right">
-              {{ $t('project.proposal.history.yes') }}
-            </th>
-            <th class="p-2 text-right">
-              {{ $t('project.proposal.history.no') }}
-            </th>
-            <th class="p-2 text-right">
-              {{ $t('project.proposal.history.funding') }}
-            </th>
-            <th class="p-2 text-right">
-              {{ $t('project.proposal.history.granted') }}
-            </th>
-            <th class="p-2 text-right pr-4">
-              {{ $t('project.proposal.history.view') }}
-            </th>
+            <th
+              class="p-2 px-4 text-left pl-4"
+              v-html="$t('project.proposal.history.round')"
+            />
+            <th
+              class="p-2 px-4 text-right"
+              v-html="$t('project.proposal.history.yes')"
+            />
+            <th
+              class="p-2 px-4 text-right"
+              v-html="$t('project.proposal.history.no')"
+            />
+            <th
+              class="p-2 px-4 text-right"
+              v-html="$t('project.proposal.history.funding')"
+            />
+            <th
+              class="p-2 px-4 text-right"
+              v-html="$t('project.proposal.history.granted')"
+            />
+            <th
+              class="p-2 px-4 text-right pr-4"
+              v-html="$t('project.proposal.history.view')"
+            />
           </tr>
         </thead>
 
@@ -43,22 +49,22 @@
                   : ''
               "
             >
-              <td class="text-left p-2 py-3 pl-4">
+              <td class="text-left p-4 py-3 pl-4">
                 <span class="rounded border border-darkgrey py-1 px-2">
                   {{ proposal.fundingRound.round }}
                 </span>
               </td>
 
-              <td class="text-right p-2 py-3">
+              <td class="text-right p-4 py-3">
                 {{ proposal.votes }}
               </td>
 
-              <td class="text-right p-2 py-3">
+              <td class="text-right p-4 py-3">
                 {{ proposal.counterVotes }}
               </td>
 
               <td>
-                <div class="flex items-center justify-end p-2 py-3">
+                <div class="flex items-center justify-end p-4 py-3">
                   {{ proposal.grantedToken }}
 
                   <img
@@ -69,7 +75,7 @@
                 </div>
               </td>
 
-              <td class="text-right p-2 py-3">
+              <td class="text-right p-4 py-3">
                 {{
                   proposal.status === 'funded'
                     ? $t('project.proposal.granted.yes')
@@ -77,7 +83,7 @@
                 }}
               </td>
 
-              <td class="p-2 py-3 pr-4">
+              <td class="p-4 py-3 pr-4">
                 <div class="flex justify-end">
                   <app-link :to="proposal.oceanProtocolPortUrl">
                     <div class="flex items-center">
