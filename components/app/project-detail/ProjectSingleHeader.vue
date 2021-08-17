@@ -2,7 +2,7 @@
   <div class="flex flex-wrap items-center justify-center md:justify-between">
     <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
       <app-logo
-        class="md:mr-4 inline-block rounded-full self-end"
+        class="mx-4 md:ml-0 inline-block rounded-full self-end"
         :src="project.logo"
         :alt="project.title"
         :size="64"
