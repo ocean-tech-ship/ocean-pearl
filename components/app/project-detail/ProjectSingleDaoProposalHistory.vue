@@ -8,7 +8,7 @@
       </span>
     </p>
 
-    <div class="-mx-4 -mb-4">
+    <div class="-mx-4 -mb-4 overflow-x-auto">
       <table class="w-full">
         <thead>
           <tr class="border-b border-primary">
