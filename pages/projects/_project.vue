@@ -15,7 +15,9 @@
 
       <div class="bg-grey py-8 md:py-16">
         <!-- design with gallery -->
-        <section-container v-if="project.pictures && project.pictures.length > 0">
+        <section-container
+          v-if="project.pictures && project.pictures.length > 0"
+        >
           <div class="grid gap-8 xl:grid-cols-2">
             <div>
               <project-single-description :project="project" />
@@ -24,7 +26,10 @@
 
             <div>
               <project-single-gallery :project="project" />
-              <project-single-socials class="py-4 lg:justify-start" :project="project" />
+              <project-single-socials
+                class="py-4 lg:justify-start"
+                :project="project"
+              />
             </div>
           </div>
 
@@ -47,7 +52,10 @@
           <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
             <div>
               <project-single-description :project="project" />
-              <project-single-socials class="py-4 justify-start" :project="project" />
+              <project-single-socials
+                class="py-4 justify-start"
+                :project="project"
+              />
               <project-single-team class="py-4" :project="project" />
             </div>
 
@@ -57,7 +65,10 @@
             </div>
           </div>
 
-          <project-single-dao-proposal-history class="mt-4 xl:mt-8" :project="project" />
+          <project-single-dao-proposal-history
+            class="mt-4 xl:mt-8"
+            :project="project"
+          />
         </section-container>
       </div>
     </div>
@@ -69,8 +80,6 @@ import Vue from 'vue';
 import { getProjectById } from '@/api.js';
 import SectionContainer from '@/components/common/SectionContainer';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue';
-import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue';
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
 import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription';
 import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam';
@@ -87,8 +96,6 @@ export default Vue.extend({
     // ProjectSingleRoiStrategy,
     SectionContainer,
     ProjectSingleDescription,
-    ProjectSingleDetails,
-    ProjectSingleDaoProposal,
     ProjectSingleHeader,
     ProjectSingleTeam,
     ProjectSingleGallery,
@@ -113,18 +120,6 @@ export default Vue.extend({
           project: null,
         };
       }
-
-      response.data.team = [
-        {
-          firstname: 'Marcel',
-          lastname: 'Hasslinger',
-          purpose: 'Systems Engineer',
-          socialMedia: {
-            TWITTER: 'https://twitter.com',
-            GITHUB: 'https://github.com',
-          }
-        },
-      ];
 
       return {
         error: null,
