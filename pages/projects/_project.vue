@@ -1,27 +1,76 @@
 <template>
   <div>
-    <landing-section-container v-if="error">
+    <!-- error visualization -->
+    <section-container v-if="error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t(error) }}</p>
-    </landing-section-container>
+    </section-container>
 
+    <!-- content -->
     <div v-if="project">
-      <project-single-header :project="project" />
+      <section-container>
+        <hr class="text-darkgrey hidden md:block -mt-16" />
+        <project-single-header class="my-8" :project="project" />
+      </section-container>
 
-      <div class="bg-grey pt-8 pb-1 mb-8">
-        <landing-section-container
-          class="grid gap-12 lg:mb-0"
-          :class="coverImage ? 'lg:grid-cols-1' : 'lg:grid-cols-2'"
+      <div class="bg-grey py-8 md:py-16">
+        <!-- design with gallery -->
+        <section-container
+          v-if="project.pictures && project.pictures.length > 0"
         >
-          <project-single-details :project="project" />
+          <div class="grid gap-8 xl:grid-cols-2">
+            <div>
+              <project-single-description :project="project" />
+              <project-single-team class="py-4" :project="project" />
+            </div>
 
-          <hr v-if="coverImage" class="text-primary" />
+            <div>
+              <project-single-gallery :project="project" />
+              <project-single-socials
+                class="py-4 lg:justify-start"
+                :project="project"
+              />
+            </div>
+          </div>
 
-          <project-single-dao-proposal :project="project" />
-        </landing-section-container>
+          <hr class="text-primary my-8" />
+
+          <project-single-dao-proposal-header class="pb-4" />
+
+          <div class="block 2xl:flex 2xl:justify-between">
+            <div class="pb-8 2xl:pb-0">
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+            <div>
+              <project-single-dao-proposal-history :project="project" />
+            </div>
+          </div>
+        </section-container>
+
+        <!-- without gallery -->
+        <section-container v-else>
+          <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
+            <div>
+              <project-single-description :project="project" />
+              <project-single-socials
+                class="py-4 justify-start"
+                :project="project"
+              />
+              <project-single-team class="py-4" :project="project" />
+            </div>
+
+            <div>
+              <project-single-dao-proposal-header class="pb-4" />
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+          </div>
+
+          <project-single-dao-proposal-history
+            class="mt-4 xl:mt-8"
+            :project="project"
+          />
+        </section-container>
       </div>
-
-      <!--<project-single-roi-strategy :project="project" />-->
     </div>
   </div>
 </template>
@@ -29,21 +78,31 @@
 <script>
 import Vue from 'vue';
 import { getProjectById } from '@/api.js';
-import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue';
-import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue';
+import SectionContainer from '@/components/common/SectionContainer.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId.js';
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription.vue';
+import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam.vue';
+import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery.vue';
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials.vue';
+import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader.vue';
+import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics.vue';
+import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory.vue';
 
 export default Vue.extend({
   name: 'ProjectDetail',
 
   components: {
     // ProjectSingleRoiStrategy,
-    ProjectSingleDetails,
-    ProjectSingleDaoProposal,
+    SectionContainer,
+    ProjectSingleDescription,
     ProjectSingleHeader,
-    LandingSectionContainer,
+    ProjectSingleTeam,
+    ProjectSingleGallery,
+    ProjectSingleSocials,
+    ProjectSingleDaoProposalHeader,
+    ProjectSingleDaoProposalMetrics,
+    ProjectSingleDaoProposalHistory,
   },
 
   mixins: [ProjectBeautifyId],

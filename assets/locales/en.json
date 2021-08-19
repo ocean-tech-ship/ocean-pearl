@@ -148,6 +148,18 @@
     "description": "Description",
     "proposal": {
       "empty": "no funding yet",
+      "granted": {
+        "no": "no",
+        "yes": "yes"
+      },
+      "history": {
+        "funding": "Granted<br>Funding",
+        "granted": "Granted",
+        "no": "No<br>Votes",
+        "round": "Round",
+        "view": "View full<br>proposal",
+        "yes": "Yes<br>Votes"
+      },
       "requested": "Requested Funding",
       "round": {
         "numbered": "Round {round}",
@@ -156,10 +168,16 @@
       "submit": "Submit Proposal",
       "title": {
         "dao": "DAO",
+        "plural": "DAO Proposals",
         "proposal": "proposal"
       },
       "total": "Total Fundings",
-      "vote": "vote here"
+      "vote": "vote here",
+      "wallet": {
+        "less": "show less",
+        "more": "show all",
+        "title": "Project Wallet Address"
+      }
     },
     "readFull": "read full proposal",
     "roi": {

@@ -75,13 +75,7 @@
               </div>
             </NuxtLink>
             <div class="space-x-3 flex hidden md:flex">
-              <project-single-details-social
-                v-for="(url, type) in project.socialMedia"
-                :key="type"
-                class="h-5 w-5"
-                :type="type"
-                :url="url"
-              />
+              <project-single-socials :project="project" />
             </div>
           </div>
           <div>
@@ -141,7 +135,7 @@
 </template>
 
 <script>
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial';
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
 import LandingSectionContainer from './LandingSectionContainer';
 import AppLogo from '@/components/common/AppLogo';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
@@ -153,7 +147,7 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
-    ProjectSingleDetailsSocial,
+    ProjectSingleSocials,
   },
 
   mixins: [ProjectBeautifyId],

@@ -27,9 +27,10 @@
             -->
             <div class="mt-3">
               <app-logo
-                class="inline-block h-16 w-16 rounded-full"
-                :src="project.imageURL"
+                class="inline-block"
+                :src="project.logo"
                 :alt="project.title"
+                :size="64"
               />
             </div>
             <div class="mt-4">

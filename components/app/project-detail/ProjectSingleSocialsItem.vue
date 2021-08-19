@@ -12,7 +12,7 @@
 import { SocialMedia } from '@/model/SocialMedia';
 
 export default {
-  name: 'ProjectSingleDetailsSocial',
+  name: 'ProjectSingleSocialsItem',
 
   props: {
     type: {
