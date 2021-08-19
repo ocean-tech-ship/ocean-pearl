@@ -118,9 +118,6 @@ export default Vue.extend({
     methods: {
         async filterDaoProposals(payload) {
             try {
-                const { round, category, search } = payload;
-                console.log(round, category, search);
-
                 const daoProposalResponse = await getDaoProposals(
                     this.$axios,
                     payload,

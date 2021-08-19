@@ -1,7 +1,6 @@
 <template>
     <section class="relative flex border w-full">
         <button
-            id="dropdown-emit"
             tabindex="0"
             :class="{ open: open }"
             class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
@@ -10,12 +9,7 @@
         >
             {{ selectedName }}
         </button>
-        <label
-            for="dropdown-emit"
-            class="label absolute p-1 z-10"
-            @click="toggleOpen"
-            >{{ buttonName }}</label
-        >
+        <label class="label absolute p-1 z-10">{{ buttonName }}</label>
         <section
             v-if="open"
             class="border bg-grey rounded shadow absolute top-10 z-40"
@@ -91,7 +85,6 @@ export default {
 
 <style lang="scss" scoped>
 label {
-    cursor: pointer;
     font-size: 0.7rem;
     top: -13px;
     left: 12px;
