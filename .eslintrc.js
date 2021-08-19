@@ -12,5 +12,8 @@ module.exports = {
   ],
   plugins: [],
   // add your custom rules here
-  rules: {},
+  rules: {
+    'no-plusplus': 'off', // allow ++ and --
+    'func-names': 'off', // allow unnamed functions
+  },
 };
