@@ -1,7 +1,15 @@
 <template>
   <LandingSectionContainer>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+        mt-10
+      "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <NuxtLink
@@ -12,16 +20,19 @@
             <div class="flex">
               <div class="mr-3">
                 <app-logo
-                  class="inline-block h-10 w-10 rounded-full"
+                  class="inline-block"
                   :src="daoProposal.project.logo"
                   :alt="daoProposal.project.title"
+                  :size="45"
                 />
               </div>
               <div>
                 <p class="text-primary leading-snug line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
-                <p class="small-text">{{ categoryMap[daoProposal.category] }}</p>
+                <p class="small-text">
+                  {{ categoryMap[daoProposal.category] }}
+                </p>
               </div>
             </div>
             <div class="mt-5 h-112px">
@@ -86,10 +97,10 @@
 </template>
 
 <script>
-import LandingSectionContainer from '../landing/LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
-import { CategoryMap } from '@/components/constants/CategoryMap.constant'
+import LandingSectionContainer from '../landing/LandingSectionContainer';
+import AppLogo from '~/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'DaoProposalsList',
@@ -97,12 +108,6 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
-  },
-
-  data() {
-    return {
-        categoryMap: CategoryMap,
-    }
   },
 
   mixins: [ProjectBeautifyId],
@@ -114,5 +119,11 @@ export default {
       default: () => [],
     },
   },
-}
+
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
+  },
+};
 </script>

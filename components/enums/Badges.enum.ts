@@ -1,7 +1,7 @@
 enum BadgesEnum {
-    Featured = 'featured',
-    Fund = 'needsFunding',
-    Hiring = 'hiring',
+  Featured = 'featured',
+  Fund = 'needsFunding',
+  Hiring = 'hiring',
 }
 
-export default BadgesEnum
+export default BadgesEnum;

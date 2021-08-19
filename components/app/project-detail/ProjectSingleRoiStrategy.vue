@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
 
 export default {
   name: 'ProjectSingleRoiStrategy',
@@ -46,7 +46,7 @@ export default {
       }),
     },
   },
-}
+};
 </script>
 
 <style scoped></style>

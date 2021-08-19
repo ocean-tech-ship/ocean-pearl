@@ -1,5 +1,4 @@
 <template>
-
   <div class="mx-4 lg:mx-16">
     <AppLink class="table mx-auto" :to="item.route">
       <div class="">
@@ -9,7 +8,6 @@
           class="w-10 h-10 block mx-auto"
         />
         <p :class="`font-semibold ${theme}`">
-
           {{ item.name }}
         </p>
       </div>
@@ -37,8 +35,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import AppLink from '~/components/common/AppLink.vue'
+import Vue from 'vue';
+import AppLink from '~/components/common/AppLink.vue';
 
 export default Vue.extend({
   components: { AppLink },
@@ -52,5 +50,5 @@ export default Vue.extend({
       default: () => 'text-third',
     },
   },
-})
+});
 </script>

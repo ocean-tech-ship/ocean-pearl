@@ -9,7 +9,19 @@
       />
       <div
         v-if="context.open"
-        class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
+        class="
+          shadow
+          origin-top-right
+          absolute
+          right-0
+          mt-2
+          w-64
+          bg-grey
+          border border-primary
+          rounded
+          overflow-hidden
+          shadow-md
+        "
       >
         <ul @click="context.toggleOpen">
           <li>
@@ -25,7 +37,7 @@
           <li>
             <NuxtLink
               class="font-bold block px-4 py-3"
-              to="/dao-projects"
+              to="/dao-proposals"
               >{{ $t('navbar.navbarDao') }}</NuxtLink
             >
           </li>
@@ -38,7 +50,7 @@
                   class="mr-2"
                   src="@/assets/images/icons/vote.svg"
                   :alt="`${$t('project.proposal.submit')} ${$t(
-                    'general.icon'
+                    'general.icon',
                   )}`"
                 />
                 <p>{{ $t('project.proposal.submit') }}</p>
@@ -52,16 +64,16 @@
 </template>
 
 <script>
-import MainDropdown from '@/components/common/MainDropdown'
-import AppLink from '@/components/common/AppLink.vue'
+import MainDropdown from '@/components/common/MainDropdown';
+import AppLink from '@/components/common/AppLink.vue';
 
 export default {
   name: 'ButtonWithDropdown',
   components: {
     MainDropdown,
     AppLink,
-  }
-}
+  },
+};
 </script>
 
 <style scoped>

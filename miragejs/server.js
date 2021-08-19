@@ -1,9 +1,9 @@
-import { createServer } from 'miragejs'
-//import fixtures from './fixtures'
-import factories from './factories'
-import routes from './routes'
-import models from './models'
-import seeds from './seeds'
+import { createServer } from 'miragejs';
+// import fixtures from './fixtures'
+import factories from './factories';
+import routes from './routes';
+import models from './models';
+import seeds from './seeds';
 
 const config = (environment) => {
   const config = {
@@ -12,15 +12,15 @@ const config = (environment) => {
     models,
     routes,
     seeds,
-  }
+  };
 
   // if (Object.keys(fixtures).length) {
   //   config.fixtures = fixtures
   // }
 
-  return config
-}
+  return config;
+};
 
 export function makeServer({ environment = 'development' } = {}) {
-  return new createServer(config(environment))
+  return new createServer(config(environment));
 }

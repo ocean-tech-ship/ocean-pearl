@@ -8,7 +8,14 @@
     </h2>
     <p>{{ $t('landing.job_offers.text') }}</p>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-4 gap-4 mt-10"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        xl:grid-cols-2
+        2xl:grid-cols-4
+        gap-4
+        mt-10
+      "
     >
       <div v-for="job in jobs" :key="job._id">
         <NuxtLink to="/jobs">
@@ -46,9 +53,9 @@
 </template>
 
 <script>
-import { getJobs } from '@/api.js'
-import AppLogo from '../../common/AppLogo'
-import LandingSectionContainer from './LandingSectionContainer'
+import { getJobs } from '@/api.js';
+import AppLogo from '../../common/AppLogo';
+import LandingSectionContainer from './LandingSectionContainer';
 
 export default {
   name: 'LandingJobOffers',
@@ -60,7 +67,7 @@ export default {
   data() {
     return {
       jobs: [],
-    }
+    };
   },
   async fetch() {
     await getJobs(this.$axios)
@@ -68,13 +75,13 @@ export default {
         this.jobs =
           process.env.useMirage === 'true'
             ? jobs.jobs.slice(0, 4)
-            : jobs.slice(0, 4)
+            : jobs.slice(0, 4);
       })
       .catch(() => {
-        this.jobs = []
-      })
+        this.jobs = [];
+      });
   },
-}
+};
 </script>
 
 <style scoped>
