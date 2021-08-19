@@ -20,10 +20,7 @@
     <div v-else>
       <round-metrics class="mt-10" :metrics="metrics" />
       <hr class="text-primary my-16" />
-      <dao-projects-filter
-        :rounds="maxRounds"
-        @filter="filterDaoProposals"
-      />
+      <dao-proposals-filter :rounds="maxRounds" @filter="filterDaoProposals" />
       <dao-proposals-list :dao-proposals="daoProposals" />
     </div>
   </landing-section-container>
@@ -35,7 +32,7 @@ import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
 import DaoProposalsList from '@/components/app/dao-proposals/DaoProposalsList.vue';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import { getDaoRoundMetrics, getDaoProposals } from '@/api';
-import DaoProjectsFilter from '~/components/app/dao-proposals/DaoProjectsFilter.vue';
+import DaoProposalsFilter from '~/components/app/dao-proposals/DaoProposalsFilter.vue';
 
 export default Vue.extend({
   name: 'DaoProjectOverview',
@@ -44,7 +41,7 @@ export default Vue.extend({
     RoundMetrics,
     DaoProposalsList,
     LandingSectionContainer,
-    DaoProjectsFilter,
+    DaoProposalsFilter,
   },
 
   data() {
@@ -96,9 +93,9 @@ export default Vue.extend({
       this.daoProposals =
         process.env.NODE_ENV === 'mirage'
           ? daoProposalResponse.data.daoproposals
-          : daoProposalResponse.data;
+          : daoProposalResponse.data.daoProposals;
       // set maxRounds based on daoProposalResponse or metricsResponse fundingRound alternatively
-      this.maxRounds = daoProposalResponse.data.maxRounds
+      this.maxRounds = daoProposalResponse.data?.maxRounds
         ? daoProposalResponse.data.maxRounds
         : metricsResponse.data.fundingRound;
     } catch (error) {
@@ -110,10 +107,7 @@ export default Vue.extend({
   methods: {
     async filterDaoProposals(payload) {
       try {
-        const daoProposalResponse = await getDaoProposals(
-          this.$axios,
-          payload,
-        );
+        const daoProposalResponse = await getDaoProposals(this.$axios, payload);
 
         if (daoProposalResponse.status === 204) {
           this.error = 'general.error.unknown';

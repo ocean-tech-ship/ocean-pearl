@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-import EnumBadges from '../../enums/Badges.enum'
+import EnumBadges from '../../enums/Badges.enum';
 
 export default {
   data() {
@@ -25,7 +25,7 @@ export default {
         'General Grant': require('@/assets/images/icons/featured-badge.svg'),
         'New Project': require('@/assets/images/icons/bitcoin-badge.svg'),
       },
-    }
+    };
   },
-}
+};
 </script>
