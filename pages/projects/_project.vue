@@ -78,16 +78,16 @@
 <script>
 import Vue from 'vue';
 import { getProjectById } from '@/api.js';
-import SectionContainer from '@/components/common/SectionContainer';
-import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
+import SectionContainer from '@/components/common/SectionContainer.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId.js';
 import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
-import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription';
-import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam';
-import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery';
-import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
-import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader';
-import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics';
-import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory';
+import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription.vue';
+import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam.vue';
+import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery.vue';
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials.vue';
+import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader.vue';
+import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics.vue';
+import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory.vue';
 
 export default Vue.extend({
   name: 'ProjectDetail',
