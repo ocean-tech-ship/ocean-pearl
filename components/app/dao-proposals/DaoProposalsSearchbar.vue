@@ -1,10 +1,10 @@
 <template>
-  <div class="w-full">
+  <div class="w-full relative">
     <input
       id="dao-projects-search"
       v-model="searchValue"
       type="text"
-      class="py-3 pl-3 w-96 border-primary rounded border min-w-full"
+      class="py-3 pl-3 w-1/1 border-primary rounded border min-w-full"
       @focus="focused = true"
       @blur="focused = false"
     />
@@ -40,7 +40,7 @@ label {
   top: 9.2px;
   left: 12px;
   transition: 200ms;
-  z-index: 50;
+  z-index: 30;
   background: #fff;
 }
 .isFocused {

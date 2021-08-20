@@ -1,52 +1,26 @@
 <template>
-  <div
-    class="
-      relative
-      my-8
-      h-40
-      md:h-32
-      lg:h-auto lg:grid lg:grid-flow-col lg:grid-cols-3 lg:gap-4 lg:items-center
-    "
-  >
+  <div class="my-8 flex flex-col justify-between md:flex-row md:items-center">
     <DaoProposalsDropdowns
-      class="
-        flex flex-col
-        items-start
-        md:items-center md:h-16 md:flex-row md:flex-wrap md:items-center
-        lg:h-auto
-      "
+      class="flex flex-col 2sm:flex-row md:flex-col lg:flex-row"
       :rounds="rounds"
       @selected-items="setFilter"
     />
     <DaoProposalsSearchbar
-      class="absolute bottom-0 z-10 flex w-full lg:relative lg:w-auto"
+      class="rw-1/1 mt-2 md:w-1/2 md:m-0"
       @search-projects="setFilter"
-    />
-    <DaoProposalsBadges
-      class="
-        absolute
-        top-4
-        right-0
-        flex
-        justify-end
-        md:top-0
-        lg:w-auto lg:relative
-      "
     />
   </div>
 </template>
 
 <script>
-import DaoProposalsDropdowns from './DaoProposalsDropdowns';
-import DaoProposalsSearchbar from './DaoProposalsSearchbar';
-import DaoProposalsBadges from './DaoProposalsBadges';
+import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
+import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
 
 export default {
   name: 'DaoProjectsFilter',
 
   components: {
     DaoProposalsSearchbar,
-    DaoProposalsBadges,
     DaoProposalsDropdowns,
   },
   props: {
@@ -69,7 +43,7 @@ export default {
       deep: true,
       handler: function emit() {
         // restructure filter items for backend compatibility
-        const filter = this.filter;
+        const { filter } = this;
         if (filter.round === 0) delete filter.round;
         if (filter.category === 'all') delete filter.category;
         if (filter.search === '') delete filter.search;

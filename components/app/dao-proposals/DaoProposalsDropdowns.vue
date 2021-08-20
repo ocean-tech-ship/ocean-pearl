@@ -2,13 +2,13 @@
   <div class="text-primary">
     <ButtonEmitWithDropdown
       button-name="Rounds"
-      class="rounded my-2 mr-2 w-44"
+      class="rounded my-2 mr-2 w-1/1 2sm:w-1/2 sm:w-44"
       :menu-items="roundItems"
       @selected="setItems"
     />
     <ButtonEmitWithDropdown
       button-name="Category"
-      class="rounded my-2 mr-2 w-44"
+      class="rounded my-2 w-1/1 2sm:w-1/2 sm:w-44"
       :menu-items="categoryItems"
       @selected="setItems"
     />
