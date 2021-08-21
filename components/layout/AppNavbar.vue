@@ -76,7 +76,7 @@ export default {
 };
 </script>
 
-<style type="scss">
+<style>
 body {
   padding-top: 120px;
 
