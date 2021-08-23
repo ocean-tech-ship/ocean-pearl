@@ -9,7 +9,7 @@
     <!-- content -->
     <div v-if="project">
       <section-container>
-        <hr class="text-darkgrey hidden md:block -mt-16" />
+        <hr class="text-darkgrey hidden md:block" />
         <project-single-header class="my-8" :project="project" />
       </section-container>
 

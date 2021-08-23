@@ -12,8 +12,8 @@ export function getProjectById(axios, id) {
 }
 
 // dao-proposals
-export function getDaoProposals(axios) {
-    return axios.get('/dao-proposals'); // dont filter for data object
+export function getDaoProposals(axios, params) {
+    return axios.get('/dao-proposals', { params });
 }
 
 export function getFeaturedDaoProposals(axios, limit) {

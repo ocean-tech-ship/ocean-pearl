@@ -10,6 +10,7 @@
       <div
         v-if="context.open"
         class="
+          dropdown-menu
           shadow
           origin-top-right
           absolute
@@ -35,11 +36,9 @@
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              class="font-bold block px-4 py-3"
-              to="/dao-proposals"
-              >{{ $t('navbar.navbarDao') }}</NuxtLink
-            >
+            <NuxtLink class="font-bold block px-4 py-3" to="/dao-proposals">{{
+              $t('navbar.navbarDao')
+            }}</NuxtLink>
           </li>
           <li>
             <app-link
@@ -64,7 +63,7 @@
 </template>
 
 <script>
-import MainDropdown from '@/components/common/MainDropdown';
+import MainDropdown from '@/components/common/MainDropdown.vue';
 import AppLink from '@/components/common/AppLink.vue';
 
 export default {
@@ -77,6 +76,9 @@ export default {
 </script>
 
 <style scoped>
+.dropdown-menu {
+  z-index: 9999;
+}
 li > a:hover {
   background: #bb2c7636;
   transition: 200ms;

@@ -30,7 +30,7 @@ export default {
 }
 
 .tooltip:hover .tooltip-hint {
-  @apply visible z-50;
+  @apply visible z-40;
 }
 
 @tailwind utilities;
