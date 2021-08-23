@@ -38,6 +38,7 @@ module.exports = {
       third: colors.third,
       quad: colors.quad,
       grey: colors.grey,
+      darkgrey: colors.darkgrey,
     },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],

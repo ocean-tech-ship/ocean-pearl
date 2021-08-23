@@ -1,7 +1,17 @@
 <template>
   <div
-    class="inline-block rounded select-none font-medium py-2 px-6 shadow items-center justify-center"
-    v-bind:class="[
+    class="
+      inline-block
+      rounded
+      select-none
+      font-medium
+      py-2
+      px-6
+      shadow
+      items-center
+      justify-center
+    "
+    :class="[
       secondary
         ? 'bg-white text-primary border-2 border-primary'
         : 'call-to-action text-secondary',
@@ -36,7 +46,7 @@ export default {
       default: false,
     },
   },
-}
+};
 </script>
 
 <style scoped lang="scss">

@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import { SocialMedia } from '~/model/SocialMedia'
+import { SocialMedia } from '~/model/SocialMedia';
 
 export default {
-  name: 'ProjectSingleDetailsMember',
+  name: 'ProjectSingleTeamMember',
 
   props: {
     member: {
@@ -51,36 +51,35 @@ export default {
 
   computed: {
     fullMemberTitle() {
-      const member = this.$props.member
-      return `${member.firstname} ${member.lastname}`
-      // return `${member.firstname} ${member.lastname}, ${member.purpose}`
+      const member = this.$props.member;
+      return `${member.firstname} ${member.lastname}, ${member.purpose}`;
     },
 
     filteredMemberSocialMedia() {
-      const socials = {}
+      const socials = {};
 
       if (!this.$props.member.socialMedia) {
-        return socials
+        return socials;
       }
 
       for (const [type, url] of Object.entries(
-        this.$props.member.socialMedia
+        this.$props.member.socialMedia,
       )) {
         if (SocialMedia.parse(type) != null) {
-          socials[type] = url
+          socials[type] = url;
         }
       }
 
-      return socials
+      return socials;
     },
   },
 
   methods: {
     getSocialTitle(type) {
-      return SocialMedia.parse(type).Title
+      return SocialMedia.parse(type).Title;
     },
   },
-}
+};
 </script>
 
 <style scoped></style>

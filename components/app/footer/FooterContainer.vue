@@ -1,7 +1,16 @@
 <template>
   <footer class="w-full">
     <div
-      class="w-full max-w-1440 mx-auto py-10 grid gap-10 md:flex md:items-center md:gap-0 md:justify-center lg:gap-5"
+      class="
+        w-full
+        max-w-1440
+        mx-auto
+        py-10
+        grid
+        gap-10
+        md:flex md:items-center md:gap-0 md:justify-center
+        lg:gap-5
+      "
     >
       <div v-for="(item, i) in footerItems" :key="item.id">
         <footer-block
@@ -15,8 +24,8 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import FooterBlock from './FooterBlock.vue'
+import Vue from 'vue';
+import FooterBlock from './FooterBlock.vue';
 
 export default Vue.extend({
   components: { FooterBlock },
@@ -89,9 +98,9 @@ export default Vue.extend({
           ],
         },
       ],
-    }
+    };
   },
-})
+});
 </script>
 
 <style></style>
