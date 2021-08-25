@@ -26,7 +26,7 @@ export const actions = {
     }
 
     const timestamp = new Date()
-    const doc = `oceanpearl.io - login @ ${timestamp}`
+    const doc = `oceanpearl.io - login @ ${timestamp.toISOString()}`
 
     try {
       signature = await dispatch('wallet/signData', doc, { root: true })
