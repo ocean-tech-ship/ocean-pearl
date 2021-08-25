@@ -25,7 +25,7 @@ export const actions = {
       return
     }
 
-    const timestamp = Date.now()
+    const timestamp = new Date()
     const doc = `oceanpearl.io - login @ ${timestamp}`
 
     try {
