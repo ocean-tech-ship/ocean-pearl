@@ -10,6 +10,7 @@
       <div
         v-if="context.open"
         class="
+          dropdown-menu
           shadow
           origin-top-right
           absolute
@@ -35,42 +36,25 @@
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink
-              class="font-bold block px-4 py-3"
-              to="/dao-project-overview"
-              >{{ $t('navbar.navbarDao') }}</NuxtLink
-            >
+            <NuxtLink class="font-bold block px-4 py-3" to="/dao-proposals">{{
+              $t('navbar.navbarDao')
+            }}</NuxtLink>
           </li>
-          <li v-if="!$store.state.account.wallet">
-            <NuxtLink to="/manage">
+          <li>
+            <app-link
+              to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template"
+            >
               <div class="flex px-4 py-3 text-primary">
-                <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
-                <p>{{ $t('manage.auth.login.action') }}</p>
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/vote.svg"
+                  :alt="`${$t('project.proposal.submit')} ${$t(
+                    'general.icon',
+                  )}`"
+                />
+                <p>{{ $t('project.proposal.submit') }}</p>
               </div>
-            </NuxtLink>
-          </li>
-          <li v-if="$store.state.account.wallet">
-            <div
-              class="rounded p-2 m-4 flex items-center"
-              style="background-color: black; color: white"
-            >
-              {{ shrinkAddress($store.state.account.wallet) }}
-              <div
-                class="ml-2"
-                v-html="createIcon($store.state.account.wallet, 24)"
-              />
-            </div>
-          </li>
-          <li v-if="$store.state.account.wallet">
-            <div class="flex justify-end">
-              <button
-                type="button"
-                class="font-bold block px-4 py-3"
-                @click="$store.dispatch('auth/logout')"
-              >
-                {{ $t('manage.auth.logout.title') }}
-              </button>
-            </div>
+            </app-link>
           </li>
         </ul>
       </div>
@@ -79,29 +63,22 @@
 </template>
 
 <script>
-import EthAddress from '@/mixins/EthAddress'
-import Identicon from '@/mixins/Identicon'
-import MainDropdown from '@/components/common/MainDropdown'
+import MainDropdown from '@/components/common/MainDropdown.vue';
+import AppLink from '@/components/common/AppLink.vue';
 
 export default {
   name: 'ButtonWithDropdown',
-
   components: {
     MainDropdown,
+    AppLink,
   },
-
-  mixins: [EthAddress, Identicon],
-
-  data() {
-    return {
-      username: 'John Wick',
-      email: 'dontkillmydog@johnwick.com',
-    }
-  },
-}
+};
 </script>
 
 <style scoped>
+.dropdown-menu {
+  z-index: 9999;
+}
 li > a:hover {
   background: #bb2c7636;
   transition: 200ms;

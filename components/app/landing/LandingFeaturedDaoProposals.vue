@@ -11,7 +11,25 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow rounded-md pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
+        class="
+          flex
+          items-center
+          flex-col
+          rounded
+          lg:flex-row
+          xl:flex-col
+          shadow
+          rounded-md
+          pb-12
+          pt-16
+          px-4
+          col-span-1
+          lg:col-span-2
+          xl:col-span-1
+          row-span-1
+          xl:row-span-2
+          listed-project-container
+        "
       >
         <img
           class="h-225px hidden sm:block"
@@ -33,7 +51,10 @@
       >
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
-            <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
+            <NuxtLink
+              :prefetch="false"
+              :to="`/projects/${beautifyProjectId(project)}`"
+            >
               <div class="flex">
                 <div class="mr-3">
                   <app-logo
@@ -47,18 +68,14 @@
                     {{ project.title }}
                   </p>
 
-                  <p class="small-text text-primary">{{ project.category }}</p>
+                  <p class="small-text text-primary">
+                    {{ categoryMap[project.category] }}
+                  </p>
                 </div>
               </div>
             </NuxtLink>
             <div class="space-x-3 flex hidden md:flex">
-              <project-single-details-social
-                v-for="(url, type) in project.socialMedia"
-                :key="type"
-                class="h-5 w-5"
-                :type="type"
-                :url="url"
-              />
+              <project-single-socials :project="project" />
             </div>
           </div>
           <div>
@@ -103,7 +120,7 @@
         </div>
       </div>
     </div>
-    <NuxtLink to="/dao-project-overview">
+    <NuxtLink to="/dao-projects">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.featured_dao_projects.link_text') }}
@@ -118,10 +135,11 @@
 </template>
 
 <script>
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
+import LandingSectionContainer from './LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingFeaturedProjectSection',
@@ -129,7 +147,7 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
-    ProjectSingleDetailsSocial,
+    ProjectSingleSocials,
   },
 
   mixins: [ProjectBeautifyId],
@@ -141,7 +159,13 @@ export default {
       default: () => [],
     },
   },
-}
+
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
+  },
+};
 </script>
 
 <style scoped>

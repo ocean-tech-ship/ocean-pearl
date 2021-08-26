@@ -1,22 +1,40 @@
-/*
- * Mirage JS guide on Factories: https://miragejs.com/docs/data-layer/factories
- */
-import { Factory } from 'miragejs'
+import faker from 'faker';
+import { Factory } from 'miragejs';
 
 export default {
   daoproposal: Factory.extend({
-    _id(i) {
-      return i
-    },
-    project(i) {
-      return `Project ${i + 1}` // Project 1, Project 2, etc.
-    },
     description:
       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.',
     logo: require('@/assets/images/poseidon-network.png'),
-    startDate: '2021-05-20T22:03:19.072Z',
-    endDate: '2021-05-28T22:03:19.072Z',
-    category: 'Category1',
-    fundRound: '2',
+    startDate: faker.date.past().toLocaleDateString(),
+    endDate: faker.date.past().toLocaleDateString(),
+    votes: 40000,
+    counterVotes: 3000,
+    requestedGrantToken: 24000,
+    grantedToken: 24000,
+    status: 'funded',
+    walletAddress: '0xe6E3459bA0d70699F54464cc4b5d273810E7EC7B',
+    paymentWalletsAddresses: ['0xe6E3459bA0d70699F54464cc4b5d273810E7EC7B'],
+    title(i) {
+      return `Test Title ${i}`;
+    },
+    oceanProtocolPortUrl: `portUrl`,
+    deliverables: [],
+    fundamentalMetric: 'dataConsumeVolume',
+    ipfsHash: 'randomHash123',
+    snapshotBlock: '1234',
+    category(i) {
+      const categories = [
+        'dao',
+        'newEntrants',
+        'buildAndIntegrate',
+        'outreach',
+      ];
+
+      return categories[i % categories.length];
+    },
+    fundingRoundId(i) {
+      return (i % 5) + 1;
+    },
   }),
-}
+};

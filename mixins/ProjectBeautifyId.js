@@ -4,15 +4,15 @@ export default {
       const title = project.title
         .replace(/[^a-z0-9\s]+/gi, '')
         .replace(/\s+/g, '-')
-        .toLowerCase()
+        .toLowerCase();
 
-      return `${project._id}-${title}`
+      return `${project.id}-${title}`;
     },
 
     readBeautifiedProjectId(beautifiedId) {
       return !!beautifiedId && beautifiedId.includes('-')
         ? beautifiedId.split('-')[0]
-        : beautifiedId
+        : beautifiedId;
     },
   },
-}
+};

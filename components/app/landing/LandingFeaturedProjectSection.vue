@@ -11,7 +11,24 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
+        class="
+          flex
+          items-center
+          flex-col
+          rounded
+          lg:flex-row
+          xl:flex-col
+          shadow
+          pb-12
+          pt-16
+          px-4
+          col-span-1
+          lg:col-span-2
+          xl:col-span-1
+          row-span-1
+          xl:row-span-2
+          listed-project-container
+        "
       >
         <img
           class="max-h-260px lg:max-h-none hidden sm:block"
@@ -27,7 +44,10 @@
       </div>
 
       <div v-for="project in projects" :key="project.title">
-        <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${beautifyProjectId(project)}`"
+        >
           <div class="shadow rounded p-8 grid h-275px overflow-hidden">
             <div class="flex">
               <div class="mr-3">
@@ -42,7 +62,9 @@
                   {{ project.title }}
                 </p>
 
-                <p class="small-text text-primary">{{ project.category }}</p>
+                <p class="small-text text-primary">
+                  {{ categoryMap[project.category] }}
+                </p>
               </div>
             </div>
             <div>
@@ -72,9 +94,10 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingFeaturedProjectSection',
@@ -93,7 +116,13 @@ export default {
       default: () => [],
     },
   },
-}
+
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
+  },
+};
 </script>
 
 <style scoped>

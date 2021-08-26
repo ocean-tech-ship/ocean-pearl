@@ -13,14 +13,46 @@
   },
   "daoRoundData": {
     "amountProposals": "Amount proposals",
-    "countdown": {
-      "after": "Voting ended",
-      "before": "Voting ends"
-    },
     "fundingRound": "Funding Round",
     "numberedProjects": "{projects} projects",
+    "submission": {
+      "active": {
+        "title": "Proposal submission ends",
+        "tooltip": "Proposals can be submitted until {timestamp}."
+      },
+      "after": {
+        "title": "Proposal submission ended",
+        "tooltip": "Proposal submission ended on {timestamp}."
+      },
+      "before": {
+        "title": "Proposal submission begins",
+        "tooltip": "Proposal submission begins on {timestamp}."
+      },
+      "next": {
+        "title": "Submit proposal next round",
+        "tooltip": "Proposal submission for the next round starts on {timestamp}."
+      }
+    },
     "totalAmount": "Total Amount",
-    "totalVotes": "Total Votes"
+    "totalVotes": "Total Votes",
+    "vote": {
+      "active": {
+        "title": "Voting ends",
+        "tooltip": "The voting ends on {timestamp}."
+      },
+      "after": {
+        "title": "Voting ended",
+        "tooltip": "The voting ended on {timestamp}."
+      },
+      "before": {
+        "title": "Voting begins",
+        "tooltip": "The voting starts on {timestamp}."
+      },
+      "next": {
+        "title": "Voting next round",
+        "tooltip": "The voting for the next round starts on {timestamp}."
+      }
+    }
   },
   "footer": {
     "analytics": "Analytics"
@@ -42,6 +74,7 @@
     "icon": "icon",
     "logo": "logo",
     "ocean": "{ocean} OCEAN",
+    "usd": "{usd} USD",
     "save": "save changes",
     "undo": "undo",
     "upload": "upload"
@@ -150,7 +183,7 @@
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarDao": "Dao",
+    "navbarDao": "Dao Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarProjects": "Projects"
@@ -162,6 +195,18 @@
     "description": "Description",
     "proposal": {
       "empty": "no funding yet",
+      "granted": {
+        "no": "no",
+        "yes": "yes"
+      },
+      "history": {
+        "funding": "Granted<br>Funding",
+        "granted": "Granted",
+        "no": "No<br>Votes",
+        "round": "Round",
+        "view": "View full<br>proposal",
+        "yes": "Yes<br>Votes"
+      },
       "requested": "Requested Funding",
       "round": {
         "numbered": "Round {round}",
@@ -170,11 +215,16 @@
       "submit": "Submit Proposal",
       "title": {
         "dao": "DAO",
+        "plural": "DAO Proposals",
         "proposal": "proposal"
       },
       "total": "Total Fundings",
       "vote": "vote here",
-      "wallet": "Proposal Wallet Address"
+      "wallet": {
+        "less": "show less",
+        "more": "show all",
+        "title": "Project Wallet Address"
+      }
     },
     "readFull": "read full proposal",
     "roi": {
@@ -185,7 +235,8 @@
       "title": "ROI"
     },
     "team": "Team",
-    "unknown": "The requested project could not be found."
+    "unknown": "The requested project could not be found.",
+    "wallet": "Project Wallet Address"
   },
   "project_detail": {
     "fundHereButton": "fund here",

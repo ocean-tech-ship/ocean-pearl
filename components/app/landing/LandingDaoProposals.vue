@@ -7,8 +7,21 @@
       >
     </h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
+
+    <div v-if="daoProposals === null" class="mt-10 h-275px">
+      {{ $t('general.fetchingLoading') }}
+    </div>
+
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+        mt-10
+      "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <NuxtLink
@@ -19,24 +32,29 @@
             <div class="flex">
               <div class="mr-3">
                 <app-logo
-                  class="inline-block h-10 w-10 rounded-full"
+                  class="inline-block"
                   :src="daoProposal.project.logo"
                   :alt="daoProposal.project.title"
+                  :size="45"
                 />
               </div>
+
               <div>
                 <p class="text-primary leading-snug line-clamp-1 break-all">
                   {{ daoProposal.project.title }}
                 </p>
-
-                <p class="small-text">{{ daoProposal.category }}</p>
+                <p class="small-text">
+                  {{ categoryMap[daoProposal.category] }}
+                </p>
               </div>
             </div>
+
             <div class="mt-5 h-128px">
               <p class="small-text line-clamp-3">
-                {{ daoProposal.description }}
+                {{ daoProposal.oneLiner }}
               </p>
             </div>
+
             <div>
               <div class="flex">
                 <img
@@ -60,7 +78,8 @@
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink to="/dao-project-overview">
+
+    <NuxtLink to="/dao-proposals">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.dao_proposals.link_text') }}
@@ -70,10 +89,12 @@
     </NuxtLink>
   </LandingSectionContainer>
 </template>
+
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import AppLogo from '@/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingDaoProposal',
@@ -89,10 +110,14 @@ export default {
     daoProposals: {
       type: Array,
       required: true,
-      default: () => [],
+      default: null,
     },
   },
-}
-</script>
 
-<style scoped></style>
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
+  },
+};
+</script>

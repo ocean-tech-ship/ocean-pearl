@@ -7,24 +7,39 @@
       }}</span>
     </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
+
+    <div v-if="projects === null" class="mt-10 h-275px">
+      {{ $t('general.fetchingLoading') }}
+    </div>
+
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
+      v-else
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-3
+        2xl:grid-cols-5
+        gap-4
+        mt-10
+      "
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink :prefetch="false" :to="`/projects/${beautifyProjectId(project)}`">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${beautifyProjectId(project)}`"
+        >
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
-            <div class="mt-3">
-              <app-logo
-                class="inline-block h-16 w-16 rounded-full"
-                :src="project.imageURL"
-                :alt="project.title"
-              />
-            </div>
+            <app-logo
+              class="inline-block mt-3"
+              :src="project.logo"
+              :alt="project.title"
+              :size="64"
+            />
             <div class="mt-4 h-62px">
               <p class="text-primary leading-snug line-clamp-1 break-all">
                 {{ project.title }}
               </p>
-              <p class="small-text">{{ project.category }}</p>
+              <p class="small-text">{{ categoryMap[project.category] }}</p>
             </div>
             <div class="mt-4 flex place-content-center">
               <p class="border rounded small-text text-primary w-32">
@@ -35,6 +50,7 @@
         </NuxtLink>
       </div>
     </div>
+
     <NuxtLink :prefetch="false" to="/projects">
       <div class="flex items-center mt-6 mb-32">
         <p class="mr-2 text-primary">
@@ -47,9 +63,10 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingDaoProposal',
@@ -65,8 +82,14 @@ export default {
     projects: {
       type: Array,
       required: true,
-      default: () => [],
+      default: null,
     },
+  },
+
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
   },
 
   methods: {
@@ -74,10 +97,8 @@ export default {
       return this.$dateFns.formatDistanceToNowStrict(new Date(timestamp), {
         addSuffix: true,
         locale: this.$i18n.locale,
-      })
+      });
     },
   },
-}
+};
 </script>
-
-<style scoped></style>

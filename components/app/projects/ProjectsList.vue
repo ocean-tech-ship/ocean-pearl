@@ -1,28 +1,36 @@
 <template>
   <LandingSectionContainer>
-    <p v-if="$fetchState.pending">{{ $t('general.fetchingLoading') }}</p>
-    <p v-else-if="$fetchState.error">{{ $t('general.fetchingError') }}</p>
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-12"
+      v-if="projects"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-3
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+        mt-12
+      "
     >
-      <div v-for="project in projects" :key="project._id">
+      <div v-for="project in projects" :key="project.id">
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
         >
           <div class="shadow rounded p-2 pb-8 text-center">
             <!--
-        <div class="absolute top-0 right-0 mr-3 flex space-x-2">
-          <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.svg" alt="hiring job">
-          <img v-if="project.badgeFund" src="@/assets/images/icons/bitcoin-badge.svg" alt="looking for funding">
-          <img v-if="project.badgeFeatured" src="@/assets/images/icons/featured-badge.svg" alt="featured project">
-        </div>
-        -->
+            <div class="absolute top-0 right-0 mr-3 flex space-x-2">
+            <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.svg" alt="hiring job">
+            <img v-if="project.badgeFund" src="@/assets/images/icons/bitcoin-badge.svg" alt="looking for funding">
+            <img v-if="project.badgeFeatured" src="@/assets/images/icons/featured-badge.svg" alt="featured project">
+            </div>
+            -->
             <div class="mt-3">
               <app-logo
-                class="inline-block h-16 w-16 rounded-full"
-                :src="project.imageURL"
+                class="inline-block"
+                :src="project.logo"
                 :alt="project.title"
+                :size="64"
               />
             </div>
             <div class="mt-4">
@@ -30,7 +38,7 @@
                 {{ project.title }}
               </p>
               <p class="small-text text-quad">
-                {{ project.category }}
+                {{ categoryMap[project.category] }}
               </p>
             </div>
             <div class="my-3 h-78px px-3 flex place-content-center">
@@ -46,10 +54,10 @@
 </template>
 
 <script>
-import { getProjects } from '@/api.js'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import AppLogo from '@/components/common/AppLogo'
-import ProjectBeautifyId from '@/mixins/ProjectBeautifyId'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'ProjectsList',
@@ -60,21 +68,18 @@ export default {
 
   mixins: [ProjectBeautifyId],
 
-  data() {
-    return {
-      projects: [],
-    }
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
   },
 
-  async fetch() {
-    await getProjects(this.$axios)
-      .then((projects) => {
-        this.projects =
-          process.env.useMirage === 'true' ? projects.projects : projects
-      })
-      .catch(() => {
-        this.projects = []
-      })
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
   },
-}
+};
 </script>
