@@ -90,7 +90,7 @@
 
               <td class="text-right p-4 py-3">
                 {{
-                  proposal.status === 'funded'
+                  proposal.status === 'funded' || 'granted'
                     ? $t('project.proposal.granted.yes')
                     : $t('project.proposal.granted.no')
                 }}
