@@ -10,7 +10,7 @@
       items-center
       justify-center
       small-text
-      text-mediumgrey
+      text-darkgrey
     "
   >
     <slot></slot>
