@@ -19,13 +19,5 @@
 <script>
 export default {
   name: 'Label',
-
-  components: {},
-
-  props: {},
-
-  data() {
-    return {};
-  },
 };
 </script>
