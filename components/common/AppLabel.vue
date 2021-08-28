@@ -18,6 +18,6 @@
 </template>
 <script>
 export default {
-  name: 'Label',
+  name: 'AppLabel',
 };
 </script>
