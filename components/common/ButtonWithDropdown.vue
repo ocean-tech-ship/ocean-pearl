@@ -42,17 +42,15 @@
           </li>
           <li>
             <app-link
-              to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template"
+              to="/manage"
             >
               <div class="flex px-4 py-3 text-primary">
                 <img
                   class="mr-2"
                   src="@/assets/images/icons/vote.svg"
-                  :alt="`${$t('project.proposal.submit')} ${$t(
-                    'general.icon',
-                  )}`"
+                  alt=""
                 />
-                <p>{{ $t('project.proposal.submit') }}</p>
+                <p>{{ $t('manage.auth.login.action') }}</p>
               </div>
             </app-link>
           </li>

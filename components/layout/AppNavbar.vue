@@ -46,12 +46,12 @@
         <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
         <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
         <app-link
-          to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template"
+          to="/manage"
         >
           <app-button-style
             class="text-center"
             :icon="require('@/assets/images/icons/vote-white.svg')"
-            :text="$t('project.proposal.submit')"
+            :text="$t('manage.auth.login.action')"
           />
         </app-link>
       </div>
