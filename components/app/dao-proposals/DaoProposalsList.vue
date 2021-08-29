@@ -34,6 +34,13 @@
               </p>
             </div>
           </div>
+          <app-label class="mt-5">
+            <span class="text-third">{{
+              $t('project.proposal.round.numbered', {
+                round: daoProposal.fundingRound.round,
+              })
+            }}</span>
+          </app-label>
           <div class="mt-5 h-112px">
             <p class="small-text line-clamp-4">
               {{ daoProposal.oneLiner }}
@@ -96,14 +103,16 @@
 
 <script>
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
-import AppLogo from '~/components/common/AppLogo';
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import AppLogo from '@/components/common/AppLogo.vue';
+import AppLabel from '@/components/common/AppLabel.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 
 export default {
   name: 'DaoProposalsList',
 
   components: {
     AppLogo,
+    AppLabel,
   },
 
   mixins: [ProjectBeautifyId],
