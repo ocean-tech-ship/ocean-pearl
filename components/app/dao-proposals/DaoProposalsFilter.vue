@@ -6,7 +6,7 @@
       @selected-items="setFilter"
     />
     <DaoProposalsSearchbar
-      class="rw-1/1 mt-2 md:w-1/2 xl:w-1/4 md:m-0"
+      class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
       @search-projects="setFilter"
     />
   </div>
