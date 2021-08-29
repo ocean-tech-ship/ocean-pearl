@@ -1,10 +1,10 @@
 <template>
   <landing-section-container>
     <div class="flex justify-center pb-8">
-      <h2>Login here to manage your projects</h2>
+      <h2>{{ $t('manage.auth.login.title') }}</h2>
     </div>
 
-    <h4>
+    <h4 class="pb-4">
       {{ $t('manage.auth.login.subtitle[0]')
       }}<span class="text-primary">{{
         $t('manage.auth.login.subtitle[1]')
@@ -75,9 +75,9 @@
 </template>
 
 <script>
-import Vue from 'vue'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import AppButton from '@/components/common/AppButton'
+import Vue from 'vue';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppButton from '@/components/common/AppButton.vue';
 
 export default Vue.extend({
   components: {
