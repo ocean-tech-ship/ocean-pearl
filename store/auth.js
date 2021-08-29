@@ -56,7 +56,7 @@ export const actions = {
     }
 
     // Login was successful
-    await this.$router.push('/manage')
+    await this.$router.push('/management')
     await dispatch('wallet/disconnect', null, { root: true })
   },
 
@@ -69,6 +69,6 @@ export const actions = {
 
     // Logout was successful
     commit('message', this.$i18n.t('manage.auth.logout.completed'))
-    await this.$router.push('/manage/login')
+    await this.$router.push('/management/login')
   },
 }

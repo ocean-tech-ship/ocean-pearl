@@ -46,7 +46,7 @@
         <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
         <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
         <app-link
-          to="/manage"
+          to="/management"
         >
           <app-button-style
             class="text-center"

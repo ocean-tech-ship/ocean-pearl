@@ -4,13 +4,13 @@ export default function ({ app, redirect, route }) {
   const cookie = app.$cookies.get(SESSION_COOKIE)
 
   // Redirect to login page if not logged in
-  if (!cookie && route.path !== '/manage/login') {
-    redirect('/manage/login')
+  if (!cookie && route.path !== '/management/login') {
+    redirect('/management/login')
     return
   }
 
   // Do not show login page if already authenticated
-  if (!!cookie && route.path === '/manage/login') {
-    redirect('/manage')
+  if (!!cookie && route.path === '/management/login') {
+    redirect('/management')
   }
 }

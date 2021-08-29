@@ -42,7 +42,7 @@
           </li>
           <li>
             <app-link
-              to="/manage"
+              to="/management"
             >
               <div class="flex px-4 py-3 text-primary">
                 <img
