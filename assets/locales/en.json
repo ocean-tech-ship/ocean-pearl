@@ -9,6 +9,16 @@
       "counterVotes": "No Votes",
       "requestedAmount": "Requested Amount",
       "votes": "Yes Votes"
+    },
+    "filterResponse": {
+      "noSearch": {
+        "heading": "No proposals <span class='text-primary'>yet :(</span>",
+        "paragraph": "Your chance to stand out as a project."
+      },
+      "search": {
+        "heading": "No proposal <span class='text-primary'>found :(</span>",
+        "paragraph": "Keep fishing!"
+      }
     }
   },
   "daoRoundData": {
