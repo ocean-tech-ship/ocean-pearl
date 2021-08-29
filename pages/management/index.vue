@@ -2,6 +2,7 @@
   <div>
     <landing-section-container>
       <account-header
+        :wallet="wallet"
         :projects="projects"
         :selected-project="selectedProject"
         @selectProject="
@@ -20,7 +21,7 @@
       <div v-if="!!error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
 
       <!-- Empty Project -->
-      <empty-account v-if="!!projects && projects.length === 0" />
+      <empty-account v-if="!!projects && projects.length === 0" class="pt-16" />
     </landing-section-container>
 
     <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
@@ -100,10 +101,11 @@ export default Vue.extend({
       info: 'info',
       error: 'error',
       projects: 'projects',
+      wallet: 'wallet',
     }),
 
     selectedProject() {
-      return this.projects ? this.projects[this.projectIndex] : null
+      return this.projects?.length > 0 ? this.projects[this.projectIndex] : null
     },
   },
 

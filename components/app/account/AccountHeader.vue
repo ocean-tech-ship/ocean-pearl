@@ -28,18 +28,22 @@
     </div>
 
     <div>
-      <div v-if="!!selectedProject" class="shadow rounded">
+      <div class="shadow rounded">
         <h6 class="text-primary pt-4 pl-4 pb-2">{{ $t('manage.admins') }}</h6>
 
         <hr class="text-primary" />
 
         <div class="p-4">
           <div
-            v-for="address in [selectedProject.wallet]"
+            v-for="address in walletAddresses"
             :key="address"
             class="flex items-center"
           >
-            <div class="mr-2" v-html="createIcon(address, 24)" />
+            <jazzicon
+              class="flex items-center w-5 h-5 mr-2"
+              :diameter="20"
+              :address="address"
+            />
             <span class="text-primary break-all">{{ address }}</span>
           </div>
         </div>
@@ -49,12 +53,18 @@
 </template>
 
 <script>
-import Identicon from '@/mixins/Identicon'
+import Jazzicon from 'vue-jazzicon';
 
 export default {
   name: 'AccountHeader',
 
   props: {
+    wallet: {
+      type: String,
+      required: true,
+      default: '',
+    },
+
     projects: {
       type: Array,
       required: true,
@@ -63,12 +73,20 @@ export default {
 
     selectedProject: {
       type: Object,
-      required: true,
+      required: false,
       default: () => {},
     },
   },
 
-  mixins: [Identicon],
+  components: {
+    Jazzicon,
+  },
+
+  computed: {
+    walletAddresses() {
+      return this.$props.selectedProject?.associatedAddresses || [this.$props.wallet]
+    }
+  },
 }
 </script>
 
