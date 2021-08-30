@@ -1,11 +1,11 @@
-import { getAccount, updateProject } from '@/api'
+import { getAccount, updateProject } from '@/api';
 
 export const state = () => ({
   info: null,
   error: null,
   projects: null,
   wallet: null,
-})
+});
 
 export const mutations = {
   info(state, payload) {
@@ -23,10 +23,10 @@ export const mutations = {
   wallet(state, payload) {
     state.wallet = payload
   },
-}
+};
 
 export const actions = {
-  async loadAccount({ commit }) {
+  async loadAccount({ commit, dispatch }) {
     // Reset
     commit('info', null)
     commit('error', null)
@@ -77,28 +77,26 @@ export const actions = {
       const response = await getAccount(this.$axios)
       commit('wallet', response.data.wallet)
       commit('projects', response.data.projects)
+
     } catch (error) {
       if (error.response) {
-        const status = error.response.status
+        const { status } = error.response;
 
         if (status === 401) {
           // Authentication failure / timeout
-          commit('auth/message', this.$t('manage.auth.timeout'), {
-            root: true,
-          })
-          await this.$router.push('/manage/login')
-          return
+          await dispatch('auth/timeout', null, { root: true });
+          throw new Error('401 - Unauthorized');
         }
 
         if (status === 404) {
           // No projects available for this account
           // UI has special component for visualization
           commit('projects', [])
-          return
+          return;
         }
       }
 
-      commit('error', this.$t('general.error.retry'))
+      commit('error', this.$i18n.t('general.error.retry'))
       console.error('Error on backend communication', error)
     }
   },
@@ -126,23 +124,23 @@ export const actions = {
       )
 
       commit('projects', response.data)
-      commit('info', this.$t('manage.project.changed'))
+      commit('info', this.$i18n.t('manage.project.changed'))
     } catch (error) {
       if (error.response) {
         const status = error.response.status
 
         if (status === 401) {
           // Authentication failure / timeout
-          commit('auth/message', this.$t('manage.auth.timeout'), {
+          commit('auth/message', this.$i18n.t('manage.auth.timeout'), {
             root: true,
           })
-          await this.$router.push('/manage/login')
+          await this.$router.push('/management/login')
           return
         }
       }
 
-      commit('error', this.$t('general.error.retry'))
+      commit('error', this.$i18n.t('general.error.retry'))
       console.error('Error on project update', error)
     }
   },
-}
+};

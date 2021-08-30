@@ -1,6 +1,6 @@
 <template>
   <div>
-    <landing-section-container>
+    <section-container>
       <account-header
         :wallet="wallet"
         :projects="projects"
@@ -12,7 +12,7 @@
       />
 
       <!-- Loading indication -->
-      <p v-if="$fetchState.pending">Loading...</p>
+      <p v-if="!wallet">Loading...</p>
 
       <!-- Info Messages -->
       <div v-if="!!info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
@@ -22,10 +22,10 @@
 
       <!-- Empty Project -->
       <empty-account v-if="!!projects && projects.length === 0" class="pt-16" />
-    </landing-section-container>
+    </section-container>
 
     <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
-      <landing-section-container>
+      <section-container>
         <div class="flex justify-between flex-wrap">
           <project-title class="pb-4" :project="selectedProject" />
 
@@ -54,26 +54,26 @@
         <div class="flex justify-center pt-8">
           <app-button :text="$t('general.save')" @click="saveProject()" />
         </div>
-      </landing-section-container>
+      </section-container>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import { mapState } from 'vuex'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import AppButton from '@/components/common/AppButton'
-import AccountHeader from '@/components/app/account/AccountHeader'
-import EmptyAccount from '@/components/app/account/EmptyAccount'
-import ProjectTitle from '@/components/app/account/project/ProjectTitle'
-import ProjectLogo from '@/components/app/account/project/ProjectLogo'
-import ProjectDescription from '@/components/app/account/project/ProjectDescription'
-import ProjectPictures from '@/components/app/account/project/ProjectPictures'
+import Vue from 'vue';
+import { mapState } from 'vuex';
+import SectionContainer from '@/components/common/SectionContainer';
+import AppButton from '@/components/common/AppButton.vue';
+import AccountHeader from '@/components/app/account/AccountHeader.vue';
+import EmptyAccount from '@/components/app/account/EmptyAccount.vue';
+import ProjectTitle from '@/components/app/account/project/ProjectTitle.vue';
+import ProjectLogo from '@/components/app/account/project/ProjectLogo.vue';
+import ProjectDescription from '@/components/app/account/project/ProjectDescription.vue';
+import ProjectPictures from '@/components/app/account/project/ProjectPictures.vue';
 
 export default Vue.extend({
   components: {
-    LandingSectionContainer,
+    SectionContainer,
     AccountHeader,
     AppButton,
     EmptyAccount,
@@ -92,8 +92,12 @@ export default Vue.extend({
     }
   },
 
-  async fetch() {
-    await this.$store.dispatch('account/loadAccount')
+  async fetch({ redirect, store }) {
+    try {
+      await store.dispatch('account/loadAccount')
+    } catch(error) { // Authentication failure
+      redirect('/management/login')
+    }
   },
 
   computed: {

@@ -1,16 +1,21 @@
 import { login, logout } from '@/api'
 
-export const SESSION_COOKIE = 'session'
+export const SESSION_NAME = 'session-shadow';
 
 export const state = () => ({
+  loggedInAddress: null,
   message: null,
-})
+});
 
 export const mutations = {
+  loggedInAddress(state, payload) {
+    state.loggedInAddress = payload
+  },
+
   message(state, payload) {
     state.message = payload
   },
-}
+};
 
 export const actions = {
   async login({ dispatch, commit }) {
@@ -43,7 +48,13 @@ export const actions = {
     }
 
     try {
-      await login(this.$axios, payload)
+      const response = await login(this.$axios, payload);
+
+      // Login was successful
+      commit('loggedInAddress', response.data.wallet);
+      await this.$router.push('/management')
+      await dispatch('wallet/disconnect', null, { root: true })
+
     } catch (error) {
       if (error.response && error.response.status === 401) {
         commit('message', this.$i18n.t('manage.auth.error.invalid'))
@@ -52,12 +63,7 @@ export const actions = {
 
       console.error('Error on backend communication', error)
       commit('message', this.$i18n.t('general.error.retry'))
-      return
     }
-
-    // Login was successful
-    await this.$router.push('/management')
-    await dispatch('wallet/disconnect', null, { root: true })
   },
 
   async logout({ commit }) {
@@ -70,5 +76,14 @@ export const actions = {
     // Logout was successful
     commit('message', this.$i18n.t('manage.auth.logout.completed'))
     await this.$router.push('/management/login')
+
+    // Reset state
+    commit('account/wallet', null, { root: true });
+    commit('account/projects', null, { root: true });
   },
+
+  timeout({ commit }) {
+    commit('message', this.$i18n.t('manage.auth.timeout'));
+    this.$cookies.remove(SESSION_NAME);
+  }
 }

@@ -1,16 +1,13 @@
-import { SESSION_COOKIE } from '@/store/auth'
+import { SESSION_NAME } from '@/store/auth';
 
 export default function ({ app, redirect, route }) {
-  const cookie = app.$cookies.get(SESSION_COOKIE)
+  const cookie = app.$cookies.get(SESSION_NAME);
 
-  // Redirect to login page if not logged in
-  if (!cookie && route.path !== '/management/login') {
-    redirect('/management/login')
-    return
-  }
-
-  // Do not show login page if already authenticated
-  if (!!cookie && route.path === '/management/login') {
-    redirect('/management')
-  }
+  if(cookie) {
+    if(route.path === '/management/login') {
+      redirect('/management')
+    }
+  } else if (route.path === '/management') {
+      redirect('/management/login')
+    }
 }
