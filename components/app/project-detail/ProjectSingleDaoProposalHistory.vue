@@ -90,7 +90,7 @@
 
               <td class="text-right p-4 py-3">
                 {{
-                  proposal.status === 'funded' || 'granted'
+                  isGranted(proposal)
                     ? $t('project.proposal.granted.yes')
                     : $t('project.proposal.granted.no')
                 }}
@@ -120,6 +120,7 @@
 
 <script>
 import AppLink from '@/components/common/AppLink.vue';
+import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum';
 
 export default {
   name: 'ProjectSingleDaoProposalHistory',
@@ -135,6 +136,15 @@ export default {
       default: () => {},
     },
   },
+
+  methods: {
+    isGranted(proposal) {
+      return [
+        DaoProposalStatusEnum.Funded,
+        DaoProposalStatusEnum.Granted
+      ].includes(proposal.status);
+    }
+  }
 };
 </script>
 
