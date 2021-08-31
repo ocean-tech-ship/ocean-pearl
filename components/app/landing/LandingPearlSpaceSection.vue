@@ -55,7 +55,7 @@ export default {
     return {
       cards: [
         {
-          title: 'Find DAO Projects',
+          title: 'Find DAO Proposals',
           buttonTarget: '/dao-proposals',
           imageURL: require('@/assets/images/landing/track-projects.svg'),
           buttonText: 'Find',
