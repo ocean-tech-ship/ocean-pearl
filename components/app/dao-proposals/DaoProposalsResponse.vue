@@ -5,7 +5,12 @@
   >
     <img :src="notFoundImg.src" :alt="notFoundImg.alt" />
     <div v-if="!searchUsed" class="text-center mt-8">
-      <h3 v-html="$t('dao-projects.filterResponse.noSearch.heading')" />
+      <h3>
+        {{ $t('dao-projects.filterResponse.noSearch.heading.main') }}
+        <span class="text-primary">{{
+          $t('dao-projects.filterResponse.noSearch.heading.secondary')
+        }}</span>
+      </h3>
       <p class="mt-1">
         {{ $t('dao-projects.filterResponse.noSearch.paragraph') }}
       </p>
@@ -19,7 +24,12 @@
       </app-link>
     </div>
     <div v-if="searchUsed" class="text-center mt-8">
-      <h3 class="" v-html="$t('dao-projects.filterResponse.search.heading')" />
+      <h3>
+        {{ $t('dao-projects.filterResponse.search.heading.main') }}
+        <span class="text-primary">{{
+          $t('dao-projects.filterResponse.search.heading.secondary')
+        }}</span>
+      </h3>
       <p class="mt-1">
         {{ $t('dao-projects.filterResponse.search.paragraph') }}
       </p>

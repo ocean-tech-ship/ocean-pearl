@@ -14,7 +14,7 @@
         gap-4
       "
     >
-      <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
+      <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
