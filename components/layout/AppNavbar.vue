@@ -77,6 +77,7 @@
           <main-dropdown>
             <template slot-scope="context">
               <img
+                :class="{ 'rotate-180': context.open }"
                 class="h-6 w-6 cursor-pointer object-cover"
                 src="@/assets/images/icons/dropdown.svg"
                 alt="account settings"
