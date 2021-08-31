@@ -12,12 +12,18 @@
     },
     "filterResponse": {
       "noSearch": {
-        "heading": "No proposals <span class='text-primary'>yet :(</span>",
+        "heading": {
+          "main": "No proposals",
+          "secondary": "yet :("
+        },
         "paragraph": "Your chance to stand out as a project.",
         "button": "Propose Now"
       },
       "search": {
-        "heading": "No proposal <span class='text-primary'>found :(</span>",
+        "heading": {
+          "main": "No proposal",
+          "secondary": "found :("
+        },
         "paragraph": "Keep fishing!"
       }
     }
