@@ -38,6 +38,7 @@ module.exports = {
       third: colors.third,
       quad: colors.quad,
       grey: colors.grey,
+      white: colors.white,
       darkgrey: colors.darkgrey,
     },
     fontFamily: {

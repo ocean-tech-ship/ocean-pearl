@@ -124,6 +124,15 @@
       "titlePart1": "We are on track with the newest",
       "titlePart2": "powered by the ocean protocol."
     },
+    "pearl_space": {
+      "title": "Pearl",
+      "titleHighlight": "space",
+      "text": "These are the main features of ocean pearl."
+    },
+    "connect_social": {
+      "title": "Connect with us.",
+      "text": "Ocean Pearl is all about community. Help building us this vision!"
+    },
     "job_offers": {
       "link_text": "See all listed jobs",
       "text": "These ocean projects are currently hiring in the web 3 space",
@@ -137,7 +146,7 @@
       "titleHighlight": "projects"
     },
     "pearl_dao": {
-      "link_text": "See all listed projects",
+      "link_text": "See all listed proposals",
       "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
