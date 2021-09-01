@@ -89,7 +89,7 @@ export default {
     });
 
     // set rounds button content
-    for (let i = 1; i <= this.rounds; i++) {
+    for (let i = this.rounds; i >= 1; i--) {
       this.roundItems = [
         ...this.roundItems,
         {
