@@ -18,6 +18,40 @@
   src: url('../fonts/Poppins/Poppins-Bold.ttf') format('opentype');
 }
 
+// Rem-Calc Functions
+// Copied and edited from Foundation for Sites
+// https://get.foundation
+// Licensed under MIT Open Source
+// --------------------------------------------------
+$rem-base: 16px; // rem base value
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+  $rem-values: ();
+  @for $i from 1 through $max {
+    $rem-values: append(
+      $rem-values,
+      convert-to-rem(nth($values, $i), $base-value)
+    );
+  }
+  @return $rem-values;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -47,101 +81,101 @@ h4 {
 
 h1 {
   @apply text-xl;
-  line-height: 54px;
+  line-height: rem-calc(54px);
 }
 
 h2 {
   @apply text-lg;
-  line-height: 44px;
+  line-height: rem-calc(44px);
 }
 
 h3 {
   @apply text-base;
-  line-height: 42px;
+  line-height: rem-calc(42px);
 }
 
 h4 {
   @apply text-sm;
-  line-height: 26px;
+  line-height: rem-calc(26px);
 }
 
 p {
   @apply text-smbase;
-  line-height: 26px;
+  line-height: rem-calc(26px);
 }
 
 @screen md {
   h1 {
     @apply text-2xl;
-    line-height: 62px;
+    line-height: rem-calc(62px);
   }
 
   h2 {
     @apply text-xl;
-    line-height: 54px;
+    line-height: rem-calc(54px);
   }
 
   h3 {
     @apply text-lg;
-    line-height: 44px;
+    line-height: rem-calc(44px);
   }
 
   h4 {
     @apply text-base;
-    line-height: 42px;
+    line-height: rem-calc(42px);
   }
 
   p {
     @apply text-base;
-    line-height: 42px;
+    line-height: rem-calc(42px);
   }
 }
 
 @screen lg {
   h1 {
     @apply text-3xl;
-    line-height: 70px;
+    line-height: rem-calc(70px);
   }
 
   h2 {
     @apply text-2xl;
-    line-height: 62px;
+    line-height: rem-calc(62px);
   }
 
   h3 {
     @apply text-xl;
-    line-height: 54px;
+    line-height: rem-calc(54px);
   }
 
   h4 {
     @apply text-lg;
-    line-height: 44px;
+    line-height: rem-calc(44px);
   }
 
   p {
     @apply text-base;
-    line-height: 42px;
+    line-height: rem-calc(42px);
   }
 }
 
 .small-text {
   @apply text-sm;
-  line-height: 26px;
+  line-height: rem-calc(26px);
 }
 
 .thin-heading {
   @apply font-poppins-bold;
   @apply text-lg;
-  line-height: 12px;
+  line-height: rem-calc(12px);
 }
 
 /* width */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: rem-calc(8px);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, #bb2c75 1%, #ff98cd);
-  border-radius: 10px;
+  border-radius: rem-calc(10px);
 }
