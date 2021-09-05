@@ -6,7 +6,7 @@
         $t('landing.latest_projects.titleHighlight')
       }}</span>
     </h2>
-    <p>{{ $t('landing.latest_projects.text') }}</p>f
+    <p>{{ $t('landing.latest_projects.text') }}</p>
 
     <div v-if="projects === null" class="mt-10 h-275px">
       {{ $t('general.fetchingLoading') }}
