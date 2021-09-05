@@ -15,6 +15,7 @@
 <script>
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
+import { CategoryMap } from '~/components/constants/CategoryMap.constant';
 
 export default {
   name: 'DaoProjectsFilter',
@@ -43,14 +44,37 @@ export default {
       deep: true,
       handler: function emit() {
         // restructure filter items for backend compatibility
-        const { filter } = this;
-        if (filter.round === 0) delete filter.round;
-        if (filter.category === 'all') delete filter.category;
-        if (filter.search === '') delete filter.search;
+        const filterRestructed = { ...this.filter };
+        if (filterRestructed.round === 0) delete filterRestructed.round;
+        if (filterRestructed.category === 'all')
+          delete filterRestructed.category;
+        if (filterRestructed.search === '') delete filterRestructed.search;
 
-        this.$emit('filter', filter);
+        this.$emit('filter', filterRestructed);
       },
     },
+  },
+  created() {
+    if (Object.keys(this.$route.query).length) {
+      const { round, category, search } = this.$route.query;
+
+      // set new filter
+      this.filter = {
+        round: round <= this.rounds && round > 0 ? round : this.filter.round,
+        category: Object.prototype.hasOwnProperty.call(CategoryMap, category)
+          ? category
+          : this.filter.category,
+        search: search || search === '' ? search : this.filter.search,
+      };
+    }
+
+    // replace history state
+    if (!process.server) {
+      const url =
+        window.location.origin +
+        this.$nuxt.$router.resolve({ query: this.filter }).href;
+      history.replaceState({}, null, url);
+    }
   },
   methods: {
     setFilter(payload) {
@@ -59,10 +83,20 @@ export default {
       // set new filter
       this.filter = {
         round: round || round === 0 ? round : this.filter.round,
-        category: category || category === 0 ? category : this.filter.category,
+        category: category || this.filter.category,
         search:
           searchValue || searchValue === '' ? searchValue : this.filter.search,
       };
+
+      // replace history state
+      if (!process.server) {
+        const url =
+          window.location.origin +
+          this.$nuxt.$router.resolve({
+            query: this.filter,
+          }).href;
+        history.replaceState({}, null, url);
+      }
     },
   },
 };
