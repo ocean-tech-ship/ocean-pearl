@@ -18,7 +18,7 @@
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
 import CategoryEnum from '@/components/enums/Category.enum';
-import replaceQueryParams from '~/helpers/windowHistory';
+import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
   name: 'DaoProjectsFilter',
