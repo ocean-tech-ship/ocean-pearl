@@ -2,11 +2,13 @@
   <div class="my-8 flex flex-col justify-between md:flex-row md:items-center">
     <DaoProposalsDropdowns
       class="flex flex-col 2sm:flex-row md:flex-col lg:flex-row"
+      :filter="filter"
       :rounds="rounds"
       @selected-items="setFilter"
     />
     <DaoProposalsSearchbar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
+      :filter="filter"
       @search-projects="setFilter"
     />
   </div>
@@ -60,7 +62,10 @@ export default {
 
       // set new filter
       this.filter = {
-        round: round <= this.rounds && round > 0 ? round : this.filter.round,
+        round:
+          round <= this.rounds && round > 0
+            ? parseInt(round, 10)
+            : this.filter.round,
         category: Object.prototype.hasOwnProperty.call(CategoryMap, category)
           ? category
           : this.filter.category,
@@ -71,8 +76,10 @@ export default {
     // replace history state
     if (!process.server) {
       const url =
+        // eslint-disable-next-line
         window.location.origin +
         this.$nuxt.$router.resolve({ query: this.filter }).href;
+      // eslint-disable-next-line no-restricted-globals
       history.replaceState({}, null, url);
     }
   },
@@ -95,6 +102,7 @@ export default {
           this.$nuxt.$router.resolve({
             query: this.filter,
           }).href;
+        // eslint-disable-next-line no-restricted-globals
         history.replaceState({}, null, url);
       }
     },
