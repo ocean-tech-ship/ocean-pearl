@@ -68,6 +68,10 @@ export default {
 
   computed: {
     logo() {
+      if (this.newLogo === null) { // Logo has been deleted
+        return null;
+      }
+
       return this.newLogo || this.$props.project?.logo?.url;
     },
   },
@@ -76,7 +80,7 @@ export default {
     deleteLogo() {
       this.newLogo && URL.revokeObjectURL(this.newLogo);
       this.newLogo = null;
-      this.$emit('change', null);
+      this.$emit('delete');
     },
 
     uploadLogo(handler) {

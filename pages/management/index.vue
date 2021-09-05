@@ -32,6 +32,7 @@
           <project-logo
             class="pb-4"
             :project="selectedProject"
+            @delete="updateRequest.deleteLogo = true"
             @change="updateRequest.logo = $event"
           />
         </div>
