@@ -42,8 +42,7 @@ export default {
           type: 'rounds',
           content: `All`,
           id: 0,
-          // eslint-disable-next-line no-unneeded-ternary
-          selected: this.filter.round === 0 ? true : false,
+          selected: this.filter.round === 0,
         },
       ],
       categoryItems: [],
@@ -87,8 +86,7 @@ export default {
           type: 'categories',
           content: CategoryMap[value],
           id: value,
-          // eslint-disable-next-line no-unneeded-ternary
-          selected: this.filter.category === value ? true : false,
+          selected: this.filter.category === value,
         },
       ];
     });
@@ -101,8 +99,7 @@ export default {
           type: 'rounds',
           content: `Round ${i}`,
           id: i,
-          // eslint-disable-next-line no-unneeded-ternary
-          selected: this.filter.round === i ? true : false,
+          selected: this.filter.round === i,
         },
       ];
     }
