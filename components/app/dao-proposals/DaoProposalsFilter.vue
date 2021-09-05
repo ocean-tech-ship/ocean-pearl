@@ -17,7 +17,7 @@
 <script>
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
-import { CategoryMap } from '~/components/constants/CategoryMap.constant';
+import CategoryEnum from '@/components/enums/Category.enum';
 
 export default {
   name: 'DaoProjectsFilter',
@@ -66,7 +66,7 @@ export default {
           round <= this.rounds && round > 0
             ? parseInt(round, 10)
             : this.filter.round,
-        category: Object.prototype.hasOwnProperty.call(CategoryMap, category)
+        category: Object.values(CategoryEnum).includes(category)
           ? category
           : this.filter.category,
         search: search || search === '' ? search : this.filter.search,
