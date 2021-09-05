@@ -110,9 +110,9 @@ export const actions = {
 
     for (const [key, value] of Object.entries(payload)) {
       if (Array.isArray(value)) {
-        value.forEach((val) => formData.append(key, val))
+        value.forEach((val) => formData.append(val !== Object(val) ? `${key}[]` : key, val))
       } else {
-        formData.append(key, String(value))
+        formData.append(key, value)
       }
     }
 
