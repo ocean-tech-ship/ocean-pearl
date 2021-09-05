@@ -49,10 +49,10 @@
                   : ''
               "
             >
-              <td class="text-left p-4 py-3 pl-4">
-                <span class="rounded border border-darkgrey py-1 px-2">
-                  {{ proposal.fundingRound.round }}
-                </span>
+              <td class="text-left p-4 py-3 pl-4 flex">
+                <div class="rounded border border-darkgrey w-10 text-center py-1 px-2">
+                  <span>{{ proposal.fundingRound.round }}</span>
+                </div>
               </td>
 
               <td class="text-right p-4 py-3">
@@ -81,7 +81,7 @@
                   <img
                     class="self-start pl-1"
                     src="@/assets/images/icons/ocean.svg"
-                    alt=""
+                    alt="$OCEAN"
                   />
                 </div>
 
@@ -90,7 +90,7 @@
 
               <td class="text-right p-4 py-3">
                 {{
-                  proposal.status === 'funded' || 'granted'
+                  isGranted(proposal)
                     ? $t('project.proposal.granted.yes')
                     : $t('project.proposal.granted.no')
                 }}
@@ -119,7 +119,8 @@
 </template>
 
 <script>
-import AppLink from '@/components/common/AppLink';
+import AppLink from '@/components/common/AppLink.vue';
+import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum';
 
 export default {
   name: 'ProjectSingleDaoProposalHistory',
@@ -135,6 +136,15 @@ export default {
       default: () => {},
     },
   },
+
+  methods: {
+    isGranted(proposal) {
+      return [
+        DaoProposalStatusEnum.Funded,
+        DaoProposalStatusEnum.Granted
+      ].includes(proposal.status);
+    }
+  }
 };
 </script>
 

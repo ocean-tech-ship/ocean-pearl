@@ -9,6 +9,23 @@
       "counterVotes": "No Votes",
       "requestedAmount": "Requested Amount",
       "votes": "Yes Votes"
+    },
+    "filterResponse": {
+      "noSearch": {
+        "heading": {
+          "main": "No proposals",
+          "secondary": "yet :("
+        },
+        "paragraph": "Your chance to stand out as a project.",
+        "button": "Propose Now"
+      },
+      "search": {
+        "heading": {
+          "main": "No proposal",
+          "secondary": "found :("
+        },
+        "paragraph": "Keep fishing!"
+      }
     }
   },
   "daoRoundData": {

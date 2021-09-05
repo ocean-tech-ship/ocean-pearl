@@ -48,7 +48,7 @@
         {{ $t('project.proposal.wallet.title') }}
       </p>
 
-      <template v-for="(address, index) in project.paymentWalletsAddresses">
+      <template v-for="(address, index) in project.associatedAddresses">
         <div
           v-if="expandWalletAddresses ? true : index < 1"
           :key="address"
@@ -64,7 +64,10 @@
       </template>
 
       <!-- control action -->
-      <div class="flex justify-center">
+      <div
+        v-if="project.associatedAddresses && project.associatedAddresses.length > 1"
+        class="flex justify-center"
+      >
         <button
           class="flex items-center"
           type="button"
@@ -78,7 +81,7 @@
             {{ $t('project.proposal.wallet.more') }}
           </span>
 
-          <img class="ml-2" src="@/assets/images/icons/dropdown.svg" alt="" />
+          <img :class="{ 'rotate-180': expandWalletAddresses }" class="ml-2" src="@/assets/images/icons/dropdown.svg" alt="" />
         </button>
       </div>
     </div>
