@@ -115,7 +115,7 @@ export default Vue.extend({
 
   methods: {
     saveProject() {
-      this.updateRequest.project = this.selectedProject.id
+      this.updateRequest.id = this.selectedProject.id
       this.$store.dispatch('account/updateProject', this.updateRequest)
     },
   },

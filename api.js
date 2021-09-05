@@ -52,7 +52,7 @@ export function getAccount(axios) {
 
 // account save changes
 export function updateProject(axios, projectId, formData) {
-  return axios.put(`/account/${projectId}`, formData, {
+  return axios.put(`/account/project/${projectId}`, formData, {
     withCredentials: true,
     headers: {
       'Content-Type': 'multipart/form-data',

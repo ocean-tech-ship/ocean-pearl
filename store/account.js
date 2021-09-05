@@ -119,7 +119,7 @@ export const actions = {
     try {
       const response = await updateProject(
         this.$axios,
-        payload.project,
+        payload.id,
         formData
       )
 
