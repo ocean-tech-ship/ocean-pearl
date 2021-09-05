@@ -8,9 +8,9 @@
       <!-- already added images -->
       <project-pictures-item
         v-for="picture in pictures"
-        :key="picture.id"
+        :key="picture.key"
         :src="picture.url"
-        @delete="deletePicture(picture.id)"
+        @delete="deletePicture(picture.key)"
       />
 
       <!-- newly added images preview -->
@@ -46,9 +46,9 @@
 </template>
 
 <script>
-import Constants from '@/mixins/Constants'
-import ProjectPicturesItem from '@/components/app/account/project/ProjectPicturesItem'
-import AppUpload from '@/components/common/AppUpload'
+import Constants from '@/mixins/Constants';
+import ProjectPicturesItem from '@/components/app/account/project/ProjectPicturesItem.vue';
+import AppUpload from '@/components/common/AppUpload.vue';
 
 export default {
   name: 'ProjectPictures',
@@ -76,45 +76,45 @@ export default {
   computed: {
     pictures() {
       return this.$props.project.pictures.filter(
-        (pic) => !this.deletedIds.includes(pic.id)
-      )
+        (pic) => !this.deletedIds.includes(pic.key)
+      );
     },
   },
 
   watch: {
     project() {
       // Reset if project gets switched
-      this.deletedIds = []
-      this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index))
+      this.deletedIds = [];
+      this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index));
     },
   },
 
   methods: {
-    deletePicture(id) {
+    deletePicture(key) {
       if (
-        this.$props.project.pictures.find((pic) => pic.id === id) &&
-        !this.deletedIds.includes(id)
+        this.$props.project.pictures.find((pic) => pic.key === key) &&
+        !this.deletedIds.includes(key)
       ) {
-        this.deletedIds.push(id)
-        this.$emit('delete', this.deletedIds)
+        this.deletedIds.push(key);
+        this.$emit('delete', this.deletedIds);
       }
     },
 
     deleteNewPicture(picture, index) {
-      URL.revokeObjectURL(picture)
-      this.newPics.splice(index, 1)
-      this.newPicsPreview.splice(index, 1)
-      this.$emit('change', this.newPics)
+      URL.revokeObjectURL(picture);
+      this.newPics.splice(index, 1);
+      this.newPicsPreview.splice(index, 1);
+      this.$emit('change', this.newPics);
     },
 
     uploadPicture(handler) {
       if (handler.target.files.length !== 1) {
-        return
+        return;
       }
 
       // Delete previous images because we only support one image ATM
-      this.$props.project.pictures.forEach((pic) => this.deletePicture(pic.id))
-      this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index))
+      this.$props.project.pictures.forEach((pic) => this.deletePicture(pic.key));
+      this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index));
 
       for (const file of handler.target.files) {
         if (!this.PICTURE_ALLOWED_TYPES.includes(file.type)) {
@@ -124,7 +124,7 @@ export default {
               types: this.PICTURE_ALLOWED_TYPES,
             })
           )
-          return
+          return;
         }
 
         if (file.size > this.PICTURE_MAX_SIZE) {
@@ -134,12 +134,12 @@ export default {
               size: `${this.PICTURE_MAX_SIZE / 1000000}MB`,
             })
           )
-          return
+          return;
         }
 
-        this.newPicsPreview.push(URL.createObjectURL(file))
-        this.newPics.push(file)
-        this.$emit('change', this.newPics)
+        this.newPicsPreview.push(URL.createObjectURL(file));
+        this.newPics.push(file);
+        this.$emit('change', this.newPics);
       }
     },
   },

@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import Constants from '@/mixins/Constants'
-import AppUpload from '@/components/common/AppUpload'
-import AppButton from '@/components/common/AppButton'
+import Constants from '@/mixins/Constants';
+import AppUpload from '@/components/common/AppUpload.vue';
+import AppButton from '@/components/common/AppButton.vue';
 
 export default {
   name: 'ProjectLogo',
@@ -68,28 +68,23 @@ export default {
 
   computed: {
     logo() {
-      if (this.newLogo) {
-        return this.newLogo
-      }
-
-      // Logo has been deleted or fallback to previous logo
-      return this.newLogo === null ? null : this.$props.project.logo
+      return this.newLogo || this.$props.project?.logo?.url;
     },
   },
 
   methods: {
     deleteLogo() {
-      this.newLogo && URL.revokeObjectURL(this.newLogo)
-      this.newLogo = null
-      this.$emit('change', null)
+      this.newLogo && URL.revokeObjectURL(this.newLogo);
+      this.newLogo = null;
+      this.$emit('change', null);
     },
 
     uploadLogo(handler) {
       if (handler.target.files.length !== 1) {
-        return
+        return;
       }
 
-      const file = handler.target.files[0]
+      const file = handler.target.files[0];
 
       if (!this.LOGO_ALLOWED_TYPES.includes(file.type)) {
         this.$store.commit(
@@ -97,8 +92,8 @@ export default {
           this.$t('general.error.upload.type', {
             types: this.LOGO_ALLOWED_TYPES,
           })
-        )
-        return
+        );
+        return;
       }
 
       if (file.size > this.LOGO_MAX_SIZE) {
@@ -107,12 +102,12 @@ export default {
           this.$t('general.error.upload.size', {
             size: `${this.LOGO_MAX_SIZE / 1000}KB`,
           })
-        )
-        return
+        );
+        return;
       }
 
-      this.newLogo = URL.createObjectURL(file)
-      this.$emit('change', file)
+      this.newLogo = URL.createObjectURL(file);
+      this.$emit('change', file);
     },
   },
 }
