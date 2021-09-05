@@ -6,7 +6,7 @@
         $t('landing.latest_projects.titleHighlight')
       }}</span>
     </h2>
-    <p>{{ $t('landing.latest_projects.text') }}</p>
+    <p>{{ $t('landing.latest_projects.text') }}</p>f
 
     <div v-if="projects === null" class="mt-10 h-275px">
       {{ $t('general.fetchingLoading') }}
@@ -31,7 +31,7 @@
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
             <app-logo
               class="inline-block mt-3"
-              :src="project.logo"
+              :src="project.logo && project.logo.url"
               :alt="project.title"
               :size="64"
             />
