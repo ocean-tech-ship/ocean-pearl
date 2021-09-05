@@ -24,7 +24,7 @@
       <empty-account v-if="!!projects && projects.length === 0" class="pt-16" />
     </section-container>
 
-    <div v-if="!!selectedProject" class="bg-grey pt-8 pb-1">
+    <div v-if="!!selectedProject" class="bg-grey py-8">
       <section-container>
         <div class="flex justify-between flex-wrap">
           <project-title class="pb-4" :project="selectedProject" />
