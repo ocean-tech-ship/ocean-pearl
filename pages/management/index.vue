@@ -46,7 +46,7 @@
         <project-pictures
           class="py-8"
           :project="selectedProject"
-          @delete="updateRequest.deletePictures = $event"
+          @delete="updateRequest.deletedPictures = $event"
           @change="updateRequest.newPictures = $event"
         />
 
@@ -117,6 +117,7 @@ export default Vue.extend({
     saveProject() {
       this.updateRequest.id = this.selectedProject.id
       this.$store.dispatch('account/updateProject', this.updateRequest)
+      this.updateRequest = {};
     },
   },
 })
