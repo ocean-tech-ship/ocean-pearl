@@ -18,6 +18,7 @@
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
 import CategoryEnum from '@/components/enums/Category.enum';
+import replaceQueryParams from '~/helpers/windowHistory';
 
 export default {
   name: 'DaoProjectsFilter',
@@ -74,14 +75,7 @@ export default {
     }
 
     // replace history state
-    if (!process.server) {
-      const url =
-        // eslint-disable-next-line
-        window.location.origin +
-        this.$nuxt.$router.resolve({ query: this.filter }).href;
-      // eslint-disable-next-line no-restricted-globals
-      history.replaceState({}, null, url);
-    }
+    replaceQueryParams(this, this.filter);
   },
   methods: {
     setFilter(payload) {
@@ -96,15 +90,7 @@ export default {
       };
 
       // replace history state
-      if (!process.server) {
-        const url =
-          window.location.origin +
-          this.$nuxt.$router.resolve({
-            query: this.filter,
-          }).href;
-        // eslint-disable-next-line no-restricted-globals
-        history.replaceState({}, null, url);
-      }
+      replaceQueryParams(this, this.filter);
     },
   },
 };
