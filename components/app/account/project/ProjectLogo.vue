@@ -7,7 +7,7 @@
     <div class="flex flex-wrap items-center">
       <div class="w-16 h-16 mr-4">
         <img
-          v-if="!!logo"
+          v-if="logo"
           :src="logo"
           :alt="$t('general.logo')"
           class="w-16 h-16 inline-block rounded-full"
