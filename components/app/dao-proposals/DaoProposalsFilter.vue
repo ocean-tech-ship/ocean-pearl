@@ -2,11 +2,13 @@
   <div class="my-8 flex flex-col justify-between md:flex-row md:items-center">
     <DaoProposalsDropdowns
       class="flex flex-col 2sm:flex-row md:flex-col lg:flex-row"
+      :filter="filter"
       :rounds="rounds"
       @selected-items="setFilter"
     />
     <DaoProposalsSearchbar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
+      :filter="filter"
       @search-projects="setFilter"
     />
   </div>
@@ -15,6 +17,8 @@
 <script>
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
+import CategoryEnum from '@/components/enums/Category.enum';
+import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
   name: 'DaoProjectsFilter',
@@ -43,14 +47,35 @@ export default {
       deep: true,
       handler: function emit() {
         // restructure filter items for backend compatibility
-        const { filter } = this;
-        if (filter.round === 0) delete filter.round;
-        if (filter.category === 'all') delete filter.category;
-        if (filter.search === '') delete filter.search;
+        const filterRestructed = { ...this.filter };
+        if (filterRestructed.round === 0) delete filterRestructed.round;
+        if (filterRestructed.category === 'all')
+          delete filterRestructed.category;
+        if (filterRestructed.search === '') delete filterRestructed.search;
 
-        this.$emit('filter', filter);
+        this.$emit('filter', filterRestructed);
       },
     },
+  },
+  created() {
+    if (Object.keys(this.$route.query).length) {
+      const { round, category, search } = this.$route.query;
+
+      // set new filter
+      this.filter = {
+        round:
+          round <= this.rounds && round > 0
+            ? parseInt(round, 10)
+            : this.filter.round,
+        category: Object.values(CategoryEnum).includes(category)
+          ? category
+          : this.filter.category,
+        search: search || search === '' ? search : this.filter.search,
+      };
+    }
+
+    // replace history state
+    replaceQueryParams(this, this.filter);
   },
   methods: {
     setFilter(payload) {
@@ -59,10 +84,13 @@ export default {
       // set new filter
       this.filter = {
         round: round || round === 0 ? round : this.filter.round,
-        category: category || category === 0 ? category : this.filter.category,
+        category: category || this.filter.category,
         search:
           searchValue || searchValue === '' ? searchValue : this.filter.search,
       };
+
+      // replace history state
+      replaceQueryParams(this, this.filter);
     },
   },
 };

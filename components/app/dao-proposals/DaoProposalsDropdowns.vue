@@ -29,6 +29,10 @@ export default {
       type: Number,
       required: true,
     },
+    filter: {
+      type: Object,
+      required: true,
+    },
   },
   data() {
     return {
@@ -38,7 +42,7 @@ export default {
           type: 'rounds',
           content: `All`,
           id: 0,
-          selected: true,
+          selected: this.filter.round === 0,
         },
       ],
       categoryItems: [],
@@ -75,15 +79,14 @@ export default {
   },
   created() {
     // set categories button content
-    Object.values(CategoryEnum).forEach((value, key) => {
+    Object.values(CategoryEnum).forEach((value) => {
       this.categoryItems = [
         ...this.categoryItems,
         {
           type: 'categories',
           content: CategoryMap[value],
           id: value,
-          // eslint-disable-next-line no-unneeded-ternary
-          selected: key === 0 ? true : false,
+          selected: this.filter.category === value,
         },
       ];
     });
@@ -96,7 +99,7 @@ export default {
           type: 'rounds',
           content: `Round ${i}`,
           id: i,
-          selected: false,
+          selected: this.filter.round === i,
         },
       ];
     }
