@@ -28,7 +28,7 @@
 
         <p class="p-4 font-bold leading-snug">
           <span class="text-primary">1.</span>
-          Choose your wallet provider
+          {{ $t('manage.auth.login.steps.1') }}
         </p>
       </div>
 
@@ -44,7 +44,7 @@
 
         <p class="p-4 font-bold leading-snug">
           <span class="text-primary">2.</span>
-          Select account to connect
+          {{ $t('manage.auth.login.steps.2') }}
         </p>
       </div>
 
@@ -60,7 +60,7 @@
 
         <p class="p-4 font-bold">
           <span class="text-primary leading-snug">3.</span>
-          Sign login request
+          {{ $t('manage.auth.login.steps.3') }}
         </p>
       </div>
     </div>
