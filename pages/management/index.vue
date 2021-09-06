@@ -21,10 +21,10 @@
       <div v-if="error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
 
       <!-- Empty Project -->
-      <empty-account v-if="!!projects && projects.length === 0" class="pt-16" />
+      <empty-account v-if="projects && projects.length === 0" class="pt-16" />
     </section-container>
 
-    <div v-if="!!selectedProject" class="bg-grey py-8">
+    <div v-if="selectedProject" class="bg-grey py-8">
       <section-container>
         <div class="flex justify-between flex-wrap">
           <project-title class="pb-4" :project="selectedProject" />
@@ -123,5 +123,3 @@ export default Vue.extend({
   },
 })
 </script>
-
-<style scoped></style>

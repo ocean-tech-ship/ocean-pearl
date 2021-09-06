@@ -11,7 +11,7 @@
       }}</span>
     </h4>
 
-    <div v-if="!!$store.state.auth.message" class="shadow rounded p-4 my-4">
+    <div v-if="$store.state.auth.message" class="shadow rounded p-4 my-4">
       {{ $store.state.auth.message }}
     </div>
 
@@ -88,5 +88,3 @@ export default Vue.extend({
   middleware: ['session'],
 })
 </script>
-
-<style scoped></style>
