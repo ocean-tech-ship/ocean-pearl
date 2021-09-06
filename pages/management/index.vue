@@ -15,10 +15,10 @@
       <p v-if="!wallet">Loading...</p>
 
       <!-- Info Messages -->
-      <div v-if="!!info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
+      <div v-if="info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
 
       <!-- Error Messages -->
-      <div v-if="!!error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
+      <div v-if="error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
 
       <!-- Empty Project -->
       <empty-account v-if="!!projects && projects.length === 0" class="pt-16" />
