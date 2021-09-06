@@ -22,7 +22,7 @@
         </button>
       </div>
 
-      <p v-if="!!projects && projects.length === 0">
+      <p v-if="projects && projects.length === 0">
         {{ $t('manage.project.empty') }}
       </p>
     </div>
