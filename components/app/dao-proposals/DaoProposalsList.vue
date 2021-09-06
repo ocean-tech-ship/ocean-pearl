@@ -24,7 +24,7 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block"
-                  :src="daoProposal.project.logo"
+                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
                   :alt="daoProposal.project.title"
                   :size="45"
                 />
