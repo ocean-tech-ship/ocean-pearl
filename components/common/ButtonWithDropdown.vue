@@ -48,7 +48,7 @@
               </div>
             </NuxtLink>
           </li>
-          <li v-if="!!walletAddress">
+          <li v-if="walletAddress">
             <div
               class="rounded p-2 m-4 flex items-center"
               style="background-color: black; color: white"
