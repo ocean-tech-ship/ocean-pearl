@@ -9,5 +9,3 @@ export default {
   name: 'EmptyAccount',
 }
 </script>
-
-<style scoped></style>
