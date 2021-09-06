@@ -61,7 +61,7 @@
               />
             </div>
           </li>
-          <li v-if="!!walletAddress">
+          <li v-if="walletAddress">
             <div class="flex justify-end">
               <button
                 type="button"
