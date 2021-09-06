@@ -35,7 +35,7 @@
 
         <div class="p-4">
           <div
-            v-for="address in walletAddresses"
+            v-for="address in accessAddresses"
             :key="address"
             class="flex items-center"
           >
@@ -58,6 +58,10 @@ import Jazzicon from 'vue-jazzicon';
 export default {
   name: 'AccountHeader',
 
+  components: {
+    Jazzicon,
+  },
+
   props: {
     wallet: {
       type: String,
@@ -78,16 +82,10 @@ export default {
     },
   },
 
-  components: {
-    Jazzicon,
-  },
-
   computed: {
-    walletAddresses() {
-      return this.$props.selectedProject?.associatedAddresses || [this.$props.wallet]
+    accessAddresses() {
+      return this.$props.selectedProject?.accessAddresses || [this.$props.wallet]
     }
   },
 }
 </script>
-
-<style scoped></style>
