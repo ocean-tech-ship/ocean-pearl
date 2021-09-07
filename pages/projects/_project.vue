@@ -145,9 +145,7 @@ export default Vue.extend({
 
   computed: {
     coverImage() {
-      return this.project.pictures.length > 0
-        ? this.project.pictures[0]
-        : null; /* require('@/assets/images/detail/pearl-background.png') */
+      return this.project?.pictures?[0]?.url : null;
     },
   },
 
