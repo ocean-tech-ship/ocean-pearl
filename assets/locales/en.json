@@ -1,5 +1,22 @@
 {
   "dao-projects": {
+    "filterResponse": {
+      "noSearch": {
+        "button": "Propose Now",
+        "heading": {
+          "main": "No proposals",
+          "secondary": "yet :("
+        },
+        "paragraph": "Your chance to stand out as a project."
+      },
+      "search": {
+        "heading": {
+          "main": "No proposal",
+          "secondary": "found :("
+        },
+        "paragraph": "Keep fishing!"
+      }
+    },
     "header": {
       "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
@@ -59,15 +76,24 @@
   },
   "general": {
     "button": "button",
+    "delete": "delete",
+    "edit": "edit",
     "error": {
-      "retry": "Please try again later.",
-      "unknown": "The requested resource could not be found."
+      "retry": "An error occurred. Please try again later.",
+      "unknown": "The requested resource could not be found.",
+      "upload": {
+        "size": "The selected file must be smaller than {size}",
+        "type": "Only the following file types are allowed: {types}"
+      }
     },
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
     "ocean": "{ocean} OCEAN",
+    "save": "save changes",
+    "undo": "undo",
+    "upload": "upload",
     "usd": "{usd} USD"
   },
   "jobs": {
@@ -82,6 +108,10 @@
     }
   },
   "landing": {
+    "connect_social": {
+      "text": "Ocean Pearl is all about community. Help building us this vision!",
+      "title": "Connect with us."
+    },
     "dao_proposals": {
       "link_text": "See all DAO projects",
       "requestedAmount": "Requested Amount",
@@ -128,11 +158,59 @@
       "titleHighlight": "projects"
     },
     "pearl_dao": {
-      "link_text": "See all listed projects",
+      "link_text": "See all listed proposals",
       "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
+    },
+    "pearl_space": {
+      "text": "These are the main features of ocean pearl.",
+      "title": "Pearl",
+      "titleHighlight": "space"
     }
+  },
+  "manage": {
+    "admins": "Administrators",
+    "auth": {
+      "error": {
+        "invalid": "Authentication was invalid. Please try again.",
+        "sign": "Could not sign login request. Please try again.",
+        "wallet": "Could not connect wallet. Please try again."
+      },
+      "login": {
+        "action": "Login via Wallet",
+        "steps": {
+          "1": "Choose your wallet provider",
+          "2": "Select account to connect",
+          "3": "Sign login request"
+        },
+        "subtitle": [
+          "3-Step-",
+          "Login"
+        ],
+        "title": "Login here to manage your projects"
+      },
+      "logout": {
+        "completed": "Successfully logged out.",
+        "title": "Logout"
+      },
+      "timeout": "Authentication timeout. Please login again."
+    },
+    "project": {
+      "changed": "The changes were saved successfully.",
+      "description": "Description",
+      "empty": "Hey sailor, no projects here so far.  Dive right in and add your first one now!",
+      "logo": "Logo",
+      "pictures": {
+        "title": "Project images (max 1)",
+        "upload": "upload new image"
+      },
+      "title": "Title"
+    },
+    "title": [
+      "Management",
+      "panel"
+    ]
   },
   "navbar": {
     "logoText": "Ocean Pearl",

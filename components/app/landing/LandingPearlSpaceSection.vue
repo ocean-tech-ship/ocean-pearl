@@ -1,5 +1,5 @@
 <template>
-  <LandingSectionContainer>
+  <LandingSectionContainer class="my-32">
     <div class="mb-42px">
       <h2>
         {{ $t('landing.pearl_space.title') }}
@@ -28,7 +28,7 @@
         <div class="h-275px pt-42px px-42px pb-62px flex items-center">
           <img class="w-full" :src="card.imageURL" :alt="card.title" />
         </div>
-        <span class="font-poppins-bold text-lg px-42px pb-31px text-center">
+        <span class="font-poppins-bold text-lg px-48px pb-31px text-center">
           {{ card.title }}
         </span>
         <AppLink :to="card.buttonTarget" class="mb-70px">
@@ -55,22 +55,23 @@ export default {
     return {
       cards: [
         {
-          title: 'Track Projects',
-          buttonTarget: '/projects',
+          title: 'Find DAO Proposals',
+          buttonTarget: '/dao-proposals',
           imageURL: require('@/assets/images/landing/track-projects.svg'),
-          buttonText: 'Track',
+          buttonText: 'Find',
         },
         {
-          title: 'Submit Project',
-          buttonTarget: '/projects',
+          title: 'Submit Proposal',
+          buttonTarget:
+            'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
           imageURL: require('@/assets/images/landing/submit-projects.svg'),
           buttonText: 'Submit',
         },
         {
-          title: 'Find Jobs',
-          buttonTarget: '/job-overview',
+          title: 'Explore Projects',
+          buttonTarget: '/projects',
           imageURL: require('@/assets/images/landing/find-jobs.svg'),
-          buttonText: 'Find',
+          buttonText: 'Explore',
         },
       ],
     };

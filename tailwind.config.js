@@ -1,4 +1,4 @@
-const colors = require('./tailwind.colors.json')
+const colors = require('./tailwind.colors.json');
 
 module.exports = {
   mode: 'jit',
@@ -38,6 +38,7 @@ module.exports = {
       third: colors.third,
       quad: colors.quad,
       grey: colors.grey,
+      white: colors.white,
       darkgrey: colors.darkgrey,
     },
     fontFamily: {
@@ -73,4 +74,4 @@ module.exports = {
   },
   variants: {},
   plugins: [require('@tailwindcss/line-clamp')],
-}
+};

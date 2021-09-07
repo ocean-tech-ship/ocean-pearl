@@ -1,109 +1,125 @@
 <template>
-  <div
-    class="
-      grid grid-cols-1
-      md:grid-cols-2
-      lg:grid-cols-2
-      xl:grid-cols-4
-      2xl:grid-cols-4
-      gap-4
-      mt-10
-    "
-  >
-    <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
-      <NuxtLink
-        :prefetch="false"
-        :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
-      >
-        <div class="shadow rounded p-8 h-full">
-          <div class="flex">
-            <div class="mr-3">
-              <app-logo
-                class="inline-block"
-                :src="daoProposal.project.logo"
-                :alt="daoProposal.project.title"
-                :size="45"
-              />
-            </div>
-            <div>
-              <p class="text-primary leading-snug line-clamp-1 break-all">
-                {{ daoProposal.project.title }}
-              </p>
-              <p class="small-text">
-                {{ categoryMap[daoProposal.category] }}
-              </p>
-            </div>
-          </div>
-          <div class="mt-5 h-112px">
-            <p class="small-text line-clamp-4">
-              {{ daoProposal.oneLiner }}
-            </p>
-          </div>
-          <div class="mt-5">
+  <div class="mt-10">
+    <dao-proposals-response
+      :proposals-found="!!daoProposals.length"
+      :search-used="searchUsed"
+    />
+    <div
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+      "
+    >
+      <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
+        >
+          <div class="shadow rounded p-8 h-full">
             <div class="flex">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/transaction.svg"
-                :alt="`${$t('dao-projects.projects.requestedAmount')} icon`"
-              />
-              <p class="small-text text-primary">
-                {{ $t('dao-projects.projects.requestedAmount') }}
-              </p>
+              <div class="mr-3">
+                <app-logo
+                  class="inline-block"
+                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                  :alt="daoProposal.project.title"
+                  :size="45"
+                />
+              </div>
+              <div>
+                <p class="text-primary leading-snug line-clamp-1 break-all">
+                  {{ daoProposal.project.title }}
+                </p>
+                <p class="small-text">
+                  {{ categoryMap[daoProposal.category] }}
+                </p>
+              </div>
             </div>
-            <p class="small-text">
-              {{
-                $t('general.ocean', {
-                  ocean: daoProposal.requestedGrantToken,
+            <app-label class="mt-5">
+              <span class="text-third">{{
+                $t('project.proposal.round.numbered', {
+                  round: daoProposal.fundingRound.round,
                 })
-              }}
-            </p>
-          </div>
-          <div class="mt-5">
-            <div class="flex">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/yes-vote.svg"
-                :alt="`${$t('dao-projects.projects.votes')} icon`"
-              />
-              <p class="small-text text-primary">
-                {{ $t('dao-projects.projects.votes') }}
+              }}</span>
+            </app-label>
+            <div class="mt-5 h-112px">
+              <p class="small-text line-clamp-4">
+                {{ daoProposal.oneLiner }}
               </p>
             </div>
-            <p class="small-text">
-              {{ $t('general.ocean', { ocean: daoProposal.votes }) }}
-            </p>
-          </div>
-          <div class="mt-5">
-            <div class="flex">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/no-vote.svg"
-                :alt="`${$t('dao-projects.projects.counterVotes')} icon`"
-              />
-              <p class="small-text text-primary">
-                {{ $t('dao-projects.projects.counterVotes') }}
+            <div class="mt-5">
+              <div class="flex">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/transaction.svg"
+                  :alt="`${$t('dao-projects.projects.requestedAmount')} icon`"
+                />
+                <p class="small-text text-primary">
+                  {{ $t('dao-projects.projects.requestedAmount') }}
+                </p>
+              </div>
+              <p class="small-text">
+                {{
+                  $t('general.ocean', {
+                    ocean: daoProposal.requestedGrantToken,
+                  })
+                }}
               </p>
             </div>
-            <p class="small-text">
-              {{ $t('general.ocean', { ocean: daoProposal.counterVotes }) }}
-            </p>
+            <div class="mt-5">
+              <div class="flex">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/yes-vote.svg"
+                  :alt="`${$t('dao-projects.projects.votes')} icon`"
+                />
+                <p class="small-text text-primary">
+                  {{ $t('dao-projects.projects.votes') }}
+                </p>
+              </div>
+              <p class="small-text">
+                {{ $t('general.ocean', { ocean: daoProposal.votes }) }}
+              </p>
+            </div>
+            <div class="mt-5">
+              <div class="flex">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/no-vote.svg"
+                  :alt="`${$t('dao-projects.projects.counterVotes')} icon`"
+                />
+                <p class="small-text text-primary">
+                  {{ $t('dao-projects.projects.counterVotes') }}
+                </p>
+              </div>
+              <p class="small-text">
+                {{ $t('general.ocean', { ocean: daoProposal.counterVotes }) }}
+              </p>
+            </div>
           </div>
-        </div>
-      </NuxtLink>
+        </NuxtLink>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
-import AppLogo from '~/components/common/AppLogo';
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import AppLogo from '@/components/common/AppLogo.vue';
+import AppLabel from '@/components/common/AppLabel.vue';
+import DaoProposalsResponse from '~/components/app/dao-proposals/DaoProposalsResponse.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 
 export default {
   name: 'DaoProposalsList',
 
   components: {
     AppLogo,
+    AppLabel,
+    DaoProposalsResponse,
   },
 
   mixins: [ProjectBeautifyId],
@@ -113,6 +129,11 @@ export default {
       type: Array,
       required: true,
       default: () => [],
+    },
+    searchUsed: {
+      type: Boolean,
+      required: true,
+      default: () => false,
     },
   },
 

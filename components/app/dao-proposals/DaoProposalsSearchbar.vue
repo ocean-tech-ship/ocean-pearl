@@ -21,9 +21,15 @@
 import debounce from '~/helpers/debounce.ts';
 
 export default {
+  props: {
+    filter: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
-      searchValue: '',
+      searchValue: this.filter.search || '',
       focused: false,
     };
   },
