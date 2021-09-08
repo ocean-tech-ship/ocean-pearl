@@ -73,7 +73,7 @@ export default {
           route: 'https://github.com/ocean-tech-ship',
           LinkText: 'Github',
           imageURL: require('@/assets/images/social/github.svg'),
-          text: 'Submit your latest ideas and inspirations via writing an issue on our github repo. We will be happy about any input you got got for us.',
+          text: 'Submit your latest ideas and inspirations via writing an issue on our github repo. We will be happy about any input you got for us.',
         },
       ],
     };
