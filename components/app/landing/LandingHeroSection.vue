@@ -10,10 +10,7 @@
           {{ $t('landing.hero.titlePart2') }}
         </h1>
         <p class="pt-6 mb-8">
-          {{ $t('landing.hero.text') }}<br />
-          <span class="text-primary"
-            ><strong>THIS VERSION IS WORK IN PROGRESS.</strong></span
-          >
+          {{ $t('landing.hero.text') }}
         </p>
         <AppLink to="/projects">
           <AppButtonStyle
