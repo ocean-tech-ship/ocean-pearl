@@ -66,7 +66,14 @@
                   {{ $t('landing.dao_proposals.requestedAmount') }}
                 </p>
               </div>
-              <p class="small-text">
+              <p
+                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                class="small-text"
+              >
+                {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
+              </p>
+
+              <p v-else class="small-text">
                 {{
                   $t('general.ocean', {
                     ocean: daoProposal.requestedGrantToken,
