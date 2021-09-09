@@ -6,25 +6,26 @@
       :rounds="rounds"
       @selected-items="setFilter"
     />
-    <DaoProposalsSearchbar
+    <AppSearchBar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
-      :filter="filter"
-      @search-projects="setFilter"
+      placeholder="Search Proposals"
+      :initial-value="filter.search"
+      @search="setFilter"
     />
   </div>
 </template>
 
 <script>
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
-import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
+import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/components/enums/Category.enum';
 import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
-  name: 'DaoProjectsFilter',
+  name: 'DaoProposalsFilter',
 
   components: {
-    DaoProposalsSearchbar,
+    AppSearchBar,
     DaoProposalsDropdowns,
   },
   props: {
