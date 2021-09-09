@@ -12,8 +12,10 @@
     <landing-section-container v-else-if="$fetchState.pending" class="h-screen">
       {{ $t('general.fetchingLoading') }}
     </landing-section-container>
-
-    <projects-list v-else :projects="projects" />
+    <landing-section-container v-else class="h-screen">
+      <projects-filter />
+      <projects-list :projects="projects" />
+    </landing-section-container>
   </div>
 </template>
 
@@ -23,6 +25,7 @@ import { getProjects } from '@/api';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
+import ProjectsFilter from '@/components/app/projects/ProjectsFilter.vue';
 
 export default Vue.extend({
   name: 'ProjectOverview',
@@ -31,6 +34,7 @@ export default Vue.extend({
     ProjectsHeader,
     ProjectsList,
     LandingSectionContainer,
+    ProjectsFilter,
   },
 
   data() {
