@@ -45,7 +45,6 @@ export default {
           delete filterRestructed.category;
         if (filterRestructed.search === '') delete filterRestructed.search;
 
-        console.log('filterRestructed', filterRestructed);
         this.$emit('filter', filterRestructed);
       },
     },

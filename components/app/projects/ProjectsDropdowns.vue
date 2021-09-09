@@ -69,8 +69,6 @@ export default {
 
       const { id } = payload;
 
-      console.log(id);
-
       this.categoryItems.forEach((categoryItem) => {
         // eslint-disable-next-line no-param-reassign
         categoryItem.selected = false;
