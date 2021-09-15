@@ -28,7 +28,7 @@
             <div class="mt-3">
               <app-logo
                 class="inline-block"
-                :src="project.logo"
+                :src="project.logo && project.logo.url"
                 :alt="project.title"
                 :size="64"
               />

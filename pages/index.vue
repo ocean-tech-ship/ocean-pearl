@@ -17,7 +17,9 @@
 
     <div v-else>
       <landing-dao-proposals :dao-proposals="daoProposals" />
+      <landing-pearl-space-section />
       <landing-latest-projects :projects="latestProjects" />
+      <landing-connect-social />
     </div>
   </div>
 </template>
@@ -27,8 +29,10 @@ import Vue from 'vue';
 import { getLandingData } from '@/api';
 import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue';
 import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vue';
+import LandingPearlSpaceSection from '@/components/app/landing/LandingPearlSpaceSection.vue';
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import LandingConnectSocial from '@/components/app/landing/LandingConnectSocial.vue';
 import LandingPearlDao from '~/components/app/landing/LandingPearlDao.vue';
 
 export default Vue.extend({
@@ -36,7 +40,9 @@ export default Vue.extend({
     LandingHeroSection,
     LandingDaoProposals,
     LandingLatestProjects,
+    LandingPearlSpaceSection,
     LandingPearlDao,
+    LandingConnectSocial,
     LandingSectionContainer,
   },
 

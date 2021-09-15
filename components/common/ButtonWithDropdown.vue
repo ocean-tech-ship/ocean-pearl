@@ -40,21 +40,39 @@
               $t('navbar.navbarDao')
             }}</NuxtLink>
           </li>
-          <li>
-            <app-link
-              to="https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template"
-            >
+          <li v-if="!walletAddress">
+            <NuxtLink to="/management">
               <div class="flex px-4 py-3 text-primary">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/vote.svg"
-                  :alt="`${$t('project.proposal.submit')} ${$t(
-                    'general.icon',
-                  )}`"
-                />
-                <p>{{ $t('project.proposal.submit') }}</p>
+                <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
+                <p>{{ $t('manage.auth.login.action') }}</p>
               </div>
-            </app-link>
+            </NuxtLink>
+          </li>
+          <li v-if="walletAddress">
+            <NuxtLink to="/management">
+              <div
+                class="rounded p-2 m-4 flex items-center"
+                style="background-color: black; color: white"
+              >
+                {{ shrinkAddress(walletAddress) }}
+                <jazzicon
+                  class="flex items-center w-5 h-5 ml-2"
+                  :diameter="20"
+                  :address="walletAddress"
+                />
+              </div>
+            </NuxtLink>
+          </li>
+          <li v-if="walletAddress">
+            <div class="flex justify-end">
+              <button
+                type="button"
+                class="font-bold block px-4 py-3"
+                @click="$store.dispatch('auth/logout')"
+              >
+                {{ $t('manage.auth.logout.title') }}
+              </button>
+            </div>
           </li>
         </ul>
       </div>
@@ -63,14 +81,32 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import AppLink from '@/components/common/AppLink.vue';
+import Jazzicon from 'vue-jazzicon';
+import { SESSION_NAME } from '@/store/auth';
+import EthAddress from '@/mixins/EthAddress';
 
 export default {
   name: 'ButtonWithDropdown',
+
   components: {
     MainDropdown,
     AppLink,
+    Jazzicon,
+  },
+
+  mixins: [EthAddress],
+
+  computed: {
+    ...mapState('account', {
+      accountWallet: 'wallet',
+    }),
+
+    walletAddress() {
+      return this.accountWallet || this.$cookies.get(SESSION_NAME);
+    }
   },
 };
 </script>

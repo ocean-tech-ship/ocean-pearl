@@ -21,7 +21,10 @@
       <round-metrics class="mt-10" :metrics="metrics" />
       <hr class="text-primary my-16" />
       <dao-proposals-filter :rounds="maxRounds" @filter="filterDaoProposals" />
-      <dao-proposals-list :dao-proposals="daoProposals" />
+      <dao-proposals-list
+        :dao-proposals="daoProposals"
+        :search-used="searchUsed"
+      />
     </div>
   </landing-section-container>
 </template>
@@ -49,6 +52,7 @@ export default Vue.extend({
       error: null,
       daoProposals: null,
       maxRounds: null,
+      searchUsed: false,
       metrics: {
         fundingRound: '',
         totalDaoProposals: '',
@@ -118,6 +122,9 @@ export default Vue.extend({
           process.env.NODE_ENV === 'mirage'
             ? daoProposalResponse.data.daoproposals
             : daoProposalResponse.data.daoProposals;
+
+        // set search used
+        payload.search ? (this.searchUsed = true) : (this.searchUsed = false);
       } catch (error) {
         this.error = 'general.error.retry';
         this.daoProposals = [];

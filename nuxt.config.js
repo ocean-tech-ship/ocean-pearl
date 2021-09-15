@@ -42,8 +42,9 @@ export default {
 
     // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
     publicRuntimeConfig: {
-        baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000',
-        plausibleDomain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
+      baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000',
+      plausibleDomain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
+      infuraId: process.env.NUXT_ENV_INFURA_ID,
     },
 
     ssr: process.env.NODE_ENV !== 'mirage', // Disable Server Side rendering for development because of miragejs
@@ -73,6 +74,7 @@ export default {
     modules: [
         'nuxt-i18n',
         '@nuxtjs/axios',
+        'cookie-universal-nuxt',
         [
             'nuxt-social-meta',
             {

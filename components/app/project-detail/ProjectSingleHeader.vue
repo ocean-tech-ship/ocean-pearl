@@ -3,7 +3,7 @@
     <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
       <app-logo
         class="mx-4 md:ml-0 inline-block"
-        :src="project.logo"
+        :src="project.logo && project.logo.url"
         :alt="project.title"
         :size="64"
       />
