@@ -63,7 +63,12 @@
       @delete="deleteSocial(propertyName)"
     />
 
-    <p v-if="Object.values(socials).length === 0">/</p>
+    <p
+      v-if="Object.values(socials).length === 0"
+      class="small-text"
+    >
+      /
+    </p>
   </div>
 </template>
 
