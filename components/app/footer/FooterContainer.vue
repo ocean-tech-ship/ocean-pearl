@@ -1,83 +1,106 @@
 <template>
   <footer class="w-full">
     <div
-      class="w-full max-w-1440 mx-auto flex items-center justify-center gap-8 bg-secondary py-10"
+      class="
+        w-full
+        max-w-1440
+        mx-auto
+        py-10
+        grid
+        gap-10
+        md:flex md:items-center md:gap-0 md:justify-center
+        lg:gap-5
+      "
     >
-      <div v-for="item in footerItems" :key="item.id">
-        <img
-          v-if="item.id === 'supreme'"
-          :src="item.icon"
-          :alt="`${item.name} logo`"
-          class="w-10 h-10 mx-5 block"
+      <div v-for="(item, i) in footerItems" :key="item.id">
+        <footer-block
+          :theme="item.theme"
+          :item="item"
+          :class="{ 'md:mr-20 lg:mr-0': i < footerItems.length - 1 }"
         />
-        <footer-item v-else :item="item">
-          <template #title>
-            {{ item.name }}
-          </template>
-        </footer-item>
       </div>
     </div>
   </footer>
 </template>
 
 <script>
-import Vue from 'vue'
-import FooterItem from './FooterItem.vue'
+import Vue from 'vue';
+import FooterBlock from './FooterBlock.vue';
 
 export default Vue.extend({
-  components: { FooterItem },
-  data: () => ({
-    footerItems: [
-      {
-        id: 0,
-        name: '© Ocean Pearl',
-        route: '',
-        icon: '',
-      },
-      {
-        id: 1,
-        name: 'Twitter',
-        icon: require('@/assets/images/footer/twitter_footer.svg'),
-        route: 'https://twitter.com/oceanpearlio',
-        ext: true,
-      },
-      {
-        id: 2,
-        name: 'Discord',
-        icon: require('@/assets/images/footer/discord_footer.svg'),
-        route: 'https://discord.gg/eswPj8QZRH',
-        ext: true,
-      },
-      {
-        id: 'supreme',
-        name: 'ocean pearl',
-        icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
-        route: '/',
-      },
-      {
-        id: 3,
-        name: 'Protocol',
-        icon: require('@/assets/images/footer/protocol_footer.svg'),
-        route: 'https://oceanprotocol.com/',
-        ext: true,
-      },
-      {
-        id: 4,
-        name: 'Whitepaper',
-        icon: require('@/assets/images/footer/white_paper_footer.svg'),
-        route: 'https://oceanprotocol.com/tech-whitepaper.pdf',
-        ext: true,
-      },
-      {
-        id: 5,
-        name: 'Discord',
-        icon: require('@/assets/images/footer/discord_footer.svg'),
-        route: 'https://discord.gg/Yuawx9EP6e',
-        ext: true,
-      },
-    ],
-  }),
-})
+  components: { FooterBlock },
+  data() {
+    return {
+      footerItems: [
+        {
+          id: 0,
+          name: 'Ocean Pearl',
+          theme: 'text-primary',
+          icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
+          route: '/',
+          block: true,
+          hasSubItem: true,
+          subItems: [
+            {
+              id: 0,
+              name: 'Twitter',
+              icon: require('@/assets/images/footer/twitter_footer.svg'),
+              route: 'https://twitter.com/oceanpearlio',
+              ext: true,
+            },
+            {
+              id: 1,
+              name: 'Discord',
+              icon: require('@/assets/images/footer/discord_footer.svg'),
+              route: 'https://discord.gg/eswPj8QZRH',
+              ext: true,
+            },
+            {
+              id: 2,
+              name: 'GitHub',
+              icon: require('@/assets/images/social/github.svg'),
+              route: 'https://github.com/ocean-tech-ship',
+              ext: true,
+            },
+            {
+              id: 3,
+              name: this.$t('footer.analytics'),
+              icon: require('@/assets/images/footer/analytics.svg'),
+              route: 'https://plausible.io/oceanpearl.io',
+              ext: true,
+            },
+          ],
+        },
+        {
+          id: 1,
+          name: 'Ocean Protocol',
+          theme: 'text-third',
+          icon: require('@/assets/images/footer/protocol_footer.svg'),
+          route: 'https://oceanprotocol.com/',
+          ext: true,
+          block: true,
+          hasSubItem: true,
+          subItems: [
+            {
+              id: 4,
+              name: 'Whitepaper',
+              icon: require('@/assets/images/footer/white_paper_footer.svg'),
+              route: 'https://oceanprotocol.com/tech-whitepaper.pdf',
+              ext: true,
+            },
+            {
+              id: 5,
+              name: 'Discord',
+              icon: require('@/assets/images/footer/discord_footer.svg'),
+              route: 'https://discord.gg/Yuawx9EP6e',
+              ext: true,
+            },
+          ],
+        },
+      ],
+    };
+  },
+});
 </script>
 
 <style></style>

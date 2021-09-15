@@ -10,8 +10,7 @@
           {{ $t('landing.hero.titlePart2') }}
         </h1>
         <p class="pt-6 mb-8">
-          {{ $t('landing.hero.text') }}<br />
-          <span class="text-primary"><strong>THIS VERSION IS WORK IN PROGRESS.</strong></span>
+          {{ $t('landing.hero.text') }}
         </p>
         <AppLink to="/projects">
           <AppButtonStyle
@@ -32,9 +31,9 @@
 </template>
 
 <script>
-import AppLink from '@/components/common/AppLink.vue'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppButtonStyle from '~/components/common/AppButtonStyle.vue'
+import AppLink from '@/components/common/AppLink.vue';
+import LandingSectionContainer from './LandingSectionContainer';
+import AppButtonStyle from '~/components/common/AppButtonStyle.vue';
 
 export default {
   name: 'LandingHeroSection',
@@ -43,5 +42,5 @@ export default {
     AppLink,
     LandingSectionContainer,
   },
-}
+};
 </script>

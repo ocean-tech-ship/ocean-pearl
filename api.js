@@ -1,31 +1,61 @@
 // projects
 export function getProjects(axios) {
-  return axios.$get('/projects')
+    return axios.get('/projects');
 }
 
 export function getFeaturedProjects(axios, limit) {
-  return axios.$get(`/projects/paginated/1/${limit}`)
+    return axios.$get(`/projects/paginated/1/${limit}`);
 }
 
 export function getProjectById(axios, id) {
-  return axios.get(`/projects/detail/${id}`)
+    return axios.get(`/projects/${id}`); // dont filter for data object
 }
 
 // dao-proposals
-export function getDaoProposals(axios) {
-  return axios.$get('/dao-proposals')
+export function getDaoProposals(axios, params) {
+    return axios.get('/dao-proposals', { params });
 }
 
 export function getFeaturedDaoProposals(axios, limit) {
-  return axios.$get(`/dao-proposals/paginated/1/${limit}`)
+    return axios.$get(`/dao-proposals/paginated/1/${limit}`);
 }
 
 // jobs
 export function getJobs(axios) {
-  return axios.$get('/jobs') // not implemented yet
+    return axios.$get('/jobs'); // not implemented yet
 }
 
-//dao-projects-page
-export function getDaoData(axios) {
-  return axios.get('/index/info')
+// landing page
+export function getLandingData(axios) {
+    return axios.get('/pages/index'); // dont filter for data object
+}
+
+// dao round
+export function getDaoRoundMetrics(axios) {
+    return axios.get('/metrics'); // dont filter for data object
+}
+
+// account login
+export function login(axios, payload) {
+  return axios.post('/account/login', payload, { withCredentials: true })
+}
+
+// account logout
+export function logout(axios) {
+  return axios.post('/account/logout', null, { withCredentials: true })
+}
+
+// account retrieval
+export function getAccount(axios) {
+  return axios.get('/account', { withCredentials: true })
+}
+
+// account save changes
+export function updateProject(axios, projectId, formData) {
+  return axios.put(`/account/project/${projectId}`, formData, {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
 }

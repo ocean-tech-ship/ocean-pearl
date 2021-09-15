@@ -134,3 +134,14 @@ p {
   @apply text-lg;
   line-height: 12px;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #bb2c75 1%, #ff98cd);
+  border-radius: 10px;
+}

@@ -1,10 +1,7 @@
-const colors = require('./tailwind.colors.json')
+const colors = require('./tailwind.colors.json');
 
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
+  mode: 'jit',
   purge: [],
   theme: {
     extend: {
@@ -16,11 +13,14 @@ module.exports = {
         '54px': '54px',
         '62px': '62px',
         '70px': '70px',
+        '78px': '78px',
+        '112px': '112px',
         '128px': '128px',
         '177px': '177px',
         '225px': '225px',
         '275px': '275px',
         '300px': '300px',
+        '330px': '330px',
       },
     },
     screens: {
@@ -36,7 +36,10 @@ module.exports = {
       primary: colors.primary,
       secondary: colors.secondary,
       third: colors.third,
+      quad: colors.quad,
       grey: colors.grey,
+      white: colors.white,
+      darkgrey: colors.darkgrey,
     },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
@@ -52,20 +55,23 @@ module.exports = {
       '3xl': '48px',
     },
     maxWidth: {
+      none: 'none',
       1440: '1440px',
     },
     maxHeight: {
+      none: 'none',
       52: '13rem',
     },
-    boxShadow: {
-      default: '4px 4px 20px rgba(0, 0, 0, 0.1)',
-      none: 'none',
-    },
     borderRadius: {
-      none: '0',
-      default: '8px',
+      none: 'none',
+      DEFAULT: '8px',
+      full: '50%',
+    },
+    boxShadow: {
+      none: 'none',
+      DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
     },
   },
   variants: {},
-  plugins: [],
-}
+  plugins: [require('@tailwindcss/line-clamp')],
+};

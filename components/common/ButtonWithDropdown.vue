@@ -2,51 +2,121 @@
   <main-dropdown>
     <template slot-scope="context">
       <img
-        @click="context.toggleOpen"
-        class="h-10 w-10 cursor-pointer rounded-full object-cover"
-        src="@/assets/images/icons/treasure-card.svg"
         alt="treasure icon navbar"
+        class="h-10 w-10 cursor-pointer object-cover"
+        src="@/assets/images/icons/treasure-card.svg"
+        @click="context.toggleOpen"
+      />
+      <div
+        v-if="context.open"
+        class="
+          dropdown-menu
+          shadow
+          origin-top-right
+          absolute
+          right-0
+          mt-2
+          w-64
+          bg-grey
+          border border-primary
+          rounded
+          overflow-hidden
+          shadow-md
+        "
       >
-        <div
-          v-if="context.open"
-          class="shadow origin-top-right absolute right-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
-        >
-          <ul @click="context.toggleOpen">
-            <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/">{{ $t('navbar.navbarLinkDefault') }}</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
-            </li>  
-            <li>
-              <NuxtLink class="font-bold block px-4 py-3" to="/dao-project-overview">{{ $t('navbar.navbarDao') }}</NuxtLink>
-            </li>
-          </ul>
-        </div>
+        <ul @click="context.toggleOpen">
+          <li>
+            <NuxtLink class="font-bold block px-4 py-3" to="/">{{
+              $t('navbar.navbarLinkDefault')
+            }}</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="font-bold block px-4 py-3" to="/projects">{{
+              $t('navbar.navbarProjects')
+            }}</NuxtLink>
+          </li>
+          <li>
+            <NuxtLink class="font-bold block px-4 py-3" to="/dao-proposals">{{
+              $t('navbar.navbarDao')
+            }}</NuxtLink>
+          </li>
+          <li v-if="!walletAddress">
+            <NuxtLink to="/management">
+              <div class="flex px-4 py-3 text-primary">
+                <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
+                <p>{{ $t('manage.auth.login.action') }}</p>
+              </div>
+            </NuxtLink>
+          </li>
+          <li v-if="walletAddress">
+            <NuxtLink to="/management">
+              <div
+                class="rounded p-2 m-4 flex items-center"
+                style="background-color: black; color: white"
+              >
+                {{ shrinkAddress(walletAddress) }}
+                <jazzicon
+                  class="flex items-center w-5 h-5 ml-2"
+                  :diameter="20"
+                  :address="walletAddress"
+                />
+              </div>
+            </NuxtLink>
+          </li>
+          <li v-if="walletAddress">
+            <div class="flex justify-end">
+              <button
+                type="button"
+                class="font-bold block px-4 py-3"
+                @click="$store.dispatch('auth/logout')"
+              >
+                {{ $t('manage.auth.logout.title') }}
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
     </template>
   </main-dropdown>
 </template>
 
 <script>
-import MainDropdown from "@/components/common/MainDropdown";
+import { mapState } from 'vuex';
+import MainDropdown from '@/components/common/MainDropdown.vue';
+import AppLink from '@/components/common/AppLink.vue';
+import Jazzicon from 'vue-jazzicon';
+import { SESSION_NAME } from '@/store/auth';
+import EthAddress from '@/mixins/EthAddress';
+
 export default {
-  name: "button-with-dropdown",
-  data() {
-    return {
-      username: "John Wick",
-      email: "dontkillmydog@johnwick.com"
-    };
+  name: 'ButtonWithDropdown',
+
+  components: {
+    MainDropdown,
+    AppLink,
+    Jazzicon,
   },
-  components: { MainDropdown }
+
+  mixins: [EthAddress],
+
+  computed: {
+    ...mapState('account', {
+      accountWallet: 'wallet',
+    }),
+
+    walletAddress() {
+      return this.accountWallet || this.$cookies.get(SESSION_NAME);
+    }
+  },
 };
 </script>
 
-
 <style scoped>
-
- li > a:hover {
-     background: #bb2c7636;
-     transition: 200ms;
- }
-
+.dropdown-menu {
+  z-index: 9999;
+}
+li > a:hover {
+  background: #bb2c7636;
+  transition: 200ms;
+}
 </style>

@@ -1,59 +1,57 @@
 <template>
-  <LandingSectionContainer>
-    <div class="flex justify-between content-center">
-      <div class="flex">
-        <div class="mr-4 w-12 h-12">
-          <app-logo
-            class="inline-block rounded-full ring-2 ring-white"
-            :src="project.logo"
-            :alt="project.title"
-          />
-        </div>
+  <div class="flex flex-wrap items-center justify-center md:justify-between">
+    <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
+      <app-logo
+        class="mx-4 md:ml-0 inline-block"
+        :src="project.logo && project.logo.url"
+        :alt="project.title"
+        :size="64"
+      />
 
-        <div class="mt-2">
-          <h1 class="text-primary thin-heading">{{ project.title }}</h1>
-          <p class="mt-2">{{ project.category }}</p>
-        </div>
-      </div>
-      <div class="flex">
-        <div class="mr-4">
-          <img
-            class="inline-block h-14 w-14 rounded-full ring-2 ring-white"
-            src="@/assets/images/icons/rocket.svg"
-            :alt="$t('project.added') + ' ' + $t('general.icon')"
-          />
-        </div>
-        <div>
-          <p class="text-primary small-text p-line-head">
-            {{ $t('project.added') }}
-          </p>
-          <p class="small-text">
-            {{ formatDate(project.createdAt) }}
-          </p>
-        </div>
-      </div>
-      <div class="hidden md:block">
-        <AppButton
-          :icon="require('@/assets/images/detail/copy-link.svg')"
-          :text="$t('project.copy')"
-        />
+      <div class="text-center md:text-left">
+        <h3 class="text-primary leading-tight">{{ project.title }}</h3>
+        <p class="leading-tight">{{ categoryMap[project.category] }}</p>
       </div>
     </div>
-  </LandingSectionContainer>
+
+    <div class="flex items-center my-8 mx-8 md:my-4">
+      <img
+        class="h-10 w-10 mr-4"
+        :src="require('@/assets/images/icons/rocket.svg')"
+        :alt="`${$t('project.added')} ${$t('general.icon')}`"
+      />
+
+      <div>
+        <p class="small-text">{{ $t('project.added') }}</p>
+        <p class="text-primary small-text">
+          {{ formatDate(project.createdAt) }}
+        </p>
+      </div>
+    </div>
+
+    <app-button
+      class="hidden xl:block w-225px"
+      :icon="require('@/assets/images/detail/copy-primary.svg')"
+      :text="$t(copyButtonTitle)"
+      secondary
+      @click="copyProjectLink()"
+    />
+  </div>
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer'
-import AppLogo from '@/components/common/AppLogo'
+import AppButton from '@/components/common/AppButton';
+import AppLogo from '@/components/common/AppLogo';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'ProjectSingleHeader',
+
   components: {
     AppLogo,
     AppButton,
-    LandingSectionContainer,
   },
+
   props: {
     project: {
       type: Object,
@@ -67,18 +65,26 @@ export default {
     },
   },
 
+  data() {
+    return {
+      copyButtonTitle: 'project.copy',
+      categoryMap: CategoryMap,
+    };
+  },
+
   methods: {
     formatDate(timestamp) {
       return this.$dateFns.format(new Date(timestamp), 'PPP', {
         locale: this.$i18n.locale,
-      })
+      });
+    },
+
+    copyProjectLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        this.copyButtonTitle = 'project.copied';
+        setTimeout(() => (this.copyButtonTitle = 'project.copy'), 1500);
+      });
     },
   },
-}
+};
 </script>
-
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>

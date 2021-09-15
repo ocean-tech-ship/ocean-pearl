@@ -7,33 +7,55 @@
       >
     </h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
+
+    <div v-if="daoProposals === null" class="mt-10 h-275px">
+      {{ $t('general.fetchingLoading') }}
+    </div>
+
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+        mt-10
+      "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
-        <NuxtLink :prefetch="false" :to="`/projects/${daoProposal.project._id}`">
-          <div class="shadow rounded h-275px p-8">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
+        >
+          <div class="shadow rounded h-330px p-8">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
-                  class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  :src="daoProposal.imageURL"
-                  :alt="daoProposal.title"
+                  class="inline-block"
+                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                  :alt="daoProposal.project.title"
+                  :size="45"
                 />
               </div>
+
               <div>
-                <p class="text-primary p-line-head">
-                  {{ daoProposal.title | truncate(14) }}
+                <p class="text-primary leading-snug line-clamp-1 break-all">
+                  {{ daoProposal.project.title }}
                 </p>
-                <p class="small-text">{{ daoProposal.category }}</p>
+                <p class="small-text">
+                  {{ categoryMap[daoProposal.category] }}
+                </p>
               </div>
             </div>
-            <div class="mt-5">
-              <p class="small-text">
-                {{ daoProposal.description | truncate(90) }}
+
+            <div class="mt-5 h-128px">
+              <p class="small-text line-clamp-3">
+                {{ daoProposal.oneLiner }}
               </p>
             </div>
-            <div class="mt-5">
+
+            <div>
               <div class="flex">
                 <img
                   class="mr-2"
@@ -44,15 +66,27 @@
                   {{ $t('landing.dao_proposals.requestedAmount') }}
                 </p>
               </div>
-              <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.requestedGrantToken }) }}
+              <p
+                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                class="small-text"
+              >
+                {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
+              </p>
+
+              <p v-else class="small-text">
+                {{
+                  $t('general.ocean', {
+                    ocean: daoProposal.requestedGrantToken,
+                  })
+                }}
               </p>
             </div>
           </div>
         </NuxtLink>
       </div>
     </div>
-    <NuxtLink to="/dao-project-overview">
+
+    <NuxtLink to="/dao-proposals">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.dao_proposals.link_text') }}
@@ -62,10 +96,12 @@
     </NuxtLink>
   </LandingSectionContainer>
 </template>
+
 <script>
-import { getFeaturedDaoProposals } from '@/api'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingDaoProposal',
@@ -74,28 +110,21 @@ export default {
     AppLogo,
     LandingSectionContainer,
   },
+
+  mixins: [ProjectBeautifyId],
+
+  props: {
+    daoProposals: {
+      type: Array,
+      required: true,
+      default: null,
+    },
+  },
+
   data() {
     return {
-      daoProposals: [],
-    }
+      categoryMap: CategoryMap,
+    };
   },
-  async fetch() {
-    await getFeaturedDaoProposals(this.$axios, 4)
-      .then((daoProposals) => {
-        this.projects = this.daoProposals =
-          process.env.useMirage === 'true'
-            ? daoProposals.daoproposals
-            : daoProposals
-      })
-      .catch(() => {
-        this.daoProposals = []
-      })
-  },
-}
+};
 </script>
-
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>

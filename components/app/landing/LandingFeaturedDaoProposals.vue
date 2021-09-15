@@ -11,14 +11,32 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow rounded-md pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
+        class="
+          flex
+          items-center
+          flex-col
+          rounded
+          lg:flex-row
+          xl:flex-col
+          shadow
+          rounded-md
+          pb-12
+          pt-16
+          px-4
+          col-span-1
+          lg:col-span-2
+          xl:col-span-1
+          row-span-1
+          xl:row-span-2
+          listed-project-container
+        "
       >
         <img
           class="h-225px hidden sm:block"
           src="@/assets/images/landing/yacht.svg"
           alt="kraken"
         />
-        <h3 class="content-center text-center sm:my-12 sm:pt-8">
+        <h3 class="content-center text-center sm:my-6 sm:pt-8">
           {{ $t('landing.featured_dao_projects.secondTitle') }}
           <span class="text-primary">
             {{ $t('landing.featured_dao_projects.secondTitleHighlight') }}
@@ -26,83 +44,102 @@
         </h3>
       </div>
 
-      <div v-for="project in projects" :key="project.title" class="col-span-2">
+      <div
+        v-for="project in projects"
+        :key="project.title"
+        class="col-span-1 lg:col-span-2"
+      >
         <div class="shadow rounded p-8 grid pb-10 overflow-hidden">
           <div class="flex justify-between">
-            <NuxtLink :prefetch="false" to="/project-detail">
+            <NuxtLink
+              :prefetch="false"
+              :to="`/projects/${beautifyProjectId(project)}`"
+            >
               <div class="flex">
                 <div class="mr-3">
                   <app-logo
-                    class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                    :src="project.imageURL"
+                    class="inline-block h-10 w-10 rounded-full"
+                    :src="project.logo"
                     :alt="project.title"
                   />
                 </div>
                 <div>
-                  <p class="text-primary p-line-head truncate">
-                    {{ project.title | truncate(18) }}
+                  <p class="text-primary leading-snug line-clamp-1">
+                    {{ project.title }}
+                  </p>
+
+                  <p class="small-text text-primary">
+                    {{ categoryMap[project.category] }}
                   </p>
                 </div>
               </div>
             </NuxtLink>
             <div class="space-x-3 flex hidden md:flex">
-              <project-single-details-social
-                v-for="(url, type) in project.socialMedia"
-                :key="type"
-                class="h-5 w-5"
-                :type="type"
-                :url="url"
-              />
+              <project-single-socials :project="project" />
             </div>
           </div>
-          <p class="small-text text-primary">{{ project.category }}</p>
           <div>
-            <p class="small-text mt-4">
-              {{ project.description | truncate(180) }}
+            <p class="small-text mt-4 line-clamp-3">
+              {{ project.description }}
             </p>
           </div>
           <div class="flex justify-between items-center mt-8 flex-wrap">
-            <div class="flex items-center flex-wrap">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/transaction.svg"
-                alt="funding-finish"
-              />
-              <p class="small-text text-primary mr-4">
-                {{ $t('landing.featured_dao_projects.requestedAmount') }}
-              </p>
+            <div>
+              <div class="flex items-center flex-wrap">
+                <img
+                  class="mr-2"
+                  src="@/assets/images/icons/transaction.svg"
+                  alt="funding-finish"
+                />
+                <p class="small-text text-primary mr-4">
+                  {{ $t('landing.featured_dao_projects.requestedAmount') }}
+                </p>
+              </div>
+
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: project.fundAmount }) }}
+                {{
+                  $t('general.ocean', {
+                    ocean: project.featuredDaoProposal[0].requestedGrantToken,
+                  })
+                }}
               </p>
             </div>
 
-            <NuxtLink :prefetch="false" to="/project-detail">
+            <NuxtLink :prefetch="false" :to="`/projects/${project._id}`">
               <div class="flex items-center mt-12 sm:m-0">
                 <p class="small-text mr-2 text-primary">
                   {{ $t('landing.featured_dao_projects.checkOut') }}
                 </p>
-                <img src="@/assets/images/landing/check-out.svg" alt="" />
+                <img
+                  src="@/assets/images/landing/check-out.svg"
+                  :alt="`${$t('general.button')} ${$t('general.logo')}`"
+                />
               </div>
             </NuxtLink>
           </div>
         </div>
       </div>
     </div>
-    <NuxtLink to="/dao-project-overview">
+    <NuxtLink to="/dao-projects">
       <div class="flex items-center mt-6">
         <p class="mr-2 text-primary">
           {{ $t('landing.featured_dao_projects.link_text') }}
         </p>
-        <img src="@/assets/images/landing/check-out.svg" alt="" />
+        <img
+          src="@/assets/images/landing/check-out.svg"
+          :alt="`${$t('general.button')} ${$t('general.logo')}`"
+        />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
 </template>
 
 <script>
-import ProjectSingleDetailsSocial from '@/components/app/project-detail/ProjectSingleDetailsSocial'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
+import LandingSectionContainer from './LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingFeaturedProjectSection',
@@ -110,54 +147,25 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
-    ProjectSingleDetailsSocial,
+    ProjectSingleSocials,
   },
+
+  mixins: [ProjectBeautifyId],
+
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: () => [],
+    },
+  },
+
   data() {
     return {
-      props: {
-        socialMedia: {
-          type: Object,
-          required: true,
-          default: () => {},
-        },
-      },
-      projects: [
-        {
-          title: 'Poseidon Network',
-          category: 'DeFi',
-          description:
-            'This is a nice project and this so leave some love and like this description. so leave some love and like this description. It does so nice things. And this so leave some love and like this description.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/poseidon.png'),
-          fundAmount: '20000',
-          socialMedia: {
-            website: 'https://oceanpearl.io/',
-            facebook: 'https://www.facebook.com/',
-            discord: 'https://discord.gg/eswPj8QZRH',
-            telegram: 'https://poseidon.network/',
-            twitter: 'https://twitter.com/oceanpearlio',
-          },
-        },
-        {
-          title: 'Jellyfish',
-          category: 'LoFi',
-          description:
-            'This is a nice project and this so leave some love and like this description. so leave some love and like this description. It does so nice things. And this so leave some love and like this description.',
-          projectTarget: '',
-          imageURL: require('@/assets/images/jellyfish.png'),
-          fundAmount: '10000',
-          socialMedia: {
-            website: 'https://oceanpearl.io/',
-            facebook: 'https://www.facebook.com/',
-            discord: 'https://discord.gg/eswPj8QZRH',
-            telegram: 'https://poseidon.network/',
-            twitter: 'https://twitter.com/oceanpearlio',
-          },
-        },
-      ],
-    }
+      categoryMap: CategoryMap,
+    };
   },
-}
+};
 </script>
 
 <style scoped>

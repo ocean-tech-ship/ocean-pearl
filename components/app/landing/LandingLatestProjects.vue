@@ -7,27 +7,42 @@
       }}</span>
     </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
+
+    <div v-if="projects === null" class="mt-10 h-275px">
+      {{ $t('general.fetchingLoading') }}
+    </div>
+
     <div
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
+      v-else
+      class="
+        grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-3
+        2xl:grid-cols-5
+        gap-4
+        mt-10
+      "
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink :prefetch="false" to="/projects">
+        <NuxtLink
+          :prefetch="false"
+          :to="`/projects/${beautifyProjectId(project)}`"
+        >
           <div class="shadow rounded p-4 pb-12 h-275px text-center">
-            <div class="mt-3">
-              <app-logo
-                class="inline-block h-16 w-16 rounded-full ring-2 ring-white"
-                :src="project.imageURL"
-                :alt="project.title"
-              />
-            </div>
-            <div class="mt-4">
-              <p class="text-primary p-line-head">
-                {{ project.title | truncate(14) }}
+            <app-logo
+              class="inline-block mt-3"
+              :src="project.logo && project.logo.url"
+              :alt="project.title"
+              :size="64"
+            />
+            <div class="mt-4 h-62px">
+              <p class="text-primary leading-snug line-clamp-1 break-all">
+                {{ project.title }}
               </p>
-              <p class="small-text">{{ project.category }}</p>
+              <p class="small-text">{{ categoryMap[project.category] }}</p>
             </div>
             <div class="mt-4 flex place-content-center">
-              <p class="border small-text text-primary w-32">
+              <p class="border rounded small-text text-primary w-32">
                 {{ formatDistance(project.createdAt) }}
               </p>
             </div>
@@ -35,6 +50,7 @@
         </NuxtLink>
       </div>
     </div>
+
     <NuxtLink :prefetch="false" to="/projects">
       <div class="flex items-center mt-6 mb-32">
         <p class="mr-2 text-primary">
@@ -47,9 +63,10 @@
 </template>
 
 <script>
-import { getProjects } from '@/api.js'
-import LandingSectionContainer from './LandingSectionContainer'
-import AppLogo from '~/components/common/AppLogo'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import AppLogo from '@/components/common/AppLogo';
+import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
   name: 'LandingDaoProposal',
@@ -59,18 +76,20 @@ export default {
     LandingSectionContainer,
   },
 
-  data() {
-    return {
-      projects: [],
-    }
+  mixins: [ProjectBeautifyId],
+
+  props: {
+    projects: {
+      type: Array,
+      required: true,
+      default: null,
+    },
   },
 
-  async fetch() {
-    const projects = await getProjects(this.$axios)
-    this.projects =
-      process.env.useMirage === 'true'
-        ? projects.projects.slice(0, 5)
-        : projects.slice(0, 5)
+  data() {
+    return {
+      categoryMap: CategoryMap,
+    };
   },
 
   methods: {
@@ -78,14 +97,8 @@ export default {
       return this.$dateFns.formatDistanceToNowStrict(new Date(timestamp), {
         addSuffix: true,
         locale: this.$i18n.locale,
-      })
+      });
     },
   },
-}
+};
 </script>
-
-<style scoped>
-.p-line-head {
-  line-height: 20px;
-}
-</style>

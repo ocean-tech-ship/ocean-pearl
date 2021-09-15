@@ -1,64 +1,186 @@
 <template>
   <div>
-    <div v-if="!!error">
-      <landing-section-container>
-        <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-        <p class="small-text">{{ $t(error) }}</p>
-      </landing-section-container>
-    </div>
+    <!-- error visualization -->
+    <section-container v-if="error">
+      <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
+      <p class="small-text">{{ $t(error) }}</p>
+    </section-container>
 
-    <div v-if="!!project">
-      <project-single-header :project="project" />
+    <!-- content -->
+    <div v-if="project">
+      <section-container>
+        <hr class="text-darkgrey hidden md:block" />
+        <project-single-header class="my-8" :project="project" />
+      </section-container>
 
-      <div class="bg-grey pt-8 pb-1 mb-8">
-        <project-single-details :project="project" />
-        <project-single-dao-proposal :project="project" />
+      <div class="bg-grey py-8 md:py-16">
+        <!-- design with gallery -->
+        <section-container
+          v-if="project.pictures && project.pictures.length > 0"
+        >
+          <div class="grid gap-8 xl:grid-cols-2">
+            <div>
+              <project-single-description :project="project" />
+              <project-single-team class="py-4" :project="project" />
+            </div>
+
+            <div>
+              <project-single-gallery :project="project" />
+              <project-single-socials
+                class="py-4 lg:justify-start"
+                :project="project"
+              />
+            </div>
+          </div>
+
+          <hr class="text-primary my-8" />
+
+          <project-single-dao-proposal-header class="pb-4" />
+
+          <div class="block 2xl:flex 2xl:justify-between">
+            <div class="pb-8 2xl:pb-0">
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+            <div>
+              <project-single-dao-proposal-history :project="project" />
+            </div>
+          </div>
+        </section-container>
+
+        <!-- without gallery -->
+        <section-container v-else>
+          <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
+            <div>
+              <project-single-description :project="project" />
+              <project-single-socials
+                class="py-4 justify-start"
+                :project="project"
+              />
+              <project-single-team class="py-4" :project="project" />
+            </div>
+
+            <div>
+              <project-single-dao-proposal-header class="pb-4" />
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+          </div>
+
+          <project-single-dao-proposal-history
+            class="mt-4 xl:mt-8"
+            :project="project"
+          />
+        </section-container>
       </div>
-
-      <!--<project-single-roi-strategy :project="project" />-->
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-import { getProjectById } from '@/api.js'
-import ProjectSingleDaoProposal from '@/components/app/project-detail/ProjectSingleDaoProposal.vue'
-import ProjectSingleDetails from '@/components/app/project-detail/ProjectSingleDetails.vue'
-import ProjectSingleRoiStrategy from '@/components/app/project-detail/ProjectSingleRoiStrategy.vue'
-import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue'
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue'
+<script>
+import Vue from 'vue';
+import { getProjectById } from '@/api.js';
+import SectionContainer from '@/components/common/SectionContainer.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId.js';
+import ProjectSingleHeader from '@/components/app/project-detail/ProjectSingleHeader.vue';
+import ProjectSingleDescription from '@/components/app/project-detail/ProjectSingleDescription.vue';
+import ProjectSingleTeam from '@/components/app/project-detail/ProjectSingleTeam.vue';
+import ProjectSingleGallery from '@/components/app/project-detail/ProjectSingleGallery.vue';
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials.vue';
+import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader.vue';
+import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics.vue';
+import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory.vue';
 
 export default Vue.extend({
   name: 'ProjectDetail',
+
   components: {
-    ProjectSingleRoiStrategy,
-    ProjectSingleDetails,
-    ProjectSingleDaoProposal,
+    // ProjectSingleRoiStrategy,
+    SectionContainer,
+    ProjectSingleDescription,
     ProjectSingleHeader,
-    LandingSectionContainer,
+    ProjectSingleTeam,
+    ProjectSingleGallery,
+    ProjectSingleSocials,
+    ProjectSingleDaoProposalHeader,
+    ProjectSingleDaoProposalMetrics,
+    ProjectSingleDaoProposalHistory,
   },
+
+  mixins: [ProjectBeautifyId],
 
   async asyncData({ $axios, params }) {
     try {
-      const response = await getProjectById($axios, params.project)
+      const response = await getProjectById(
+        $axios,
+        ProjectBeautifyId.methods.readBeautifiedProjectId(params.project),
+      );
 
       if (response.status === 204) {
-        return { error: 'project.unknown', project: null }
+        return {
+          error: 'project.unknown',
+          project: null,
+        };
       }
 
       return {
         error: null,
         project:
-          process.env.NUXT_ENV_USE_MIRAGE === 'true'
+          process.env.NODE_ENV === 'mirage'
             ? response.data.project
             : response.data,
-      }
+      };
     } catch (error) {
-      return { error: 'general.error.retry', project: null }
+      return {
+        error: 'general.error.retry',
+        project: null,
+      };
     }
   },
-})
-</script>
 
-<style></style>
+  head() {
+    return {
+      title: `Ocean Pearl | ${this.project.title}`,
+      meta: this.createTags(),
+    };
+  },
+
+  computed: {
+    coverImage() {
+      return this.project?.pictures?[0]?.url : null;
+    },
+  },
+
+  mounted() {
+    history.replaceState(
+      {},
+      null,
+      `/projects/${this.beautifyProjectId(this.project)}`,
+    );
+  },
+
+  methods: {
+    createTags() {
+      const meta = [];
+
+      meta.push(this.addTag('title', `Ocean Pearl | ${this.project.title}`));
+      meta.push(this.addTag('description', this.project.description));
+
+      // og tags
+      meta.push(this.addTag('og:title', this.project.title));
+      meta.push(this.addTag('og:description', this.project.description));
+      meta.push(this.addTag('og:site_name', 'Ocean Pearl'));
+      meta.push(this.addTag('og:type', 'website'));
+      this.coverImage && meta.push(this.addTag('og:image', this.coverImage));
+
+      return meta;
+    },
+
+    addTag(property, content) {
+      return {
+        hid: property,
+        property,
+        content,
+      };
+    },
+  },
+});
+</script>

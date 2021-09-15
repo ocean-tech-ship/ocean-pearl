@@ -1,75 +1,88 @@
 <template>
-  <LandingSectionContainer class="my-32">
-      <hr class="text-primary mb-32">
-    <h2>{{ $t('landing.pearl_dao.title') }} <span class="text-primary">{{ $t('landing.pearl_dao.titleHighlight') }}</span></h2>
-    <p>{{ $t('landing.pearl_dao.text') }}</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10">
-      <div v-for="card in daoInfoCards" :key="card.title">
-      <div class="shadow p-4 pb-4">
-          <div class="flex align-center">
-              <div class="mr-3">
-                <img
-                  class="inline-block mt-3 h-6 w-6 rounded-full ring-2 ring-white"
-                  :src="card.imageURL"
-                  :alt="card.title"
-                />
-              </div>
-              <div>
-                <p class="text-primary small-text text-primary truncate">{{ card.title | truncate(18) }}</p>
-                <p class="small-text">{{ card.daoInfo }}</p>
-              </div>  
-            </div>
+  <LandingSectionContainer class="my-32 py-12 gradient-background">
+    <h2 class="text-white">
+      {{
+        $t('landing.pearl_dao.title') +
+        ' ' +
+        $t('landing.pearl_dao.titleHighlight')
+      }}
+    </h2>
+
+    <p class="text-white">{{ $t('landing.pearl_dao.text') }}</p>
+
+    <round-metrics class="mt-10" :metrics="metrics" />
+
+    <NuxtLink to="/dao-proposals">
+      <div class="flex items-center mt-6">
+        <p class="mr-2 text-grey">
+          {{ $t('landing.pearl_dao.link_text') }}
+        </p>
+        <img src="@/assets/images/landing/check-out-white.svg" />
       </div>
-     </div>
-    </div>
+    </NuxtLink>
   </LandingSectionContainer>
 </template>
 
 <script>
-  import LandingSectionContainer from './LandingSectionContainer'
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
+import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics';
 
-  export default {
-    name: 'LandingPearlDao',
+export default {
+  name: 'LandingPearlDao',
 
-    components: {
-      LandingSectionContainer,
+  components: {
+    LandingSectionContainer,
+    RoundMetrics,
+  },
+
+  props: {
+    metrics: {
+      type: Object,
+      required: true,
+      default: {
+        fundingRound: '',
+        totalDaoProposals: '',
+        currentRound: {
+          startDate: new Date(),
+          submissionEndDate: new Date(),
+          votingStartDate: new Date(),
+          endDate: new Date(),
+        },
+        nextRound: {
+          startDate: new Date(),
+          submissionEndDate: new Date(),
+          votingStartDate: new Date(),
+          endDate: new Date(),
+        },
+        totalRequestedFundingOcean: '',
+        totalVotes: '',
+      },
     },
-    data() {
-      return {
-        daoInfoCards: [
-          {
-            title: 'Funding Round',
-            daoInfo: 'Round 6',
-            imageURL: require('@/assets/images/icons/fund-round.svg'),
-          },
-          {
-            title: 'Amount proposals',
-            daoInfo: '24 projects',
-            imageURL: require('@/assets/images/icons/amount.svg'),
-          },
-          {
-            title: 'Countdown',
-            daoInfo: 'ends in 4 days',
-            imageURL: require('@/assets/images/icons/countdown.svg'),
-          },
-          {
-            title: 'Total Amount',
-            daoInfo: '1800000 OCEAN',
-            imageURL: require('@/assets/images/icons/transaction.svg'),
-          },
-          {
-            title: 'Total Votes',
-            daoInfo: '30032992 OCEAN',
-            imageURL: require('@/assets/images/icons/vote.svg'),
-          },
-        ],
-      }
-    },
-  }
+  },
+};
 </script>
 
-<style scoped>
-  .p-line-head {
-    line-height: 20px;
+<style scoped lang="scss">
+.gradient-background {
+  background-image: url('../../../assets/images/landing/turtle-grid.svg'),
+    linear-gradient(to bottom right, #7b3070 5%, #d45b8d);
+  background-position: right top;
+  background-repeat: no-repeat;
+  animation: animatedBackground 8s linear infinite alternate;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 100% 0%;
   }
+  to {
+    background-position: 80% 0%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .gradient-background {
+    background-position: -800%;
+  }
+}
 </style>

@@ -1,33 +1,100 @@
 {
-  "daoRoundData": {
-    "fundingRound": "Funding Round",
-    "amountProposals": "Amount proposals",
-    "countdown": "Countdown",
-    "totalAmount": "Total Amount",
-    "totalVotes": "Total Votes"
-  },
   "dao-projects": {
+    "filterResponse": {
+      "noSearch": {
+        "button": "Propose Now",
+        "heading": {
+          "main": "No proposals",
+          "secondary": "yet :("
+        },
+        "paragraph": "Your chance to stand out as a project."
+      },
+      "search": {
+        "heading": {
+          "main": "No proposal",
+          "secondary": "found :("
+        },
+        "paragraph": "Keep fishing!"
+      }
+    },
     "header": {
       "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "votes": "Yes Votes",
+      "counterVotes": "No Votes",
       "requestedAmount": "Requested Amount",
-      "counterVotes": "No Votes"
+      "votes": "Yes Votes"
     }
   },
+  "daoRoundData": {
+    "amountProposals": "Amount proposals",
+    "fundingRound": "Funding Round",
+    "numberedProjects": "{projects} projects",
+    "submission": {
+      "active": {
+        "title": "Proposal submission ends",
+        "tooltip": "Proposals can be submitted until {timestamp}."
+      },
+      "after": {
+        "title": "Proposal submission ended",
+        "tooltip": "Proposal submission ended on {timestamp}."
+      },
+      "before": {
+        "title": "Proposal submission begins",
+        "tooltip": "Proposal submission begins on {timestamp}."
+      },
+      "next": {
+        "title": "Submit proposal next round",
+        "tooltip": "Proposal submission for the next round starts on {timestamp}."
+      }
+    },
+    "totalAmount": "Total Amount",
+    "totalVotes": "Total Votes",
+    "vote": {
+      "active": {
+        "title": "Voting ends",
+        "tooltip": "The voting ends on {timestamp}."
+      },
+      "after": {
+        "title": "Voting ended",
+        "tooltip": "The voting ended on {timestamp}."
+      },
+      "before": {
+        "title": "Voting begins",
+        "tooltip": "The voting starts on {timestamp}."
+      },
+      "next": {
+        "title": "Voting next round",
+        "tooltip": "The voting for the next round starts on {timestamp}."
+      }
+    }
+  },
+  "footer": {
+    "analytics": "Analytics"
+  },
   "general": {
+    "button": "button",
+    "delete": "delete",
+    "edit": "edit",
     "error": {
-      "retry": "Please try again later.",
-      "unknown": "The requested resource could not be found."
+      "retry": "An error occurred. Please try again later.",
+      "unknown": "The requested resource could not be found.",
+      "upload": {
+        "size": "The selected file must be smaller than {size}",
+        "type": "Only the following file types are allowed: {types}"
+      }
     },
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
-    "ocean": "{ocean} OCEAN"
+    "ocean": "{ocean} OCEAN",
+    "save": "save changes",
+    "undo": "undo",
+    "upload": "upload",
+    "usd": "{usd} USD"
   },
   "jobs": {
     "header": {
@@ -41,6 +108,10 @@
     }
   },
   "landing": {
+    "connect_social": {
+      "text": "Ocean Pearl is all about community. Help building us this vision!",
+      "title": "Connect with us."
+    },
     "dao_proposals": {
       "link_text": "See all DAO projects",
       "requestedAmount": "Requested Amount",
@@ -49,14 +120,14 @@
       "titleHighlight": "proposals"
     },
     "featured_dao_projects": {
-      "title": "Featured Dao",
-      "titleHighlight": "projects",
-      "text": "A handpicked collection of our favourite projects for this funding round.",
+      "checkOut": "check out",
+      "link_text": "See all featured projects",
+      "requestedAmount": "Requested Amount",
       "secondTitle": "Funding",
       "secondTitleHighlight": "Round 6",
-      "requestedAmount": "Requested Amount",
-      "checkOut": "check out",
-      "link_text": "See all featured projects"
+      "text": "A handpicked collection of our favourite projects for this funding round.",
+      "title": "Featured Dao",
+      "titleHighlight": "projects"
     },
     "featured_projects": {
       "checkOut": "check out",
@@ -87,37 +158,106 @@
       "titleHighlight": "projects"
     },
     "pearl_dao": {
-      "link_text": "See all listed projects",
+      "link_text": "See all listed proposals",
       "text": "All infos about the current funding round of the Ocean Dao.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
+    },
+    "pearl_space": {
+      "text": "These are the main features of ocean pearl.",
+      "title": "Pearl",
+      "titleHighlight": "space"
     }
+  },
+  "manage": {
+    "admins": "Administrators",
+    "auth": {
+      "error": {
+        "invalid": "Authentication was invalid. Please try again.",
+        "sign": "Could not sign login request. Please try again.",
+        "wallet": "Could not connect wallet. Please try again."
+      },
+      "login": {
+        "action": "Login via Wallet",
+        "steps": {
+          "1": "Choose your wallet provider",
+          "2": "Select account to connect",
+          "3": "Sign login request"
+        },
+        "subtitle": [
+          "3-Step-",
+          "Login"
+        ],
+        "title": "Login here to manage your projects"
+      },
+      "logout": {
+        "completed": "Successfully logged out.",
+        "title": "Logout"
+      },
+      "timeout": "Authentication timeout. Please login again."
+    },
+    "project": {
+      "changed": "The changes were saved successfully.",
+      "description": "Description",
+      "empty": "Hey sailor, no projects here so far.  Dive right in and add your first one now!",
+      "logo": "Logo",
+      "pictures": {
+        "title": "Project images (max 1)",
+        "upload": "upload new image"
+      },
+      "title": "Title"
+    },
+    "title": [
+      "Management",
+      "panel"
+    ]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarDao": "Dao",
+    "navbarDao": "Dao Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarProjects": "Projects"
   },
   "project": {
-    "added": "addet at",
+    "added": "added at",
+    "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
     "proposal": {
+      "empty": "no funding yet",
+      "granted": {
+        "no": "no",
+        "yes": "yes"
+      },
+      "history": {
+        "funding": "Granted<br>Funding",
+        "granted": "Granted",
+        "no": "No<br>Votes",
+        "round": "Round",
+        "view": "View full<br>proposal",
+        "yes": "Yes<br>Votes"
+      },
       "requested": "Requested Funding",
       "round": {
         "numbered": "Round {round}",
         "title": "Funding Round"
       },
+      "submit": "Submit Proposal",
       "title": {
         "dao": "DAO",
+        "plural": "DAO Proposals",
         "proposal": "proposal"
       },
       "total": "Total Fundings",
       "vote": "vote here",
-      "wallet": "Proposal Wallet Address"
+      "wallet": {
+        "less": "show less",
+        "more": "show all",
+        "title": "Project Wallet Address"
+      }
     },
+    "readFull": "read full proposal",
     "roi": {
       "bang": "Bang",
       "buck": "Buck",
@@ -126,7 +266,8 @@
       "title": "ROI"
     },
     "team": "Team",
-    "unknown": "The requested project could not be found."
+    "unknown": "The requested project could not be found.",
+    "wallet": "Project Wallet Address"
   },
   "project_detail": {
     "fundHereButton": "fund here",
