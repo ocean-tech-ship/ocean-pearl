@@ -102,9 +102,19 @@
               >
                 <ul @click="context.toggleOpen()">
                   <li>
+                    <nuxt-link to="/management">
+                      <button
+                        type="button"
+                        class="font-bold block px-4 py-1"
+                      >
+                        {{ $t('manage.subtitle') }}
+                      </button>
+                    </nuxt-link>
+                  </li>
+                  <li>
                     <button
                       type="button"
-                      class="font-bold block px-4 py-3"
+                      class="font-bold block px-4 py-1"
                       @click="$store.dispatch('auth/logout')"
                     >
                       {{ $t('manage.auth.logout.title') }}
@@ -117,7 +127,7 @@
         </div>
       </div>
       <div class="lg:hidden">
-        <button-with-dropdown />
+        <app-mobile-navbar />
       </div>
     </div>
   </nav>
@@ -125,16 +135,16 @@
 
 <script>
 import Jazzicon from 'vue-jazzicon';
-import ButtonWithDropdown from '@/components/common/ButtonWithDropdown.vue';
+import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
 import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
-import MainDropdown from '@/components/common/MainDropdown';
+import MainDropdown from '@/components/common/MainDropdown.vue';
 import { mapState } from 'vuex';
 
 export default {
   components: {
-    ButtonWithDropdown,
+    AppMobileNavbar,
     AppButtonStyle,
     Jazzicon,
     MainDropdown,
