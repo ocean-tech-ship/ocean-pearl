@@ -9,6 +9,8 @@
 
 <script>
 export default {
+  name: 'MainDropdown',
+
   data() {
     return {
       open: false,
