@@ -45,12 +45,18 @@
           />
         </div>
 
-        <project-description
-          class="py-8"
-          :project="selectedProject"
-          @change="updateRequest.description = $event"
-          @unset="delete updateRequest.description"
-        />
+        <div class="py-8 grid gap-8 xl:grid-cols-2">
+          <project-description
+            :project="selectedProject"
+            @change="updateRequest.description = $event"
+            @unset="delete updateRequest.description"
+          />
+
+          <project-socials
+            :project="selectedProject"
+            @change="updateRequest.socialMedia = $event"
+          />
+        </div>
 
         <project-pictures
           class="py-8"
@@ -80,9 +86,11 @@ import ProjectLogo from '@/components/app/account/project/ProjectLogo.vue';
 import ProjectDescription from '@/components/app/account/project/ProjectDescription.vue';
 import ProjectPictures from '@/components/app/account/project/ProjectPictures.vue';
 import ProjectCategory from '@/components/app/account/project/ProjectCategory.vue';
+import ProjectSocials from '@/components/app/account/project/socials/ProjectSocials.vue';
 
 export default Vue.extend({
   components: {
+    ProjectSocials,
     ProjectCategory,
     SectionContainer,
     AccountHeader,

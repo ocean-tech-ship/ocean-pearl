@@ -205,6 +205,10 @@
         "title": "Project images (max 1)",
         "upload": "upload new image"
       },
+      "socials": {
+        "title": "Project Socials",
+        "url": "Paste your URL here"
+      },
       "title": "Title"
     },
     "title": [
