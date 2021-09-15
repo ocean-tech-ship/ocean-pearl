@@ -27,7 +27,15 @@
     <div v-if="selectedProject" class="bg-grey py-8">
       <section-container>
         <div class="flex justify-between flex-wrap">
-          <project-title class="pb-4" :project="selectedProject" />
+          <div class="flex-grow mr-2">
+            <project-title class="pb-4" :project="selectedProject" />
+
+            <project-category
+              class="my-4"
+              :project="selectedProject"
+              @change="updateRequest.category = $event"
+            />
+          </div>
 
           <project-logo
             class="pb-4"
@@ -63,7 +71,7 @@
 <script>
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import SectionContainer from '@/components/common/SectionContainer';
+import SectionContainer from '@/components/common/SectionContainer.vue';
 import AppButton from '@/components/common/AppButton.vue';
 import AccountHeader from '@/components/app/account/AccountHeader.vue';
 import EmptyAccount from '@/components/app/account/EmptyAccount.vue';
@@ -71,9 +79,11 @@ import ProjectTitle from '@/components/app/account/project/ProjectTitle.vue';
 import ProjectLogo from '@/components/app/account/project/ProjectLogo.vue';
 import ProjectDescription from '@/components/app/account/project/ProjectDescription.vue';
 import ProjectPictures from '@/components/app/account/project/ProjectPictures.vue';
+import ProjectCategory from '@/components/app/account/project/ProjectCategory.vue';
 
 export default Vue.extend({
   components: {
+    ProjectCategory,
     SectionContainer,
     AccountHeader,
     AppButton,

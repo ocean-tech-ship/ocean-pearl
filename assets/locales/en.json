@@ -221,6 +221,7 @@
   },
   "project": {
     "added": "added at",
+    "category": "Category",
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
@@ -254,7 +255,8 @@
       "wallet": {
         "less": "show less",
         "more": "show all",
-        "title": "Project Wallet Address"
+        "title": "Project Wallet Address",
+        "view": "View on Etherscan"
       }
     },
     "readFull": "read full proposal",
