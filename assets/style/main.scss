@@ -7,6 +7,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
+  unicode-range: U+000-5FF;
   src: local('Poppins Regular'), url('../fonts/Poppins/Poppins-Regular.woff2') format('woff2');
 }
 
@@ -15,6 +16,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
+  unicode-range: U+000-5FF;
   src: local('Poppins Bold'), url('../fonts/Poppins/Poppins-Bold.woff2') format('woff2');
 }
 
