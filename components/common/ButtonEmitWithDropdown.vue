@@ -32,7 +32,7 @@
 
 <script>
 export default {
-  name: 'ButtonWithDropdown',
+  name: 'ButtonEmitWithDropdown',
   components: {},
   props: {
     buttonName: {
