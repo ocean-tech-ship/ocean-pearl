@@ -12,6 +12,7 @@
       class="flex-grow rounded shadow p-1"
       type="text"
       :placeholder="$t('manage.project.socials.url')"
+      :value="url"
       @change="$emit('change', $event.target.value)"
     />
 

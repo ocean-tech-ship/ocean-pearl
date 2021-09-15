@@ -103,6 +103,7 @@ export default {
 
     deleteSocial(socialId) {
       this.$delete(this.socials, socialId);
+      this.$emit('change', this.socials);
     },
 
     getSocialMediaList() {
