@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center flex-wrap">
     <img
       class="w-4 h-4"
       :src="getSocialMedia().Icon"
