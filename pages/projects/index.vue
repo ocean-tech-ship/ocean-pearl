@@ -1,19 +1,21 @@
 <template>
   <div>
     <projects-header />
-    <landing-section-container
-      v-if="$fetchState.error || error"
-      class="h-screen"
-    >
+
+    <landing-section-container v-if="error" class="h-screen">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t(error) }}</p>
     </landing-section-container>
 
-    <landing-section-container v-else-if="$fetchState.pending" class="h-screen">
+    <landing-section-container v-else-if="pending" class="h-screen">
       {{ $t('general.fetchingLoading') }}
     </landing-section-container>
-    <landing-section-container v-else class="h-screen">
-      <projects-filter />
+
+    <landing-section-container v-if="!error">
+      <projects-filter @filter="fetchProjects" />
+    </landing-section-container>
+
+    <landing-section-container v-if="projects">
       <projects-list :projects="projects" />
     </landing-section-container>
   </div>
@@ -39,29 +41,34 @@ export default Vue.extend({
 
   data() {
     return {
+      pending: true,
       projects: null,
       error: null,
     };
   },
 
-  async fetch() {
-    try {
-      const projectsResponse = await getProjects(this.$axios);
+  methods: {
+    async fetchProjects(payload) {
+      try {
+        const projectsResponse = await getProjects(this.$axios, payload);
 
-      if (projectsResponse.status === 204) {
-        this.error = 'general.error.unknown';
+        if (projectsResponse.status === 204) {
+          this.error = 'general.error.unknown';
+          this.projects = [];
+        }
+
+        this.pending = false;
+        this.error = null;
+        this.projects =
+          process.env.NODE_ENV === 'mirage'
+            ? projectsResponse.data.projects
+            : projectsResponse.data;
+      } catch (error) {
+        this.pending = false;
+        this.error = 'general.error.retry';
         this.projects = [];
       }
-
-      this.error = null;
-      this.projects =
-        process.env.NODE_ENV === 'mirage'
-          ? projectsResponse.data.projects
-          : projectsResponse.data;
-    } catch (error) {
-      this.error = 'general.error.retry';
-      this.projects = [];
-    }
+    },
   },
 });
 </script>
