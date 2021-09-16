@@ -26,7 +26,7 @@
 
     <div v-if="selectedProject" class="bg-grey py-8">
       <section-container>
-        <div class="flex justify-between flex-wrap">
+        <div class="flex justify-between flex-wrap py-4">
           <div class="flex-grow mr-2">
             <project-title class="pb-4" :project="selectedProject" />
 
@@ -45,7 +45,7 @@
           />
         </div>
 
-        <div class="py-8 grid gap-8 xl:grid-cols-2">
+        <div class="py-4 grid gap-8 xl:grid-cols-2">
           <div>
             <project-description
               :project="selectedProject"
@@ -63,7 +63,7 @@
         </div>
 
         <project-pictures
-          class="py-8"
+          class="py-4"
           :project="selectedProject"
           @delete="updateRequest.deletedPictures = $event"
           @change="updateRequest.newPictures = $event"
