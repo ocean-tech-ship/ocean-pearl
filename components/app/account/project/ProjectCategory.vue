@@ -3,7 +3,7 @@
     <button-emit-with-dropdown
       class="text-primary rounded md:w-44"
       :button-name="$t('project.category')"
-      :menu-items="getCategories()"
+      :menu-items="categories"
       @selected="$emit('change', $event.value)"
     />
   </div>
@@ -27,15 +27,15 @@ export default {
     },
   },
 
-  methods: {
-    getCategories() {
+  computed: {
+    categories () {
       return Object.values(CategoryEnum).map(el => ({
         value: el,
         content: CategoryMap[el],
         selected: this.$props.project.category === el,
       }));
     }
-  }
+  },
 }
 </script>
 

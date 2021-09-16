@@ -96,6 +96,13 @@ export default {
     };
   },
 
+  watch: {
+    project() {
+      // Reset if project gets switched
+      this.socials = ({ ...this.$props.project.socialMedia});
+    },
+  },
+
   methods: {
     addSocial(social) {
       this.$set(this.socials, social.Id.toLowerCase(), '');
