@@ -46,16 +46,20 @@
         </div>
 
         <div class="py-8 grid gap-8 xl:grid-cols-2">
-          <project-description
-            :project="selectedProject"
-            @change="updateRequest.description = $event"
-            @unset="delete updateRequest.description"
-          />
+          <div>
+            <project-description
+              :project="selectedProject"
+              @change="updateRequest.description = $event"
+              @unset="delete updateRequest.description"
+            />
+          </div>
 
-          <project-socials
-            :project="selectedProject"
-            @change="updateRequest.socialMedia = $event"
-          />
+          <div>
+            <project-socials
+              :project="selectedProject"
+              @change="updateRequest.socialMedia = $event"
+            />
+          </div>
         </div>
 
         <project-pictures
