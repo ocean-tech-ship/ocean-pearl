@@ -7,7 +7,7 @@
       <p class="small-text">{{ $t(error) }}</p>
     </landing-section-container>
 
-    <landing-section-container v-else-if="pending" class="h-screen">
+    <landing-section-container v-if="pending" class="h-screen">
       {{ $t('general.fetchingLoading') }}
     </landing-section-container>
 
@@ -17,6 +17,28 @@
 
     <landing-section-container v-if="projects">
       <projects-list :projects="projects" />
+    </landing-section-container>
+
+    <landing-section-container v-if="!pending && !error && !projects.length">
+      <app-response-with-search
+        :no-search-text="{
+          headingMain: $t('projects.filterResponse.noSearch.heading.main'),
+          headingSecondary: $t(
+            'projects.filterResponse.noSearch.heading.secondary',
+          ),
+          paragraph: $t('projects.filterResponse.noSearch.paragraph'),
+          button: $t('projects.filterResponse.noSearch.button'),
+          link: 'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
+        }"
+        :search-text="{
+          headingMain: $t('projects.filterResponse.search.heading.main'),
+          headingSecondary: $t(
+            'projects.filterResponse.search.heading.secondary',
+          ),
+          paragraph: $t('projects.filterResponse.search.paragraph'),
+        }"
+        :search-used="searchUsed"
+      />
     </landing-section-container>
   </div>
 </template>
@@ -28,6 +50,7 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
 import ProjectsFilter from '@/components/app/projects/ProjectsFilter.vue';
+import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 
 export default Vue.extend({
   name: 'ProjectOverview',
@@ -37,6 +60,7 @@ export default Vue.extend({
     ProjectsList,
     LandingSectionContainer,
     ProjectsFilter,
+    AppResponseWithSearch,
   },
 
   data() {
@@ -44,6 +68,7 @@ export default Vue.extend({
       pending: true,
       projects: null,
       error: null,
+      searchUsed: false,
     };
   },
 
@@ -63,6 +88,9 @@ export default Vue.extend({
           process.env.NODE_ENV === 'mirage'
             ? projectsResponse.data.projects
             : projectsResponse.data;
+
+        // set search used to true if there is a search term
+        payload.search ? (this.searchUsed = true) : (this.searchUsed = false);
       } catch (error) {
         this.pending = false;
         this.error = 'general.error.retry';
