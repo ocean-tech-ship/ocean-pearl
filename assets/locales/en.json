@@ -18,7 +18,7 @@
       }
     },
     "header": {
-      "text": "All infos about the current funding round of the Ocean Dao.",
+      "text": "All infos about the current funding round of OceanDAO.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
     },
@@ -214,7 +214,7 @@
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarDao": "Dao Proposals",
+    "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarProjects": "Projects"
