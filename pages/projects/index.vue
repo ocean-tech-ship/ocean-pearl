@@ -2,6 +2,10 @@
   <div>
     <projects-header />
 
+    <landing-section-container>
+      <projects-filter @filter="fetchProjects" />
+    </landing-section-container>
+
     <landing-section-container v-if="error" class="h-screen">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t(error) }}</p>
@@ -9,10 +13,6 @@
 
     <landing-section-container v-if="pending" class="h-screen">
       {{ $t('general.fetchingLoading') }}
-    </landing-section-container>
-
-    <landing-section-container v-if="!error">
-      <projects-filter @filter="fetchProjects" />
     </landing-section-container>
 
     <landing-section-container v-if="projects">
