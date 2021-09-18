@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="projects"
     class="
       grid grid-cols-1
       md:grid-cols-2
@@ -17,13 +16,6 @@
         :to="`/projects/${beautifyProjectId(project)}`"
       >
         <div class="shadow rounded p-2 pb-8 text-center">
-          <!--
-            <div class="absolute top-0 right-0 mr-3 flex space-x-2">
-            <img v-if="project.badgeJob" src="@/assets/images/icons/hiring-badge.svg" alt="hiring job">
-            <img v-if="project.badgeFund" src="@/assets/images/icons/bitcoin-badge.svg" alt="looking for funding">
-            <img v-if="project.badgeFeatured" src="@/assets/images/icons/featured-badge.svg" alt="featured project">
-            </div>
-            -->
           <div class="mt-3">
             <app-logo
               class="inline-block"
