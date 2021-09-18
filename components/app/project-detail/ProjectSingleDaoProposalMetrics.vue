@@ -37,7 +37,14 @@
         </p>
       </div>
 
-      <p class="small-text">
+      <p
+        v-if="newestProposal.requestedGrantUsd && newestProposal.requestedGrantUsd > 0"
+        class="small-text"
+      >
+        {{ $t('general.usd', { usd: newestProposal.requestedGrantUsd }) }}
+      </p>
+
+      <p v-else class="small-text">
         {{ $t('general.ocean', { ocean: newestProposal.requestedGrantToken }) }}
       </p>
     </div>

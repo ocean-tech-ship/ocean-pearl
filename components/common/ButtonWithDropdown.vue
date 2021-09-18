@@ -41,7 +41,7 @@
             }}</NuxtLink>
           </li>
           <li v-if="!walletAddress">
-            <NuxtLink to="/manage">
+            <NuxtLink to="/management">
               <div class="flex px-4 py-3 text-primary">
                 <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
                 <p>{{ $t('manage.auth.login.action') }}</p>
@@ -49,17 +49,19 @@
             </NuxtLink>
           </li>
           <li v-if="walletAddress">
-            <div
-              class="rounded p-2 m-4 flex items-center"
-              style="background-color: black; color: white"
-            >
-              {{ shrinkAddress(walletAddress) }}
-              <jazzicon
-                class="flex items-center w-5 h-5 ml-2"
-                :diameter="20"
-                :address="walletAddress"
-              />
-            </div>
+            <NuxtLink to="/management">
+              <div
+                class="rounded p-2 m-4 flex items-center"
+                style="background-color: black; color: white"
+              >
+                {{ shrinkAddress(walletAddress) }}
+                <jazzicon
+                  class="flex items-center w-5 h-5 ml-2"
+                  :diameter="20"
+                  :address="walletAddress"
+                />
+              </div>
+            </NuxtLink>
           </li>
           <li v-if="walletAddress">
             <div class="flex justify-end">
