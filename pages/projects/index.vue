@@ -1,25 +1,25 @@
 <template>
-  <div>
+  <div class="min-h-screen">
     <projects-header />
 
     <landing-section-container>
       <projects-filter @filter="fetchProjects" />
     </landing-section-container>
 
-    <landing-section-container v-if="error" class="h-screen">
+    <landing-section-container v-if="error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t(error) }}</p>
     </landing-section-container>
 
-    <landing-section-container v-if="pending" class="h-screen">
+    <landing-section-container v-else-if="pending">
       {{ $t('general.fetchingLoading') }}
     </landing-section-container>
 
-    <landing-section-container v-if="projects">
+    <landing-section-container v-else-if="projects.length">
       <projects-list :projects="projects" />
     </landing-section-container>
 
-    <landing-section-container v-if="!pending && !error && !projects.length">
+    <landing-section-container v-else>
       <app-response-with-search
         :no-search-text="{
           headingMain: $t('projects.filterResponse.noSearch.heading.main'),
