@@ -69,15 +69,11 @@ export default {
 
       const { id } = payload;
 
-      this.categoryItems.forEach((categoryItem) => {
+      this.categoryItems.forEach(
         // eslint-disable-next-line no-param-reassign
-        categoryItem.selected = false;
-        // eslint-disable-next-line no-param-reassign
-        if (categoryItem.id === id) categoryItem.selected = true;
-      });
+        (categoryItem) => (categoryItem.selected = categoryItem.id === id),
+      );
     },
   },
 };
 </script>
-
-<style></style>
