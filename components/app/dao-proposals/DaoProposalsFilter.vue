@@ -59,21 +59,19 @@ export default {
     },
   },
   created() {
-    if (Object.keys(this.$route.query).length) {
-      const { round, category, search } = this.$route.query;
+    const { round, category, search } = this.$route.query;
 
-      // set new filter
-      this.filter = {
-        round:
-          round <= this.rounds && round > 0
-            ? parseInt(round, 10)
-            : this.filter.round,
-        category: Object.values(CategoryEnum).includes(category)
-          ? category
-          : this.filter.category,
-        search: search || search === '' ? search : this.filter.search,
-      };
-    }
+    // set new filter
+    this.filter = {
+      round:
+        round <= this.rounds && round > 0
+          ? parseInt(round, 10)
+          : this.filter.round,
+      category: Object.values(CategoryEnum).includes(category)
+        ? category
+        : this.filter.category,
+      search: search || search === '' ? search : this.filter.search,
+    };
 
     // replace history state
     replaceQueryParams(this, this.filter);

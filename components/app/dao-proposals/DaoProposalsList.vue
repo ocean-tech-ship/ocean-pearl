@@ -1,9 +1,5 @@
 <template>
   <div class="mt-10">
-    <dao-proposals-response
-      :proposals-found="!!daoProposals.length"
-      :search-used="searchUsed"
-    />
     <div
       class="
         grid grid-cols-1
@@ -24,7 +20,9 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block"
-                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                  :src="
+                    daoProposal.project.logo && daoProposal.project.logo.url
+                  "
                   :alt="daoProposal.project.title"
                   :size="45"
                 />
@@ -110,7 +108,6 @@
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
-import DaoProposalsResponse from '~/components/app/dao-proposals/DaoProposalsResponse.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 
 export default {
@@ -119,7 +116,6 @@ export default {
   components: {
     AppLogo,
     AppLabel,
-    DaoProposalsResponse,
   },
 
   mixins: [ProjectBeautifyId],
@@ -129,11 +125,6 @@ export default {
       type: Array,
       required: true,
       default: () => [],
-    },
-    searchUsed: {
-      type: Boolean,
-      required: true,
-      default: () => false,
     },
   },
 
