@@ -18,7 +18,10 @@
       </landing-section-container>
 
       <landing-section-container>
-        <dao-proposals-filter :rounds="maxRounds" @filter="fetchDaoProposals" />
+        <dao-proposals-filter
+          :rounds="fundingRound"
+          @filter="fetchDaoProposals"
+        />
       </landing-section-container>
 
       <landing-section-container v-if="error">
@@ -88,7 +91,7 @@ export default Vue.extend({
       pending: true,
       error: null,
       daoProposals: null,
-      maxRounds: null,
+      fundingRound: null,
       searchUsed: false,
       metrics: null,
     };
@@ -96,17 +99,11 @@ export default Vue.extend({
 
   async fetch() {
     try {
-      const [metricsResponse, daoProposalResponse] = await Promise.all([
-        getDaoRoundMetrics(this.$axios),
-        getDaoProposals(this.$axios),
-      ]);
+      const metricsResponse = await getDaoRoundMetrics(this.$axios);
 
-      if (
-        metricsResponse.status === 204 ||
-        daoProposalResponse.status === 204
-      ) {
+      if (metricsResponse.status === 204) {
         this.error = 'general.error.unknown';
-        this.daoProposals = [];
+        this.metrics = {};
       }
 
       this.error = null;
@@ -114,9 +111,7 @@ export default Vue.extend({
         process.env.NODE_ENV === 'mirage'
           ? metricsResponse.data.metrics
           : metricsResponse.data;
-      this.maxRounds = daoProposalResponse.data?.maxRounds
-        ? daoProposalResponse.data.maxRounds
-        : metricsResponse.data.fundingRound;
+      this.fundingRound = metricsResponse.data.fundingRound;
     } catch (error) {
       this.error = 'general.error.retry';
       this.metrics = {};
