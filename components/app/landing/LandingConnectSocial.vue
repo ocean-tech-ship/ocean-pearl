@@ -9,7 +9,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
       <div v-for="card in cards" :key="card.title">
-        <div class="shadow bg-white rounded p-8 pb-4">
+        <div class="shadow bg-white rounded p-8 pb-4 min-h-full flex flex-col">
           <div class="mr-3">
             <img
               class="inline-block h-10 w-10 mb-4"
@@ -17,7 +17,7 @@
               :alt="card.title"
             />
           </div>
-          <div>
+          <div class="flex flex-col flex-grow">
             <h4>
               {{ card.title }}
               <span class="text-primary">
@@ -27,7 +27,7 @@
             <p class="my-4 text-smbase">
               {{ card.text }}
             </p>
-            <AppLink class="table" :to="card.route">
+            <AppLink class="table mt-auto" :to="card.route">
               <div class="flex content-center">
                 <p class="text-primary text-smbase">
                   {{ card.LinkText }}
