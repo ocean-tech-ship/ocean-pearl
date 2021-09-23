@@ -111,6 +111,26 @@ export default {
         defaultLocale: 'en-US',
     },
 
+    render: {
+      bundleRenderer: {
+        shouldPreload: (file, type) => {
+          // type is inferred based on the file extension.
+          // https://fetch.spec.whatwg.org/#concept-request-destination
+          if (type === 'script' || type === 'style') {
+            return true;
+          }
+
+          if (type === 'font') {
+            return (
+              file.includes('Poppins-Bold') || file.includes('Poppins-Regular')
+            );
+          }
+
+          return false;
+        },
+      },
+    },
+
     // Build Configuration: https://go.nuxtjs.dev/config-build
     build: {},
 };
