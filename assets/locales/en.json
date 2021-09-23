@@ -184,10 +184,7 @@
           "2": "Select account to connect",
           "3": "Sign login request"
         },
-        "subtitle": [
-          "3-Step-",
-          "Login"
-        ],
+        "subtitle": ["3-Step-", "Login"],
         "title": "Login here to manage your projects"
       },
       "logout": {
@@ -207,10 +204,7 @@
       },
       "title": "Title"
     },
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
@@ -287,6 +281,23 @@
     "status": {
       "dropDown1": "Latest",
       "dropDown2": "Category"
+    },
+    "filterResponse": {
+      "noSearch": {
+        "button": "Propose Now",
+        "heading": {
+          "main": "No projects",
+          "secondary": "yet :("
+        },
+        "paragraph": "Your chance to stand out."
+      },
+      "search": {
+        "heading": {
+          "main": "No project",
+          "secondary": "found :("
+        },
+        "paragraph": "Keep fishing!"
+      }
     }
   }
 }
