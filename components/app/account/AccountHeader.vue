@@ -34,18 +34,11 @@
         <hr class="text-primary" />
 
         <div class="p-4">
-          <div
+          <wallet-address
             v-for="address in accessAddresses"
             :key="address"
-            class="flex items-center"
-          >
-            <jazzicon
-              class="flex items-center w-5 h-5 mr-2"
-              :diameter="20"
-              :address="address"
-            />
-            <span class="text-primary break-all">{{ address }}</span>
-          </div>
+            :address="address"
+          />
         </div>
       </div>
     </div>
@@ -53,13 +46,13 @@
 </template>
 
 <script>
-import Jazzicon from 'vue-jazzicon';
+import WalletAddress from '@/components/common/WalletAddress.vue';
 
 export default {
   name: 'AccountHeader',
 
   components: {
-    Jazzicon,
+    WalletAddress,
   },
 
   props: {

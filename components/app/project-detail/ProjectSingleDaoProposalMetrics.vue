@@ -56,18 +56,11 @@
       </p>
 
       <template v-for="(address, index) in project.associatedAddresses">
-        <div
+        <wallet-address
           v-if="expandWalletAddresses ? true : index < 1"
           :key="address"
-          class="flex items-center"
-        >
-          <jazzicon
-            class="flex items-center mr-2"
-            :diameter="20"
-            :address="address"
-          />
-          <span class="break-all">{{ address }}</span>
-        </div>
+          :address="address"
+        />
       </template>
 
       <!-- control action -->
@@ -107,15 +100,15 @@
 </template>
 
 <script>
-import Jazzicon from 'vue-jazzicon';
-import AppLink from '@/components/common/AppLink';
-import AppButtonStyle from '@/components/common/AppButtonStyle';
+import AppLink from '@/components/common/AppLink.vue';
+import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import WalletAddress from '@/components/common/WalletAddress.vue';
 
 export default {
   name: 'ProjectSingleDaoProposalMetrics',
 
   components: {
-    Jazzicon,
+    WalletAddress,
     AppLink,
     AppButtonStyle,
   },
