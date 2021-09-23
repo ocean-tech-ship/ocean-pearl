@@ -7,14 +7,6 @@
       }}</span>
     </h2>
     <p>{{ $t('projects.header.text') }}</p>
-    <!--
-    <div class="flex items-center justify-between my-8">
-      <ProjectsCategories />
-      <ProjectsStatus />
-      <ProjectsBadges /> 
-     
-    </div>
-     -->
   </LandingSectionContainer>
 </template>
 

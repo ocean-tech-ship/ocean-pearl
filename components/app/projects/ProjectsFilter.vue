@@ -1,14 +1,13 @@
 <template>
   <div class="my-8 flex flex-col justify-between md:flex-row md:items-center">
-    <DaoProposalsDropdowns
+    <ProjectsDropdowns
       class="flex flex-col 2sm:flex-row md:flex-col lg:flex-row"
       :filter="filter"
-      :rounds="rounds"
       @selected-items="setFilter"
     />
     <AppSearchBar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
-      placeholder="Search Proposals"
+      placeholder="Search Project"
       :initial-value="filter.search"
       @search="setFilter"
     />
@@ -16,28 +15,21 @@
 </template>
 
 <script>
-import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
+import ProjectsDropdowns from './ProjectsDropdowns.vue';
 import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/components/enums/Category.enum';
 import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
-  name: 'DaoProposalsFilter',
+  name: 'ProjectsFilter',
 
   components: {
     AppSearchBar,
-    DaoProposalsDropdowns,
-  },
-  props: {
-    rounds: {
-      type: Number,
-      required: true,
-    },
+    ProjectsDropdowns,
   },
   data() {
     return {
       filter: {
-        round: 0,
         category: 'all',
         search: '',
       },
@@ -49,7 +41,6 @@ export default {
       handler: function emit() {
         // restructure filter items for backend compatibility
         const filterRestructed = { ...this.filter };
-        if (filterRestructed.round === 0) delete filterRestructed.round;
         if (filterRestructed.category === 'all')
           delete filterRestructed.category;
         if (filterRestructed.search === '') delete filterRestructed.search;
@@ -59,14 +50,10 @@ export default {
     },
   },
   created() {
-    const { round, category, search } = this.$route.query;
+    const { category, search } = this.$route.query;
 
     // set new filter
     this.filter = {
-      round:
-        round <= this.rounds && round > 0
-          ? parseInt(round, 10)
-          : this.filter.round,
       category: Object.values(CategoryEnum).includes(category)
         ? category
         : this.filter.category,
@@ -78,11 +65,10 @@ export default {
   },
   methods: {
     setFilter(payload) {
-      const { round, category, searchValue } = payload;
+      const { category, searchValue } = payload;
 
       // set new filter
       this.filter = {
-        round: round || round === 0 ? round : this.filter.round,
         category: category || this.filter.category,
         search:
           searchValue || searchValue === '' ? searchValue : this.filter.search,

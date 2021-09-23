@@ -1,7 +1,7 @@
 <template>
   <div class="w-full relative">
     <input
-      id="dao-projects-search"
+      id="search-bar"
       v-model="searchValue"
       type="text"
       class="py-3 pl-3 w-1/1 border-primary rounded border min-w-full"
@@ -11,8 +11,8 @@
     <label
       class="absolute text-primary p-1"
       :class="{ isFocused: focused || searchValue }"
-      for="dao-projects-search"
-      >Search Projects</label
+      for="search-bar"
+      >{{ placeholder }}</label
     >
   </div>
 </template>
@@ -22,20 +22,24 @@ import debounce from '~/helpers/debounce.ts';
 
 export default {
   props: {
-    filter: {
-      type: Object,
-      required: true,
+    placeholder: {
+      type: String,
+      default: () => 'Search Projects',
+    },
+    initialValue: {
+      type: String,
+      default: () => '',
     },
   },
   data() {
     return {
-      searchValue: this.filter.search || '',
+      searchValue: this.initialValue,
       focused: false,
     };
   },
   watch: {
     searchValue: debounce(function () {
-      this.$emit('search-projects', { searchValue: this.searchValue });
+      this.$emit('search', { searchValue: this.searchValue });
     }, 500),
   },
 };

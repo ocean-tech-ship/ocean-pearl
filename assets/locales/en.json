@@ -18,7 +18,7 @@
       }
     },
     "header": {
-      "text": "All infos about the current funding round of the Ocean Dao.",
+      "text": "All infos about the current funding round of OceanDAO.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
     },
@@ -143,7 +143,7 @@
       "text": "Community-based project tracking platform for the Ocean ecosystem with an early focus on the OceanDAO community.",
       "titleHighlight": "projects",
       "titlePart1": "We are on track with the newest",
-      "titlePart2": "powered by the ocean protocol."
+      "titlePart2": "powered by Ocean Protocol."
     },
     "job_offers": {
       "link_text": "See all listed jobs",
@@ -184,10 +184,7 @@
           "2": "Select account to connect",
           "3": "Sign login request"
         },
-        "subtitle": [
-          "3-Step-",
-          "Login"
-        ],
+        "subtitle": ["3-Step-", "Login"],
         "title": "Login here to manage your projects"
       },
       "logout": {
@@ -211,15 +208,12 @@
       },
       "title": "Title"
     },
-    "subtitle": "Management Panel",
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"],
+    "subtitle": "Management Panel"
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarDao": "Dao Proposals",
+    "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarProjects": "Projects"
@@ -293,6 +287,23 @@
     "status": {
       "dropDown1": "Latest",
       "dropDown2": "Category"
+    },
+    "filterResponse": {
+      "noSearch": {
+        "button": "Propose Now",
+        "heading": {
+          "main": "No projects",
+          "secondary": "yet :("
+        },
+        "paragraph": "Your chance to stand out."
+      },
+      "search": {
+        "heading": {
+          "main": "No project",
+          "secondary": "found :("
+        },
+        "paragraph": "Keep fishing!"
+      }
     }
   }
 }
