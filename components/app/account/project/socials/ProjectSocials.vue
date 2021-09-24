@@ -8,7 +8,10 @@
       <main-dropdown>
         <template slot-scope="context">
           <button @click="context.toggleOpen()">
-            <span class="mdi mdi-link-plus text-primary text-lg" />
+            <app-icon
+              class="mdi mdi-link-plus text-primary text-lg"
+              :hint="$t('general.add')"
+            />
           </button>
 
           <div
@@ -76,11 +79,12 @@
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import { SocialMedia } from '@/model/SocialMedia';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
+import AppIcon from '~/components/common/AppIcon';
 
 export default {
   name: 'ProjectSocials',
 
-  components: { ProjectSocialsItem, MainDropdown },
+  components: { AppIcon, ProjectSocialsItem, MainDropdown },
 
   props: {
     project: {

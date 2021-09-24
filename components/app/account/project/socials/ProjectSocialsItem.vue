@@ -17,16 +17,22 @@
     />
 
     <button class="pl-2" @click="$emit('delete')">
-      <span class="mdi mdi-close-circle text-primary" />
+      <app-icon
+        class="mdi mdi-close-circle text-primary"
+        :hint="$t('general.remove')"
+      />
     </button>
   </div>
 </template>
 
 <script>
 import { SocialMedia } from '@/model/SocialMedia';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSocialsItem',
+
+  components: { AppIcon },
 
   props: {
     type: {
