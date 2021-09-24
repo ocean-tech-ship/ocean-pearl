@@ -3,6 +3,7 @@
     <button-emit-with-dropdown
       class="text-primary rounded md:w-44"
       :button-name="$t('project.category')"
+      button-background="bg-grey"
       :menu-items="categories"
       @selected="$emit('change', $event.value)"
     />
