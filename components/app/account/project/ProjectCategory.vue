@@ -29,10 +29,12 @@ export default {
 
   computed: {
     categories () {
-      return Object.values(CategoryEnum).map(el => ({
-        value: el,
-        content: CategoryMap[el],
-        selected: this.$props.project.category === el,
+      return Object.values(CategoryEnum)
+        .filter(el => el !== CategoryEnum.All)
+        .map(el => ({
+          value: el,
+          content: CategoryMap[el],
+          selected: this.$props.project.category === el,
       }));
     }
   },
