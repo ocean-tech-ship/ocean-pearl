@@ -4,9 +4,13 @@
       tabindex="0"
       :class="{ open: open }"
       class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
-      @click="toggleOpen"
+      @click="
+        (e) => {
+          toggleOpen();
+          handleiOSBlur(e);
+        }
+      "
       @blur="handleBlur"
-      @mouseout="handleiOSBlur"
     >
       {{ selectedName }}
     </button>
@@ -93,8 +97,10 @@ export default {
         ].includes(navigator.platform) ||
         // iPad on iOS 13 detection
         (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
-      )
-        this.handleBlur(e);
+      ) {
+        const { handleBlur } = this;
+        e.target.addEventListener('mouseout', handleBlur, { once: true });
+      }
     },
   },
 };
