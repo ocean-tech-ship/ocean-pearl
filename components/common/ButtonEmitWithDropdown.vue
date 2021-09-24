@@ -6,6 +6,7 @@
       class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
       @click="toggleOpen"
       @blur="handleBlur"
+      @mouseout="handleiOSBlur"
     >
       {{ selectedName }}
     </button>
@@ -79,6 +80,21 @@ export default {
         (!e.relatedTarget?.classList.contains('menuItem') && this.open)
       )
         this.toggleOpen();
+    },
+    handleiOSBlur(e) {
+      if (
+        [
+          'iPad Simulator',
+          'iPhone Simulator',
+          'iPod Simulator',
+          'iPad',
+          'iPhone',
+          'iPod',
+        ].includes(navigator.platform) ||
+        // iPad on iOS 13 detection
+        (navigator.userAgent.includes('Mac') && 'ontouchend' in document)
+      )
+        this.handleBlur(e);
     },
   },
 };
