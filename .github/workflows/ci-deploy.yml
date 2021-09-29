@@ -118,7 +118,7 @@ jobs:
       group: deploy-${{ github.event.inputs.env_to_promote_to }}
 
     steps:
-      - run: echo "Deploying to $${{ github.event.inputs.env_to_promote_to }} environment..."
+      - run: echo "Deploying to ${{ github.event.inputs.env_to_promote_to }} environment..."
 
       - name: Checkout 🛎
         uses: actions/checkout@v2.3.4
@@ -126,7 +126,6 @@ jobs:
       - name: Deploy to Heroku 👾
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
-          branch: ${{ github.ref }}
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
