@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest,windows-latest]
         node: [12]
 
     steps:
@@ -56,10 +56,11 @@ jobs:
         uses: dorny/test-reporter@v1
         if: success() || failure()
         with:
-          name: Test results
+          name: 'Test results (${{ matrix.os }})'
           path: reports/jest-*.xml
           reporter: jest-junit
 
+      # Disabled since we have almost no tests right now
       #- name: Report code coverage 🔍
       #  uses: romeovs/lcov-reporter-action@v0.2.21
       #  with:
@@ -73,7 +74,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest,windows-latest]
         node: [ 12 ]
 
     steps:
