@@ -60,11 +60,11 @@ jobs:
           path: reports/jest-*.xml
           reporter: jest-junit
 
-      - name: Report code coverage 🔍
-        uses: romeovs/lcov-reporter-action@v0.2.21
-        with:
-          lcov-file: coverage/lcov.info
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      #- name: Report code coverage 🔍
+      #  uses: romeovs/lcov-reporter-action@v0.2.21
+      #  with:
+      #    lcov-file: coverage/lcov.info
+      #    github-token: ${{ secrets.GITHUB_TOKEN }}
 
   build:
     runs-on: ${{ matrix.os }}
