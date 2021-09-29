@@ -18,7 +18,7 @@
     "lint-fix:js": "eslint --fix --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "test": "jest --coverage false",
-    "test:ci": "jest --ci --coverage --reporters=default --reporters=jest-junit",
+    "test:ci": "jest --ci",
     "prettier": "prettier --write './{components,mixins,layouts,pages,miragejs,plugins}/**/*.{ts,js,css,html,vue}'"
   },
   "dependencies": {
