@@ -50,7 +50,7 @@ jobs:
       #   run: yarn lint
 
       - name: Run tests 🧪
-        run: yarn test_ci
+        run: yarn test:ci
 
       - name: Report test results 📈
         uses: dorny/test-reporter@v1
@@ -73,7 +73,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ ubuntu-latest,windows-latest ]
+        os: [ubuntu-latest]
         node: [ 12 ]
 
     steps:
