@@ -112,7 +112,7 @@ jobs:
 
     environment:
       name: ${{ github.event.inputs.env_to_promote_to }}
-      url: ${{ secrets.DEPLOYMENT_URL }}
+      url: ${{ steps.Completion.outputs.DEPLOYMENT_URL }}
 
     concurrency:
       group: deploy-${{ github.event.inputs.env_to_promote_to }}
@@ -132,3 +132,6 @@ jobs:
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           healthcheck: ${{ secrets.HEALTHCHECK_URL }}
           delay: 5
+
+      - name: Completion
+        run: echo "::set-output name=DEPLOYMENT_URL::${{ secrets.DEPLOYMENT_URL }}"
