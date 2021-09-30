@@ -1,10 +1,9 @@
-name: CI-Deploy
+name: Deploy Production
 
 on:
   push:
     branches:
       - main
-      - development
 
 jobs:
   test:
@@ -111,14 +110,14 @@ jobs:
       - build
 
     environment:
-      name: ${{ github.event.inputs.env_to_promote_to }}
-      url: ${{ steps.Completion.outputs.DEPLOYMENT_URL }}
+      name: production
+      url: https://oceanpearl.io/
 
     concurrency:
-      group: deploy-${{ github.event.inputs.env_to_promote_to }}
+      group: deploy-production
 
     steps:
-      - run: echo "Deploying to ${{ github.event.inputs.env_to_promote_to }} environment..."
+      - run: echo "Deploying to production environment..."
 
       - name: Checkout 🛎
         uses: actions/checkout@v2.3.4
@@ -126,11 +125,11 @@ jobs:
       - name: Deploy to Heroku 👾
         uses: akhileshns/heroku-deploy@v3.12.12
         with:
+          branch: main
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
           healthcheck: ${{ secrets.HEALTHCHECK_URL }}
           delay: 5
 
-      - name: Completion
-        run: echo "::set-output name=DEPLOYMENT_URL::${{ secrets.DEPLOYMENT_URL }}"
+      - run: echo "Successfully deployed on production environment!"
