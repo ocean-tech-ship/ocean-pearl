@@ -1,0 +1,28 @@
+name: CI Report
+
+on:
+  workflow_run:
+    workflows: [ 'CI' ]
+    types:
+      - completed
+
+jobs:
+  report-tests:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 8
+
+    strategy:
+      matrix:
+        test-os: [ ubuntu-latest,windows-latest,macos-latest ]
+
+    steps:
+      - name: Report test results 📈
+        uses: dorny/test-reporter@v1
+        if: success() || failure()
+        continue-on-error: true
+        with:
+          artifact: test-results-${{ matrix.test-os }}
+          name: Test results (${{ matrix.test-os }})
+          path: '*.xml'
+          reporter: jest-junit
