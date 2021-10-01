@@ -70,13 +70,13 @@
                 v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
                 class="small-text"
               >
-                {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
+                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
               </p>
 
               <p v-else class="small-text">
                 {{
                   $t('general.ocean', {
-                    ocean: daoProposal.requestedGrantToken,
+                    ocean: addPunctuation(daoProposal.requestedGrantToken),
                   })
                 }}
               </p>
@@ -98,9 +98,10 @@
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
-import AppLogo from '@/components/common/AppLogo';
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppLogo from '@/components/common/AppLogo.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
+import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
@@ -111,7 +112,7 @@ export default {
     LandingSectionContainer,
   },
 
-  mixins: [ProjectBeautifyId],
+  mixins: [ProjectBeautifyId, Numbers],
 
   props: {
     daoProposals: {
