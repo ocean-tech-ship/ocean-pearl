@@ -12,7 +12,9 @@
     </landing-section-container>
 
     <landing-section-container v-else-if="pending">
-      {{ $t('general.fetchingLoading') }}
+      <app-skeleton-card-list>
+        <projects-skeleton-card />
+      </app-skeleton-card-list>
     </landing-section-container>
 
     <landing-section-container v-else-if="projects.length">
@@ -50,7 +52,9 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
 import ProjectsFilter from '@/components/app/projects/ProjectsFilter.vue';
+import ProjectsSkeletonCard from '@/components/app/projects/ProjectsSkeletonCard.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 
 export default Vue.extend({
   name: 'ProjectOverview',
@@ -60,7 +64,9 @@ export default Vue.extend({
     ProjectsList,
     LandingSectionContainer,
     ProjectsFilter,
+    ProjectsSkeletonCard,
     AppResponseWithSearch,
+    AppSkeletonCardList,
   },
 
   data() {
