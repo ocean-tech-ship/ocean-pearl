@@ -30,7 +30,9 @@
       </landing-section-container>
 
       <landing-section-container v-else-if="pending">
-        {{ $t('general.fetchingLoading') }}
+        <app-skeleton-card-list :quantity="8">
+          <dao-proposals-skeleton-card />
+        </app-skeleton-card-list>
       </landing-section-container>
 
       <landing-section-container v-else-if="daoProposals.length">
@@ -66,13 +68,15 @@
 
 <script>
 import Vue from 'vue';
+import { getDaoRoundMetrics, getDaoProposals } from '@/api';
 import DaoProposalsHeader from '@/components/app/dao-proposals/DaoProposalsHeader.vue';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
 import DaoProposalsList from '@/components/app/dao-proposals/DaoProposalsList.vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
-import { getDaoRoundMetrics, getDaoProposals } from '@/api';
 import DaoProposalsFilter from '@/components/app/dao-proposals/DaoProposalsFilter.vue';
+import DaoProposalsSkeletonCard from '@/components/app/dao-proposals/DaoProposalsSkeletonCard.vue';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 
 export default Vue.extend({
   name: 'DaoProjectOverview',
@@ -84,6 +88,8 @@ export default Vue.extend({
     LandingSectionContainer,
     DaoProposalsFilter,
     AppResponseWithSearch,
+    DaoProposalsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   data() {
