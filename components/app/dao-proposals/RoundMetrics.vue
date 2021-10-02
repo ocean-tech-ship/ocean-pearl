@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import AppTooltip from '@/components/common/AppTooltip';
+import AppTooltip from '@/components/common/AppTooltip.vue';
 
 export default {
   name: 'RoundMetrics',
