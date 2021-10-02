@@ -88,7 +88,7 @@
 
     <!-- vote action -->
     <div class="lg:col-span-2">
-      <app-link :to="voteUrl">
+      <app-link :to="voteUrl" :data-analytics="dataAnalytics">
         <app-button-style
           class="w-full text-center"
           :icon="require('@/assets/images/detail/fund-here.svg')"
@@ -128,6 +128,10 @@ export default {
   },
 
   computed: {
+    dataAnalytics() {
+      return `"Vote: Click", {"props":{"url":"${this.voteUrl}","project":"${this.$props.project?.title}","category":"${this.$props.project?.category}"}}`;
+    },
+
     newestProposal() {
       const proposals = this.$props.project.daoProposals;
       return proposals && proposals.length > 0
