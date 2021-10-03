@@ -1,80 +1,115 @@
 import Plausible from 'plausible-tracker';
 
-/*
- * Custom implementation for outbound link(<a>/</a>) tracking.
- * Does not effect how the specified link will be opened.
- * Inspired by the origin method from plausible-tracker.
- */
-function enableAutoOutboundTracking(plausible: any) {
-  const EVENT_GOAL = 'Outbound Link: Click';
-  const tracked: Set<HTMLAnchorElement> = new Set();
+const selectors = 'a, a[data-analytics], button[data-analytics]';
+const trackedElements: Set<HTMLElement> = new Set();
+let observer: MutationObserver;
 
-  function trackClick(this: HTMLAnchorElement) {
-    plausible.trackEvent(EVENT_GOAL, { props: { url: this.href } });
-  }
+const plausible = Plausible({
+  domain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
+  trackLocalhost: true,
+});
 
-  function addNode(node: any) {
-    if (node instanceof HTMLAnchorElement) {
-      if (node.host !== location.host) {
-        node.addEventListener('click', trackClick);
-        tracked.add(node);
-      }
-    } else if ('querySelectorAll' in node) {
-      node.querySelectorAll('a').forEach(addNode);
-    }
-  }
-
-  function removeNode(node: any) {
-    if (node instanceof HTMLAnchorElement) {
-      node.removeEventListener('click', trackClick);
-      tracked.delete(node);
-    } else if ('querySelectorAll' in node) {
-      node.querySelectorAll('a').forEach(removeNode);
-    }
-
-    return function cleanup() {
-      tracked.forEach((a) => {
-        a.removeEventListener('click', trackClick);
-      });
-
-      tracked.clear();
-      observer.disconnect();
-    };
-  }
-
-  const observer = new MutationObserver((mutations) => {
+function observeMutations() {
+  observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.type === 'attributes') {
-        // Handle changed href
+        // Handle changed attributes
         removeNode(mutation.target);
         addNode(mutation.target);
+
       } else if (mutation.type === 'childList') {
-        // Handle added nodes
+        // Handle child nodes
         mutation.addedNodes.forEach(addNode);
-        // Handle removed nodes
         mutation.removedNodes.forEach(removeNode);
       }
-    });
+    })
   });
 
-  // Track existing nodes
-  document.querySelectorAll('a').forEach(addNode);
-
-  // Observe mutations
   observer.observe(document, {
     subtree: true,
     childList: true,
     attributes: true,
-    attributeFilter: ['href'],
+    attributeFilter: ['href', 'data-analytics']
   });
 }
 
-const plausible = Plausible({
-  domain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
-  trackLocalhost: false,
-});
+function readAnalyticsAttribute(data: string): [string, object] {
+  const attributes = data.split(/,(.+)/);
+  return [JSON.parse(attributes[0]), JSON.parse(attributes[1] || '{}')];
+}
+
+function onAnchorClickEvent(event: any) {
+  let link = event.target;
+  const middle = event.type === 'auxclick' && event.button === 2;
+  const click = event.type === 'click';
+
+  while (link && (typeof link.tagName === 'undefined' || link.tagName.toLowerCase() !== 'a' || !link.href)) {
+    link = link.parentNode;
+  }
+
+  if (middle || click) {
+    if (link.hasAttribute('data-analytics')) {
+      plausible.trackEvent(...readAnalyticsAttribute(link.getAttribute('data-analytics')));
+    } else {
+      plausible.trackEvent('Outbound Link: Click', { props: { url: link.href }});
+    }
+  }
+}
+
+function onButtonClickEvent(event: any) {
+  plausible.trackEvent(event.target.getAttribute('data-analytics'));
+}
+
+function addNode(node: any) {
+  if (node instanceof HTMLAnchorElement) {
+    if(node.host !== window.location.host) {
+      node.addEventListener('click', onAnchorClickEvent);
+      node.addEventListener('auxclick', onAnchorClickEvent);
+      trackedElements.add(node);
+    }
+  } else if (node instanceof HTMLButtonElement) {
+    if(node.hasAttribute('data-analytics')) {
+      node.addEventListener('click', onButtonClickEvent);
+      node.addEventListener('auxclick', onButtonClickEvent);
+      trackedElements.add(node);
+    }
+  } else if ('querySelectorAll' in node) {
+    node.querySelectorAll(selectors).forEach(addNode);
+  }
+}
+
+function removeNode(node: any) {
+  if (node instanceof HTMLAnchorElement) {
+    node.removeEventListener('click', onAnchorClickEvent);
+    node.removeEventListener('auxclick', onAnchorClickEvent);
+    trackedElements.delete(node);
+  } else if (node instanceof HTMLButtonElement) {
+    node.removeEventListener('click', onButtonClickEvent);
+    node.removeEventListener('auxclick', onButtonClickEvent);
+    trackedElements.delete(node);
+  } else if ('querySelectorAll' in node) {
+    node.querySelectorAll(selectors).forEach(removeNode);
+  }
+
+  return function cleanup() {
+    trackedElements.forEach((element) => {
+      element.removeEventListener('click',
+        element instanceof HTMLAnchorElement ? onAnchorClickEvent : onButtonClickEvent);
+      element.removeEventListener('auxclick',
+        element instanceof HTMLAnchorElement ? onAnchorClickEvent : onButtonClickEvent);
+    });
+
+    trackedElements.clear();
+    observer.disconnect();
+  }
+}
+
+function trackElements() {
+  document.querySelectorAll(selectors).forEach(addNode);
+}
 
 plausible.enableAutoPageviews();
-enableAutoOutboundTracking(plausible);
+trackElements();
+observeMutations();
 
 export default plausible;

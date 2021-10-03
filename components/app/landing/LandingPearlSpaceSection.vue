@@ -28,10 +28,10 @@
         <div class="h-275px pt-42px px-42px pb-62px flex items-center">
           <img class="w-full" :src="card.imageURL" :alt="card.title" />
         </div>
-        <span class="font-poppins-bold text-lg px-48px pb-31px text-center">
+        <span class="font-poppins-bold text-lg px-2 pb-31px text-center">
           {{ card.title }}
         </span>
-        <AppLink :to="card.buttonTarget" class="mb-70px">
+        <AppLink :to="card.buttonTarget" class="mb-70px px-2 mt-auto">
           <AppButtonStyle :text="card.buttonText" />
         </AppLink>
       </div>

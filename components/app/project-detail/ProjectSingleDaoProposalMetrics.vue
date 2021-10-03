@@ -41,11 +41,11 @@
         v-if="newestProposal.requestedGrantUsd && newestProposal.requestedGrantUsd > 0"
         class="small-text"
       >
-        {{ $t('general.usd', { usd: newestProposal.requestedGrantUsd }) }}
+        {{ $t('general.usd', { usd: addPunctuation(newestProposal.requestedGrantUsd) }) }}
       </p>
 
       <p v-else class="small-text">
-        {{ $t('general.ocean', { ocean: newestProposal.requestedGrantToken }) }}
+        {{ $t('general.ocean', { ocean: addPunctuation(newestProposal.requestedGrantToken) }) }}
       </p>
     </div>
 
@@ -56,18 +56,11 @@
       </p>
 
       <template v-for="(address, index) in project.associatedAddresses">
-        <div
+        <wallet-address
           v-if="expandWalletAddresses ? true : index < 1"
           :key="address"
-          class="flex items-center"
-        >
-          <jazzicon
-            class="flex items-center mr-2"
-            :diameter="20"
-            :address="address"
-          />
-          <span class="break-all">{{ address }}</span>
-        </div>
+          :address="address"
+        />
       </template>
 
       <!-- control action -->
@@ -95,7 +88,7 @@
 
     <!-- vote action -->
     <div class="lg:col-span-2">
-      <app-link :to="voteUrl">
+      <app-link :to="voteUrl" :data-analytics="dataAnalytics">
         <app-button-style
           class="w-full text-center"
           :icon="require('@/assets/images/detail/fund-here.svg')"
@@ -107,18 +100,21 @@
 </template>
 
 <script>
-import Jazzicon from 'vue-jazzicon';
-import AppLink from '@/components/common/AppLink';
-import AppButtonStyle from '@/components/common/AppButtonStyle';
+import AppLink from '@/components/common/AppLink.vue';
+import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import WalletAddress from '@/components/common/WalletAddress.vue';
+import Numbers from '@/mixins/Numbers';
 
 export default {
   name: 'ProjectSingleDaoProposalMetrics',
 
   components: {
-    Jazzicon,
+    WalletAddress,
     AppLink,
     AppButtonStyle,
   },
+
+  mixins: [Numbers],
 
   props: {
     project: {
@@ -135,6 +131,10 @@ export default {
   },
 
   computed: {
+    dataAnalytics() {
+      return `"Vote: Click", {"props":{"url":"${this.voteUrl}","project":"${this.$props.project?.title}","category":"${this.$props.project?.category}"}}`;
+    },
+
     newestProposal() {
       const proposals = this.$props.project.daoProposals;
       return proposals && proposals.length > 0

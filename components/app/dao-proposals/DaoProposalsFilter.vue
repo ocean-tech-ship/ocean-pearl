@@ -6,25 +6,26 @@
       :rounds="rounds"
       @selected-items="setFilter"
     />
-    <DaoProposalsSearchbar
+    <AppSearchBar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
-      :filter="filter"
-      @search-projects="setFilter"
+      placeholder="Search Proposals"
+      :initial-value="filter.search"
+      @search="setFilter"
     />
   </div>
 </template>
 
 <script>
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
-import DaoProposalsSearchbar from './DaoProposalsSearchbar.vue';
+import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/components/enums/Category.enum';
 import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
-  name: 'DaoProjectsFilter',
+  name: 'DaoProposalsFilter',
 
   components: {
-    DaoProposalsSearchbar,
+    AppSearchBar,
     DaoProposalsDropdowns,
   },
   props: {
@@ -58,21 +59,19 @@ export default {
     },
   },
   created() {
-    if (Object.keys(this.$route.query).length) {
-      const { round, category, search } = this.$route.query;
+    const { round, category, search } = this.$route.query;
 
-      // set new filter
-      this.filter = {
-        round:
-          round <= this.rounds && round > 0
-            ? parseInt(round, 10)
-            : this.filter.round,
-        category: Object.values(CategoryEnum).includes(category)
-          ? category
-          : this.filter.category,
-        search: search || search === '' ? search : this.filter.search,
-      };
-    }
+    // set new filter
+    this.filter = {
+      round:
+        round <= this.rounds && round > 0
+          ? parseInt(round, 10)
+          : this.filter.round,
+      category: Object.values(CategoryEnum).includes(category)
+        ? category
+        : this.filter.category,
+      search: search || search === '' ? search : this.filter.search,
+    };
 
     // replace history state
     replaceQueryParams(this, this.filter);
@@ -95,5 +94,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

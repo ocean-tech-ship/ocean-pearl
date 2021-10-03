@@ -36,8 +36,8 @@ export default {
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         '@/plugins/mirage.js',
-        { src: '~/plugins/vue-globals', ssr: true },
-        { src: '~/plugins/plausible', ssr: false },
+        { src: '@/plugins/vue-globals', ssr: true },
+        { src: '@/plugins/plausible', ssr: false },
     ],
 
     // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
@@ -109,6 +109,26 @@ export default {
         lazy: true,
         langDir: '~/assets/locales/',
         defaultLocale: 'en-US',
+    },
+
+    render: {
+      bundleRenderer: {
+        shouldPreload: (file, type) => {
+          // type is inferred based on the file extension.
+          // https://fetch.spec.whatwg.org/#concept-request-destination
+          if (type === 'script' || type === 'style') {
+            return true;
+          }
+
+          if (type === 'font') {
+            return (
+              file.includes('Poppins-Bold') || file.includes('Poppins-Regular')
+            );
+          }
+
+          return false;
+        },
+      },
     },
 
     // Build Configuration: https://go.nuxtjs.dev/config-build

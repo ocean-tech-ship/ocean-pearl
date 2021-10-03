@@ -65,9 +65,21 @@
           </li>
           <li v-if="walletAddress">
             <div class="flex justify-end">
+              <nuxt-link to="/management">
+                <button
+                  type="button"
+                  class="font-bold block px-4 py-1"
+                >
+                  {{ $t('manage.subtitle') }}
+                </button>
+              </nuxt-link>
+            </div>
+          </li>
+          <li v-if="walletAddress">
+            <div class="flex justify-end">
               <button
                 type="button"
-                class="font-bold block px-4 py-3"
+                class="font-bold block px-4 py-1"
                 @click="$store.dispatch('auth/logout')"
               >
                 {{ $t('manage.auth.logout.title') }}
@@ -83,17 +95,15 @@
 <script>
 import { mapState } from 'vuex';
 import MainDropdown from '@/components/common/MainDropdown.vue';
-import AppLink from '@/components/common/AppLink.vue';
 import Jazzicon from 'vue-jazzicon';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
 
 export default {
-  name: 'ButtonWithDropdown',
+  name: 'AppMobileNavbar',
 
   components: {
     MainDropdown,
-    AppLink,
     Jazzicon,
   },
 

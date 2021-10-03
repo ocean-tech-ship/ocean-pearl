@@ -18,7 +18,7 @@
       }
     },
     "header": {
-      "text": "All infos about the current funding round of the Ocean Dao.",
+      "text": "All infos about the current funding round of OceanDAO.",
       "title": "Ocean",
       "titleHighlight": "Pearl x DAO"
     },
@@ -75,6 +75,7 @@
     "analytics": "Analytics"
   },
   "general": {
+    "add": "add",
     "button": "button",
     "delete": "delete",
     "edit": "edit",
@@ -91,6 +92,7 @@
     "icon": "icon",
     "logo": "logo",
     "ocean": "{ocean} OCEAN",
+    "remove": "remove",
     "save": "save changes",
     "undo": "undo",
     "upload": "upload",
@@ -143,7 +145,7 @@
       "text": "Community-based project tracking platform for the Ocean ecosystem with an early focus on the OceanDAO community.",
       "titleHighlight": "projects",
       "titlePart1": "We are on track with the newest",
-      "titlePart2": "powered by the ocean protocol."
+      "titlePart2": "powered by Ocean Protocol."
     },
     "job_offers": {
       "link_text": "See all listed jobs",
@@ -205,8 +207,13 @@
         "title": "Project images (max 1)",
         "upload": "upload new image"
       },
+      "socials": {
+        "title": "Project Socials",
+        "url": "Paste your URL here"
+      },
       "title": "Title"
     },
+    "subtitle": "Management Panel",
     "title": [
       "Management",
       "panel"
@@ -214,13 +221,14 @@
   },
   "navbar": {
     "logoText": "Ocean Pearl",
-    "navbarDao": "Dao Proposals",
+    "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarProjects": "Projects"
   },
   "project": {
     "added": "added at",
+    "category": "Category",
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
@@ -254,7 +262,8 @@
       "wallet": {
         "less": "show less",
         "more": "show all",
-        "title": "Project Wallet Address"
+        "title": "Project Wallet Address",
+        "view": "View on Etherscan"
       }
     },
     "readFull": "read full proposal",
@@ -278,6 +287,23 @@
     }
   },
   "projects": {
+    "filterResponse": {
+      "noSearch": {
+        "button": "Propose Now",
+        "heading": {
+          "main": "No projects",
+          "secondary": "yet :("
+        },
+        "paragraph": "Your chance to stand out."
+      },
+      "search": {
+        "heading": {
+          "main": "No project",
+          "secondary": "found :("
+        },
+        "paragraph": "Keep fishing!"
+      }
+    },
     "header": {
       "text": "See what the community has to offer.",
       "title": "Project",

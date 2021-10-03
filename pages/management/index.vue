@@ -26,8 +26,16 @@
 
     <div v-if="selectedProject" class="bg-grey py-8">
       <section-container>
-        <div class="flex justify-between flex-wrap">
-          <project-title class="pb-4" :project="selectedProject" />
+        <div class="flex justify-between flex-wrap py-4">
+          <div class="flex-grow mr-2">
+            <project-title class="pb-4" :project="selectedProject" />
+
+            <project-category
+              class="my-4"
+              :project="selectedProject"
+              @change="updateRequest.category = $event"
+            />
+          </div>
 
           <project-logo
             class="pb-4"
@@ -37,15 +45,25 @@
           />
         </div>
 
-        <project-description
-          class="py-8"
-          :project="selectedProject"
-          @change="updateRequest.description = $event"
-          @unset="delete updateRequest.description"
-        />
+        <div class="py-4 grid gap-8 xl:grid-cols-2">
+          <div>
+            <project-description
+              :project="selectedProject"
+              @change="updateRequest.description = $event"
+              @unset="delete updateRequest.description"
+            />
+          </div>
+
+          <div>
+            <project-socials
+              :project="selectedProject"
+              @change="updateRequest.socialMedia = $event"
+            />
+          </div>
+        </div>
 
         <project-pictures
-          class="py-8"
+          class="py-4"
           :project="selectedProject"
           @delete="updateRequest.deletedPictures = $event"
           @change="updateRequest.newPictures = $event"
@@ -63,7 +81,7 @@
 <script>
 import Vue from 'vue';
 import { mapState } from 'vuex';
-import SectionContainer from '@/components/common/SectionContainer';
+import SectionContainer from '@/components/common/SectionContainer.vue';
 import AppButton from '@/components/common/AppButton.vue';
 import AccountHeader from '@/components/app/account/AccountHeader.vue';
 import EmptyAccount from '@/components/app/account/EmptyAccount.vue';
@@ -71,9 +89,13 @@ import ProjectTitle from '@/components/app/account/project/ProjectTitle.vue';
 import ProjectLogo from '@/components/app/account/project/ProjectLogo.vue';
 import ProjectDescription from '@/components/app/account/project/ProjectDescription.vue';
 import ProjectPictures from '@/components/app/account/project/ProjectPictures.vue';
+import ProjectCategory from '@/components/app/account/project/ProjectCategory.vue';
+import ProjectSocials from '@/components/app/account/project/socials/ProjectSocials.vue';
 
 export default Vue.extend({
   components: {
+    ProjectSocials,
+    ProjectCategory,
     SectionContainer,
     AccountHeader,
     AppButton,
