@@ -33,7 +33,9 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block"
-                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                  :src="
+                    daoProposal.project.logo && daoProposal.project.logo.url
+                  "
                   :alt="daoProposal.project.title"
                   :size="45"
                 />
@@ -67,7 +69,10 @@
                 </p>
               </div>
               <p
-                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                v-if="
+                  daoProposal.requestedGrantUsd &&
+                  daoProposal.requestedGrantUsd > 0
+                "
                 class="small-text"
               >
                 {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
@@ -86,20 +91,16 @@
       </div>
     </div>
 
-    <NuxtLink to="/dao-proposals">
-      <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">
-          {{ $t('landing.dao_proposals.link_text') }}
-        </p>
-        <img src="@/assets/images/landing/check-out.svg" alt="" />
-      </div>
-    </NuxtLink>
+    <app-link-icon-right to="/dao-proposals">
+      {{ $t('landing.dao_proposals.link_text') }}
+    </app-link-icon-right>
   </LandingSectionContainer>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
-import AppLogo from '@/components/common/AppLogo';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppLogo from '@/components/common/AppLogo.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
@@ -108,6 +109,7 @@ export default {
 
   components: {
     AppLogo,
+    AppLinkIconRight,
     LandingSectionContainer,
   },
 

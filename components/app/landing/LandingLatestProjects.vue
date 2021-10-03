@@ -51,20 +51,16 @@
       </div>
     </div>
 
-    <NuxtLink :prefetch="false" to="/projects">
-      <div class="flex items-center mt-6 mb-32">
-        <p class="mr-2 text-primary">
-          {{ $t('landing.latest_projects.link_text') }}
-        </p>
-        <img src="@/assets/images/landing/check-out.svg" alt="arrow" />
-      </div>
-    </NuxtLink>
+    <app-link-icon-right to="/projects">
+      {{ $t('landing.latest_projects.link_text') }}
+    </app-link-icon-right>
   </LandingSectionContainer>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
-import AppLogo from '@/components/common/AppLogo';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppLogo from '@/components/common/AppLogo.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
@@ -74,6 +70,7 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
+    AppLinkIconRight,
   },
 
   mixins: [ProjectBeautifyId],

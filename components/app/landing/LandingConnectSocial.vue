@@ -27,18 +27,14 @@
             <p class="my-4 text-smbase">
               {{ card.text }}
             </p>
-            <AppLink class="table mt-auto" :to="card.route">
-              <div class="flex content-center">
-                <p class="text-primary text-smbase">
-                  {{ card.LinkText }}
-                </p>
-                <img
-                  src="@/assets/images/landing/check-out.svg"
-                  alt="checkout button"
-                  class="w-5 h-5 mt-2 ml-2"
-                />
-              </div>
-            </AppLink>
+            <app-link-icon-right
+              :to="card.route"
+              link="mt-auto text-primary"
+              paragraph="text-smbase mr-3"
+              icon="mdi mdi-arrow-right text-md"
+            >
+              {{ card.LinkText }}
+            </app-link-icon-right>
           </div>
         </div>
       </div>
@@ -47,14 +43,16 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer';
-import AppLink from '@/components/common/AppLink';
+import LandingSectionContainer from './LandingSectionContainer.vue';
+import AppLink from '@/components/common/AppLink.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 
 export default {
   name: 'LandingConnectSocial',
   components: {
     LandingSectionContainer,
     AppLink,
+    AppLinkIconRight,
   },
   data() {
     return {

@@ -12,20 +12,16 @@
 
     <round-metrics class="mt-10" :metrics="metrics" />
 
-    <NuxtLink to="/dao-proposals">
-      <div class="flex items-center mt-6">
-        <p class="mr-2 text-grey">
-          {{ $t('landing.pearl_dao.link_text') }}
-        </p>
-        <img src="@/assets/images/landing/check-out-white.svg" />
-      </div>
-    </NuxtLink>
+    <app-link-icon-right to="/dao-proposals" class="text-white">
+      {{ $t('landing.pearl_dao.link_text') }}
+    </app-link-icon-right>
   </LandingSectionContainer>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
-import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 
 export default {
   name: 'LandingPearlDao',
@@ -33,6 +29,7 @@ export default {
   components: {
     LandingSectionContainer,
     RoundMetrics,
+    AppLinkIconRight,
   },
 
   props: {
