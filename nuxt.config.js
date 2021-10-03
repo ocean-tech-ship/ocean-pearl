@@ -36,8 +36,8 @@ export default {
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
     plugins: [
         '@/plugins/mirage.js',
-        { src: '~/plugins/vue-globals', ssr: true },
-        { src: '~/plugins/plausible', ssr: false },
+        { src: '@/plugins/vue-globals', ssr: true },
+        { src: '@/plugins/plausible', ssr: false },
     ],
 
     // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
