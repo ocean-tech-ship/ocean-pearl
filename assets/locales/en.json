@@ -75,6 +75,7 @@
     "analytics": "Analytics"
   },
   "general": {
+    "add": "add",
     "button": "button",
     "delete": "delete",
     "edit": "edit",
@@ -91,6 +92,7 @@
     "icon": "icon",
     "logo": "logo",
     "ocean": "{ocean} OCEAN",
+    "remove": "remove",
     "save": "save changes",
     "undo": "undo",
     "upload": "upload",
@@ -184,7 +186,10 @@
           "2": "Select account to connect",
           "3": "Sign login request"
         },
-        "subtitle": ["3-Step-", "Login"],
+        "subtitle": [
+          "3-Step-",
+          "Login"
+        ],
         "title": "Login here to manage your projects"
       },
       "logout": {
@@ -202,9 +207,17 @@
         "title": "Project images (max 1)",
         "upload": "upload new image"
       },
+      "socials": {
+        "title": "Project Socials",
+        "url": "Paste your URL here"
+      },
       "title": "Title"
     },
-    "title": ["Management", "panel"]
+    "subtitle": "Management Panel",
+    "title": [
+      "Management",
+      "panel"
+    ]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
@@ -215,6 +228,7 @@
   },
   "project": {
     "added": "added at",
+    "category": "Category",
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
@@ -273,15 +287,6 @@
     }
   },
   "projects": {
-    "header": {
-      "text": "See what the community has to offer.",
-      "title": "Project",
-      "titleHighlight": "overview"
-    },
-    "status": {
-      "dropDown1": "Latest",
-      "dropDown2": "Category"
-    },
     "filterResponse": {
       "noSearch": {
         "button": "Propose Now",
@@ -298,6 +303,15 @@
         },
         "paragraph": "Keep fishing!"
       }
+    },
+    "header": {
+      "text": "See what the community has to offer.",
+      "title": "Project",
+      "titleHighlight": "overview"
+    },
+    "status": {
+      "dropDown1": "Latest",
+      "dropDown2": "Category"
     }
   }
 }
