@@ -17,7 +17,7 @@ export default {
 
     dataAnalytics: {
       type: String,
-      requireD: false,
+      required: false,
       default: null,
     },
   },
@@ -32,5 +32,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss"></style>
