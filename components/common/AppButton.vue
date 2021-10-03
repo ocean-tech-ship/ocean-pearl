@@ -54,6 +54,37 @@ export default {
 
 <style scoped lang="scss">
 .call-to-action {
-  background: linear-gradient(to right, #bb2c75 1%, #ff98cd);
+  position: relative;
+  overflow: hidden;
+
+  &:before,
+  &:after {
+    position: absolute;
+    transition: 0.3s ease-in-out;
+    content: '';
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &:before {
+    width: 100%;
+    background: linear-gradient(to right, #bb2c75 1%, #ff98cd);
+    right: 0;
+  }
+
+  &:after {
+    width: 0;
+    background: #bb2c75;
+    transform: skew(-24deg);
+    left: -10%;
+  }
+
+  &:hover {
+    &:after {
+      width: 120%;
+    }
+  }
 }
 </style>
