@@ -10,6 +10,7 @@
       shadow
       items-center
       justify-center
+      z-10
     "
     :class="[
       secondary
