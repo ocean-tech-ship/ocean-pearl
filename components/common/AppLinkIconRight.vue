@@ -44,7 +44,7 @@ export default {
     },
     icon: {
       type: String,
-      default: () => 'mdi mdi-arrow-right text-lg',
+      default: () => 'mdi mdi-arrow-right text-md sm:text-lg',
     },
   },
   computed: {
