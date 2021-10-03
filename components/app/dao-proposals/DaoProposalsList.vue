@@ -15,7 +15,7 @@
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
         >
-          <div class="shadow rounded p-8 h-full">
+          <div class="card shadow rounded p-8 h-full">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
@@ -60,7 +60,10 @@
                 </p>
               </div>
               <p
-                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                v-if="
+                  daoProposal.requestedGrantUsd &&
+                  daoProposal.requestedGrantUsd > 0
+                "
                 class="small-text"
               >
                 {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
@@ -142,3 +145,16 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+@media screen and (max-width: 760px) {
+  .card:hover {
+    transform: translatex(4px);
+  }
+}
+@media screen and (min-width: 760px) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
+}
+</style>

@@ -28,7 +28,7 @@
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
         >
-          <div class="shadow rounded h-330px p-8">
+          <div class="card shadow rounded h-330px p-8">
             <div class="flex">
               <div class="mr-3">
                 <app-logo
@@ -130,3 +130,16 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+@media screen and (max-width: 760px) {
+  .card:hover {
+    transform: translatex(4px);
+  }
+}
+@media screen and (min-width: 760px) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
+}
+</style>

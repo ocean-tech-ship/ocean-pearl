@@ -28,7 +28,7 @@
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
         >
-          <div class="shadow rounded p-4 pb-12 h-275px text-center">
+          <div class="card shadow rounded p-4 pb-12 h-275px text-center">
             <app-logo
               class="inline-block mt-3"
               :src="project.logo && project.logo.url"
@@ -99,3 +99,16 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+@media screen and (max-width: 760px) {
+  .card:hover {
+    transform: translatex(4px);
+  }
+}
+@media screen and (min-width: 760px) {
+  .card:hover {
+    transform: translateY(-4px);
+  }
+}
+</style>
