@@ -29,9 +29,9 @@
             </p>
             <app-link-icon-right
               :to="card.route"
-              link="mt-auto text-primary"
-              paragraph="text-smbase mr-3"
-              icon="mdi mdi-arrow-right text-md"
+              link-class="mt-auto text-primary"
+              paragraph-class="text-smbase mr-3"
+              icon-class="mdi mdi-arrow-right text-md"
             >
               {{ card.LinkText }}
             </app-link-icon-right>
