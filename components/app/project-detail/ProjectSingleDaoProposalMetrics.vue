@@ -41,11 +41,11 @@
         v-if="newestProposal.requestedGrantUsd && newestProposal.requestedGrantUsd > 0"
         class="small-text"
       >
-        {{ $t('general.usd', { usd: newestProposal.requestedGrantUsd }) }}
+        {{ $t('general.usd', { usd: addPunctuation(newestProposal.requestedGrantUsd) }) }}
       </p>
 
       <p v-else class="small-text">
-        {{ $t('general.ocean', { ocean: newestProposal.requestedGrantToken }) }}
+        {{ $t('general.ocean', { ocean: addPunctuation(newestProposal.requestedGrantToken) }) }}
       </p>
     </div>
 
@@ -103,6 +103,7 @@
 import AppLink from '@/components/common/AppLink.vue';
 import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import WalletAddress from '@/components/common/WalletAddress.vue';
+import Numbers from '@/mixins/Numbers';
 
 export default {
   name: 'ProjectSingleDaoProposalMetrics',
@@ -112,6 +113,8 @@ export default {
     AppLink,
     AppButtonStyle,
   },
+
+  mixins: [Numbers],
 
   props: {
     project: {
