@@ -101,14 +101,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@media screen and (max-width: 760px) {
-  .card:hover {
-    transform: translatex(4px);
-  }
-}
 @media screen and (min-width: 760px) {
   .card:hover {
-    transform: translateY(-4px);
+    transition: 100ms ease-in;
+    transform: translateY(-6px);
   }
 }
 </style>
