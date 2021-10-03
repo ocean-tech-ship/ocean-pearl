@@ -10,11 +10,11 @@
       shadow
       items-center
       justify-center
-      z-10
+      z-30
     "
     :class="[
       secondary
-        ? 'bg-white text-primary border-2 border-primary'
+        ? 'bg-white text-primary border border-primary'
         : 'call-to-action text-secondary',
     ]"
   >
@@ -83,6 +83,12 @@ export default {
     &:after {
       width: 120%;
     }
+  }
+}
+
+div:first-child:not(.call-to-action) {
+  &:hover {
+    border: 2px solid #bb2c75;
   }
 }
 </style>
