@@ -44,14 +44,12 @@
 
 <script>
 import LandingSectionContainer from './LandingSectionContainer.vue';
-import AppLink from '@/components/common/AppLink.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 
 export default {
   name: 'LandingConnectSocial',
   components: {
     LandingSectionContainer,
-    AppLink,
     AppLinkIconRight,
   },
   data() {
