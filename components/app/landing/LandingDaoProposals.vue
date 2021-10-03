@@ -24,70 +24,71 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
-        <NuxtLink
+        <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
+          card-class="card shadow rounded h-330px p-8"
         >
-          <div class="card shadow rounded h-330px p-8">
-            <div class="flex">
-              <div class="mr-3">
-                <app-logo
-                  class="inline-block"
-                  :src="
-                    daoProposal.project.logo && daoProposal.project.logo.url
-                  "
-                  :alt="daoProposal.project.title"
-                  :size="45"
-                />
-              </div>
-
-              <div>
-                <p class="text-primary leading-snug line-clamp-1 break-all">
-                  {{ daoProposal.project.title }}
-                </p>
-                <p class="small-text">
-                  {{ categoryMap[daoProposal.category] }}
-                </p>
-              </div>
-            </div>
-
-            <div class="mt-5 h-128px">
-              <p class="small-text line-clamp-3">
-                {{ daoProposal.oneLiner }}
-              </p>
+          <div class="flex">
+            <div class="mr-3">
+              <app-logo
+                class="inline-block"
+                :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                :alt="daoProposal.project.title"
+                :size="45"
+              />
             </div>
 
             <div>
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/transaction.svg"
-                  alt="funding-finish"
-                />
-                <p class="small-text text-primary">
-                  {{ $t('landing.dao_proposals.requestedAmount') }}
-                </p>
-              </div>
-              <p
-                v-if="
-                  daoProposal.requestedGrantUsd &&
-                  daoProposal.requestedGrantUsd > 0
-                "
-                class="small-text"
-              >
-                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
+              <p class="text-primary leading-snug line-clamp-1 break-all">
+                {{ daoProposal.project.title }}
               </p>
-
-              <p v-else class="small-text">
-                {{
-                  $t('general.ocean', {
-                    ocean: addPunctuation(daoProposal.requestedGrantToken),
-                  })
-                }}
+              <p class="small-text">
+                {{ categoryMap[daoProposal.category] }}
               </p>
             </div>
           </div>
-        </NuxtLink>
+
+          <div class="mt-5 h-128px">
+            <p class="small-text line-clamp-3">
+              {{ daoProposal.oneLiner }}
+            </p>
+          </div>
+
+          <div>
+            <div class="flex">
+              <img
+                class="mr-2"
+                src="@/assets/images/icons/transaction.svg"
+                alt="funding-finish"
+              />
+              <p class="small-text text-primary">
+                {{ $t('landing.dao_proposals.requestedAmount') }}
+              </p>
+            </div>
+            <p
+              v-if="
+                daoProposal.requestedGrantUsd &&
+                daoProposal.requestedGrantUsd > 0
+              "
+              class="small-text"
+            >
+              {{
+                $t('general.usd', {
+                  usd: addPunctuation(daoProposal.requestedGrantUsd),
+                })
+              }}
+            </p>
+
+            <p v-else class="small-text">
+              {{
+                $t('general.ocean', {
+                  ocean: addPunctuation(daoProposal.requestedGrantToken),
+                })
+              }}
+            </p>
+          </div>
+        </app-link-card>
       </div>
     </div>
 
@@ -101,6 +102,7 @@
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
+import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
@@ -111,6 +113,7 @@ export default {
   components: {
     AppLogo,
     AppLinkIconRight,
+    AppLinkCard,
     LandingSectionContainer,
   },
 
@@ -131,12 +134,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-@media screen and (min-width: 760px) {
-  .card:hover {
-    transition: 100ms ease-in;
-    transform: translateY(-6px);
-  }
-}
-</style>

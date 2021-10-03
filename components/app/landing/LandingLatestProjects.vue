@@ -24,30 +24,29 @@
       "
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink
+        <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
+          card-class="card shadow rounded p-4 pb-12 h-275px text-center"
         >
-          <div class="card shadow rounded p-4 pb-12 h-275px text-center">
-            <app-logo
-              class="inline-block mt-3"
-              :src="project.logo && project.logo.url"
-              :alt="project.title"
-              :size="64"
-            />
-            <div class="mt-4 h-62px">
-              <p class="text-primary leading-snug line-clamp-1 break-all">
-                {{ project.title }}
-              </p>
-              <p class="small-text">{{ categoryMap[project.category] }}</p>
-            </div>
-            <div class="mt-4 flex place-content-center">
-              <p class="border rounded small-text text-primary w-32">
-                {{ formatDistance(project.createdAt) }}
-              </p>
-            </div>
+          <app-logo
+            class="inline-block mt-3"
+            :src="project.logo && project.logo.url"
+            :alt="project.title"
+            :size="64"
+          />
+          <div class="mt-4 h-62px">
+            <p class="text-primary leading-snug line-clamp-1 break-all">
+              {{ project.title }}
+            </p>
+            <p class="small-text">{{ categoryMap[project.category] }}</p>
           </div>
-        </NuxtLink>
+          <div class="mt-4 flex place-content-center">
+            <p class="border rounded small-text text-primary w-32">
+              {{ formatDistance(project.createdAt) }}
+            </p>
+          </div>
+        </app-link-card>
       </div>
     </div>
 
@@ -61,6 +60,7 @@
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
+import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
@@ -71,6 +71,7 @@ export default {
     AppLogo,
     LandingSectionContainer,
     AppLinkIconRight,
+    AppLinkCard,
   },
 
   mixins: [ProjectBeautifyId],
@@ -99,12 +100,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-@media screen and (min-width: 760px) {
-  .card:hover {
-    transition: 100ms ease-in;
-    transform: translateY(-6px);
-  }
-}
-</style>

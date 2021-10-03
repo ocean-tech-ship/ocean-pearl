@@ -11,104 +11,113 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
-        <NuxtLink
+        <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
+          card-class="shadow rounded p-8 h-full"
         >
-          <div class="card shadow rounded p-8 h-full">
-            <div class="flex">
-              <div class="mr-3">
-                <app-logo
-                  class="inline-block"
-                  :src="
-                    daoProposal.project.logo && daoProposal.project.logo.url
-                  "
-                  :alt="daoProposal.project.title"
-                  :size="45"
-                />
-              </div>
-              <div>
-                <p class="text-primary leading-snug line-clamp-1 break-all">
-                  {{ daoProposal.project.title }}
-                </p>
-                <p class="small-text">
-                  {{ categoryMap[daoProposal.category] }}
-                </p>
-              </div>
+          <div class="flex">
+            <div class="mr-3">
+              <app-logo
+                class="inline-block"
+                :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                :alt="daoProposal.project.title"
+                :size="45"
+              />
             </div>
-            <app-label class="mt-5">
-              <span class="text-third">{{
-                $t('project.proposal.round.numbered', {
-                  round: daoProposal.fundingRound.round,
-                })
-              }}</span>
-            </app-label>
-            <div class="mt-5 h-112px">
-              <p class="small-text line-clamp-4">
-                {{ daoProposal.oneLiner }}
+            <div>
+              <p class="text-primary leading-snug line-clamp-1 break-all">
+                {{ daoProposal.project.title }}
               </p>
-            </div>
-            <div class="mt-5">
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/transaction.svg"
-                  :alt="`${$t('dao-projects.projects.requestedAmount')} icon`"
-                />
-                <p class="small-text text-primary">
-                  {{ $t('dao-projects.projects.requestedAmount') }}
-                </p>
-              </div>
-              <p
-                v-if="
-                  daoProposal.requestedGrantUsd &&
-                  daoProposal.requestedGrantUsd > 0
-                "
-                class="small-text"
-              >
-                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
-              </p>
-
-              <p v-else class="small-text">
-                {{
-                  $t('general.ocean', {
-                    ocean: addPunctuation(daoProposal.requestedGrantToken),
-                  })
-                }}
-              </p>
-            </div>
-            <div class="mt-5">
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/yes-vote.svg"
-                  :alt="`${$t('dao-projects.projects.votes')} icon`"
-                />
-                <p class="small-text text-primary">
-                  {{ $t('dao-projects.projects.votes') }}
-                </p>
-              </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: addPunctuation(daoProposal.votes) }) }}
-              </p>
-            </div>
-            <div class="mt-5">
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/no-vote.svg"
-                  :alt="`${$t('dao-projects.projects.counterVotes')} icon`"
-                />
-                <p class="small-text text-primary">
-                  {{ $t('dao-projects.projects.counterVotes') }}
-                </p>
-              </div>
-              <p class="small-text">
-                {{ $t('general.ocean', { ocean: addPunctuation(daoProposal.counterVotes) }) }}
+                {{ categoryMap[daoProposal.category] }}
               </p>
             </div>
           </div>
-        </NuxtLink>
+          <app-label class="mt-5">
+            <span class="text-third">{{
+              $t('project.proposal.round.numbered', {
+                round: daoProposal.fundingRound.round,
+              })
+            }}</span>
+          </app-label>
+          <div class="mt-5 h-112px">
+            <p class="small-text line-clamp-4">
+              {{ daoProposal.oneLiner }}
+            </p>
+          </div>
+          <div class="mt-5">
+            <div class="flex">
+              <img
+                class="mr-2"
+                src="@/assets/images/icons/transaction.svg"
+                :alt="`${$t('dao-projects.projects.requestedAmount')} icon`"
+              />
+              <p class="small-text text-primary">
+                {{ $t('dao-projects.projects.requestedAmount') }}
+              </p>
+            </div>
+            <p
+              v-if="
+                daoProposal.requestedGrantUsd &&
+                daoProposal.requestedGrantUsd > 0
+              "
+              class="small-text"
+            >
+              {{
+                $t('general.usd', {
+                  usd: addPunctuation(daoProposal.requestedGrantUsd),
+                })
+              }}
+            </p>
+
+            <p v-else class="small-text">
+              {{
+                $t('general.ocean', {
+                  ocean: addPunctuation(daoProposal.requestedGrantToken),
+                })
+              }}
+            </p>
+          </div>
+          <div class="mt-5">
+            <div class="flex">
+              <img
+                class="mr-2"
+                src="@/assets/images/icons/yes-vote.svg"
+                :alt="`${$t('dao-projects.projects.votes')} icon`"
+              />
+              <p class="small-text text-primary">
+                {{ $t('dao-projects.projects.votes') }}
+              </p>
+            </div>
+            <p class="small-text">
+              {{
+                $t('general.ocean', {
+                  ocean: addPunctuation(daoProposal.votes),
+                })
+              }}
+            </p>
+          </div>
+          <div class="mt-5">
+            <div class="flex">
+              <img
+                class="mr-2"
+                src="@/assets/images/icons/no-vote.svg"
+                :alt="`${$t('dao-projects.projects.counterVotes')} icon`"
+              />
+              <p class="small-text text-primary">
+                {{ $t('dao-projects.projects.counterVotes') }}
+              </p>
+            </div>
+            <p class="small-text">
+              {{
+                $t('general.ocean', {
+                  ocean: addPunctuation(daoProposal.counterVotes),
+                })
+              }}
+            </p>
+          </div>
+        </app-link-card>
       </div>
     </div>
   </div>
@@ -118,6 +127,7 @@
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
+import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '~/mixins/Numbers';
 
@@ -127,9 +137,10 @@ export default {
   components: {
     AppLogo,
     AppLabel,
+    AppLinkCard,
   },
 
-  mixins: [ProjectBeautifyId,Numbers],
+  mixins: [ProjectBeautifyId, Numbers],
 
   props: {
     daoProposals: {
@@ -146,12 +157,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-@media screen and (min-width: 760px) {
-  .card:hover {
-    transition: 100ms ease-in;
-    transform: translateY(-6px);
-  }
-}
-</style>
