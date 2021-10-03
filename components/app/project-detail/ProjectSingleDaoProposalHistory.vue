@@ -57,7 +57,7 @@
 
               <td class="text-right p-4 py-3">
                 <span v-if="proposal.votes > 0">
-                  {{ proposal.votes }}
+                  {{ addPunctuation(proposal.votes) }}
                 </span>
 
                 <span v-else>-</span>
@@ -65,7 +65,7 @@
 
               <td class="text-right p-4 py-3">
                 <span v-if="proposal.counterVotes > 0">
-                  {{ proposal.counterVotes }}
+                  {{ addPunctuation(proposal.counterVotes) }}
                 </span>
 
                 <span v-else>-</span>
@@ -76,7 +76,7 @@
                   v-if="proposal.grantedToken > 0"
                   class="flex items-center justify-end"
                 >
-                  {{ proposal.grantedToken }}
+                  {{ addPunctuation(proposal.grantedToken) }}
 
                   <img
                     class="self-start pl-1"
@@ -121,6 +121,7 @@
 <script>
 import AppLink from '@/components/common/AppLink.vue';
 import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum';
+import Numbers from '~/mixins/Numbers';
 
 export default {
   name: 'ProjectSingleDaoProposalHistory',
@@ -128,6 +129,8 @@ export default {
   components: {
     AppLink,
   },
+
+  mixins: [Numbers],
 
   props: {
     project: {

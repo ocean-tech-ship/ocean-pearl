@@ -12,9 +12,9 @@
       class="ml-1"
       :to="explorerUrl"
     >
-      <img
-        src="@/assets/images/icons/link.svg"
-        :alt="$t('project.proposal.wallet.view')"
+      <app-icon
+        class="mdi mdi-open-in-new text-primary"
+        :hint="$t('project.proposal.wallet.view')"
       />
     </app-link>
   </div>
@@ -23,11 +23,13 @@
 <script>
 import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'WalletAddress',
 
   components: {
+    AppIcon,
     AppLink,
     Jazzicon,
   },
@@ -47,7 +49,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-
-</style>

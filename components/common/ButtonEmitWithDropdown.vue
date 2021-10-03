@@ -9,7 +9,12 @@
     >
       {{ selectedName }}
     </button>
-    <label class="label absolute p-1 z-10">{{ buttonName }}</label>
+    <label
+      class="label absolute p-1 z-10"
+      :class="buttonBackground"
+    >
+      {{ buttonName }}
+    </label>
     <section
       v-if="open"
       class="border bg-grey rounded shadow absolute top-10 z-40"
@@ -32,13 +37,18 @@
 
 <script>
 export default {
-  name: 'ButtonWithDropdown',
+  name: 'ButtonEmitWithDropdown',
   components: {},
   props: {
     buttonName: {
       type: String,
       required: true,
       default() {},
+    },
+    buttonBackground: {
+      type: String,
+      required: false,
+      default: 'bg-white',
     },
     menuItems: {
       type: Array,
@@ -90,7 +100,6 @@ label {
   top: -13px;
   left: 12px;
   transition: 200ms;
-  background: #fff;
 }
 
 button::before {

@@ -66,13 +66,13 @@
                 "
                 class="small-text"
               >
-                {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
+                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
               </p>
 
               <p v-else class="small-text">
                 {{
                   $t('general.ocean', {
-                    ocean: daoProposal.requestedGrantToken,
+                    ocean: addPunctuation(daoProposal.requestedGrantToken),
                   })
                 }}
               </p>
@@ -89,7 +89,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.votes }) }}
+                {{ $t('general.ocean', { ocean: addPunctuation(daoProposal.votes) }) }}
               </p>
             </div>
             <div class="mt-5">
@@ -104,7 +104,7 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: daoProposal.counterVotes }) }}
+                {{ $t('general.ocean', { ocean: addPunctuation(daoProposal.counterVotes) }) }}
               </p>
             </div>
           </div>
@@ -119,6 +119,7 @@ import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
+import Numbers from '~/mixins/Numbers';
 
 export default {
   name: 'DaoProposalsList',
@@ -128,7 +129,7 @@ export default {
     AppLabel,
   },
 
-  mixins: [ProjectBeautifyId],
+  mixins: [ProjectBeautifyId,Numbers],
 
   props: {
     daoProposals: {
