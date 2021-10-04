@@ -24,7 +24,7 @@
             <img
               :src="subItem.icon"
               :alt="subItem.name + ' logo'"
-              class="w-6 h-6 mr-1"
+              class="w-5 h-5 mr-1"
             />
             <p class="text-sm">{{ subItem.name }}</p>
           </div>

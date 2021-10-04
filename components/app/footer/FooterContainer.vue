@@ -44,14 +44,14 @@ export default Vue.extend({
             {
               id: 0,
               name: 'Twitter',
-              icon: require('@/assets/images/footer/twitter_footer.svg'),
+              icon: require('@/assets/images/social/twitter.svg'),
               route: 'https://twitter.com/oceanpearlio',
               ext: true,
             },
             {
               id: 1,
               name: 'Discord',
-              icon: require('@/assets/images/footer/discord_footer.svg'),
+              icon: require('@/assets/images/social/discord.svg'),
               route: 'https://discord.gg/eswPj8QZRH',
               ext: true,
             },
@@ -91,7 +91,7 @@ export default Vue.extend({
             {
               id: 5,
               name: 'Discord',
-              icon: require('@/assets/images/footer/discord_footer.svg'),
+              icon: require('@/assets/images/social/discord.svg'),
               route: 'https://discord.gg/Yuawx9EP6e',
               ext: true,
             },
