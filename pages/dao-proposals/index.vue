@@ -12,7 +12,7 @@
         custom-class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         :quantity="6"
       >
-        <round-metrics-skeleton />
+        <round-metrics-skeleton-card />
       </app-skeleton-card-list>
       <hr class="text-primary my-16" />
     </landing-section-container>
@@ -77,7 +77,7 @@ import Vue from 'vue';
 import { getDaoRoundMetrics, getDaoProposals } from '@/api';
 import DaoProposalsHeader from '@/components/app/dao-proposals/DaoProposalsHeader.vue';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
-import RoundMetricsSkeleton from '@/components/app/dao-proposals/RoundMetricsSkeleton.vue';
+import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetricsSkeletonCard.vue';
 import DaoProposalsList from '@/components/app/dao-proposals/DaoProposalsList.vue';
 import DaoProposalsFilter from '@/components/app/dao-proposals/DaoProposalsFilter.vue';
 import DaoProposalsSkeletonCard from '@/components/app/dao-proposals/DaoProposalsSkeletonCard.vue';
@@ -91,7 +91,7 @@ export default Vue.extend({
   components: {
     DaoProposalsHeader,
     RoundMetrics,
-    RoundMetricsSkeleton,
+    RoundMetricsSkeletonCard,
     DaoProposalsList,
     DaoProposalsFilter,
     LandingSectionContainer,

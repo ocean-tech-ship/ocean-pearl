@@ -1,15 +1,15 @@
 <template>
   <div class="shadow rounded p-2 pb-8">
     <div class="animate-pulse w-full h-full flex flex-col items-center">
-      <div :style="{ background: color }" class="mt-3 w-12 h-12 rounded" />
+      <div class="mt-3 w-12 h-12 rounded bg-primary opacity-70" />
       <div class="mt-10 w-full flex flex-col items-center">
-        <div :style="{ background: color }" class="mt-1 w-4/5 h-4 rounded" />
-        <div :style="{ background: color }" class="mt-3 w-2/5 h-3 rounded" />
+        <div class="mt-1 w-4/5 h-4 rounded bg-primary opacity-70" />
+        <div class="mt-3 w-2/5 h-3 rounded" />
       </div>
       <div class="mt-6 w-full flex flex-col items-center">
-        <div :style="{ background: color }" class="mt-3 w-4/5 h-3 rounded" />
-        <div :style="{ background: color }" class="mt-3 w-1/3 h-3 rounded" />
-        <div :style="{ background: color }" class="mt-3 w-2/3 h-3 rounded" />
+        <div class="mt-3 w-4/5 h-3 rounded bg-primary opacity-70" />
+        <div class="mt-3 w-1/3 h-3 rounded bg-primary opacity-70" />
+        <div class="mt-3 w-2/3 h-3 rounded bg-primary opacity-70" />
       </div>
     </div>
   </div>
@@ -18,12 +18,5 @@
 <script>
 export default {
   name: 'AppSkeletonCard',
-
-  props: {
-    color: {
-      type: String,
-      default: () => 'rgba(187, 44, 117, 0.7)',
-    },
-  },
 };
 </script>
