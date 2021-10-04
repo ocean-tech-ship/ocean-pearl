@@ -2,7 +2,7 @@
   <NuxtLink
     v-if="isNuxtLink"
     :to="to"
-    class="bounce-right flex items-center mt-6"
+    class="flex items-center mt-6"
     :class="linkClass"
   >
     <p :class="paragraphClass">
@@ -15,7 +15,7 @@
     :href="to"
     target="_blank"
     rel="noopener noreferrer"
-    class="bounce-right flex items-center mt-6"
+    class="flex items-center mt-6"
     :class="linkClass"
   >
     <p :class="paragraphClass">
@@ -36,7 +36,7 @@ export default {
     },
     linkClass: {
       type: String,
-      default: () => 'text-primary',
+      default: () => 'text-primary bounce-right ',
     },
     paragraphClass: {
       type: String,
@@ -44,7 +44,7 @@ export default {
     },
     iconClass: {
       type: String,
-      default: () => 'mdi mdi-arrow-right text-md sm:text-lg',
+      default: () => 'mdi mdi-arrow-right-thick text-md sm:text-lg',
     },
   },
   computed: {
