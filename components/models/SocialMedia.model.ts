@@ -7,4 +7,6 @@ export interface SocialMedia {
   telegram: string;
   facebook: string;
   discord: string;
+  medium: string;
+  youtube: string;
 }
