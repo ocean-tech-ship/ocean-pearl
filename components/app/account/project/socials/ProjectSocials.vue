@@ -9,8 +9,10 @@
         <template slot-scope="context">
           <button @click="context.toggleOpen()">
             <app-icon
-              class="mdi mdi-link-plus text-primary text-lg"
-              :hint="$t('general.add')"
+              class="text-primary"
+              :size="32"
+              :path="mdiLinkPlus"
+              :tooltip="$t('general.add')"
             />
           </button>
 
@@ -76,10 +78,11 @@
 </template>
 
 <script>
-import MainDropdown from '@/components/common/MainDropdown.vue';
+import { mdiLinkPlus } from '@mdi/js';
 import { SocialMedia } from '@/model/SocialMedia';
+import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
-import AppIcon from '~/components/common/AppIcon';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSocials',
@@ -96,6 +99,7 @@ export default {
 
   data() {
     return {
+      mdiLinkPlus,
       socials: ({ ...this.$props.project.socialMedia}),
     };
   },

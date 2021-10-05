@@ -18,14 +18,17 @@
 
     <button class="pl-2" @click="$emit('delete')">
       <app-icon
-        class="mdi mdi-close-circle text-primary"
-        :hint="$t('general.remove')"
+        class="text-primary"
+        :size="16"
+        :path="mdiCloseCircle"
+        :toolip="$t('general.remove')"
       />
     </button>
   </div>
 </template>
 
 <script>
+import { mdiCloseCircle } from '@mdi/js';
 import { SocialMedia } from '@/model/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
 
@@ -46,6 +49,12 @@ export default {
       required: true,
       default: '',
     }
+  },
+
+  data() {
+    return {
+      mdiCloseCircle,
+    };
   },
 
   methods: {
