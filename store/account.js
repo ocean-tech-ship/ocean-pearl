@@ -75,13 +75,17 @@ export const actions = {
         );
 
       } else if (value instanceof Object) {
-        Object.keys(value).forEach(objKey =>
-          formData.append(`${key}[${objKey}]`, value[objKey])
-        )
+        if(value instanceof File) {
+          formData.append(key, value);
+        } else {
+          Object.keys(value).forEach(objKey =>
+            formData.append(`${key}[${objKey}]`, value[objKey])
+          )
 
-        if(Object.keys(value).length === 0) {
-          // Workaround for clearing empty objects. Otherwise it won't be transmitted.
-          formData.append(`${key}[clear]`, '')
+          if(Object.keys(value).length === 0) {
+            // Workaround for clearing empty objects. Otherwise it won't be transmitted.
+            formData.append(`${key}[clear]`, '')
+          }
         }
 
       } else {
