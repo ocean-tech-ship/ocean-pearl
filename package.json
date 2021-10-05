@@ -22,7 +22,7 @@
     "prettier": "prettier --write './{components,mixins,layouts,pages,miragejs,plugins}/**/*.{ts,js,css,html,vue}'"
   },
   "dependencies": {
-    "@mdi/font": "^6.1.95",
+    "@mdi/js": "^6.2.95",
     "@nuxtjs/axios": "^5.13.6",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@walletconnect/web3-provider": "^1.6.5",
@@ -34,6 +34,7 @@
     "nuxt-i18n": "^6.28.0",
     "nuxt-social-meta": "^1.0.0",
     "plausible-tracker": "^0.3.1",
+    "simple-icons": "^5.17.0",
     "vue-jazzicon": "^0.1.3",
     "web3": "^1.5.2",
     "web3modal": "^1.9.4"
