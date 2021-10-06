@@ -26,6 +26,7 @@
                 mt-4
                 p-2
                 w-44
+                z-50
                 bg-grey
                 border border-primary
                 rounded
