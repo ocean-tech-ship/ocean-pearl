@@ -21,7 +21,7 @@
         class="text-primary"
         :size="16"
         :path="mdiCloseCircle"
-        :toolip="$t('general.remove')"
+        :tooltip="$t('general.remove')"
       />
     </button>
   </div>
