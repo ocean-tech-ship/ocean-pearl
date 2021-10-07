@@ -16,7 +16,7 @@
         "
         @click="$emit('delete')"
       >
-        <app-icon :path="mdiCloseThick" class="text-primary" :tooltip="$t('general.remove')" />
+        <app-icon :path="mdiClose" class="text-primary" :tooltip="$t('general.remove')" />
       </button>
     </div>
 
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { mdiCloseThick } from '@mdi/js';
+import { mdiClose } from '@mdi/js';
 import AppIcon from '~/components/common/AppIcon.vue';
 
 export default {
@@ -47,7 +47,7 @@ export default {
 
   data() {
     return {
-      mdiCloseThick,
+      mdiClose,
     }
   }
 }
