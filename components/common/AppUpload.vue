@@ -23,8 +23,9 @@
     <input
       ref="upload"
       type="file"
-      :accept="accept"
       class="hidden"
+      :accept="accept"
+      :multiple="multiple"
       @change="$emit('change', $event)"
     />
   </button>
@@ -47,6 +48,10 @@ export default {
       type: String,
       default: '',
     },
+    multiple: {
+      type: Boolean,
+      default: false,
+    }
   },
 }
 </script>

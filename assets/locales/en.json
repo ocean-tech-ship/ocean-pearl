@@ -204,7 +204,8 @@
       "empty": "Hey sailor, no projects here so far.  Dive right in and add your first one now!",
       "logo": "Logo",
       "pictures": {
-        "title": "Project images (max 1)",
+        "limit": "You can only save a maximum of {count} images.",
+        "title": "Project pictures",
         "upload": "upload new image"
       },
       "socials": {
