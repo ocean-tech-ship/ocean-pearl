@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center">
     <jazzicon
-      class="flex items-center mr-2"
+      class="flex items-center w-5 h-5 mr-2"
       :diameter="20"
       :address="address"
     />
