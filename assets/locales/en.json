@@ -209,6 +209,7 @@
         "upload": "upload new image"
       },
       "socials": {
+        "empty": "No social has been added yet.",
         "title": "Project Socials",
         "url": "Paste your URL here"
       },
