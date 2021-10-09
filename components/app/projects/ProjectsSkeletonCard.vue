@@ -4,7 +4,7 @@
       <div class="mt-3 w-12 h-12 rounded bg-primary opacity-70" />
       <div class="mt-10 w-full flex flex-col items-center">
         <div class="mt-1 w-4/5 h-4 rounded bg-primary opacity-70" />
-        <div class="mt-3 w-2/5 h-3 rounded" />
+        <div class="mt-3 w-2/5 h-3 rounded bg-primary opacity-70" />
       </div>
       <div class="mt-6 w-full flex flex-col items-center">
         <div class="mt-3 w-4/5 h-3 rounded bg-primary opacity-70" />
