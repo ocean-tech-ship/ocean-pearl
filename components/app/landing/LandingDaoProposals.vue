@@ -114,8 +114,8 @@
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
-import AppLogo from '@/components/common/AppLogo';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppLogo from '@/components/common/AppLogo.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingDaoProposalsSkeletonCard from '@/components/app/landing/LandingDaoProposalsSkeletonCard.vue';
@@ -135,8 +135,7 @@ export default {
 
   props: {
     daoProposals: {
-      type: Array || null,
-      required: true,
+      type: [Array, null],
       default: null,
     },
   },

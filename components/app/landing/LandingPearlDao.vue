@@ -13,10 +13,11 @@
     <app-skeleton-card-list
       v-if="metrics === null"
       custom-class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-      quantity="6"
+      :quantity="6"
     >
       <round-metrics-skeleton-card />
     </app-skeleton-card-list>
+
     <round-metrics v-else class="mt-10" :metrics="metrics" />
 
     <NuxtLink to="/dao-proposals">
@@ -42,12 +43,13 @@ export default {
   components: {
     LandingSectionContainer,
     RoundMetrics,
+    RoundMetricsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   props: {
     metrics: {
-      type: Object || null,
-      required: true,
+      type: [Object, null],
       default: null,
     },
   },
