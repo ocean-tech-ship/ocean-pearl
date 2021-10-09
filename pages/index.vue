@@ -1,7 +1,6 @@
 <template>
   <div>
     <landing-hero-section />
-    <landing-pearl-dao :metrics="metrics" />
 
     <landingSectionContainer
       v-if="$fetchState.error || error"
@@ -11,6 +10,7 @@
       <p class="small-text">{{ $t(error) }}</p>
     </landingSectionContainer>
 
+    <landing-pearl-dao :metrics="metrics" />
     <landing-dao-proposals :dao-proposals="daoProposals" />
 
     <landing-section-container v-if="$fetchState.pending">
