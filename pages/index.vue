@@ -11,12 +11,13 @@
       <p class="small-text">{{ $t(error) }}</p>
     </landingSectionContainer>
 
+    <landing-dao-proposals :dao-proposals="daoProposals" />
+
     <landing-section-container v-if="$fetchState.pending">
       {{ $t('general.fetchingLoading') }}
     </landing-section-container>
 
     <div v-else>
-      <landing-dao-proposals :dao-proposals="daoProposals" />
       <landing-pearl-space-section />
       <landing-latest-projects :projects="latestProjects" />
       <landing-connect-social />

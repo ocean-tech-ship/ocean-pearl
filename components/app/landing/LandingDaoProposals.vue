@@ -8,11 +8,22 @@
     </h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
 
-    <div v-if="daoProposals === null" class="mt-10 h-275px">
-      {{ $t('general.fetchingLoading') }}
-    </div>
+    <app-skeleton-card-list
+      v-if="daoProposals === null"
+      custom-class="grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+        mt-10"
+      :quantity="4"
+    >
+      <landing-dao-proposals-skeleton-card />
+    </app-skeleton-card-list>
 
     <div
+      v-else
       class="
         grid grid-cols-1
         md:grid-cols-2
@@ -33,7 +44,9 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block"
-                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                  :src="
+                    daoProposal.project.logo && daoProposal.project.logo.url
+                  "
                   :alt="daoProposal.project.title"
                   :size="45"
                 />
@@ -67,7 +80,10 @@
                 </p>
               </div>
               <p
-                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                v-if="
+                  daoProposal.requestedGrantUsd &&
+                  daoProposal.requestedGrantUsd > 0
+                "
                 class="small-text"
               >
                 {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
@@ -102,6 +118,8 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 import AppLogo from '@/components/common/AppLogo';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import LandingDaoProposalsSkeletonCard from '@/components/app/landing/LandingDaoProposalsSkeletonCard.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 
 export default {
   name: 'LandingDaoProposal',
@@ -109,6 +127,8 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
+    LandingDaoProposalsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   mixins: [ProjectBeautifyId],
