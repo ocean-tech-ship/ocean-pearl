@@ -5,37 +5,81 @@
       v-if="numberOfPictures > 1"
       class="flex justify-center pb-4"
     >
-      <a
+      <button
         v-for="index in numberOfPictures"
         :key="index"
-        class="w-3 h-3 mx-1 bg-third mx-2 rounded-full transition duration-300 ease-in-out"
+        type="button"
+        class="
+          w-3
+          h-3
+          mx-1
+          bg-third
+          mx-2
+          rounded-full
+          transition
+          duration-300
+          ease-in-out
+          hover:scale-125
+        "
         :class="{ ['bg-primary']: currentIndex === index - 1 }"
-        href="#"
         @click="goTo(index - 1)"
       />
     </div>
 
-    <!-- slider -->
-    <div>
+    <!-- wallpaper (single image) -->
+    <div v-if="numberOfPictures === 1">
+      <img
+        class="object-contain"
+        width="100%"
+        :src="currentPicture"
+        alt=""
+      />
+    </div>
+
+    <!-- slider (gallery) -->
+    <div v-else>
       <transition-group
-        tag="div" class="slider"
+        tag="div"
+        class="overflow-hidden relative w-full h-80"
         :name="currentIndex < previousIndex ? 'slide-backward' : 'slide'"
       >
         <div v-for="i in [currentIndex]" :key="i">
           <img
+            class="
+              absolute
+              top-0
+              left-0
+              bottom-0
+              right-0
+              object-contain
+              w-full
+              h-80
+              hover:opacity-70
+              ease-in-out
+              duration-300
+            "
             :src="currentPicture"
             alt=""
+            @click="showModal = true"
           />
         </div>
       </transition-group>
+
+      <app-image-modal
+        :show="showModal"
+        :src="currentPicture"
+        @close="showModal = false"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import AppImageModal from '@/components/common/AppImageModal.vue';
+
 export default {
   name: 'ProjectSingleGallery',
-
+  components: { AppImageModal },
   props: {
     project: {
       type: Object,
@@ -49,6 +93,7 @@ export default {
       timer: null,
       previousIndex: 0,
       currentIndex: 0,
+      showModal: false,
     };
   },
 
@@ -67,7 +112,7 @@ export default {
   },
 
   mounted() {
-    this.startSlide();
+    // this.startSlide();
   },
 
   methods: {
@@ -112,23 +157,5 @@ export default {
 }
 .slide-backward-leave-to {
   transform: translate(100%, 0);
-}
-
-.slider {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 320px;
-}
-
-.slider img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right:0;
-  object-fit: contain;
-  width: 100%;
-  height: 320px;
 }
 </style>
