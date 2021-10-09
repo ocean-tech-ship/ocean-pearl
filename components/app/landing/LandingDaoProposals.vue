@@ -135,7 +135,7 @@ export default {
 
   props: {
     daoProposals: {
-      type: Array,
+      type: Array || null,
       required: true,
       default: null,
     },
