@@ -11,6 +11,7 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
+        <app-report-project :dao-proposal="daoProposal" p-g-p-key="test" />
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
@@ -60,10 +61,17 @@
                 </p>
               </div>
               <p
-                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                v-if="
+                  daoProposal.requestedGrantUsd &&
+                  daoProposal.requestedGrantUsd > 0
+                "
                 class="small-text"
               >
-                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
+                {{
+                  $t('general.usd', {
+                    usd: addPunctuation(daoProposal.requestedGrantUsd),
+                  })
+                }}
               </p>
 
               <p v-else class="small-text">
@@ -86,7 +94,11 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: addPunctuation(daoProposal.votes) }) }}
+                {{
+                  $t('general.ocean', {
+                    ocean: addPunctuation(daoProposal.votes),
+                  })
+                }}
               </p>
             </div>
             <div class="mt-5">
@@ -101,7 +113,11 @@
                 </p>
               </div>
               <p class="small-text">
-                {{ $t('general.ocean', { ocean: addPunctuation(daoProposal.counterVotes) }) }}
+                {{
+                  $t('general.ocean', {
+                    ocean: addPunctuation(daoProposal.counterVotes),
+                  })
+                }}
               </p>
             </div>
           </div>
@@ -115,8 +131,9 @@
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
+import AppReportProject from '@/components/common/AppReportProject.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import Numbers from '~/mixins/Numbers';
+import Numbers from '@/mixins/Numbers';
 
 export default {
   name: 'DaoProposalsList',
@@ -124,9 +141,10 @@ export default {
   components: {
     AppLogo,
     AppLabel,
+    AppReportProject,
   },
 
-  mixins: [ProjectBeautifyId,Numbers],
+  mixins: [ProjectBeautifyId, Numbers],
 
   props: {
     daoProposals: {

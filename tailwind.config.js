@@ -40,6 +40,7 @@ module.exports = {
       grey: colors.grey,
       white: colors.white,
       darkgrey: colors.darkgrey,
+      black: colors.black,
     },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
