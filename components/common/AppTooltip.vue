@@ -1,6 +1,10 @@
 <template>
   <div class="tooltip">
-    <span v-if="!!hint" class="tooltip-hint rounded shadow p-1 bg-grey -mt-8">
+    <span
+      v-if="!!hint"
+      :class="$attrs.class"
+      class="tooltip-hint text-third text-smbase rounded shadow p-1 bg-grey -mt-8"
+    >
       {{ hint }}
     </span>
     <slot />

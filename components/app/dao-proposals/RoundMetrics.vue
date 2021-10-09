@@ -26,6 +26,7 @@
 
 <script>
 import AppTooltip from '@/components/common/AppTooltip.vue';
+import Numbers from '@/mixins/Numbers';
 
 export default {
   name: 'RoundMetrics',
@@ -33,6 +34,8 @@ export default {
   components: {
     AppTooltip,
   },
+
+  mixins: [Numbers],
 
   props: {
     metrics: {
@@ -113,17 +116,17 @@ export default {
           daoInfo:
             this.$props.metrics.paymentOption === 'ocean'
               ? this.$t('general.ocean', {
-                  ocean: this.$props.metrics.totalRequestedFundingOcean,
+                  ocean: this.addPunctuation(this.$props.metrics.totalRequestedFundingOcean),
                 })
               : this.$t('general.usd', {
-                  usd: this.$props.metrics.totalRequestedFundingUsd,
+                  usd: this.addPunctuation(this.$props.metrics.totalRequestedFundingUsd),
                 }),
           imageURL: require('@/assets/images/icons/transaction.svg'),
         },
         {
           title: this.$t('daoRoundData.totalVotes'),
           daoInfo: this.$t('general.ocean', {
-            ocean: this.$props.metrics.totalVotes,
+            ocean: this.addPunctuation(this.$props.metrics.totalVotes),
           }),
           imageURL: require('@/assets/images/icons/vote.svg'),
         },

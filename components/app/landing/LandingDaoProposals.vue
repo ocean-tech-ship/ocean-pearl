@@ -44,9 +44,7 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block"
-                  :src="
-                    daoProposal.project.logo && daoProposal.project.logo.url
-                  "
+                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
                   :alt="daoProposal.project.title"
                   :size="45"
                 />
@@ -80,19 +78,16 @@
                 </p>
               </div>
               <p
-                v-if="
-                  daoProposal.requestedGrantUsd &&
-                  daoProposal.requestedGrantUsd > 0
-                "
+                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
                 class="small-text"
               >
-                {{ $t('general.usd', { usd: daoProposal.requestedGrantUsd }) }}
+                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
               </p>
 
               <p v-else class="small-text">
                 {{
                   $t('general.ocean', {
-                    ocean: daoProposal.requestedGrantToken,
+                    ocean: addPunctuation(daoProposal.requestedGrantToken),
                   })
                 }}
               </p>
@@ -116,7 +111,8 @@
 <script>
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
+import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingDaoProposalsSkeletonCard from '@/components/app/landing/LandingDaoProposalsSkeletonCard.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
@@ -131,7 +127,7 @@ export default {
     AppSkeletonCardList,
   },
 
-  mixins: [ProjectBeautifyId],
+  mixins: [ProjectBeautifyId, Numbers],
 
   props: {
     daoProposals: {

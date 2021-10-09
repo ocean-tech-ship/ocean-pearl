@@ -66,13 +66,32 @@ export const actions = {
 
     const formData = new FormData()
 
-    for (const [key, value] of Object.entries(payload)) {
+    Object.entries(payload).forEach(entry => {
+      const [key, value] = entry;
+
       if (Array.isArray(value)) {
-        value.forEach((val) => formData.append(val !== Object(val) ? `${key}[]` : key, val))
+        value.forEach((val) =>
+          formData.append(val !== Object(val) ? `${key}[]` : key, val)
+        );
+
+      } else if (value instanceof Object) {
+        if(value instanceof File) {
+          formData.append(key, value);
+        } else {
+          Object.keys(value).forEach(objKey =>
+            formData.append(`${key}[${objKey}]`, value[objKey])
+          )
+
+          if(Object.keys(value).length === 0) {
+            // Workaround for clearing empty objects. Otherwise it won't be transmitted.
+            formData.append(`${key}[clear]`, '')
+          }
+        }
+
       } else {
-        formData.append(key, value)
+        formData.append(key, String(value))
       }
-    }
+    })
 
     try {
       const response = await updateProject(
@@ -85,7 +104,7 @@ export const actions = {
       commit('info', this.$i18n.t('manage.project.changed'))
     } catch (error) {
       if (error.response) {
-        const status = error.response.status
+        const {status} = error.response
 
         if (status === 401) {
           // Authentication failure / timeout
