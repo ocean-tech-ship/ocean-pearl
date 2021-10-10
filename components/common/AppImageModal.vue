@@ -18,6 +18,10 @@
           items-center
           justify-center
           bg-secondary
+          transition
+          duration-300
+          ease-in-out
+          hover:scale-125
         "
         @click="$emit('close')"
       >
@@ -25,7 +29,7 @@
       </button>
 
       <img
-        class="m-auto block w-3/4 max-w-1440 h-full object-contain"
+        class="m-auto block w-11/12 lg:w-3/4 max-w-1440 h-full object-contain"
         :src="src"
         alt=""
       />

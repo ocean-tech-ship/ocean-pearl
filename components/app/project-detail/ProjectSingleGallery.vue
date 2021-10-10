@@ -40,7 +40,7 @@
     <div v-else>
       <transition-group
         tag="div"
-        class="overflow-hidden relative w-full h-80"
+        class="overflow-hidden relative w-full h-64 lg:h-80"
         :name="currentIndex < previousIndex ? 'slide-backward' : 'slide'"
       >
         <div v-for="i in [currentIndex]" :key="i">
@@ -54,7 +54,8 @@
               right-0
               object-contain
               w-full
-              h-80
+              h-64
+              lg:h-80
               hover:opacity-70
               ease-in-out
               duration-300
