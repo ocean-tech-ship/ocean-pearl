@@ -45,6 +45,7 @@
       >
         <div v-for="i in [currentIndex]" :key="i">
           <img
+            v-touch:swipe="onSwipe"
             class="
               absolute
               top-0
@@ -133,6 +134,14 @@ export default {
 
     previous() {
       this.goTo(this.currentIndex - 1);
+    },
+
+    onSwipe(direction) {
+      if (direction === 'left') {
+        this.next();
+      } else if (direction === 'right') {
+        this.previous();
+      }
     }
   },
 };
