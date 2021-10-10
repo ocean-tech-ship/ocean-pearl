@@ -28,10 +28,11 @@
         items-center
         justify-center
         min-h-screen
-        overflow-y-auto
       "
     >
-      <div class="cardModal rounded bg-white shadow p-4 sm:p-8 m-6 md:m-0">
+      <div
+        class="cardModal rounded bg-white shadow p-4 sm:p-8 m-2 sm:m-4 md:m-0"
+      >
         <div class="flex items-center sm:mb-4">
           <span
             class="
@@ -60,18 +61,18 @@
               <span class="mdi mdi-open-in-new" /> </app-link
             >, your email to us will be automatically encrypted.
           </p>
-          <div class="flex mt-2 flex-wrap">
+          <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-2">
             <app-button
-              class="my-2 mr-2"
+              text-class="small-text"
               :icon="require('@/assets/images/detail/copy-primary.svg')"
-              :text="$t(btnCopyEmailTitle)"
+              :text="btnCopyEmailTitle"
               secondary
               @click="copyEmail()"
             />
             <app-button
-              class="my-2"
+              text-class="small-text"
               :icon="require('@/assets/images/detail/copy-primary.svg')"
-              :text="$t(btnCopyPGPTitle)"
+              :text="btnCopyPGPTitle"
               secondary
               @click="copyPGP()"
             />
@@ -198,9 +199,10 @@ export default {
   z-index: 999;
 }
 .cardModal {
+  z-index: 1000;
+  overflow-y: auto;
   @media screen and (min-width: 768px) {
     width: 670px;
   }
-  z-index: 1000;
 }
 </style>
