@@ -92,7 +92,6 @@ export default {
 
   data() {
     return {
-      timer: null,
       previousIndex: 0,
       currentIndex: 0,
       showModal: false,
@@ -113,15 +112,7 @@ export default {
     },
   },
 
-  mounted() {
-    // this.startSlide();
-  },
-
   methods: {
-    startSlide() {
-      this.timer = setInterval(this.next, 6000);
-    },
-
     goTo(index) {
       this.previousIndex = this.currentIndex;
       this.currentIndex = index >= this.numberOfPictures || index < 0
