@@ -27,7 +27,7 @@
       class="inline-block mr-2"
       width="20"
     />
-    <span> {{ text }} </span>
+    <span :class="textClass"> {{ text }} </span>
   </button>
 </template>
 
@@ -41,6 +41,10 @@ export default {
       default: '',
     },
     text: {
+      type: String,
+      default: '',
+    },
+    textClass: {
       type: String,
       default: '',
     },
