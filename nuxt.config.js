@@ -27,6 +27,7 @@ export default {
             },
             { hid: 'description', name: 'description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
             { hid: 'robots', name: 'robots', content: 'index, follow' },
+            { hid: 'theme-color', name: 'theme-color', content: '#BB2C75' },
             { hid: 'og:type', property: 'og:type', content: 'website' },
             { hid: 'og:title', property: 'og:title', content: 'Ocean Pearl' },
             { hid: 'og:description', property: 'og:description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
