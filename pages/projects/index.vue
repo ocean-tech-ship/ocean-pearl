@@ -79,7 +79,7 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: 'Get an overview of all projects that are in the Ocean ecosystem.',
+          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
         {
           hid: 'og:title',
@@ -89,7 +89,7 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Get an overview of all projects that are in the Ocean ecosystem.',
+          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
         {
           hid: 'og:url',
@@ -104,7 +104,7 @@ export default Vue.extend({
         {
           hid: 'twitter:description',
           property: 'twitter:description',
-          content: 'Get an overview of all projects that are in the Ocean ecosystem.',
+          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
       ],
       link: [
