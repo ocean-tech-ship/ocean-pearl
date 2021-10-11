@@ -94,43 +94,5 @@ export default Vue.extend({
       this.daoProposals = [];
     }
   },
-
-  head() {
-    return {
-      meta: [
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          hid: 'twitter:site',
-          name: 'twitter:site',
-          content: '@oceanpearlio',
-        },
-        {
-          hid: 'og:url',
-          name: 'og:url',
-          content: 'https://oceanpearl.io',
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          content: 'Ocean Pearl',
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content:
-            'We are on track with the newest projects powered by the Ocean Protocol.',
-        },
-        {
-          hid: 'og:image',
-          name: 'og:image',
-          content: 'https://oceanpearl.io/pearl-background.jpg',
-        },
-      ],
-    };
-  },
 });
 </script>
