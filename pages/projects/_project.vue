@@ -138,8 +138,55 @@ export default Vue.extend({
 
   head() {
     return {
-      title: `Ocean Pearl | ${this.project.title}`,
-      meta: this.createTags(),
+      title: this.project.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.project.description,
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: this.project.title,
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: this.project.description,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.project.logo?.url,
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${process.env.NUXT_ENV_ROOT_URL}/projects/${this.beautifyProjectId(this.project)}`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `${this.project.title} | Ocean Pearl`,
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: this.project.description,
+        },
+        {
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: this.project.logo?.url,
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.NUXT_ENV_ROOT_URL}/projects/${this.beautifyProjectId(this.project)}`,
+        },
+      ]
     };
   },
 
@@ -150,7 +197,7 @@ export default Vue.extend({
   },
 
   mounted() {
-    history.replaceState(
+    window.history.replaceState(
       {},
       null,
       `/projects/${this.beautifyProjectId(this.project)}`,

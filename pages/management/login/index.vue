@@ -86,5 +86,54 @@ export default Vue.extend({
   },
 
   middleware: ['session'],
+
+  head() {
+    return {
+      title: 'Login',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+        },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content: 'index, nofollow',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Login',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${process.env.NUXT_ENV_ROOT_URL}/management/login`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `Login | Ocean Pearl`,
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: `${process.env.NUXT_ENV_ROOT_URL}/management/login`,
+        },
+      ]
+    }
+  }
 })
 </script>
