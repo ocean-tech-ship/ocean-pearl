@@ -13,14 +13,17 @@
       :to="explorerUrl"
     >
       <app-icon
-        class="mdi mdi-open-in-new text-primary"
-        :hint="$t('project.proposal.wallet.view')"
+        class="text-primary"
+        :size="16"
+        :path="mdiOpenInNew"
+        :tooltip="$t('project.proposal.wallet.view')"
       />
     </app-link>
   </div>
 </template>
 
 <script>
+import { mdiOpenInNew } from '@mdi/js';
 import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
@@ -40,6 +43,12 @@ export default {
       required: true,
       default: '',
     },
+  },
+
+  data() {
+    return {
+      mdiOpenInNew,
+    };
   },
 
   computed: {
