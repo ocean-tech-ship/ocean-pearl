@@ -90,6 +90,7 @@ export default {
         'nuxt-i18n',
         '@nuxtjs/axios',
         'cookie-universal-nuxt',
+        '@nuxtjs/sitemap',
     ],
 
     dateFns: {
