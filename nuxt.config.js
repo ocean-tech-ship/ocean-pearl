@@ -26,12 +26,11 @@ export default {
                 content: 'width=device-width, initial-scale=1',
             },
             { hid: 'description', name: 'description', content: 'Community-based project tracking platform for the Ocean ecosystem with an early focus on the OceanDAO community.' },
-            { hid: 'robots', name: 'robots', content: 'index,follow' },
+            { hid: 'robots', name: 'robots', content: 'index, follow' },
             { hid: 'og:type', property: 'og:type', content: 'website' },
             { hid: 'og:title', property: 'og:title', content: 'Ocean Pearl' },
             { hid: 'og:description', property: 'og:description', content: 'Community-based project tracking platform for the Ocean ecosystem with an early focus on the OceanDAO community.' },
             { hid: 'og:image', property: 'og:image', content: `${process.env.NUXT_ENV_ROOT_URL}/pearl-background.jpg` },
-            { hid: 'og:url', property: 'og:url', content: process.env.NUXT_ENV_ROOT_URL },
             { hid: 'og:site_name', property: 'og:site_name', content: 'Ocean Pearl' },
             { hid: 'twitter:card', property: 'twitter:card', content: 'summary' },
             { hid: 'twitter:title', property: 'twitter:title', content: 'Ocean Pearl' },
@@ -42,7 +41,6 @@ export default {
         ],
         link: [
           { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-          { rel: 'canonical', href: process.env.NUXT_ENV_ROOT_URL },
         ],
     },
 

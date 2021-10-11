@@ -94,5 +94,20 @@ export default Vue.extend({
       this.daoProposals = [];
     }
   },
+
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: process.env.NUXT_ENV_ROOT_URL,
+        },
+      ],
+      link: [
+        { rel: 'canonical', href: process.env.NUXT_ENV_ROOT_URL },
+      ],
+    }
+  },
 });
 </script>
