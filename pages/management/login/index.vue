@@ -114,7 +114,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${process.env.NUXT_ENV_ROOT_URL}/management/login`,
+          content: `${this.$config.rootURL}/management/login`,
         },
         {
           hid: 'twitter:title',
@@ -130,7 +130,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.NUXT_ENV_ROOT_URL}/management/login`,
+          href: `${this.$config.rootURL}/management/login`,
         },
       ]
     }

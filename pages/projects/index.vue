@@ -94,7 +94,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${process.env.NUXT_ENV_ROOT_URL}/projects`,
+          content: `${this.$config.rootURL}/projects`,
         },
         {
           hid: 'twitter:title',
@@ -108,7 +108,7 @@ export default Vue.extend({
         },
       ],
       link: [
-        { rel: 'canonical', href: `${process.env.NUXT_ENV_ROOT_URL}/projects` },
+        { rel: 'canonical', href: `${this.$config.rootURL}/projects` },
       ]
     }
   },

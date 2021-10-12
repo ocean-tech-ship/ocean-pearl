@@ -14,35 +14,37 @@ export default {
     target: 'server',
 
     // Global page headers: https://go.nuxtjs.dev/config-head
-    head: {
+    head() {
+      return {
         titleTemplate: (titleChunk) => titleChunk ? `${titleChunk} | Ocean Pearl` : 'Ocean Pearl',
         htmlAttrs: {
-            lang: 'en',
+          lang: 'en',
         },
         meta: [
-            { charset: 'utf-8' },
-            {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-            },
-            { hid: 'description', name: 'description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
-            { hid: 'robots', name: 'robots', content: 'index, follow' },
-            { hid: 'theme-color', name: 'theme-color', content: '#BB2C75' },
-            { hid: 'og:type', property: 'og:type', content: 'website' },
-            { hid: 'og:title', property: 'og:title', content: 'Ocean Pearl' },
-            { hid: 'og:description', property: 'og:description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
-            { hid: 'og:image', property: 'og:image', content: `${process.env.NUXT_ENV_ROOT_URL}/pearl-background.jpg` },
-            { hid: 'og:site_name', property: 'og:site_name', content: 'Ocean Pearl' },
-            { hid: 'twitter:card', property: 'twitter:card', content: 'summary' },
-            { hid: 'twitter:title', property: 'twitter:title', content: 'Ocean Pearl' },
-            { hid: 'twitter:description', property: 'twitter:description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
-            { hid: 'twitter:image', property: 'twitter:image', content: `${process.env.NUXT_ENV_ROOT_URL}/pearl-background.jpg` },
-            { hid: 'twitter:site', property: 'twitter:site', content: '@oceanpearlio' },
-            { hid: 'twitter:creator', property: 'twitter:creator', content: '@oceanpearlio' },
+          { charset: 'utf-8' },
+          {
+            name: 'viewport',
+            content: 'width=device-width, initial-scale=1',
+          },
+          { hid: 'description', name: 'description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
+          { hid: 'robots', name: 'robots', content: 'index, follow' },
+          { hid: 'theme-color', name: 'theme-color', content: '#BB2C75' },
+          { hid: 'og:type', property: 'og:type', content: 'website' },
+          { hid: 'og:title', property: 'og:title', content: 'Ocean Pearl' },
+          { hid: 'og:description', property: 'og:description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
+          { hid: 'og:image', property: 'og:image', content: `${process.env.NUXT_ENV_ROOT_URL}/pearl-background.jpg` },
+          { hid: 'og:site_name', property: 'og:site_name', content: 'Ocean Pearl' },
+          { hid: 'twitter:card', property: 'twitter:card', content: 'summary' },
+          { hid: 'twitter:title', property: 'twitter:title', content: 'Ocean Pearl' },
+          { hid: 'twitter:description', property: 'twitter:description', content: 'Community-based project tracking platform for the Ocean Protocol ecosystem with an early focus on the OceanDAO community.' },
+          { hid: 'twitter:image', property: 'twitter:image', content: `${process.env.NUXT_ENV_ROOT_URL}/pearl-background.jpg` },
+          { hid: 'twitter:site', property: 'twitter:site', content: '@oceanpearlio' },
+          { hid: 'twitter:creator', property: 'twitter:creator', content: '@oceanpearlio' },
         ],
         link: [
           { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         ],
+      };
     },
 
     // Global CSS: https://go.nuxtjs.dev/config-css
