@@ -213,31 +213,5 @@ export default Vue.extend({
       `/projects/${this.beautifyProjectId(this.project)}`,
     );
   },
-
-  methods: {
-    createTags() {
-      const meta = [];
-
-      meta.push(this.addTag('title', `Ocean Pearl | ${this.project.title}`));
-      meta.push(this.addTag('description', this.project.description));
-
-      // og tags
-      meta.push(this.addTag('og:title', this.project.title));
-      meta.push(this.addTag('og:description', this.project.description));
-      meta.push(this.addTag('og:site_name', 'Ocean Pearl'));
-      meta.push(this.addTag('og:type', 'website'));
-      this.coverImage && meta.push(this.addTag('og:image', this.coverImage));
-
-      return meta;
-    },
-
-    addTag(property, content) {
-      return {
-        hid: property,
-        property,
-        content,
-      };
-    },
-  },
 });
 </script>
