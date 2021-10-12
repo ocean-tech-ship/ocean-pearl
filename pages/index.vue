@@ -101,11 +101,11 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: process.env.NUXT_ENV_ROOT_URL,
+          content: this.$config.rootURL,
         },
       ],
       link: [
-        { rel: 'canonical', href: process.env.NUXT_ENV_ROOT_URL },
+        { rel: 'canonical', href: this.$config.rootURL },
       ],
     }
   },

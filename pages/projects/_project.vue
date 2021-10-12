@@ -163,7 +163,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${process.env.NUXT_ENV_ROOT_URL}/projects/${this.beautifyProjectId(this.project)}`,
+          content: `${this.$config.rootURL}/projects/${this.beautifyProjectId(this.project)}`,
         },
         {
           hid: 'twitter:title',
@@ -184,7 +184,7 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `${process.env.NUXT_ENV_ROOT_URL}/projects/${this.beautifyProjectId(this.project)}`,
+          href: `${this.$config.rootURL}/projects/${this.beautifyProjectId(this.project)}`,
         },
       ]
     };

@@ -140,7 +140,7 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${process.env.NUXT_ENV_ROOT_URL}/dao-proposals`,
+          content: `${this.$config.rootURL}/dao-proposals`,
         },
         {
           hid: 'twitter:title',
@@ -154,7 +154,7 @@ export default Vue.extend({
         },
       ],
       link: [
-        { rel: 'canonical', href: `${process.env.NUXT_ENV_ROOT_URL}/dao-proposals` },
+        { rel: 'canonical', href: `${this.$config.rootURL}/dao-proposals` },
       ]
     }
   },
