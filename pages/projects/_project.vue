@@ -1,76 +1,67 @@
 <template>
   <div>
-    <!-- error visualization -->
-    <section-container v-if="error">
-      <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-      <p class="small-text">{{ $t(error) }}</p>
+    <section-container>
+      <hr class="text-darkgrey hidden md:block" />
+      <project-single-header class="my-8" :project="project" />
     </section-container>
 
-    <!-- content -->
-    <div v-if="project">
-      <section-container>
-        <hr class="text-darkgrey hidden md:block" />
-        <project-single-header class="my-8" :project="project" />
+    <div class="bg-grey py-8 md:py-16">
+      <!-- design with gallery -->
+      <section-container
+        v-if="project.pictures && project.pictures.length > 0"
+      >
+        <div class="grid gap-8 xl:grid-cols-2">
+          <div>
+            <project-single-description :project="project" />
+            <project-single-team class="py-4" :project="project" />
+          </div>
+
+          <div>
+            <project-single-gallery :project="project" />
+            <project-single-socials
+              class="py-4 lg:justify-start"
+              :project="project"
+            />
+          </div>
+        </div>
+
+        <hr class="text-primary my-8" />
+
+        <project-single-dao-proposal-header class="pb-4" />
+
+        <div class="block 2xl:flex 2xl:justify-between">
+          <div class="pb-8 2xl:pb-0">
+            <project-single-dao-proposal-metrics :project="project" />
+          </div>
+          <div>
+            <project-single-dao-proposal-history :project="project" />
+          </div>
+        </div>
       </section-container>
 
-      <div class="bg-grey py-8 md:py-16">
-        <!-- design with gallery -->
-        <section-container
-          v-if="project.pictures && project.pictures.length > 0"
-        >
-          <div class="grid gap-8 xl:grid-cols-2">
-            <div>
-              <project-single-description :project="project" />
-              <project-single-team class="py-4" :project="project" />
-            </div>
-
-            <div>
-              <project-single-gallery :project="project" />
-              <project-single-socials
-                class="py-4 lg:justify-start"
-                :project="project"
-              />
-            </div>
+      <!-- without gallery -->
+      <section-container v-else>
+        <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
+          <div>
+            <project-single-description :project="project" />
+            <project-single-socials
+              class="py-4 justify-start"
+              :project="project"
+            />
+            <project-single-team class="py-4" :project="project" />
           </div>
 
-          <hr class="text-primary my-8" />
-
-          <project-single-dao-proposal-header class="pb-4" />
-
-          <div class="block 2xl:flex 2xl:justify-between">
-            <div class="pb-8 2xl:pb-0">
-              <project-single-dao-proposal-metrics :project="project" />
-            </div>
-            <div>
-              <project-single-dao-proposal-history :project="project" />
-            </div>
+          <div>
+            <project-single-dao-proposal-header class="pb-4" />
+            <project-single-dao-proposal-metrics :project="project" />
           </div>
-        </section-container>
+        </div>
 
-        <!-- without gallery -->
-        <section-container v-else>
-          <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
-            <div>
-              <project-single-description :project="project" />
-              <project-single-socials
-                class="py-4 justify-start"
-                :project="project"
-              />
-              <project-single-team class="py-4" :project="project" />
-            </div>
-
-            <div>
-              <project-single-dao-proposal-header class="pb-4" />
-              <project-single-dao-proposal-metrics :project="project" />
-            </div>
-          </div>
-
-          <project-single-dao-proposal-history
-            class="mt-4 xl:mt-8"
-            :project="project"
-          />
-        </section-container>
-      </div>
+        <project-single-dao-proposal-history
+          class="mt-4 xl:mt-8"
+          :project="project"
+        />
+      </section-container>
     </div>
   </div>
 </template>
@@ -107,19 +98,12 @@ export default Vue.extend({
 
   mixins: [ProjectBeautifyId],
 
-  async asyncData({ $axios, params }) {
+  async asyncData({ $axios, params, error, i18n }) {
     try {
       const response = await getProjectById(
         $axios,
         ProjectBeautifyId.methods.readBeautifiedProjectId(params.project),
       );
-
-      if (response.status === 204) {
-        return {
-          error: 'project.unknown',
-          project: null,
-        };
-      }
 
       return {
         error: null,
@@ -128,11 +112,12 @@ export default Vue.extend({
             ? response.data.project
             : response.data,
       };
-    } catch (error) {
-      return {
-        error: 'general.error.retry',
-        project: null,
-      };
+    } catch (ex) {
+      if (ex?.response?.status === 404) {
+        return error({ statusCode: 404, message: i18n.t('project.unknown') });
+      }
+
+      return error({ statusCode: 500, message: i18n.t('general.error.retry') });
     }
   },
 
