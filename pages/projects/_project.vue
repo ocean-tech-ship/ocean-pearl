@@ -158,7 +158,22 @@ export default Vue.extend({
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.project.logo?.url,
+          content: this.project.logo?.url ? this.project.logo.url : null,
+        },
+        {
+          hid: 'og:image:alt',
+          property: 'og:image:alt',
+          content: this.project.logo?.url ? `${this.project.title} Logo` : null,
+        },
+        {
+          hid: 'og:image:width',
+          property: 'og:image:width',
+          content: this.project.logo?.url ? 64 : null,
+        },
+        {
+          hid: 'og:image:height',
+          property: 'og:image:height',
+          content: this.project.logo?.url ? 64 : null,
         },
         {
           hid: 'og:url',
@@ -178,7 +193,17 @@ export default Vue.extend({
         {
           hid: 'twitter:image',
           property: 'twitter:image',
-          content: this.project.logo?.url,
+          content: this.project.logo?.url ? this.project.logo.url : null,
+        },
+        {
+          hid: 'twitter:image:width',
+          property: 'twitter:image:width',
+          content: this.project.logo?.url ? 64 : null,
+        },
+        {
+          hid: 'twitter:image:height',
+          property: 'twitter:image:height',
+          content: this.project.logo?.url ? 64 : null,
         },
       ],
       link: [
