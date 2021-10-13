@@ -68,7 +68,7 @@
     "miragejs": "^0.1.42",
     "node-sass": "^5.0.0",
     "prettier": "^2.4.1",
-    "sass-loader": "^10.2.0",
+    "sass-loader": "^12.2.0",
     "ts-jest": "^26.5.6",
     "vue-jest": "^3.0.4"
   }
