@@ -2,6 +2,9 @@
   <div>
     <span class="text-primary small-text">
       {{ $t('manage.project.pictures.title') }}
+      <span class="text-third">
+        {{ `(${totalPicturesCount} / ${PICTURE_MAX_COUNT})`}}
+      </span>
     </span>
 
     <div class="grid gap-4 grid-cols-1 md:grid-cols-2 mt-2">
@@ -38,6 +41,7 @@
           secondary
           :text="$t('manage.project.pictures.upload')"
           :accept="PICTURE_ALLOWED_TYPES"
+          multiple
           @change="uploadPicture($event)"
         />
       </div>
@@ -74,6 +78,10 @@ export default {
   },
 
   computed: {
+    totalPicturesCount() {
+      return this.pictures.length + this.newPicsPreview.length;
+    },
+
     pictures() {
       return this.$props.project.pictures.filter(
         (pic) => !this.deletedIds.includes(pic.key)
@@ -86,6 +94,7 @@ export default {
       // Reset if project gets switched
       this.deletedIds = [];
       this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index));
+      this.newPicsPreview = [];
     },
   },
 
@@ -108,13 +117,13 @@ export default {
     },
 
     uploadPicture(handler) {
-      if (handler.target.files.length !== 1) {
+      if (handler.target.files.length + this.totalPicturesCount > this.PICTURE_MAX_COUNT) {
+        this.$store.commit('account/error',
+          this.$t('manage.project.pictures.limit', {
+            count: this.PICTURE_MAX_COUNT})
+        );
         return;
       }
-
-      // Delete previous images because we only support one image ATM
-      this.$props.project.pictures.forEach((pic) => this.deletePicture(pic.key));
-      this.newPics.forEach((pic, index) => this.deleteNewPicture(pic, index));
 
       for (const file of handler.target.files) {
         if (!this.PICTURE_ALLOWED_TYPES.includes(file.type)) {
