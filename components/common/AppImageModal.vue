@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .zoom-enter-active {
   animation: zoom .2s;
 }
