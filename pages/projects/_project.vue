@@ -19,7 +19,7 @@
           <div>
             <project-single-gallery :project="project" />
             <project-single-socials
-              class="py-4 lg:justify-start"
+              class="py-4 justify-around"
               :project="project"
             />
           </div>

@@ -1,7 +1,14 @@
 <template>
   <a :href="url" target="_blank" rel="noopener noreferrer">
     <img
-      class="h-8 w-8"
+      class="
+        h-8
+        w-8
+        transition
+        duration-300
+        ease-in-out
+        hover:scale-125
+      "
       :src="getIcon(type)"
       :alt="type + ' ' + $t('general.logo')"
     />
@@ -35,5 +42,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

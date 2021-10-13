@@ -1,12 +1,12 @@
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center break-all">
     <jazzicon
-      class="flex items-center mr-2"
+      class="flex items-center w-5 h-5 mr-2"
       :diameter="20"
       :address="address"
     />
 
-    <span class="break-all">{{ address }}</span>
+    <span>{{ address }}</span>
 
     <app-link
       class="ml-1"

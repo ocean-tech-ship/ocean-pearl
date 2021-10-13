@@ -73,7 +73,7 @@
       v-if="Object.values(socials).length === 0"
       class="small-text"
     >
-      /
+      {{ $t('manage.project.socials.empty') }}
     </p>
   </div>
 </template>
