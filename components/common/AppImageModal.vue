@@ -1,5 +1,5 @@
 <template>
-  <transition name="zoom">
+  <transition name="fade">
     <div
       v-if="show"
       class="fixed z-50 pt-20 pb-20 left-0 top-0 w-full h-full overflow-auto bg-grey"
@@ -69,13 +69,13 @@ export default {
 </script>
 
 <style scoped>
-.zoom-enter-active {
-  animation: zoom .2s;
+.fade-enter-active {
+  animation: fade .2s;
 }
-.zoom-leave-active {
-  animation: zoom .2s reverse;
+.fade-leave-active {
+  animation: fade .2s reverse;
 }
-@keyframes zoom {
+@keyframes fade {
   0% {
     opacity: 0;
   }
