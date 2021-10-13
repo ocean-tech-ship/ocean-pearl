@@ -2,7 +2,7 @@
   <transition name="zoom">
     <div
       v-if="show"
-      class="fixed z-50 pt-20 pb-20 left-0 top-0 w-full h-full overflow-auto bg-grey bg-opacity-70"
+      class="fixed z-50 pt-20 pb-20 left-0 top-0 w-full h-full overflow-auto bg-grey"
     >
       <button
         type="button"
@@ -68,19 +68,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 .zoom-enter-active {
-  animation: zoom .5s;
+  animation: zoom .2s;
 }
 .zoom-leave-active {
-  animation: zoom .5s reverse;
+  animation: zoom .2s reverse;
 }
 @keyframes zoom {
   0% {
-    transform: scale(0);
+    opacity: 0;
   }
   100% {
-    transform: scale(1);
+    opacity: 1;
   }
 }
 </style>
