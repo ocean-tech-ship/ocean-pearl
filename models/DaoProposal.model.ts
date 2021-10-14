@@ -1,4 +1,4 @@
-import DaoProposalStatusEnum from '../enums/DaoProposalStatus.enum';
+import DaoProposalStatusEnum from '../components/enums/DaoProposalStatus.enum';
 import { Deliverable } from './Deliverable.model';
 import { Project } from './Project.model';
 import { Round } from './Round.model';
