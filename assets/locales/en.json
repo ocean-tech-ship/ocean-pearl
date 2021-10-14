@@ -171,6 +171,12 @@
       "titleHighlight": "space"
     }
   },
+  "leaderboard": {
+    "meta": {
+      "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
+      "title": "Leaderboard"
+    }
+  },
   "manage": {
     "admins": "Administrators",
     "auth": {
