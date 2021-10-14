@@ -35,6 +35,11 @@ export function getDaoRoundMetrics(axios) {
   return axios.get('/metrics'); // dont filter for data object
 }
 
+// leaderboard
+export function getLeaderboard(axios) {
+  return axios.$get('/leaderboard');
+}
+
 // account login
 export function login(axios, payload) {
   return axios.post('/account/login', payload, { withCredentials: true });
