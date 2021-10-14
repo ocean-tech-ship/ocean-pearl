@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { SocialMedia } from '@/model/SocialMedia';
+import { SocialMedia } from '@/models/SocialMedia';
 
 export default {
   name: 'ProjectSingleSocialsItem',

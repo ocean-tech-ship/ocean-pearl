@@ -80,7 +80,7 @@
 
 <script>
 import { mdiLinkPlus } from '@mdi/js';
-import { SocialMedia } from '@/model/SocialMedia';
+import { SocialMedia } from '@/models/SocialMedia';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
