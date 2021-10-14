@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import createHead from './index.head';
+import createHead from '@/pages/leaderboard/index.head';
 import Vue from 'vue';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 
