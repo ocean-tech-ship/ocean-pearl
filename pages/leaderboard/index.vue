@@ -13,6 +13,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { getLeaderboard } from '@/api';
+import getExampleResult from '@/pages/leaderboard/ExampleResult';
 import { Leaderboard } from '@/models/Leaderboard.model';
 import createHead from '@/pages/leaderboard/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
@@ -27,7 +28,9 @@ export default Vue.extend({
   },
 
   async fetch() {
-    this.$data.leaderboard = await getLeaderboard(this.$axios);
+    // this.$data.leaderboard = await getLeaderboard(this.$axios);
+    // Faked leaderboard results for easy build
+    this.$data.leaderboard = await getExampleResult();
   },
 
   head() {
