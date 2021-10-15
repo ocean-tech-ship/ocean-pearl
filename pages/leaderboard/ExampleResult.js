@@ -36,6 +36,7 @@ export default function getExampleResult() {
         "noVotes": 2485876,
         "effectiveVotes": 4425715,
         "tags": [
+          "earmarked",
           "unleashData"
         ],
         "completedProposals": 1,
