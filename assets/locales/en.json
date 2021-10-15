@@ -175,7 +175,19 @@
     "meta": {
       "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
       "title": "Leaderboard"
-    }
+    },
+    "proposal": {
+      "rank": "rank icon",
+      "votes": {
+        "no": "No Votes",
+        "yes": "Yes Votes"
+      }
+    },
+    "subtitle": "An overview of the current distribution  of votes on the proposals of the current OceanDAO round.",
+    "title": [
+      "DAO",
+      "leaderboard"
+    ]
   },
   "manage": {
     "admins": "Administrators",
