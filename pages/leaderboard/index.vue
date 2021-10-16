@@ -9,21 +9,30 @@
         <!-- TODO: round, countdown, legend -->
 
         <div class="space-y-4">
-          <funded-proposal
+          <leaderboard-proposal
             v-for="(prop, index) in leaderboard.fundedProposals"
             :key="prop.id"
             :proposal="prop"
             :index="index + 1"
             :max-votes="leaderboard.maxVotes"
+            primary
           />
         </div>
       </section-container>
     </app-gradient-background>
 
-    <section-container>
+    <section-container class="py-5">
       <!-- TODO: round, countdown, legend -->
 
-      <!-- TODO: pending proposals -->
+      <div class="border rounded border-primary divide-y divide-darkgrey">
+        <leaderboard-proposal
+          v-for="(prop, index) in leaderboard.notFundedProposals"
+          :key="prop.id"
+          :proposal="prop"
+          :index="index + 1 + leaderboard.fundedProposals.length"
+          :max-votes="leaderboard.maxVotes"
+        />
+      </div>
     </section-container>
   </div>
 </template>
@@ -37,10 +46,10 @@ import createHead from '@/pages/leaderboard/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import LeaderboardHeader from '~/components/app/leaderboard/LeaderboardHeader.vue';
 import AppGradientBackground from '~/components/common/AppPrimaryGradientBackground.vue';
-import FundedProposal from '~/components/app/leaderboard/FundedProposal.vue';
+import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
 
 export default Vue.extend({
-  components: { FundedProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

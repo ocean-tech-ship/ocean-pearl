@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-white rounded shadow flex items-stretch divide-x divide-darkgrey">
+  <div
+    :class="{ 'rounded shadow': primary }"
+    class="bg-white flex items-stretch divide-x divide-darkgrey"
+  >
     <div class="p-2 px-5 flex items-center w-3/5">
       <!-- logo -->
       <div class="pr-3">
@@ -21,7 +24,7 @@
           {{ proposal.title }}
         </span>
 
-        <div class="space-y-1 py-2">
+        <div v-if="primary" class="space-y-1 py-2">
           <app-progressbar :level="(100 / maxVotes) * proposal.yesVotes" />
           <app-progressbar secondary :level="(100 / maxVotes) * proposal.noVotes" />
         </div>
@@ -46,6 +49,11 @@
       </table>
     </div>
 
+    <!-- votes needed (non primary!) -->
+    <div v-if="!primary" class="p-2 px-5 flex items-center justify-center">
+      <span>{{ addPunctuation(proposal.neededVotes) }}</span>
+    </div>
+
     <!-- completed proposals gamification -->
     <div class="p-2 px-5 flex items-center justify-center flex-grow">
       <proposal-badge background :proposal="proposal" />
@@ -68,7 +76,7 @@ import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
 import ProposalVote from '~/components/app/leaderboard/ProposalVote.vue';
 
 export default {
-  name: 'FundedProposal',
+  name: 'LeaderboardProposal',
 
   components: { ProposalVote, ProposalTags, ProposalBadge, AppProgressbar, AppLogo },
 
@@ -88,6 +96,12 @@ export default {
     maxVotes: {
       type: Number,
       required: true,
+    },
+
+    primary: {
+      type: Boolean,
+      required: false,
+      default: false,
     }
   },
 };
