@@ -2,7 +2,10 @@
   <div
     class="bg-white flex items-stretch divide-x divide-darkgrey"
   >
-    <div class="p-2 px-5 flex items-center w-3/5">
+    <div
+      :class="{ 'w-1/2': primary, 'w-2/5': !primary }"
+      class="p-2 px-5 flex items-center"
+    >
       <!-- logo -->
       <div class="pr-3">
         <app-logo
@@ -24,8 +27,8 @@
         </span>
 
         <div v-if="primary" class="space-y-1 py-2">
-          <app-progressbar :level="(100 / maxVotes) * proposal.yesVotes" />
-          <app-progressbar secondary :level="(100 / maxVotes) * proposal.noVotes" />
+          <app-progressbar :level="calcPct(maxVotes, proposal.yesVotes)" />
+          <app-progressbar secondary :level="calcPct(maxVotes, proposal.noVotes)" />
         </div>
 
         <proposal-tags :proposal="proposal" />
@@ -33,7 +36,10 @@
     </div>
 
     <!-- votes -->
-    <div class="p-2 px-5 flex items-center">
+    <div
+      :class="{ 'w-3/12': primary, 'w-1/5': !primary }"
+      class="p-2 px-5 flex items-center justify-center"
+    >
       <table>
         <tbody>
         <tr class="text-primary">
@@ -49,7 +55,7 @@
     </div>
 
     <!-- votes needed (non primary!) -->
-    <div v-if="!primary" class="p-2 px-5 flex items-center justify-center">
+    <div v-if="!primary" class="p-2 px-5 flex items-center justify-center w-1/5">
       <span>{{ addPunctuation(proposal.neededVotes) }}</span>
     </div>
 
@@ -108,5 +114,12 @@ export default {
       default: false,
     },
   },
+
+  methods: {
+    calcPct(maxVotes: number, votes: number): number {
+      const pct = (100 / maxVotes) * votes;
+      return pct <= 0 ? 0.5 : pct;
+    }
+  }
 };
 </script>
