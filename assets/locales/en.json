@@ -190,7 +190,7 @@
         "yes": "Yes Votes"
       }
     },
-    "subtitle": "An overview of the current distribution  of votes on the proposals of the current OceanDAO round.",
+    "subtitle": "An overview of the highest voted proposals decided by the community.",
     "title": [
       "DAO",
       "leaderboard"
