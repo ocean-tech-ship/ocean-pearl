@@ -40,15 +40,15 @@
       :class="{ 'w-3/12': primary, 'w-1/5': !primary }"
       class="p-2 px-5 flex items-center justify-center"
     >
-      <table>
+      <table class="w-full">
         <tbody>
         <tr class="text-primary">
-          <td class="text-right">{{ addPunctuation(proposal.yesVotes) }}</td>
-          <td class="pl-2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
+          <td class="text-right w-1/2">{{ addPunctuation(proposal.yesVotes) }}</td>
+          <td class="pl-2 w-1/2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
         </tr>
         <tr>
-          <td class="text-right">{{ addPunctuation(proposal.noVotes) }}</td>
-          <td class="pl-2">{{ $t('leaderboard.proposal.votes.no') }}</td>
+          <td class="text-right w-1/2">{{ addPunctuation(proposal.noVotes) }}</td>
+          <td class="pl-2 w-1/2">{{ $t('leaderboard.proposal.votes.no') }}</td>
         </tr>
         </tbody>
       </table>
