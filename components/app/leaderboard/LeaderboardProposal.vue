@@ -1,6 +1,5 @@
 <template>
   <div
-    :class="{ 'rounded shadow': primary }"
     class="bg-white flex items-stretch divide-x divide-darkgrey"
   >
     <div class="p-2 px-5 flex items-center w-3/5">
@@ -16,10 +15,10 @@
       <div class="flex-grow">
         <span>
           <span
-            :class="{ 'text-primary': index === 1 }"
+            :class="{ 'text-primary': primary && index === 0 }"
             class="font-bold pr-1"
           >
-            {{ `#${index}` }}
+            {{ `#${index + indexOffset + 1}` }}
           </span>
           {{ proposal.title }}
         </span>
@@ -88,6 +87,11 @@ export default {
       required: true,
     },
 
+    indexOffset: {
+      type: Number,
+      required: true,
+    },
+
     index: {
       type: Number,
       required: true,
@@ -102,7 +106,7 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
 };
 </script>

@@ -13,9 +13,11 @@
             v-for="(prop, index) in leaderboard.fundedProposals"
             :key="prop.id"
             :proposal="prop"
-            :index="index + 1"
+            :index="index"
+            :index-offset="0"
             :max-votes="leaderboard.maxVotes"
             primary
+            class="rounded shadow"
           />
         </div>
       </section-container>
@@ -29,8 +31,10 @@
           v-for="(prop, index) in leaderboard.notFundedProposals"
           :key="prop.id"
           :proposal="prop"
-          :index="index + 1 + leaderboard.fundedProposals.length"
+          :index="index"
+          :index-offset="leaderboard.fundedProposals.length"
           :max-votes="leaderboard.maxVotes"
+          :class="{ 'rounded-t': index === 0, 'rounded-b': index === leaderboard.notFundedProposals.length -1 }"
         />
       </div>
     </section-container>
