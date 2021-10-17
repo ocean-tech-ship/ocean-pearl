@@ -7,7 +7,7 @@
       class="p-2 px-5 flex items-center"
     >
       <!-- logo -->
-      <div class="pr-3">
+      <div class="pr-5">
         <app-logo
           :src="proposal.logo && proposal.logo.url"
           :alt="proposal.title"
@@ -31,7 +31,7 @@
           <app-progressbar secondary :level="calcPct(maxVotes, proposal.noVotes)" />
         </div>
 
-        <proposal-tags :proposal="proposal" />
+        <proposal-tags class="pt-1" :proposal="proposal" />
       </div>
     </div>
 
