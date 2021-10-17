@@ -16,7 +16,7 @@
 
       <!-- details -->
       <div class="flex-grow">
-        <span>
+        <span class="line-clamp-1">
           <span
             :class="{ 'text-primary': primary && index === 0 }"
             class="font-bold pr-1"
