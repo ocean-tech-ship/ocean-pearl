@@ -9,6 +9,10 @@
       flex
       items-center
       justify-center
+      transition
+      duration-300
+      ease-in-out
+      hover:scale-125
     "
   >
     <img
