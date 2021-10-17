@@ -9,6 +9,7 @@ export interface LeaderboardProposal {
   isEarmarked: boolean;
   tags: string[];
   completedProposals: number;
+  logoUrl: string;
   voteUrl: string;
   neededVotes: number;
 }

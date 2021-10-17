@@ -9,7 +9,7 @@
       <!-- logo -->
       <div class="pr-5">
         <app-logo
-          :src="proposal.logo && proposal.logo.url"
+          :src="proposal.logoUrl"
           :alt="proposal.title"
         />
       </div>
