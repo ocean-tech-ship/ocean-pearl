@@ -11,7 +11,7 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
-        <app-report-project :dao-proposal="daoProposal" p-g-p-key="test" />
+        <app-report-modal :dao-proposal="daoProposal" />
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
@@ -131,7 +131,7 @@
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
-import AppReportProject from '@/components/common/AppReportProject.vue';
+import AppReportModal from '@/components/common/AppReportModal.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 
@@ -141,7 +141,7 @@ export default {
   components: {
     AppLogo,
     AppLabel,
-    AppReportProject,
+    AppReportModal,
   },
 
   mixins: [ProjectBeautifyId, Numbers],
