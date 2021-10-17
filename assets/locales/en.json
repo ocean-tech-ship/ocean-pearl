@@ -177,6 +177,13 @@
       "title": "Leaderboard"
     },
     "proposal": {
+      "header": {
+        "action": "Vote now",
+        "completed": "Completed Proposals",
+        "name": "Name",
+        "needed": "Yes Votes needed",
+        "votes": "Votes"
+      },
       "rank": "rank icon",
       "votes": {
         "no": "No Votes",

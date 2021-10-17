@@ -9,6 +9,8 @@
         <!-- TODO: round, countdown, legend -->
 
         <div class="space-y-4">
+          <proposal-header primary />
+
           <leaderboard-proposal
             v-for="(prop, index) in leaderboard.fundedProposals"
             :key="prop.id"
@@ -23,8 +25,9 @@
       </section-container>
     </app-gradient-background>
 
-    <section-container class="py-5">
+    <section-container class="py-5 space-y-4">
       <!-- TODO: round, countdown, legend -->
+      <proposal-header />
 
       <div class="border rounded border-primary divide-y divide-darkgrey">
         <leaderboard-proposal
@@ -51,9 +54,10 @@ import SectionContainer from '@/components/common/SectionContainer.vue';
 import LeaderboardHeader from '~/components/app/leaderboard/LeaderboardHeader.vue';
 import AppGradientBackground from '~/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
+import ProposalHeader from '~/components/app/leaderboard/ProposalHeader.vue';
 
 export default Vue.extend({
-  components: { LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {
