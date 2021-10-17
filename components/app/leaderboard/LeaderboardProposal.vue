@@ -118,7 +118,7 @@ export default {
   methods: {
     calcPct(maxVotes: number, votes: number): number {
       const pct = (100 / maxVotes) * votes;
-      return pct <= 0 ? 0.5 : pct;
+      return pct < 0.5 ? 0.5 : pct;
     }
   }
 };
