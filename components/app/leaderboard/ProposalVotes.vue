@@ -1,17 +1,19 @@
 <template>
-  <table class="w-full">
-    <tbody>
-    <tr class="text-primary">
-      <td class="text-right w-1/2">{{ addPunctuation(proposal.yesVotes) }}</td>
-      <td class="pl-2 w-1/2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td class="text-right w-1/2">{{ addPunctuation(proposal.noVotes) }}</td>
-      <td class="pl-2 w-1/2">{{ $t('leaderboard.proposal.votes.no') }}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div>
+    <table>
+      <tbody>
+      <tr class="text-primary">
+        <td class="w-24 text-right">{{ addPunctuation(proposal.yesVotes) }}</td>
+        <td class="pl-2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td class="w-24 text-right">{{ addPunctuation(proposal.noVotes) }}</td>
+        <td class="w-24 pl-2">{{ $t('leaderboard.proposal.votes.no') }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </template>
 
 <script lang="ts">
