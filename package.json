@@ -22,7 +22,7 @@
     "prettier": "prettier --write './{components,mixins,layouts,pages,miragejs,plugins}/**/*.{ts,js,css,html,vue}'"
   },
   "dependencies": {
-    "@mdi/js": "^6.2.95",
+    "@mdi/js": "^6.3.95",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/sitemap": "^2.4.0",
     "@tailwindcss/line-clamp": "^0.2.2",
