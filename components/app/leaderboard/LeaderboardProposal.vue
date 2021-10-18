@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="bg-white flex items-stretch divide-x divide-darkgrey"
-  >
+  <div class="bg-white flex items-stretch divide-x divide-darkgrey">
     <div
       :class="{ 'w-1/2': primary, 'w-2/5': !primary }"
       class="p-2 px-5 flex items-center"
@@ -16,7 +14,7 @@
 
       <!-- details -->
       <div class="flex-grow">
-        <span class="line-clamp-1">
+        <span class="line-clamp-1 break-all">
           <span
             :class="{ 'text-primary': primary && index === 0 }"
             class="font-bold pr-1"
@@ -31,42 +29,36 @@
           <app-progressbar secondary :level="calcPct(maxVotes, proposal.noVotes)" />
         </div>
 
-        <proposal-tags class="pt-1" :proposal="proposal" />
+        <div>
+          <proposal-tags
+            class="flex flex-wrap"
+            :proposal="proposal"
+          />
+        </div>
       </div>
     </div>
 
     <!-- votes -->
     <div
-      :class="{ 'w-3/12': primary, 'w-1/5': !primary }"
-      class="p-2 px-5 flex items-center justify-center"
+      :class="{ 'w-3/12': primary, 'w-1/3 xl:w-1/5': !primary }"
+      class="p-2 xl:px-5 flex items-center justify-center"
     >
-      <table class="w-full">
-        <tbody>
-        <tr class="text-primary">
-          <td class="text-right w-1/2">{{ addPunctuation(proposal.yesVotes) }}</td>
-          <td class="pl-2 w-1/2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
-        </tr>
-        <tr>
-          <td class="text-right w-1/2">{{ addPunctuation(proposal.noVotes) }}</td>
-          <td class="pl-2 w-1/2">{{ $t('leaderboard.proposal.votes.no') }}</td>
-        </tr>
-        </tbody>
-      </table>
+      <proposal-votes :proposal="proposal" />
     </div>
 
     <!-- votes needed (non primary!) -->
-    <div v-if="!primary" class="p-2 px-5 flex items-center justify-center w-1/5">
+    <div v-if="!primary" class="p-2 xl:px-5 flex items-center justify-center w-1/5">
       <span>{{ addPunctuation(proposal.neededVotes) }}</span>
     </div>
 
     <!-- completed proposals gamification -->
-    <div class="p-2 px-5 flex items-center justify-center flex-grow">
+    <div class="p-2 xl:px-5 flex items-center justify-center flex-grow">
       <proposal-badge background :proposal="proposal" />
     </div>
 
     <!-- vote action -->
-    <div class="p-2 px-5 flex items-center justify-center flex-grow">
-      <proposal-vote background :proposal="proposal" />
+    <div class="p-2 xl:px-5 flex items-center justify-center flex-grow">
+      <proposal-vote-action background :proposal="proposal" />
     </div>
   </div>
 </template>
@@ -78,12 +70,13 @@ import AppProgressbar from '@/components/common/AppProgressbar.vue';
 import Numbers from '@/mixins/Numbers';
 import ProposalBadge from '@/components/app/leaderboard/ProposalBadge.vue';
 import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
-import ProposalVote from '~/components/app/leaderboard/ProposalVote.vue';
+import ProposalVoteAction from '~/components/app/leaderboard/ProposalVoteAction.vue';
+import ProposalVotes from '~/components/app/leaderboard/ProposalVotes.vue';
 
 export default {
   name: 'LeaderboardProposal',
 
-  components: { ProposalVote, ProposalTags, ProposalBadge, AppProgressbar, AppLogo },
+  components: { ProposalVotes, ProposalVoteAction, ProposalTags, ProposalBadge, AppProgressbar, AppLogo },
 
   mixins: [Numbers],
 

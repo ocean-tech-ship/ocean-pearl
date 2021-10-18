@@ -9,7 +9,18 @@
         <!-- TODO: round, countdown, legend -->
 
         <div class="space-y-4">
-          <proposal-header primary />
+          <proposal-header primary class="hidden lg:flex" />
+
+          <mobile-leaderboard-proposal
+            v-for="(prop, index) in leaderboard.fundedProposals"
+            :key="prop.id"
+            :proposal="prop"
+            :index="index"
+            :index-offset="0"
+            :max-votes="leaderboard.maxVotes"
+            primary
+            class="rounded shadow lg:hidden"
+          />
 
           <leaderboard-proposal
             v-for="(prop, index) in leaderboard.fundedProposals"
@@ -19,7 +30,7 @@
             :index-offset="0"
             :max-votes="leaderboard.maxVotes"
             primary
-            class="rounded shadow"
+            class="rounded shadow hidden lg:flex"
           />
         </div>
       </section-container>
@@ -27,9 +38,24 @@
 
     <section-container class="py-5 space-y-4">
       <!-- TODO: round, countdown, legend -->
-      <proposal-header />
 
-      <div class="border rounded border-primary divide-y divide-darkgrey">
+      <div class="hidden lg:block">
+        <proposal-header />
+      </div>
+
+      <div class="lg:hidden space-y-2">
+        <mobile-leaderboard-proposal
+          v-for="(prop, index) in leaderboard.notFundedProposals"
+          :key="prop.id"
+          :proposal="prop"
+          :index="index"
+          :index-offset="leaderboard.fundedProposals.length"
+          :max-votes="leaderboard.maxVotes"
+          class="rounded border-primary border"
+        />
+      </div>
+
+      <div class="border rounded border-primary divide-y divide-darkgrey hidden lg:block">
         <leaderboard-proposal
           v-for="(prop, index) in leaderboard.notFundedProposals"
           :key="prop.id"
@@ -55,9 +81,10 @@ import LeaderboardHeader from '~/components/app/leaderboard/LeaderboardHeader.vu
 import AppGradientBackground from '~/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
 import ProposalHeader from '~/components/app/leaderboard/ProposalHeader.vue';
+import MobileLeaderboardProposal from '~/components/app/leaderboard/MobileLeaderboardProposal.vue';
 
 export default Vue.extend({
-  components: { ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { MobileLeaderboardProposal, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

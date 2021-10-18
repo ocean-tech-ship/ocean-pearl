@@ -28,7 +28,7 @@ import AppIcon from '@/components/common/AppIcon.vue';
 import AppLink from '@/components/common/AppLink.vue';
 
 export default {
-  name: 'ProposalVote',
+  name: 'ProposalVoteAction',
 
   components: { AppLink, AppIcon },
 

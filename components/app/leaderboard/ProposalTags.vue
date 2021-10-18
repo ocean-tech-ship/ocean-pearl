@@ -1,9 +1,9 @@
 <template>
-  <div class="flex space-x-2">
+  <div>
     <div
       v-for="tag in proposal.tags" :key="tag"
       :class="{ 'bg-complementary text-third bg-opacity-70': isEarmark(tag) }"
-      class="rounded p-1 bg-primary bg-opacity-10 small-text text-primary"
+      class="rounded m-0.5 p-1 bg-primary bg-opacity-10 small-text text-primary"
     >
       {{ beautifyTagName(tag) }}
     </div>

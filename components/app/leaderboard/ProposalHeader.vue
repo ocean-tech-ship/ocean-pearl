@@ -7,7 +7,7 @@
       <span>{{ $t('leaderboard.proposal.header.name') }}</span>
     </div>
 
-    <div :class="{ 'w-3/12': primary, 'w-1/5': !primary }" class="text-center">
+    <div :class="{ 'w-3/12': primary, 'w-1/3 xl:w-1/5': !primary }" class="text-center">
       <span>{{ $t('leaderboard.proposal.header.votes') }}</span>
     </div>
 
@@ -15,7 +15,7 @@
       <span>{{ $t('leaderboard.proposal.header.needed') }}</span>
     </div>
 
-    <div class="flex-1 text-center">
+    <div class="flex-1 text-center break-words">
       <span>{{ $t('leaderboard.proposal.header.completed') }}</span>
     </div>
 
