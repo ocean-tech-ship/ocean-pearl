@@ -6,7 +6,11 @@
 
     <app-gradient-background>
       <section-container class="py-5">
-        <!-- TODO: round, countdown, legend -->
+        <!-- TODO: countdown, legend -->
+        <div class="flex justify-between">
+          <round-indicator primary :leaderboard="leaderboard" />
+        </div>
+
         <div class="flex items-center py-4">
           <h4 class="text-white">{{ $t('leaderboard.funded') }}</h4>
 
@@ -34,7 +38,11 @@
     </app-gradient-background>
 
     <section-container class="py-5">
-      <!-- TODO: round, countdown, legend -->
+      <!-- TODO: countdown, legend -->
+      <div class="flex justify-between">
+        <round-indicator :leaderboard="leaderboard" />
+      </div>
+
       <div class="py-4">
         <h4 class="text-primary">{{ $t('leaderboard.pending') }}</h4>
       </div>
@@ -82,9 +90,10 @@ import AppGradientBackground from '@/components/common/AppPrimaryGradientBackgro
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
 import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
 import LiveIndicator from '~/components/app/leaderboard/LiveIndicator.vue';
+import RoundIndicator from '~/components/app/leaderboard/RoundIndicator.vue';
 
 export default Vue.extend({
-  components: { LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { RoundIndicator, LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

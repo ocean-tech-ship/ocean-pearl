@@ -87,7 +87,7 @@ import ProposalTier from '@/components/app/leaderboard/ProposalTier.vue';
 import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
 import ProposalVoteAction from '@/components/app/leaderboard/ProposalVoteAction.vue';
 import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';
-import AppLink from '~/components/common/AppLink.vue';
+import AppLink from '@/components/common/AppLink.vue';
 
 export default {
   name: 'LeaderboardProposal',

@@ -193,6 +193,9 @@
         "yes": "Yes Votes"
       }
     },
+    "round": {
+      "title": "Round"
+    },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
     "title": [
       "DAO",
