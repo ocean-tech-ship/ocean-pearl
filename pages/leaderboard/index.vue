@@ -11,17 +11,6 @@
         <div class="space-y-4">
           <proposal-header primary class="hidden lg:flex" />
 
-          <mobile-leaderboard-proposal
-            v-for="(prop, index) in leaderboard.fundedProposals"
-            :key="prop.id"
-            :proposal="prop"
-            :index="index"
-            :index-offset="0"
-            :max-votes="leaderboard.maxVotes"
-            primary
-            class="rounded shadow lg:hidden"
-          />
-
           <leaderboard-proposal
             v-for="(prop, index) in leaderboard.fundedProposals"
             :key="prop.id"
@@ -30,7 +19,7 @@
             :index-offset="0"
             :max-votes="leaderboard.maxVotes"
             primary
-            class="rounded shadow hidden lg:flex"
+            class="rounded shadow"
           />
         </div>
       </section-container>
@@ -44,18 +33,6 @@
       </div>
 
       <div class="lg:hidden space-y-2">
-        <mobile-leaderboard-proposal
-          v-for="(prop, index) in leaderboard.notFundedProposals"
-          :key="prop.id"
-          :proposal="prop"
-          :index="index"
-          :index-offset="leaderboard.fundedProposals.length"
-          :max-votes="leaderboard.maxVotes"
-          class="rounded border-primary border"
-        />
-      </div>
-
-      <div class="border rounded border-primary divide-y divide-darkgrey hidden lg:block">
         <leaderboard-proposal
           v-for="(prop, index) in leaderboard.notFundedProposals"
           :key="prop.id"
@@ -63,7 +40,19 @@
           :index="index"
           :index-offset="leaderboard.fundedProposals.length"
           :max-votes="leaderboard.maxVotes"
-          :class="{ 'rounded-t': index === 0, 'rounded-b': index === leaderboard.notFundedProposals.length -1 }"
+          class="rounded border border-primary"
+        />
+      </div>
+
+      <div class="hidden lg:block rounded border border-primary divide-y divide-darkgrey">
+        <leaderboard-proposal
+          v-for="(prop, index) in leaderboard.notFundedProposals"
+          :key="prop.id"
+          :proposal="prop"
+          :index="index"
+          :index-offset="leaderboard.fundedProposals.length"
+          :max-votes="leaderboard.maxVotes"
+          :class="{ 'rounded-t': index === 0, 'rounded-b': index === leaderboard.notFundedProposals.length - 1 }"
         />
       </div>
     </section-container>
@@ -77,14 +66,13 @@ import getExampleResult from '@/pages/leaderboard/ExampleResult';
 import { Leaderboard } from '@/models/Leaderboard.model';
 import createHead from '@/pages/leaderboard/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
-import LeaderboardHeader from '~/components/app/leaderboard/LeaderboardHeader.vue';
-import AppGradientBackground from '~/components/common/AppPrimaryGradientBackground.vue';
+import LeaderboardHeader from '@/components/app/leaderboard/LeaderboardHeader.vue';
+import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
-import ProposalHeader from '~/components/app/leaderboard/ProposalHeader.vue';
-import MobileLeaderboardProposal from '~/components/app/leaderboard/MobileLeaderboardProposal.vue';
+import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
 
 export default Vue.extend({
-  components: { MobileLeaderboardProposal, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

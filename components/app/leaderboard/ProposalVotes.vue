@@ -4,7 +4,7 @@
       <tbody>
       <tr class="text-primary">
         <td class="w-24 text-right">{{ addPunctuation(proposal.yesVotes) }}</td>
-        <td class="pl-2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
+        <td class="w-24 pl-2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
         <td></td>
       </tr>
       <tr>
