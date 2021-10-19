@@ -67,7 +67,7 @@
 
     <!-- completed proposals gamification -->
     <div class="p-2 xl:px-5 hidden sm:flex items-center justify-center flex-grow">
-      <proposal-badge :proposal="proposal" :background="primary" />
+      <proposal-tier :proposal="proposal" :background="primary" />
     </div>
 
     <!-- vote action -->
@@ -83,7 +83,7 @@ import AppLogo from '@/components/common/AppLogo.vue';
 import AppProgressbar from '@/components/common/AppProgressbar.vue';
 import Numbers from '@/mixins/Numbers';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import ProposalBadge from '@/components/app/leaderboard/ProposalBadge.vue';
+import ProposalTier from '@/components/app/leaderboard/ProposalTier.vue';
 import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
 import ProposalVoteAction from '@/components/app/leaderboard/ProposalVoteAction.vue';
 import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';
@@ -92,7 +92,7 @@ import AppLink from '~/components/common/AppLink.vue';
 export default {
   name: 'LeaderboardProposal',
 
-  components: { AppLink, ProposalVotes, ProposalVoteAction, ProposalTags, ProposalBadge, AppProgressbar, AppLogo },
+  components: { AppLink, ProposalVotes, ProposalVoteAction, ProposalTags, ProposalTier, AppProgressbar, AppLogo },
 
   mixins: [Numbers,ProjectBeautifyId],
 

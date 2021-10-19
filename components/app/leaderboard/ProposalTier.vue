@@ -31,7 +31,7 @@
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
 
 export default {
-  name: 'ProposalBadge',
+  name: 'ProposalTier',
 
   props: {
     proposal: {
@@ -50,16 +50,16 @@ export default {
     getIcon(grants: number): string {
       if (grants >= 3) {
         // eslint-disable-next-line global-require
-        return require('@/assets/images/leaderboard/rank-3.svg');
+        return require('@/assets/images/leaderboard/tier-3.svg');
       }
 
       if (grants === 2) {
         // eslint-disable-next-line global-require
-        return require('@/assets/images/leaderboard/rank-2.svg');
+        return require('@/assets/images/leaderboard/tier-2.svg');
       }
 
       // eslint-disable-next-line global-require
-      return require('@/assets/images/leaderboard/rank-1.svg')
+      return require('@/assets/images/leaderboard/tier-1.svg')
     },
   },
 };
