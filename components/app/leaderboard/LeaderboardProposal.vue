@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white flex lg:divide-x lg:divide-darkgrey">
     <div
-      :class="{ 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/2': primary, 'w-3/5 lg:w-2/5': !primary }"
+      :class="{ 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/2': primary, 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-2/5': !primary }"
       class="flex p-2"
     >
       <div class="flex-1">
@@ -59,12 +59,12 @@
 
     <!-- completed proposals gamification -->
     <div class="p-2 xl:px-5 hidden sm:flex items-center justify-center flex-grow">
-      <proposal-badge background :proposal="proposal" />
+      <proposal-badge :proposal="proposal" :background="primary" />
     </div>
 
     <!-- vote action -->
     <div class="p-2 xl:px-5 flex items-center justify-center flex-grow">
-      <proposal-vote-action :proposal="proposal" background />
+      <proposal-vote-action :proposal="proposal" :background="primary" />
     </div>
   </div>
 </template>
