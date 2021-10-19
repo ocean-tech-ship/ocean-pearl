@@ -8,13 +8,20 @@
         <div class="flex">
           <!-- logo -->
           <div class="self-center">
-            <app-logo class="lg:hidden" :size="48" :src="proposal.logoUrl" :alt="proposal.title" />
-            <app-logo class="hidden lg:block" :size="64" :src="proposal.logoUrl" :alt="proposal.title" />
+            <app-link
+              :to="targetProjectLink(proposal, beautifyProjectId)"
+            >
+              <app-logo class="lg:hidden" :size="48" :src="proposal.logoUrl" :alt="proposal.title" />
+              <app-logo class="hidden lg:block" :size="64" :src="proposal.logoUrl" :alt="proposal.title" />
+            </app-link>
           </div>
 
           <!-- details -->
           <div class="px-2 flex-grow">
-            <span class="line-clamp-1 break-all">
+            <app-link
+              :to="targetProjectLink(proposal, beautifyProjectId)"
+            >
+              <span class="line-clamp-1 break-all">
               <span
                 :class="{ 'text-primary': primary && index === 0 }"
                 class="font-bold pr-1"
@@ -23,6 +30,7 @@
               </span>
               {{ proposal.title }}
             </span>
+            </app-link>
 
             <div v-if="primary" class="space-y-1 py-2 hidden lg:block">
               <app-progressbar :level="calcPct(maxVotes, proposal.yesVotes)" />
@@ -74,17 +82,19 @@ import { LeaderboardProposal} from '@/models/Leaderboard.model';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppProgressbar from '@/components/common/AppProgressbar.vue';
 import Numbers from '@/mixins/Numbers';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import ProposalBadge from '@/components/app/leaderboard/ProposalBadge.vue';
 import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
 import ProposalVoteAction from '@/components/app/leaderboard/ProposalVoteAction.vue';
 import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';
+import AppLink from '~/components/common/AppLink.vue';
 
 export default {
   name: 'LeaderboardProposal',
 
-  components: { ProposalVotes, ProposalVoteAction, ProposalTags, ProposalBadge, AppProgressbar, AppLogo },
+  components: { AppLink, ProposalVotes, ProposalVoteAction, ProposalTags, ProposalBadge, AppProgressbar, AppLogo },
 
-  mixins: [Numbers],
+  mixins: [Numbers,ProjectBeautifyId],
 
   props: {
     proposal: {
@@ -118,7 +128,11 @@ export default {
     calcPct(maxVotes: number, votes: number): number {
       const pct = (100 / maxVotes) * votes;
       return pct < 0.5 ? 0.5 : pct;
-    }
+    },
+
+    targetProjectLink(proposal: LeaderboardProposal, beautifyProjectId: Function): string {
+      return `/projects/${beautifyProjectId({ id: proposal.id, title: proposal.title })}`;
+    },
   }
 };
 </script>

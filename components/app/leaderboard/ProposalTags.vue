@@ -1,12 +1,31 @@
 <template>
   <div>
-    <div
-      v-for="tag in proposal.tags" :key="tag"
-      :class="{ 'bg-complementary text-third bg-opacity-70': isEarmark(tag) }"
-      class="rounded m-0.5 p-1 bg-primary bg-opacity-10 small-text text-primary"
+    <template
+      v-for="tag in proposal.tags"
     >
-      {{ beautifyTagName(tag) }}
-    </div>
+      <app-link
+        :key="tag"
+        :to="targetTagLink(tag)"
+      >
+        <div
+          :class="{ 'bg-complementary text-third bg-opacity-70': isEarmark(tag) }"
+          class="
+            rounded
+            m-0.5
+            p-1
+            bg-primary
+            bg-opacity-10
+            small-text
+            text-primary
+            hover:opacity-70
+            ease-in-out
+            duration-300
+          "
+        >
+          {{ beautifyTagName(tag) }}
+        </div>
+      </app-link>
+    </template>
   </div>
 </template>
 
@@ -14,10 +33,11 @@
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import CategoryEnum from '@/components/enums/Category.enum';
+import AppLink from '~/components/common/AppLink.vue';
 
 export default {
   name: 'ProposalTags',
-
+  components: { AppLink },
   props: {
     proposal: {
       type: Object as () => LeaderboardProposal,
@@ -32,6 +52,10 @@ export default {
 
     isEarmark(tag: string): boolean {
       return tag.toLowerCase() === 'earmarked';
+    },
+
+    targetTagLink(tag: string): string {
+      return `/dao-proposals?category=${tag}`
     }
   }
 };
