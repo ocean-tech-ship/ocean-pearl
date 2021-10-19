@@ -13,7 +13,7 @@
       transition
       duration-300
       ease-in-out
-      hover:scale-125
+      lg:hover:scale-125
     "
     >
       <app-icon class="text-primary" :path="mdiVote" />
