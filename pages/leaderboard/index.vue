@@ -7,6 +7,14 @@
     <app-gradient-background>
       <section-container class="py-5">
         <!-- TODO: round, countdown, legend -->
+        <div class="flex items-center py-4">
+          <h4 class="text-white">{{ $t('leaderboard.funded') }}</h4>
+
+          <live-indicator
+            class="pl-4"
+            @click="$fetch"
+          />
+        </div>
 
         <div class="space-y-4">
           <proposal-header primary class="hidden lg:flex" />
@@ -25,35 +33,38 @@
       </section-container>
     </app-gradient-background>
 
-    <section-container class="py-5 space-y-4">
+    <section-container class="py-5">
       <!-- TODO: round, countdown, legend -->
-
-      <div class="hidden lg:block">
-        <proposal-header />
+      <div class="py-4">
+        <h4 class="text-primary">{{ $t('leaderboard.pending') }}</h4>
       </div>
 
-      <div class="lg:hidden space-y-2">
-        <leaderboard-proposal
-          v-for="(prop, index) in leaderboard.notFundedProposals"
-          :key="prop.id"
-          :proposal="prop"
-          :index="index"
-          :index-offset="leaderboard.fundedProposals.length"
-          :max-votes="leaderboard.maxVotes"
-          class="rounded border border-primary"
-        />
-      </div>
+      <div class="space-y-4">
+        <proposal-header class="hidden lg:flex" />
 
-      <div class="hidden lg:block rounded border border-primary divide-y divide-darkgrey">
-        <leaderboard-proposal
-          v-for="(prop, index) in leaderboard.notFundedProposals"
-          :key="prop.id"
-          :proposal="prop"
-          :index="index"
-          :index-offset="leaderboard.fundedProposals.length"
-          :max-votes="leaderboard.maxVotes"
-          :class="{ 'rounded-t': index === 0, 'rounded-b': index === leaderboard.notFundedProposals.length - 1 }"
-        />
+        <div class="lg:hidden space-y-2">
+          <leaderboard-proposal
+            v-for="(prop, index) in leaderboard.notFundedProposals"
+            :key="prop.id"
+            :proposal="prop"
+            :index="index"
+            :index-offset="leaderboard.fundedProposals.length"
+            :max-votes="leaderboard.maxVotes"
+            class="rounded border border-primary"
+          />
+        </div>
+
+        <div class="hidden lg:block rounded border border-primary divide-y divide-darkgrey">
+          <leaderboard-proposal
+            v-for="(prop, index) in leaderboard.notFundedProposals"
+            :key="prop.id"
+            :proposal="prop"
+            :index="index"
+            :index-offset="leaderboard.fundedProposals.length"
+            :max-votes="leaderboard.maxVotes"
+            :class="{ 'rounded-t': index === 0, 'rounded-b': index === leaderboard.notFundedProposals.length - 1 }"
+          />
+        </div>
       </div>
     </section-container>
   </div>
@@ -70,9 +81,10 @@ import LeaderboardHeader from '@/components/app/leaderboard/LeaderboardHeader.vu
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
 import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
+import LiveIndicator from '~/components/app/leaderboard/LiveIndicator.vue';
 
 export default Vue.extend({
-  components: { ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

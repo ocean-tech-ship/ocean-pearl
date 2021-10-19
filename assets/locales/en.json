@@ -172,10 +172,13 @@
     }
   },
   "leaderboard": {
+    "funded": "Receive funding for proposal",
+    "live": "Live",
     "meta": {
       "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
       "title": "Leaderboard"
     },
+    "pending": "Pending for funding",
     "proposal": {
       "header": {
         "action": "Vote now",
