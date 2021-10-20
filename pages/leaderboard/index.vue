@@ -6,9 +6,14 @@
 
     <app-gradient-background>
       <section-container class="py-5">
-        <!-- TODO: countdown, legend -->
+        <!-- TODO: countdown -->
         <div class="flex justify-between">
-          <round-indicator primary :leaderboard="leaderboard" />
+          <div>
+            <round-indicator primary :leaderboard="leaderboard" />
+          </div>
+          <div>
+            <tier-legend primary />
+          </div>
         </div>
 
         <div class="flex items-center py-4">
@@ -38,9 +43,14 @@
     </app-gradient-background>
 
     <section-container class="py-5">
-      <!-- TODO: countdown, legend -->
+      <!-- TODO: countdown -->
       <div class="flex justify-between">
-        <round-indicator :leaderboard="leaderboard" />
+        <div>
+          <round-indicator :leaderboard="leaderboard" />
+        </div>
+        <div>
+          <tier-legend />
+        </div>
       </div>
 
       <div class="py-4">
@@ -82,18 +92,19 @@
 import Vue from 'vue';
 import { getLeaderboard } from '@/api';
 import getExampleResult from '@/pages/leaderboard/ExampleResult';
-import { Leaderboard } from '@/models/Leaderboard.model';
 import createHead from '@/pages/leaderboard/index.head';
+import { Leaderboard } from '@/models/Leaderboard.model';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import LeaderboardHeader from '@/components/app/leaderboard/LeaderboardHeader.vue';
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
 import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
-import LiveIndicator from '~/components/app/leaderboard/LiveIndicator.vue';
-import RoundIndicator from '~/components/app/leaderboard/RoundIndicator.vue';
+import LiveIndicator from '@/components/app/leaderboard/LiveIndicator.vue';
+import RoundIndicator from '@/components/app/leaderboard/RoundIndicator.vue';
+import TierLegend from '@/components/app/leaderboard/TierLegend.vue';
 
 export default Vue.extend({
-  components: { RoundIndicator, LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { TierLegend, RoundIndicator, LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

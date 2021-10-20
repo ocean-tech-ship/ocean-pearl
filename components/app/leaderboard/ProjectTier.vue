@@ -17,8 +17,8 @@
   >
     <img
       class="pb-1"
-      :src="getTier(proposal.completedProposals).src"
-      :alt="getTier(proposal.completedProposals).alt"
+      :src="getTier(proposal.completedProposals).iconSrc"
+      :alt="getTier(proposal.completedProposals).title"
     />
 
     <span class="absolute -bottom-2 text-primary font-bold">

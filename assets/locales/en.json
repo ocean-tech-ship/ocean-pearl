@@ -271,6 +271,7 @@
         "no": "no",
         "yes": "yes"
       },
+      "grants": "no grant | {n} grant | {n} grants",
       "history": {
         "funding": "Granted<br>Funding",
         "granted": "Granted",
