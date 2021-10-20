@@ -8,17 +8,17 @@
         :class="{ 'border-white text-white': primary }"
         class="flex items-center justify-around rounded border border text-center text-primary"
       >
-        <div class="p-4">
+        <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ days }}</div>
           <div>{{ $t('date.days') }}</div>
         </div>
 
-        <div class="p-4">
+        <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ hours }}</div>
           <div>{{ $t('date.hours') }}</div>
         </div>
 
-        <div class="p-4">
+        <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ minutes }}</div>
           <div>{{ $t('date.minutes') }}</div>
         </div>

@@ -5,17 +5,17 @@
     </section-container>
 
     <app-gradient-background>
-      <section-container class="py-5">
-        <div class="flex justify-between">
-          <div>
+      <section-container class="pb-8">
+        <div class="flex flex-wrap lg:justify-between">
+          <div class="pt-8">
             <round-indicator primary :leaderboard="leaderboard" />
           </div>
 
-          <div class="flex-grow px-24">
+          <div class="flex-grow py-8 px-2 md:px-6 lg:px-12 xl:px-24">
             <voting-countdown primary :leaderboard="leaderboard" />
           </div>
 
-          <div>
+          <div class="pt-8 hidden lg:block">
             <tier-legend primary />
           </div>
         </div>
@@ -46,17 +46,17 @@
       </section-container>
     </app-gradient-background>
 
-    <section-container class="py-5">
-      <div class="flex justify-between">
-        <div>
+    <section-container class="pb-5">
+      <div class="flex flex-wrap lg:justify-between">
+        <div class="pt-8">
           <round-indicator :leaderboard="leaderboard" />
         </div>
 
-        <div class="flex-grow px-24">
+        <div class="flex-grow py-8 px-2 md:px-6 lg:px-12 xl:px-24">
           <voting-countdown :leaderboard="leaderboard" />
         </div>
 
-        <div>
+        <div class="pt-8 hidden lg:block">
           <tier-legend />
         </div>
       </div>
