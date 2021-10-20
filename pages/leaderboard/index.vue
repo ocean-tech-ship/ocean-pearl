@@ -6,11 +6,15 @@
 
     <app-gradient-background>
       <section-container class="py-5">
-        <!-- TODO: countdown -->
         <div class="flex justify-between">
           <div>
             <round-indicator primary :leaderboard="leaderboard" />
           </div>
+
+          <div class="flex-grow px-24">
+            <voting-countdown primary :leaderboard="leaderboard" />
+          </div>
+
           <div>
             <tier-legend primary />
           </div>
@@ -43,11 +47,15 @@
     </app-gradient-background>
 
     <section-container class="py-5">
-      <!-- TODO: countdown -->
       <div class="flex justify-between">
         <div>
           <round-indicator :leaderboard="leaderboard" />
         </div>
+
+        <div class="flex-grow px-24">
+          <voting-countdown :leaderboard="leaderboard" />
+        </div>
+
         <div>
           <tier-legend />
         </div>
@@ -102,9 +110,10 @@ import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
 import LiveIndicator from '@/components/app/leaderboard/LiveIndicator.vue';
 import RoundIndicator from '@/components/app/leaderboard/RoundIndicator.vue';
 import TierLegend from '@/components/app/leaderboard/TierLegend.vue';
+import VotingCountdown from '~/components/app/leaderboard/VotingCountdown.vue';
 
 export default Vue.extend({
-  components: { TierLegend, RoundIndicator, LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+  components: { VotingCountdown, TierLegend, RoundIndicator, LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
 
   data() {
     return {

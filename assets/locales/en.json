@@ -71,6 +71,12 @@
       }
     }
   },
+  "date": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
   "footer": {
     "analytics": "Analytics"
   },
