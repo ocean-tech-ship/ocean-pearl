@@ -1,10 +1,20 @@
 <template>
   <div>
-    <section-container>
-      <leaderboard-header />
+    <section-container class="pb-8">
+      <h2>
+        {{ $t('leaderboard.title[0]') }}
+        <span class="text-primary">
+            {{ $t('leaderboard.title[1]') }}
+          </span>
+      </h2>
+
+      <p>{{ $t('leaderboard.subtitle') }}</p>
+
+      <leaderboard-metrics class="pt-4" :leaderboard="leaderboard" />
     </section-container>
 
     <app-gradient-background>
+      <!-- funded section -->
       <section-container class="pb-8">
         <div class="flex flex-wrap lg:justify-between">
           <div class="pt-8">
@@ -46,6 +56,7 @@
       </section-container>
     </app-gradient-background>
 
+    <!-- pending section -->
     <section-container class="pb-5">
       <div class="flex flex-wrap lg:justify-between">
         <div class="pt-8">
@@ -110,10 +121,23 @@ import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
 import LiveIndicator from '@/components/app/leaderboard/LiveIndicator.vue';
 import RoundIndicator from '@/components/app/leaderboard/RoundIndicator.vue';
 import TierLegend from '@/components/app/leaderboard/TierLegend.vue';
-import VotingCountdown from '~/components/app/leaderboard/VotingCountdown.vue';
+import VotingCountdown from '@/components/app/leaderboard/VotingCountdown.vue';
+import LeaderboardMetrics from '@/components/app/leaderboard/LeaderboardMetrics.vue';
 
 export default Vue.extend({
-  components: { VotingCountdown, TierLegend, RoundIndicator, LiveIndicator, ProposalHeader, LeaderboardProposal, AppGradientBackground, LeaderboardHeader, SectionContainer },
+
+  components: {
+    LeaderboardMetrics,
+    VotingCountdown,
+    TierLegend,
+    RoundIndicator,
+    LiveIndicator,
+    ProposalHeader,
+    LeaderboardProposal,
+    AppGradientBackground,
+    LeaderboardHeader,
+    SectionContainer
+  },
 
   data() {
     return {

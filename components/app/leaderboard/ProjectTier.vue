@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
 import { ProjectTier } from '@/models/Project.model';
 import mapByNumOfGrants from '@/mapper/ProjectTier.mapper';
@@ -37,7 +37,7 @@ export default {
 
   props: {
     proposal: {
-      type: Object as () => LeaderboardProposal,
+      type: Object,
       required: true,
     },
 
@@ -49,7 +49,7 @@ export default {
   },
 
   methods: {
-    getTier(grants: number): ProjectTier {
+    getTier(grants) {
       return mapByNumOfGrants(grants, this.$i18n);
     }
   }

@@ -184,6 +184,25 @@
       "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
       "title": "Leaderboard"
     },
+    "metrics": {
+      "amount": {
+        "subtitle": "no proposal | {n} proposal | {n} proposals",
+        "title": "Amount proposals"
+      },
+      "available": {
+        "subtitle": "{n} USD",
+        "title": "Funding amount"
+      },
+      "burned": {
+        "title": "Amount Burned"
+      },
+      "requested": {
+        "title": "Amount requested"
+      },
+      "votes": {
+        "title": "Total Votes"
+      }
+    },
     "pending": "Pending for funding",
     "proposal": {
       "header": {
