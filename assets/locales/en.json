@@ -206,7 +206,10 @@
     "title": [
       "DAO",
       "leaderboard"
-    ]
+    ],
+    "voting": {
+      "ends": "time until voting for proposals ends"
+    }
   },
   "manage": {
     "admins": "Administrators",
