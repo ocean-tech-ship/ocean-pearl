@@ -15,3 +15,8 @@ export interface Project {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface ProjectTier {
+  src: string,
+  alt: string,
+}

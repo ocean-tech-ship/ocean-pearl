@@ -17,8 +17,8 @@
   >
     <img
       class="pb-1"
-      :src="getIcon(proposal.completedProposals)"
-      :alt="$t('leaderboard.proposal.rank')"
+      :src="getTier(proposal.completedProposals).src"
+      :alt="getTier(proposal.completedProposals).alt"
     />
 
     <span class="absolute -bottom-2 text-primary font-bold">
@@ -29,6 +29,8 @@
 
 <script lang="ts">
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
+import { ProjectTier } from '@/models/Project.model';
+import mapByNumOfGrants from '@/mapper/ProjectTier.mapper';
 
 export default {
   name: 'ProposalTier',
@@ -47,20 +49,9 @@ export default {
   },
 
   methods: {
-    getIcon(grants: number): string {
-      if (grants >= 3) {
-        // eslint-disable-next-line global-require
-        return require('@/assets/images/leaderboard/tier-3.svg');
-      }
-
-      if (grants === 2) {
-        // eslint-disable-next-line global-require
-        return require('@/assets/images/leaderboard/tier-2.svg');
-      }
-
-      // eslint-disable-next-line global-require
-      return require('@/assets/images/leaderboard/tier-1.svg')
-    },
-  },
+    getTier(grants: number): ProjectTier {
+      return mapByNumOfGrants(grants, this.$i18n);
+    }
+  }
 };
 </script>

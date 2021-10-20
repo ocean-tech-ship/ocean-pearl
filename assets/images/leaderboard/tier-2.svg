@@ -1,17 +1,12 @@
-<svg width="23" height="23" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="m.976 7.901 2.472 1.844-.124 7.005 5.191 4.056V6.55L.975.896V7.9Z" fill="url(#a)"/>
-  <path d="m22.976.896-7.663 5.653v14.257l5.19-4.056V9.745L22.977 7.9V.896Z" fill="url(#b)"/>
-  <path d="M9.38 6.672v14.503l2.596 1.72 2.595-1.72V6.672l-2.595-1.72-2.596 1.72Z" fill="url(#c)"/>
+<svg width="17" height="17" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="m8.505 12.346 8.47 3.727v-4.66l-8.47-3.799-8.348 3.8v4.66l8.348-3.728Z" fill="url(#a)"/>
+  <path d="m8.348 5.356 8.47 3.728v-4.66L8.348.625 0 4.425v4.659l8.348-3.728Z" fill="url(#b)"/>
   <defs>
-    <linearGradient id="a" x1=".976" y1="10.859" x2="8.542" y2="10.859" gradientUnits="userSpaceOnUse">
+    <linearGradient id="a" x1="16.976" y1="11.857" x2=".099" y2="11.857" gradientUnits="userSpaceOnUse">
       <stop offset=".001" stop-color="#7B3070"/>
       <stop offset="1" stop-color="#D45B8D"/>
     </linearGradient>
-    <linearGradient id="b" x1="15.374" y1="10.859" x2="22.941" y2="10.859" gradientUnits="userSpaceOnUse">
-      <stop offset=".001" stop-color="#7B3070"/>
-      <stop offset="1" stop-color="#D45B8D"/>
-    </linearGradient>
-    <linearGradient id="c" x1="9.377" y1="13.93" x2="14.54" y2="13.93" gradientUnits="userSpaceOnUse">
+    <linearGradient id="b" x1="16.818" y1="4.867" x2="-.059" y2="4.867" gradientUnits="userSpaceOnUse">
       <stop offset=".001" stop-color="#7B3070"/>
       <stop offset="1" stop-color="#D45B8D"/>
     </linearGradient>

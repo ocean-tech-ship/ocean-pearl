@@ -83,7 +83,7 @@ import AppLogo from '@/components/common/AppLogo.vue';
 import AppProgressbar from '@/components/common/AppProgressbar.vue';
 import Numbers from '@/mixins/Numbers';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import ProposalTier from '@/components/app/leaderboard/ProposalTier.vue';
+import ProposalTier from '@/components/app/leaderboard/ProjectTier.vue';
 import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
 import ProposalVoteAction from '@/components/app/leaderboard/ProposalVoteAction.vue';
 import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';

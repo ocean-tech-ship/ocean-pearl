@@ -308,6 +308,12 @@
       "title": "ROI"
     },
     "team": "Team",
+    "tier": {
+      "existing": "Existing Project Tier",
+      "experienced": "Experienced Project Tier",
+      "new": "New Project Tier",
+      "veteran": "Veteran Project Tier"
+    },
     "unknown": "The requested project could not be found.",
     "wallet": "Project Wallet Address"
   },
