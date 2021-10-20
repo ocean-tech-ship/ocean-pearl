@@ -22,8 +22,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import mapByNumOfGrants from '~/mapper/ProjectTier.mapper';
+<script>
+import mapByNumOfGrants from '@/mapper/ProjectTier.mapper';
 
 export default {
   name: 'TierLegend',
@@ -43,7 +43,7 @@ export default {
         mapByNumOfGrants(1, this.$i18n),
         mapByNumOfGrants(2, this.$i18n),
         mapByNumOfGrants(5, this.$i18n),
-      ] as ProjectTier[],
+      ],
     };
   },
 };
