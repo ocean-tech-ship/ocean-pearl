@@ -18,9 +18,8 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { mdiCrosshairs, mdiCurrencyUsd, mdiCurrencyUsdOff, mdiPound, mdiVote } from '@mdi/js';
-import { Leaderboard } from '@/models/Leaderboard.model';
 import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
 
@@ -33,7 +32,7 @@ export default {
 
   props: {
     leaderboard: {
-      type: Object as () => Leaderboard,
+      type: Object,
       required: true,
     },
   },
@@ -81,4 +80,3 @@ export default {
   },
 };
 </script>
-
