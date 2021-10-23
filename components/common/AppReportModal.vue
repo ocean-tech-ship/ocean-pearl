@@ -19,7 +19,7 @@
     </div>
     <app-modal :open="open" @close="toggleOpen">
       <template #header>
-        <div class="flex items-center mb-2">
+        <div class="flex items-center mb-4">
           <span
             class="
               mdi mdi-alert-circle-outline
@@ -72,8 +72,21 @@
               @click="copyPgp"
             />
           </div>
+          <div class="accordion w-full mt-4">
+            <div class="flex justify-center items-center">
+              <hr class="text-primary hidden sm:block sm:w-1/3" />
+              <button
+                class="small-text text-darkgey sm:w-1/3"
+                @click="toggleAccOpen"
+              >
+                <span class="mdi" :class="{ accOpen: '' }"></span> show pgp key
+              </button>
+              <hr class="text-primary hidden sm:block sm:w-1/3" />
+            </div>
+            <pre v-if="accOpen" class="w-full bg-grey p-3">{{ pgpKey }}</pre>
+          </div>
         </div>
-        <div class="mt-6">
+        <div class="mt-4">
           <div class="flex items-center">
             <span class="mdi mdi-discord mr-2 text-primary text-smbase" />
             <p class="small-text md:text-smbase text-primary">
@@ -101,6 +114,7 @@
 import AppModal from '@/components/common/AppModal.vue';
 import AppButton from '@/components/common/AppButton.vue';
 import AppLink from '@/components/common/AppLink.vue';
+import EmailEnum from '~/components/enums/Email.enum';
 
 export default {
   name: 'AppReportModal',
@@ -121,8 +135,11 @@ export default {
   data() {
     return {
       open: false,
+      accOpen: false,
       btnCopyEmailTitle: 'appReportModal.copyEmail',
       btnCopyPgpTitle: 'appReportModal.copyPgp',
+      emailAddress: EmailEnum.Address,
+      pgpKey: EmailEnum.Pgp,
     };
   },
 
@@ -130,8 +147,11 @@ export default {
     toggleOpen() {
       this.open = !this.open;
     },
+    toggleAccOpen() {
+      this.accOpen = !this.accOpen;
+    },
     copyEmail() {
-      navigator.clipboard.writeText(this.btnCopyEmailTitle).then(() => {
+      navigator.clipboard.writeText(this.emailAddress).then(() => {
         this.btnCopyEmailTitle = 'appReportModal.copiedEmail';
         setTimeout(
           () => (this.btnCopyEmailTitle = 'appReportModal.copyEmail'),
@@ -140,7 +160,7 @@ export default {
       });
     },
     copyPgp() {
-      navigator.clipboard.writeText(this.PGPKey).then(() => {
+      navigator.clipboard.writeText(this.pgpKey).then(() => {
         this.btnCopyPgpTitle = 'appReportModal.copiedPgp';
         setTimeout(
           () => (this.btnCopyPgpTitle = 'appReportModal.copyPgp'),
@@ -152,4 +172,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+pre {
+  overflow: auto;
+}
+</style>
