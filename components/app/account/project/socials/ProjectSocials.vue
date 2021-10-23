@@ -11,7 +11,7 @@
             <app-icon
               class="text-primary"
               :size="32"
-              :path="mdiLinkPlus"
+              :data="icons.plus"
               :tooltip="$t('general.add')"
             />
           </button>
@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import { mdiLinkPlus } from '@mdi/js';
+import plus from '@iconify-icons/la/plus';
 import { SocialMedia } from '@/model/SocialMedia';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
@@ -100,7 +100,9 @@ export default {
 
   data() {
     return {
-      mdiLinkPlus,
+      icons: {
+        plus,
+      },
       socials: ({ ...this.$props.project.socialMedia}),
     };
   },

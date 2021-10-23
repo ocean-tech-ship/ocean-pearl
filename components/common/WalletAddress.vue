@@ -15,7 +15,7 @@
       <app-icon
         class="text-primary"
         :size="16"
-        :path="mdiOpenInNew"
+        :data="icons.externalLinkSquareAlt"
         :tooltip="$t('project.proposal.wallet.view')"
       />
     </app-link>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mdiOpenInNew } from '@mdi/js';
+import externalLinkSquareAlt from '@iconify-icons/la/external-link-square-alt';
 import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
@@ -47,7 +47,9 @@ export default {
 
   data() {
     return {
-      mdiOpenInNew,
+      icons: {
+        externalLinkSquareAlt,
+      },
     };
   },
 

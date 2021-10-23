@@ -16,7 +16,7 @@
         "
         @click="$emit('delete')"
       >
-        <app-icon :path="mdiClose" class="text-primary" :tooltip="$t('general.remove')" />
+        <app-icon :data="icons.times" class="text-primary" :tooltip="$t('general.remove')" />
       </button>
     </div>
 
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import { mdiClose } from '@mdi/js';
-import AppIcon from '~/components/common/AppIcon.vue';
+import times from '@iconify-icons/la/times'
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectPicturesItem',
@@ -47,7 +47,9 @@ export default {
 
   data() {
     return {
-      mdiClose,
+      icons: {
+        times,
+      },
     }
   }
 }

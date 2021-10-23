@@ -25,7 +25,7 @@
         "
         @click="$emit('close')"
       >
-        <app-icon :path="mdiClose" />
+        <app-icon :data="icons.times" />
       </button>
 
       <img
@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { mdiClose } from '@mdi/js';
+import times from '@iconify-icons/la/times';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
@@ -62,7 +62,9 @@ export default {
 
   data() {
     return {
-      mdiClose,
+      icons: {
+        times,
+      },
     }
   },
 }

@@ -20,7 +20,7 @@
       <app-icon
         class="text-primary"
         :size="16"
-        :path="mdiCloseCircle"
+        :data="icons.times"
         :tooltip="$t('general.remove')"
       />
     </button>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mdiCloseCircle } from '@mdi/js';
+import times from '@iconify-icons/la/times';
 import { SocialMedia } from '@/model/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
 
@@ -53,7 +53,9 @@ export default {
 
   data() {
     return {
-      mdiCloseCircle,
+      icons: {
+        times,
+      },
     };
   },
 
