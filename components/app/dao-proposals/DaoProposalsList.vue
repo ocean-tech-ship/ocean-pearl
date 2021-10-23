@@ -49,13 +49,10 @@
               </p>
             </div>
             <div class="mt-5">
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/transaction.svg"
-                  :alt="`${$t('dao-projects.projects.requestedAmount')} icon`"
-                />
-                <p class="small-text text-primary">
+              <div class="flex items-center text-primary">
+                <app-icon class="pr-2" :size="20" :data="icons.coins" />
+
+                <p class="small-text">
                   {{ $t('dao-projects.projects.requestedAmount') }}
                 </p>
               </div>
@@ -75,13 +72,9 @@
               </p>
             </div>
             <div class="mt-5">
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/yes-vote.svg"
-                  :alt="`${$t('dao-projects.projects.votes')} icon`"
-                />
-                <p class="small-text text-primary">
+              <div class="flex items-center text-primary">
+                <app-icon class="pr-2" :size="20" :data="icons.check" />
+                <p class="small-text">
                   {{ $t('dao-projects.projects.votes') }}
                 </p>
               </div>
@@ -90,13 +83,9 @@
               </p>
             </div>
             <div class="mt-5">
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/no-vote.svg"
-                  :alt="`${$t('dao-projects.projects.counterVotes')} icon`"
-                />
-                <p class="small-text text-primary">
+              <div class="flex items-center text-primary">
+                <app-icon class="pr-2" :size="20" :data="icons.times" />
+                <p class="small-text">
                   {{ $t('dao-projects.projects.counterVotes') }}
                 </p>
               </div>
@@ -112,16 +101,21 @@
 </template>
 
 <script>
+import coins from '@iconify/icons-la/coins';
+import check from '@iconify/icons-la/check';
+import times from '@iconify/icons-la/times';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import Numbers from '~/mixins/Numbers';
+import Numbers from '@/mixins/Numbers';
+import AppIcon from '~/components/common/AppIcon'
 
 export default {
   name: 'DaoProposalsList',
 
   components: {
+    AppIcon,
     AppLogo,
     AppLabel,
   },
@@ -138,6 +132,11 @@ export default {
 
   data() {
     return {
+      icons: {
+        coins,
+        check,
+        times,
+      },
       categoryMap: CategoryMap,
     };
   },
