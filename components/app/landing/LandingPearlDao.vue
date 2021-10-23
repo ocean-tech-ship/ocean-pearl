@@ -13,24 +13,28 @@
     <round-metrics class="mt-10" :metrics="metrics" />
 
     <NuxtLink to="/dao-proposals">
-      <div class="flex items-center mt-6">
-        <p class="mr-2 text-grey">
+      <div class="flex items-center mt-6 text-white">
+        <p class="mr-2">
           {{ $t('landing.pearl_dao.link_text') }}
         </p>
-        <img src="@/assets/images/landing/check-out-white.svg" />
+
+        <app-icon :data="icons.arrowRight" />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
 </template>
 
 <script>
+import arrowRight from '@iconify/icons-la/arrow-right';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics';
+import AppIcon from '~/components/common/AppIcon'
 
 export default {
   name: 'LandingPearlDao',
 
   components: {
+    AppIcon,
     LandingSectionContainer,
     RoundMetrics,
   },
@@ -58,6 +62,14 @@ export default {
         totalVotes: '',
       },
     },
+  },
+
+  data() {
+    return {
+      icons: {
+        arrowRight,
+      },
+    };
   },
 };
 </script>
