@@ -1,4 +1,22 @@
 {
+  "appReportModal": {
+    "headline": "Report this project",
+    "subtext": "If you have legal or technical concerns regarding {project}, please don't hestitate to contact us.",
+    "headlineEmail": "Email",
+    "subtextEmail": {
+      "part1": "You can contact us via PGP encrypted email, by using our public key below. If you use ",
+      "part2": ", your email to us will be automatically encrypted."
+    },
+    "headlineSocial": "Discord",
+    "subtextSocial": {
+      "part1": "You can also find us on ",
+      "part2": ", where you can reach out to one of our team members directly."
+    },
+    "copyEmail": "oceanpearl@protonmail.com",
+    "copiedEmail": "copied!",
+    "copyPgp": "PGP key",
+    "copiedPgp": "copied!"
+  },
   "dao-projects": {
     "filterResponse": {
       "noSearch": {
