@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import sailboat from '@iconify/icons-tabler/sailboat';
+import sailboat from '@iconify/icons-mdi/sail-boat';
 import AppLink from '@/components/common/AppLink.vue';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
