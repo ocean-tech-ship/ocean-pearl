@@ -3,7 +3,6 @@
     <app-icon
       :size="32"
       :data="getIcon(type)"
-      :tooltip="type"
       class="
         text-primary
         transition
