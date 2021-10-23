@@ -13,8 +13,8 @@
           {{ $t('landing.hero.text') }}
         </p>
         <AppLink to="/projects">
-          <AppButtonStyle
-            :icon="require('@/assets/images/icons/sailing_ship.svg')"
+          <app-button-style
+            :icon="icons.sailboat"
             :text="$t('landing.hero.buttonText')"
           />
         </AppLink>
@@ -31,16 +31,26 @@
 </template>
 
 <script>
+import sailboat from '@iconify/icons-tabler/sailboat';
 import AppLink from '@/components/common/AppLink.vue';
-import LandingSectionContainer from './LandingSectionContainer';
-import AppButtonStyle from '~/components/common/AppButtonStyle.vue';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 
 export default {
   name: 'LandingHeroSection',
+
   components: {
     AppButtonStyle,
     AppLink,
     LandingSectionContainer,
+  },
+
+  data() {
+    return {
+      icons: {
+        sailboat,
+      },
+    };
   },
 };
 </script>
