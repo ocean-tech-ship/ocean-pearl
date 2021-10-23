@@ -55,7 +55,6 @@
         >
           <app-button-style
             class="text-center"
-            :icon="require('@/assets/images/icons/vote-white.svg')"
             :text="$t('manage.auth.login.action')"
           />
         </nuxt-link>
@@ -135,12 +134,12 @@
 
 <script>
 import Jazzicon from 'vue-jazzicon';
+import { mapState } from 'vuex';
 import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
 import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
 import MainDropdown from '@/components/common/MainDropdown.vue';
-import { mapState } from 'vuex';
 
 export default {
   components: {
