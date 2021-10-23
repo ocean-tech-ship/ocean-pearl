@@ -15,7 +15,7 @@
       <app-icon
         class="text-primary"
         :size="16"
-        :data="icons.externalLinkSquareAlt"
+        :data="icons.externalLinkAlt"
         :tooltip="$t('project.proposal.wallet.view')"
       />
     </app-link>
@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import externalLinkSquareAlt from '@iconify/icons-la/external-link-square-alt';
+import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
@@ -48,7 +48,7 @@ export default {
   data() {
     return {
       icons: {
-        externalLinkSquareAlt,
+        externalLinkAlt,
       },
     };
   },
