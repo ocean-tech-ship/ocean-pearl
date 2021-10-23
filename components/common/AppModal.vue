@@ -16,7 +16,16 @@
       @click="backdropClose"
     >
       <div
-        class="modal relative rounded bg-white shadow p-4 sm:p-8 m-4 md:m-0"
+        class="
+          modal
+          relative
+          rounded
+          bg-white
+          shadow
+          m-4
+          md:m-0
+          overflow-hidden
+        "
         role="dialog"
       >
         <button
@@ -32,15 +41,27 @@
           aria-label="Close modal"
           @click="close"
         />
-        <header class="modal-header flex items-center sm:mb-4">
-          <slot name="header" />
-        </header>
-        <section class="modal-body">
-          <slot name="body" />
-        </section>
-        <footer class="modal-footer">
-          <slot name="footer" />
-        </footer>
+        <div
+          class="
+            modal-content
+            h-full
+            w-full
+            overflow-y-scroll
+            py-4
+            pl-4
+            sm:py-8 sm:pl-8
+          "
+        >
+          <header class="modal-header flex items-center sm:mb-4 pr-6 sm:pr-8">
+            <slot name="header" />
+          </header>
+          <section class="modal-body pr-6 sm:pr-8">
+            <slot name="body" />
+          </section>
+          <footer class="modal-footer pr-6 sm:pr-8">
+            <slot name="footer" />
+          </footer>
+        </div>
       </div>
     </div>
   </transition>
@@ -78,14 +99,35 @@ export default {
   height: 100vh;
   overflow-y: hidden;
   width: 100%;
-  padding-right: 8px;
 
-  nav {
+  @media only screen and (min-width: 768px) {
     padding-right: 8px;
+
+    nav {
+      padding-right: 8px;
+    }
+
+    .modal {
+      transform: translateX(-4px);
+    }
   }
 
-  .modal {
-    transform: translateX(-4px);
+  @media only screen and (min-width: 984px) {
+    nav {
+      padding-right: 0;
+    }
+  }
+
+  @media (max-device-width: 1024px) {
+    padding-right: 0;
+
+    nav {
+      padding-right: 0;
+    }
+
+    .modal {
+      transform: translateX(0);
+    }
   }
 }
 </style>
@@ -96,11 +138,13 @@ export default {
 }
 
 .modal {
+  height: 400px;
   width: 300px;
   @media screen and (min-width: 498px) {
     width: 450px;
   }
   @media screen and (min-width: 768px) {
+    height: 470px;
     width: 670px;
   }
 }
