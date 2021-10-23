@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import externalLinkSquareAlt from '@iconify-icons/la/external-link-square-alt';
+import externalLinkSquareAlt from '@iconify/icons-la/external-link-square-alt';
 import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';

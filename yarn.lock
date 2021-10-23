@@ -1409,10 +1409,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
-"@iconify-icons/la@^1.1.0":
+"@iconify/icons-la@^1.1.0":
   version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@iconify-icons/la/-/la-1.1.0.tgz#bfbeaa72b9bdd59e9f93d72d208e331d29a061a5"
-  integrity sha512-4ex4aLPw/sbgpGrR5ki7zBxRXPsCRoBLo53nwKNFXFrxgR/9hdKi12cxCBFdHkvI7Qr3n1Z0seZgTvD2ulYP7A==
+  resolved "https://registry.yarnpkg.com/@iconify/icons-la/-/icons-la-1.1.0.tgz#da00d0ed5686ff07d5addcf75a91175beb2629d3"
+  integrity sha512-9LEAEabzI2xMJzSh0wqeJmjYseWsDvN9mSZKcCoHlT+pZCJkMAwHoyoBgI7pO2Deo31VG2JiX5hx/4VyMtbE0Q==
 
 "@intlify/shared@^9.0.0":
   version "9.1.7"

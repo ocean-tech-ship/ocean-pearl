@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import times from '@iconify-icons/la/times';
+import times from '@iconify/icons-la/times';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {

@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import plus from '@iconify-icons/la/plus';
+import plus from '@iconify/icons-la/plus';
 import { SocialMedia } from '@/model/SocialMedia';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';

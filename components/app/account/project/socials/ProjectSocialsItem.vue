@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import times from '@iconify-icons/la/times';
+import times from '@iconify/icons-la/times';
 import { SocialMedia } from '@/model/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
 
