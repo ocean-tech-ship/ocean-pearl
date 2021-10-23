@@ -1414,6 +1414,11 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-la/-/icons-la-1.1.0.tgz#da00d0ed5686ff07d5addcf75a91175beb2629d3"
   integrity sha512-9LEAEabzI2xMJzSh0wqeJmjYseWsDvN9mSZKcCoHlT+pZCJkMAwHoyoBgI7pO2Deo31VG2JiX5hx/4VyMtbE0Q==
 
+"@iconify/icons-tabler@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-tabler/-/icons-tabler-1.1.5.tgz#f608ca659d11597c233b1a0e738997bed80eca59"
+  integrity sha512-TN+8p/ngWbYnoSZbeosIzG/ru7HcgFax1YwFjEmRd/oPYt6jCnz+04js0c62yydzWgDniGRI6jeX/ogZFpjqbg==
+
 "@intlify/shared@^9.0.0":
   version "9.1.7"
   resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.1.7.tgz#e7d8bc90cb59dc17dd7b4c85a73db16fcb7891fc"
