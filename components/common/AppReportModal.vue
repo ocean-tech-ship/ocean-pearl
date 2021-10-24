@@ -21,7 +21,7 @@
       <p class="small-text md:text-smbase mb-6 md:mb-8">
         {{
           $t('appReportModal.subtext', {
-            project: daoProposal.project.title,
+            projectTitle: projectTitle,
           })
         }}
       </p>
@@ -114,10 +114,10 @@ export default {
   },
 
   props: {
-    daoProposal: {
-      type: Object,
+    projectTitle: {
+      type: String,
       required: true,
-      default: () => {},
+      default: () => '',
     },
   },
 

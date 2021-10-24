@@ -132,7 +132,12 @@
         </NuxtLink>
       </div>
     </div>
-    <app-report-modal ref="reportModal" :dao-proposal="reportProposal" />
+    <app-report-modal
+      ref="reportModal"
+      :project-title="
+        reportProposal ? reportProposal.project.title : 'this project'
+      "
+    />
   </div>
 </template>
 
@@ -174,7 +179,7 @@ export default {
         },
       ],
       categoryMap: CategoryMap,
-      reportProposal: {},
+      reportProposal: null,
     };
   },
 
