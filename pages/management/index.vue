@@ -123,6 +123,55 @@ export default Vue.extend({
     }
   },
 
+  head() {
+    return {
+      title: 'Management',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+        },
+        {
+          hid: 'robots',
+          name: 'robots',
+          content: 'noindex, nofollow',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Login',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.$config.rootURL}/management`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `Login | Ocean Pearl`,
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+        },
+      ],
+      link: [
+        {
+          rel: 'canonical',
+          href: `${this.$config.rootURL}/management`,
+        },
+      ],
+    }
+  },
+
   computed: {
     ...mapState('account', {
       info: 'info',

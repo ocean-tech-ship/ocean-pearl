@@ -132,6 +132,47 @@ export default Vue.extend({
     }
   },
 
+  head() {
+    return {
+      title: 'DAO Proposals',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Get an overview of all projects that have applied for funding through OceanDAO.',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'DAO Proposals',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Get an overview of all projects that have applied for funding through OceanDAO.',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.$config.rootURL}/dao-proposals`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `DAO Proposals | Ocean Pearl`,
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: 'Get an overview of all projects that have applied for funding through OceanDAO.',
+        },
+      ],
+      link: [
+        { rel: 'canonical', href: `${this.$config.rootURL}/dao-proposals` },
+      ]
+    }
+  },
+
   methods: {
     async fetchDaoProposals(payload) {
       try {

@@ -1,26 +1,29 @@
 <template>
-  <div class="flex items-center">
+  <div class="flex items-center break-all">
     <jazzicon
-      class="flex items-center mr-2"
+      class="flex items-center w-5 h-5 mr-2"
       :diameter="20"
       :address="address"
     />
 
-    <span class="break-all">{{ address }}</span>
+    <span>{{ address }}</span>
 
     <app-link
       class="ml-1"
       :to="explorerUrl"
     >
       <app-icon
-        class="mdi mdi-open-in-new text-primary"
-        :hint="$t('project.proposal.wallet.view')"
+        class="text-primary"
+        :size="16"
+        :path="mdiOpenInNew"
+        :tooltip="$t('project.proposal.wallet.view')"
       />
     </app-link>
   </div>
 </template>
 
 <script>
+import { mdiOpenInNew } from '@mdi/js';
 import Jazzicon from 'vue-jazzicon';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
@@ -40,6 +43,12 @@ export default {
       required: true,
       default: '',
     },
+  },
+
+  data() {
+    return {
+      mdiOpenInNew,
+    };
   },
 
   computed: {

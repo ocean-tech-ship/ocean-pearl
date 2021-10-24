@@ -5,6 +5,7 @@
       <button
         class="
           rounded-full
+          shadow
           m-4
           h-12
           w-12
@@ -15,12 +16,12 @@
         "
         @click="$emit('delete')"
       >
-        <span class="text-primary font-bold">X</span>
+        <app-icon :path="mdiClose" class="text-primary" :tooltip="$t('general.remove')" />
       </button>
     </div>
 
     <img
-      class="w-full h-64 rounded object-cover"
+      class="w-full h-64 rounded object-contain border-2 border-primary"
       :src="src"
       :alt="$t('manage.project.pictures.title')"
     />
@@ -28,8 +29,13 @@
 </template>
 
 <script>
+import { mdiClose } from '@mdi/js';
+import AppIcon from '~/components/common/AppIcon.vue';
+
 export default {
   name: 'ProjectPicturesItem',
+
+  components: { AppIcon },
 
   props: {
     src: {
@@ -38,5 +44,11 @@ export default {
       default: '',
     },
   },
+
+  data() {
+    return {
+      mdiClose,
+    }
+  }
 }
 </script>

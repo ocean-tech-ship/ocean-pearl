@@ -4,7 +4,12 @@
       tabindex="0"
       :class="{ open: open }"
       class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
-      @click="toggleOpen"
+      @click="
+        (e) => {
+          toggleOpen();
+          handleiOSBlur(e);
+        }
+      "
       @blur="handleBlur"
     >
       {{ selectedName }}
@@ -36,6 +41,8 @@
 </template>
 
 <script>
+import checkForiOS from '~/helpers/checkOS.ts';
+
 export default {
   name: 'ButtonEmitWithDropdown',
   components: {},
@@ -89,6 +96,12 @@ export default {
         (!e.relatedTarget?.classList.contains('menuItem') && this.open)
       )
         this.toggleOpen();
+    },
+    handleiOSBlur(e) {
+      if (checkForiOS()) {
+        const { handleBlur } = this;
+        e.target.addEventListener('mouseout', handleBlur, { once: true });
+      }
     },
   },
 };

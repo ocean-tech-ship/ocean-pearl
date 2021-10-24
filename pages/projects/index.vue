@@ -78,6 +78,47 @@ export default Vue.extend({
     };
   },
 
+  head() {
+    return {
+      title: 'Projects',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'Projects',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.$config.rootURL}/projects`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `Projects | Ocean Pearl`,
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+        },
+      ],
+      link: [
+        { rel: 'canonical', href: `${this.$config.rootURL}/projects` },
+      ]
+    }
+  },
+
   methods: {
     async fetchProjects(payload) {
       try {
