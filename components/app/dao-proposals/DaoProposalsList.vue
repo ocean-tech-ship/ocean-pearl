@@ -14,7 +14,8 @@
         <app-settings-dropdown
           :menu-items="[
             {
-              ...settingsMeunItems[0],
+              content: 'Report this project',
+              iconClass: 'mdi-alert-circle-outline',
               value: { type: 'report', id: daoProposal.id },
             },
           ]"
@@ -172,14 +173,8 @@ export default {
 
   data() {
     return {
-      settingsMeunItems: [
-        {
-          content: 'Report this project',
-          iconClass: 'mdi-alert-circle-outline',
-        },
-      ],
-      categoryMap: CategoryMap,
       reportProposal: null,
+      categoryMap: CategoryMap,
     };
   },
 

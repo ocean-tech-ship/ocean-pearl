@@ -24,6 +24,16 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
+        <app-settings-dropdown
+          :menu-items="[
+            {
+              content: 'Report this project',
+              iconClass: 'mdi-alert-circle-outline',
+              value: { type: 'report', id: daoProposal.id },
+            },
+          ]"
+          @selected="handleSettingsSelection"
+        />
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
@@ -33,7 +43,9 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block"
-                  :src="daoProposal.project.logo && daoProposal.project.logo.url"
+                  :src="
+                    daoProposal.project.logo && daoProposal.project.logo.url
+                  "
                   :alt="daoProposal.project.title"
                   :size="45"
                 />
@@ -67,10 +79,17 @@
                 </p>
               </div>
               <p
-                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                v-if="
+                  daoProposal.requestedGrantUsd &&
+                  daoProposal.requestedGrantUsd > 0
+                "
                 class="small-text"
               >
-                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
+                {{
+                  $t('general.usd', {
+                    usd: addPunctuation(daoProposal.requestedGrantUsd),
+                  })
+                }}
               </p>
 
               <p v-else class="small-text">
@@ -94,12 +113,21 @@
         <img src="@/assets/images/landing/check-out.svg" alt="" />
       </div>
     </NuxtLink>
+
+    <app-report-modal
+      ref="reportModal"
+      :project-title="
+        reportProposal ? reportProposal.project.title : 'this project'
+      "
+    />
   </LandingSectionContainer>
 </template>
 
 <script>
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
+import AppReportModal from '@/components/common/AppReportModal.vue';
+import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
@@ -110,6 +138,8 @@ export default {
   components: {
     AppLogo,
     LandingSectionContainer,
+    AppReportModal,
+    AppSettingsDropdown,
   },
 
   mixins: [ProjectBeautifyId, Numbers],
@@ -124,8 +154,26 @@ export default {
 
   data() {
     return {
+      reportProposal: null,
       categoryMap: CategoryMap,
     };
+  },
+
+  methods: {
+    handleSettingsSelection(payload) {
+      const { type, id } = payload;
+      switch (type) {
+        case 'report':
+          this.daoProposals.forEach((daoProposal) => {
+            if (daoProposal.id === id) {
+              this.reportProposal = daoProposal;
+              this.$refs.reportModal.toggleOpen();
+            }
+          });
+          break;
+        default:
+      }
+    },
   },
 };
 </script>

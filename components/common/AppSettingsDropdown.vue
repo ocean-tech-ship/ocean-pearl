@@ -38,7 +38,7 @@
             tabindex="0"
             @click="handleSelection(menuItem)"
           >
-            <span class="mdi mr-2" :class="menuItem.iconClass" />
+            <span class="mdi mr-1" :class="menuItem.iconClass" />
             {{ menuItem.content }}
           </li>
         </ul>
