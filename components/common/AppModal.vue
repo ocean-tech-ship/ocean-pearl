@@ -52,7 +52,7 @@
             sm:py-8 sm:pl-8
           "
         >
-          <header class="modal-header flex items-center sm:mb-4 pr-6 sm:pr-8">
+          <header class="modal-header flex items-center pr-6 sm:pr-8">
             <slot name="header" />
           </header>
           <section class="modal-body pr-6 sm:pr-8">
@@ -144,7 +144,7 @@ export default {
     width: 450px;
   }
   @media screen and (min-width: 768px) {
-    height: 470px;
+    height: 498px;
     width: 670px;
   }
 }

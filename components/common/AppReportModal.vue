@@ -1,113 +1,102 @@
 <template>
-  <div>
-    <div class="relative">
-      <button
-        type="button"
-        class="
-          absolute
-          -top-1
-          right-1
-          p-4
-          text-lg
-          mdi mdi-settings-helper
-          text-primary
-          leading-none
-          -rotate-90
-        "
-        @click="toggleOpen"
-      />
-    </div>
-    <app-modal :open="open" @close="toggleOpen">
-      <template #header>
-        <div class="flex items-center mb-4">
-          <span
-            class="
-              mdi mdi-alert-circle-outline
-              mr-2
-              text-primary text-smbase
-              md:text-lg
-            "
-          />
-          <p class="text-primary leading-snug break-all">
-            {{ $t('appReportModal.headline') }}
-          </p>
-        </div>
-      </template>
-      <template #body>
-        <p class="small-text md:text-smbase">
-          {{
-            $t('appReportModal.subtext', {
-              project: daoProposal.project.title,
-            })
-          }}
+  <app-modal :open="open" @close="toggleOpen">
+    <template #header>
+      <div class="flex items-center">
+        <span
+          class="
+            mdi mdi-alert-circle-outline
+            mr-2
+            mb-4
+            md:mb-2
+            text-primary text-smbase
+            md:text-lg
+          "
+        />
+        <p class="text-primary leading-snug break-all mb-4 md:mb-2">
+          {{ $t('appReportModal.headline') }}
         </p>
-        <div class="mt-4">
-          <div class="flex items-center">
-            <span class="mdi mdi-email-lock mr-2 text-primary text-smbase" />
-            <p class="small-text md:text-smbase text-primary">
-              {{ $t('appReportModal.headlineEmail') }}
-            </p>
-          </div>
-          <p class="small-text mt-1">
-            {{ $t('appReportModal.subtextEmail.part1') }}
-            <app-link class="text-primary" to="https://protonmail.com">
-              Protonmail
-              <span class="mdi mdi-open-in-new" />
-            </app-link>
-            {{ $t('appReportModal.subtextEmail.part2') }}
+      </div>
+    </template>
+    <template #body>
+      <p class="small-text md:text-smbase mb-6 md:mb-8">
+        {{
+          $t('appReportModal.subtext', {
+            project: daoProposal.project.title,
+          })
+        }}
+      </p>
+      <div>
+        <div class="flex items-center">
+          <span class="mdi mdi-email-lock mr-2 text-primary text-smbase" />
+          <p class="small-text md:text-smbase text-primary">
+            {{ $t('appReportModal.headlineEmail') }}
           </p>
-          <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-2">
-            <app-button
-              text-class="small-text"
-              :icon="require('@/assets/images/detail/copy-primary.svg')"
-              :text="$t(btnCopyEmailTitle)"
-              secondary
-              @click="copyEmail"
-            />
-            <app-button
-              text-class="small-text"
-              :icon="require('@/assets/images/detail/copy-primary.svg')"
-              :text="$t(btnCopyPgpTitle)"
-              secondary
-              @click="copyPgp"
-            />
-          </div>
-          <div class="accordion w-full mt-4">
-            <div class="flex justify-center items-center">
-              <hr class="text-primary hidden sm:block sm:w-1/3" />
-              <button
-                class="small-text text-darkgey sm:w-1/3"
-                @click="toggleAccOpen"
-              >
-                <span class="mdi" :class="{ accOpen: '' }"></span> show pgp key
-              </button>
-              <hr class="text-primary hidden sm:block sm:w-1/3" />
-            </div>
-            <pre v-if="accOpen" class="w-full bg-grey p-3">{{ pgpKey }}</pre>
-          </div>
         </div>
-        <div class="mt-4">
-          <div class="flex items-center">
-            <span class="mdi mdi-discord mr-2 text-primary text-smbase" />
-            <p class="small-text md:text-smbase text-primary">
-              {{ $t('appReportModal.headlineSocial') }}
-            </p>
-          </div>
-          <p class="small-text mt-1">
-            {{ $t('appReportModal.subtextSocial.part1') }}
-            <app-link
-              class="text-primary"
-              to="https://github.com/ocean-tech-ship"
+        <p class="small-text mt-1">
+          {{ $t('appReportModal.subtextEmail.part1') }}
+          <app-link class="text-primary" to="https://protonmail.com">
+            Protonmail
+            <span class="mdi mdi-open-in-new" />
+          </app-link>
+          {{ $t('appReportModal.subtextEmail.part2') }}
+        </p>
+        <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+          <app-button
+            text-class="small-text"
+            :icon="require('@/assets/images/detail/copy-primary.svg')"
+            :text="$t(btnCopyEmailTitle)"
+            secondary
+            @click="copyEmail"
+          />
+          <app-button
+            text-class="small-text"
+            :icon="require('@/assets/images/detail/copy-primary.svg')"
+            :text="$t(btnCopyPgpTitle)"
+            secondary
+            @click="copyPgp"
+          />
+        </div>
+        <div class="accordion w-full mt-4">
+          <div class="flex justify-center items-center">
+            <hr class="text-primary hidden sm:block sm:w-1/3" />
+            <button
+              class="small-text text-darkgey sm:w-1/3"
+              @click="toggleAccOpen"
             >
-              Discord
-              <span class="mdi mdi-open-in-new" />
-            </app-link>
-            {{ $t('appReportModal.subtextSocial.part2') }}
+              <span
+                class="mdi mr-1 text-smbase"
+                :class="{ 'mdi-menu-up': accOpen, 'mdi-menu-down': !accOpen }"
+              />
+              {{ $t('appReportModal.btnShowPgpTitle') }}
+            </button>
+            <hr class="text-primary hidden sm:block sm:w-1/3" />
+          </div>
+          <pre v-if="accOpen" class="w-full bg-grey p-3 small-text">{{
+            pgpKey
+          }}</pre>
+        </div>
+      </div>
+      <div class="mt-4">
+        <div class="flex items-center">
+          <span class="mdi mdi-discord mr-2 text-primary text-smbase" />
+          <p class="small-text md:text-smbase text-primary">
+            {{ $t('appReportModal.headlineSocial') }}
           </p>
         </div>
-      </template>
-    </app-modal>
-  </div>
+        <p class="small-text mt-1">
+          {{ $t('appReportModal.subtextSocial.part1') }}
+          <app-link
+            class="text-primary"
+            to="https://github.com/ocean-tech-ship"
+          >
+            Discord
+            <span class="mdi mdi-open-in-new" />
+          </app-link>
+          {{ $t('appReportModal.subtextSocial.part2') }}
+        </p>
+      </div>
+    </template>
+  </app-modal>
 </template>
 
 <script>
@@ -136,8 +125,8 @@ export default {
     return {
       open: false,
       accOpen: false,
-      btnCopyEmailTitle: 'appReportModal.copyEmail',
-      btnCopyPgpTitle: 'appReportModal.copyPgp',
+      btnCopyEmailTitle: 'appReportModal.btnCopyEmailTitle',
+      btnCopyPgpTitle: 'appReportModal.btnCopyPgpTitle',
       emailAddress: EmailEnum.Address,
       pgpKey: EmailEnum.Pgp,
     };
@@ -146,24 +135,25 @@ export default {
   methods: {
     toggleOpen() {
       this.open = !this.open;
+      this.$emit('toggleOpen', this.open);
     },
     toggleAccOpen() {
       this.accOpen = !this.accOpen;
     },
     copyEmail() {
       navigator.clipboard.writeText(this.emailAddress).then(() => {
-        this.btnCopyEmailTitle = 'appReportModal.copiedEmail';
+        this.btnCopyEmailTitle = 'appReportModal.btnCopiedEmailTitle';
         setTimeout(
-          () => (this.btnCopyEmailTitle = 'appReportModal.copyEmail'),
+          () => (this.btnCopyEmailTitle = 'appReportModal.btnCopyEmailTitle'),
           1500,
         );
       });
     },
     copyPgp() {
       navigator.clipboard.writeText(this.pgpKey).then(() => {
-        this.btnCopyPgpTitle = 'appReportModal.copiedPgp';
+        this.btnCopyPgpTitle = 'appReportModal.btnCopiedPgpTitle';
         setTimeout(
-          () => (this.btnCopyPgpTitle = 'appReportModal.copyPgp'),
+          () => (this.btnCopyPgpTitle = 'appReportModal.btnCopyPgpTitle'),
           1500,
         );
       });

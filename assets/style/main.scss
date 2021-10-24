@@ -139,9 +139,14 @@ p {
   line-height: 12px;
 }
 
-/* width */
+/* width vertical */
 ::-webkit-scrollbar {
   width: 8px;
+}
+
+/* height horizontal */
+::-webkit-scrollbar:horizontal {
+  height: 8px;
 }
 
 /* Handle */

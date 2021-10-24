@@ -12,10 +12,11 @@
       "part1": "You can also find us on ",
       "part2": ", where you can reach out to one of our team members directly."
     },
-    "copyEmail": "oceanpearl@protonmail.com",
-    "copiedEmail": "copied!",
-    "copyPgp": "PGP key",
-    "copiedPgp": "copied!"
+    "btnCopyEmailTitle": "oceanpearl@protonmail.com",
+    "btnCopiedEmailTitle": "copied!",
+    "btnCopyPgpTitle": "PGP Key",
+    "btnCopiedPgpTitle": "copied!",
+    "btnShowPgpTitle": "Show PGP Key"
   },
   "dao-projects": {
     "filterResponse": {

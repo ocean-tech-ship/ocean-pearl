@@ -11,7 +11,15 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
-        <app-report-modal :dao-proposal="daoProposal" />
+        <app-settings-dropdown
+          :menu-items="[
+            {
+              ...settingsMeunItems[0],
+              value: { type: 'report', id: daoProposal.id },
+            },
+          ]"
+          @selected="handleSettingsSelection"
+        />
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
@@ -124,6 +132,7 @@
         </NuxtLink>
       </div>
     </div>
+    <app-report-modal ref="reportModal" :dao-proposal="reportProposal" />
   </div>
 </template>
 
@@ -132,6 +141,7 @@ import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
 import AppReportModal from '@/components/common/AppReportModal.vue';
+import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 
@@ -142,6 +152,7 @@ export default {
     AppLogo,
     AppLabel,
     AppReportModal,
+    AppSettingsDropdown,
   },
 
   mixins: [ProjectBeautifyId, Numbers],
@@ -156,8 +167,32 @@ export default {
 
   data() {
     return {
+      settingsMeunItems: [
+        {
+          content: 'Report this project',
+          iconClass: 'mdi-alert-circle-outline',
+        },
+      ],
       categoryMap: CategoryMap,
+      reportProposal: {},
     };
+  },
+
+  methods: {
+    handleSettingsSelection(payload) {
+      const { type, id } = payload;
+      switch (type) {
+        case 'report':
+          this.daoProposals.forEach((daoProposal) => {
+            if (daoProposal.id === id) {
+              this.reportProposal = daoProposal;
+              this.$refs.reportModal.toggleOpen();
+            }
+          });
+          break;
+        default:
+      }
+    },
   },
 };
 </script>
