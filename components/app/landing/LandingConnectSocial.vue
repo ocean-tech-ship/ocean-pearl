@@ -11,10 +11,10 @@
       <div v-for="card in cards" :key="card.title">
         <div class="shadow bg-white rounded p-8 pb-4 min-h-full flex flex-col">
           <div class="mr-3">
-            <img
-              class="inline-block h-10 w-10 mb-4"
-              :src="card.imageURL"
-              :alt="card.title"
+            <app-icon
+              class="mb-4 text-primary"
+              :size="40"
+              :data="card.icon"
             />
           </div>
           <div class="flex flex-col flex-grow">
@@ -28,15 +28,14 @@
               {{ card.text }}
             </p>
             <AppLink class="table mt-auto" :to="card.route">
-              <div class="flex content-center">
+              <div class="flex items-center">
                 <p class="text-primary text-smbase">
                   {{ card.LinkText }}
                 </p>
-                <img
-                  src="@/assets/images/landing/check-out.svg"
-                  alt="checkout button"
-                  class="w-5 h-5 mt-2 ml-2"
-                />
+
+                <app-icon
+                  class="pl-2 text-primary"
+                  :data="icons.arrowRight" />
               </div>
             </AppLink>
           </div>
@@ -47,24 +46,32 @@
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer';
-import AppLink from '@/components/common/AppLink';
+import discord from '@iconify/icons-la/discord';
+import github from '@iconify/icons-la/github';
+import arrowRight from '@iconify/icons-la/arrow-right';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import AppLink from '@/components/common/AppLink.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'LandingConnectSocial',
   components: {
+    AppIcon,
     LandingSectionContainer,
     AppLink,
   },
   data() {
     return {
+      icons: {
+        arrowRight,
+      },
       cards: [
         {
           title: 'Meet the crew on ',
           titleHighlight: 'discord',
           route: 'https://discord.gg/eswPj8QZRH',
           LinkText: 'Discord',
-          imageURL: require('@/assets/images/footer/discord_footer.svg'),
+          icon: discord,
           text: 'Our main communication platform right now is discord. If you want to get in closer touch with us, just find us here and come on board.',
         },
         {
@@ -72,7 +79,7 @@ export default {
           titleHighlight: 'github',
           route: 'https://github.com/ocean-tech-ship',
           LinkText: 'Github',
-          imageURL: require('@/assets/images/social/github.svg'),
+          icon: github,
           text: 'Submit your latest ideas and inspirations via writing an issue on our github repo. We will be happy about any input you got for us.',
         },
       ],

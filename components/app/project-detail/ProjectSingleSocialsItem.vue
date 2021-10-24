@@ -1,25 +1,27 @@
 <template>
   <a :href="url" target="_blank" rel="noopener noreferrer">
-    <img
+    <app-icon
+      :size="32"
+      :data="getIcon(type)"
       class="
-        h-8
-        w-8
+        text-primary
         transition
         duration-300
         ease-in-out
         hover:scale-125
       "
-      :src="getIcon(type)"
-      :alt="type + ' ' + $t('general.logo')"
     />
   </a>
 </template>
 
 <script>
 import { SocialMedia } from '@/model/SocialMedia';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSingleSocialsItem',
+
+  components: { AppIcon },
 
   props: {
     type: {
