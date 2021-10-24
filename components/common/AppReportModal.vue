@@ -135,7 +135,7 @@ export default {
   methods: {
     toggleOpen() {
       this.open = !this.open;
-      this.$emit('toggleOpen', this.open);
+      if (!this.open && this.accOpen) this.accOpen = false;
     },
     toggleAccOpen() {
       this.accOpen = !this.accOpen;
