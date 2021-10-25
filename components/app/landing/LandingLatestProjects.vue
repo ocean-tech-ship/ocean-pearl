@@ -61,11 +61,12 @@
     </div>
 
     <NuxtLink :prefetch="false" to="/projects">
-      <div class="flex items-center mt-6 mb-32">
-        <p class="mr-2 text-primary">
+      <div class="flex items-center mt-6 mb-32 text-primary">
+        <p class="mr-2">
           {{ $t('landing.latest_projects.link_text') }}
         </p>
-        <img src="@/assets/images/landing/check-out.svg" alt="arrow" />
+
+        <app-icon :data="icons.arrowRight" />
       </div>
     </NuxtLink>
   </LandingSectionContainer>
@@ -77,12 +78,15 @@ import AppLogo from '@/components/common/AppLogo.vue';
 import LandingLatestProjectsSkeletonCard from '@/components/app/landing/LandingLatestProjectsSkeletonCard.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import arrowRight from '@iconify/icons-la/arrow-right';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'LandingLatestProjects',
 
   components: {
+    AppIcon,
     AppLogo,
     LandingSectionContainer,
     LandingLatestProjectsSkeletonCard,
@@ -100,6 +104,9 @@ export default {
 
   data() {
     return {
+      icons: {
+        arrowRight,
+      },
       categoryMap: CategoryMap,
     };
   },

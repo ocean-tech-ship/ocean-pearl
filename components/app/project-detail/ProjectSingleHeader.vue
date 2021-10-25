@@ -15,11 +15,7 @@
     </div>
 
     <div class="flex items-center my-8 mx-8 md:my-4">
-      <img
-        class="h-10 w-10 mr-4"
-        :src="require('@/assets/images/icons/rocket.svg')"
-        :alt="`${$t('project.added')} ${$t('general.icon')}`"
-      />
+      <app-icon class="text-primary mr-4" :size="40" :data="icons.rocket" />
 
       <div>
         <p class="small-text">{{ $t('project.added') }}</p>
@@ -31,7 +27,7 @@
 
     <app-button
       class="hidden xl:block w-225px"
-      :icon="require('@/assets/images/detail/copy-primary.svg')"
+      :icon="icons.copy"
       :text="$t(copyButtonTitle)"
       secondary
       @click="copyProjectLink()"
@@ -40,14 +36,18 @@
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton';
-import AppLogo from '@/components/common/AppLogo';
+import rocket from '@iconify/icons-la/rocket';
+import copy from '@iconify/icons-la/copy';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import AppButton from '@/components/common/AppButton.vue';
+import AppLogo from '@/components/common/AppLogo.vue';
+import AppIcon from '@/components/common/AppIcon.vue'
 
 export default {
   name: 'ProjectSingleHeader',
 
   components: {
+    AppIcon,
     AppLogo,
     AppButton,
   },
@@ -57,7 +57,7 @@ export default {
       type: Object,
       required: true,
       default: () => ({
-        logo: require('@/assets/images/detail/pearl-background.png'),
+        logo: '',
         title: '/',
         category: '/',
         createdAt: -1,
@@ -67,6 +67,10 @@ export default {
 
   data() {
     return {
+      icons: {
+        rocket,
+        copy,
+      },
       copyButtonTitle: 'project.copy',
       categoryMap: CategoryMap,
     };
