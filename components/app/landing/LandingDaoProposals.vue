@@ -28,8 +28,10 @@
           :menu-items="[
             {
               content: 'Report this project',
-              iconClass: 'mdi-alert-circle-outline',
               value: { type: 'report', id: daoProposal.id },
+              icon: {
+                data: icons.alertCircleOutline,
+              },
             },
           ]"
           @selected="handleSettingsSelection"
@@ -69,10 +71,7 @@
 
             <div>
               <div class="flex items-center">
-                <app-icon
-                  class="text-primary pr-2"
-                  :data="icons.coins"
-                />
+                <app-icon class="text-primary pr-2" :data="icons.coins" />
 
                 <p class="small-text text-primary">
                   {{ $t('landing.dao_proposals.requestedAmount') }}
@@ -127,6 +126,7 @@
 <script>
 import coins from '@iconify/icons-la/coins';
 import arrowRight from '@iconify/icons-la/arrow-right';
+import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppReportModal from '@/components/common/AppReportModal.vue';
@@ -160,6 +160,7 @@ export default {
   data() {
     return {
       icons: {
+        alertCircleOutline,
         coins,
         arrowRight,
       },

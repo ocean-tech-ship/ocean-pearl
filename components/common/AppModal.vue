@@ -30,17 +30,12 @@
       >
         <button
           type="button"
-          class="
-            btn-close
-            mdi mdi-close
-            text-smbase text-primary
-            absolute
-            top-2
-            right-3
-          "
+          class="btn-close text-smbase text-primary absolute top-2 right-3"
           aria-label="Close modal"
           @click="close"
-        />
+        >
+          <app-icon :data="icons.closeIcon" />
+        </button>
         <div
           class="
             modal-content
@@ -68,8 +63,16 @@
 </template>
 
 <script>
+import closeIcon from '@iconify/icons-mdi/close';
+import AppIcon from '@/components/common/AppIcon.vue';
+
 export default {
   name: 'AppModal',
+
+  components: {
+    AppIcon,
+  },
+
   props: {
     open: {
       type: Boolean,
@@ -77,6 +80,15 @@ export default {
       default: () => false,
     },
   },
+
+  data() {
+    return {
+      icons: {
+        closeIcon,
+      },
+    };
+  },
+
   watch: {
     open() {
       this.open
@@ -84,6 +96,7 @@ export default {
         : document.body.classList.remove('scroll-lock');
     },
   },
+
   methods: {
     backdropClose(e) {
       if (e.target.classList.contains('modal-backdrop')) this.$emit('close');
@@ -94,6 +107,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss">
 .scroll-lock {
   height: 100vh;
@@ -131,6 +145,7 @@ export default {
   }
 }
 </style>
+
 <style scoped lang="scss">
 .modal-backdrop {
   z-index: 999;

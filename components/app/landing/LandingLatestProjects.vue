@@ -28,8 +28,10 @@
           :menu-items="[
             {
               content: 'Report this project',
-              iconClass: 'mdi-alert-circle-outline',
               value: { type: 'report', id: project.id },
+              icon: {
+                data: icons.alertCircleOutline,
+              },
             },
           ]"
           @selected="handleSettingsSelection"
@@ -67,9 +69,7 @@
           {{ $t('landing.latest_projects.link_text') }}
         </p>
 
-        <app-icon
-          :data="icons.arrowRight"
-        />
+        <app-icon :data="icons.arrowRight" />
       </div>
     </NuxtLink>
 
@@ -82,6 +82,7 @@
 
 <script>
 import arrowRight from '@iconify/icons-la/arrow-right';
+import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
@@ -114,6 +115,7 @@ export default {
   data() {
     return {
       icons: {
+        alertCircleOutline,
         arrowRight,
       },
       reportProject: null,

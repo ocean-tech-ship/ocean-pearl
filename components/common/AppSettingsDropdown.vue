@@ -16,7 +16,9 @@
         "
         @click="toggleOpen"
         @blur="handleBlur"
-      />
+      >
+        <app-icon :size="28" :data="icons.settingsHelper" />
+      </button>
       <div
         v-if="open"
         class="
@@ -25,7 +27,7 @@
           rounded
           shadow
           absolute
-          top-10
+          top-8
           z-40
           right-4
         "
@@ -34,11 +36,15 @@
           <li
             v-for="menuItem of menuItems"
             :key="menuItem.value.type"
-            class="menuItem text-primary small-text p-2"
+            class="menuItem text-primary small-text p-2 flex items-center"
             tabindex="0"
             @click="handleSelection(menuItem)"
           >
-            <span class="mdi mr-1" :class="menuItem.iconClass" />
+            <app-icon
+              :size="menuItem.icon.size || 16"
+              :data="menuItem.icon.data"
+              class="mr-2"
+            />
             {{ menuItem.content }}
           </li>
         </ul>
@@ -48,8 +54,15 @@
 </template>
 
 <script>
+import settingsHelper from '@iconify/icons-mdi/settings-helper';
+import AppIcon from '@/components/common/AppIcon.vue';
+
 export default {
   name: 'AppSettingsDropdown',
+
+  components: {
+    AppIcon,
+  },
 
   props: {
     menuItems: {
@@ -61,6 +74,9 @@ export default {
 
   data() {
     return {
+      icons: {
+        settingsHelper,
+      },
       open: false,
     };
   },

@@ -1,24 +1,15 @@
 <template>
   <app-modal :open="open" @close="toggleOpen">
     <template #header>
-      <div class="flex items-center">
-        <span
-          class="
-            mdi mdi-alert-circle-outline
-            mr-2
-            mb-4
-            md:mb-2
-            text-primary text-smbase
-            md:text-lg
-          "
-        />
-        <p class="text-primary leading-snug break-all mb-4 md:mb-2">
+      <div class="flex items-center text-primary">
+        <app-icon class="mr-2 mb-4" :data="icons.alertCircleOutline" />
+        <p class="leading-snug break-all mb-4">
           {{ $t('appReportModal.headline') }}
         </p>
       </div>
     </template>
     <template #body>
-      <p class="small-text md:text-smbase mb-6 md:mb-8">
+      <p class="small-text md:text-smbase mb-6">
         {{
           $t('appReportModal.subtext', {
             projectTitle: projectTitle,
@@ -27,16 +18,15 @@
       </p>
       <div>
         <div class="flex items-center">
-          <span class="mdi mdi-email-lock mr-2 text-primary text-smbase" />
+          <app-icon class="mr-2 text-primary" :size="18" :data="icons.email" />
           <p class="small-text md:text-smbase text-primary">
             {{ $t('appReportModal.headlineEmail') }}
           </p>
         </div>
         <p class="small-text mt-1">
           {{ $t('appReportModal.subtextEmail.part1') }}
-          <app-link class="text-primary" to="https://protonmail.com">
+          <app-link class="text-primary inline" to="https://protonmail.com">
             Protonmail
-            <span class="mdi mdi-open-in-new" />
           </app-link>
           {{ $t('appReportModal.subtextEmail.part2') }}
         </p>
@@ -45,12 +35,14 @@
             text-class="small-text"
             :text="$t(btnCopyEmailTitle)"
             secondary
+            :icon="icons.contentCopy"
             @click="copyEmail"
           />
           <app-button
             text-class="small-text"
             :text="$t(btnCopyPgpTitle)"
             secondary
+            :icon="icons.contentCopy"
             @click="copyPgp"
           />
         </div>
@@ -58,14 +50,23 @@
           <div class="flex justify-center items-center">
             <hr class="text-primary hidden sm:block sm:w-1/3" />
             <button
-              class="small-text text-darkgey sm:w-1/3"
+              class="
+                small-text
+                text-darkgey
+                sm:w-1/3
+                flex
+                justify-center
+                items-center
+              "
               @click="toggleAccOpen"
             >
-              <span
-                class="mdi mr-1 text-smbase"
-                :class="{ 'mdi-menu-up': accOpen, 'mdi-menu-down': !accOpen }"
+              <app-icon
+                :size="18"
+                :data="!accOpen ? icons.menuDown : icons.menuUp"
               />
-              {{ $t('appReportModal.btnShowPgpTitle') }}
+              <span class="ml-2">{{
+                $t('appReportModal.btnShowPgpTitle')
+              }}</span>
             </button>
             <hr class="text-primary hidden sm:block sm:w-1/3" />
           </div>
@@ -76,7 +77,11 @@
       </div>
       <div class="mt-4">
         <div class="flex items-center">
-          <span class="mdi mdi-discord mr-2 text-primary text-smbase" />
+          <app-icon
+            class="mr-2 text-primary"
+            :size="18"
+            :data="icons.discord"
+          />
           <p class="small-text md:text-smbase text-primary">
             {{ $t('appReportModal.headlineSocial') }}
           </p>
@@ -88,7 +93,6 @@
             to="https://github.com/ocean-tech-ship"
           >
             Discord
-            <span class="mdi mdi-open-in-new" />
           </app-link>
           {{ $t('appReportModal.subtextSocial.part2') }}
         </p>
@@ -98,6 +102,13 @@
 </template>
 
 <script>
+import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
+import email from '@iconify/icons-mdi/email-outline';
+import contentCopy from '@iconify/icons-mdi/content-copy';
+import menuDown from '@iconify/icons-mdi/menu-down';
+import menuUp from '@iconify/icons-mdi/menu-up';
+import discord from '@iconify/icons-la/discord';
+import AppIcon from '@/components/common/AppIcon.vue';
 import AppModal from '@/components/common/AppModal.vue';
 import AppButton from '@/components/common/AppButton.vue';
 import AppLink from '@/components/common/AppLink.vue';
@@ -109,6 +120,7 @@ export default {
     AppModal,
     AppButton,
     AppLink,
+    AppIcon,
   },
 
   props: {
@@ -127,6 +139,14 @@ export default {
       btnCopyPgpTitle: 'appReportModal.btnCopyPgpTitle',
       emailAddress: EmailEnum.Address,
       pgpKey: EmailEnum.Pgp,
+      icons: {
+        alertCircleOutline,
+        email,
+        contentCopy,
+        menuDown,
+        menuUp,
+        discord,
+      },
     };
   },
 
@@ -135,9 +155,11 @@ export default {
       this.open = !this.open;
       if (!this.open && this.accOpen) this.accOpen = false;
     },
+
     toggleAccOpen() {
       this.accOpen = !this.accOpen;
     },
+
     copyEmail() {
       navigator.clipboard.writeText(this.emailAddress).then(() => {
         this.btnCopyEmailTitle = 'appReportModal.btnCopiedEmailTitle';
@@ -147,6 +169,7 @@ export default {
         );
       });
     },
+
     copyPgp() {
       navigator.clipboard.writeText(this.pgpKey).then(() => {
         this.btnCopyPgpTitle = 'appReportModal.btnCopiedPgpTitle';

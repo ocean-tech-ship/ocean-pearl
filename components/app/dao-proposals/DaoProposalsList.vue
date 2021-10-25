@@ -15,8 +15,10 @@
           :menu-items="[
             {
               content: 'Report this project',
-              iconClass: 'mdi-alert-circle-outline',
               value: { type: 'report', id: daoProposal.id },
+              icon: {
+                data: icons.alertCircleOutline,
+              },
             },
           ]"
           @selected="handleSettingsSelection"
@@ -135,6 +137,7 @@
 import coins from '@iconify/icons-la/coins';
 import check from '@iconify/icons-la/check';
 import times from '@iconify/icons-la/times';
+import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
@@ -142,7 +145,7 @@ import AppReportModal from '@/components/common/AppReportModal.vue';
 import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
-import AppIcon from '~/components/common/AppIcon'
+import AppIcon from '~/components/common/AppIcon';
 
 export default {
   name: 'DaoProposalsList',
@@ -168,6 +171,7 @@ export default {
   data() {
     return {
       icons: {
+        alertCircleOutline,
         coins,
         check,
         times,
