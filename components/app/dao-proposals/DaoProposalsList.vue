@@ -12,10 +12,8 @@
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <app-settings-dropdown
-          :menu-items="[
-            { ...menuItems[0], value: { type: 'report', id: daoProposal.id } },
-          ]"
-          @selected="handleSettingsSelection"
+          :project-title="daoProposal.project.title"
+          :project-link="`/projects/${beautifyProjectId(daoProposal.project)}`"
         />
         <NuxtLink
           :prefetch="false"
@@ -118,12 +116,6 @@
         </NuxtLink>
       </div>
     </div>
-    <app-report-modal
-      ref="reportModal"
-      :project-title="
-        reportProposal ? reportProposal.project.title : 'this project'
-      "
-    />
   </div>
 </template>
 
@@ -131,11 +123,9 @@
 import coins from '@iconify/icons-la/coins';
 import check from '@iconify/icons-la/check';
 import times from '@iconify/icons-la/times';
-import alertCircle from '@iconify/icons-mdi/alert-circle-outline';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
-import AppReportModal from '@/components/common/AppReportModal.vue';
 import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
@@ -148,7 +138,6 @@ export default {
     AppIcon,
     AppLogo,
     AppLabel,
-    AppReportModal,
     AppSettingsDropdown,
   },
 
@@ -168,34 +157,9 @@ export default {
         coins,
         check,
         times,
-        alertCircle,
       },
-      reportProposal: null,
       categoryMap: CategoryMap,
-      menuItems: [
-        {
-          content: 'Report project',
-          icon: { data: alertCircle },
-        },
-      ],
     };
-  },
-
-  methods: {
-    handleSettingsSelection(payload) {
-      const { type, id } = payload;
-      switch (type) {
-        case 'report':
-          this.daoProposals.forEach((daoProposal) => {
-            if (daoProposal.id === id) {
-              this.reportProposal = daoProposal;
-              this.$refs.reportModal.toggleOpen();
-            }
-          });
-          break;
-        default:
-      }
-    },
   },
 };
 </script>

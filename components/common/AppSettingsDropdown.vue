@@ -39,42 +39,54 @@
       >
         <ul>
           <li
-            v-for="menuItem of menuItems"
-            :key="menuItem.value.type"
             class="menuItem text-primary small-text p-2 flex items-center"
             tabindex="0"
-            @click="handleSelection(menuItem)"
+            @click="copyProjectLink()"
           >
-            <app-icon
-              :size="menuItem.icon.size || 16"
-              :data="menuItem.icon.data"
-              class="mr-2"
-            />
-            {{ menuItem.content }}
+            <app-icon :size="16" :data="icons.contentCopy" class="mr-2" />
+            {{ $t(menuItemCopyLinkTitle) }}
+          </li>
+          <li
+            class="menuItem text-primary small-text p-2 flex items-center"
+            tabindex="0"
+            @click="toggleReportModal()"
+          >
+            <app-icon :size="16" :data="icons.alertCircle" class="mr-2" />
+            {{ $t('appSettingsDropdown.menuItemReport') }}
           </li>
         </ul>
       </div>
     </div>
+    <app-report-modal ref="reportModal" :project-title="projectTitle" />
   </div>
 </template>
 
 <script>
 import settingsHelper from '@iconify/icons-mdi/settings-helper';
-import checkForiOS from '@/helpers/checkOS.ts';
+import alertCircle from '@iconify/icons-mdi/alert-circle-outline';
+import contentCopy from '@iconify/icons-mdi/content-copy';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppReportModal from '@/components/common/AppReportModal.vue';
+import checkForiOS from '@/helpers/checkOS.ts';
 
 export default {
   name: 'AppSettingsDropdown',
 
   components: {
     AppIcon,
+    AppReportModal,
   },
 
   props: {
-    menuItems: {
-      type: Array,
+    projectTitle: {
+      type: String,
       required: true,
-      default: () => [],
+      default: () => '',
+    },
+    projectLink: {
+      type: String,
+      required: true,
+      default: () => '',
     },
   },
 
@@ -82,18 +94,17 @@ export default {
     return {
       icons: {
         settingsHelper,
+        alertCircle,
+        contentCopy,
       },
       open: false,
+      menuItemCopyLinkTitle: 'appSettingsDropdown.menuItemCopyLink',
     };
   },
 
   methods: {
     toggleOpen() {
       this.open = !this.open;
-    },
-    handleSelection(menuItem) {
-      this.$emit('selected', menuItem.value);
-      this.toggleOpen();
     },
     handleBlur(e) {
       if (
@@ -108,13 +119,28 @@ export default {
         e.target.addEventListener('mouseout', handleBlur, { once: true });
       }
     },
+    toggleReportModal() {
+      this.toggleOpen();
+      this.$refs.reportModal.toggleOpen();
+    },
+    copyProjectLink() {
+      navigator.clipboard
+        .writeText(`${window.location.origin}${this.projectLink}`)
+        .then(() => {
+          this.menuItemCopyLinkTitle = 'appSettingsDropdown.menuItemCopied';
+          setTimeout(() => {
+            this.toggleOpen();
+            this.menuItemCopyLinkTitle = 'appSettingsDropdown.menuItemCopyLink';
+          }, 1000);
+        });
+    },
   },
 };
 </script>
 
 <style scoped lang="scss">
 ul {
-  min-width: 90px;
+  min-width: 160px;
   max-height: 222px;
   border-radius: 7px;
 }

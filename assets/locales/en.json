@@ -1,4 +1,9 @@
 {
+  "appSettingsDropdown": {
+    "menuItemCopyLink": "Copy project link",
+    "menuItemCopied": "copied!",
+    "menuItemReport": "Report project"
+  },
   "appReportModal": {
     "headline": "Report this project",
     "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hestitate to contact us.",
@@ -13,10 +18,9 @@
       "part2": ", where you can reach out to one of our team members directly."
     },
     "btnCopyEmailTitle": "oceanpearl@protonmail.com",
-    "btnCopiedEmailTitle": "copied!",
     "btnCopyPgpTitle": "PGP Key",
-    "btnCopiedPgpTitle": "copied!",
-    "btnShowPgpTitle": "Show PGP Key"
+    "btnShowPgpTitle": "Show PGP Key",
+    "btnCopied": "copied!"
   },
   "dao-projects": {
     "filterResponse": {
