@@ -13,13 +13,7 @@
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <app-settings-dropdown
           :menu-items="[
-            {
-              content: 'Report this project',
-              value: { type: 'report', id: daoProposal.id },
-              icon: {
-                data: icons.alertCircleOutline,
-              },
-            },
+            { ...menuItems[0], value: { type: 'report', id: daoProposal.id } },
           ]"
           @selected="handleSettingsSelection"
         />
@@ -137,15 +131,15 @@
 import coins from '@iconify/icons-la/coins';
 import check from '@iconify/icons-la/check';
 import times from '@iconify/icons-la/times';
-import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
+import alertCircle from '@iconify/icons-mdi/alert-circle-outline';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
 import AppReportModal from '@/components/common/AppReportModal.vue';
 import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
-import AppIcon from '~/components/common/AppIcon';
 
 export default {
   name: 'DaoProposalsList',
@@ -171,13 +165,19 @@ export default {
   data() {
     return {
       icons: {
-        alertCircleOutline,
         coins,
         check,
         times,
+        alertCircle,
       },
       reportProposal: null,
       categoryMap: CategoryMap,
+      menuItems: [
+        {
+          content: 'Report project',
+          icon: { data: alertCircle },
+        },
+      ],
     };
   },
 

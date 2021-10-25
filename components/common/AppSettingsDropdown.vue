@@ -114,7 +114,7 @@ export default {
 
 <style scoped lang="scss">
 ul {
-  min-width: 140px;
+  min-width: 90px;
   max-height: 222px;
   border-radius: 7px;
 }
