@@ -14,7 +14,12 @@
           text-primary
           leading-none
         "
-        @click="toggleOpen"
+        @click="
+          (e) => {
+            toggleOpen();
+            handleiOSBlur(e);
+          }
+        "
         @blur="handleBlur"
       >
         <app-icon :size="28" :data="icons.settingsHelper" />
@@ -55,6 +60,7 @@
 
 <script>
 import settingsHelper from '@iconify/icons-mdi/settings-helper';
+import checkForiOS from '@/helpers/checkOS.ts';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
@@ -80,6 +86,7 @@ export default {
       open: false,
     };
   },
+
   methods: {
     toggleOpen() {
       this.open = !this.open;
@@ -95,6 +102,12 @@ export default {
       )
         this.toggleOpen();
     },
+    handleiOSBlur(e) {
+      if (checkForiOS()) {
+        const { handleBlur } = this;
+        e.target.addEventListener('mouseout', handleBlur, { once: true });
+      }
+    },
   },
 };
 </script>
@@ -102,7 +115,6 @@ export default {
 <style scoped lang="scss">
 ul {
   min-width: 140px;
-  max-width: auto;
   max-height: 222px;
   border-radius: 7px;
 }
