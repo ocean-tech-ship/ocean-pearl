@@ -9,8 +9,10 @@
         <template slot-scope="context">
           <button @click="context.toggleOpen()">
             <app-icon
-              class="mdi mdi-link-plus text-primary text-lg"
-              :hint="$t('general.add')"
+              class="text-primary"
+              :size="32"
+              :data="icons.linkPlus"
+              :tooltip="$t('general.add')"
             />
           </button>
 
@@ -24,6 +26,7 @@
                 mt-4
                 p-2
                 w-44
+                z-50
                 bg-grey
                 border border-primary
                 rounded
@@ -41,10 +44,9 @@
                   class="flex items-center"
                   @click="addSocial(social)"
                 >
-                  <img
-                    class="w-4 h-4 mr-2"
-                    :src="social.Icon"
-                    alt=""
+                  <app-icon
+                    class="text-primary mr-2"
+                    :data="social.Icon"
                   />
 
                   <span>{{ social.Title }}</span>
@@ -70,16 +72,17 @@
       v-if="Object.values(socials).length === 0"
       class="small-text"
     >
-      /
+      {{ $t('manage.project.socials.empty') }}
     </p>
   </div>
 </template>
 
 <script>
-import MainDropdown from '@/components/common/MainDropdown.vue';
+import linkPlus from '@iconify/icons-mdi/link-plus';
 import { SocialMedia } from '@/model/SocialMedia';
+import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
-import AppIcon from '~/components/common/AppIcon';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSocials',
@@ -96,6 +99,9 @@ export default {
 
   data() {
     return {
+      icons: {
+        linkPlus,
+      },
       socials: ({ ...this.$props.project.socialMedia}),
     };
   },

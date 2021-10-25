@@ -1,3 +1,14 @@
+import web from '@iconify/icons-mdi/web';
+import github from '@iconify/icons-la/github';
+import twitter from '@iconify/icons-la/twitter';
+import linkedin from '@iconify/icons-la/linkedin';
+import reddit from '@iconify/icons-la/reddit';
+import facebook from '@iconify/icons-la/facebook';
+import telegram from '@iconify/icons-la/telegram';
+import discord from '@iconify/icons-la/discord';
+import medium from '@iconify/icons-la/medium';
+import youtube from '@iconify/icons-la/youtube';
+
 export class SocialMedia {
   public static parse(id: string): SocialMedia | null {
     switch (id.toLowerCase()) {
@@ -26,16 +37,16 @@ export class SocialMedia {
     }
   }
 
-  public static WEBSITE = new SocialMedia('Website');
-  public static GITHUB = new SocialMedia('GitHub');
-  public static TWITTER = new SocialMedia('Twitter');
-  public static LINKEDIN = new SocialMedia('LinkedIn');
-  public static REDDIT = new SocialMedia('Reddit');
-  public static FACEBOOK = new SocialMedia('Facebook');
-  public static TELEGRAM = new SocialMedia('Telegram');
-  public static DISCORD = new SocialMedia('Discord');
-  public static MEDIUM = new SocialMedia('Medium');
-  public static YOUTUBE = new SocialMedia('YouTube');
+  public static WEBSITE = new SocialMedia('Website', web);
+  public static GITHUB = new SocialMedia('GitHub', github);
+  public static TWITTER = new SocialMedia('Twitter', twitter);
+  public static LINKEDIN = new SocialMedia('LinkedIn', linkedin);
+  public static REDDIT = new SocialMedia('Reddit', reddit);
+  public static FACEBOOK = new SocialMedia('Facebook', facebook);
+  public static TELEGRAM = new SocialMedia('Telegram', telegram);
+  public static DISCORD = new SocialMedia('Discord', discord);
+  public static MEDIUM = new SocialMedia('Medium', medium);
+  public static YOUTUBE = new SocialMedia('YouTube', youtube);
 
   public get Id(): string {
     return this.title.toUpperCase()
@@ -45,10 +56,10 @@ export class SocialMedia {
     return this.title
   }
 
-  public get Icon(): string {
-    return require(`@/assets/images/social/${this.title.toLowerCase()}.svg`)
+  public get Icon(): object {
+    return this.icon;
   }
 
-  // eslint-disable-next-line no-useless-constructor
-  constructor(private title: string) {}
+  // eslint-disable-next-line no-useless-constructor,no-empty-function
+  constructor(private title: string, private icon: object) {}
 }

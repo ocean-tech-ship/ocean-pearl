@@ -21,23 +21,33 @@
     @click="$emit('click', $event)"
   >
     <img
-      v-if="icon"
+      v-if="icon && typeof icon === 'string'"
       :src="icon"
       :alt="`${$t('general.button')} ${$t('general.icon')}`"
       class="inline-block mr-2"
       width="20"
     />
+
+    <app-icon
+      v-if="icon && typeof icon === 'object'"
+      :data="icon"
+      :size="20"
+      class="inline-block align-middle mr-2"
+    />
+
     <span :class="textClass"> {{ text }} </span>
   </button>
 </template>
 
 <script>
+import AppIcon from '~/components/common/AppIcon'
 export default {
   name: 'AppButton',
-
+  components: { AppIcon },
   props: {
     icon: {
-      type: String,
+      type: [Object, String],
+      required: false,
       default: '',
     },
     text: {

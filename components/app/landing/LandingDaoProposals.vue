@@ -68,12 +68,12 @@
             </div>
 
             <div>
-              <div class="flex">
-                <img
-                  class="mr-2"
-                  src="@/assets/images/icons/transaction.svg"
-                  alt="funding-finish"
+              <div class="flex items-center">
+                <app-icon
+                  class="text-primary pr-2"
+                  :data="icons.coins"
                 />
+
                 <p class="small-text text-primary">
                   {{ $t('landing.dao_proposals.requestedAmount') }}
                 </p>
@@ -106,11 +106,12 @@
     </div>
 
     <NuxtLink to="/dao-proposals">
-      <div class="flex items-center mt-6">
-        <p class="mr-2 text-primary">
+      <div class="flex items-center mt-6 text-primary">
+        <p class="mr-2">
           {{ $t('landing.dao_proposals.link_text') }}
         </p>
-        <img src="@/assets/images/landing/check-out.svg" alt="" />
+
+        <app-icon :data="icons.arrowRight" />
       </div>
     </NuxtLink>
 
@@ -124,6 +125,8 @@
 </template>
 
 <script>
+import coins from '@iconify/icons-la/coins';
+import arrowRight from '@iconify/icons-la/arrow-right';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppReportModal from '@/components/common/AppReportModal.vue';
@@ -131,11 +134,13 @@ import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'LandingDaoProposal',
 
   components: {
+    AppIcon,
     AppLogo,
     LandingSectionContainer,
     AppReportModal,
@@ -154,6 +159,10 @@ export default {
 
   data() {
     return {
+      icons: {
+        coins,
+        arrowRight,
+      },
       reportProposal: null,
       categoryMap: CategoryMap,
     };

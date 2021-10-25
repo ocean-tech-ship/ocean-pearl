@@ -10,7 +10,7 @@
           v-if="logo"
           :src="logo"
           :alt="$t('general.logo')"
-          class="w-16 h-16 inline-block"
+          class="w-16 h-16 object-contain"
         />
       </div>
 
