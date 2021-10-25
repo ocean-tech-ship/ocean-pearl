@@ -194,7 +194,7 @@ export default {
 .slide-enter-active,
 .slide-backward-leave-active,
 .slide-backward-enter-active{
-  transition: 1s;
+  transition: 0.5s;
 }
 .slide-enter {
   transform: translate(100%, 0);
