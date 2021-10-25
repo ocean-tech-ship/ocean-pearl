@@ -1409,6 +1409,16 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
+"@iconify/icons-la@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-la/-/icons-la-1.1.0.tgz#da00d0ed5686ff07d5addcf75a91175beb2629d3"
+  integrity sha512-9LEAEabzI2xMJzSh0wqeJmjYseWsDvN9mSZKcCoHlT+pZCJkMAwHoyoBgI7pO2Deo31VG2JiX5hx/4VyMtbE0Q==
+
+"@iconify/icons-mdi@^1.1.36":
+  version "1.1.36"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.36.tgz#4d55a7e1b41ee1c87664e09c53928663d7036778"
+  integrity sha512-MoRpg2KKAUvEOnj64UF9BP75foq7XIFawAjfdtkGO9iUAv3ve2GzARXsYu2r4ady8Jy4J3xl/1SySajSHkmVFA==
+
 "@intlify/shared@^9.0.0":
   version "9.1.7"
   resolved "https://registry.yarnpkg.com/@intlify/shared/-/shared-9.1.7.tgz#e7d8bc90cb59dc17dd7b4c85a73db16fcb7891fc"
@@ -1659,11 +1669,6 @@
     koa-compose "^4.1.0"
     methods "^1.1.2"
     path-to-regexp "^6.1.0"
-
-"@mdi/js@^6.2.95":
-  version "6.2.95"
-  resolved "https://registry.yarnpkg.com/@mdi/js/-/js-6.2.95.tgz#decf0f86035990248f25b0a4e246a7d152211273"
-  integrity sha512-fbD22sEBathqVSQWcxshEtzhhRNFmMnV64z6T7DClRbQ9N5axorykt3Suv2zPzLDyiqH7UhNRu0VPvPCPDNpnQ==
 
 "@metamask/safe-event-emitter@^2.0.0":
   version "2.0.0"
@@ -13720,11 +13725,6 @@ simple-get@^2.7.0:
     decompress-response "^3.3.0"
     once "^1.3.1"
     simple-concat "^1.0.0"
-
-simple-icons@^5.18.0:
-  version "5.18.0"
-  resolved "https://registry.yarnpkg.com/simple-icons/-/simple-icons-5.18.0.tgz#22393e8f4a2f80d1b328bdf497daf2d4eeb7cd01"
-  integrity sha512-qUAdUVrW4KtLr4tiSdFe6ItnXq1qfBByH5XbnpYBm5+Am1a1P54KCvz6Pz2iSRi9puU+VxgblhNg/ANJsW1/iQ==
 
 simple-swizzle@^0.2.2:
   version "0.2.2"

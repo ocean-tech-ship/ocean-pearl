@@ -3,7 +3,7 @@
     <button
       tabindex="0"
       :class="{ open: open }"
-      class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
+      class="flex items-center small-text relative w-full p-1"
       @click="
         (e) => {
           toggleOpen();
@@ -12,6 +12,12 @@
       "
       @blur="handleBlur"
     >
+      <app-icon
+        :rotate="open ? 180 : 0"
+        :size="32"
+        :data="icons.menuDown"
+      />
+
       {{ selectedName }}
     </button>
     <label
@@ -41,11 +47,15 @@
 </template>
 
 <script>
-import checkForiOS from '~/helpers/checkOS.ts';
+import menuDown from '@iconify/icons-mdi/menu-down';
+import checkForiOS from '@/helpers/checkOS.ts';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ButtonEmitWithDropdown',
-  components: {},
+
+  components: { AppIcon },
+
   props: {
     buttonName: {
       type: String,
@@ -63,12 +73,17 @@ export default {
       default() {},
     },
   },
+
   data() {
     return {
+      icons: {
+        menuDown,
+      },
       open: false,
       selectedName: '',
     };
   },
+
   created() {
     // eslint-disable-next-line
     this.selectedName = Object.values(
@@ -113,17 +128,6 @@ label {
   top: -13px;
   left: 12px;
   transition: 200ms;
-}
-
-button::before {
-  content: '';
-  background: url('@/assets/images/icons/dropdown.svg') center center no-repeat;
-  display: block;
-  width: 23px;
-  height: 26px;
-}
-button.open::before {
-  transform: rotate(180deg);
 }
 
 ul {
