@@ -19,21 +19,21 @@
       </div>
       <div class="mt-4">
         <div class="flex items-center">
-          <div class="mr-2 w-4 h-4 bg-darkgrey rounded bg-primary opacity-70" />
+          <div class="mr-2 w-4 h-4 rounded bg-primary opacity-70" />
           <div class="w-2/3 h-3 rounded bg-primary opacity-70" />
         </div>
         <div class="mt-3 w-2/5 h-3 rounded bg-primary opacity-70" />
       </div>
       <div class="mt-8">
         <div class="flex items-center">
-          <div class="mr-2 w-4 h-4 bg-darkgrey rounded bg-primary opacity-70" />
+          <div class="mr-2 w-4 h-4 rounded bg-primary opacity-70" />
           <div class="w-2/5 h-3 rounded bg-primary opacity-70" />
         </div>
         <div class="mt-3 w-2/5 h-3 rounded bg-primary opacity-70" />
       </div>
       <div class="mt-8">
         <div class="flex items-center">
-          <div class="mr-2 w-4 h-4 bg-darkgrey rounded bg-primary opacity-70" />
+          <div class="mr-2 w-4 h-4 rounded bg-primary opacity-70" />
           <div class="w-2/5 h-3 rounded bg-primary opacity-70" />
         </div>
         <div class="mt-3 w-1/5 h-3 rounded bg-primary opacity-70" />
