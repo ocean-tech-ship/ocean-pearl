@@ -12,18 +12,11 @@
       "
       @blur="handleBlur"
     >
-      <app-icon
-        :rotate="open ? 180 : 0"
-        :size="32"
-        :data="icons.menuDown"
-      />
+      <app-icon :rotate="open ? 180 : 0" :data="icons.menuDown" />
 
       {{ selectedName }}
     </button>
-    <label
-      class="label absolute p-1 z-10"
-      :class="buttonBackground"
-    >
+    <label class="label absolute p-1 z-10" :class="buttonBackground">
       {{ buttonName }}
     </label>
     <section
@@ -93,6 +86,7 @@ export default {
       }, []),
     )[0];
   },
+
   methods: {
     setselectedName(selected) {
       this.selectedName = selected;
@@ -132,7 +126,6 @@ label {
 
 ul {
   min-width: 140px;
-  max-width: auto;
   max-height: 222px;
   overflow-y: scroll;
   background: white;
