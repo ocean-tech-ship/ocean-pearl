@@ -25,16 +25,8 @@
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <app-settings-dropdown
-          :menu-items="[
-            {
-              content: 'Report this project',
-              value: { type: 'report', id: daoProposal.id },
-              icon: {
-                data: icons.alertCircleOutline,
-              },
-            },
-          ]"
-          @selected="handleSettingsSelection"
+          :project-title="daoProposal.project.title"
+          :project-link="`/projects/${beautifyProjectId(daoProposal.project)}`"
         />
         <NuxtLink
           :prefetch="false"
@@ -113,23 +105,14 @@
         <app-icon :data="icons.arrowRight" />
       </div>
     </NuxtLink>
-
-    <app-report-modal
-      ref="reportModal"
-      :project-title="
-        reportProposal ? reportProposal.project.title : 'this project'
-      "
-    />
   </LandingSectionContainer>
 </template>
 
 <script>
 import coins from '@iconify/icons-la/coins';
 import arrowRight from '@iconify/icons-la/arrow-right';
-import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppReportModal from '@/components/common/AppReportModal.vue';
 import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
@@ -143,7 +126,6 @@ export default {
     AppIcon,
     AppLogo,
     LandingSectionContainer,
-    AppReportModal,
     AppSettingsDropdown,
   },
 
@@ -160,30 +142,11 @@ export default {
   data() {
     return {
       icons: {
-        alertCircleOutline,
         coins,
         arrowRight,
       },
-      reportProposal: null,
       categoryMap: CategoryMap,
     };
-  },
-
-  methods: {
-    handleSettingsSelection(payload) {
-      const { type, id } = payload;
-      switch (type) {
-        case 'report':
-          this.daoProposals.forEach((daoProposal) => {
-            if (daoProposal.id === id) {
-              this.reportProposal = daoProposal;
-              this.$refs.reportModal.toggleOpen();
-            }
-          });
-          break;
-        default:
-      }
-    },
   },
 };
 </script>
