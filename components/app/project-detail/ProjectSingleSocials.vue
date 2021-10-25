@@ -1,9 +1,9 @@
 <template>
-  <div v-if="!!project.socialMedia" class="flex">
+  <div v-if="!!project.socialMedia" class="flex flex-wrap">
     <project-single-socials-item
       v-for="(url, type) in filteredSocials"
       :key="type"
-      class="h-6 w-6 mr-6"
+      class="h-6 w-6 mr-4 xl:mr-6 my-2 xl:my-4"
       :type="type"
       :url="url"
     />
