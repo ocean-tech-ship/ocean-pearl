@@ -39,7 +39,7 @@
     <!-- slider (gallery) -->
     <div v-else>
       <div class="flex items-center">
-        <div>
+        <div class="hidden lg:block">
           <button @click="previous()">
             <app-icon
               class="
@@ -86,7 +86,7 @@
           </transition-group>
         </div>
 
-        <div>
+        <div class="hidden lg:block">
           <button @click="next()">
             <app-icon
               class="
