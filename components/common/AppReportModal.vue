@@ -43,14 +43,12 @@
         <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-2">
           <app-button
             text-class="small-text"
-            :icon="require('@/assets/images/detail/copy-primary.svg')"
             :text="$t(btnCopyEmailTitle)"
             secondary
             @click="copyEmail"
           />
           <app-button
             text-class="small-text"
-            :icon="require('@/assets/images/detail/copy-primary.svg')"
             :text="$t(btnCopyPgpTitle)"
             secondary
             @click="copyPgp"
