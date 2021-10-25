@@ -7,7 +7,7 @@
     >
       <app-icon
         class="text-primary pr-2"
-        :path="metric.icon"
+        :data="metric.icon"
       />
 
       <div>
@@ -19,7 +19,11 @@
 </template>
 
 <script>
-import { mdiCrosshairs, mdiCurrencyUsd, mdiCurrencyUsdOff, mdiPound, mdiVote } from '@mdi/js';
+import hashtag from '@iconify/icons-la/hashtag';
+import coins from '@iconify/icons-la/coins';
+import vote from '@iconify/icons-la/vote-yea';
+import rocket from '@iconify/icons-la/rocket';
+import bomb from '@iconify/icons-la/bomb';
 import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
 
@@ -41,35 +45,35 @@ export default {
     metrics() {
       return [
         {
-          icon: mdiPound,
+          icon: hashtag,
           title: this.$t('leaderboard.metrics.amount.title'),
           subtitle: this.$tc('leaderboard.metrics.amount.subtitle', -1, {
             n: this.addPunctuation(-326),
           }),
         },
         {
-          icon: mdiCurrencyUsd,
+          icon: coins,
           title: this.$t('leaderboard.metrics.available.title'),
           subtitle: this.$t('general.usd', {
             usd: this.addPunctuation(-60000000),
           }),
         },
         {
-          icon: mdiCrosshairs,
+          icon: rocket,
           title: this.$t('leaderboard.metrics.requested.title'),
           subtitle: this.$t('general.usd', {
             usd: this.addPunctuation(-60000000),
           }),
         },
         {
-          icon: mdiVote,
+          icon: vote,
           title: this.$t('leaderboard.metrics.votes.title'),
           subtitle: this.$t('general.ocean', {
             ocean: this.addPunctuation(-60000000),
           }),
         },
         {
-          icon: mdiCurrencyUsdOff,
+          icon: bomb,
           title: this.$t('leaderboard.metrics.burned.title'),
           subtitle: this.$t('general.ocean', {
             ocean: this.addPunctuation(-60000000),

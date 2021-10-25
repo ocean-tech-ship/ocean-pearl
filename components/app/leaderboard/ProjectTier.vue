@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import { LeaderboardProposal } from '@/models/Leaderboard.model';
-import { ProjectTier } from '@/models/Project.model';
 import mapByNumOfGrants from '@/mapper/ProjectTier.mapper';
 
 export default {

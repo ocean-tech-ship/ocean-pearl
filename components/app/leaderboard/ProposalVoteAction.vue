@@ -16,13 +16,13 @@
       lg:hover:scale-125
     "
     >
-      <app-icon class="text-primary" :path="mdiVote" />
+      <app-icon class="text-primary" :data="icons.vote" />
     </div>
   </app-link>
 </template>
 
 <script lang="ts">
-import { mdiVote } from '@mdi/js';
+import vote from '@iconify/icons-mdi/vote';
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppLink from '@/components/common/AppLink.vue';
@@ -47,7 +47,9 @@ export default {
 
   data() {
     return {
-      mdiVote,
+      icons: {
+        vote,
+      },
     };
   },
 };
