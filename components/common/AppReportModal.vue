@@ -162,7 +162,7 @@ export default {
 
     copyEmail() {
       navigator.clipboard.writeText(this.emailAddress).then(() => {
-        this.btnCopyEmailTitle = 'appReportModal.btnCopiedEmailTitle';
+        this.btnCopyEmailTitle = 'appReportModal.btnCopied';
         setTimeout(
           () => (this.btnCopyEmailTitle = 'appReportModal.btnCopyEmailTitle'),
           1500,
@@ -172,7 +172,7 @@ export default {
 
     copyPgp() {
       navigator.clipboard.writeText(this.pgpKey).then(() => {
-        this.btnCopyPgpTitle = 'appReportModal.btnCopiedPgpTitle';
+        this.btnCopyPgpTitle = 'appReportModal.btnCopied';
         setTimeout(
           () => (this.btnCopyPgpTitle = 'appReportModal.btnCopyPgpTitle'),
           1500,
