@@ -25,16 +25,8 @@
     >
       <div v-for="project in projects" :key="project._id">
         <app-settings-dropdown
-          :menu-items="[
-            {
-              content: 'Report this project',
-              value: { type: 'report', id: project.id },
-              icon: {
-                data: icons.alertCircleOutline,
-              },
-            },
-          ]"
-          @selected="handleSettingsSelection"
+          :project-title="project.title"
+          :project-link="`/projects/${beautifyProjectId(project)}`"
         />
         <NuxtLink
           :prefetch="false"
@@ -72,23 +64,16 @@
         <app-icon :data="icons.arrowRight" />
       </div>
     </NuxtLink>
-
-    <app-report-modal
-      ref="reportModal"
-      :project-title="reportProject ? reportProject.title : 'this project'"
-    />
   </LandingSectionContainer>
 </template>
 
 <script>
 import arrowRight from '@iconify/icons-la/arrow-right';
-import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
-import AppReportModal from '@/components/common/AppReportModal.vue';
 import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 
 export default {
@@ -98,7 +83,6 @@ export default {
     AppIcon,
     AppLogo,
     LandingSectionContainer,
-    AppReportModal,
     AppSettingsDropdown,
   },
 
@@ -115,10 +99,8 @@ export default {
   data() {
     return {
       icons: {
-        alertCircleOutline,
         arrowRight,
       },
-      reportProject: null,
       categoryMap: CategoryMap,
     };
   },
@@ -129,20 +111,6 @@ export default {
         addSuffix: true,
         locale: this.$i18n.locale,
       });
-    },
-    handleSettingsSelection(payload) {
-      const { type, id } = payload;
-      switch (type) {
-        case 'report':
-          this.projects.forEach((project) => {
-            if (project.id === id) {
-              this.reportProject = project;
-              this.$refs.reportModal.toggleOpen();
-            }
-          });
-          break;
-        default:
-      }
     },
   },
 };
