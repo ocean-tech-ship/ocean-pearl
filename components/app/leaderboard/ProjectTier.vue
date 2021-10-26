@@ -17,25 +17,27 @@
   >
     <img
       class="pb-1"
-      :src="getTier(proposal.completedProposals).iconSrc"
-      :alt="getTier(proposal.completedProposals).title"
+      :src="getTier(proposal.project.completedProposals).iconSrc"
+      :alt="getTier(proposal.project.completedProposals).title"
     />
 
     <span class="absolute -bottom-2 text-primary font-bold">
-      {{ proposal.completedProposals }}
+      {{ proposal.project.completedProposals }}
     </span>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import mapByNumOfGrants from '@/mapper/ProjectTier.mapper';
+import { LeaderboardProposal } from '@/models/Leaderboard.model';
+import { ProjectTier } from '@/models/Project.model';
 
 export default {
   name: 'ProposalTier',
 
   props: {
     proposal: {
-      type: Object,
+      type: Object as () => LeaderboardProposal,
       required: true,
     },
 
@@ -47,7 +49,7 @@ export default {
   },
 
   methods: {
-    getTier(grants) {
+    getTier(grants: number): ProjectTier {
       return mapByNumOfGrants(grants, this.$i18n);
     }
   }

@@ -227,6 +227,7 @@
       "leaderboard"
     ],
     "voting": {
+      "begins": "time until voting for proposals begins",
       "ends": "time until voting for proposals ends"
     }
   },

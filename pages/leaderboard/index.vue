@@ -34,6 +34,7 @@
           <h4 class="text-white">{{ $t('leaderboard.funded') }}</h4>
 
           <live-indicator
+            v-if="leaderboard.status === statusEnum.VotingInProgress"
             class="pl-4"
             @click="$fetch"
           />
@@ -122,6 +123,7 @@ import RoundIndicator from '@/components/app/leaderboard/RoundIndicator.vue';
 import TierLegend from '@/components/app/leaderboard/TierLegend.vue';
 import VotingCountdown from '@/components/app/leaderboard/VotingCountdown.vue';
 import LeaderboardMetrics from '@/components/app/leaderboard/LeaderboardMetrics.vue';
+import RoundStatusEnum from '~/enums/RoundStatus.enum';
 
 export default Vue.extend({
 
@@ -139,6 +141,7 @@ export default Vue.extend({
 
   data() {
     return {
+      statusEnum: RoundStatusEnum,
       leaderboard: {} as Leaderboard,
     };
   },

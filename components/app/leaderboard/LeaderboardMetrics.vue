@@ -43,12 +43,16 @@ export default {
 
   computed: {
     metrics() {
+      const board = this.$props.leaderboard;
+      const amount = board.fundedProposals?.length + board.notFundedProposals?.length;
+      const burned = board.remainingGeneralFunding + board.remainingEarmarkFunding;
+
       return [
         {
           icon: hashtag,
           title: this.$t('leaderboard.metrics.amount.title'),
-          subtitle: this.$tc('leaderboard.metrics.amount.subtitle', -1, {
-            n: this.addPunctuation(-326),
+          subtitle: this.$tc('leaderboard.metrics.amount.subtitle', amount, {
+            n: this.addPunctuation(amount),
           }),
         },
         {
@@ -76,7 +80,7 @@ export default {
           icon: bomb,
           title: this.$t('leaderboard.metrics.burned.title'),
           subtitle: this.$t('general.ocean', {
-            ocean: this.addPunctuation(-60000000),
+            ocean: this.addPunctuation(burned),
           }),
         },
       ];

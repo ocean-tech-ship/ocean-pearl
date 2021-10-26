@@ -8,7 +8,7 @@
         :to="targetTagLink(tag)"
       >
         <div
-          :class="{ 'bg-complementary text-third bg-opacity-70': isEarmark(tag) }"
+          :class="{ 'bg-complementary text-third bg-opacity-70': isEarmarked(tag) }"
           class="
             rounded
             m-0.5
@@ -50,8 +50,8 @@ export default {
       return CategoryMap[tag as CategoryEnum] || 'Earmarked';
     },
 
-    isEarmark(tag: string): boolean {
-      return tag.toLowerCase() === 'earmarked';
+    isEarmarked(tag: string): boolean {
+      return tag.toLowerCase() === 'earmark';
     },
 
     targetTagLink(tag: string): string {

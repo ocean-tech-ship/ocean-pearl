@@ -9,17 +9,28 @@
           <!-- logo -->
           <div class="self-center">
             <app-link
-              :to="targetProjectLink(proposal, beautifyProjectId)"
+              :to="targetProjectLink(proposal.project, beautifyProjectId)"
             >
-              <app-logo class="lg:hidden" :size="48" :src="proposal.logoUrl" :alt="proposal.title" />
-              <app-logo class="hidden lg:block" :size="64" :src="proposal.logoUrl" :alt="proposal.title" />
+              <app-logo
+                class="lg:hidden"
+                :size="48"
+                :src="proposal.project.logoUrl"
+                :alt="proposal.project.title"
+              />
+
+              <app-logo
+                class="hidden lg:block"
+                :size="64"
+                :src="proposal.project.logoUrl"
+                :alt="proposal.project.title"
+              />
             </app-link>
           </div>
 
           <!-- details -->
           <div class="px-2 flex-grow">
             <app-link
-              :to="targetProjectLink(proposal, beautifyProjectId)"
+              :to="targetProjectLink(proposal.project, beautifyProjectId)"
             >
               <span class="line-clamp-1 break-all">
               <span
@@ -48,7 +59,10 @@
 
         <!-- votes (until lg) -->
         <div class="flex lg:hidden">
-          <proposal-votes class="leading-tight rounded border border-darkgrey p-1 px-2" :proposal="proposal" />
+          <proposal-votes
+            class="leading-tight rounded border border-darkgrey p-1 px-2"
+            :proposal="proposal"
+          />
         </div>
       </div>
     </div>
@@ -78,7 +92,7 @@
 </template>
 
 <script lang="ts">
-import { LeaderboardProposal} from '@/models/Leaderboard.model';
+import { LeaderboardProject, LeaderboardProposal } from '@/models/Leaderboard.model';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppProgressbar from '@/components/common/AppProgressbar.vue';
 import Numbers from '@/mixins/Numbers';
@@ -130,8 +144,8 @@ export default {
       return pct < 0.5 ? 0.5 : pct;
     },
 
-    targetProjectLink(proposal: LeaderboardProposal, beautifyProjectId: Function): string {
-      return `/projects/${beautifyProjectId({ id: proposal.id, title: proposal.title })}`;
+    targetProjectLink(project: LeaderboardProject, beautifyProjectId: Function): string {
+      return `/projects/${beautifyProjectId({ id: project.id, title: project.title })}`;
     },
   }
 };

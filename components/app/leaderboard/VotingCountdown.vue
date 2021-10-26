@@ -3,7 +3,7 @@
     <client-only>
       <app-countdown
         v-slot="{ days, hours, minutes, seconds }"
-        :time="2 * 24 * 60 * 60 * 1000"
+        :time="getTimeLeft(leaderboard)"
         tag="div"
         :class="{ 'border-white text-white': primary }"
         class="flex items-center justify-around rounded border border-primary text-center text-primary"
@@ -33,7 +33,7 @@
         :class="{ 'text-white': primary }"
         class="text-center text-primary p-2"
       >
-        <span>{{ $t('leaderboard.voting.ends') }}</span>
+        <span>{{ $t(getSubtitle(leaderboard)) }}</span>
       </div>
     </client-only>
   </div>
@@ -59,6 +59,33 @@ export default {
       required: false,
       default: false,
     },
+  },
+
+  methods: {
+    getSubtitle(leaderboard: Leaderboard): string {
+      const now = Date.now();
+      const start = new Date(leaderboard.voteStartDate).getTime();
+
+      return now < start
+        ? 'leaderboard.voting.begins'
+        : 'leaderboard.voting.ends'
+    },
+
+    getTimeLeft(leaderboard: Leaderboard): number {
+      const now = Date.now();
+      const start = new Date(leaderboard.voteStartDate).getTime();
+      const end = new Date(leaderboard.voteEndDate).getTime();
+
+      if (now < start) {
+        return start - now;
+      }
+
+      if (now > end) {
+        return 0;
+      }
+
+      return end - now;
+    }
   }
 };
 </script>
