@@ -114,7 +114,6 @@ import getExampleResult from '@/pages/leaderboard/ExampleResult';
 import createHead from '@/pages/leaderboard/index.head';
 import { Leaderboard } from '@/models/Leaderboard.model';
 import SectionContainer from '@/components/common/SectionContainer.vue';
-import LeaderboardHeader from '@/components/app/leaderboard/LeaderboardHeader.vue';
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
 import ProposalHeader from '@/components/app/leaderboard/ProposalHeader.vue';
@@ -135,7 +134,6 @@ export default Vue.extend({
     ProposalHeader,
     LeaderboardProposal,
     AppGradientBackground,
-    LeaderboardHeader,
     SectionContainer
   },
 
