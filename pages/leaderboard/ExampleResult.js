@@ -363,7 +363,7 @@ export default function getExampleResult() {
           "id": "9Abc77eFaf",
           "title": "Evotegra",
           "completedProposals": 5,
-          "logoUrl": "https://d2ap5e9vgx7wei.cloudfront.net/9Abc77eFaf-DBBd119B97.jpeg"
+          "logoUrl": "https://d2ap5e9vgx7wei.cloudfront.net/9Abc77eFaf-b081F2ecE1.png"
         },
         "requestedFunding": 20000,
         "receivedFunding": 0,
