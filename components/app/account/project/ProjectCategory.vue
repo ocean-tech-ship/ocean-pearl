@@ -12,7 +12,7 @@
 
 <script>
 import ButtonEmitWithDropdown from '@/components/common/ButtonEmitWithDropdown.vue';
-import CategoryEnum from '@/components/enums/Category.enum'
+import CategoryEnum from '@/enums/Category.enum'
 import { CategoryMap } from '@/components/constants/CategoryMap.constant'
 
 export default {

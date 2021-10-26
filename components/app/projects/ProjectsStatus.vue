@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-import StatusEnum from '../../enums/Status.enum';
+import StatusEnum from '../../../enums/Status.enum';
 
 export default {
   data() {
