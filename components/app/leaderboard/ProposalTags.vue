@@ -32,8 +32,8 @@
 <script lang="ts">
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
-import CategoryEnum from '@/components/enums/Category.enum';
-import AppLink from '~/components/common/AppLink.vue';
+import CategoryEnum from '@/enums/Category.enum';
+import AppLink from '@/components/common/AppLink.vue';
 
 export default {
   name: 'ProposalTags',

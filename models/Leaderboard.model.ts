@@ -1,6 +1,17 @@
+import PaymentOptionEnum from '@/enums/PaymentOption.enum';
+import RoundStatusEnum from '@/enums/RoundStatus.enum';
+
+export interface LeaderboardProject {
+  id: string;
+  completedProposals: number;
+  logoUrl: string;
+  title: string;
+}
+
 export interface LeaderboardProposal {
   id: string;
   title: string;
+  project: LeaderboardProject;
   requestedFunding: number;
   receivedFunding: number;
   yesVotes: number;
@@ -8,8 +19,6 @@ export interface LeaderboardProposal {
   effectiveVotes: number;
   isEarmarked: boolean;
   tags: string[];
-  completedProposals: number;
-  logoUrl: string;
   voteUrl: string;
   neededVotes: number;
 }
@@ -18,5 +27,10 @@ export interface Leaderboard {
   fundedProposals: LeaderboardProposal[];
   notFundedProposals: LeaderboardProposal[];
   maxVotes: number;
+  remainingEarmarkFunding: number;
+  remainingGeneralFunding: number;
+  paymentOption: PaymentOptionEnum;
+  voteStartDate: Date;
   voteEndDate: Date;
+  status: RoundStatusEnum;
 }
