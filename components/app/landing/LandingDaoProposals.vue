@@ -24,10 +24,6 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
-        <app-settings-dropdown
-          :project-title="daoProposal.project.title"
-          :project-link="`/projects/${beautifyProjectId(daoProposal.project)}`"
-        />
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
@@ -113,7 +109,6 @@ import coins from '@iconify/icons-la/coins';
 import arrowRight from '@iconify/icons-la/arrow-right';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
@@ -126,7 +121,6 @@ export default {
     AppIcon,
     AppLogo,
     LandingSectionContainer,
-    AppSettingsDropdown,
   },
 
   mixins: [ProjectBeautifyId, Numbers],

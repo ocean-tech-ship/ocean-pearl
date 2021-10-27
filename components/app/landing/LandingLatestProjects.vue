@@ -24,10 +24,6 @@
       "
     >
       <div v-for="project in projects" :key="project._id">
-        <app-settings-dropdown
-          :project-title="project.title"
-          :project-link="`/projects/${beautifyProjectId(project)}`"
-        />
         <NuxtLink
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
@@ -74,7 +70,6 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
-import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 
 export default {
   name: 'LandingDaoProposal',
@@ -83,7 +78,6 @@ export default {
     AppIcon,
     AppLogo,
     LandingSectionContainer,
-    AppSettingsDropdown,
   },
 
   mixins: [ProjectBeautifyId],
