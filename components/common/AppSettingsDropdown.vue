@@ -3,17 +3,7 @@
     <div class="relative">
       <button
         type="button"
-        class="
-          absolute
-          -top-2
-          right-1
-          px-2
-          pb-2
-          text-lg
-          mdi mdi-settings-helper
-          text-primary
-          leading-none
-        "
+        :class="btnClass"
         @click="
           (e) => {
             toggleOpen();
@@ -22,7 +12,11 @@
         "
         @blur="handleBlur"
       >
-        <app-icon :size="28" :data="icons.settingsHelper" />
+        <app-icon
+          :size="iconSize"
+          :rotate="iconRotate"
+          :data="icons.ellipsisV"
+        />
       </button>
       <div
         v-if="open"
@@ -32,7 +26,7 @@
           rounded
           shadow
           absolute
-          top-8
+          top-9
           z-40
           right-4
         "
@@ -62,7 +56,7 @@
 </template>
 
 <script>
-import settingsHelper from '@iconify/icons-mdi/settings-helper';
+import ellipsisV from '@iconify/icons-la/ellipsis-v';
 import alertCircle from '@iconify/icons-mdi/alert-circle-outline';
 import contentCopy from '@iconify/icons-mdi/content-copy';
 import AppIcon from '@/components/common/AppIcon.vue';
@@ -78,6 +72,18 @@ export default {
   },
 
   props: {
+    btnClass: {
+      type: String,
+      default: () => 'absolute top-3 right-0 px-2 text-primary leading-none',
+    },
+    iconRotate: {
+      type: Number,
+      default: () => 0,
+    },
+    iconSize: {
+      type: Number,
+      default: () => 22,
+    },
     projectTitle: {
       type: String,
       required: true,
@@ -93,7 +99,7 @@ export default {
   data() {
     return {
       icons: {
-        settingsHelper,
+        ellipsisV,
         alertCircle,
         contentCopy,
       },
