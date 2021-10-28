@@ -41,7 +41,8 @@
 </template>
 
 <script>
-import AppIcon from '~/components/common/AppIcon'
+import AppIcon from '@/components/common/AppIcon.vue';
+
 export default {
   name: 'AppButton',
   components: { AppIcon },

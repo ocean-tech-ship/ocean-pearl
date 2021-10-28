@@ -47,7 +47,7 @@ export default {
 
   props: {
     icon: {
-      type: [ String, Object ],
+      type: [String, Object],
       required: false,
       default: null,
     },
@@ -101,7 +101,7 @@ export default {
   }
 }
 
-div:first-child:not(.call-to-action) {
+div:not(.call-to-action) {
   &:hover {
     border: 2px solid #bb2c75;
   }
