@@ -50,34 +50,27 @@
       </div>
     </div>
 
-    <NuxtLink :prefetch="false" to="/projects">
-      <div class="flex items-center mt-6 mb-32 text-primary">
-        <p class="mr-2">
-          {{ $t('landing.latest_projects.link_text') }}
-        </p>
-
-        <app-icon :data="icons.arrowRight" />
-      </div>
-    </NuxtLink>
+    <app-link-icon-right to="/projects">
+      {{ $t('landing.latest_projects.link_text') }}
+    </app-link-icon-right>
   </LandingSectionContainer>
 </template>
 
 <script>
-import arrowRight from '@iconify/icons-la/arrow-right';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppIcon from '@/components/common/AppIcon.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 
 export default {
   name: 'LandingDaoProposal',
 
   components: {
-    AppIcon,
     AppLogo,
     AppLinkCard,
+    AppLinkIconRight,
     LandingSectionContainer,
   },
 
@@ -93,9 +86,6 @@ export default {
 
   data() {
     return {
-      icons: {
-        arrowRight,
-      },
       categoryMap: CategoryMap,
     };
   },

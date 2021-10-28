@@ -8,7 +8,7 @@
     <p :class="paragraphClass">
       <slot />
     </p>
-    <span :class="iconClass" />
+    <app-icon :data="icons.arrowRight" />
   </NuxtLink>
   <a
     v-else
@@ -21,13 +21,22 @@
     <p :class="paragraphClass">
       <slot />
     </p>
-    <span :class="iconClass" />
+    <app-icon :data="icons.arrowRight" />
   </a>
 </template>
 
 <script>
+import arrowRight from '@iconify/icons-la/arrow-right';
+import AppIcon from '@/components/common/AppIcon.vue';
+import { CategoryMap } from '~/components/constants/CategoryMap.constant';
+
 export default {
   name: 'AppLinkIconRight',
+
+  components: {
+    AppIcon,
+  },
+
   props: {
     to: {
       type: String,
@@ -36,17 +45,23 @@ export default {
     },
     linkClass: {
       type: String,
-      default: () => 'text-primary bounce-right ',
+      default: () => 'text-primary bounce-right',
     },
     paragraphClass: {
       type: String,
       default: () => 'mr-2',
     },
-    iconClass: {
-      type: String,
-      default: () => 'mdi mdi-arrow-right-thick text-md sm:text-lg',
-    },
   },
+
+  data() {
+    return {
+      icons: {
+        arrowRight,
+      },
+      categoryMap: CategoryMap,
+    };
+  },
+
   computed: {
     isNuxtLink() {
       if (this.to) {
@@ -79,7 +94,7 @@ export default {
 }
 .bounce-right:hover,
 .bounce-right:focus {
-  span {
+  div {
     -webkit-animation: bounce-right 2s infinite both;
     animation: bounce-right 2s infinite both;
   }
