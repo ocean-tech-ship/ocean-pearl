@@ -74,7 +74,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@keyframes bounce-right {
+.bounce-right div {
+  transition: ease-in-out;
+}
+@keyframes bounce-right-keyframe {
   0%,
   20%,
   50%,
@@ -95,8 +98,8 @@ export default {
 .bounce-right:hover,
 .bounce-right:focus {
   div {
-    -webkit-animation: bounce-right 2s infinite both;
-    animation: bounce-right 2s infinite both;
+    -webkit-animation: bounce-right-keyframe 1.5s infinite both;
+    animation: bounce-right-keyframe 1.5s infinite both;
   }
 }
 </style>

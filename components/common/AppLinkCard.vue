@@ -30,8 +30,10 @@ export default {
 
 <style scoped>
 @media screen and (min-width: 760px) {
+  .card {
+    transition: 100ms ease-in-out;
+  }
   .card:hover {
-    transition: 100ms ease-in;
     transform: translateY(-6px);
   }
 }
