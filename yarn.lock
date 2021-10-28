@@ -11646,10 +11646,10 @@ pkg-up@^2.0.0:
   dependencies:
     find-up "^2.1.0"
 
-plausible-tracker@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/plausible-tracker/-/plausible-tracker-0.3.1.tgz#dd4e1f59cafc7bf1b00e30890567287b3f204efd"
-  integrity sha512-oXnVyfTF2gzkfK3iOZCRZEnf8sH4gBASaJhY+clwWW1orIybfQpfbgg4U5Bwj5dW/4iNstM4tx4jMCVUfMCUbg==
+plausible-tracker@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/plausible-tracker/-/plausible-tracker-0.3.4.tgz#6c4fb5888f62d0ab9b069fef7e3a06e2e728c65c"
+  integrity sha512-pc5fMmtagAlTYKOUcMk+AfV0t3bVpYv+zTEsBTFQL6n8frExxK54GBauxzbKF1hLZ16ggx/84mA4/ujLgbvvmQ==
 
 pluralize@^8.0.0:
   version "8.0.0"
