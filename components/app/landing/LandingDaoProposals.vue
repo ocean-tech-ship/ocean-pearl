@@ -55,30 +55,23 @@
             </p>
           </div>
 
-          <div>
-            <div class="flex">
-              <img
-                class="mr-2"
-                src="@/assets/images/icons/transaction.svg"
-                alt="funding-finish"
-              />
-              <p class="small-text text-primary">
-                {{ $t('landing.dao_proposals.requestedAmount') }}
+            <div>
+              <div class="flex items-center">
+                <app-icon
+                  class="text-primary pr-2"
+                  :data="icons.coins"
+                />
+
+                <p class="small-text text-primary">
+                  {{ $t('landing.dao_proposals.requestedAmount') }}
+                </p>
+              </div>
+              <p
+                v-if="daoProposal.requestedGrantUsd && daoProposal.requestedGrantUsd > 0"
+                class="small-text"
+              >
+                {{ $t('general.usd', { usd: addPunctuation(daoProposal.requestedGrantUsd) }) }}
               </p>
-            </div>
-            <p
-              v-if="
-                daoProposal.requestedGrantUsd &&
-                daoProposal.requestedGrantUsd > 0
-              "
-              class="small-text"
-            >
-              {{
-                $t('general.usd', {
-                  usd: addPunctuation(daoProposal.requestedGrantUsd),
-                })
-              }}
-            </p>
 
             <p v-else class="small-text">
               {{
@@ -92,27 +85,35 @@
       </div>
     </div>
 
-    <app-link-icon-right to="/dao-proposals">
-      {{ $t('landing.dao_proposals.link_text') }}
-    </app-link-icon-right>
+    <NuxtLink to="/dao-proposals">
+      <div class="flex items-center mt-6 text-primary">
+        <p class="mr-2">
+          {{ $t('landing.dao_proposals.link_text') }}
+        </p>
+
+        <app-icon :data="icons.arrowRight" />
+      </div>
+    </NuxtLink>
   </LandingSectionContainer>
 </template>
 
 <script>
+import coins from '@iconify/icons-la/coins';
+import arrowRight from '@iconify/icons-la/arrow-right';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'LandingDaoProposal',
 
   components: {
+    AppIcon,
     AppLogo,
-    AppLinkIconRight,
     AppLinkCard,
     LandingSectionContainer,
   },
@@ -129,6 +130,10 @@ export default {
 
   data() {
     return {
+      icons: {
+        coins,
+        arrowRight,
+      },
       categoryMap: CategoryMap,
     };
   },
