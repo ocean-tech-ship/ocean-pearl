@@ -8,11 +8,22 @@
     </h2>
     <p>{{ $t('landing.dao_proposals.text') }}</p>
 
-    <div v-if="daoProposals === null" class="mt-10 h-275px">
-      {{ $t('general.fetchingLoading') }}
-    </div>
+    <app-skeleton-card-list
+      v-if="daoProposals === null"
+      custom-class="grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-2
+        xl:grid-cols-4
+        2xl:grid-cols-4
+        gap-4
+        mt-10"
+      :quantity="4"
+    >
+      <landing-dao-proposals-skeleton-card />
+    </app-skeleton-card-list>
 
     <div
+      v-else
       class="
         grid grid-cols-1
         md:grid-cols-2
@@ -106,6 +117,8 @@ import AppLogo from '@/components/common/AppLogo.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import LandingDaoProposalsSkeletonCard from '@/components/app/landing/LandingDaoProposalsSkeletonCard.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
@@ -115,14 +128,15 @@ export default {
     AppIcon,
     AppLogo,
     LandingSectionContainer,
+    LandingDaoProposalsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   mixins: [ProjectBeautifyId, Numbers],
 
   props: {
     daoProposals: {
-      type: Array,
-      required: true,
+      type: [Array, null],
       default: null,
     },
   },

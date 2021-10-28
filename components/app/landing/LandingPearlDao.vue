@@ -10,7 +10,15 @@
 
     <p class="text-white">{{ $t('landing.pearl_dao.text') }}</p>
 
-    <round-metrics class="mt-10" :metrics="metrics" />
+    <app-skeleton-card-list
+      v-if="metrics === null"
+      custom-class="mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+      :quantity="6"
+    >
+      <round-metrics-skeleton-card />
+    </app-skeleton-card-list>
+
+    <round-metrics v-else class="mt-10" :metrics="metrics" />
 
     <NuxtLink to="/dao-proposals">
       <div class="flex items-center mt-6 text-white">
@@ -25,10 +33,12 @@
 </template>
 
 <script>
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
+import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetricsSkeletonCard.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import arrowRight from '@iconify/icons-la/arrow-right';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer';
-import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics';
-import AppIcon from '~/components/common/AppIcon'
+import AppIcon from '~/components/common/AppIcon';
 
 export default {
   name: 'LandingPearlDao',
@@ -37,30 +47,14 @@ export default {
     AppIcon,
     LandingSectionContainer,
     RoundMetrics,
+    RoundMetricsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   props: {
     metrics: {
-      type: Object,
-      required: true,
-      default: {
-        fundingRound: '',
-        totalDaoProposals: '',
-        currentRound: {
-          startDate: new Date(),
-          submissionEndDate: new Date(),
-          votingStartDate: new Date(),
-          endDate: new Date(),
-        },
-        nextRound: {
-          startDate: new Date(),
-          submissionEndDate: new Date(),
-          votingStartDate: new Date(),
-          endDate: new Date(),
-        },
-        totalRequestedFundingOcean: '',
-        totalVotes: '',
-      },
+      type: [Object, null],
+      default: null,
     },
   },
 
