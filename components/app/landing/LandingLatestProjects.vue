@@ -8,9 +8,18 @@
     </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
 
-    <div v-if="projects === null" class="mt-10 h-275px">
-      {{ $t('general.fetchingLoading') }}
-    </div>
+    <app-skeleton-card-list
+      v-if="projects === null"
+      custom-class="grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-3
+        2xl:grid-cols-5
+        gap-4
+        mt-10"
+      :quantity="5"
+    >
+      <landing-latest-projects-skeleton-card />
+    </app-skeleton-card-list>
 
     <div
       v-else
@@ -63,23 +72,26 @@ import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
+import LandingLatestProjectsSkeletonCard from '@/components/app/landing/LandingLatestProjectsSkeletonCard.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 
 export default {
-  name: 'LandingDaoProposal',
+  name: 'LandingLatestProjects',
 
   components: {
     AppLogo,
     AppLinkCard,
     AppLinkIconRight,
     LandingSectionContainer,
+    LandingLatestProjectsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   mixins: [ProjectBeautifyId],
 
   props: {
     projects: {
-      type: Array,
-      required: true,
+      type: [Array, null],
       default: null,
     },
   },
