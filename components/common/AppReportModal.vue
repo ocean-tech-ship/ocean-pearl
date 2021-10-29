@@ -135,9 +135,8 @@ export default {
     return {
       open: false,
       accOpen: false,
-      btnCopyEmailTitle: 'appReportModal.btnCopyEmailTitle',
+      btnCopyEmailTitle: EmailEnum.Address,
       btnCopyPgpTitle: 'appReportModal.btnCopyPgpTitle',
-      emailAddress: EmailEnum.Address,
       pgpKey: EmailEnum.Pgp,
       icons: {
         alertCircleOutline,
@@ -161,7 +160,7 @@ export default {
     },
 
     copyEmail() {
-      navigator.clipboard.writeText(this.emailAddress).then(() => {
+      navigator.clipboard.writeText(this.btnCopyEmailTitle).then(() => {
         this.btnCopyEmailTitle = 'appReportModal.btnCopied';
         setTimeout(
           () => (this.btnCopyEmailTitle = 'appReportModal.btnCopyEmailTitle'),

@@ -159,8 +159,8 @@ export default {
     width: 450px;
   }
   @media screen and (min-width: 768px) {
-    height: 498px;
-    width: 670px;
+    height: 470px;
+    width: 690px;
   }
 }
 
