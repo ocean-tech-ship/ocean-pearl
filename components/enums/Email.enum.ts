@@ -1,17 +1,20 @@
 enum EmailEnum {
-  Address = 'oceanpearl@protonmail.com',
+  Address = 'oceanpearlio@protonmail.com',
   Pgp = '-----BEGIN PGP PUBLIC KEY BLOCK-----\n' +
+    'Version: OpenPGP.js v4.10.10\n' +
+    'Comment: https://openpgpjs.org\n' +
     '\n' +
-    'mQINBFRUAGoBEACuk6ze2V2pZtScf1Ul25N2CX19AeL7sVYwnyrTYuWdG2FmJx4x\n' +
-    'DLTLVUazp2AEm/JhskulL/7VCZPyg7ynf+o20Tu9/6zUD7p0rnQA2k3Dz+7dKHHh\n' +
-    'eEsIl5EZyFy1XodhUnEIjel2nGe6f1OO7Dr3UIEQw5JnkZyqMcbLCu9sM2twFyfa\n' +
-    'a8JNghfjltLJs3/UjJ8ZnGGByMmWxrWQUItMpQjGr99nZf4L+IPxy2i8O8WQewB5\n' +
-    '\n' +
-    '[... snip - full example below ...]\n' +
-    '\n' +
-    'fvfidBGruUYC+mTw7CusaCOQbBuZBiYduFgH8hRW97KLmHn0xzB1FV++KI7syo8q\n' +
-    'XGo8Un24WP40IT78XjKO\n' +
-    '=nUop\n' +
+    'xjMEYVTMZBYJKwYBBAHaRw8BAQdAfIdsbInurPwWXbqET2clW8kqEhgZoLce\n' +
+    'niLWZFQbA1PNOW9jZWFucGVhcmxpb0Bwcm90b25tYWlsLmNvbSA8b2NlYW5w\n' +
+    'ZWFybGlvQHByb3Rvbm1haWwuY29tPsKPBBAWCgAgBQJhVMxkBgsJBwgDAgQV\n' +
+    'CAoCBBYCAQACGQECGwMCHgEAIQkQqdqPFMv/HvoWIQSTNkA1HBiUACbVd3yp\n' +
+    '2o8Uy/8e+q3GAP9bALUw9u092pN/j+c0BEKaej9Q3g+iM/5V6/aD1GpRPwEA\n' +
+    'q4DWc4ETVflFGdTLZPG79Aquq/RTwDkpA6gXJQycjQnOOARhVMxkEgorBgEE\n' +
+    'AZdVAQUBAQdAIN1VniH9Pexs6EBEfh4+wY6EZgLLx8o2XSapzG0few4DAQgH\n' +
+    'wngEGBYIAAkFAmFUzGQCGwwAIQkQqdqPFMv/HvoWIQSTNkA1HBiUACbVd3yp\n' +
+    '2o8Uy/8e+nzjAQCVXNFxItsFeam9uSOesl+G3TFV4SAPMJM++ZaRpnBhAAD9\n' +
+    'ES6dVfDSTUi/MhnBJQwhsFO6WuShaVIg2lpzF/j2kgQ=\n' +
+    '=2OXe\n' +
     '-----END PGP PUBLIC KEY BLOCK-----',
 }
 
