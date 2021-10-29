@@ -10,14 +10,13 @@
     "headlineEmail": "Email",
     "subtextEmail": {
       "part1": "You can contact us via PGP encrypted email, by using our public key below. If you use ",
-      "part2": ", your email to us will be automatically encrypted."
+      "part2": ", your email to us will be encrypted automatically."
     },
     "headlineSocial": "Discord",
     "subtextSocial": {
       "part1": "You can also find us on ",
       "part2": ", where you can reach out to one of our team members directly."
     },
-    "btnCopyEmailTitle": "oceanpearl@protonmail.com",
     "btnCopyPgpTitle": "PGP Key",
     "btnShowPgpTitle": "Show PGP Key",
     "btnCopied": "copied!"
