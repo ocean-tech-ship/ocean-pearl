@@ -4,7 +4,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  plugins: ['prettier'],
+  plugins: [],
 
   extends: [
     'plugin:vue/recommended',
