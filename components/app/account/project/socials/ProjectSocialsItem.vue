@@ -1,9 +1,9 @@
 <template>
   <div class="flex items-center flex-wrap">
-    <img
-      class="w-4 h-4"
-      :src="getSocialMedia().Icon"
-      alt=""
+    <app-icon
+      class="text-primary"
+      :size="20"
+      :data="getSocialMedia().Icon"
     />
 
     <span class="mx-2 w-20">{{ getSocialMedia().Title }}</span>
@@ -20,7 +20,7 @@
       <app-icon
         class="text-primary"
         :size="16"
-        :path="mdiCloseCircle"
+        :data="icons.closeCircle"
         :tooltip="$t('general.remove')"
       />
     </button>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { mdiCloseCircle } from '@mdi/js';
+import closeCircle from '@iconify/icons-mdi/close-circle';
 import { SocialMedia } from '@/model/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
 
@@ -53,7 +53,9 @@ export default {
 
   data() {
     return {
-      mdiCloseCircle,
+      icons: {
+        closeCircle,
+      },
     };
   },
 

@@ -1,7 +1,6 @@
 <template>
   <div>
     <landing-hero-section />
-    <landing-pearl-dao :metrics="metrics" />
 
     <landingSectionContainer
       v-if="$fetchState.error || error"
@@ -11,11 +10,8 @@
       <p class="small-text">{{ $t(error) }}</p>
     </landingSectionContainer>
 
-    <landing-section-container v-if="$fetchState.pending">
-      {{ $t('general.fetchingLoading') }}
-    </landing-section-container>
-
     <div v-else>
+      <landing-pearl-dao :metrics="metrics" />
       <landing-dao-proposals :dao-proposals="daoProposals" />
       <landing-pearl-space-section />
       <landing-latest-projects :projects="latestProjects" />
@@ -51,24 +47,7 @@ export default Vue.extend({
       error: null,
       latestProjects: null,
       daoProposals: null,
-      metrics: {
-        fundingRound: '',
-        totalDaoProposals: '',
-        currentRound: {
-          startDate: new Date(),
-          submissionEndDate: new Date(),
-          votingStartDate: new Date(),
-          endDate: new Date(),
-        },
-        nextRound: {
-          startDate: new Date(),
-          submissionEndDate: new Date(),
-          votingStartDate: new Date(),
-          endDate: new Date(),
-        },
-        totalRequestedFundingOcean: '',
-        totalVotes: '',
-      },
+      metrics: null,
     };
   },
 

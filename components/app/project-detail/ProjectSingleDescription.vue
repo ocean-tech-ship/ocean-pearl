@@ -10,7 +10,7 @@
       <app-link :to="oceanProtocolPortUrl">
         <app-button-style
           class="text-center"
-          :icon="require('@/assets/images/detail/read-full.svg')"
+          :icon="icons.readme"
           :text="$t('project.readFull')"
         />
       </app-link>
@@ -19,8 +19,9 @@
 </template>
 
 <script>
-import AppLink from '@/components/common/AppLink';
-import AppButtonStyle from '@/components/common/AppButtonStyle';
+import readme from '@iconify/icons-la/readme';
+import AppLink from '@/components/common/AppLink.vue';
+import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 
 export default {
   name: 'ProjectSingleDescription',
@@ -38,6 +39,14 @@ export default {
     },
   },
 
+  data() {
+    return {
+      icons: {
+        readme,
+      },
+    };
+  },
+
   computed: {
     oceanProtocolPortUrl() {
       const proposals = this.$props.project.daoProposals;
@@ -48,5 +57,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>

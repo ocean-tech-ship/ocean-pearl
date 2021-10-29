@@ -3,10 +3,10 @@
     <!-- Funding Round -->
     <div class="shadow rounded p-4">
       <div class="flex items-center">
-        <img
-          class="h-16px w-16px mr-2"
-          src="@/assets/images/detail/fund-round.svg"
-          alt=""
+        <app-icon
+          class="mr-2 text-primary"
+          :size="20"
+          :data="icons.projectDiagram"
         />
 
         <p class="small-text text-primary">
@@ -26,10 +26,10 @@
     <!-- Requested Funding -->
     <div class="shadow rounded p-4">
       <div class="flex items-center">
-        <img
-          class="h-16px w-16px mr-2"
-          src="@/assets/images/detail/fund-requested.svg"
-          alt=""
+        <app-icon
+          class="mr-2 text-primary"
+          :size="20"
+          :data="icons.coins"
         />
 
         <p class="small-text text-primary">
@@ -81,7 +81,12 @@
             {{ $t('project.proposal.wallet.more') }}
           </span>
 
-          <img :class="{ 'rotate-180': expandWalletAddresses }" class="ml-2" src="@/assets/images/icons/dropdown.svg" alt="" />
+          <app-icon
+            class="text-primary"
+            :size="32"
+            :rotate="expandWalletAddresses ? 180 : 0"
+            :data="icons.menuDown"
+          />
         </button>
       </div>
     </div>
@@ -91,7 +96,7 @@
       <app-link :to="voteUrl" :data-analytics="dataAnalytics">
         <app-button-style
           class="w-full text-center"
-          :icon="require('@/assets/images/detail/fund-here.svg')"
+          :icon="icons.vote"
           :text="$t('project.proposal.vote')"
         />
       </app-link>
@@ -100,15 +105,21 @@
 </template>
 
 <script>
+import projectDiagram from '@iconify/icons-la/project-diagram';
+import coins from '@iconify/icons-la/coins';
+import vote from '@iconify/icons-mdi/vote-outline';
+import menuDown from '@iconify/icons-mdi/menu-down';
+import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
 import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import WalletAddress from '@/components/common/WalletAddress.vue';
-import Numbers from '@/mixins/Numbers';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSingleDaoProposalMetrics',
 
   components: {
+    AppIcon,
     WalletAddress,
     AppLink,
     AppButtonStyle,
@@ -126,6 +137,12 @@ export default {
 
   data() {
     return {
+      icons: {
+        projectDiagram,
+        coins,
+        vote,
+        menuDown,
+      },
       expandWalletAddresses: false,
     };
   },
