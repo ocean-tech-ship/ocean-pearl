@@ -17,7 +17,7 @@ export interface Project {
 }
 
 export interface ProjectTier {
-  iconSrc: string,
-  title: string,
-  condition: string,
+  iconSrc: string;
+  title: string;
+  condition: string;
 }

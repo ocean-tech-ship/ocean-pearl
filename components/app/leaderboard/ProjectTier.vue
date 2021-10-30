@@ -17,8 +17,8 @@
   >
     <img
       class="pb-1"
-      :src="getTier(proposal.project.completedProposals).iconSrc"
-      :alt="getTier(proposal.project.completedProposals).title"
+      :src="getTier(proposal.project.completedProposals, $i18n).iconSrc"
+      :alt="getTier(proposal.project.completedProposals, $i18n).title"
     />
 
     <span class="absolute -bottom-2 text-primary font-bold">
@@ -45,13 +45,13 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
 
   methods: {
-    getTier(grants: number): ProjectTier {
-      return mapByNumOfGrants(grants, this.$i18n);
-    }
-  }
+    getTier(grants: number, i18n: any): ProjectTier {
+      return mapByNumOfGrants(grants, i18n);
+    },
+  },
 };
 </script>
