@@ -4,10 +4,9 @@
       <div
         :style="{ width: `${delayedLevel}%` }"
         :class="{ 'background-primary': !secondary }"
-        style="transition: width 1s;"
+        style="transition: width 1s; transition-delay: 0.3s"
         class="
-          flex
-          flex-col
+          flex flex-col
           text-center
           whitespace-nowrap
           text-white
@@ -34,7 +33,7 @@ export default {
       type: Boolean,
       required: false,
       default: false,
-    }
+    },
   },
 
   data() {
@@ -46,12 +45,12 @@ export default {
   watch: {
     level(val) {
       this.delayedLevel = val;
-    }
+    },
   },
 
   mounted() {
     this.delayedLevel = this.$props.level;
-  }
+  },
 };
 </script>
 
