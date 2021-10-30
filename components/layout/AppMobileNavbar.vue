@@ -48,7 +48,6 @@
           <li v-if="!walletAddress">
             <NuxtLink to="/management">
               <div class="flex px-4 py-3 text-primary">
-                <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
                 <p>{{ $t('manage.auth.login.action') }}</p>
               </div>
             </NuxtLink>

@@ -7,18 +7,21 @@
       :style="styles"
       :class="$attrs.class"
       :aria-label="tooltip"
-    >
-      <path :d="path" />
-    </svg>
+      v-html="data.body"
+    />
   </app-tooltip>
 </template>
 
 <script>
 import AppTooltip from '@/components/common/AppTooltip.vue';
 
+const DEFAULT_SIZE = 24;
+
 export default {
   name: 'AppIcon',
+
   components: { AppTooltip },
+
   props: {
     tooltip: {
       type: String,
@@ -26,26 +29,23 @@ export default {
       default: '',
     },
 
-    path: {
-      type: String,
+    data: {
+      type: Object,
       required: true,
     },
 
     size: {
-      type: [String, Number],
+      type: Number,
       required: false,
-      default: 24
+      default: DEFAULT_SIZE,
     },
-    viewBox: {
-      type: String,
-      required: false,
-      default: '0 0 24 24',
-    },
+
     rotate: {
       type: Number,
       required: false,
       default: 0
     },
+
     flip: {
       type: String,
       validator: (value) =>
@@ -55,6 +55,12 @@ export default {
   },
 
   computed: {
+    viewBox() {
+      const width = this.$props.data.width || DEFAULT_SIZE;
+      const height = this.$props.data.height || DEFAULT_SIZE;
+      return `0 0 ${width} ${height}`;
+    },
+
     styles() {
       return {
         '--sx': ['both', 'horizontal'].includes(this.flip) ? '-1' : '1',

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import CategoryEnum from '../../enums/Category.enum';
+import CategoryEnum from '../../../enums/Category.enum';
 
 export default {
   data() {

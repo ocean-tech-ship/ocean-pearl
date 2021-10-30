@@ -1,34 +1,33 @@
 <template>
   <div class="mx-4 lg:mx-16">
-    <AppLink class="table mx-auto" :to="item.route">
+    <app-link class="table mx-auto" :to="item.route">
       <div class="">
         <img
-          :src="item.icon"
-          :alt="item.name + ' logo'"
+          :src="item.img"
+          :alt="`${item.title} ${$t('general.logo')}`"
           class="w-10 h-10 block mx-auto"
         />
         <p :class="`font-semibold ${theme}`">
           {{ item.name }}
         </p>
       </div>
-    </AppLink>
+    </app-link>
 
     <div v-if="item.hasSubItem">
       <div class="sm:flex sm:flex-wrap sm:justify-center">
-        <AppLink
+        <app-link
           v-for="subItem in item.subItems"
           :key="subItem.id"
           :to="subItem.route"
         >
           <div class="flex items-center justify-center m-2">
-            <img
-              :src="subItem.icon"
-              :alt="subItem.name + ' logo'"
-              class="w-5 h-5 mr-1"
+            <app-icon
+              class="text-primary mr-1"
+              :data="subItem.icon"
             />
             <p class="text-sm">{{ subItem.name }}</p>
           </div>
-        </AppLink>
+        </app-link>
       </div>
     </div>
   </div>
@@ -36,15 +35,18 @@
 
 <script>
 import Vue from 'vue';
-import AppLink from '~/components/common/AppLink.vue';
+import AppLink from '@/components/common/AppLink.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default Vue.extend({
-  components: { AppLink },
+  components: { AppIcon, AppLink },
+
   props: {
     item: {
       type: Object,
       required: true,
     },
+
     theme: {
       type: String,
       default: () => 'text-third',

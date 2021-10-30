@@ -58,7 +58,6 @@
         >
           <app-button-style
             class="text-center"
-            :icon="require('@/assets/images/icons/vote-white.svg')"
             :text="$t('manage.auth.login.action')"
           />
         </nuxt-link>
@@ -79,13 +78,14 @@
 
           <main-dropdown>
             <template slot-scope="context">
-              <img
-                :class="{ 'rotate-180': context.open }"
-                class="h-6 w-6 cursor-pointer object-cover"
-                src="@/assets/images/icons/dropdown.svg"
-                alt="account settings"
-                @click="context.toggleOpen()"
-              />
+              <button class="flex items-center" @click="context.toggleOpen()">
+                <app-icon
+                  :rotate="context.open ? 180 : 0"
+                  :size="48"
+                  :data="icons.menuDown"
+                  class="text-primary"
+                />
+              </button>
 
               <div
                 v-if="context.open"
@@ -137,16 +137,19 @@
 </template>
 
 <script>
+import menuDown from '@iconify/icons-mdi/menu-down';
 import Jazzicon from 'vue-jazzicon';
-import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import { mapState } from 'vuex';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
+import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
+import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import MainDropdown from '@/components/common/MainDropdown.vue';
-import { mapState } from 'vuex';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   components: {
+    AppIcon,
     AppMobileNavbar,
     AppButtonStyle,
     Jazzicon,
@@ -154,6 +157,14 @@ export default {
   },
 
   mixins: [EthAddress],
+
+  data() {
+    return {
+      icons: {
+        menuDown,
+      },
+    };
+  },
 
   computed: {
     ...mapState('account', {
