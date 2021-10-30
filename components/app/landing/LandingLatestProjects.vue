@@ -8,9 +8,18 @@
     </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
 
-    <div v-if="projects === null" class="mt-10 h-275px">
-      {{ $t('general.fetchingLoading') }}
-    </div>
+    <app-skeleton-card-list
+      v-if="projects === null"
+      custom-class="grid grid-cols-1
+        md:grid-cols-2
+        lg:grid-cols-3
+        2xl:grid-cols-5
+        gap-4
+        mt-10"
+      :quantity="5"
+    >
+      <landing-latest-projects-skeleton-card />
+    </app-skeleton-card-list>
 
     <div
       v-else
@@ -24,79 +33,71 @@
       "
     >
       <div v-for="project in projects" :key="project._id">
-        <NuxtLink
+        <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
+          card-class="card shadow rounded p-4 pb-12 h-275px text-center"
         >
-          <div class="shadow rounded p-4 pb-12 h-275px text-center">
-            <app-logo
-              class="inline-block mt-3"
-              :src="project.logo && project.logo.url"
-              :alt="project.title"
-              :size="64"
-            />
-            <div class="mt-4 h-62px">
-              <p class="text-primary leading-snug line-clamp-1 break-all">
-                {{ project.title }}
-              </p>
-              <p class="small-text">{{ categoryMap[project.category] }}</p>
-            </div>
-            <div class="mt-4 flex place-content-center">
-              <p class="border rounded small-text text-primary w-32">
-                {{ formatDistance(project.createdAt) }}
-              </p>
-            </div>
+          <app-logo
+            class="inline-block mt-3"
+            :src="project.logo && project.logo.url"
+            :alt="project.title"
+            :size="64"
+          />
+          <div class="mt-4 h-62px">
+            <p class="text-primary leading-snug line-clamp-1 break-all">
+              {{ project.title }}
+            </p>
+            <p class="small-text">{{ categoryMap[project.category] }}</p>
           </div>
-        </NuxtLink>
+          <div class="mt-4 flex place-content-center">
+            <p class="border rounded small-text text-primary w-32">
+              {{ formatDistance(project.createdAt) }}
+            </p>
+          </div>
+        </app-link-card>
       </div>
     </div>
 
-    <NuxtLink :prefetch="false" to="/projects">
-      <div class="flex items-center mt-6 mb-32 text-primary">
-        <p class="mr-2">
-          {{ $t('landing.latest_projects.link_text') }}
-        </p>
-
-        <app-icon
-          :data="icons.arrowRight"
-        />
-      </div>
-    </NuxtLink>
+    <app-link-icon-right to="/projects">
+      {{ $t('landing.latest_projects.link_text') }}
+    </app-link-icon-right>
   </LandingSectionContainer>
 </template>
 
 <script>
-import arrowRight from '@iconify/icons-la/arrow-right';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppIcon from '@/components/common/AppIcon.vue';
+import AppLinkCard from '~/components/common/AppLinkCard.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
+import LandingLatestProjectsSkeletonCard from '@/components/app/landing/LandingLatestProjectsSkeletonCard.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 
 export default {
-  name: 'LandingDaoProposal',
+  name: 'LandingLatestProjects',
 
   components: {
-    AppIcon,
     AppLogo,
+    AppLinkCard,
+    AppLinkIconRight,
     LandingSectionContainer,
+    LandingLatestProjectsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   mixins: [ProjectBeautifyId],
 
   props: {
     projects: {
-      type: Array,
-      required: true,
+      type: [Array, null],
       default: null,
     },
   },
 
   data() {
     return {
-      icons: {
-        arrowRight,
-      },
       categoryMap: CategoryMap,
     };
   },
