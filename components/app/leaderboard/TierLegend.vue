@@ -3,20 +3,13 @@
     :class="{ 'border-none drop-shadow-lg': primary }"
     class="bg-white rounded divide-y divide-darkgrey border border-primary"
   >
-    <div
-      v-for="(tier, index) in tiers"
-      :key="index"
-      class="flex"
-    >
-      <div class="w-20 m-2 text-right">
+    <div v-for="(tier, index) in tiers" :key="index" class="flex">
+      <div class="w-24 m-2 text-right">
         <span class="text-third font-bold">{{ tier.condition }}</span>
       </div>
 
       <div class="flex-grow flex items-center justify-center px-2">
-        <img
-          :src="tier.iconSrc"
-          :alt="tier.title"
-        />
+        <img :src="tier.iconSrc" :alt="tier.title" />
       </div>
     </div>
   </div>
