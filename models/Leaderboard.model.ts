@@ -26,6 +26,7 @@ export interface LeaderboardProposal {
 export interface Leaderboard {
   fundedProposals: LeaderboardProposal[];
   notFundedProposals: LeaderboardProposal[];
+  amountProposals: number;
   maxVotes: number;
   remainingEarmarkFunding: number;
   remainingGeneralFunding: number;
@@ -33,4 +34,8 @@ export interface Leaderboard {
   voteStartDate: Date;
   voteEndDate: Date;
   status: RoundStatusEnum;
+  round: number;
+  overallFunding: number;
+  overallRequestedFunding: number;
+  totalVotes: number;
 }

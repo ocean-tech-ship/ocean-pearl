@@ -6,7 +6,14 @@
         :time="getTimeLeft(leaderboard)"
         tag="div"
         :class="{ 'border-white text-white': primary }"
-        class="flex items-center justify-around rounded border border-primary text-center text-primary"
+        class="
+          flex
+          items-center
+          justify-around
+          rounded
+          border border-primary
+          text-center text-primary
+        "
       >
         <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ days }}</div>
@@ -68,7 +75,7 @@ export default {
 
       return now < start
         ? 'leaderboard.voting.begins'
-        : 'leaderboard.voting.ends'
+        : 'leaderboard.voting.ends';
     },
 
     getTimeLeft(leaderboard: Leaderboard): number {
@@ -85,7 +92,7 @@ export default {
       }
 
       return end - now;
-    }
-  }
+    },
+  },
 };
 </script>

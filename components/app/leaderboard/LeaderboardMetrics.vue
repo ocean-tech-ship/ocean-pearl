@@ -1,14 +1,13 @@
 <template>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4"
+  >
     <div
       v-for="(metric, index) in metrics"
       :key="index"
       class="rounded shadow flex items-center p-2"
     >
-      <app-icon
-        class="text-primary pr-2"
-        :data="metric.icon"
-      />
+      <app-icon class="text-primary pr-2" :data="metric.icon" />
 
       <div>
         <p class="text-primary small-text line-clamp-1">{{ metric.title }}</p>
@@ -26,6 +25,7 @@ import rocket from '@iconify/icons-la/rocket';
 import bomb from '@iconify/icons-la/bomb';
 import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
+import PaymentOptionEnum from '~/enums/PaymentOption.enum';
 
 export default {
   name: 'LeaderboardMetrics',
@@ -44,44 +44,67 @@ export default {
   computed: {
     metrics() {
       const board = this.$props.leaderboard;
-      const amount = board.fundedProposals?.length + board.notFundedProposals?.length;
-      const burned = board.remainingGeneralFunding + board.remainingEarmarkFunding;
 
       return [
         {
           icon: hashtag,
           title: this.$t('leaderboard.metrics.amount.title'),
-          subtitle: this.$tc('leaderboard.metrics.amount.subtitle', amount, {
-            n: this.addPunctuation(amount),
-          }),
+          subtitle: this.$tc(
+            'leaderboard.metrics.amount.subtitle',
+            board.amountProposals,
+            {
+              n: this.addPunctuation(board.amountProposals),
+            },
+          ),
         },
         {
           icon: coins,
           title: this.$t('leaderboard.metrics.available.title'),
-          subtitle: this.$t('general.usd', {
-            usd: this.addPunctuation(-60000000),
-          }),
+          subtitle:
+            board.paymentOption === PaymentOptionEnum.Usd
+              ? this.$t('general.usd', {
+                  usd: this.addPunctuation(board.overallFunding),
+                })
+              : this.$t('general.ocean', {
+                  ocean: this.addPunctuation(board.overallFunding),
+                }),
         },
         {
           icon: rocket,
           title: this.$t('leaderboard.metrics.requested.title'),
-          subtitle: this.$t('general.usd', {
-            usd: this.addPunctuation(-60000000),
-          }),
+          subtitle:
+            board.paymentOption === PaymentOptionEnum.Usd
+              ? this.$t('general.usd', {
+                  usd: this.addPunctuation(board.overallRequestedFunding),
+                })
+              : this.$t('general.ocean', {
+                  ocean: this.addPunctuation(board.overallRequestedFunding),
+                }),
         },
         {
           icon: vote,
           title: this.$t('leaderboard.metrics.votes.title'),
           subtitle: this.$t('general.ocean', {
-            ocean: this.addPunctuation(-60000000),
+            ocean: this.addPunctuation(board.totalVotes),
           }),
         },
         {
           icon: bomb,
           title: this.$t('leaderboard.metrics.burned.title'),
-          subtitle: this.$t('general.ocean', {
-            ocean: this.addPunctuation(burned),
-          }),
+          subtitle:
+            board.paymentOption === PaymentOptionEnum.Usd
+              ? this.$t('general.usd', {
+                  usd: this.addPunctuation(
+                    board.remainingGeneralFunding +
+                      board.remainingEarmarkFunding,
+                  ),
+                })
+              : this.$t('general.ocean', {
+                  ocean: this.addPunctuation(
+                    board.remainingGeneralFunding +
+                      board.remainingEarmarkFunding,
+                  ),
+                }),
         },
       ];
     },
