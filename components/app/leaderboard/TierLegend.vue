@@ -9,7 +9,7 @@
       </div>
 
       <div class="flex-grow flex items-center justify-center px-2">
-        <img :src="tier.iconSrc" :alt="tier.title" />
+        <img width="24px" height="24px" :src="tier.iconSrc" :alt="tier.title" />
       </div>
     </div>
   </div>
