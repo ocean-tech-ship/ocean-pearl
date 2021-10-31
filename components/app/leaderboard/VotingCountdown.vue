@@ -30,7 +30,7 @@
           <div>{{ $t('date.minutes') }}</div>
         </div>
 
-        <div class="p-4">
+        <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ seconds }}</div>
           <div>{{ $t('date.seconds') }}</div>
         </div>
@@ -42,6 +42,10 @@
       >
         <span>{{ $t(getSubtitle(leaderboard)) }}</span>
       </div>
+
+      <template slot="placeholder">
+        <voting-countdown-skeleton :primary="primary" />
+      </template>
     </client-only>
   </div>
 </template>
@@ -49,11 +53,12 @@
 <script lang="ts">
 import { Leaderboard } from '@/models/Leaderboard.model';
 import AppCountdown from '@/components/common/AppCountdown.vue';
+import VotingCountdownSkeleton from '~/components/app/leaderboard/VotingCountdownSkeleton.vue';
 
 export default {
   name: 'VotingCountdown',
 
-  components: { AppCountdown },
+  components: { VotingCountdownSkeleton, AppCountdown },
 
   props: {
     leaderboard: {

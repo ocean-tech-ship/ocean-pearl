@@ -11,7 +11,7 @@
 
       <div>
         <p class="text-primary small-text line-clamp-1">{{ metric.title }}</p>
-        <span class="text-third small-text">{{ metric.subtitle }}</span>
+        <p class="text-third small-text">{{ metric.subtitle }}</p>
       </div>
     </div>
   </div>
