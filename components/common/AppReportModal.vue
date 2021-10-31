@@ -30,7 +30,7 @@
           </app-link>
           {{ $t('appReportModal.subtextEmail.part2') }}
         </p>
-        <div class="my-4 grid grid-cols-1 md:grid-cols-2 gap-2">
+        <div class="my-4 grid grid-cols-1 md:grid-cols-3 gap-2">
           <app-button
             text-class="small-text"
             :text="$t(btnCopyEmailTitle)"
@@ -45,6 +45,15 @@
             :icon="icons.contentCopy"
             @click="copyPgp"
           />
+          <AppLink
+            to="/files/publickey_oceanpearlio@protonmail_com_933640351c18940026d5777ca9da8f14cbff1efa.asc"
+          >
+            <app-button
+              secondary
+              :icon="icons.download"
+              text="Download key file"
+            />
+          </AppLink>
         </div>
         <div class="accordion w-full mt-4">
           <div class="flex justify-center items-center">
@@ -108,6 +117,7 @@ import contentCopy from '@iconify/icons-mdi/content-copy';
 import menuDown from '@iconify/icons-mdi/menu-down';
 import menuUp from '@iconify/icons-mdi/menu-up';
 import discord from '@iconify/icons-la/discord';
+import download from '@iconify/icons-la/download';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppModal from '@/components/common/AppModal.vue';
 import AppButton from '@/components/common/AppButton.vue';
@@ -145,6 +155,7 @@ export default {
         menuDown,
         menuUp,
         discord,
+        download,
       },
     };
   },
