@@ -38,15 +38,33 @@
 
     <!-- slider (gallery) -->
     <div v-else>
-      <transition-group
-        tag="div"
-        class="overflow-hidden relative w-full h-64 lg:h-80"
-        :name="currentIndex < previousIndex ? 'slide-backward' : 'slide'"
-      >
-        <div v-for="i in [currentIndex]" :key="i">
-          <img
-            v-touch:swipe="onSwipe"
-            class="
+      <div class="flex items-center">
+        <div class="hidden lg:block">
+          <button @click="previous()">
+            <app-icon
+              class="
+                text-third
+                transition
+                duration-300
+                ease-in-out
+                hover:scale-125
+              "
+              :size="32"
+              :data="icons.angleLeft"
+            />
+          </button>
+        </div>
+
+        <div class="flex-grow">
+          <transition-group
+            tag="div"
+            class="overflow-hidden relative w-full h-64 lg:h-80"
+            :name="currentIndex < previousIndex ? 'slide-backward' : 'slide'"
+          >
+            <div v-for="i in [currentIndex]" :key="i">
+              <img
+                v-touch:swipe="onSwipe"
+                class="
               absolute
               top-0
               left-0
@@ -60,12 +78,30 @@
               ease-in-out
               duration-300
             "
-            :src="currentPicture"
-            alt=""
-            @click="showModal = true"
-          />
+                :src="currentPicture"
+                alt=""
+                @click="showModal = true"
+              />
+            </div>
+          </transition-group>
         </div>
-      </transition-group>
+
+        <div class="hidden lg:block">
+          <button @click="next()">
+            <app-icon
+              class="
+                text-third
+                transition
+                duration-300
+                ease-in-out
+                hover:scale-125
+              "
+              :size="32"
+              :data="icons.angleRight"
+            />
+          </button>
+        </div>
+      </div>
 
       <app-image-modal
         :show="showModal"
@@ -77,11 +113,16 @@
 </template>
 
 <script>
+import angleLeft from '@iconify/icons-la/angle-left';
+import angleRight from '@iconify/icons-la/angle-right';
 import AppImageModal from '@/components/common/AppImageModal.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSingleGallery',
-  components: { AppImageModal },
+
+  components: { AppIcon, AppImageModal },
+
   props: {
     project: {
       type: Object,
@@ -92,6 +133,10 @@ export default {
 
   data() {
     return {
+      icons: {
+        angleLeft,
+        angleRight,
+      },
       previousIndex: 0,
       currentIndex: 0,
       showModal: false,
@@ -115,9 +160,14 @@ export default {
   methods: {
     goTo(index) {
       this.previousIndex = this.currentIndex;
-      this.currentIndex = index >= this.numberOfPictures || index < 0
-        ? 0
-        : index;
+
+      if (index >= this.numberOfPictures) {
+        this.currentIndex = 0;
+      } else if (index < 0) {
+        this.currentIndex = this.numberOfPictures - 1;
+      } else {
+        this.currentIndex = index;
+      }
     },
 
     next() {
@@ -144,7 +194,7 @@ export default {
 .slide-enter-active,
 .slide-backward-leave-active,
 .slide-backward-enter-active{
-  transition: 1s;
+  transition: 0.5s;
 }
 .slide-enter {
   transform: translate(100%, 0);
