@@ -11,13 +11,10 @@
       "
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
-        <app-settings-dropdown
-          :project-title="daoProposal.project.title"
-          :project-link="`/projects/${beautifyProjectId(daoProposal.project)}`"
-        />
         <app-link-card
-          :prefetch="false"
+          settings-dropdown
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
+          :project-title="daoProposal.project.title"
           card-class="shadow rounded p-8 h-full"
         >
           <div class="flex">
@@ -124,7 +121,6 @@ import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
-import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
@@ -137,7 +133,6 @@ export default {
     AppLogo,
     AppLabel,
     AppLinkCard,
-    AppSettingsDropdown,
   },
 
   mixins: [ProjectBeautifyId, Numbers],

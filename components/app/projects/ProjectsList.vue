@@ -12,10 +12,9 @@
   >
     <div v-for="project in projects" :key="project.id">
       <app-link-card
-        :prefetch="false"
+        settings-dropdown
         :to="`/projects/${beautifyProjectId(project)}`"
         :project-title="project.title"
-        settings-dropdown
         card-class="shadow rounded p-2 pb-8 text-center"
       >
         <div class="mt-3">
