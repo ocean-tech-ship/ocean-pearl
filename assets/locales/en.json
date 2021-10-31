@@ -19,7 +19,8 @@
     },
     "btnCopyPgpTitle": "PGP Key",
     "btnShowPgpTitle": "Show PGP Key",
-    "btnCopied": "copied!"
+    "btnCopied": "copied!",
+    "btnDownloadPgpTitle": "Download public key"
   },
   "dao-projects": {
     "filterResponse": {

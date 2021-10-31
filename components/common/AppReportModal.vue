@@ -30,30 +30,37 @@
           </app-link>
           {{ $t('appReportModal.subtextEmail.part2') }}
         </p>
-        <div class="my-4 grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div class="my-4 grid grid-cols-1 gap-2">
           <app-button
+            class="h-full w-full"
             text-class="small-text"
             :text="$t(btnCopyEmailTitle)"
             secondary
             :icon="icons.contentCopy"
             @click="copyEmail"
           />
-          <app-button
-            text-class="small-text"
-            :text="$t(btnCopyPgpTitle)"
-            secondary
-            :icon="icons.contentCopy"
-            @click="copyPgp"
-          />
-          <AppLink
-            to="/files/publickey_oceanpearlio@protonmail_com_933640351c18940026d5777ca9da8f14cbff1efa.asc"
-          >
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             <app-button
+              class="h-full w-full"
+              text-class="small-text"
+              :text="$t(btnCopyPgpTitle)"
               secondary
-              :icon="icons.download"
-              text="Download key file"
+              :icon="icons.contentCopy"
+              @click="copyPgp"
             />
-          </AppLink>
+            <a
+              href="/files/publickey_oceanpearlio@protonmail_com_933640351c18940026d5777ca9da8f14cbff1efa.asc"
+              download
+            >
+              <app-button
+                class="h-full w-full"
+                text-class="small-text"
+                secondary
+                :icon="icons.download"
+                :text="$t('appReportModal.btnDownloadPgpTitle')"
+              />
+            </a>
+          </div>
         </div>
         <div class="accordion w-full mt-4">
           <div class="flex justify-center items-center">
@@ -173,10 +180,7 @@ export default {
     copyEmail() {
       navigator.clipboard.writeText(this.btnCopyEmailTitle).then(() => {
         this.btnCopyEmailTitle = 'appReportModal.btnCopied';
-        setTimeout(
-          () => (this.btnCopyEmailTitle = 'appReportModal.btnCopyEmailTitle'),
-          1500,
-        );
+        setTimeout(() => (this.btnCopyEmailTitle = EmailEnum.Address), 1500);
       });
     },
 
