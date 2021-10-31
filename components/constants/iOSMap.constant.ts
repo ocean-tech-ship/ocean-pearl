@@ -1,4 +1,4 @@
-import iOSEnum from '../enums/iOS.enum';
+import iOSEnum from '../../enums/iOS.enum';
 
 export const iOSMap: { [key in iOSEnum]: string } = {
   [iOSEnum.iPadSimulator]: 'iPad Simulator',

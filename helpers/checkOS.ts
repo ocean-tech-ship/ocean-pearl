@@ -1,4 +1,4 @@
-import iOSEnum from '~/components/enums/iOS.enum';
+import iOSEnum from '~/enums/iOS.enum';
 
 export default function checkForiOS(): boolean {
   return (

@@ -15,3 +15,9 @@ export interface Project {
   createdAt: Date;
   updatedAt: Date;
 }
+
+export interface ProjectTier {
+  iconSrc: string;
+  title: string;
+  condition: string;
+}

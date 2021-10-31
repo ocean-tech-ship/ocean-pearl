@@ -35,11 +35,13 @@ module.exports = {
     colors: {
       primary: colors.primary,
       secondary: colors.secondary,
+      complementary: colors.complementary,
       third: colors.third,
       quad: colors.quad,
       grey: colors.grey,
       white: colors.white,
       darkgrey: colors.darkgrey,
+      pink: colors.pink,
     },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { SocialMedia } from '@/model/SocialMedia';
+import { SocialMedia } from '@/models/SocialMedia';
 import ProjectSingleSocialsItem from '@/components/app/project-detail/ProjectSingleSocialsItem';
 
 export default {

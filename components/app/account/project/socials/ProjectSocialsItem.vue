@@ -29,7 +29,7 @@
 
 <script>
 import closeCircle from '@iconify/icons-mdi/close-circle';
-import { SocialMedia } from '@/model/SocialMedia';
+import { SocialMedia } from '@/models/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {

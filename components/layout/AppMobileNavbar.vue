@@ -40,6 +40,11 @@
               $t('navbar.navbarDao')
             }}</NuxtLink>
           </li>
+          <li>
+            <NuxtLink class="font-bold block px-4 py-3" to="/leaderboard">{{
+                $t('leaderboard.meta.title')
+              }}</NuxtLink>
+          </li>
           <li v-if="!walletAddress">
             <NuxtLink to="/management">
               <div class="flex px-4 py-3 text-primary">

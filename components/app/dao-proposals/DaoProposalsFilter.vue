@@ -18,7 +18,7 @@
 <script>
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import AppSearchBar from '@/components/common/AppSearchbar.vue';
-import CategoryEnum from '@/components/enums/Category.enum';
+import CategoryEnum from '@/enums/Category.enum';
 import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
