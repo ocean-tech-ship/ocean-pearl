@@ -104,7 +104,7 @@ export default {
   }
 }
 
-button:not(.call-to-action) {
+.border-primary {
   &:hover {
     border: 2px solid #bb2c75;
   }
