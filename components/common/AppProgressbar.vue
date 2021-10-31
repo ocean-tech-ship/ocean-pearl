@@ -2,7 +2,7 @@
   <div class="relative">
     <div class="overflow-hidden h-2 text-xs flex drop-shadow-lg">
       <div
-        :style="{ width: `${delayedLevel}%` }"
+        :style="{ width: `${delayedPercent}%` }"
         :class="{ 'background-primary': !secondary }"
         style="transition: width 1s; transition-delay: 0.3s"
         class="
@@ -24,7 +24,7 @@ export default {
   name: 'AppProgressbar',
 
   props: {
-    level: {
+    percent: {
       type: Number,
       required: true,
     },
@@ -38,18 +38,18 @@ export default {
 
   data() {
     return {
-      delayedLevel: 0,
+      delayedPercent: 0,
     };
   },
 
   watch: {
-    level(val) {
-      this.delayedLevel = val;
+    percent(val) {
+      this.delayedPercent = val;
     },
   },
 
   mounted() {
-    this.delayedLevel = this.$props.level;
+    this.delayedPercent = this.$props.percent;
   },
 };
 </script>

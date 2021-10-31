@@ -51,11 +51,11 @@
             <!-- progress bars -->
             <div v-if="primary" class="space-y-1 hidden lg:block">
               <app-progressbar
-                :level="calcPercent(maxVotes, proposal.yesVotes)"
+                :percent="calcPercent(maxVotes, proposal.yesVotes)"
               />
               <app-progressbar
                 secondary
-                :level="calcPercent(maxVotes, proposal.noVotes)"
+                :percent="calcPercent(maxVotes, proposal.noVotes)"
               />
             </div>
 
