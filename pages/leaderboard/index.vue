@@ -246,7 +246,6 @@ import VotingCountdownSkeleton from '@/components/app/leaderboard/VotingCountdow
 import RoundIndicatorSkeleton from '@/components/app/leaderboard/RoundIndicatorSkeleton.vue';
 import LeaderboardProposalSkeleton from '@/components/app/leaderboard/LeaderboardProposalSkeleton.vue';
 
-const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 export default Vue.extend({
   components: {
     LeaderboardProposalSkeleton,
@@ -267,6 +266,7 @@ export default Vue.extend({
   data() {
     return {
       statusEnum: RoundStatusEnum,
+      timer: null,
       leaderboard: {},
     };
   },
@@ -280,11 +280,18 @@ export default Vue.extend({
     return createHead(this.$config, this.$i18n);
   },
 
+  mounted() {
+    this.timer = setInterval(() => this.fetchSilent(), 1000 * 60 * 3);
+  },
+
+  beforeDestroy() {
+    clearInterval(this.timer);
+  },
+
   methods: {
     async fetchSilent() {
       this.$data.leaderboard = await getLeaderboard(this.$axios);
       // Faked leaderboard results for easy build
-      // await delay(3000);
       // this.$data.leaderboard = await getExampleResult();
     },
   },
