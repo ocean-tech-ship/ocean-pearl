@@ -50,10 +50,12 @@
 
             <!-- progress bars -->
             <div v-if="primary" class="space-y-1 hidden lg:block">
-              <app-progressbar :level="calcPct(maxVotes, proposal.yesVotes)" />
+              <app-progressbar
+                :level="calcPercent(maxVotes, proposal.yesVotes)"
+              />
               <app-progressbar
                 secondary
-                :level="calcPct(maxVotes, proposal.noVotes)"
+                :level="calcPercent(maxVotes, proposal.noVotes)"
               />
             </div>
 
@@ -160,9 +162,9 @@ export default {
   },
 
   methods: {
-    calcPct(maxVotes: number, votes: number): number {
-      const pct = (100 / maxVotes) * votes;
-      return pct < 0.5 ? 0.5 : pct;
+    calcPercent(maxVotes: number, votes: number): number {
+      const percent = (100 / maxVotes) * votes;
+      return percent < 0.5 ? 0.5 : percent;
     },
 
     targetProjectLink(
