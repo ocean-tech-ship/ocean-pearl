@@ -17,7 +17,7 @@
       "part1": "You can also find us on ",
       "part2": ", where you can reach out to one of our team members directly."
     },
-    "btnCopyPgpTitle": "Public key",
+    "btnCopyPgpTitle": "Copy public key",
     "btnShowPgpTitle": "Show public key",
     "btnCopied": "copied!",
     "btnDownloadPgpTitle": "Download public key"
