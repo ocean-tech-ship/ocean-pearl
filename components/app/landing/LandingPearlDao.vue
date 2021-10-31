@@ -20,31 +20,24 @@
 
     <round-metrics v-else class="mt-10" :metrics="metrics" />
 
-    <NuxtLink to="/dao-proposals">
-      <div class="flex items-center mt-6 text-white">
-        <p class="mr-2">
-          {{ $t('landing.pearl_dao.link_text') }}
-        </p>
-
-        <app-icon :data="icons.arrowRight" />
-      </div>
-    </NuxtLink>
+    <app-link-icon-right to="/dao-proposals" class="text-white">
+      {{ $t('landing.pearl_dao.link_text') }}
+    </app-link-icon-right>
   </LandingSectionContainer>
 </template>
 
 <script>
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
+import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetricsSkeletonCard.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
-import arrowRight from '@iconify/icons-la/arrow-right';
-import AppIcon from '~/components/common/AppIcon';
 
 export default {
   name: 'LandingPearlDao',
 
   components: {
-    AppIcon,
+    AppLinkIconRight,
     LandingSectionContainer,
     RoundMetrics,
     RoundMetricsSkeletonCard,
@@ -56,14 +49,6 @@ export default {
       type: [Object, null],
       default: null,
     },
-  },
-
-  data() {
-    return {
-      icons: {
-        arrowRight,
-      },
-    };
   },
 };
 </script>
