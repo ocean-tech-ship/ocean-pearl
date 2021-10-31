@@ -1,10 +1,7 @@
 <template>
   <div>
     <!-- controls -->
-    <div
-      v-if="numberOfPictures > 1"
-      class="flex justify-center pb-4"
-    >
+    <div v-if="numberOfPictures > 1" class="flex justify-center pb-4">
       <button
         v-for="index in numberOfPictures"
         :key="index"
@@ -12,28 +9,24 @@
         class="
           w-3
           h-3
-          mx-1
-          bg-third
-          mx-2
+          mx-1 mx-2
           rounded-full
           transition
           duration-300
           ease-in-out
           hover:scale-125
         "
-        :class="{ ['bg-primary']: currentIndex === index - 1 }"
+        :class="{
+          'bg-primary': currentIndex === index - 1,
+          'bg-third': currentIndex !== index - 1,
+        }"
         @click="goTo(index - 1)"
       />
     </div>
 
     <!-- wallpaper (single image) -->
     <div v-if="numberOfPictures === 1">
-      <img
-        class="object-contain"
-        width="100%"
-        :src="currentPicture"
-        alt=""
-      />
+      <img class="object-contain" width="100%" :src="currentPicture" alt="" />
     </div>
 
     <!-- slider (gallery) -->
@@ -65,19 +58,19 @@
               <img
                 v-touch:swipe="onSwipe"
                 class="
-              absolute
-              top-0
-              left-0
-              bottom-0
-              right-0
-              object-contain
-              w-full
-              h-64
-              lg:h-80
-              hover:opacity-70
-              ease-in-out
-              duration-300
-            "
+                  absolute
+                  top-0
+                  left-0
+                  bottom-0
+                  right-0
+                  object-contain
+                  w-full
+                  h-64
+                  lg:h-80
+                  hover:opacity-70
+                  ease-in-out
+                  duration-300
+                "
                 :src="currentPicture"
                 alt=""
                 @click="showModal = true"
@@ -184,7 +177,7 @@ export default {
       } else if (direction === 'right') {
         this.previous();
       }
-    }
+    },
   },
 };
 </script>
@@ -193,7 +186,7 @@ export default {
 .slide-leave-active,
 .slide-enter-active,
 .slide-backward-leave-active,
-.slide-backward-enter-active{
+.slide-backward-enter-active {
   transition: 0.5s;
 }
 .slide-enter {
