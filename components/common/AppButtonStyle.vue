@@ -13,9 +13,7 @@
       z-30
     "
     :class="[
-      secondary
-        ? 'bg-white text-primary border border-primary'
-        : 'call-to-action text-secondary',
+      secondary ? 'bg-white text-primary' : 'call-to-action text-secondary',
     ]"
   >
     <img
@@ -106,9 +104,7 @@ export default {
   }
 }
 
-div:not(.call-to-action) {
-  &:hover {
-    border: 2px solid #bb2c75;
-  }
+.text-primary:hover {
+  transition: ease-in-out 200ms;
 }
 </style>

@@ -104,9 +104,7 @@ export default {
   }
 }
 
-button:not(.call-to-action) {
-  &:hover {
-    border: 2px solid #bb2c75;
-  }
+.text-primary:hover {
+  transition: ease-in-out 200ms;
 }
 </style>
