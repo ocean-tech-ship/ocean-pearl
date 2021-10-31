@@ -178,6 +178,7 @@
     }
   },
   "leaderboard": {
+    "empty": "This list is empty right now. Check back later.",
     "funded": "Receive funding for proposal",
     "live": "Live",
     "meta": {

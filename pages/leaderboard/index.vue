@@ -59,6 +59,27 @@
           </div>
 
           <div v-else class="space-y-4">
+            <!-- empty hint (temporary solution) -->
+            <div
+              v-if="
+                !leaderboard.fundedProposals ||
+                leaderboard.fundedProposals.length === 0
+              "
+              class="flex justify-center"
+            >
+              <div
+                class="
+                  border border-white
+                  text-white text-center
+                  rounded
+                  px-2
+                  py-1
+                "
+              >
+                {{ $t('leaderboard.empty') }}
+              </div>
+            </div>
+
             <leaderboard-proposal
               v-for="(prop, index) in leaderboard.fundedProposals"
               :key="prop.id"
@@ -110,6 +131,27 @@
           </div>
 
           <div v-else class="space-y-2">
+            <!-- empty hint (temporary solution) -->
+            <div
+              v-if="
+                !leaderboard.notFundedProposals ||
+                leaderboard.notFundedProposals.length === 0
+              "
+              class="flex justify-center"
+            >
+              <div
+                class="
+                  border border-primary
+                  text-primary text-center
+                  rounded
+                  px-2
+                  py-1
+                "
+              >
+                {{ $t('leaderboard.empty') }}
+              </div>
+            </div>
+
             <leaderboard-proposal
               v-for="(prop, index) in leaderboard.notFundedProposals"
               :key="prop.id"
@@ -136,6 +178,28 @@
                 'rounded-b': index === 4,
               }"
             />
+          </div>
+
+          <div
+            v-else-if="
+              !leaderboard.notFundedProposals ||
+              leaderboard.notFundedProposals.length === 0
+            "
+          >
+            <!-- empty hint (temporary solution) -->
+            <div class="flex justify-center">
+              <div
+                class="
+                  border border-primary
+                  text-primary text-center
+                  rounded
+                  px-2
+                  py-1
+                "
+              >
+                {{ $t('leaderboard.empty') }}
+              </div>
+            </div>
           </div>
 
           <div
@@ -218,10 +282,10 @@ export default Vue.extend({
 
   methods: {
     async fetchSilent() {
-      // this.$data.leaderboard = await getLeaderboard(this.$axios);
+      this.$data.leaderboard = await getLeaderboard(this.$axios);
       // Faked leaderboard results for easy build
-      await delay(3000);
-      this.$data.leaderboard = await getExampleResult();
+      // await delay(3000);
+      // this.$data.leaderboard = await getExampleResult();
     },
   },
 });
