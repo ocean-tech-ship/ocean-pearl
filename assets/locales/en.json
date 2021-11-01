@@ -179,7 +179,7 @@
   },
   "leaderboard": {
     "empty": "This list is empty right now. Check back later.",
-    "funded": "Receive funding for proposal",
+    "funded": "Proposals with funding",
     "live": "Live",
     "meta": {
       "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
@@ -195,7 +195,8 @@
         "title": "Funding amount"
       },
       "burned": {
-        "title": "Amount Burned"
+        "future": "Will be burned",
+        "past": "Amount burned"
       },
       "requested": {
         "title": "Amount requested"
@@ -204,7 +205,7 @@
         "title": "Total Votes"
       }
     },
-    "pending": "Pending for funding",
+    "pending": "Proposals without funding",
     "proposal": {
       "header": {
         "action": "Vote now",
