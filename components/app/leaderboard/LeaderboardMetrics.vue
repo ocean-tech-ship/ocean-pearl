@@ -22,10 +22,11 @@ import hashtag from '@iconify/icons-la/hashtag';
 import coins from '@iconify/icons-la/coins';
 import vote from '@iconify/icons-la/vote-yea';
 import rocket from '@iconify/icons-la/rocket';
-import bomb from '@iconify/icons-la/bomb';
+import fire from '@iconify/icons-la/fire';
 import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
 import PaymentOptionEnum from '~/enums/PaymentOption.enum';
+import RoundStatusEnum from '~/enums/RoundStatus.enum';
 
 export default {
   name: 'LeaderboardMetrics',
@@ -89,8 +90,11 @@ export default {
           }),
         },
         {
-          icon: bomb,
-          title: this.$t('leaderboard.metrics.burned.title'),
+          icon: fire,
+          title:
+            board.status === RoundStatusEnum.VotingFinished
+              ? this.$t('leaderboard.metrics.burned.past')
+              : this.$t('leaderboard.metrics.burned.future'),
           subtitle:
             board.paymentOption === PaymentOptionEnum.Usd
               ? this.$t('general.usd', {
