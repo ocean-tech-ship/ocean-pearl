@@ -11,10 +11,6 @@
     "
   >
     <div v-for="project in projects" :key="project.id">
-      <app-settings-dropdown
-        :project-title="project.title"
-        :project-link="`/projects/${beautifyProjectId(project)}`"
-      />
       <app-link-card
         :prefetch="false"
         :to="`/projects/${beautifyProjectId(project)}`"
@@ -48,7 +44,6 @@
 
 <script>
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
@@ -58,7 +53,6 @@ export default {
   components: {
     AppLogo,
     AppLinkCard,
-    AppSettingsDropdown,
   },
 
   mixins: [ProjectBeautifyId],
