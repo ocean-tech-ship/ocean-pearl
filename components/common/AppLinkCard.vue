@@ -1,13 +1,5 @@
 <template>
-  <div v-if="settingsDropdown && projectTitle && to" class="card">
-    <app-settings-dropdown :project-title="projectTitle" :project-link="to" />
-    <NuxtLink :prefetch="prefetch" :to="to">
-      <div :class="cardClass">
-        <slot />
-      </div>
-    </NuxtLink>
-  </div>
-  <NuxtLink v-else :prefetch="prefetch" :to="to">
+  <NuxtLink :prefetch="prefetch" :to="to">
     <div :class="cardClass" class="card">
       <slot />
     </div>
@@ -15,22 +7,9 @@
 </template>
 
 <script>
-import AppSettingsDropdown from '~/components/common/AppSettingsDropdown';
-
 export default {
   name: 'AppLinkCard',
-  components: { AppSettingsDropdown },
   props: {
-    settingsDropdown: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    projectTitle: {
-      type: String,
-      required: false,
-      default: '',
-    },
     prefetch: {
       type: Boolean,
       default: false,

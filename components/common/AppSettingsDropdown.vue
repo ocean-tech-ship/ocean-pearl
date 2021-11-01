@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="w-1/1 relative flex justify-end">
+    <div class="relative">
       <button
         type="button"
         :class="btnClass"
@@ -74,7 +74,8 @@ export default {
   props: {
     btnClass: {
       type: String,
-      default: () => 'px-2 -mb-10 text-primary leading-none',
+      default: () =>
+        'absolute z-40 top-3 right-0 px-2 text-primary leading-none',
     },
     iconRotate: {
       type: Number,
