@@ -17,10 +17,10 @@
       "part1": "You can also find us on ",
       "part2": ", where you can reach out to one of our team members directly."
     },
-    "btnCopyPgpTitle": "Copy public key",
-    "btnShowPgpTitle": "Show public key",
+    "btnCopyPgpTitle": "Copy PGP key",
+    "btnShowPgpTitle": "Show PGP key",
     "btnCopied": "copied!",
-    "btnDownloadPgpTitle": "Download public key"
+    "btnDownloadPgpTitle": "Download PGP key"
   },
   "dao-projects": {
     "filterResponse": {
