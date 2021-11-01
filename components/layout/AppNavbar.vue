@@ -39,8 +39,9 @@
           flex-grow
           items-center
           justify-end
-          md:space-x-62px
-          lg:space-x-128px
+          md:space-x-8
+          lg:space-x-62px
+          2xl:space-x-128px
           hidden
           lg:flex
         "
@@ -48,6 +49,8 @@
         <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
 
         <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
+
+        <NuxtLink to="/leaderboard">{{ $t('leaderboard.meta.title') }}</NuxtLink>
 
         <nuxt-link
           v-if="!walletAddress"

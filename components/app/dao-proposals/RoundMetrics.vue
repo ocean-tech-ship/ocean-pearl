@@ -85,7 +85,7 @@ export default {
         },
         {
           title: this.$i18n.t(this.getSubmissionState().key),
-          subtitle: this.$dateFns.formatDistanceToNowStrict(
+          subtitle: this.$dateFns.formatDistanceToNow(
             this.getSubmissionState().timestamp,
             { locale: this.$i18n.locale, addSuffix: true },
           ),
@@ -93,15 +93,12 @@ export default {
           tooltip:
             this.getSubmissionState().tooltip &&
             this.$i18n.t(this.getSubmissionState().tooltip, {
-              timestamp: this.$dateFns.format(
-                this.getSubmissionState().timestamp,
-                'yyyy-MM-dd, hh:mm',
-              ),
+              timestamp: this.getSubmissionState().timestamp.toLocaleString(),
             }),
         },
         {
           title: this.$i18n.t(this.getVoteState().key),
-          subtitle: this.$dateFns.formatDistanceToNowStrict(
+          subtitle: this.$dateFns.formatDistanceToNow(
             this.getVoteState().timestamp,
             { locale: this.$i18n.locale, addSuffix: true },
           ),
@@ -109,10 +106,7 @@ export default {
           tooltip:
             this.getVoteState().tooltip &&
             this.$i18n.t(this.getVoteState().tooltip, {
-              timestamp: this.$dateFns.format(
-                this.getVoteState().timestamp,
-                'yyyy-MM-dd, hh:mm',
-              ),
+              timestamp: this.getVoteState().timestamp.toLocaleString(),
             }),
         },
         {
@@ -120,10 +114,14 @@ export default {
           subtitle:
             this.$props.metrics.paymentOption === 'ocean'
               ? this.$t('general.ocean', {
-                  ocean: this.addPunctuation(this.$props.metrics.totalRequestedFundingOcean),
+                  ocean: this.addPunctuation(
+                    this.$props.metrics.totalRequestedFundingOcean,
+                  ),
                 })
               : this.$t('general.usd', {
-                  usd: this.addPunctuation(this.$props.metrics.totalRequestedFundingUsd),
+                  usd: this.addPunctuation(
+                    this.$props.metrics.totalRequestedFundingUsd,
+                  ),
                 }),
           icon: coins,
         },

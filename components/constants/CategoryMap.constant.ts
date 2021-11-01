@@ -1,4 +1,4 @@
-import CategoryEnum from '../enums/Category.enum';
+import CategoryEnum from '../../enums/Category.enum';
 
 export const CategoryMap: { [key in CategoryEnum]: string } = {
   [CategoryEnum.All]: 'All',

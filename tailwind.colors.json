@@ -1,10 +1,12 @@
 {
   "primary": "#BB2C75",
   "secondary": "#ffffff",
+  "complementary": "#E6A33A",
   "third": "#292929",
   "quad": "#D03987",
   "grey": "#FAFAFA",
   "darkgrey": "#C4C4C4",
   "white": "#ffffff",
-  "black": "#000000"
+  "black": "#000000",
+  "pink": "#FF97CC"
 }

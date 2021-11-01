@@ -139,7 +139,8 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: 'Get an overview of all projects that have applied for funding through OceanDAO.',
+          content:
+            'Get an overview of all projects that have applied for funding through OceanDAO.',
         },
         {
           hid: 'og:title',
@@ -149,7 +150,8 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Get an overview of all projects that have applied for funding through OceanDAO.',
+          content:
+            'Get an overview of all projects that have applied for funding through OceanDAO.',
         },
         {
           hid: 'og:url',
@@ -164,18 +166,27 @@ export default Vue.extend({
         {
           hid: 'twitter:description',
           property: 'twitter:description',
-          content: 'Get an overview of all projects that have applied for funding through OceanDAO.',
+          content:
+            'Get an overview of all projects that have applied for funding through OceanDAO.',
         },
       ],
       link: [
         { rel: 'canonical', href: `${this.$config.rootURL}/dao-proposals` },
-      ]
-    }
+      ],
+    };
   },
 
   methods: {
     async fetchDaoProposals(payload) {
       try {
+        if (payload.round) {
+          // Fetch metrics for switched round
+          const metricsResponse = await getDaoRoundMetrics(this.$axios, {
+            round: payload.round,
+          });
+          this.metrics = metricsResponse.data;
+        }
+
         const daoProposalResponse = await getDaoProposals(this.$axios, payload);
         if (daoProposalResponse.status === 204) {
           this.error = 'general.error.unknown';

@@ -94,6 +94,12 @@
       }
     }
   },
+  "date": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
   "footer": {
     "analytics": "Analytics"
   },
@@ -194,6 +200,62 @@
       "titleHighlight": "space"
     }
   },
+  "leaderboard": {
+    "empty": "This list is empty right now. Check back later.",
+    "funded": "Receive funding for proposal",
+    "live": "Live",
+    "meta": {
+      "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
+      "title": "Leaderboard"
+    },
+    "metrics": {
+      "amount": {
+        "subtitle": "no proposal | {n} proposal | {n} proposals",
+        "title": "Amount proposals"
+      },
+      "available": {
+        "subtitle": "{n} USD",
+        "title": "Funding amount"
+      },
+      "burned": {
+        "title": "Amount Burned"
+      },
+      "requested": {
+        "title": "Amount requested"
+      },
+      "votes": {
+        "title": "Total Votes"
+      }
+    },
+    "pending": "Pending for funding",
+    "proposal": {
+      "header": {
+        "action": "Vote now",
+        "completed": "Completed Proposals",
+        "name": "Name",
+        "needed": "Yes Votes needed",
+        "votes": "Votes"
+      },
+      "rank": "rank icon",
+      "votes": {
+        "no": "No Votes",
+        "yes": "Yes Votes"
+      }
+    },
+    "refresh": "The results are updated every 3 minutes.",
+    "round": {
+      "title": "Round"
+    },
+    "subtitle": "An overview of the highest voted proposals decided by the community.",
+    "title": [
+      "DAO",
+      "leaderboard"
+    ],
+    "voting": {
+      "begins": "time until voting for proposals begins",
+      "ends": "time until voting for proposals ends"
+    }
+  },
   "manage": {
     "admins": "Administrators",
     "auth": {
@@ -263,6 +325,7 @@
         "no": "no",
         "yes": "yes"
       },
+      "grants": "no grant | {n} grant | {n} grants",
       "history": {
         "funding": "Granted<br>Funding",
         "granted": "Granted",
@@ -300,6 +363,12 @@
       "title": "ROI"
     },
     "team": "Team",
+    "tier": {
+      "existing": "Existing Project Tier",
+      "experienced": "Experienced Project Tier",
+      "new": "New Project Tier",
+      "veteran": "Veteran Project Tier"
+    },
     "unknown": "The requested project could not be found.",
     "wallet": "Project Wallet Address"
   },

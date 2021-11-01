@@ -123,7 +123,7 @@
 import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
-import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum';
+import DaoProposalStatusEnum from '@/enums/DaoProposalStatus.enum';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
