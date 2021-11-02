@@ -36,14 +36,25 @@
           </div>
         </div>
 
-        <div class="flex items-center py-4">
-          <h4 class="text-white">{{ $t('leaderboard.funded') }}</h4>
+        <div class="pt-4 pb-8 text-white">
+          <div class="flex items-center">
+            <h4>{{ $t('leaderboard.funded') }}</h4>
 
-          <live-indicator
-            v-if="leaderboard.status === statusEnum.VotingInProgress"
-            class="pl-4"
-            @click="fetchSilent()"
-          />
+            <live-indicator
+              v-if="leaderboard.status === statusEnum.VotingInProgress"
+              class="pl-4"
+              @click="fetchSilent()"
+            />
+          </div>
+
+          <p class="small-text">
+            {{ $t('leaderboard.guarantee[0]') }}
+            <app-link
+              to="https://airtable.com/shrd5s7HSXc2vC1iC"
+              class="underline"
+              >{{ $t('leaderboard.guarantee[1]') }}</app-link
+            >
+          </p>
         </div>
 
         <div class="space-y-4">
@@ -245,9 +256,11 @@ import LeaderboardMetricsSkeleton from '@/components/app/leaderboard/Leaderboard
 import VotingCountdownSkeleton from '@/components/app/leaderboard/VotingCountdownSkeleton.vue';
 import RoundIndicatorSkeleton from '@/components/app/leaderboard/RoundIndicatorSkeleton.vue';
 import LeaderboardProposalSkeleton from '@/components/app/leaderboard/LeaderboardProposalSkeleton.vue';
+import AppLink from '~/components/common/AppLink';
 
 export default Vue.extend({
   components: {
+    AppLink,
     LeaderboardProposalSkeleton,
     RoundIndicatorSkeleton,
     VotingCountdownSkeleton,
