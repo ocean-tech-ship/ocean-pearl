@@ -20,7 +20,7 @@ export default function createHead(config, i18n) {
       {
         hid: 'og:url',
         property: 'og:url',
-        content: `${config.rootURL}/leaderboard`,
+        content: `${config.rootURL}/dao-voting`,
       },
       {
         hid: 'twitter:title',
@@ -33,8 +33,6 @@ export default function createHead(config, i18n) {
         content: i18n.t('leaderboard.meta.description'),
       },
     ],
-    link: [
-      { rel: 'canonical', href: `${config.rootURL}/leaderboard` },
-    ]
-  }
+    link: [{ rel: 'canonical', href: `${config.rootURL}/dao-voting` }],
+  };
 }

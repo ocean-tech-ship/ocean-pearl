@@ -1,26 +1,26 @@
 {
-  "appSettingsDropdown": {
-    "menuItemCopyLink": "Copy project link",
-    "menuItemCopied": "copied!",
-    "menuItemReport": "Report project"
-  },
   "appReportModal": {
+    "btnCopied": "copied!",
+    "btnCopyPgpTitle": "Copy PGP key",
+    "btnDownloadPgpTitle": "Download PGP key",
+    "btnShowPgpTitle": "Show PGP key",
     "headline": "Report this project",
-    "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hestitate to contact us.",
     "headlineEmail": "Email",
+    "headlineSocial": "Discord",
+    "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hestitate to contact us.",
     "subtextEmail": {
       "part1": "You can contact us via PGP encrypted email, by using our public key below. If you use ",
       "part2": ", your email to us will be encrypted automatically."
     },
-    "headlineSocial": "Discord",
     "subtextSocial": {
       "part1": "You can also find us on ",
       "part2": ", where you can reach out to one of our team members directly."
-    },
-    "btnCopyPgpTitle": "Copy PGP key",
-    "btnShowPgpTitle": "Show PGP key",
-    "btnCopied": "copied!",
-    "btnDownloadPgpTitle": "Download PGP key"
+    }
+  },
+  "appSettingsDropdown": {
+    "menuItemCopied": "copied!",
+    "menuItemCopyLink": "Copy project link",
+    "menuItemReport": "Report project"
   },
   "dao-projects": {
     "filterResponse": {
@@ -203,10 +203,14 @@
   "leaderboard": {
     "empty": "This list is empty right now. Check back later.",
     "funded": "Proposals with funding",
+    "guarantee": [
+      "All data is received from the OceanDAO Airtable which can be found",
+      "here"
+    ],
     "live": "Live",
     "meta": {
       "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
-      "title": "Leaderboard"
+      "title": "DAO Voting"
     },
     "metrics": {
       "amount": {
@@ -250,7 +254,7 @@
     "subtitle": "An overview of the highest voted proposals decided by the community.",
     "title": [
       "DAO",
-      "leaderboard"
+      "Voting"
     ],
     "voting": {
       "begins": "time until voting for proposals begins",

@@ -10,7 +10,9 @@
 
       <div class="">
         <h3 class="text-primary leading-tight">{{ project.title }}</h3>
-        <p class="leading-tight">{{ categoryMap[project.category] }}</p>
+        <app-link :to="targetCategoryLink(project.category)">
+          <p class="leading-tight">{{ categoryMap[project.category] }}</p>
+        </app-link>
       </div>
     </div>
 
@@ -40,19 +42,19 @@
 import rocket from '@iconify/icons-la/rocket';
 import copy from '@iconify/icons-la/copy';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
-import AppButton from '@/components/common/AppButton.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
+import AppLink from '@/components/common/AppLink';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 
 export default {
   name: 'ProjectSingleHeader',
 
   components: {
+    AppLink,
     AppIcon,
     AppLogo,
-    AppButton,
     AppSettingsDropdown,
   },
 
@@ -83,6 +85,10 @@ export default {
   },
 
   methods: {
+    targetCategoryLink(category) {
+      return `/projects?category=${category}`;
+    },
+
     formatDate(timestamp) {
       return this.$dateFns.format(new Date(timestamp), 'PPP', {
         locale: this.$i18n.locale,
