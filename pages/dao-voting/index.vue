@@ -240,8 +240,8 @@
 <script>
 import Vue from 'vue';
 import { getLeaderboard } from '@/api';
-import getExampleResult from '@/pages/leaderboard/ExampleResult';
-import createHead from '@/pages/leaderboard/index.head';
+import getExampleResult from '@/pages/dao-voting/ExampleResult';
+import createHead from '@/pages/dao-voting/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
 import LeaderboardProposal from '@/components/app/leaderboard/LeaderboardProposal.vue';
