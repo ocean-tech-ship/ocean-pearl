@@ -1,4 +1,27 @@
 {
+  "appSettingsDropdown": {
+    "menuItemCopyLink": "Copy project link",
+    "menuItemCopied": "copied!",
+    "menuItemReport": "Report project"
+  },
+  "appReportModal": {
+    "headline": "Report this project",
+    "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hestitate to contact us.",
+    "headlineEmail": "Email",
+    "subtextEmail": {
+      "part1": "You can contact us via PGP encrypted email, by using our public key below. If you use ",
+      "part2": ", your email to us will be encrypted automatically."
+    },
+    "headlineSocial": "Discord",
+    "subtextSocial": {
+      "part1": "You can also find us on ",
+      "part2": ", where you can reach out to one of our team members directly."
+    },
+    "btnCopyPgpTitle": "Copy PGP key",
+    "btnShowPgpTitle": "Show PGP key",
+    "btnCopied": "copied!",
+    "btnDownloadPgpTitle": "Download PGP key"
+  },
   "dao-projects": {
     "filterResponse": {
       "noSearch": {

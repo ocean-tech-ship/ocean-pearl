@@ -12,7 +12,6 @@
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <app-link-card
-          :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
           card-class="shadow rounded p-8 h-full"
         >
@@ -120,9 +119,9 @@ import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
-import AppIcon from '~/components/common/AppIcon';
 
 export default {
   name: 'DaoProposalsList',

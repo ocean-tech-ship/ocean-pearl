@@ -36,7 +36,7 @@
       class="inline-block align-middle mr-2"
     />
 
-    <span> {{ text }} </span>
+    <span :class="textClass"> {{ text }} </span>
   </button>
 </template>
 
@@ -53,6 +53,10 @@ export default {
       default: '',
     },
     text: {
+      type: String,
+      default: '',
+    },
+    textClass: {
       type: String,
       default: '',
     },
@@ -100,9 +104,8 @@ export default {
   }
 }
 
-button:not(.call-to-action) {
-  &:hover {
-    border: 2px solid #bb2c75;
-  }
+button:not(.call-to-action):hover {
+  transition: ease-in-out 200ms;
+  box-shadow: 0 0 0 1px #bb2c75;
 }
 </style>

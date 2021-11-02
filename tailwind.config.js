@@ -41,6 +41,7 @@ module.exports = {
       grey: colors.grey,
       white: colors.white,
       darkgrey: colors.darkgrey,
+      black: colors.black,
       pink: colors.pink,
     },
     fontFamily: {

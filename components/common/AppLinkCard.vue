@@ -9,16 +9,15 @@
 <script>
 export default {
   name: 'AppLinkCard',
-
   props: {
     prefetch: {
       type: Boolean,
-      default: () => false,
+      default: false,
     },
     to: {
       type: String,
       required: true,
-      default: () => '',
+      default: '',
     },
     cardClass: {
       type: String,
