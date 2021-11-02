@@ -40,10 +40,14 @@
               $t('navbar.navbarDao')
             }}</NuxtLink>
           </li>
+          <li>
+            <NuxtLink class="font-bold block px-4 py-3" to="/dao-voting">{{
+              $t('leaderboard.meta.title')
+            }}</NuxtLink>
+          </li>
           <li v-if="!walletAddress">
             <NuxtLink to="/management">
               <div class="flex px-4 py-3 text-primary">
-                <img class="mr-2" src="@/assets/images/icons/vote.svg" alt="" />
                 <p>{{ $t('manage.auth.login.action') }}</p>
               </div>
             </NuxtLink>
@@ -66,10 +70,7 @@
           <li v-if="walletAddress">
             <div class="flex justify-end">
               <nuxt-link to="/management">
-                <button
-                  type="button"
-                  class="font-bold block px-4 py-1"
-                >
+                <button type="button" class="font-bold block px-4 py-1">
                   {{ $t('manage.subtitle') }}
                 </button>
               </nuxt-link>
@@ -94,8 +95,8 @@
 
 <script>
 import { mapState } from 'vuex';
-import MainDropdown from '@/components/common/MainDropdown.vue';
 import Jazzicon from 'vue-jazzicon';
+import MainDropdown from '@/components/common/MainDropdown.vue';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
 
@@ -116,7 +117,7 @@ export default {
 
     walletAddress() {
       return this.accountWallet || this.$cookies.get(SESSION_NAME);
-    }
+    },
   },
 };
 </script>

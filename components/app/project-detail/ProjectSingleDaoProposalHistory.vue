@@ -99,13 +99,14 @@
               <td class="p-4 py-3 pr-4">
                 <div class="flex justify-end">
                   <app-link :to="proposal.oceanProtocolPortUrl">
-                    <div class="flex items-center">
-                      <img
+                    <div class="flex items-center text-primary">
+                      <app-icon
                         class="mr-1"
-                        src="@/assets/images/icons/link.svg"
-                        alt=""
+                        :size="17"
+                        :data="icons.externalLinkAlt"
                       />
-                      <span class="text-primary">port</span>
+
+                      <span>port</span>
                     </div>
                   </app-link>
                 </div>
@@ -119,14 +120,17 @@
 </template>
 
 <script>
+import externalLinkAlt from '@iconify/icons-la/external-link-alt';
+import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
-import DaoProposalStatusEnum from '@/components/enums/DaoProposalStatus.enum';
-import Numbers from '~/mixins/Numbers';
+import DaoProposalStatusEnum from '@/enums/DaoProposalStatus.enum';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'ProjectSingleDaoProposalHistory',
 
   components: {
+    AppIcon,
     AppLink,
   },
 
@@ -138,6 +142,14 @@ export default {
       required: true,
       default: () => {},
     },
+  },
+
+  data() {
+    return {
+      icons: {
+        externalLinkAlt,
+      },
+    };
   },
 
   methods: {

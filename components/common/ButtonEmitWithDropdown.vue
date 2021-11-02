@@ -3,16 +3,20 @@
     <button
       tabindex="0"
       :class="{ open: open }"
-      class="flex items-center small-text relative w-full py-1 pl-3 pr-3"
-      @click="toggleOpen"
+      class="flex items-center small-text relative w-full p-1"
+      @click="
+        (e) => {
+          toggleOpen();
+          handleiOSBlur(e);
+        }
+      "
       @blur="handleBlur"
     >
+      <app-icon :rotate="open ? 180 : 0" :data="icons.menuDown" />
+
       {{ selectedName }}
     </button>
-    <label
-      class="label absolute p-1 z-10"
-      :class="buttonBackground"
-    >
+    <label class="label absolute p-1 z-10" :class="buttonBackground">
       {{ buttonName }}
     </label>
     <section
@@ -36,9 +40,15 @@
 </template>
 
 <script>
+import menuDown from '@iconify/icons-mdi/menu-down';
+import checkForiOS from '@/helpers/checkOS.ts';
+import AppIcon from '@/components/common/AppIcon.vue';
+
 export default {
   name: 'ButtonEmitWithDropdown',
-  components: {},
+
+  components: { AppIcon },
+
   props: {
     buttonName: {
       type: String,
@@ -56,12 +66,17 @@ export default {
       default() {},
     },
   },
+
   data() {
     return {
+      icons: {
+        menuDown,
+      },
       open: false,
       selectedName: '',
     };
   },
+
   created() {
     // eslint-disable-next-line
     this.selectedName = Object.values(
@@ -71,6 +86,7 @@ export default {
       }, []),
     )[0];
   },
+
   methods: {
     setselectedName(selected) {
       this.selectedName = selected;
@@ -90,6 +106,12 @@ export default {
       )
         this.toggleOpen();
     },
+    handleiOSBlur(e) {
+      if (checkForiOS()) {
+        const { handleBlur } = this;
+        e.target.addEventListener('mouseout', handleBlur, { once: true });
+      }
+    },
   },
 };
 </script>
@@ -102,20 +124,8 @@ label {
   transition: 200ms;
 }
 
-button::before {
-  content: '';
-  background: url('@/assets/images/icons/dropdown.svg') center center no-repeat;
-  display: block;
-  width: 23px;
-  height: 26px;
-}
-button.open::before {
-  transform: rotate(180deg);
-}
-
 ul {
   min-width: 140px;
-  max-width: auto;
   max-height: 222px;
   overflow-y: scroll;
   background: white;

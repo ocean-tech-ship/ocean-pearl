@@ -8,7 +8,13 @@
     </landing-section-container>
 
     <landing-section-container v-else-if="$fetchState.pending">
-      {{ $t('general.fetchingLoading') }}
+      <app-skeleton-card-list
+        custom-class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        :quantity="6"
+      >
+        <round-metrics-skeleton-card />
+      </app-skeleton-card-list>
+      <hr class="text-primary my-16" />
     </landing-section-container>
 
     <div v-else>
@@ -30,7 +36,9 @@
       </landing-section-container>
 
       <landing-section-container v-else-if="pending">
-        {{ $t('general.fetchingLoading') }}
+        <app-skeleton-card-list :quantity="8">
+          <dao-proposals-skeleton-card />
+        </app-skeleton-card-list>
       </landing-section-container>
 
       <landing-section-container v-else-if="daoProposals.length">
@@ -66,13 +74,16 @@
 
 <script>
 import Vue from 'vue';
+import { getDaoRoundMetrics, getDaoProposals } from '@/api';
 import DaoProposalsHeader from '@/components/app/dao-proposals/DaoProposalsHeader.vue';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
+import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetricsSkeletonCard.vue';
 import DaoProposalsList from '@/components/app/dao-proposals/DaoProposalsList.vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
-import { getDaoRoundMetrics, getDaoProposals } from '@/api';
 import DaoProposalsFilter from '@/components/app/dao-proposals/DaoProposalsFilter.vue';
+import DaoProposalsSkeletonCard from '@/components/app/dao-proposals/DaoProposalsSkeletonCard.vue';
+import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
+import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 
 export default Vue.extend({
   name: 'DaoProjectOverview',
@@ -80,10 +91,13 @@ export default Vue.extend({
   components: {
     DaoProposalsHeader,
     RoundMetrics,
+    RoundMetricsSkeletonCard,
     DaoProposalsList,
-    LandingSectionContainer,
     DaoProposalsFilter,
+    LandingSectionContainer,
     AppResponseWithSearch,
+    DaoProposalsSkeletonCard,
+    AppSkeletonCardList,
   },
 
   data() {
@@ -118,9 +132,61 @@ export default Vue.extend({
     }
   },
 
+  head() {
+    return {
+      title: 'DAO Proposals',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Get an overview of all projects that have applied for funding through OceanDAO.',
+        },
+        {
+          hid: 'og:title',
+          property: 'og:title',
+          content: 'DAO Proposals',
+        },
+        {
+          hid: 'og:description',
+          property: 'og:description',
+          content:
+            'Get an overview of all projects that have applied for funding through OceanDAO.',
+        },
+        {
+          hid: 'og:url',
+          property: 'og:url',
+          content: `${this.$config.rootURL}/dao-proposals`,
+        },
+        {
+          hid: 'twitter:title',
+          property: 'twitter:title',
+          content: `DAO Proposals | Ocean Pearl`,
+        },
+        {
+          hid: 'twitter:description',
+          property: 'twitter:description',
+          content:
+            'Get an overview of all projects that have applied for funding through OceanDAO.',
+        },
+      ],
+      link: [
+        { rel: 'canonical', href: `${this.$config.rootURL}/dao-proposals` },
+      ],
+    };
+  },
+
   methods: {
     async fetchDaoProposals(payload) {
       try {
+        if (payload.round) {
+          // Fetch metrics for switched round
+          const metricsResponse = await getDaoRoundMetrics(this.$axios, {
+            round: payload.round,
+          });
+          this.metrics = metricsResponse.data;
+        }
+
         const daoProposalResponse = await getDaoProposals(this.$axios, payload);
         if (daoProposalResponse.status === 204) {
           this.error = 'general.error.unknown';

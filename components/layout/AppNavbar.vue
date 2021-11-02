@@ -39,8 +39,9 @@
           flex-grow
           items-center
           justify-end
-          md:space-x-62px
-          lg:space-x-128px
+          md:space-x-8
+          lg:space-x-62px
+          2xl:space-x-128px
           hidden
           lg:flex
         "
@@ -49,13 +50,11 @@
 
         <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
 
-        <nuxt-link
-          v-if="!walletAddress"
-          to="/management"
-        >
+        <NuxtLink to="/dao-voting">{{ $t('leaderboard.meta.title') }}</NuxtLink>
+
+        <nuxt-link v-if="!walletAddress" to="/management">
           <app-button-style
             class="text-center"
-            :icon="require('@/assets/images/icons/vote-white.svg')"
             :text="$t('manage.auth.login.action')"
           />
         </nuxt-link>
@@ -64,7 +63,7 @@
           <nuxt-link
             to="/management"
             class="p-2 rounded flex items-center"
-            style="background-color: black; color: white;"
+            style="background-color: black; color: white"
           >
             {{ shrinkAddress(walletAddress) }}
             <jazzicon
@@ -76,37 +75,35 @@
 
           <main-dropdown>
             <template slot-scope="context">
-              <img
-                :class="{ 'rotate-180': context.open }"
-                class="h-6 w-6 cursor-pointer object-cover"
-                src="@/assets/images/icons/dropdown.svg"
-                alt="account settings"
-                @click="context.toggleOpen()"
-              />
+              <button class="flex items-center" @click="context.toggleOpen()">
+                <app-icon
+                  :rotate="context.open ? 180 : 0"
+                  :size="48"
+                  :data="icons.menuDown"
+                  class="text-primary"
+                />
+              </button>
 
               <div
                 v-if="context.open"
                 class="
-                    shadow
-                    origin-top-right
-                    absolute
-                    right-0
-                    mt-4
-                    w-64
-                    bg-grey
-                    border border-primary
-                    rounded
-                    overflow-hidden
-                    shadow-md
-                  "
+                  shadow
+                  origin-top-right
+                  absolute
+                  right-0
+                  mt-4
+                  w-64
+                  bg-grey
+                  border border-primary
+                  rounded
+                  overflow-hidden
+                  shadow-md
+                "
               >
                 <ul @click="context.toggleOpen()">
                   <li>
                     <nuxt-link to="/management">
-                      <button
-                        type="button"
-                        class="font-bold block px-4 py-1"
-                      >
+                      <button type="button" class="font-bold block px-4 py-1">
                         {{ $t('manage.subtitle') }}
                       </button>
                     </nuxt-link>
@@ -134,16 +131,19 @@
 </template>
 
 <script>
+import menuDown from '@iconify/icons-mdi/menu-down';
 import Jazzicon from 'vue-jazzicon';
-import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import { mapState } from 'vuex';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
+import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
+import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import MainDropdown from '@/components/common/MainDropdown.vue';
-import { mapState } from 'vuex';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   components: {
+    AppIcon,
     AppMobileNavbar,
     AppButtonStyle,
     Jazzicon,
@@ -152,6 +152,14 @@ export default {
 
   mixins: [EthAddress],
 
+  data() {
+    return {
+      icons: {
+        menuDown,
+      },
+    };
+  },
+
   computed: {
     ...mapState('account', {
       accountWallet: 'wallet',
@@ -159,7 +167,7 @@ export default {
 
     walletAddress() {
       return this.accountWallet || this.$cookies.get(SESSION_NAME);
-    }
+    },
   },
 };
 </script>

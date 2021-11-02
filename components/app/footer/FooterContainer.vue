@@ -25,6 +25,11 @@
 
 <script>
 import Vue from 'vue';
+import twitter from '@iconify/icons-la/twitter-square';
+import discord from '@iconify/icons-la/discord';
+import github from '@iconify/icons-la/github-square';
+import chartLine from '@iconify/icons-la/chart-line';
+import scroll from '@iconify/icons-la/scroll';
 import FooterBlock from './FooterBlock.vue';
 
 export default Vue.extend({
@@ -36,7 +41,8 @@ export default Vue.extend({
           id: 0,
           name: 'Ocean Pearl',
           theme: 'text-primary',
-          icon: require('@/assets/images/footer/ocean_pearl_footer_logo.svg'),
+          // eslint-disable-next-line global-require
+          img: require('@/assets/images/logo/ocean-pearl.svg'),
           route: '/',
           block: true,
           hasSubItem: true,
@@ -44,28 +50,28 @@ export default Vue.extend({
             {
               id: 0,
               name: 'Twitter',
-              icon: require('@/assets/images/social/twitter.svg'),
+              icon: twitter,
               route: 'https://twitter.com/oceanpearlio',
               ext: true,
             },
             {
               id: 1,
               name: 'Discord',
-              icon: require('@/assets/images/social/discord.svg'),
+              icon: discord,
               route: 'https://discord.gg/eswPj8QZRH',
               ext: true,
             },
             {
               id: 2,
               name: 'GitHub',
-              icon: require('@/assets/images/social/github.svg'),
+              icon: github,
               route: 'https://github.com/ocean-tech-ship',
               ext: true,
             },
             {
               id: 3,
               name: this.$t('footer.analytics'),
-              icon: require('@/assets/images/footer/analytics.svg'),
+              icon: chartLine,
               route: 'https://plausible.io/oceanpearl.io',
               ext: true,
             },
@@ -75,7 +81,8 @@ export default Vue.extend({
           id: 1,
           name: 'Ocean Protocol',
           theme: 'text-third',
-          icon: require('@/assets/images/footer/protocol_footer.svg'),
+          // eslint-disable-next-line global-require
+          img: require('@/assets/images/logo/ocean-protocol.svg'),
           route: 'https://oceanprotocol.com/',
           ext: true,
           block: true,
@@ -84,14 +91,14 @@ export default Vue.extend({
             {
               id: 4,
               name: 'Whitepaper',
-              icon: require('@/assets/images/footer/white_paper_footer.svg'),
+              icon: scroll,
               route: 'https://oceanprotocol.com/tech-whitepaper.pdf',
               ext: true,
             },
             {
               id: 5,
               name: 'Discord',
-              icon: require('@/assets/images/social/discord.svg'),
+              icon: discord,
               route: 'https://discord.gg/Yuawx9EP6e',
               ext: true,
             },
@@ -102,5 +109,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style></style>

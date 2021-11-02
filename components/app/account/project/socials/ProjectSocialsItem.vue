@@ -1,9 +1,9 @@
 <template>
   <div class="flex items-center flex-wrap">
-    <img
-      class="w-4 h-4"
-      :src="getSocialMedia().Icon"
-      alt=""
+    <app-icon
+      class="text-primary"
+      :size="20"
+      :data="getSocialMedia().Icon"
     />
 
     <span class="mx-2 w-20">{{ getSocialMedia().Title }}</span>
@@ -18,15 +18,18 @@
 
     <button class="pl-2" @click="$emit('delete')">
       <app-icon
-        class="mdi mdi-close-circle text-primary"
-        :hint="$t('general.remove')"
+        class="text-primary"
+        :size="16"
+        :data="icons.closeCircle"
+        :tooltip="$t('general.remove')"
       />
     </button>
   </div>
 </template>
 
 <script>
-import { SocialMedia } from '@/model/SocialMedia';
+import closeCircle from '@iconify/icons-mdi/close-circle';
+import { SocialMedia } from '@/models/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
@@ -46,6 +49,14 @@ export default {
       required: true,
       default: '',
     }
+  },
+
+  data() {
+    return {
+      icons: {
+        closeCircle,
+      },
+    };
   },
 
   methods: {
