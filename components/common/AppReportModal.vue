@@ -106,7 +106,7 @@
           {{ $t('appReportModal.subtextSocial.part1') }}
           <app-link
             class="text-primary"
-            to="https://github.com/ocean-tech-ship"
+            to="https://discord.com/invite/eswPj8QZRH"
           >
             Discord
           </app-link>
