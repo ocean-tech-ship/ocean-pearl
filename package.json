@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@iconify/icons-la": "^1.1.0",
-    "@iconify/icons-mdi": "^1.1.37",
+    "@iconify/icons-mdi": "^1.1.38",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/sitemap": "^2.4.0",
     "@tailwindcss/line-clamp": "^0.2.2",
