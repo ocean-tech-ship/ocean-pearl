@@ -7,7 +7,7 @@
     "headline": "Report this project",
     "headlineEmail": "Email",
     "headlineSocial": "Discord",
-    "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hestitate to contact us.",
+    "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hesitate to contact us.",
     "subtextEmail": {
       "part1": "You can contact us via PGP encrypted email, by using our public key below. If you use ",
       "part2": ", your email to us will be encrypted automatically."
