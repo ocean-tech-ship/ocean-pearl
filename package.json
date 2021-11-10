@@ -41,7 +41,7 @@
     "web3modal": "^1.9.4"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.15.8",
+    "@babel/eslint-parser": "^7.16.3",
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
     "@nuxt/types": "^2.15.8",
