@@ -33,13 +33,15 @@
               </p>
             </div>
           </div>
-          <app-label class="mt-5">
-            <span class="text-third">{{
-              $t('project.proposal.round.numbered', {
-                round: daoProposal.fundingRound.round,
-              })
-            }}</span>
-          </app-label>
+          <div>
+            <app-label class="mt-5">
+              <span class="text-third">{{
+                $t('project.proposal.round.numbered', {
+                  round: daoProposal.fundingRound.round,
+                })
+              }}</span>
+            </app-label>
+          </div>
           <div class="mt-5 h-112px">
             <p class="small-text line-clamp-4">
               {{ daoProposal.oneLiner }}
