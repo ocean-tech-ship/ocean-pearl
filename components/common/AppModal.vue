@@ -65,6 +65,7 @@
 <script>
 import closeIcon from '@iconify/icons-mdi/close';
 import AppIcon from '@/components/common/AppIcon.vue';
+import checkForiOS from '@/helpers/checkOS.ts';
 
 export default {
   name: 'AppModal',
@@ -86,14 +87,29 @@ export default {
       icons: {
         closeIcon,
       },
+      scrollPosition: 0,
     };
   },
 
   watch: {
     open() {
-      this.open
-        ? document.body.classList.add('scroll-lock')
-        : document.body.classList.remove('scroll-lock');
+      if (this.open) {
+        document.body.classList.add('scroll-lock');
+        if (checkForiOS()) {
+          this.scrollPosition = window.pageYOffset;
+          const body = document.querySelector('body');
+          body.style.position = 'fixed';
+          body.style.top = `-${this.scrollPosition}px`;
+        }
+      } else {
+        document.body.classList.remove('scroll-lock');
+        if (checkForiOS()) {
+          const body = document.querySelector('body');
+          body.style.removeProperty('position');
+          body.style.removeProperty('top');
+          window.scrollTo(0, this.scrollPosition);
+        }
+      }
     },
   },
 
