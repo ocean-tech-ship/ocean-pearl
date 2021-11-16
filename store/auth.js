@@ -69,7 +69,7 @@ export const actions = {
 
     // Logout was successful
     dispatch('alert/success', 'manage.auth.logout.completed', { root: true });
-    await this.$router.push('/management/login');
+    await this.$router.push('/');
 
     // Reset state
     commit('account/wallet', null, { root: true });
