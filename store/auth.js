@@ -68,7 +68,12 @@ export const actions = {
     }
 
     // Logout was successful
-    dispatch('alert/success', 'manage.auth.logout.completed', { root: true });
+    dispatch(
+      'alert/success',
+      { content: 'manage.auth.logout.completed', autoFade: true },
+      { root: true },
+    );
+
     await this.$router.push('/');
 
     // Reset state
