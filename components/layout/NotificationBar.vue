@@ -18,7 +18,15 @@
       :key="alert.timestamp"
       class="shadow rounded-box bg-white my-2"
     >
-      <div class="alert pointer-events-auto" :class="alert.type">
+      <div
+        class="alert pointer-events-auto"
+        :class="{
+          'alert-info': alert.type === 'info',
+          'alert-success': alert.type === 'success',
+          'alert-warning': alert.type === 'warning',
+          'alert-error': alert.type === 'error',
+        }"
+      >
         <div class="flex-1 items-center">
           <app-icon class="pr-2" :data="alert.icon" :size="24" />
 

@@ -50,7 +50,7 @@ export const actions = {
   info({ dispatch }, payload) {
     dispatch('custom', {
       ...payload,
-      type: 'alert-info',
+      type: 'info',
       content: payload.content ?? payload,
       icon: iconInfo,
     });
@@ -59,7 +59,7 @@ export const actions = {
   success({ dispatch }, payload) {
     dispatch('custom', {
       ...payload,
-      type: 'alert-success',
+      type: 'success',
       content: payload.content ?? payload,
       icon: iconSuccess,
     });
@@ -68,7 +68,7 @@ export const actions = {
   warning({ dispatch }, payload) {
     dispatch('custom', {
       ...payload,
-      type: 'alert-warning',
+      type: 'warning',
       content: payload.content ?? payload,
       icon: iconWarning,
     });
@@ -77,7 +77,7 @@ export const actions = {
   error({ dispatch }, payload) {
     dispatch('custom', {
       ...payload,
-      type: 'alert-error',
+      type: 'error',
       content: payload.content ?? payload,
       icon: iconError,
     });
