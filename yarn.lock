@@ -1407,10 +1407,10 @@
   resolved "https://registry.yarnpkg.com/@iconify/icons-la/-/icons-la-1.1.0.tgz#da00d0ed5686ff07d5addcf75a91175beb2629d3"
   integrity sha512-9LEAEabzI2xMJzSh0wqeJmjYseWsDvN9mSZKcCoHlT+pZCJkMAwHoyoBgI7pO2Deo31VG2JiX5hx/4VyMtbE0Q==
 
-"@iconify/icons-mdi@^1.1.39":
-  version "1.1.39"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.39.tgz#99b5795fae04bf9b70b9c794600347303bbd267f"
-  integrity sha512-9W7pg3jtUgRVFE39NuCrrSmY5xrZVQBIuN+TR3i0Ou9xelqbtoLwk7WV9Fo51HFwYumMfowUfebr6AKUih2Wqw==
+"@iconify/icons-mdi@^1.1.40":
+  version "1.1.40"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.40.tgz#fbc10351951dbe6e66a41f33b35e968359480c4a"
+  integrity sha512-rQvtKRjg2ILd3zEXUg/4kAfNvbHpB+y3LY17bS5lse3e2TV/4wjfABI4RTrVZweblk8+tgknc0k+0kHXWEvNoQ==
 
 "@intlify/shared@^9.0.0":
   version "9.1.7"
