@@ -1,5 +1,6 @@
 <template>
   <div>
+    <notification-bar />
     <app-navbar />
     <Nuxt />
     <footer-container />
@@ -10,9 +11,11 @@
 import Vue from 'vue';
 import AppNavbar from '@/components/layout/AppNavbar.vue';
 import FooterContainer from '@/components/app/footer/FooterContainer.vue';
+import NotificationBar from '@/components/layout/NotificationBar.vue';
 
 export default Vue.extend({
   components: {
+    NotificationBar,
     AppNavbar,
     FooterContainer,
   },
