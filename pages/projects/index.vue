@@ -85,7 +85,8 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+          content:
+            'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
         {
           hid: 'og:title',
@@ -95,7 +96,8 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+          content:
+            'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
         {
           hid: 'og:url',
@@ -110,17 +112,21 @@ export default Vue.extend({
         {
           hid: 'twitter:description',
           property: 'twitter:description',
-          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+          content:
+            'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
       ],
-      link: [
-        { rel: 'canonical', href: `${this.$config.rootURL}/projects` },
-      ]
-    }
+      link: [{ rel: 'canonical', href: `${this.$config.rootURL}/projects` }],
+    };
+  },
+
+  created() {
+    this.$store.dispatch('projects-filter/fetchProjects', {});
   },
 
   methods: {
     async fetchProjects(payload) {
+      console.log(payload);
       try {
         const projectsResponse = await getProjects(this.$axios, payload);
 
