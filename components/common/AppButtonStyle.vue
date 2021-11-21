@@ -28,6 +28,7 @@
       v-if="icon && typeof icon === 'object'"
       :data="icon"
       :size="20"
+      :class="textClass"
       class="inline-block align-middle mr-2"
     />
 
@@ -57,7 +58,7 @@ export default {
 
     textClass: {
       type: String,
-      default: '',
+      default: 'text-white',
     },
 
     secondary: {
