@@ -270,17 +270,7 @@
         "wallet": "Could not connect wallet. Please try again."
       },
       "login": {
-        "action": "Login via Wallet",
-        "steps": {
-          "1": "Choose your wallet provider",
-          "2": "Select account to connect",
-          "3": "Sign login request"
-        },
-        "subtitle": [
-          "3-Step-",
-          "Login"
-        ],
-        "title": "Login here to manage your projects"
+        "action": "Login via Wallet"
       },
       "logout": {
         "completed": "Successfully logged out.",
