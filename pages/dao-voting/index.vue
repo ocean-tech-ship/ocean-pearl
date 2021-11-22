@@ -1,5 +1,7 @@
 <template>
   <div>
+    <floating-vote-action :leaderboard="leaderboard" />
+
     <section-container class="pb-8">
       <h2>
         {{ $t('leaderboard.title[0]') }}
@@ -260,9 +262,11 @@ import VotingCountdownSkeleton from '@/components/app/leaderboard/VotingCountdow
 import RoundIndicatorSkeleton from '@/components/app/leaderboard/RoundIndicatorSkeleton.vue';
 import LeaderboardProposalSkeleton from '@/components/app/leaderboard/LeaderboardProposalSkeleton.vue';
 import AppLink from '~/components/common/AppLink';
+import FloatingVoteAction from '~/components/app/leaderboard/FloatingVoteAction';
 
 export default Vue.extend({
   components: {
+    FloatingVoteAction,
     AppLink,
     LeaderboardProposalSkeleton,
     RoundIndicatorSkeleton,
