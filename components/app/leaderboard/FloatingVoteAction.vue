@@ -6,12 +6,14 @@
       flex
       justify-end
       lg:top-1/2
-      bottom-2
+      bottom-5
       pointer-events-none
     "
   >
     <app-link :to="voteUrl" :data-analytics="dataAnalytics">
-      <div class="bg-white rounded-l shadow p-4 pointer-events-auto">
+      <div
+        class="bg-white rounded-l shadow p-4 pointer-events-auto text-center"
+      >
         <div
           class="
             bg-primary bg-opacity-10
@@ -32,6 +34,8 @@
         >
           <app-icon class="text-primary" :size="36" :data="icons.vote" />
         </div>
+
+        <div class="mt-1 text-primary">{{ $t('leaderboard.vote') }}</div>
       </div>
     </app-link>
   </div>
