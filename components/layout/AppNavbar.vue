@@ -6,7 +6,7 @@
       bg-secondary
       fixed
       lg:relative
-      z-50
+      z-40
       top-0
       w-full
       py-4
@@ -52,12 +52,11 @@
 
         <NuxtLink to="/dao-voting">{{ $t('leaderboard.meta.title') }}</NuxtLink>
 
-        <nuxt-link v-if="!walletAddress" to="/management">
-          <app-button-style
-            class="text-center"
-            :text="$t('manage.auth.login.action')"
-          />
-        </nuxt-link>
+        <app-button
+          v-if="!walletAddress"
+          :text="$t('manage.auth.login.action')"
+          @click="$store.dispatch('auth/login')"
+        />
 
         <div v-else class="flex items-center">
           <nuxt-link
@@ -137,15 +136,15 @@ import { mapState } from 'vuex';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
 import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppButton from '~/components/common/AppButton';
 
 export default {
   components: {
+    AppButton,
     AppIcon,
     AppMobileNavbar,
-    AppButtonStyle,
     Jazzicon,
     MainDropdown,
   },

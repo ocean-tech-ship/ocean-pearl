@@ -46,11 +46,13 @@
             }}</NuxtLink>
           </li>
           <li v-if="!walletAddress">
-            <NuxtLink to="/management">
-              <div class="flex px-4 py-3 text-primary">
-                <p>{{ $t('manage.auth.login.action') }}</p>
-              </div>
-            </NuxtLink>
+            <button
+              type="button"
+              class="flex px-4 py-3 text-primary"
+              @click="$store.dispatch('auth/login')"
+            >
+              <p>{{ $t('manage.auth.login.action') }}</p>
+            </button>
           </li>
           <li v-if="walletAddress">
             <NuxtLink to="/management">
