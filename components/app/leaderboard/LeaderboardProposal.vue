@@ -2,8 +2,8 @@
   <div class="bg-white flex lg:divide-x lg:divide-darkgrey">
     <div
       :class="{
-        'w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/2': primary,
-        'w-3/4 sm:w-3/5 md:w-2/4 lg:w-2/5': !primary,
+        'w-full md:w-4/6 lg:w-1/2': primary,
+        'w-full md:w-4/6 lg:w-2/5': !primary,
       }"
       class="flex p-2"
     >
@@ -60,45 +60,47 @@
             </div>
 
             <!-- tags -->
-            <div>
+            <div class="flex flex-wrap">
               <proposal-tags class="flex flex-wrap" :proposal="proposal" />
             </div>
           </div>
         </div>
 
-        <!-- votes (until lg) -->
-        <div class="flex lg:hidden">
-          <proposal-votes
-            class="leading-tight rounded border border-darkgrey p-1 px-2"
-            :proposal="proposal"
-          />
-        </div>
+        <!-- votes & funding (until lg) -->
+        <mobile-proposal-figures
+          class="flex lg:hidden"
+          :proposal="proposal"
+          :payment-option="paymentOption"
+        />
       </div>
     </div>
 
     <!-- votes (from lg) -->
-    <div class="p-2 xl:px-5 hidden lg:flex items-center justify-center">
-      <proposal-votes :proposal="proposal" />
+    <div class="hidden lg:flex items-center justify-center flex-grow">
+      <proposal-votes class="w-48" :proposal="proposal" />
     </div>
 
     <!-- votes needed (non primary!) -->
     <div
       v-if="!primary"
-      class="p-2 xl:px-5 hidden lg:flex items-center justify-center w-1/6"
+      class="hidden w-28 lg:flex items-center justify-center flex-grow"
     >
       <span>{{ addPunctuation(proposal.neededVotes) }}</span>
     </div>
 
-    <!-- completed proposals gamification -->
-    <div
-      class="p-2 xl:px-5 hidden sm:flex items-center justify-center flex-grow"
-    >
-      <project-tier :proposal="proposal" :background="primary" />
+    <!-- amount requested / received -->
+    <div class="hidden lg:flex items-center justify-center flex-grow">
+      <proposal-funding
+        class="w-28"
+        :proposal="proposal"
+        :primary="primary"
+        :payment-option="paymentOption"
+      />
     </div>
 
-    <!-- vote action -->
-    <div class="p-2 xl:px-5 flex items-center justify-center flex-grow">
-      <proposal-vote-action :proposal="proposal" :background="primary" />
+    <!-- completed proposals gamification -->
+    <div class="hidden w-14 md:flex items-center justify-center flex-grow">
+      <project-tier :proposal="proposal" :background="primary" />
     </div>
   </div>
 </template>
@@ -114,21 +116,24 @@ import Numbers from '@/mixins/Numbers';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import ProjectTier from '@/components/app/leaderboard/ProjectTier.vue';
 import ProposalTags from '@/components/app/leaderboard/ProposalTags.vue';
-import ProposalVoteAction from '@/components/app/leaderboard/ProposalVoteAction.vue';
 import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';
 import AppLink from '@/components/common/AppLink.vue';
+import ProposalFunding from '@/components/app/leaderboard/ProposalFunding.vue';
+import PaymentOptionEnum from '@/enums/PaymentOption.enum';
+import MobileProposalFigures from '~/components/app/leaderboard/MobileProposalFigures.vue';
 
 export default {
   name: 'LeaderboardProposal',
 
   components: {
+    MobileProposalFigures,
     AppLink,
     ProposalVotes,
-    ProposalVoteAction,
     ProposalTags,
     ProjectTier,
     AppProgressbar,
     AppLogo,
+    ProposalFunding,
   },
 
   mixins: [Numbers, ProjectBeautifyId],
@@ -137,6 +142,12 @@ export default {
     proposal: {
       type: Object as () => LeaderboardProposal,
       required: true,
+    },
+
+    paymentOption: {
+      type: String as () => PaymentOptionEnum,
+      required: false,
+      default: () => PaymentOptionEnum.Ocean,
     },
 
     indexOffset: {

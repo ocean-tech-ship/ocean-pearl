@@ -1,7 +1,6 @@
 <template>
-  <div>
-    <table>
-      <tbody>
+  <table>
+    <tbody>
       <tr class="text-primary">
         <td class="w-24 text-right">{{ addPunctuation(proposal.yesVotes) }}</td>
         <td class="w-24 pl-2">{{ $t('leaderboard.proposal.votes.yes') }}</td>
@@ -10,9 +9,8 @@
         <td class="w-24 text-right">{{ addPunctuation(proposal.noVotes) }}</td>
         <td class="w-24 pl-2">{{ $t('leaderboard.proposal.votes.no') }}</td>
       </tr>
-      </tbody>
-    </table>
-  </div>
+    </tbody>
+  </table>
 </template>
 
 <script lang="ts">

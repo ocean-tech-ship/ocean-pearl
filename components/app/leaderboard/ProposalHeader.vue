@@ -1,31 +1,91 @@
 <template>
   <div
     :class="{ 'text-white': primary }"
+    class="flex items-center text-primary font-bold text-center"
+  >
+    <div
+      :class="{ 'w-2/5': !primary, 'w-1/2': primary }"
+      class="pl-20 text-left"
+    >
+      {{ $t('leaderboard.proposal.header.name') }}
+    </div>
+
+    <div class="w-48 flex-grow">
+      {{ $t('leaderboard.proposal.header.votes') }}
+    </div>
+
+    <div v-if="!primary" class="w-28 flex-grow">
+      {{ $t('leaderboard.proposal.header.needed') }}
+    </div>
+
+    <div class="w-28 flex-grow">
+      {{ $t('leaderboard.proposal.header.funding') }}
+    </div>
+
+    <div class="w-14 flex-grow">
+      {{ $t('leaderboard.proposal.header.completed') }}
+    </div>
+  </div>
+
+  <!--
+  <div
+    :class="{ 'text-white': primary }"
+    class="flex items-center text-primary font-bold w-full"
+  >
+    <div class="w-1/2 border border-primary">
+      {{ $t('leaderboard.proposal.header.name') }}
+    </div>
+
+    <div class="w-1/4 border border-primary">
+      {{ $t('leaderboard.proposal.header.votes') }}
+    </div>
+
+    <div v-if="!primary" class="col-span-2 border border-primary">
+      {{ $t('leaderboard.proposal.header.needed') }}
+    </div>
+
+    <div class="w-1/5 border border-primary">
+      {{ $t('leaderboard.proposal.header.funding') }}
+    </div>
+
+    <div class="flex-grow border border-primary">
+      {{ $t('leaderboard.proposal.header.completed') }}
+    </div>
+  </div>
+  -->
+
+  <!--
+  <div
+    :class="{ 'text-white': primary }"
     class="flex items-center text-primary font-bold"
   >
     <div
-      :class="{ 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/2': primary, 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-2/5': !primary }"
-      class="px-5"
+      :class="{
+        'w-1/2': primary,
+        'w-2/5': !primary,
+      }"
+      class="pl-20"
     >
-      <span>{{ $t('leaderboard.proposal.header.name') }}</span>
+      <div>{{ $t('leaderboard.proposal.header.name') }}</div>
     </div>
 
-    <div class="text-center w-48 mx-2 xl:mx-5">
-      <span>{{ $t('leaderboard.proposal.header.votes') }}</span>
+    <div class="text-center px-2 xl:px-5">
+      <div class="w-48">{{ $t('leaderboard.proposal.header.votes') }}</div>
     </div>
 
-    <div v-if="!primary" class="px-2 w-1/6 xl:px-5 text-center">
-      <span>{{ $t('leaderboard.proposal.header.needed') }}</span>
+    <div v-if="!primary" class="px-2 xl:px-5 text-center break-all">
+      <div class="w-1/6">{{ $t('leaderboard.proposal.header.needed') }}</div>
     </div>
 
-    <div class="flex-1 text-center break-words">
-      <span>{{ $t('leaderboard.proposal.header.completed') }}</span>
+    <div class="flex-grow text-center px-2 xl:px-5 text-center break-all">
+      <div class="w-28">{{ $t('leaderboard.proposal.header.funding') }}</div>
     </div>
 
-    <div class="flex-1 text-center">
-      <span>{{ $t('leaderboard.proposal.header.action') }}</span>
+    <div class="flex-grow text-center break-all px-2 xl:px-5">
+      <div>{{ $t('leaderboard.proposal.header.completed') }}</div>
     </div>
   </div>
+  -->
 </template>
 
 <script>
@@ -41,7 +101,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-</style>
