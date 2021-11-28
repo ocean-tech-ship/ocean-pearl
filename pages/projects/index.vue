@@ -19,6 +19,7 @@
 
     <landing-section-container v-else-if="projects.length">
       <projects-list :projects="projects" />
+      <app-pagination :pages="8" />
     </landing-section-container>
 
     <landing-section-container v-else>
@@ -55,6 +56,7 @@ import ProjectsFilter from '@/components/app/projects/ProjectsFilter.vue';
 import ProjectsSkeletonCard from '@/components/app/projects/ProjectsSkeletonCard.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
+import AppPagination from '@/components/common/AppPagination.vue';
 
 export default Vue.extend({
   name: 'ProjectOverview',
@@ -67,6 +69,7 @@ export default Vue.extend({
     ProjectsSkeletonCard,
     AppResponseWithSearch,
     AppSkeletonCardList,
+    AppPagination,
   },
 
   data() {
@@ -126,7 +129,6 @@ export default Vue.extend({
 
   methods: {
     async fetchProjects(payload) {
-      console.log(payload);
       try {
         const projectsResponse = await getProjects(this.$axios, payload);
 
