@@ -6,7 +6,7 @@ export const state = () => ({
   projects: null,
   searchUsed: false,
   params: {
-    page: 0,
+    page: 1,
   },
   route: `/projects?page=0&category=all&search=`,
 });
