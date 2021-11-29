@@ -261,8 +261,8 @@ import LeaderboardMetricsSkeleton from '@/components/app/leaderboard/Leaderboard
 import VotingCountdownSkeleton from '@/components/app/leaderboard/VotingCountdownSkeleton.vue';
 import RoundIndicatorSkeleton from '@/components/app/leaderboard/RoundIndicatorSkeleton.vue';
 import LeaderboardProposalSkeleton from '@/components/app/leaderboard/LeaderboardProposalSkeleton.vue';
-import AppLink from '~/components/common/AppLink';
-import FloatingVoteAction from '~/components/app/leaderboard/FloatingVoteAction';
+import AppLink from '@/components/common/AppLink';
+import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
 
 export default Vue.extend({
   components: {
