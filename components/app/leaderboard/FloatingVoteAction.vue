@@ -8,6 +8,7 @@
       lg:top-1/2
       bottom-5
       pointer-events-none
+      z-50
     "
   >
     <app-link :to="voteUrl" :data-analytics="dataAnalytics">
