@@ -17,18 +17,16 @@
       </table>
     </div>
 
-    <div class="self-center">
-      <div class="border border-darkgrey rounded p-1 px-2">
-        <div>
-          {{
-            $t('leaderboard.proposal.funding[0]', {
-              amount: addPunctuation(proposal.requestedFunding),
-              paymentOption,
-            })
-          }}
-        </div>
-        <div>{{ $t('leaderboard.proposal.funding[1]') }}</div>
+    <div class="self-center border border-darkgrey rounded p-1 px-2">
+      <div>
+        {{
+          $t('leaderboard.proposal.funding[0]', {
+            amount: addPunctuation(proposal.requestedFunding),
+            paymentOption,
+          })
+        }}
       </div>
+      <div>{{ $t('leaderboard.proposal.funding[1]') }}</div>
     </div>
   </div>
 </template>
