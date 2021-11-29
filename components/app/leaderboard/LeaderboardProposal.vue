@@ -60,9 +60,7 @@
             </div>
 
             <!-- tags -->
-            <div class="flex flex-wrap">
-              <proposal-tags class="flex flex-wrap" :proposal="proposal" />
-            </div>
+            <proposal-tags class="flex flex-wrap" :proposal="proposal" />
           </div>
         </div>
 
