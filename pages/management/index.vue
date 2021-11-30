@@ -6,8 +6,8 @@
         :projects="projects"
         :selected-project="selectedProject"
         @selectProject="
-          updateRequest = {}
-          projectIndex = $event
+          updateRequest = {};
+          projectIndex = $event;
         "
       />
 
@@ -112,14 +112,15 @@ export default Vue.extend({
     return {
       projectIndex: 0,
       updateRequest: {},
-    }
+    };
   },
 
   async fetch({ redirect, store }) {
     try {
-      await store.dispatch('account/loadAccount')
-    } catch(error) { // Authentication failure
-      redirect('/management/login')
+      await store.dispatch('account/loadAccount');
+    } catch (error) {
+      // Authentication failure
+      redirect('/');
     }
   },
 
@@ -130,7 +131,8 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+          content:
+            'Login with your favorite wallet provider to manage your project or proposal.',
         },
         {
           hid: 'robots',
@@ -145,7 +147,8 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+          content:
+            'Login with your favorite wallet provider to manage your project or proposal.',
         },
         {
           hid: 'og:url',
@@ -160,7 +163,8 @@ export default Vue.extend({
         {
           hid: 'twitter:description',
           property: 'twitter:description',
-          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+          content:
+            'Login with your favorite wallet provider to manage your project or proposal.',
         },
       ],
       link: [
@@ -169,7 +173,7 @@ export default Vue.extend({
           href: `${this.$config.rootURL}/management`,
         },
       ],
-    }
+    };
   },
 
   computed: {
@@ -181,16 +185,18 @@ export default Vue.extend({
     }),
 
     selectedProject() {
-      return this.projects?.length > 0 ? this.projects[this.projectIndex] : null
+      return this.projects?.length > 0
+        ? this.projects[this.projectIndex]
+        : null;
     },
   },
 
   methods: {
     saveProject() {
-      this.updateRequest.id = this.selectedProject.id
-      this.$store.dispatch('account/updateProject', this.updateRequest)
+      this.updateRequest.id = this.selectedProject.id;
+      this.$store.dispatch('account/updateProject', this.updateRequest);
       this.updateRequest = {};
     },
   },
-})
+});
 </script>
