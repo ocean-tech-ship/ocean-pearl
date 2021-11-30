@@ -39,6 +39,11 @@
           />
         </div>
 
+        <project-one-liner
+          :project="selectedProject"
+          @change="updateRequest.oneLiner = $event"
+        />
+
         <div class="py-4 grid gap-8 xl:grid-cols-2">
           <div>
             <project-description
@@ -85,9 +90,11 @@ import ProjectDescription from '@/components/app/account/project/ProjectDescript
 import ProjectPictures from '@/components/app/account/project/ProjectPictures.vue';
 import ProjectCategory from '@/components/app/account/project/ProjectCategory.vue';
 import ProjectSocials from '@/components/app/account/project/socials/ProjectSocials.vue';
+import ProjectOneLiner from '@/components/app/account/project/ProjectOneLiner';
 
 export default Vue.extend({
   components: {
+    ProjectOneLiner,
     ProjectSocials,
     ProjectCategory,
     SectionContainer,
