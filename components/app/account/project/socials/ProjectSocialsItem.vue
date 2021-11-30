@@ -1,16 +1,12 @@
 <template>
   <div class="flex items-center flex-wrap">
-    <app-icon
-      class="text-primary"
-      :size="20"
-      :data="getSocialMedia().Icon"
-    />
+    <app-icon class="text-primary" :size="20" :data="getSocialMedia().Icon" />
 
     <span class="mx-2 w-20">{{ getSocialMedia().Title }}</span>
 
     <input
-      class="flex-grow rounded shadow p-1"
       type="text"
+      class="input input-sm flex-grow"
       :placeholder="$t('manage.project.socials.url')"
       :value="url"
       @change="$emit('change', $event.target.value)"
@@ -48,7 +44,7 @@ export default {
       type: String,
       required: true,
       default: '',
-    }
+    },
   },
 
   data() {
@@ -62,7 +58,7 @@ export default {
   methods: {
     getSocialMedia() {
       return SocialMedia.parse(this.$props.type);
-    }
-  }
-}
+    },
+  },
+};
 </script>

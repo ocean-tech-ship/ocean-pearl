@@ -1,9 +1,11 @@
 <template>
   <div class="shadow rounded p-4">
     <div class="flex justify-between">
-      <p class="small-text text-primary">
-        {{ $t('manage.project.socials.title') }}
-      </p>
+      <label class="label">
+        <span class="label-text text-primary">
+          {{ $t('manage.project.socials.title') }}
+        </span>
+      </label>
 
       <main-dropdown>
         <template slot-scope="context">
@@ -19,20 +21,20 @@
           <div
             v-if="context.open"
             class="
-                shadow
-                origin-top-right
-                absolute
-                right-0
-                mt-4
-                p-2
-                w-44
-                z-50
-                bg-grey
-                border border-primary
-                rounded
-                overflow-hidden
-                shadow-md
-              "
+              shadow
+              origin-top-right
+              absolute
+              right-0
+              mt-4
+              p-2
+              w-44
+              z-50
+              bg-grey
+              border border-primary
+              rounded
+              overflow-hidden
+              shadow-md
+            "
           >
             <ul>
               <li
@@ -40,14 +42,8 @@
                 :key="social.Id"
                 class="pb-1"
               >
-                <button
-                  class="flex items-center"
-                  @click="addSocial(social)"
-                >
-                  <app-icon
-                    class="text-primary mr-2"
-                    :data="social.Icon"
-                  />
+                <button class="flex items-center" @click="addSocial(social)">
+                  <app-icon class="text-primary mr-2" :data="social.Icon" />
 
                   <span>{{ social.Title }}</span>
                 </button>
@@ -68,10 +64,7 @@
       @delete="deleteSocial(propertyName)"
     />
 
-    <p
-      v-if="Object.values(socials).length === 0"
-      class="small-text"
-    >
+    <p v-if="Object.values(socials).length === 0" class="small-text">
       {{ $t('manage.project.socials.empty') }}
     </p>
   </div>
@@ -102,14 +95,14 @@ export default {
       icons: {
         linkPlus,
       },
-      socials: ({ ...this.$props.project.socialMedia}),
+      socials: { ...this.$props.project.socialMedia },
     };
   },
 
   watch: {
     project() {
       // Reset if project gets switched
-      this.socials = ({ ...this.$props.project.socialMedia});
+      this.socials = { ...this.$props.project.socialMedia };
     },
   },
 
@@ -131,6 +124,6 @@ export default {
     getSocialMediaList() {
       return Object.values(SocialMedia);
     },
-  }
-}
+  },
+};
 </script>
