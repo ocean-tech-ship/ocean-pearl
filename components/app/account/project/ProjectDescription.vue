@@ -1,13 +1,14 @@
 <template>
   <div class="shadow rounded p-4">
-    <p class="text-primary small-text">
-      {{ $t('manage.project.description') }}
-    </p>
+    <label class="label">
+      <span class="label-text text-primary">{{
+        $t('manage.project.description')
+      }}</span>
+    </label>
 
     <textarea
       v-model="description"
-      class="w-full small-text bg-grey p-1 border border-primary rounded"
-      rows="5"
+      class="w-full textarea textarea-bordered border-primary h-32"
       @change="$emit('change', description)"
     />
   </div>
@@ -28,14 +29,14 @@ export default {
   data() {
     return {
       description: this.$props.project.description,
-    }
+    };
   },
 
   watch: {
     project() {
       // Reset if project gets switched
-      this.description = this.$props.project.description
+      this.description = this.$props.project.description;
     },
   },
-}
+};
 </script>
