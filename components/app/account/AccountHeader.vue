@@ -29,7 +29,23 @@
 
     <div>
       <div class="shadow rounded">
-        <h6 class="text-primary pt-4 pl-4 pb-2">{{ $t('manage.admins') }}</h6>
+        <div class="flex justify-between items-center px-4">
+          <label class="label">
+            <span class="label-text text-primary">{{
+              $t('manage.admins.title')
+            }}</span>
+          </label>
+
+          <app-tooltip
+            v-if="selectedProject"
+            :hint="$t('manage.admins.edit')"
+            class="tooltip-bottom"
+          >
+            <a href="#admins" class="btn btn-circle btn-xs btn-primary">
+              <app-icon :data="icons.pen" :size="16" />
+            </a>
+          </app-tooltip>
+        </div>
 
         <hr class="text-primary" />
 
@@ -40,18 +56,28 @@
             :address="address"
           />
         </div>
+
+        <!-- manage administrator modal -->
+        <project-manage-admin id="admins" :project="selectedProject" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import pen from '@iconify/icons-la/pen';
 import WalletAddress from '@/components/common/WalletAddress.vue';
+import AppIcon from '@/components/common/AppIcon';
+import AppTooltip from '@/components/common/AppTooltip';
+import ProjectManageAdmin from '@/components/app/account/project/ProjectManageAdmin';
 
 export default {
   name: 'AccountHeader',
 
   components: {
+    ProjectManageAdmin,
+    AppTooltip,
+    AppIcon,
     WalletAddress,
   },
 
@@ -75,10 +101,20 @@ export default {
     },
   },
 
+  data() {
+    return {
+      icons: {
+        pen,
+      },
+    };
+  },
+
   computed: {
     accessAddresses() {
-      return this.$props.selectedProject?.accessAddresses || [this.$props.wallet]
-    }
+      return (
+        this.$props.selectedProject?.accessAddresses || [this.$props.wallet]
+      );
+    },
   },
-}
+};
 </script>
