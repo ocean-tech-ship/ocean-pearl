@@ -43,7 +43,7 @@
           $t('general.save')
         }}</a>
 
-        <a href="#" class="btn">{{ $t('general.abort') }}</a>
+        <a href="#" class="btn" @click="reset()">{{ $t('general.abort') }}</a>
       </div>
     </div>
   </div>
@@ -77,6 +77,11 @@ export default {
   },
 
   methods: {
+    reset() {
+      this.adminAddresses = [...this.$props.project.accessAddresses];
+      this.adminCreator = '';
+    },
+
     saveChanges() {
       const updateRequest = {
         id: this.$props.project.id,
