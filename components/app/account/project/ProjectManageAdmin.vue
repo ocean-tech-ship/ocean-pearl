@@ -1,22 +1,24 @@
 <template>
   <div class="modal">
-    <div class="modal-box" style="max-width: fit-content">
+    <div class="modal-box">
       <h5 class="text-primary text-lg pb-2">{{ $t('manage.admins.edit') }}</h5>
 
-      <div
-        v-for="address in adminAddresses"
-        :key="address"
-        class="flex items-center"
-      >
-        <button
-          type="button"
-          class="btn btn-circle btn-xs btn-outline btn-primary"
-          @click="removeAdmin(address)"
+      <div class="overflow-y-auto max-h-52 lg:max-h-none">
+        <div
+          v-for="address in adminAddresses"
+          :key="address"
+          class="flex items-center"
         >
-          <app-icon :size="16" :data="icons.times" />
-        </button>
+          <button
+            type="button"
+            class="btn btn-circle btn-xs btn-outline btn-primary"
+            @click="removeAdmin(address)"
+          >
+            <app-icon :size="16" :data="icons.times" />
+          </button>
 
-        <wallet-address class="pl-3 py-1" :address="address" />
+          <wallet-address class="pl-3 py-1" :address="address" />
+        </div>
       </div>
 
       <div class="form-control pt-3">

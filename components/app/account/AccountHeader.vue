@@ -39,7 +39,7 @@
           <app-tooltip
             v-if="selectedProject"
             :hint="$t('manage.admins.edit')"
-            class="tooltip-bottom"
+            class="tooltip-left"
           >
             <a href="#admins" class="btn btn-circle btn-xs btn-primary">
               <app-icon :data="icons.pen" :size="16" />
