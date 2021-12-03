@@ -7,32 +7,33 @@
 
       <main-dropdown>
         <template slot-scope="context">
-          <button @click="context.toggleOpen()">
-            <app-icon
-              class="text-primary"
-              :size="32"
-              :data="icons.linkPlus"
-              :tooltip="$t('general.add')"
-            />
-          </button>
+          <app-tooltip :hint="$t('general.add')">
+            <button @click="context.toggleOpen()">
+              <app-icon
+                class="text-primary"
+                :size="32"
+                :data="icons.linkPlus"
+              />
+            </button>
+          </app-tooltip>
 
           <div
             v-if="context.open"
             class="
-                shadow
-                origin-top-right
-                absolute
-                right-0
-                mt-4
-                p-2
-                w-44
-                z-50
-                bg-grey
-                border border-primary
-                rounded
-                overflow-hidden
-                shadow-md
-              "
+              shadow
+              origin-top-right
+              absolute
+              right-0
+              mt-4
+              p-2
+              w-44
+              z-50
+              bg-grey
+              border border-primary
+              rounded
+              overflow-hidden
+              shadow-md
+            "
           >
             <ul>
               <li
@@ -40,14 +41,8 @@
                 :key="social.Id"
                 class="pb-1"
               >
-                <button
-                  class="flex items-center"
-                  @click="addSocial(social)"
-                >
-                  <app-icon
-                    class="text-primary mr-2"
-                    :data="social.Icon"
-                  />
+                <button class="flex items-center" @click="addSocial(social)">
+                  <app-icon class="text-primary mr-2" :data="social.Icon" />
 
                   <span>{{ social.Title }}</span>
                 </button>
@@ -68,10 +63,7 @@
       @delete="deleteSocial(propertyName)"
     />
 
-    <p
-      v-if="Object.values(socials).length === 0"
-      class="small-text"
-    >
+    <p v-if="Object.values(socials).length === 0" class="small-text">
       {{ $t('manage.project.socials.empty') }}
     </p>
   </div>
@@ -83,11 +75,12 @@ import { SocialMedia } from '@/models/SocialMedia';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppTooltip from '~/components/common/AppTooltip';
 
 export default {
   name: 'ProjectSocials',
 
-  components: { AppIcon, ProjectSocialsItem, MainDropdown },
+  components: { AppTooltip, AppIcon, ProjectSocialsItem, MainDropdown },
 
   props: {
     project: {
@@ -102,14 +95,14 @@ export default {
       icons: {
         linkPlus,
       },
-      socials: ({ ...this.$props.project.socialMedia}),
+      socials: { ...this.$props.project.socialMedia },
     };
   },
 
   watch: {
     project() {
       // Reset if project gets switched
-      this.socials = ({ ...this.$props.project.socialMedia});
+      this.socials = { ...this.$props.project.socialMedia };
     },
   },
 
@@ -131,6 +124,6 @@ export default {
     getSocialMediaList() {
       return Object.values(SocialMedia);
     },
-  }
-}
+  },
+};
 </script>

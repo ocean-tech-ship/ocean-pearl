@@ -1,10 +1,6 @@
 <template>
   <div class="flex items-center flex-wrap">
-    <app-icon
-      class="text-primary"
-      :size="20"
-      :data="getSocialMedia().Icon"
-    />
+    <app-icon class="text-primary" :size="20" :data="getSocialMedia().Icon" />
 
     <span class="mx-2 w-20">{{ getSocialMedia().Title }}</span>
 
@@ -16,14 +12,11 @@
       @change="$emit('change', $event.target.value)"
     />
 
-    <button class="pl-2" @click="$emit('delete')">
-      <app-icon
-        class="text-primary"
-        :size="16"
-        :data="icons.closeCircle"
-        :tooltip="$t('general.remove')"
-      />
-    </button>
+    <app-tooltip :hint="$t('general.remove')">
+      <button class="pl-2 flex items-center" @click="$emit('delete')">
+        <app-icon class="text-primary" :size="16" :data="icons.closeCircle" />
+      </button>
+    </app-tooltip>
   </div>
 </template>
 
@@ -31,11 +24,12 @@
 import closeCircle from '@iconify/icons-mdi/close-circle';
 import { SocialMedia } from '@/models/SocialMedia';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppTooltip from '@/components/common/AppTooltip';
 
 export default {
   name: 'ProjectSocialsItem',
 
-  components: { AppIcon },
+  components: { AppTooltip, AppIcon },
 
   props: {
     type: {
@@ -48,7 +42,7 @@ export default {
       type: String,
       required: true,
       default: '',
-    }
+    },
   },
 
   data() {
@@ -62,7 +56,7 @@ export default {
   methods: {
     getSocialMedia() {
       return SocialMedia.parse(this.$props.type);
-    }
-  }
-}
+    },
+  },
+};
 </script>
