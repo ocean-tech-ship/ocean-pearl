@@ -60,7 +60,7 @@ export const actions = {
       : commit('searchUsed', false);
 
     try {
-      const projectsResponse = await getProjects(this.$axios, {});
+      const projectsResponse = await getProjects(this.$axios, state.query);
 
       if (projectsResponse.status === 204) {
         commit('error', this.$i18n.t('general.error.unknown'));
