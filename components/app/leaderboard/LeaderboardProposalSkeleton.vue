@@ -2,8 +2,8 @@
   <div class="bg-white flex lg:divide-x lg:divide-darkgrey">
     <div
       :class="{
-        'w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/2': primary,
-        'w-3/4 sm:w-3/5 md:w-2/4 lg:w-2/5': !primary,
+        'w-full md:w-4/6 lg:w-1/2': primary,
+        'w-full md:w-4/6 lg:w-2/5': !primary,
       }"
       class="flex p-2"
     >
@@ -57,31 +57,36 @@
             <!-- tags -->
             <div class="flex space-x-1">
               <div
-                class="rounded bg-primary opacity-70 animate-pulse h-4 w-16"
+                class="rounded bg-primary opacity-70 animate-pulse h-6 w-20"
               />
               <div
-                class="rounded bg-primary opacity-70 animate-pulse h-4 w-16"
+                class="rounded bg-primary opacity-70 animate-pulse h-6 w-20"
               />
             </div>
           </div>
         </div>
 
-        <!-- votes (until lg) -->
-        <div class="flex lg:hidden">
-          <div class="w-48 flex flex-col space-y-1">
-            <div
-              class="w-1/2 h-3 rounded bg-primary opacity-70 animate-pulse"
-            />
-            <div
-              class="w-1/2 h-3 rounded bg-primary opacity-70 animate-pulse"
-            />
+        <!-- votes & funding (until lg) -->
+        <div class="flex justify-between sm:justify-around lg:hidden">
+          <div
+            class="rounded border border-darkgrey w-1/3 p-1 px-2 space-y-0.5"
+          >
+            <div class="h-3 rounded bg-primary opacity-70 animate-pulse" />
+            <div class="h-3 rounded bg-primary opacity-70 animate-pulse" />
+          </div>
+
+          <div
+            class="border border-darkgrey rounded w-1/3 p-1 px-2 space-y-0.5"
+          >
+            <div class="h-3 rounded bg-primary opacity-70 animate-pulse" />
+            <div class="h-3 rounded bg-primary opacity-70 animate-pulse" />
           </div>
         </div>
       </div>
     </div>
 
     <!-- votes (from lg) -->
-    <div class="p-2 xl:px-5 hidden lg:flex items-center justify-center">
+    <div class="hidden lg:flex items-center justify-center flex-grow">
       <div class="w-48 flex flex-col items-center justify-center space-y-1">
         <div class="w-1/2 h-3 rounded bg-primary opacity-70 animate-pulse" />
         <div class="w-1/2 h-3 rounded bg-primary opacity-70 animate-pulse" />
@@ -91,22 +96,18 @@
     <!-- votes needed (non primary!) -->
     <div
       v-if="!primary"
-      class="p-2 xl:px-5 hidden lg:flex items-center justify-center w-1/6"
+      class="hidden w-28 lg:flex items-center justify-center flex-grow"
     >
       <div class="w-2/5 h-3 rounded bg-primary opacity-70" />
     </div>
 
-    <!-- completed proposals gamification -->
-    <div
-      class="p-2 xl:px-5 hidden sm:flex items-center justify-center flex-grow"
-    >
-      <div class="w-12 h-12 flex items-center justify-center">
-        <div class="w-8 h-8 rounded bg-primary opacity-70 animate-pulse" />
-      </div>
+    <!-- amount requested / received -->
+    <div class="hidden lg:flex items-center justify-center flex-grow">
+      <div class="w-28 h-3 rounded bg-primary opacity-70 animate-pulse" />
     </div>
 
-    <!-- vote action -->
-    <div class="p-2 xl:px-5 flex items-center justify-center flex-grow">
+    <!-- completed proposals gamification -->
+    <div class="hidden w-14 md:flex items-center justify-center flex-grow">
       <div class="w-12 h-12 flex items-center justify-center">
         <div class="w-8 h-8 rounded bg-primary opacity-70 animate-pulse" />
       </div>

@@ -1,29 +1,29 @@
 <template>
   <div
     :class="{ 'text-white': primary }"
-    class="flex items-center text-primary font-bold"
+    class="flex items-center text-primary font-bold text-center"
   >
     <div
-      :class="{ 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-1/2': primary, 'w-3/4 sm:w-3/5 md:w-2/4 lg:w-2/5': !primary }"
-      class="px-5"
+      :class="{ 'w-2/5': !primary, 'w-1/2': primary }"
+      class="pl-20 text-left"
     >
-      <span>{{ $t('leaderboard.proposal.header.name') }}</span>
+      {{ $t('leaderboard.proposal.header.name') }}
     </div>
 
-    <div class="text-center w-48 mx-2 xl:mx-5">
-      <span>{{ $t('leaderboard.proposal.header.votes') }}</span>
+    <div class="w-48 flex-grow">
+      {{ $t('leaderboard.proposal.header.votes') }}
     </div>
 
-    <div v-if="!primary" class="px-2 w-1/6 xl:px-5 text-center">
-      <span>{{ $t('leaderboard.proposal.header.needed') }}</span>
+    <div v-if="!primary" class="w-28 flex-grow">
+      {{ $t('leaderboard.proposal.header.needed') }}
     </div>
 
-    <div class="flex-1 text-center break-words">
-      <span>{{ $t('leaderboard.proposal.header.completed') }}</span>
+    <div class="w-28 flex-grow">
+      {{ $t('leaderboard.proposal.header.funding') }}
     </div>
 
-    <div class="flex-1 text-center">
-      <span>{{ $t('leaderboard.proposal.header.action') }}</span>
+    <div class="w-14 flex-grow">
+      {{ $t('leaderboard.proposal.header.completed') }}
     </div>
   </div>
 </template>
@@ -41,7 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-
-</style>

@@ -26,7 +26,8 @@
 
         <div class="mx-2">
           <app-button
-            class="text-third border-none shadow-none"
+            class="border-none shadow-none"
+            text-class="text-third"
             secondary
             :text="$t('general.delete')"
             @click="deleteLogo()"
@@ -63,12 +64,13 @@ export default {
   data() {
     return {
       newLogo: undefined,
-    }
+    };
   },
 
   computed: {
     logo() {
-      if (this.newLogo === null) { // Logo has been deleted
+      if (this.newLogo === null) {
+        // Logo has been deleted
         return null;
       }
 
@@ -95,7 +97,7 @@ export default {
           'account/error',
           this.$t('general.error.upload.type', {
             types: this.LOGO_ALLOWED_TYPES,
-          })
+          }),
         );
         return;
       }
@@ -105,7 +107,7 @@ export default {
           'account/error',
           this.$t('general.error.upload.size', {
             size: `${this.LOGO_MAX_SIZE / 1000}KB`,
-          })
+          }),
         );
         return;
       }
@@ -114,5 +116,5 @@ export default {
       this.$emit('change', file);
     },
   },
-}
+};
 </script>

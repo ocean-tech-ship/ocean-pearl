@@ -123,6 +123,10 @@
     "ocean": "{ocean} OCEAN",
     "remove": "remove",
     "save": "save changes",
+    "types": {
+      "ocean": "OCEAN",
+      "usd": "USD"
+    },
     "undo": "undo",
     "upload": "upload",
     "usd": "{usd} USD"
@@ -234,9 +238,13 @@
     },
     "pending": "Proposals without funding",
     "proposal": {
+      "funding": [
+        "{amount} {paymentOption}",
+        "requested"
+      ],
       "header": {
-        "action": "Vote now",
         "completed": "Completed Proposals",
+        "funding": "Funding",
         "name": "Name",
         "needed": "Yes Votes needed",
         "votes": "Votes"
@@ -256,6 +264,7 @@
       "DAO",
       "Voting"
     ],
+    "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
       "ends": "time until voting for proposals ends"
@@ -270,17 +279,7 @@
         "wallet": "Could not connect wallet. Please try again."
       },
       "login": {
-        "action": "Login via Wallet",
-        "steps": {
-          "1": "Choose your wallet provider",
-          "2": "Select account to connect",
-          "3": "Sign login request"
-        },
-        "subtitle": [
-          "3-Step-",
-          "Login"
-        ],
-        "title": "Login here to manage your projects"
+        "action": "Login via Wallet"
       },
       "logout": {
         "completed": "Successfully logged out.",
