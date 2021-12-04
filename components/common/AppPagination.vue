@@ -9,12 +9,13 @@
         «
       </button>
       <button
-        v-for="i in pages"
+        v-for="i in displayedPages"
         :id="`page${i}`"
         :key="`btn-pagination-${i}`"
         class="btn"
         name="pagination"
         :class="{ 'btn-active': activePage === i }"
+        :disabled="i === '...'"
         @click="goToPage(i)"
       >
         {{ i }}
@@ -51,8 +52,29 @@ export default {
 
   data() {
     return {
-      displayedPages: [],
+      startPage: this.activePage,
+      endPage: this.pages,
+      displayedPages:
+        this.pages > 4 ? [1, 2, 3, '...', this.pages] : [1, 2, 3, 4],
     };
+  },
+
+  watch: {
+    activePage: {
+      handler() {
+        this.startPage = this.activePage - 2;
+        this.endPage = this.activePage + 4;
+
+        if (this.startPage <= 0) {
+          this.endPage -= this.startPage - 1;
+          this.startPage = 1;
+        }
+
+        if (this.endPage > this.pages) {
+          this.endPage = this.pages;
+        }
+      },
+    },
   },
 
   methods: {
