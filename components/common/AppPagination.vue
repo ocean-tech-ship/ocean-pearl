@@ -43,6 +43,10 @@ export default {
       type: Number,
       required: true,
     },
+    setFilter: {
+      type: Function,
+      required: true,
+    },
   },
 
   data() {
@@ -53,7 +57,7 @@ export default {
 
   methods: {
     goToPage(page) {
-      this.currentPage = page;
+      this.setFilter({ page: page - 1 });
     },
   },
 };

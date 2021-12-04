@@ -26,6 +26,7 @@
       <app-pagination
         :active-page="$store.state['projects-filter'].filter.page + 1"
         :pages="5"
+        :set-filter="setFilter"
       />
     </landing-section-container>
 
@@ -125,7 +126,7 @@ export default Vue.extend({
   },
   methods: {
     setFilter(payload) {
-      return this.$store.commit('projects-filter/filter', payload);
+      return this.$store.dispatch('projects-filter/setFilter', payload);
     },
     fetchProjects() {
       return this.$store.dispatch('projects-filter/fetchProjects');

@@ -10,6 +10,7 @@ export const state = () => ({
     category: 'all',
     search: '',
   },
+  query: {},
 });
 
 export const mutations = {
@@ -30,23 +31,36 @@ export const mutations = {
   },
 
   filter(state, payload) {
-    state.filter = payload.filter;
+    state.filter = { ...state.filter, ...payload };
+  },
+
+  query(state) {
+    const newQueryObj = { ...state.filter };
+    if (newQueryObj.page === 0) delete newQueryObj.page;
+    if (newQueryObj.category === 'all') delete newQueryObj.category;
+    if (newQueryObj.search === '') delete newQueryObj.search;
+    state.query = newQueryObj;
   },
 };
 
 export const actions = {
+  setFilter({ commit }, payload) {
+    commit('filter', payload);
+    commit('query');
+  },
+
   async fetchProjects({ commit, state }) {
     // reset
     commit('error', null);
     commit('pending', true);
 
     // check if search was used
-    state.queryParams.search
+    state.filter.search
       ? commit('searchUsed', true)
       : commit('searchUsed', false);
 
     try {
-      const projectsResponse = await getProjects(this.$axios);
+      const projectsResponse = await getProjects(this.$axios, {});
 
       if (projectsResponse.status === 204) {
         commit('error', this.$i18n.t('general.error.unknown'));
