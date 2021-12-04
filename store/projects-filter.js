@@ -5,10 +5,11 @@ export const state = () => ({
   pending: true,
   projects: null,
   searchUsed: false,
-  params: {
-    page: 1,
+  filter: {
+    page: 0,
+    category: 'all',
+    search: '',
   },
-  route: `/projects?page=0&category=all&search=`,
 });
 
 export const mutations = {
@@ -28,30 +29,24 @@ export const mutations = {
     state.searchUsed = payload;
   },
 
-  params(state, payload) {
-    state.params = payload;
-  },
-
-  route(state, payload) {
-    state.route = payload;
+  filter(state, payload) {
+    state.filter = payload.filter;
   },
 };
 
 export const actions = {
-  async fetchProjects({ commit, state }, payload) {
-    // Reset
+  async fetchProjects({ commit, state }) {
+    // reset
     commit('error', null);
     commit('pending', true);
 
-    if (!payload.page) {
-      commit('params', { ...payload, page: state.params.page });
-    } else {
-      commit('params', { ...state.params, page: payload.page });
-      commit('page', payload.page);
-    }
+    // check if search was used
+    state.queryParams.search
+      ? commit('searchUsed', true)
+      : commit('searchUsed', false);
 
     try {
-      const projectsResponse = await getProjects(this.$axios, state.params);
+      const projectsResponse = await getProjects(this.$axios);
 
       if (projectsResponse.status === 204) {
         commit('error', this.$i18n.t('general.error.unknown'));
@@ -65,9 +60,6 @@ export const actions = {
           ? projectsResponse.data.projects
           : projectsResponse.data,
       );
-      state.params.search
-        ? commit('searchUsed', true)
-        : commit('searchUsed', false);
     } catch (error) {
       commit('pending', false);
       commit('error', this.$i18n.t('general.error.retry'));

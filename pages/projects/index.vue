@@ -3,23 +3,30 @@
     <projects-header />
 
     <landing-section-container>
-      <projects-filter @filter="fetchProjects" />
+      <projects-filter />
     </landing-section-container>
 
-    <landing-section-container v-if="error">
+    <landing-section-container v-if="$store.state['projects-filter'].error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-      <p class="small-text">{{ $t(error) }}</p>
+      <p class="small-text">{{ $t($store.state['projects-filter'].error) }}</p>
     </landing-section-container>
 
-    <landing-section-container v-else-if="pending">
+    <landing-section-container
+      v-else-if="$store.state['projects-filter'].pending"
+    >
       <app-skeleton-card-list>
         <projects-skeleton-card />
       </app-skeleton-card-list>
     </landing-section-container>
 
-    <landing-section-container v-else-if="projects.length">
-      <projects-list :projects="projects" />
-      <app-pagination :pages="8" />
+    <landing-section-container
+      v-else-if="$store.state['projects-filter'].projects.length"
+    >
+      <projects-list :projects="$store.state['projects-filter'].projects" />
+      <app-pagination
+        :active-page="$store.state['projects-filter'].filter.page + 1"
+        :pages="5"
+      />
     </landing-section-container>
 
     <landing-section-container v-else>
@@ -40,7 +47,7 @@
           ),
           paragraph: $t('projects.filterResponse.search.paragraph'),
         }"
-        :search-used="searchUsed"
+        :search-used="$store.state['projects-filter'].pending"
       />
     </landing-section-container>
   </div>
@@ -48,7 +55,6 @@
 
 <script>
 import Vue from 'vue';
-import { getProjects } from '@/api';
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
@@ -70,15 +76,6 @@ export default Vue.extend({
     AppResponseWithSearch,
     AppSkeletonCardList,
     AppPagination,
-  },
-
-  data() {
-    return {
-      pending: true,
-      projects: null,
-      error: null,
-      searchUsed: false,
-    };
   },
 
   head() {
@@ -124,33 +121,14 @@ export default Vue.extend({
   },
 
   created() {
-    this.$store.dispatch('projects-filter/fetchProjects', {});
+    this.fetchProjects();
   },
-
   methods: {
-    async fetchProjects(payload) {
-      try {
-        const projectsResponse = await getProjects(this.$axios, payload);
-
-        if (projectsResponse.status === 204) {
-          this.error = 'general.error.unknown';
-          this.projects = [];
-        }
-
-        this.pending = false;
-        this.error = null;
-        this.projects =
-          process.env.NODE_ENV === 'mirage'
-            ? projectsResponse.data.projects
-            : projectsResponse.data;
-
-        // set search used to true if there is a search term
-        payload.search ? (this.searchUsed = true) : (this.searchUsed = false);
-      } catch (error) {
-        this.pending = false;
-        this.error = 'general.error.retry';
-        this.projects = [];
-      }
+    setFilter(payload) {
+      return this.$store.commit('projects-filter/filter', payload);
+    },
+    fetchProjects() {
+      return this.$store.dispatch('projects-filter/fetchProjects');
     },
   },
 });
