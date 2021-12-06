@@ -1,37 +1,39 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-    <div v-for="card in daoInfoCards" :key="card.title">
-      <app-tooltip :hint="card.tooltip">
-        <div class="shadow bg-white rounded p-4 pb-4">
-          <div class="flex align-center">
-            <div class="mr-3">
-              <img
-                class="inline-block mt-3 h-6 w-6"
-                :src="card.imageURL"
-                :alt="card.title"
-              />
-            </div>
-            <div>
-              <p class="text-primary small-text line-clamp-1">
-                {{ card.title }}
-              </p>
-              <p class="small-text">{{ card.daoInfo }}</p>
-            </div>
+    <app-tooltip v-for="card in cards" :key="card.title" :hint="card.tooltip">
+      <div class="shadow bg-white rounded p-4 pb-4">
+        <div class="flex align-center">
+          <div class="mr-3 mt-3 text-primary">
+            <app-icon :data="card.icon" />
+          </div>
+          <div class="text-left">
+            <p class="text-primary small-text line-clamp-1">
+              {{ card.title }}
+            </p>
+            <p class="small-text">{{ card.subtitle }}</p>
           </div>
         </div>
-      </app-tooltip>
-    </div>
+      </div>
+    </app-tooltip>
   </div>
 </template>
 
 <script>
+import projectDiagram from '@iconify/icons-la/project-diagram';
+import hashtag from '@iconify/icons-la/hashtag';
+import rocket from '@iconify/icons-la/rocket';
+import clock from '@iconify/icons-la/clock';
+import coins from '@iconify/icons-la/coins';
+import vote from '@iconify/icons-la/vote-yea';
 import AppTooltip from '@/components/common/AppTooltip.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
 
 export default {
   name: 'RoundMetrics',
 
   components: {
+    AppIcon,
     AppTooltip,
   },
 
@@ -63,72 +65,70 @@ export default {
   },
 
   computed: {
-    daoInfoCards() {
+    cards() {
       return [
         {
           title: this.$t('daoRoundData.fundingRound'),
-          daoInfo: this.$t('project.proposal.round.numbered', {
+          subtitle: this.$t('project.proposal.round.numbered', {
             round: this.$props.metrics.fundingRound,
           }),
-          imageURL: require('@/assets/images/icons/fund-round.svg'),
+          icon: projectDiagram,
         },
         {
           title: this.$t('daoRoundData.amountProposals'),
-          daoInfo: this.$t('daoRoundData.numberedProjects', {
+          subtitle: this.$t('daoRoundData.numberedProjects', {
             projects: this.$props.metrics.totalDaoProposals,
           }),
-          imageURL: require('@/assets/images/icons/amount.svg'),
+          icon: hashtag,
         },
         {
           title: this.$i18n.t(this.getSubmissionState().key),
-          daoInfo: this.$dateFns.formatDistanceToNowStrict(
+          subtitle: this.$dateFns.formatDistanceToNow(
             this.getSubmissionState().timestamp,
             { locale: this.$i18n.locale, addSuffix: true },
           ),
-          imageURL: require('@/assets/images/icons/rocket.svg'),
+          icon: rocket,
           tooltip:
             this.getSubmissionState().tooltip &&
             this.$i18n.t(this.getSubmissionState().tooltip, {
-              timestamp: this.$dateFns.format(
-                this.getSubmissionState().timestamp,
-                'yyyy-MM-dd, hh:mm',
-              ),
+              timestamp: this.getSubmissionState().timestamp.toLocaleString(),
             }),
         },
         {
           title: this.$i18n.t(this.getVoteState().key),
-          daoInfo: this.$dateFns.formatDistanceToNowStrict(
+          subtitle: this.$dateFns.formatDistanceToNow(
             this.getVoteState().timestamp,
             { locale: this.$i18n.locale, addSuffix: true },
           ),
-          imageURL: require('@/assets/images/icons/countdown.svg'),
+          icon: clock,
           tooltip:
             this.getVoteState().tooltip &&
             this.$i18n.t(this.getVoteState().tooltip, {
-              timestamp: this.$dateFns.format(
-                this.getVoteState().timestamp,
-                'yyyy-MM-dd, hh:mm',
-              ),
+              timestamp: this.getVoteState().timestamp.toLocaleString(),
             }),
         },
         {
           title: this.$t('daoRoundData.totalAmount'),
-          daoInfo:
+          subtitle:
             this.$props.metrics.paymentOption === 'ocean'
               ? this.$t('general.ocean', {
-                  ocean: this.addPunctuation(this.$props.metrics.totalRequestedFundingOcean),
+                  ocean: this.addPunctuation(
+                    this.$props.metrics.totalRequestedFundingOcean,
+                  ),
                 })
               : this.$t('general.usd', {
-                  usd: this.addPunctuation(this.$props.metrics.totalRequestedFundingUsd),
+                  usd: this.addPunctuation(
+                    this.$props.metrics.totalRequestedFundingUsd,
+                  ),
                 }),
-          imageURL: require('@/assets/images/icons/transaction.svg'),
+          icon: coins,
         },
         {
           title: this.$t('daoRoundData.totalVotes'),
-          daoInfo: this.$t('general.ocean', {
+          subtitle: this.$t('general.ocean', {
             ocean: this.addPunctuation(this.$props.metrics.totalVotes),
           }),
-          imageURL: require('@/assets/images/icons/vote.svg'),
+          icon: vote,
         },
       ];
     },

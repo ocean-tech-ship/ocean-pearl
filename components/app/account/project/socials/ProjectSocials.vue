@@ -11,7 +11,7 @@
             <app-icon
               class="text-primary"
               :size="32"
-              :path="mdiLinkPlus"
+              :data="icons.linkPlus"
               :tooltip="$t('general.add')"
             />
           </button>
@@ -44,10 +44,9 @@
                   class="flex items-center"
                   @click="addSocial(social)"
                 >
-                  <img
-                    class="w-4 h-4 mr-2"
-                    :src="social.Icon"
-                    alt=""
+                  <app-icon
+                    class="text-primary mr-2"
+                    :data="social.Icon"
                   />
 
                   <span>{{ social.Title }}</span>
@@ -79,8 +78,8 @@
 </template>
 
 <script>
-import { mdiLinkPlus } from '@mdi/js';
-import { SocialMedia } from '@/model/SocialMedia';
+import linkPlus from '@iconify/icons-mdi/link-plus';
+import { SocialMedia } from '@/models/SocialMedia';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import ProjectSocialsItem from '@/components/app/account/project/socials/ProjectSocialsItem.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
@@ -100,7 +99,9 @@ export default {
 
   data() {
     return {
-      mdiLinkPlus,
+      icons: {
+        linkPlus,
+      },
       socials: ({ ...this.$props.project.socialMedia}),
     };
   },

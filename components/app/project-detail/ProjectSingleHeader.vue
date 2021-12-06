@@ -1,63 +1,71 @@
 <template>
-  <div class="flex flex-wrap items-center justify-center md:justify-between">
-    <div class="flex flex-wrap md:flex-no-wrap items-center justify-center">
+  <div class="relative grid gap-8 grid-cols-1 md:grid-cols-2">
+    <div class="flex items-center">
       <app-logo
-        class="mx-4 md:ml-0 inline-block"
+        class="mr-4 md:mx-4 md:ml-0 inline-block"
         :src="project.logo && project.logo.url"
         :alt="project.title"
         :size="64"
       />
 
-      <div class="text-center md:text-left">
+      <div class="">
         <h3 class="text-primary leading-tight">{{ project.title }}</h3>
-        <p class="leading-tight">{{ categoryMap[project.category] }}</p>
+        <app-link :to="targetCategoryLink(project.category)">
+          <p class="leading-tight">{{ categoryMap[project.category] }}</p>
+        </app-link>
       </div>
     </div>
 
-    <div class="flex items-center my-8 mx-8 md:my-4">
-      <img
-        class="h-10 w-10 mr-4"
-        :src="require('@/assets/images/icons/rocket.svg')"
-        :alt="`${$t('project.added')} ${$t('general.icon')}`"
+    <div class="flex justify-between items-center">
+      <div class="flex items-center">
+        <app-icon class="text-primary mr-4" :size="40" :data="icons.rocket" />
+
+        <div>
+          <p class="small-text">{{ $t('project.added') }}</p>
+          <p class="text-primary small-text">
+            {{ formatDate(project.createdAt) }}
+          </p>
+        </div>
+      </div>
+
+      <app-settings-dropdown
+        btn-class="text-primary"
+        :icon-size="40"
+        :project-title="project.title"
+        :project-link="`/projects/${beautifyProjectId(project)}`"
       />
-
-      <div>
-        <p class="small-text">{{ $t('project.added') }}</p>
-        <p class="text-primary small-text">
-          {{ formatDate(project.createdAt) }}
-        </p>
-      </div>
     </div>
-
-    <app-button
-      class="hidden xl:block w-225px"
-      :icon="require('@/assets/images/detail/copy-primary.svg')"
-      :text="$t(copyButtonTitle)"
-      secondary
-      @click="copyProjectLink()"
-    />
   </div>
 </template>
 
 <script>
-import AppButton from '@/components/common/AppButton';
-import AppLogo from '@/components/common/AppLogo';
+import rocket from '@iconify/icons-la/rocket';
+import copy from '@iconify/icons-la/copy';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import AppLogo from '@/components/common/AppLogo.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
+import AppSettingsDropdown from '@/components/common/AppSettingsDropdown.vue';
+import AppLink from '@/components/common/AppLink';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 
 export default {
   name: 'ProjectSingleHeader',
 
   components: {
+    AppLink,
+    AppIcon,
     AppLogo,
-    AppButton,
+    AppSettingsDropdown,
   },
+
+  mixins: [ProjectBeautifyId],
 
   props: {
     project: {
       type: Object,
       required: true,
       default: () => ({
-        logo: require('@/assets/images/detail/pearl-background.png'),
+        logo: '',
         title: '/',
         category: '/',
         createdAt: -1,
@@ -67,12 +75,20 @@ export default {
 
   data() {
     return {
+      icons: {
+        rocket,
+        copy,
+      },
       copyButtonTitle: 'project.copy',
       categoryMap: CategoryMap,
     };
   },
 
   methods: {
+    targetCategoryLink(category) {
+      return `/projects?category=${category}`;
+    },
+
     formatDate(timestamp) {
       return this.$dateFns.format(new Date(timestamp), 'PPP', {
         locale: this.$i18n.locale,

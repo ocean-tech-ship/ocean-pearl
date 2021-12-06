@@ -1,4 +1,27 @@
 {
+  "appReportModal": {
+    "btnCopied": "copied!",
+    "btnCopyPgpTitle": "Copy PGP key",
+    "btnDownloadPgpTitle": "Download PGP key",
+    "btnShowPgpTitle": "Show PGP key",
+    "headline": "Report this project",
+    "headlineEmail": "Email",
+    "headlineSocial": "Discord",
+    "subtext": "If you have legal or technical concerns regarding {projectTitle}, please don't hesitate to contact us.",
+    "subtextEmail": {
+      "part1": "You can contact us via PGP encrypted email, by using our public key below. If you use ",
+      "part2": ", your email to us will be encrypted automatically."
+    },
+    "subtextSocial": {
+      "part1": "You can also find us on ",
+      "part2": ", where you can reach out to one of our team members directly."
+    }
+  },
+  "appSettingsDropdown": {
+    "menuItemCopied": "copied!",
+    "menuItemCopyLink": "Copy project link",
+    "menuItemReport": "Report project"
+  },
   "dao-projects": {
     "filterResponse": {
       "noSearch": {
@@ -71,6 +94,12 @@
       }
     }
   },
+  "date": {
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
   "footer": {
     "analytics": "Analytics"
   },
@@ -94,6 +123,10 @@
     "ocean": "{ocean} OCEAN",
     "remove": "remove",
     "save": "save changes",
+    "types": {
+      "ocean": "OCEAN",
+      "usd": "USD"
+    },
     "undo": "undo",
     "upload": "upload",
     "usd": "{usd} USD"
@@ -171,6 +204,72 @@
       "titleHighlight": "space"
     }
   },
+  "leaderboard": {
+    "empty": "This list is empty right now. Check back later.",
+    "funded": "Proposals with funding",
+    "guarantee": [
+      "All data is received from the OceanDAO Airtable which can be found",
+      "here"
+    ],
+    "live": "Live",
+    "meta": {
+      "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
+      "title": "DAO Voting"
+    },
+    "metrics": {
+      "amount": {
+        "subtitle": "no proposal | {n} proposal | {n} proposals",
+        "title": "Amount proposals"
+      },
+      "available": {
+        "subtitle": "{n} USD",
+        "title": "Funding amount"
+      },
+      "burned": {
+        "future": "Will be burned",
+        "past": "Amount burned"
+      },
+      "requested": {
+        "title": "Amount requested"
+      },
+      "votes": {
+        "title": "Total Votes"
+      }
+    },
+    "pending": "Proposals without funding",
+    "proposal": {
+      "funding": [
+        "{amount} {paymentOption}",
+        "requested"
+      ],
+      "header": {
+        "completed": "Completed Proposals",
+        "funding": "Funding",
+        "name": "Name",
+        "needed": "Yes Votes needed",
+        "votes": "Votes"
+      },
+      "rank": "rank icon",
+      "votes": {
+        "no": "No Votes",
+        "yes": "Yes Votes"
+      }
+    },
+    "refresh": "The results are updated every 3 minutes.",
+    "round": {
+      "title": "Round"
+    },
+    "subtitle": "An overview of the highest voted proposals decided by the community.",
+    "title": [
+      "DAO",
+      "Voting"
+    ],
+    "vote": "Vote",
+    "voting": {
+      "begins": "time until voting for proposals begins",
+      "ends": "time until voting for proposals ends"
+    }
+  },
   "manage": {
     "admins": "Administrators",
     "auth": {
@@ -180,17 +279,7 @@
         "wallet": "Could not connect wallet. Please try again."
       },
       "login": {
-        "action": "Login via Wallet",
-        "steps": {
-          "1": "Choose your wallet provider",
-          "2": "Select account to connect",
-          "3": "Sign login request"
-        },
-        "subtitle": [
-          "3-Step-",
-          "Login"
-        ],
-        "title": "Login here to manage your projects"
+        "action": "Login via Wallet"
       },
       "logout": {
         "completed": "Successfully logged out.",
@@ -240,6 +329,7 @@
         "no": "no",
         "yes": "yes"
       },
+      "grants": "no grant | {n} grant | {n} grants",
       "history": {
         "funding": "Granted<br>Funding",
         "granted": "Granted",
@@ -277,6 +367,12 @@
       "title": "ROI"
     },
     "team": "Team",
+    "tier": {
+      "existing": "Existing Project Tier",
+      "experienced": "Experienced Project Tier",
+      "new": "New Project Tier",
+      "veteran": "Veteran Project Tier"
+    },
     "unknown": "The requested project could not be found.",
     "wallet": "Project Wallet Address"
   },

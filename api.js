@@ -31,8 +31,13 @@ export function getLandingData(axios) {
 }
 
 // dao round
-export function getDaoRoundMetrics(axios) {
-  return axios.get('/metrics'); // dont filter for data object
+export function getDaoRoundMetrics(axios, params) {
+  return axios.get('/metrics', { params }); // dont filter for data object
+}
+
+// leaderboard
+export function getLeaderboard(axios) {
+  return axios.$get('/leaderboard');
 }
 
 // account login
