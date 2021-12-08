@@ -30,10 +30,8 @@
     <div>
       <div class="shadow rounded">
         <div class="flex justify-between items-center px-4">
-          <label class="label">
-            <span class="label-text text-primary">{{
-              $t('manage.admins.title')
-            }}</span>
+          <label class="label label-text text-primary">
+            {{ $t('manage.admins.title') }}
           </label>
 
           <app-tooltip
