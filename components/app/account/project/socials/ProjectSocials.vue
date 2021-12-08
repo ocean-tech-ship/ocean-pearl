@@ -1,9 +1,9 @@
 <template>
   <div class="shadow rounded p-4">
     <div class="flex justify-between">
-      <p class="small-text text-primary">
+      <label class="label label-text text-primary">
         {{ $t('manage.project.socials.title') }}
-      </p>
+      </label>
 
       <main-dropdown>
         <template slot-scope="context">

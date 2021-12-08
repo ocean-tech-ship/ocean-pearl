@@ -5,8 +5,8 @@
     <span class="mx-2 w-20">{{ getSocialMedia().Title }}</span>
 
     <input
-      class="flex-grow rounded shadow p-1"
       type="text"
+      class="input input-sm flex-grow"
       :placeholder="$t('manage.project.socials.url')"
       :value="url"
       @change="$emit('change', $event.target.value)"

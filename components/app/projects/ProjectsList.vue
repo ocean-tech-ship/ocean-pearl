@@ -34,7 +34,7 @@
         </div>
         <div class="my-3 h-78px px-3 flex place-content-center">
           <p class="small-text line-clamp-3">
-            {{ project.description }}
+            {{ project.oneLiner }}
           </p>
         </div>
       </app-link-card>
