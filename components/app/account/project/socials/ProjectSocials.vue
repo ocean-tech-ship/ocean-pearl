@@ -1,10 +1,8 @@
 <template>
   <div class="shadow rounded p-4">
     <div class="flex justify-between">
-      <label class="label">
-        <span class="label-text text-primary">
-          {{ $t('manage.project.socials.title') }}
-        </span>
+      <label class="label label-text text-primary">
+        {{ $t('manage.project.socials.title') }}
       </label>
 
       <main-dropdown>

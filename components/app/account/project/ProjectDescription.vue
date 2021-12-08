@@ -1,9 +1,7 @@
 <template>
   <div class="shadow rounded p-4">
-    <label class="label">
-      <span class="label-text text-primary">{{
-        $t('manage.project.description')
-      }}</span>
+    <label class="label label-text text-primary">
+      {{ $t('manage.project.description') }}
     </label>
 
     <textarea
