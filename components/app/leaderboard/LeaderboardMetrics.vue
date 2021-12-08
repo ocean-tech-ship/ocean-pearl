@@ -99,14 +99,20 @@ export default {
             board.paymentOption === PaymentOptionEnum.Usd
               ? this.$t('general.usd', {
                   usd: this.addPunctuation(
-                    board.remainingGeneralFunding +
-                      board.remainingEarmarkFunding,
+                    Object.values(board.earmarks).reduce(
+                      (previous, current) =>
+                        previous + current.remainingFunding,
+                      board.remainingGeneralFunding,
+                    ),
                   ),
                 })
               : this.$t('general.ocean', {
                   ocean: this.addPunctuation(
-                    board.remainingGeneralFunding +
-                      board.remainingEarmarkFunding,
+                    Object.values(board.earmarks).reduce(
+                      (previous, current) =>
+                        previous + current.remainingFunding,
+                      board.remainingGeneralFunding,
+                    ),
                   ),
                 }),
         },

@@ -1,43 +1,26 @@
 <template>
   <div>
-    <template
-      v-for="tag in proposal.tags"
-    >
-      <app-link
-        :key="tag"
-        :to="targetTagLink(tag)"
-      >
-        <div
-          :class="{ 'bg-complementary text-third bg-opacity-70': isEarmarked(tag) }"
-          class="
-            rounded
-            m-0.5
-            p-1
-            bg-primary
-            bg-opacity-10
-            small-text
-            text-primary
-            hover:opacity-70
-            ease-in-out
-            duration-300
-          "
-        >
-          {{ beautifyTagName(tag) }}
-        </div>
-      </app-link>
-    </template>
+    <app-link :to="targetCategoryPath(findCategory(proposal.tags))">
+      <proposal-tag :tag="findCategory(proposal.tags)" />
+    </app-link>
+
+    <proposal-tag
+      v-if="proposal.earmarkType"
+      is-earmark
+      :tag="proposal.earmarkType"
+    />
   </div>
 </template>
 
 <script lang="ts">
 import { LeaderboardProposal } from '@/models/Leaderboard.model';
-import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import CategoryEnum from '@/enums/Category.enum';
 import AppLink from '@/components/common/AppLink.vue';
+import ProposalTag from '@/components/app/leaderboard/ProposalTag.vue';
 
 export default {
   name: 'ProposalTags',
-  components: { AppLink },
+  components: { ProposalTag, AppLink },
   props: {
     proposal: {
       type: Object as () => LeaderboardProposal,
@@ -46,17 +29,15 @@ export default {
   },
 
   methods: {
-    beautifyTagName(tag: string): string {
-      return CategoryMap[tag as CategoryEnum] || 'Earmarked';
+    findCategory(tags: string[]): CategoryEnum {
+      return tags.find((tag) =>
+        Object.values(CategoryEnum).includes(tag as CategoryEnum),
+      ) as CategoryEnum;
     },
 
-    isEarmarked(tag: string): boolean {
-      return tag.toLowerCase() === 'earmark';
+    targetCategoryPath(tag: string): string {
+      return `/dao-proposals?category=${tag}`;
     },
-
-    targetTagLink(tag: string): string {
-      return `/dao-proposals?category=${tag}`
-    }
-  }
+  },
 };
 </script>

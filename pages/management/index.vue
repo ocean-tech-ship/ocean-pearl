@@ -121,7 +121,7 @@ export default Vue.extend({
       await store.dispatch('account/loadAccount');
     } catch (error) {
       // Authentication failure
-      redirect('/management/login');
+      redirect('/');
     }
   },
 
