@@ -104,6 +104,7 @@
     "analytics": "Analytics"
   },
   "general": {
+    "abort": "Abort",
     "add": "add",
     "button": "button",
     "delete": "delete",
@@ -271,7 +272,11 @@
     }
   },
   "manage": {
-    "admins": "Administrators",
+    "admins": {
+      "add": "Add wallet address",
+      "edit": "Manage Administrators",
+      "title": "Administrators"
+    },
     "auth": {
       "error": {
         "invalid": "Authentication was invalid. Please try again.",

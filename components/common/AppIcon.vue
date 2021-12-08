@@ -1,34 +1,21 @@
 <template>
-  <app-tooltip :hint="tooltip">
-    <svg
-      :width="size"
-      :height="size"
-      :viewBox="viewBox"
-      :style="styles"
-      :class="$attrs.class"
-      :aria-label="tooltip"
-      v-html="data.body"
-    />
-  </app-tooltip>
+  <svg
+    :width="size"
+    :height="size"
+    :viewBox="viewBox"
+    :style="styles"
+    :class="$attrs.class"
+    v-html="data.body"
+  />
 </template>
 
 <script>
-import AppTooltip from '@/components/common/AppTooltip.vue';
-
 const DEFAULT_SIZE = 24;
 
 export default {
   name: 'AppIcon',
 
-  components: { AppTooltip },
-
   props: {
-    tooltip: {
-      type: String,
-      required: false,
-      default: '',
-    },
-
     data: {
       type: Object,
       required: true,
@@ -43,7 +30,7 @@ export default {
     rotate: {
       type: Number,
       required: false,
-      default: 0
+      default: 0,
     },
 
     flip: {
@@ -66,8 +53,8 @@ export default {
         '--sx': ['both', 'horizontal'].includes(this.flip) ? '-1' : '1',
         '--sy': ['both', 'vertical'].includes(this.flip) ? '-1' : '1',
         '--r': Number.isNaN(this.rotate) ? this.rotate : `${this.rotate}deg`,
-      }
-    }
+      };
+    },
   },
 };
 </script>

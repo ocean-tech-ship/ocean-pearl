@@ -74,11 +74,14 @@
 
           <main-dropdown>
             <template slot-scope="context">
-              <button class="flex items-center" @click="context.toggleOpen()">
+              <button
+                class="flex items-center pl-2"
+                @click="context.toggleOpen()"
+              >
                 <app-icon
                   :rotate="context.open ? 180 : 0"
-                  :size="48"
-                  :data="icons.menuDown"
+                  :size="24"
+                  :data="icons.angleDown"
                   class="text-primary"
                 />
               </button>
@@ -130,7 +133,7 @@
 </template>
 
 <script>
-import menuDown from '@iconify/icons-mdi/menu-down';
+import angleDown from '@iconify/icons-la/angle-down';
 import Jazzicon from 'vue-jazzicon';
 import { mapState } from 'vuex';
 import { SESSION_NAME } from '@/store/auth';
@@ -138,7 +141,7 @@ import EthAddress from '@/mixins/EthAddress';
 import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
-import AppButton from '~/components/common/AppButton';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   components: {
@@ -154,7 +157,7 @@ export default {
   data() {
     return {
       icons: {
-        menuDown,
+        angleDown,
       },
     };
   },
