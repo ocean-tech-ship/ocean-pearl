@@ -4,10 +4,11 @@ export const state = () => ({
   error: false,
   pending: true,
   projects: null,
+  pagination: null,
   searchUsed: false,
   filter: {
     page: 0,
-    limit: 20,
+    limit: 6,
     category: 'all',
     search: '',
   },
@@ -24,6 +25,10 @@ export const mutations = {
 
   projects(state, payload) {
     state.projects = payload;
+  },
+
+  pagination(state, payload) {
+    state.pagination = payload;
   },
 
   searchUsed(state, payload) {
@@ -44,7 +49,6 @@ export const actions = {
   async fetchProjects({ commit, state }) {
     // reset
     commit('error', null);
-    commit('pending', true);
 
     // check if search was used
     state.filter.search
@@ -65,12 +69,8 @@ export const actions = {
       }
 
       commit('pending', false);
-      commit(
-        'projects',
-        process.env.NODE_ENV === 'mirage'
-          ? projectsResponse.data.projects
-          : projectsResponse.data,
-      );
+      commit('projects', projectsResponse.data.docs);
+      commit('pagination', projectsResponse.data.pagination);
     } catch (error) {
       commit('pending', false);
       commit('error', this.$i18n.t('general.error.retry'));
