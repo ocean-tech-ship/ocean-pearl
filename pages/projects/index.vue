@@ -25,8 +25,9 @@
       <projects-list :projects="$store.state['projects-filter'].projects" />
       <app-pagination
         :active-page="$store.state['projects-filter'].filter.page + 1"
-        :pages="5"
+        :pages="99"
         :set-filter="setFilter"
+        :fetch-projects="fetchProjects"
       />
     </landing-section-container>
 
