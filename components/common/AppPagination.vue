@@ -1,5 +1,5 @@
 <template>
-  <div v-if="totalPages > 1" class="my-10">
+  <div v-if="totalPages > 1" class="my-12 flex justify-center">
     <div class="btn-group">
       <button
         class="btn btn-xs sm:btn-sm md:btn-md"
@@ -56,27 +56,34 @@ export default {
 
   data() {
     return {
-      displayedPages: this.buildStartPages(),
+      displayedPages: null,
     };
   },
 
   watch: {
     page: {
       handler() {
-        if (this.totalPages > 9 && this.totalPages - 4 <= this.page) {
-          this.displayedPages = this.buildEndPages();
-        } else if (this.totalPages > 9 && this.page > 5) {
-          this.displayedPages = this.buildCenterPages();
-        } else {
-          this.displayedPages = this.buildStartPages();
-        }
+        this.buildPages();
       },
     },
+  },
+
+  mounted() {
+    this.buildPages();
   },
 
   methods: {
     goToPage(page) {
       this.setFilter({ page: page - 1 }).then(this.fetchProjects);
+    },
+    buildPages() {
+      if (this.totalPages > 9 && this.totalPages - 4 <= this.page) {
+        this.displayedPages = this.buildEndPages();
+      } else if (this.totalPages > 9 && this.page > 5) {
+        this.displayedPages = this.buildCenterPages();
+      } else {
+        this.displayedPages = this.buildStartPages();
+      }
     },
     buildStartPages() {
       const pagesArr = [];
