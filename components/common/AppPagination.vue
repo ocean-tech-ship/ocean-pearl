@@ -80,9 +80,7 @@ export default {
     },
     buildStartPages() {
       const pagesArr = [];
-      for (let i = 1; i <= 9; i++) {
-        if (i === 8 && this.totalPages !== 8) break;
-        if (i === 9 && this.totalPages !== 9) break;
+      for (let i = 1; i <= (this.totalPages > 9 ? 7 : this.totalPages); i++) {
         pagesArr.push(i);
       }
       if (this.totalPages > 9) {
