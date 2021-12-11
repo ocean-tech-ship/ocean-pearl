@@ -50,7 +50,7 @@
           ),
           paragraph: $t('projects.filterResponse.search.paragraph'),
         }"
-        :search-used="$store.state['projects-filter'].pending"
+        :search-used="$store.state['projects-filter'].searchUsed"
       />
     </landing-section-container>
   </div>
