@@ -2,7 +2,7 @@
   <div v-if="totalPages > 1" class="my-10">
     <div class="btn-group">
       <button
-        class="btn-sm md:btn"
+        class="btn btn-xs sm:btn-sm md:btn-md"
         :disabled="page === 1"
         @click="goToPage(page - 1)"
       >
@@ -12,7 +12,7 @@
         v-for="i in displayedPages"
         :id="`page${i}`"
         :key="`btn-pagination-${i === '...' ? i + Math.random() : i}`"
-        class="btn-sm md:btn"
+        class="btn btn-xs sm:btn-sm md:btn-md"
         name="pagination"
         :class="{ 'btn-active': page === i }"
         :disabled="i === '...'"
@@ -21,7 +21,7 @@
         {{ i }}
       </button>
       <button
-        class="btn-sm md:btn"
+        class="btn btn-xs sm:btn-sm md:btn-md"
         :disabled="page === totalPages"
         @click="goToPage(page + 1)"
       >
