@@ -24,8 +24,9 @@
     >
       <projects-list :projects="$store.state['projects-filter'].projects" />
       <app-pagination
-        :active-page="$store.state['projects-filter'].filter.page + 1"
-        :pages="99"
+        v-if="$store.state['projects-filter'].pagination"
+        :page="$store.state['projects-filter'].pagination.page + 1"
+        :total-pages="$store.state['projects-filter'].pagination.totalPages"
         :set-filter="setFilter"
         :fetch-projects="fetchProjects"
       />
