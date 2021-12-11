@@ -21,27 +21,29 @@
         </div>
       </div>
 
-      <div class="form-control pt-3 flex space-x-2">
-        <input
-          v-model="adminCreator"
-          type="text"
-          :placeholder="$t('manage.admins.add')"
-          class="w-full input input-sm input-bordered border-primary"
-        />
+      <div class="form-control pt-3">
+        <div class="flex space-x-2">
+          <input
+            v-model="adminCreator"
+            type="text"
+            :placeholder="$t('manage.admins.add')"
+            class="w-full input input-sm input-bordered border-primary"
+          />
 
-        <button
-          :class="{ 'btn-outline btn-disabled': !adminCreator }"
-          class="btn btn-sm btn-primary"
-          @click="addAdmin()"
-        >
-          {{ $t('general.add') }}
-        </button>
+          <button
+            :class="{ 'btn-outline btn-disabled': !adminCreator }"
+            class="btn btn-sm btn-primary"
+            @click="addAdmin()"
+          >
+            {{ $t('general.add') }}
+          </button>
+        </div>
       </div>
 
       <div class="modal-action">
-        <a href="#" class="btn btn-primary" @click="saveChanges()">{{
-          $t('general.save')
-        }}</a>
+        <a href="#" class="btn btn-primary" @click="saveChanges()">
+          {{ $t('general.save') }}
+        </a>
 
         <a href="#" class="btn" @click="reset()">{{ $t('general.abort') }}</a>
       </div>
