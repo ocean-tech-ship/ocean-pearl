@@ -44,6 +44,10 @@ export default {
       type: Number,
       required: true,
     },
+    pagination: {
+      type: Object,
+      required: true,
+    },
     setFilter: {
       type: Function,
       required: true,
@@ -61,7 +65,8 @@ export default {
   },
 
   watch: {
-    page: {
+    pagination: {
+      deep: true,
       handler() {
         this.buildPages();
       },
