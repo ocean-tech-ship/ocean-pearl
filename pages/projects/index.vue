@@ -3,7 +3,11 @@
     <projects-header />
 
     <landing-section-container>
-      <projects-filter />
+      <projects-filter
+        :filter="$store.state['projects-filter'].filter"
+        :set-filter="setFilter"
+        :fetch-projects="fetchProjects"
+      />
     </landing-section-container>
 
     <landing-section-container v-if="$store.state['projects-filter'].error">
@@ -25,6 +29,7 @@
       <projects-list :projects="$store.state['projects-filter'].projects" />
       <app-pagination
         v-if="$store.state['projects-filter'].pagination"
+        :pagination="$store.state['projects-filter'].pagination"
         :page="$store.state['projects-filter'].pagination.page + 1"
         :total-pages="$store.state['projects-filter'].pagination.totalPages"
         :set-filter="setFilter"

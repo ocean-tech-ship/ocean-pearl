@@ -3,13 +3,13 @@
     <ProjectsDropdowns
       class="flex flex-col 2sm:flex-row md:flex-col lg:flex-row"
       :filter="filter"
-      @selected-items="setFilter"
+      @selected-items="setFilterAndFetch"
     />
     <AppSearchBar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
       placeholder="Search Project"
       :initial-value="filter.search"
-      @search="setFilter"
+      @search="setFilterAndFetch"
     />
   </div>
 </template>
@@ -18,7 +18,6 @@
 import ProjectsDropdowns from './ProjectsDropdowns.vue';
 import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/enums/Category.enum';
-import replaceQueryParams from '@/helpers/windowHistory.ts';
 
 export default {
   name: 'ProjectsFilter',
@@ -27,55 +26,36 @@ export default {
     AppSearchBar,
     ProjectsDropdowns,
   },
-  data() {
-    return {
-      filter: {
-        category: 'all',
-        search: '',
-      },
-    };
-  },
-  watch: {
-    filter: {
-      deep: true,
-      handler: function emit() {
-        // restructure filter items for backend compatibility
-        const filterRestructed = { ...this.filter };
-        if (filterRestructed.category === 'all')
-          delete filterRestructed.category;
-        if (filterRestructed.search === '') delete filterRestructed.search;
 
-        this.$emit('filter', filterRestructed);
-      },
+  props: {
+    filter: {
+      type: Object,
+      required: true,
+    },
+    setFilter: {
+      type: Function,
+      required: true,
+    },
+    fetchProjects: {
+      type: Function,
+      required: true,
     },
   },
-  created() {
-    const { category, search } = this.$route.query;
 
-    // set new filter
-    this.filter = {
-      category: Object.values(CategoryEnum).includes(category)
-        ? category
-        : this.filter.category,
-      search: search || search === '' ? search : this.filter.search,
-    };
-
-    // replace history state
-    replaceQueryParams(this, this.filter);
-  },
   methods: {
-    setFilter(payload) {
-      const { category, searchValue } = payload;
+    setFilterAndFetch(payload) {
+      const { category, search } = payload;
 
       // set new filter
-      this.filter = {
-        category: category || this.filter.category,
-        search:
-          searchValue || searchValue === '' ? searchValue : this.filter.search,
+      const newFilter = {
+        page: 0,
+        category: Object.values(CategoryEnum).includes(category)
+          ? category
+          : this.filter.category,
+        search: search || search === '' ? search : this.filter.search,
       };
 
-      // replace history state
-      replaceQueryParams(this, this.filter);
+      this.setFilter(newFilter).then(this.fetchProjects);
     },
   },
 };
