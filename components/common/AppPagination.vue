@@ -1,10 +1,10 @@
 <template>
-  <div v-if="totalPages > 1" class="my-12 flex justify-center">
+  <div v-if="pagination.totalPages > 1" class="my-12 flex justify-center">
     <div class="btn-group">
       <button
         class="btn btn-xs sm:btn-sm md:btn-md"
-        :disabled="page === 1"
-        @click="goToPage(page - 1)"
+        :disabled="pagination.page === 1"
+        @click="goToPage(pagination.page - 1)"
       >
         «
       </button>
@@ -14,7 +14,7 @@
         :key="`btn-pagination-${i === '...' ? i + Math.random() : i}`"
         class="btn btn-xs sm:btn-sm md:btn-md"
         name="pagination"
-        :class="{ 'btn-active': page === i }"
+        :class="{ 'btn-active': pagination.page === i }"
         :disabled="i === '...'"
         @click="goToPage(i)"
       >
@@ -22,8 +22,8 @@
       </button>
       <button
         class="btn btn-xs sm:btn-sm md:btn-md"
-        :disabled="page === totalPages"
-        @click="goToPage(page + 1)"
+        :disabled="pagination.page === pagination.totalPages"
+        @click="goToPage(pagination.page + 1)"
       >
         »
       </button>
@@ -32,18 +32,12 @@
 </template>
 
 <script>
+import replaceQueryParams from '@/helpers/windowHistory';
+
 export default {
   name: 'AppPagination',
 
   props: {
-    page: {
-      type: Number,
-      required: true,
-    },
-    totalPages: {
-      type: Number,
-      required: true,
-    },
     pagination: {
       type: Object,
       required: true,
@@ -73,18 +67,23 @@ export default {
     },
   },
 
-  mounted() {
+  created() {
     this.buildPages();
   },
 
   methods: {
     goToPage(page) {
-      this.setFilter({ page: page - 1 }).then(this.fetchProjects);
+      this.setFilter({ page }).then(() =>
+        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+      );
     },
     buildPages() {
-      if (this.totalPages > 9 && this.totalPages - 4 <= this.page) {
+      if (
+        this.pagination.totalPages > 9 &&
+        this.pagination.totalPages - 4 <= this.pagination.page
+      ) {
         this.displayedPages = this.buildEndPages();
-      } else if (this.totalPages > 9 && this.page > 5) {
+      } else if (this.pagination.totalPages > 9 && this.pagination.page > 5) {
         this.displayedPages = this.buildCenterPages();
       } else {
         this.displayedPages = this.buildStartPages();
@@ -92,12 +91,16 @@ export default {
     },
     buildStartPages() {
       const pagesArr = [];
-      for (let i = 1; i <= (this.totalPages > 9 ? 7 : this.totalPages); i++) {
+      for (
+        let i = 1;
+        i <= (this.pagination.totalPages > 9 ? 7 : this.pagination.totalPages);
+        i++
+      ) {
         pagesArr.push(i);
       }
-      if (this.totalPages > 9) {
+      if (this.pagination.totalPages > 9) {
         pagesArr.push('...');
-        pagesArr.push(this.totalPages);
+        pagesArr.push(this.pagination.totalPages);
       }
       return pagesArr;
     },
@@ -105,26 +108,26 @@ export default {
       return [
         1,
         '...',
-        this.page - 2,
-        this.page - 1,
-        this.page,
-        this.page + 1,
-        this.page + 2,
+        this.pagination.page - 2,
+        this.pagination.page - 1,
+        this.pagination.page,
+        this.pagination.page + 1,
+        this.pagination.page + 2,
         '...',
-        this.totalPages,
+        this.pagination.totalPages,
       ];
     },
     buildEndPages() {
       return [
         1,
         '...',
-        this.totalPages - 6,
-        this.totalPages - 5,
-        this.totalPages - 4,
-        this.totalPages - 3,
-        this.totalPages - 2,
-        this.totalPages - 1,
-        this.totalPages,
+        this.pagination.totalPages - 6,
+        this.pagination.totalPages - 5,
+        this.pagination.totalPages - 4,
+        this.pagination.totalPages - 3,
+        this.pagination.totalPages - 2,
+        this.pagination.totalPages - 1,
+        this.pagination.totalPages,
       ];
     },
   },
