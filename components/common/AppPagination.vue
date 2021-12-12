@@ -1,5 +1,9 @@
 <template>
-  <div v-if="pagination.totalPages > 1" class="my-12 flex justify-center">
+  <div
+    v-if="pagination.totalPages > 1"
+    ref="paginationWrapper"
+    class="my-12 flex justify-center"
+  >
     <div class="btn-group">
       <button
         class="btn btn-xs sm:btn-sm md:btn-md"
@@ -74,9 +78,15 @@ export default {
   methods: {
     goToPage(page) {
       this.setFilter({ page }).then(() =>
-        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+        this.fetchProjects().then((query) => {
+          const paginationWrapper = this.$refs.paginationWrapper;
+          const top = paginationWrapper.offsetTop;
+          window.scrollTo(0, top);
+          replaceQueryParams(this, query);
+        }),
       );
     },
+
     buildPages() {
       if (
         this.pagination.totalPages > 9 &&
@@ -89,6 +99,7 @@ export default {
         this.displayedPages = this.buildStartPages();
       }
     },
+
     buildStartPages() {
       const pagesArr = [];
       for (
@@ -104,6 +115,7 @@ export default {
       }
       return pagesArr;
     },
+
     buildCenterPages() {
       return [
         1,
@@ -117,6 +129,7 @@ export default {
         this.pagination.totalPages,
       ];
     },
+
     buildEndPages() {
       return [
         1,

@@ -73,7 +73,6 @@ export const actions = {
       commit('pagination', projectsResponse.data.pagination);
 
       // return query for url mutations
-      console.log(query);
       delete query.limit;
       return query;
     } catch (error) {
