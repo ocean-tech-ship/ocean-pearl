@@ -18,6 +18,7 @@
 import ProjectsDropdowns from './ProjectsDropdowns.vue';
 import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/enums/Category.enum';
+import replaceQueryParams from '@/helpers/windowHistory';
 
 export default {
   name: 'ProjectsFilter',
@@ -48,14 +49,16 @@ export default {
 
       // set new filter
       const newFilter = {
-        page: 0,
+        page: 1,
         category: Object.values(CategoryEnum).includes(category)
           ? category
           : this.filter.category,
         search: search || search === '' ? search : this.filter.search,
       };
 
-      this.setFilter(newFilter).then(this.fetchProjects);
+      this.setFilter(newFilter).then(() =>
+        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+      );
     },
   },
 };

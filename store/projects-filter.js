@@ -7,8 +7,8 @@ export const state = () => ({
   pagination: null,
   searchUsed: false,
   filter: {
-    page: 0,
-    limit: 6,
+    page: 1,
+    limit: 12,
     category: 'all',
     search: '',
   },
@@ -71,6 +71,11 @@ export const actions = {
       commit('pending', false);
       commit('projects', projectsResponse.data.docs);
       commit('pagination', projectsResponse.data.pagination);
+
+      // return query for url mutations
+      console.log(query);
+      delete query.limit;
+      return query;
     } catch (error) {
       commit('pending', false);
       commit('error', this.$i18n.t('general.error.retry'));

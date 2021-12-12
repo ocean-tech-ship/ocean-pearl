@@ -30,8 +30,6 @@
       <app-pagination
         v-if="$store.state['projects-filter'].pagination"
         :pagination="$store.state['projects-filter'].pagination"
-        :page="$store.state['projects-filter'].pagination.page + 1"
-        :total-pages="$store.state['projects-filter'].pagination.totalPages"
         :set-filter="setFilter"
         :fetch-projects="fetchProjects"
       />
@@ -71,6 +69,10 @@ import ProjectsSkeletonCard from '@/components/app/projects/ProjectsSkeletonCard
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppPagination from '@/components/common/AppPagination.vue';
+import CategoryEnum from '@/enums/Category.enum';
+import replaceQueryParams, {
+  getFirstInstanceParam,
+} from '@/helpers/windowHistory';
 
 export default Vue.extend({
   name: 'ProjectOverview',
@@ -129,8 +131,32 @@ export default Vue.extend({
   },
 
   created() {
+    const page = getFirstInstanceParam(this.$route.query.page);
+    const category = getFirstInstanceParam(this.$route.query.category);
+    const search = getFirstInstanceParam(this.$route.query.search);
+
+    if (page || category || search) {
+      const newFilter = {
+        page:
+          page && parseInt(page)
+            ? parseInt(page)
+            : this.$store.state['projects-filter'].filter.page,
+        category: Object.values(CategoryEnum).includes(category)
+          ? category
+          : this.$store.state['projects-filter'].filter.category,
+        search:
+          search || search === ''
+            ? search
+            : this.$store.state['projects-filter'].filter.search,
+      };
+      this.setFilter(newFilter).then(() =>
+        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+      );
+    }
+
     this.fetchProjects();
   },
+
   methods: {
     setFilter(payload) {
       return this.$store.dispatch('projects-filter/setFilter', payload);
