@@ -9,3 +9,8 @@ export default function replaceQueryParams(_this: any, query: object): void {
     history.replaceState({}, '', url);
   }
 }
+
+export function getFirstInstanceParam(queryParam: string | string[]): string {
+  const fistInstance = Array.isArray(queryParam) ? queryParam[0] : queryParam;
+  return fistInstance;
+}
