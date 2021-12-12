@@ -39,7 +39,7 @@ export default {
   },
   watch: {
     searchValue: debounce(function () {
-      this.$emit('search', { searchValue: this.searchValue });
+      this.$emit('search', { search: this.searchValue });
     }, 500),
   },
 };
