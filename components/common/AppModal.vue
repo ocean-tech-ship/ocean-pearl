@@ -4,7 +4,16 @@
     :class="{ 'modal-open': open }"
     @click="backdropClose"
   >
-    <div class="modal-box relative overflow-y-scroll" role="dialog">
+    <div
+      class="
+        modal-box
+        relative
+        overflow-y-scroll
+        h-[490px]
+        md:h-[510px] md:min-w-[690px]
+      "
+      role="dialog"
+    >
       <button
         type="button"
         class="btn-close text-smbase text-primary absolute top-3 right-3"
@@ -116,18 +125,6 @@ export default {
     nav {
       padding-right: 0;
     }
-  }
-}
-
-.modal-box {
-  height: 490px;
-  @media (min-width: 640px) {
-    height: 560px;
-    min-width: 590px;
-  }
-  @media (min-width: 768px) {
-    height: 550px;
-    min-width: 690px;
   }
 }
 </style>
