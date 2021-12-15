@@ -31,7 +31,7 @@
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.19.1",
     "daisyui": "^1.16.2",
-    "date-fns": "^2.25.0",
+    "date-fns": "^2.27.0",
     "jdenticon": "^3.1.1",
     "nuxt": "^2.15.8",
     "nuxt-i18n": "^6.28.0",
