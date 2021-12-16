@@ -21,7 +21,7 @@
     </label>
     <section
       v-if="open"
-      class="border bg-grey rounded shadow absolute top-10 z-40"
+      class="border bg-grey rounded shadow absolute top-10 z-dropdown"
     >
       <ul>
         <li

@@ -1,29 +1,9 @@
 <template>
   <nav
-    class="
-      shadow
-      lg:shadow-none
-      bg-secondary
-      fixed
-      lg:relative
-      z-40
-      top-0
-      w-full
-      py-4
-      lg:py-16
-    "
+    class="shadow lg:shadow-none bg-secondary fixed lg:relative z-nav top-0 w-full py-4 lg:py-16"
   >
     <div
-      class="
-        flex
-        items-center
-        justify-between
-        2sm:px-4
-        sm:px-16
-        md:px-32
-        mx-auto
-        max-w-1440
-      "
+      class="flex items-center justify-between 2sm:px-4 sm:px-16 md:px-32 mx-auto max-w-1440"
     >
       <NuxtLink to="/">
         <div class="flex items-center">
@@ -35,16 +15,7 @@
       </NuxtLink>
 
       <div
-        class="
-          flex-grow
-          items-center
-          justify-end
-          md:space-x-8
-          lg:space-x-62px
-          2xl:space-x-128px
-          hidden
-          lg:flex
-        "
+        class="flex-grow items-center justify-end md:space-x-8 lg:space-x-62px 2xl:space-x-128px hidden lg:flex"
       >
         <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
 
@@ -88,19 +59,7 @@
 
               <div
                 v-if="context.open"
-                class="
-                  shadow
-                  origin-top-right
-                  absolute
-                  right-0
-                  mt-4
-                  w-64
-                  bg-grey
-                  border border-primary
-                  rounded
-                  overflow-hidden
-                  shadow-md
-                "
+                class="shadow origin-top-right absolute right-0 mt-4 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
               >
                 <ul @click="context.toggleOpen()">
                   <li>

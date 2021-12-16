@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      fixed
-      top-0
-      w-screen
-      flex flex-col
-      items-center
-      pt-24
-      lg:pt-6
-      px-2
-      z-50
-      pointer-events-none
-    "
+    class="fixed top-0 w-screen flex flex-col items-center pt-24 lg:pt-6 px-2 z-modal pointer-events-none"
   >
     <div
       v-for="alert in alerts"

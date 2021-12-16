@@ -1,5 +1,5 @@
 <template>
-  <div class="modal">
+  <div class="modal z-modal">
     <div class="modal-box">
       <h5 class="text-primary text-lg pb-2">{{ $t('manage.admins.edit') }}</h5>
 
