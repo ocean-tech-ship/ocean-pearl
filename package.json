@@ -30,7 +30,7 @@
     "@walletconnect/web3-provider": "^1.7.0",
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.20.0",
-    "daisyui": "^1.16.5",
+    "daisyui": "^1.16.6",
     "date-fns": "^2.27.0",
     "jdenticon": "^3.1.1",
     "nuxt": "^2.15.8",
