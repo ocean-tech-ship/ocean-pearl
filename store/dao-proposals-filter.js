@@ -68,15 +68,14 @@ export const actions = {
     try {
       const metricsResponse = await getDaoRoundMetrics(this.$axios, query);
 
-      if (metricsResponse.status === 204) {
-        commit('error', 'general.error.unknown');
-        commit('metrics', {});
-      }
+      if (metricsResponse.status === 204)
+        throw new Error('general.error.unknown');
 
       commit('metrics', metricsResponse.data);
-    } catch {
-      commit('error', 'general.error.retry');
-      commit('metrics', []);
+    } catch (error) {
+      commit('error', error.message || 'general.error.retry');
+      commit('metrics', {});
+      return Promise.reject(error.message || 'general.error.retry');
     }
   },
 
@@ -98,10 +97,8 @@ export const actions = {
     try {
       const daoProposalResponse = await getDaoProposals(this.$axios, query);
 
-      if (daoProposalResponse.status === 204) {
-        commit('error', 'general.error.unknown');
-        commit('daoProposals', []);
-      }
+      if (daoProposalResponse.status === 204)
+        throw new Error('general.error.unknown');
 
       commit('pending', false);
       commit('daoProposals', daoProposalResponse.data.docs);
@@ -113,7 +110,7 @@ export const actions = {
       return query;
     } catch (error) {
       commit('pending', false);
-      commit('error', 'general.error.retry');
+      commit('error', error.message || 'general.error.retry');
       commit('daoProposals', []);
     }
   },
