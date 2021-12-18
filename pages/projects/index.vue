@@ -2,14 +2,6 @@
   <div class="min-h-screen">
     <projects-header />
 
-    <landing-section-container>
-      <projects-filter
-        :filter="$store.state['projects-filter'].filter"
-        :set-filter="setFilter"
-        :fetch-projects="fetchProjects"
-      />
-    </landing-section-container>
-
     <landing-section-container v-if="$store.state['projects-filter'].error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t($store.state['projects-filter'].error) }}</p>
@@ -23,39 +15,49 @@
       </app-skeleton-card-list>
     </landing-section-container>
 
-    <landing-section-container
-      v-else-if="$store.state['projects-filter'].projects.length"
-    >
-      <projects-list :projects="$store.state['projects-filter'].projects" />
-      <app-pagination
-        v-if="$store.state['projects-filter'].pagination"
-        :pagination="$store.state['projects-filter'].pagination"
-        :set-filter="setFilter"
-        :fetch-projects="fetchProjects"
-      />
-    </landing-section-container>
+    <div v-else>
+      <landing-section-container>
+        <projects-filter
+          :filter="$store.state['projects-filter'].filter"
+          :set-filter="setFilter"
+          :fetch-projects="fetchProjects"
+        />
+      </landing-section-container>
 
-    <landing-section-container v-else>
-      <app-response-with-search
-        :no-search-text="{
-          headingMain: $t('projects.filterResponse.noSearch.heading.main'),
-          headingSecondary: $t(
-            'projects.filterResponse.noSearch.heading.secondary',
-          ),
-          paragraph: $t('projects.filterResponse.noSearch.paragraph'),
-          button: $t('projects.filterResponse.noSearch.button'),
-          link: 'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
-        }"
-        :search-text="{
-          headingMain: $t('projects.filterResponse.search.heading.main'),
-          headingSecondary: $t(
-            'projects.filterResponse.search.heading.secondary',
-          ),
-          paragraph: $t('projects.filterResponse.search.paragraph'),
-        }"
-        :search-used="$store.state['projects-filter'].searchUsed"
-      />
-    </landing-section-container>
+      <landing-section-container
+        v-if="$store.state['projects-filter'].projects.length"
+      >
+        <projects-list :projects="$store.state['projects-filter'].projects" />
+        <app-pagination
+          v-if="$store.state['projects-filter'].pagination"
+          :pagination="$store.state['projects-filter'].pagination"
+          :set-filter="setFilter"
+          :fetch-projects="fetchProjects"
+        />
+      </landing-section-container>
+
+      <landing-section-container v-else>
+        <app-response-with-search
+          :no-search-text="{
+            headingMain: $t('projects.filterResponse.noSearch.heading.main'),
+            headingSecondary: $t(
+              'projects.filterResponse.noSearch.heading.secondary',
+            ),
+            paragraph: $t('projects.filterResponse.noSearch.paragraph'),
+            button: $t('projects.filterResponse.noSearch.button'),
+            link: 'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
+          }"
+          :search-text="{
+            headingMain: $t('projects.filterResponse.search.heading.main'),
+            headingSecondary: $t(
+              'projects.filterResponse.search.heading.secondary',
+            ),
+            paragraph: $t('projects.filterResponse.search.paragraph'),
+          }"
+          :search-used="$store.state['projects-filter'].searchUsed"
+        />
+      </landing-section-container>
+    </div>
   </div>
 </template>
 
