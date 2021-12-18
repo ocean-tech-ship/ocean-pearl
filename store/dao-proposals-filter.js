@@ -4,7 +4,7 @@ export const state = () => ({
   error: false,
   pending: true,
   daoProposals: null,
-  fundingRound: null,
+  fundingRound: 0,
   metrics: null,
   pagination: null,
   searchUsed: false,
@@ -74,7 +74,6 @@ export const actions = {
       }
 
       commit('metrics', metricsResponse.data);
-      commit('fundingRound', metricsResponse.data.fundingRound);
     } catch {
       commit('error', 'general.error.retry');
       commit('metrics', []);
@@ -106,6 +105,7 @@ export const actions = {
 
       commit('pending', false);
       commit('daoProposals', daoProposalResponse.data.docs);
+      commit('fundingRound', daoProposalResponse.data.maxRounds);
       commit('pagination', daoProposalResponse.data.pagination);
 
       // return query for url mutations
