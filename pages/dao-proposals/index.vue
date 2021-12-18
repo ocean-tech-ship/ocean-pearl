@@ -62,6 +62,12 @@
       <dao-proposals-list
         :dao-proposals="$store.state['dao-proposals-filter'].daoProposals"
       />
+      <app-pagination
+        v-if="$store.state['dao-proposals-filter'].pagination"
+        :pagination="$store.state['dao-proposals-filter'].pagination"
+        :set-filter="setFilter"
+        :fetch-projects="fetchDaoProposals"
+      />
     </landing-section-container>
 
     <landing-section-container v-else>
@@ -99,6 +105,7 @@ import DaoProposalsSkeletonCard from '@/components/app/dao-proposals/DaoProposal
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
+import AppPagination from '@/components/common/AppPagination.vue';
 import CategoryEnum from '@/enums/Category.enum';
 import replaceQueryParams, {
   getFirstInstanceParam,
@@ -117,6 +124,7 @@ export default Vue.extend({
     AppResponseWithSearch,
     DaoProposalsSkeletonCard,
     AppSkeletonCardList,
+    AppPagination,
   },
 
   async fetch() {
