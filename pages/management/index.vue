@@ -6,19 +6,13 @@
         :projects="projects"
         :selected-project="selectedProject"
         @selectProject="
-          updateRequest = {}
-          projectIndex = $event
+          updateRequest = {};
+          projectIndex = $event;
         "
       />
 
       <!-- Loading indication -->
       <p v-if="!wallet">Loading...</p>
-
-      <!-- Info Messages -->
-      <div v-if="info" class="shadow rounded p-4 my-2">Info: {{ info }}</div>
-
-      <!-- Error Messages -->
-      <div v-if="error" class="shadow rounded p-4 my-2">Error: {{ error }}</div>
 
       <!-- Empty Project -->
       <empty-account v-if="projects && projects.length === 0" class="pt-16" />
@@ -44,6 +38,11 @@
             @change="updateRequest.logo = $event"
           />
         </div>
+
+        <project-one-liner
+          :project="selectedProject"
+          @change="updateRequest.oneLiner = $event"
+        />
 
         <div class="py-4 grid gap-8 xl:grid-cols-2">
           <div>
@@ -91,9 +90,11 @@ import ProjectDescription from '@/components/app/account/project/ProjectDescript
 import ProjectPictures from '@/components/app/account/project/ProjectPictures.vue';
 import ProjectCategory from '@/components/app/account/project/ProjectCategory.vue';
 import ProjectSocials from '@/components/app/account/project/socials/ProjectSocials.vue';
+import ProjectOneLiner from '@/components/app/account/project/ProjectOneLiner';
 
 export default Vue.extend({
   components: {
+    ProjectOneLiner,
     ProjectSocials,
     ProjectCategory,
     SectionContainer,
@@ -112,14 +113,15 @@ export default Vue.extend({
     return {
       projectIndex: 0,
       updateRequest: {},
-    }
+    };
   },
 
   async fetch({ redirect, store }) {
     try {
-      await store.dispatch('account/loadAccount')
-    } catch(error) { // Authentication failure
-      redirect('/management/login')
+      await store.dispatch('account/loadAccount');
+    } catch (error) {
+      // Authentication failure
+      redirect('/');
     }
   },
 
@@ -130,7 +132,8 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+          content:
+            'Login with your favorite wallet provider to manage your project or proposal.',
         },
         {
           hid: 'robots',
@@ -145,7 +148,8 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+          content:
+            'Login with your favorite wallet provider to manage your project or proposal.',
         },
         {
           hid: 'og:url',
@@ -160,7 +164,8 @@ export default Vue.extend({
         {
           hid: 'twitter:description',
           property: 'twitter:description',
-          content: 'Login with your favorite wallet provider to manage your project or proposal.',
+          content:
+            'Login with your favorite wallet provider to manage your project or proposal.',
         },
       ],
       link: [
@@ -169,28 +174,28 @@ export default Vue.extend({
           href: `${this.$config.rootURL}/management`,
         },
       ],
-    }
+    };
   },
 
   computed: {
     ...mapState('account', {
-      info: 'info',
-      error: 'error',
       projects: 'projects',
       wallet: 'wallet',
     }),
 
     selectedProject() {
-      return this.projects?.length > 0 ? this.projects[this.projectIndex] : null
+      return this.projects?.length > 0
+        ? this.projects[this.projectIndex]
+        : null;
     },
   },
 
   methods: {
     saveProject() {
-      this.updateRequest.id = this.selectedProject.id
-      this.$store.dispatch('account/updateProject', this.updateRequest)
+      this.updateRequest.id = this.selectedProject.id;
+      this.$store.dispatch('account/updateProject', this.updateRequest);
       this.updateRequest = {};
     },
   },
-})
+});
 </script>

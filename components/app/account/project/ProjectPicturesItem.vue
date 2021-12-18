@@ -2,22 +2,24 @@
   <div class="relative">
     <!-- overlay -->
     <div class="absolute w-full flex justify-end">
-      <button
-        class="
-          rounded-full
-          shadow
-          m-4
-          h-12
-          w-12
-          flex
-          items-center
-          justify-center
-          bg-secondary
-        "
-        @click="$emit('delete')"
-      >
-        <app-icon :data="icons.times" class="text-primary" :tooltip="$t('general.remove')" />
-      </button>
+      <app-tooltip :hint="$t('general.remove')">
+        <button
+          class="
+            rounded-full
+            shadow
+            m-4
+            h-12
+            w-12
+            flex
+            items-center
+            justify-center
+            bg-secondary
+          "
+          @click="$emit('delete')"
+        >
+          <app-icon :data="icons.times" class="text-primary" />
+        </button>
+      </app-tooltip>
     </div>
 
     <img
@@ -29,13 +31,14 @@
 </template>
 
 <script>
-import times from '@iconify/icons-la/times'
+import times from '@iconify/icons-la/times';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppTooltip from '~/components/common/AppTooltip';
 
 export default {
   name: 'ProjectPicturesItem',
 
-  components: { AppIcon },
+  components: { AppTooltip, AppIcon },
 
   props: {
     src: {
@@ -50,7 +53,7 @@ export default {
       icons: {
         times,
       },
-    }
-  }
-}
+    };
+  },
+};
 </script>

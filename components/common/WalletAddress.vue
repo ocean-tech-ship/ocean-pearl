@@ -1,23 +1,19 @@
 <template>
-  <div class="flex items-center break-all">
+  <div class="flex items-center">
     <jazzicon
-      class="flex items-center w-5 h-5 mr-2"
+      class="flex items-center w-5 h-5"
       :diameter="20"
       :address="address"
     />
 
-    <span>{{ address }}</span>
+    <span class="break-all pl-2 pr-1">{{ address }}</span>
 
     <app-link
-      class="ml-1"
+      class="tooltip tooltip-primary tooltip-left"
+      :data-tip="$t('project.proposal.wallet.view')"
       :to="explorerUrl"
     >
-      <app-icon
-        class="text-primary"
-        :size="16"
-        :data="icons.externalLinkAlt"
-        :tooltip="$t('project.proposal.wallet.view')"
-      />
+      <app-icon class="text-primary" :size="16" :data="icons.externalLinkAlt" />
     </app-link>
   </div>
 </template>
@@ -57,6 +53,6 @@ export default {
     explorerUrl() {
       return `https://etherscan.io/address/${this.$props.address}`;
     },
-  }
-}
+  },
+};
 </script>
