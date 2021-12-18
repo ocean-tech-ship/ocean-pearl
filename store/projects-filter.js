@@ -63,10 +63,8 @@ export const actions = {
     try {
       const projectsResponse = await getProjects(this.$axios, query);
 
-      if (projectsResponse.status === 204) {
-        commit('error', 'general.error.unknown');
-        commit('projects', []);
-      }
+      if (projectsResponse.status === 204)
+        throw new Error('general.error.unknown');
 
       commit('pending', false);
       commit('projects', projectsResponse.data.docs);
@@ -77,7 +75,7 @@ export const actions = {
       return query;
     } catch (error) {
       commit('pending', false);
-      commit('error', 'general.error.retry');
+      commit('error', error.message || 'general.error.retry');
       commit('projects', []);
     }
   },
