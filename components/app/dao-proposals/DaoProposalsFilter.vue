@@ -66,12 +66,14 @@ export default {
         search: search || search === '' ? search : this.filter.search,
       };
 
-      this.setFilter(newFilter).then(
-        this.fetchDaoRoundMetrics().then(
-          this.fetchDaoProposals().then((query) => {
-            replaceQueryParams(this, query);
-          }),
-        ),
+      this.setFilter(newFilter).then(() =>
+        this.fetchDaoRoundMetrics()
+          .then(() =>
+            this.fetchDaoProposals().then((query) =>
+              replaceQueryParams(this, query),
+            ),
+          )
+          .catch(() => null),
       );
     },
   },
