@@ -2,9 +2,13 @@
   <div class="min-h-screen">
     <dao-proposals-header />
 
-    <landing-section-container v-if="$fetchState.error">
+    <landing-section-container
+      v-if="$store.state['dao-proposals-filter'].error"
+    >
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-      <p class="small-text">{{ $t(error) }}</p>
+      <p class="small-text">
+        {{ $t($store.state['dao-proposals-filter'].error) }}
+      </p>
     </landing-section-container>
 
     <landing-section-container v-else-if="$fetchState.pending">
@@ -19,53 +23,44 @@
 
     <div v-else>
       <landing-section-container>
-        <round-metrics :metrics="metrics" />
+        <round-metrics
+          :metrics="$store.state['dao-proposals-filter'].metrics"
+        />
         <hr class="text-primary my-16" />
       </landing-section-container>
 
       <landing-section-container>
         <dao-proposals-filter
-          :rounds="fundingRound"
-          @filter="fetchDaoProposals"
+          :rounds="$store.state['dao-proposals-filter'].fundingRound"
+          :filter="$store.state['dao-proposals-filter'].filter"
+          :set-filter="setFilter"
+          :fetch-dao-round-metrics="fetchDaoRoundMetrics"
+          :fetch-dao-proposals="fetchDaoProposals"
         />
       </landing-section-container>
 
-      <landing-section-container v-if="error">
+      <landing-section-container
+        v-if="$store.state['dao-proposals-filter'].error"
+      >
         <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-        <p class="small-text">{{ $t(error) }}</p>
+        <p class="small-text">
+          {{ $t($store.state['dao-proposals-filter'].error) }}
+        </p>
       </landing-section-container>
 
-      <landing-section-container v-else-if="pending">
+      <landing-section-container
+        v-else-if="$store.state['dao-proposals-filter'].pending"
+      >
         <app-skeleton-card-list :quantity="8">
           <dao-proposals-skeleton-card />
         </app-skeleton-card-list>
       </landing-section-container>
 
-      <landing-section-container v-else-if="daoProposals.length">
-        <dao-proposals-list :dao-proposals="daoProposals" />
-      </landing-section-container>
-
-      <landing-section-container v-else>
-        <app-response-with-search
-          :no-search-text="{
-            headingMain: $t(
-              'dao-projects.filterResponse.noSearch.heading.main',
-            ),
-            headingSecondary: $t(
-              'dao-projects.filterResponse.noSearch.heading.secondary',
-            ),
-            paragraph: $t('dao-projects.filterResponse.noSearch.paragraph'),
-            button: $t('dao-projects.filterResponse.noSearch.button'),
-            link: 'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
-          }"
-          :search-text="{
-            headingMain: $t('dao-projects.filterResponse.search.heading.main'),
-            headingSecondary: $t(
-              'dao-projects.filterResponse.search.heading.secondary',
-            ),
-            paragraph: $t('dao-projects.filterResponse.search.paragraph'),
-          }"
-          :search-used="searchUsed"
+      <landing-section-container
+        v-else-if="$store.state['dao-proposals-filter'].daoProposals.length"
+      >
+        <dao-proposals-list
+          :dao-proposals="$store.state['dao-proposals-filter'].daoProposals"
         />
       </landing-section-container>
     </div>
@@ -74,7 +69,6 @@
 
 <script>
 import Vue from 'vue';
-import { getDaoRoundMetrics, getDaoProposals } from '@/api';
 import DaoProposalsHeader from '@/components/app/dao-proposals/DaoProposalsHeader.vue';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
 import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetricsSkeletonCard.vue';
@@ -84,6 +78,10 @@ import DaoProposalsSkeletonCard from '@/components/app/dao-proposals/DaoProposal
 import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
+import CategoryEnum from '@/enums/Category.enum';
+import replaceQueryParams, {
+  getFirstInstanceParam,
+} from '@/helpers/windowHistory';
 
 export default Vue.extend({
   name: 'DaoProjectOverview',
@@ -100,36 +98,8 @@ export default Vue.extend({
     AppSkeletonCardList,
   },
 
-  data() {
-    return {
-      pending: true,
-      error: null,
-      daoProposals: null,
-      fundingRound: null,
-      searchUsed: false,
-      metrics: null,
-    };
-  },
-
   async fetch() {
-    try {
-      const metricsResponse = await getDaoRoundMetrics(this.$axios);
-
-      if (metricsResponse.status === 204) {
-        this.error = 'general.error.unknown';
-        this.metrics = {};
-      }
-
-      this.error = null;
-      this.metrics =
-        process.env.NODE_ENV === 'mirage'
-          ? metricsResponse.data.metrics
-          : metricsResponse.data;
-      this.fundingRound = metricsResponse.data.fundingRound;
-    } catch (error) {
-      this.error = 'general.error.retry';
-      this.metrics = {};
-    }
+    await this.fetchDaoRoundMetrics();
   },
 
   head() {
@@ -176,37 +146,51 @@ export default Vue.extend({
     };
   },
 
+  created() {
+    const page = getFirstInstanceParam(this.$route.query.page);
+    const round = getFirstInstanceParam(this.$route.query.round);
+    const category = getFirstInstanceParam(this.$route.query.category);
+    const search = getFirstInstanceParam(this.$route.query.search);
+
+    if (page || round || category || search) {
+      const newFilter = {
+        page:
+          page && parseInt(page)
+            ? parseInt(page)
+            : this.$store.state['projects-filter'].filter.page,
+        round:
+          round && parseInt(round)
+            ? parseInt(round)
+            : this.$store.state['projects-filter'].filter.round,
+        category: Object.values(CategoryEnum).includes(category)
+          ? category
+          : this.$store.state['projects-filter'].filter.category,
+        search:
+          search || search === ''
+            ? search
+            : this.$store.state['projects-filter'].filter.search,
+      };
+      this.setFilter(newFilter).then(
+        this.fetchDaoRoundMetrics().then(
+          this.fetchDaoProposals().then((query) =>
+            replaceQueryParams(this, query),
+          ),
+        ),
+      );
+    }
+
+    this.fetchDaoProposals();
+  },
+
   methods: {
-    async fetchDaoProposals(payload) {
-      try {
-        if (payload.round) {
-          // Fetch metrics for switched round
-          const metricsResponse = await getDaoRoundMetrics(this.$axios, {
-            round: payload.round,
-          });
-          this.metrics = metricsResponse.data;
-        }
-
-        const daoProposalResponse = await getDaoProposals(this.$axios, payload);
-        if (daoProposalResponse.status === 204) {
-          this.error = 'general.error.unknown';
-          this.daoProposals = [];
-        }
-
-        this.pending = false;
-        this.error = null;
-        this.daoProposals =
-          process.env.NODE_ENV === 'mirage'
-            ? daoProposalResponse.data.daoproposals
-            : daoProposalResponse.data.daoProposals;
-
-        // set search used
-        payload.search ? (this.searchUsed = true) : (this.searchUsed = false);
-      } catch (error) {
-        this.pending = false;
-        this.error = 'general.error.retry';
-        this.daoProposals = [];
-      }
+    setFilter(payload) {
+      return this.$store.dispatch('dao-proposals-filter/setFilter', payload);
+    },
+    fetchDaoRoundMetrics() {
+      return this.$store.dispatch('dao-proposals-filter/fetchDaoRoundMetrics');
+    },
+    fetchDaoProposals() {
+      return this.$store.dispatch('dao-proposals-filter/fetchDaoProposals');
     },
   },
 });
