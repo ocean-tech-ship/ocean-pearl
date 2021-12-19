@@ -4,9 +4,10 @@
     ref="paginationWrapper"
     class="my-12 flex justify-center"
   >
-    <div class="btn-group">
+    <div class="btn-group flex-nowrap">
       <button
-        class="btn btn-xs sm:btn-sm md:btn-md"
+        class="btn btn-outline no-animation btn-xs mr-1 sm:btn-sm md:btn-md"
+        :class="{ 'btn-primary': pagination.page !== 1 }"
         :disabled="pagination.page === 1"
         @click="goToPage(pagination.page - 1)"
       >
@@ -16,16 +17,20 @@
         v-for="i in displayedPages"
         :id="`page${i}`"
         :key="`btn-pagination-${i === '...' ? i + Math.random() : i}`"
-        class="btn btn-xs sm:btn-sm md:btn-md"
+        class="btn btn-outline no-animation btn-xs mx-1 sm:btn-sm md:btn-md"
         name="pagination"
-        :class="{ 'btn-active': pagination.page === i }"
+        :class="{
+          'btn-active': pagination.page === i,
+          'btn-primary': i !== '...',
+        }"
         :disabled="i === '...'"
         @click="goToPage(i)"
       >
         {{ i }}
       </button>
       <button
-        class="btn btn-xs sm:btn-sm md:btn-md"
+        class="btn btn-outline no-animation btn-xs ml-1 sm:btn-sm md:btn-md"
+        :class="{ 'btn-primary': pagination.page !== pagination.totalPages }"
         :disabled="pagination.page === pagination.totalPages"
         @click="goToPage(pagination.page + 1)"
       >
