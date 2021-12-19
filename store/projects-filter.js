@@ -63,19 +63,21 @@ export const actions = {
     try {
       const projectsResponse = await getProjects(this.$axios, query);
 
-      if (projectsResponse.status === 204)
-        throw new Error('general.error.unknown');
+      if (projectsResponse.status === 204) {
+        commit('error', 'general.error.retry');
+        commit('projects', []);
+      } else {
+        commit('pending', false);
+        commit('projects', projectsResponse.data.docs);
+        commit('pagination', projectsResponse.data.pagination);
 
+        // return query for url mutations
+        delete query.limit;
+        return query;
+      }
+    } catch {
       commit('pending', false);
-      commit('projects', projectsResponse.data.docs);
-      commit('pagination', projectsResponse.data.pagination);
-
-      // return query for url mutations
-      delete query.limit;
-      return query;
-    } catch (error) {
-      commit('pending', false);
-      commit('error', error.message || 'general.error.retry');
+      commit('error', 'general.error.retry');
       commit('projects', []);
     }
   },

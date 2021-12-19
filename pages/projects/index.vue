@@ -32,7 +32,7 @@
           v-if="$store.state['projects-filter'].pagination"
           :pagination="$store.state['projects-filter'].pagination"
           :set-filter="setFilter"
-          :fetch-projects="fetchProjects"
+          :fetch-page="fetchProjects"
         />
       </landing-section-container>
 
