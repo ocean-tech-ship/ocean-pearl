@@ -42,11 +42,7 @@ export default {
       type: Function,
       required: true,
     },
-    fetchDaoRoundMetrics: {
-      type: Function,
-      required: true,
-    },
-    fetchDaoProposals: {
+    fetchMetricsAndProposals: {
       type: Function,
       required: true,
     },
@@ -67,13 +63,9 @@ export default {
       };
 
       this.setFilter(newFilter).then(() =>
-        this.fetchDaoRoundMetrics()
-          .then(() =>
-            this.fetchDaoProposals().then((query) =>
-              replaceQueryParams(this, query),
-            ),
-          )
-          .catch(() => null),
+        this.fetchMetricsAndProposals().then((query) =>
+          replaceQueryParams(this, query),
+        ),
       );
     },
   },

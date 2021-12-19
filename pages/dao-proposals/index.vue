@@ -39,8 +39,7 @@
           :rounds="$store.state['dao-proposals-filter'].fundingRound"
           :filter="$store.state['dao-proposals-filter'].filter"
           :set-filter="setFilter"
-          :fetch-dao-round-metrics="fetchDaoRoundMetrics"
-          :fetch-dao-proposals="fetchDaoProposals"
+          :fetch-metrics-and-proposals="fetchMetricsAndProposals"
         />
       </landing-section-container>
 
@@ -54,7 +53,7 @@
           v-if="$store.state['dao-proposals-filter'].pagination"
           :pagination="$store.state['dao-proposals-filter'].pagination"
           :set-filter="setFilter"
-          :fetch-projects="fetchDaoProposals"
+          :fetch-page="fetchDaoProposals"
         />
       </landing-section-container>
 
@@ -188,30 +187,26 @@ export default Vue.extend({
       };
 
       this.setFilter(newFilter).then(() =>
-        this.fetchDaoRoundMetrics()
-          .then(() =>
-            this.fetchDaoProposals().then((query) =>
-              replaceQueryParams(this, query),
-            ),
-          )
-          .catch(() => null),
+        this.fetchMetricsAndProposals().then((query) =>
+          replaceQueryParams(this, query),
+        ),
       );
     }
 
-    this.fetchDaoRoundMetrics()
-      .then(this.fetchDaoProposals)
-      .catch(() => null);
+    this.fetchMetricsAndProposals();
   },
 
   methods: {
     setFilter(payload) {
       return this.$store.dispatch('dao-proposals-filter/setFilter', payload);
     },
-    fetchDaoRoundMetrics() {
-      return this.$store.dispatch('dao-proposals-filter/fetchDaoRoundMetrics');
-    },
     fetchDaoProposals() {
       return this.$store.dispatch('dao-proposals-filter/fetchDaoProposals');
+    },
+    fetchMetricsAndProposals() {
+      return this.$store.dispatch(
+        'dao-proposals-filter/fetchMetricsAndProposals',
+      );
     },
   },
 });

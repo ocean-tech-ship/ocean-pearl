@@ -68,10 +68,12 @@ export const actions = {
     try {
       const metricsResponse = await getDaoRoundMetrics(this.$axios, query);
 
-      if (metricsResponse.status === 204)
-        throw new Error('general.error.unknown');
-
-      commit('metrics', metricsResponse.data);
+      if (metricsResponse.status === 204) {
+        commit('error', 'general.error.unknown');
+        commit('metrics', []);
+      } else {
+        commit('metrics', metricsResponse.data);
+      }
     } catch (error) {
       commit('error', error.message || 'general.error.retry');
       commit('metrics', {});
@@ -97,20 +99,64 @@ export const actions = {
     try {
       const daoProposalResponse = await getDaoProposals(this.$axios, query);
 
-      if (daoProposalResponse.status === 204)
-        throw new Error('general.error.unknown');
+      if (daoProposalResponse.status === 204) {
+        commit('error', 'general.error.unknown');
+        commit('daoProposals', {});
+      } else {
+        commit('pending', false);
+        commit('daoProposals', daoProposalResponse.data.docs);
+        commit('fundingRound', daoProposalResponse.data.maxRounds);
+        commit('pagination', daoProposalResponse.data.pagination);
 
+        // return query for url mutations
+        delete query.limit;
+        return query;
+      }
+    } catch {
       commit('pending', false);
-      commit('daoProposals', daoProposalResponse.data.docs);
-      commit('fundingRound', daoProposalResponse.data.maxRounds);
-      commit('pagination', daoProposalResponse.data.pagination);
+      commit('error', 'general.error.retry');
+      commit('daoProposals', []);
+    }
+  },
 
-      // return query for url mutations
-      delete query.limit;
-      return query;
-    } catch (error) {
+  async fetchMetricsAndProposals({ commit, state }) {
+    // reset
+    commit('error', null);
+
+    // prepare query object
+    const query = { ...state.filter };
+    if (query.category === 'all') delete query.category;
+    if (query.search === '') delete query.search;
+    if (query.round === 0) delete query.round;
+
+    try {
+      const [metricsResponse, daoProposalResponse] = await Promise.all([
+        getDaoRoundMetrics(this.$axios, { round: query.round }),
+        getDaoProposals(this.$axios, query),
+      ]);
+
+      if (
+        metricsResponse.status === 204 ||
+        daoProposalResponse.status === 204
+      ) {
+        commit('error', 'general.error.unknown');
+        commit('metrics', []);
+        commit('daoProposals', {});
+      } else {
+        commit('metrics', metricsResponse.data);
+        commit('daoProposals', daoProposalResponse.data.docs);
+        commit('fundingRound', daoProposalResponse.data.maxRounds);
+        commit('pagination', daoProposalResponse.data.pagination);
+        commit('pending', false);
+
+        // return query for url mutations
+        delete query.limit;
+        return query;
+      }
+    } catch {
       commit('pending', false);
-      commit('error', error.message || 'general.error.retry');
+      commit('error', 'general.error.retry');
+      commit('metrics', []);
       commit('daoProposals', []);
     }
   },
