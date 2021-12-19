@@ -55,7 +55,7 @@ export default {
       type: Function,
       required: true,
     },
-    fetchProjects: {
+    fetchPage: {
       type: Function,
       required: true,
     },
@@ -83,7 +83,7 @@ export default {
   methods: {
     goToPage(page) {
       this.setFilter({ page }).then(() =>
-        this.fetchProjects().then((query) => {
+        this.fetchPage().then((query) => {
           const paginationWrapper = this.$refs.paginationWrapper;
           const top = paginationWrapper.offsetTop;
           window.scrollTo(0, top);
