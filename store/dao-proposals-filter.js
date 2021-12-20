@@ -53,8 +53,8 @@ export const mutations = {
 };
 
 export const actions = {
-  setPending({ commit, state }, pending) {
-    if (state.pending !== pending) commit('pending', pending);
+  setPending({ commit, state }, payload) {
+    if (state.pending !== payload) commit('pending', payload);
   },
 
   setFilter({ commit }, payload) {

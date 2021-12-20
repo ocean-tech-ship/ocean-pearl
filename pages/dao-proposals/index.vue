@@ -199,8 +199,8 @@ export default Vue.extend({
   },
 
   methods: {
-    setPending(pending) {
-      return this.$store.dispatch('dao-proposals-filter/setPending', pending);
+    setPending(payload) {
+      return this.$store.dispatch('dao-proposals-filter/setPending', payload);
     },
     setFilter(payload) {
       return this.$store.dispatch('dao-proposals-filter/setFilter', payload);

@@ -163,8 +163,8 @@ export default Vue.extend({
   },
 
   methods: {
-    setPending(pending) {
-      return this.$store.dispatch('projects-filter/setPending', pending);
+    setPending(payload) {
+      return this.$store.dispatch('projects-filter/setPending', payload);
     },
     setFilter(payload) {
       return this.$store.dispatch('projects-filter/setFilter', payload);
