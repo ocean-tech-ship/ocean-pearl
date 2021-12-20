@@ -186,17 +186,22 @@ export default Vue.extend({
             : this.$store.state['dao-proposals-filter'].filter.search,
       };
 
-      this.setFilter(newFilter).then(() =>
-        this.fetchMetricsAndProposals().then((query) =>
-          replaceQueryParams(this, query),
+      this.setPending(true).then(() =>
+        this.setFilter(newFilter).then(() =>
+          this.fetchMetricsAndProposals().then((query) =>
+            replaceQueryParams(this, query),
+          ),
         ),
       );
     }
 
-    this.fetchMetricsAndProposals();
+    this.setPending(true).then(this.fetchMetricsAndProposals);
   },
 
   methods: {
+    setPending(pending) {
+      return this.$store.dispatch('dao-proposals-filter/setPending', pending);
+    },
     setFilter(payload) {
       return this.$store.dispatch('dao-proposals-filter/setFilter', payload);
     },
