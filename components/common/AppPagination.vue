@@ -4,9 +4,9 @@
     ref="paginationWrapper"
     class="my-12 flex justify-center"
   >
-    <div class="btn-group flex-nowrap">
+    <div class="btn-group">
       <button
-        class="btn btn-outline no-animation btn-xs mr-1 sm:btn-sm md:btn-md"
+        class="btn btn-outline no-animation mr-1 mb-1 btn-sm md:btn-md"
         :class="{ 'btn-primary': pagination.page !== 1 }"
         :disabled="pagination.page === 1"
         @click="goToPage(pagination.page - 1)"
@@ -17,7 +17,7 @@
         v-for="i in displayedPages"
         :id="`page${i}`"
         :key="`btn-pagination-${i === '...' ? i + Math.random() : i}`"
-        class="btn btn-outline no-animation btn-xs mx-1 sm:btn-sm md:btn-md"
+        class="btn btn-outline no-animation mx-1 mb-1 btn-sm md:btn-md"
         name="pagination"
         :class="{
           'btn-active': pagination.page === i,
@@ -29,7 +29,7 @@
         {{ i }}
       </button>
       <button
-        class="btn btn-outline no-animation btn-xs ml-1 sm:btn-sm md:btn-md"
+        class="btn btn-outline no-animation ml-1 mb-1 btn-sm md:btn-md"
         :class="{ 'btn-primary': pagination.page !== pagination.totalPages }"
         :disabled="pagination.page === pagination.totalPages"
         @click="goToPage(pagination.page + 1)"
@@ -93,60 +93,43 @@ export default {
     },
 
     buildPages() {
-      if (
-        this.pagination.totalPages > 9 &&
-        this.pagination.totalPages - 4 <= this.pagination.page
+      let pagesArr = [1, 2, 3, 4, 5, '...', this.pagination.totalPages];
+
+      if (this.pagination.totalPages <= 7) {
+        pagesArr = [];
+        for (let i = 1; i <= this.pagination.totalPages; i++) {
+          pagesArr.push(i);
+        }
+      } else if (
+        this.pagination.totalPages > 7 &&
+        this.pagination.page > 3 &&
+        !(this.pagination.totalPages - 2 <= this.pagination.page)
       ) {
-        this.displayedPages = this.buildEndPages();
-      } else if (this.pagination.totalPages > 9 && this.pagination.page > 5) {
-        this.displayedPages = this.buildCenterPages();
-      } else {
-        this.displayedPages = this.buildStartPages();
-      }
-    },
-
-    buildStartPages() {
-      const pagesArr = [];
-      for (
-        let i = 1;
-        i <= (this.pagination.totalPages > 9 ? 7 : this.pagination.totalPages);
-        i++
+        pagesArr = [
+          1,
+          '...',
+          this.pagination.page - 1,
+          this.pagination.page,
+          this.pagination.page + 1,
+          '...',
+          this.pagination.totalPages,
+        ];
+      } else if (
+        this.pagination.totalPages > 7 &&
+        this.pagination.totalPages - 2 <= this.pagination.page
       ) {
-        pagesArr.push(i);
+        pagesArr = [
+          1,
+          '...',
+          this.pagination.totalPages - 4,
+          this.pagination.totalPages - 3,
+          this.pagination.totalPages - 2,
+          this.pagination.totalPages - 1,
+          this.pagination.totalPages,
+        ];
       }
-      if (this.pagination.totalPages > 9) {
-        pagesArr.push('...');
-        pagesArr.push(this.pagination.totalPages);
-      }
-      return pagesArr;
-    },
 
-    buildCenterPages() {
-      return [
-        1,
-        '...',
-        this.pagination.page - 2,
-        this.pagination.page - 1,
-        this.pagination.page,
-        this.pagination.page + 1,
-        this.pagination.page + 2,
-        '...',
-        this.pagination.totalPages,
-      ];
-    },
-
-    buildEndPages() {
-      return [
-        1,
-        '...',
-        this.pagination.totalPages - 6,
-        this.pagination.totalPages - 5,
-        this.pagination.totalPages - 4,
-        this.pagination.totalPages - 3,
-        this.pagination.totalPages - 2,
-        this.pagination.totalPages - 1,
-        this.pagination.totalPages,
-      ];
+      this.displayedPages = pagesArr;
     },
   },
 };
