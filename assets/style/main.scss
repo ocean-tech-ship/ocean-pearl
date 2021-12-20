@@ -137,10 +137,18 @@ p {
   line-height: 12px;
 }
 
+/* buttons */
 button:disabled {
   background: #ffffff !important;
   border-color: #c4c4c4 !important;
   color: #c4c4c4 !important;
+}
+
+.btn-primary:hover {
+  color: #bb2c75 !important;
+  background-color: #ffffff !important;
+  transition: ease-in-out 200ms !important;
+  box-shadow: 0 0 0 1px #bb2c75 !important;
 }
 
 /* width vertical */
