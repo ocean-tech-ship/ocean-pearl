@@ -137,6 +137,12 @@ p {
   line-height: 12px;
 }
 
+button:disabled {
+  background: #ffffff !important;
+  border-color: #c4c4c4 !important;
+  color: #c4c4c4 !important;
+}
+
 /* width vertical */
 ::-webkit-scrollbar {
   width: 8px;

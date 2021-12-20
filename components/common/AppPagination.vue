@@ -151,13 +151,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.btn-group {
-  button:disabled {
-    background: #ffffff;
-    border-color: #c4c4c4;
-    color: #c4c4c4;
-  }
-}
-</style>
