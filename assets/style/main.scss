@@ -140,8 +140,10 @@ p {
 /* buttons */
 button:disabled {
   background: #ffffff !important;
-  border-color: #c4c4c4 !important;
   color: #c4c4c4 !important;
+  &.btn-outline {
+    border-color: #c4c4c4 !important;
+  }
 }
 
 .btn-primary:hover {
