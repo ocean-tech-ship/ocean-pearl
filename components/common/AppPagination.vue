@@ -6,7 +6,17 @@
   >
     <div class="btn-group">
       <button
-        class="btn btn-outline no-animation mr-1 mb-1 btn-sm md:btn-md"
+        class="
+          btn btn-xs btn-outline
+          no-animation
+          w-[30px]
+          h-[30px]
+          mr-1
+          mb-1
+          sm:btn-sm
+          md:btn-md
+          sm:w-auto sm:h-auto
+        "
         :class="{ 'btn-primary': pagination.page !== 1 }"
         :disabled="pagination.page === 1"
         @click="goToPage(pagination.page - 1)"
@@ -14,22 +24,42 @@
         «
       </button>
       <button
-        v-for="i in displayedPages"
-        :id="`page${i}`"
-        :key="`btn-pagination-${i === '...' ? i + Math.random() : i}`"
-        class="btn btn-outline no-animation mx-1 mb-1 btn-sm md:btn-md"
+        v-for="(page, index) in displayedPages"
+        :id="`page${page}`"
+        :key="index"
+        class="
+          btn btn-xs btn-outline
+          no-animation
+          w-[30px]
+          h-[30px]
+          mx-1
+          mb-1
+          sm:btn-sm
+          md:btn-md
+          sm:w-auto sm:h-auto
+        "
         name="pagination"
         :class="{
-          'btn-active': pagination.page === i,
-          'btn-primary': i !== '...',
+          'btn-active': pagination.page === page,
+          'btn-primary': page !== '...',
         }"
-        :disabled="i === '...'"
-        @click="goToPage(i)"
+        :disabled="page === '...'"
+        @click="goToPage(page)"
       >
-        {{ i }}
+        {{ page }}
       </button>
       <button
-        class="btn btn-outline no-animation ml-1 mb-1 btn-sm md:btn-md"
+        class="
+          btn btn-xs btn-outline
+          no-animation
+          w-[30px]
+          h-[30px]
+          ml-1
+          mb-1
+          sm:btn-sm
+          md:btn-md
+          sm:w-auto sm:h-auto
+        "
         :class="{ 'btn-primary': pagination.page !== pagination.totalPages }"
         :disabled="pagination.page === pagination.totalPages"
         @click="goToPage(pagination.page + 1)"
@@ -134,3 +164,23 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+/* buttons */
+button:disabled {
+  background: #c4c4c4;
+  color: #ffffff;
+  &.btn-outline {
+    background: #ffffff;
+    color: #c4c4c4;
+    border-color: #c4c4c4;
+  }
+}
+
+.btn-primary:hover {
+  color: #bb2c75 !important;
+  background-color: #ffffff !important;
+  transition: ease-in-out 200ms;
+  box-shadow: 0 0 0 1px #bb2c75;
+}
+</style>
