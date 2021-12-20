@@ -151,15 +151,21 @@ export default Vue.extend({
             ? search
             : this.$store.state['projects-filter'].filter.search,
       };
-      this.setFilter(newFilter).then(() =>
-        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+
+      this.setPending(true).then(() =>
+        this.setFilter(newFilter).then(() =>
+          this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+        ),
       );
     }
 
-    this.fetchProjects();
+    this.setPending(true).then(this.fetchProjects);
   },
 
   methods: {
+    setPending(pending) {
+      return this.$store.dispatch('projects-filter/setPending', pending);
+    },
     setFilter(payload) {
       return this.$store.dispatch('projects-filter/setFilter', payload);
     },

@@ -42,6 +42,10 @@ export const mutations = {
 };
 
 export const actions = {
+  setPending({ commit, state }, pending) {
+    if (state.pending !== pending) commit('pending', pending);
+  },
+
   setFilter({ commit }, payload) {
     commit('filter', payload);
   },
