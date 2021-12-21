@@ -78,10 +78,9 @@ export const actions = {
       } else {
         commit('metrics', metricsResponse.data);
       }
-    } catch (error) {
-      commit('error', error.message || 'general.error.retry');
-      commit('metrics', {});
-      return Promise.reject(error.message || 'general.error.retry');
+    } catch {
+      commit('error', 'general.error.retry');
+      commit('metrics', []);
     }
   },
 
