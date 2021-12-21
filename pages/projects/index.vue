@@ -71,9 +71,8 @@ import ProjectsSkeletonCard from '@/components/app/projects/ProjectsSkeletonCard
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppPagination from '@/components/common/AppPagination.vue';
-import CategoryEnum from '@/enums/Category.enum';
 import replaceQueryParams, {
-  getFirstInstanceParam,
+  processQueryToFilter,
 } from '@/helpers/windowHistory';
 
 export default Vue.extend({
@@ -133,33 +132,27 @@ export default Vue.extend({
   },
 
   created() {
-    const page = getFirstInstanceParam(this.$route.query.page);
-    const category = getFirstInstanceParam(this.$route.query.category);
-    const search = getFirstInstanceParam(this.$route.query.search);
+    const newFilter = processQueryToFilter(
+      {
+        page: this.$route.query.page,
+        category: this.$route.query.category,
+        search: this.$route.query.search,
+      },
+      this.$store.state['projects-filter'].filter,
+    );
 
-    if (page || category || search) {
-      const newFilter = {
-        page:
-          page && parseInt(page)
-            ? parseInt(page)
-            : this.$store.state['projects-filter'].filter.page,
-        category: Object.values(CategoryEnum).includes(category)
-          ? category
-          : this.$store.state['projects-filter'].filter.category,
-        search:
-          search || search === ''
-            ? search
-            : this.$store.state['projects-filter'].filter.search,
-      };
-
+    if (Object.entries(newFilter).length) {
       this.setPending(true).then(() =>
         this.setFilter(newFilter).then(() =>
           this.fetchProjects().then((query) => replaceQueryParams(this, query)),
         ),
       );
+      return;
     }
 
-    this.setPending(true).then(this.fetchProjects);
+    this.setPending(true).then(() =>
+      this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+    );
   },
 
   methods: {

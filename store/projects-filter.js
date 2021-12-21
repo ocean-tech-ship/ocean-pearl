@@ -76,6 +76,7 @@ export const actions = {
         commit('pagination', projectsResponse.data.pagination);
 
         // return query for url mutations
+        if (query.page === 1) delete query.page;
         delete query.limit;
         return query;
       }
