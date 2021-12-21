@@ -27,7 +27,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies 👨🏻‍💻
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --network-timeout 60000
 
       # - name: Run linter 👀
       #   run: yarn lint
@@ -71,7 +71,7 @@ jobs:
           cache: 'yarn'
 
       - name: Install dependencies 👨🏻‍💻
-        run: yarn install --frozen-lockfile
+        run: yarn install --frozen-lockfile --network-timeout 60000
 
       - name: Building project 🚧
         run: yarn build
