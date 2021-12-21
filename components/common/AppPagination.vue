@@ -15,7 +15,7 @@
           mb-1
           sm:btn-sm
           md:btn-md
-          sm:w-auto sm:h-auto
+          sm:w-[40px] sm:h-auto
         "
         :class="{ 'btn-primary': pagination.page !== 1 }"
         :disabled="pagination.page === 1"
@@ -36,7 +36,7 @@
           mb-1
           sm:btn-sm
           md:btn-md
-          sm:w-auto sm:h-auto
+          sm:w-[40px] sm:h-auto
         "
         name="pagination"
         :class="{
@@ -58,7 +58,7 @@
           mb-1
           sm:btn-sm
           md:btn-md
-          sm:w-auto sm:h-auto
+          sm:w-[40px] sm:h-auto
         "
         :class="{ 'btn-primary': pagination.page !== pagination.totalPages }"
         :disabled="pagination.page === pagination.totalPages"
