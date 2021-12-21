@@ -19,7 +19,7 @@ export function getFirstInstanceParam(
   return fistInstance;
 }
 
-export function processQueryToNewFilter(
+export function processQueryToFilter(
   queryParams: Record<string, string | (string | null)[]>,
   filter: Record<string, any>,
 ): Record<string, any> {

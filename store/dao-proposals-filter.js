@@ -113,6 +113,7 @@ export const actions = {
         commit('pagination', daoProposalResponse.data.pagination);
 
         // return query for url mutations
+        if (query.page === 1) delete query.page;
         delete query.limit;
         return query;
       }
@@ -154,6 +155,7 @@ export const actions = {
         commit('pending', false);
 
         // return query for url mutations
+        if (query.page === 1) delete query.page;
         delete query.limit;
         return query;
       }

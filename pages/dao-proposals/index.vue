@@ -96,9 +96,8 @@ import LandingSectionContainer from '@/components/app/landing/LandingSectionCont
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppPagination from '@/components/common/AppPagination.vue';
-import CategoryEnum from '@/enums/Category.enum';
 import replaceQueryParams, {
-  getFirstInstanceParam,
+  processQueryToFilter,
 } from '@/helpers/windowHistory';
 
 export default Vue.extend({
@@ -162,30 +161,17 @@ export default Vue.extend({
   },
 
   created() {
-    const page = getFirstInstanceParam(this.$route.query.page);
-    const round = getFirstInstanceParam(this.$route.query.round);
-    const category = getFirstInstanceParam(this.$route.query.category);
-    const search = getFirstInstanceParam(this.$route.query.search);
+    const newFilter = processQueryToFilter(
+      {
+        page: this.$route.query.page,
+        round: this.$route.query.round,
+        category: this.$route.query.category,
+        search: this.$route.query.search,
+      },
+      this.$store.state['dao-proposals-filter'].filter,
+    );
 
-    if (page || round || category || search) {
-      const newFilter = {
-        page:
-          page && parseInt(page)
-            ? parseInt(page)
-            : this.$store.state['dao-proposals-filter'].filter.page,
-        round:
-          round && parseInt(round)
-            ? parseInt(round)
-            : this.$store.state['dao-proposals-filter'].filter.round,
-        category: Object.values(CategoryEnum).includes(category)
-          ? category
-          : this.$store.state['dao-proposals-filter'].filter.category,
-        search:
-          search || search === ''
-            ? search
-            : this.$store.state['dao-proposals-filter'].filter.search,
-      };
-
+    if (Object.entries(newFilter).length) {
       this.setPending(true).then(() =>
         this.setFilter(newFilter).then(() =>
           this.fetchMetricsAndProposals().then((query) =>
@@ -193,9 +179,14 @@ export default Vue.extend({
           ),
         ),
       );
+      return;
     }
 
-    this.setPending(true).then(this.fetchMetricsAndProposals);
+    this.setPending(true).then(() =>
+      this.fetchMetricsAndProposals().then((query) =>
+        replaceQueryParams(this, query),
+      ),
+    );
   },
 
   methods: {
