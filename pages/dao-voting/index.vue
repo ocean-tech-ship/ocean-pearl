@@ -58,7 +58,20 @@
             >
           </p>
         </div>
-
+        <div class="rounded shadow flex items-center p-2 bg-warning min-h-16">
+          >
+          <app-icon class="text-primary pr-2" :data="{ alertCircleOutline }" />
+          <!-- Start hotfix remove later  -->
+          <div>
+            <p class="text-secondary small-text">
+              Dear users, due to a new change in the logic of earmarks, our
+              system does not correctly predict funded proposals at the moment.
+              The number of yes and no votes per proposal are not affected. We
+              apologize for the inconvenience.
+            </p>
+          </div>
+        </div>
+        <!-- End hotfix remove later  -->
         <div class="space-y-4">
           <proposal-header primary class="hidden lg:flex" />
 
@@ -244,6 +257,7 @@
 
 <script>
 import Vue from 'vue';
+import alertCircleOutline from '@iconify/icons-mdi/alert-circle-outline'; // hotfix remove later
 import { getLeaderboard } from '@/api';
 import getExampleResult from '@/pages/dao-voting/ExampleResult';
 import createHead from '@/pages/dao-voting/index.head';
@@ -288,6 +302,7 @@ export default Vue.extend({
       statusEnum: RoundStatusEnum,
       timer: null,
       leaderboard: {},
+      alertCircleOutline,
     };
   },
 
