@@ -20,16 +20,7 @@
       </button>
       <div
         v-if="open"
-        class="
-          bg-white
-          border border-primary
-          rounded
-          shadow
-          absolute
-          top-9
-          z-40
-          right-4
-        "
+        class="bg-white border border-primary rounded shadow absolute top-9 z-dropdown right-4"
       >
         <ul>
           <li
@@ -74,8 +65,7 @@ export default {
   props: {
     btnClass: {
       type: String,
-      default: () =>
-        'absolute z-40 top-3 right-0 px-2 text-primary leading-none',
+      default: () => 'absolute top-3 right-0 px-2 text-primary leading-none',
     },
     iconRotate: {
       type: Number,

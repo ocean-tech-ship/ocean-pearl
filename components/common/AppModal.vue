@@ -1,17 +1,11 @@
 <template>
   <div
-    class="modal modal-backdrop"
+    class="modal z-modal modal-backdrop"
     :class="{ 'modal-open': open }"
     @click="backdropClose"
   >
     <div
-      class="
-        modal-box
-        relative
-        overflow-y-scroll
-        h-[490px]
-        md:h-[510px] md:min-w-[690px]
-      "
+      class="modal-box relative overflow-y-scroll h-[490px] md:h-[510px] md:min-w-[690px]"
       role="dialog"
     >
       <button

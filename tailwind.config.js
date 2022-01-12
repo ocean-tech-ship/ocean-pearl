@@ -1,3 +1,5 @@
+import zIndex from './z-index.contants';
+
 const colors = require('./tailwind.colors.json');
 
 module.exports = {
@@ -32,18 +34,8 @@ module.exports = {
       '2xl': '1300px',
       '3xl': '1600px',
     },
-    colors: {
-      primary: colors.primary,
-      secondary: colors.secondary,
-      complementary: colors.complementary,
-      third: colors.third,
-      quad: colors.quad,
-      grey: colors.grey,
-      white: colors.white,
-      darkgrey: colors.darkgrey,
-      black: colors.black,
-      pink: colors.pink,
-    },
+    colors,
+    zIndex,
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
       'poppins-bold': ['Poppins Bold', 'sans-serif'],
