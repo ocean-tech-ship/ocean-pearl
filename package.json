@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "12.22.x",
-    "npm": "6.x"
+    "node": "16.13.x",
+    "npm": "8.x"
   },
   "scripts": {
     "prepare": "husky install",
@@ -67,8 +67,8 @@
     "jest": "^26.6.3",
     "jest-junit": "^13.0.0",
     "miragejs": "^0.1.43",
-    "node-sass": "^5.0.0",
     "prettier": "^2.5.1",
+    "sass": "^1.45.1",
     "sass-loader": "^10.2.0",
     "ts-jest": "^26.5.6",
     "vue-jest": "^3.0.4"
