@@ -149,7 +149,7 @@
       "title": "Connect with us."
     },
     "dao_proposals": {
-      "link_text": "See all DAO projects",
+      "link_text": "See all listed proposals",
       "requestedAmount": "Requested Amount",
       "text": "These projects are currently waiting or applying for a DAO funding.",
       "title": "Open DAO",
@@ -239,10 +239,7 @@
     },
     "pending": "Proposals without funding",
     "proposal": {
-      "funding": [
-        "{amount} {paymentOption}",
-        "requested"
-      ],
+      "funding": ["{amount} {paymentOption}", "requested"],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -261,10 +258,7 @@
       "title": "Round"
     },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
-    "title": [
-      "DAO",
-      "Voting"
-    ],
+    "title": ["DAO", "Voting"],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -311,10 +305,7 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"]
   },
   "navbar": {
     "logoText": "Ocean Pearl",

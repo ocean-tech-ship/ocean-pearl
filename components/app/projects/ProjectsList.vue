@@ -1,20 +1,12 @@
 <template>
   <div
-    class="
-      grid grid-cols-1
-      md:grid-cols-2
-      lg:grid-cols-3
-      xl:grid-cols-4
-      2xl:grid-cols-4
-      gap-4
-      mt-12
-    "
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-12"
   >
     <div v-for="project in projects" :key="project.id">
       <app-link-card
         :prefetch="false"
         :to="`/projects/${beautifyProjectId(project)}`"
-        card-class="card shadow rounded p-2 pb-8 text-center"
+        card-class="card shadow rounded p-2 pb-8 text-center h-full"
       >
         <div class="mt-3">
           <app-logo
