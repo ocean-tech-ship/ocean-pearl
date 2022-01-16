@@ -8,7 +8,7 @@
     <p :class="paragraphClass">
       <slot />
     </p>
-    <app-icon :data="icons.arrowRight" />
+    <app-icon class="icon" :data="icons.arrowRight" />
   </NuxtLink>
   <a
     v-else
@@ -74,8 +74,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.bounce-right div {
-  transition: ease-in-out;
+a {
+  max-width: fit-content !important;
 }
 @keyframes bounce-right-keyframe {
   0%,
@@ -95,9 +95,12 @@ export default {
     transform: translateX(10px);
   }
 }
+.bounce-right > svg {
+  transition: ease-in-out;
+}
 .bounce-right:hover,
 .bounce-right:focus {
-  div {
+  svg {
     -webkit-animation: bounce-right-keyframe 1.5s infinite both;
     animation: bounce-right-keyframe 1.5s infinite both;
   }

@@ -152,3 +152,6 @@ p {
   background: linear-gradient(to bottom, #bb2c75 1%, #ff98cd);
   border-radius: 10px;
 }
+
+/* Align Web3Modal with our z-index policy */
+.web3modal-modal-lightbox { @apply z-modal #{!important}; }
