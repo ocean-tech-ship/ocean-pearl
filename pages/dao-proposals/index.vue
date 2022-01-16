@@ -2,18 +2,14 @@
   <div class="min-h-screen">
     <dao-proposals-header />
 
-    <landing-section-container
-      v-if="$store.state['dao-proposals-filter'].error"
-    >
+    <section-container v-if="$store.state['dao-proposals-filter'].error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">
         {{ $t($store.state['dao-proposals-filter'].error) }}
       </p>
-    </landing-section-container>
+    </section-container>
 
-    <landing-section-container
-      v-else-if="$store.state['dao-proposals-filter'].pending"
-    >
+    <section-container v-else-if="$store.state['dao-proposals-filter'].pending">
       <app-skeleton-card-list
         custom-class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         :quantity="6"
@@ -24,26 +20,26 @@
       <app-skeleton-card-list :quantity="8">
         <dao-proposals-skeleton-card />
       </app-skeleton-card-list>
-    </landing-section-container>
+    </section-container>
 
     <div v-else>
-      <landing-section-container>
+      <section-container>
         <round-metrics
           :metrics="$store.state['dao-proposals-filter'].metrics"
         />
         <hr class="text-primary my-16" />
-      </landing-section-container>
+      </section-container>
 
-      <landing-section-container>
+      <section-container>
         <dao-proposals-filter
           :rounds="$store.state['dao-proposals-filter'].fundingRound"
           :filter="$store.state['dao-proposals-filter'].filter"
           :set-filter="setFilter"
           :fetch-metrics-and-proposals="fetchMetricsAndProposals"
         />
-      </landing-section-container>
+      </section-container>
 
-      <landing-section-container
+      <section-container
         v-if="$store.state['dao-proposals-filter'].daoProposals.length"
       >
         <dao-proposals-list
@@ -55,9 +51,9 @@
           :set-filter="setFilter"
           :fetch-page="fetchDaoProposals"
         />
-      </landing-section-container>
+      </section-container>
 
-      <landing-section-container v-else>
+      <section-container v-else>
         <app-response-with-search
           :no-search-text="{
             headingMain: $t(
@@ -79,7 +75,7 @@
           }"
           :search-used="$store.state['dao-proposals-filter'].searchUsed"
         />
-      </landing-section-container>
+      </section-container>
     </div>
   </div>
 </template>
@@ -92,7 +88,7 @@ import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetric
 import DaoProposalsList from '@/components/app/dao-proposals/DaoProposalsList.vue';
 import DaoProposalsFilter from '@/components/app/dao-proposals/DaoProposalsFilter.vue';
 import DaoProposalsSkeletonCard from '@/components/app/dao-proposals/DaoProposalsSkeletonCard.vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import SectionContainer from '@/components/common/SectionContainer';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppPagination from '@/components/common/AppPagination.vue';
@@ -104,12 +100,12 @@ export default Vue.extend({
   name: 'DaoProjectOverview',
 
   components: {
+    SectionContainer,
     DaoProposalsHeader,
     RoundMetrics,
     RoundMetricsSkeletonCard,
     DaoProposalsList,
     DaoProposalsFilter,
-    LandingSectionContainer,
     AppResponseWithSearch,
     DaoProposalsSkeletonCard,
     AppSkeletonCardList,

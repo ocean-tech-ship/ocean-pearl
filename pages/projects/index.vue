@@ -2,31 +2,27 @@
   <div class="min-h-screen">
     <projects-header />
 
-    <landing-section-container v-if="$store.state['projects-filter'].error">
+    <section-container v-if="$store.state['projects-filter'].error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t($store.state['projects-filter'].error) }}</p>
-    </landing-section-container>
+    </section-container>
 
-    <landing-section-container
-      v-else-if="$store.state['projects-filter'].pending"
-    >
+    <section-container v-else-if="$store.state['projects-filter'].pending">
       <app-skeleton-card-list>
         <projects-skeleton-card />
       </app-skeleton-card-list>
-    </landing-section-container>
+    </section-container>
 
     <div v-else>
-      <landing-section-container>
+      <section-container>
         <projects-filter
           :filter="$store.state['projects-filter'].filter"
           :set-filter="setFilter"
           :fetch-projects="fetchProjects"
         />
-      </landing-section-container>
+      </section-container>
 
-      <landing-section-container
-        v-if="$store.state['projects-filter'].projects.length"
-      >
+      <section-container v-if="$store.state['projects-filter'].projects.length">
         <projects-list :projects="$store.state['projects-filter'].projects" />
         <app-pagination
           v-if="$store.state['projects-filter'].pagination"
@@ -34,9 +30,9 @@
           :set-filter="setFilter"
           :fetch-page="fetchProjects"
         />
-      </landing-section-container>
+      </section-container>
 
-      <landing-section-container v-else>
+      <section-container v-else>
         <app-response-with-search
           :no-search-text="{
             headingMain: $t('projects.filterResponse.noSearch.heading.main'),
@@ -56,14 +52,14 @@
           }"
           :search-used="$store.state['projects-filter'].searchUsed"
         />
-      </landing-section-container>
+      </section-container>
     </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import SectionContainer from '@/components/common/SectionContainer';
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
 import ProjectsFilter from '@/components/app/projects/ProjectsFilter.vue';
@@ -79,9 +75,9 @@ export default Vue.extend({
   name: 'ProjectOverview',
 
   components: {
+    SectionContainer,
     ProjectsHeader,
     ProjectsList,
-    LandingSectionContainer,
     ProjectsFilter,
     ProjectsSkeletonCard,
     AppResponseWithSearch,
