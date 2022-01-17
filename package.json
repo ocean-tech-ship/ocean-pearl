@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "node": "16.13.x",
-    "npm": "8.x"
+    "yarn": "1.22.x"
   },
   "scripts": {
     "prepare": "husky install",
