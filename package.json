@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "node": "16.13.x",
-    "npm": "8.x"
+    "yarn": "1.22.x"
   },
   "scripts": {
     "prepare": "husky install",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
-    "@commitlint/cli": "^15.0.0",
+    "@commitlint/cli": "^16.0.3",
     "@commitlint/config-conventional": "^15.0.0",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.0.4",
