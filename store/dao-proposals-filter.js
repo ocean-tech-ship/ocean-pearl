@@ -1,6 +1,6 @@
 import { getDaoProposals, getDaoRoundMetrics } from '@/api';
 
-export const state = () => ({
+const initialState = {
   error: false,
   pending: true,
   daoProposals: null,
@@ -15,9 +15,15 @@ export const state = () => ({
     category: 'all',
     search: '',
   },
-});
+};
+
+export const state = () => initialState;
 
 export const mutations = {
+  state(state, payload) {
+    Object.assign(state, payload);
+  },
+
   error(state, payload) {
     state.error = payload;
   },
@@ -53,6 +59,10 @@ export const mutations = {
 };
 
 export const actions = {
+  resetState({ commit }) {
+    commit('state', initialState);
+  },
+
   setPending({ commit, state }, payload) {
     if (state.pending !== payload) commit('pending', payload);
   },
@@ -112,7 +122,6 @@ export const actions = {
         commit('pagination', daoProposalResponse.data.pagination);
 
         // return query for url mutations
-        if (query.page === 1) delete query.page;
         delete query.limit;
         return query;
       }
@@ -154,7 +163,6 @@ export const actions = {
         commit('pending', false);
 
         // return query for url mutations
-        if (query.page === 1) delete query.page;
         delete query.limit;
         return query;
       }
