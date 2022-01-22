@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ 'text-white': primary }"
+    :class="{ 'text-white': primary, 'text-sm': !primary }"
     class="flex items-center text-primary font-bold text-center"
   >
     <div
@@ -10,15 +10,15 @@
       {{ $t('leaderboard.proposal.header.name') }}
     </div>
 
-    <div class="w-48 flex-grow">
+    <div class="w-52 flex-grow">
       {{ $t('leaderboard.proposal.header.votes') }}
     </div>
 
-    <div v-if="!primary" class="w-28 flex-grow">
+    <div v-if="!primary" class="w-40 flex-grow">
       {{ $t('leaderboard.proposal.header.needed') }}
     </div>
 
-    <div class="w-28 flex-grow">
+    <div class="w-44 flex-grow">
       {{ $t('leaderboard.proposal.header.funding') }}
     </div>
 
