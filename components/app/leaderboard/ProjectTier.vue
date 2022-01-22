@@ -29,7 +29,7 @@
 
 <script lang="ts">
 import mapByNumOfGrants from '@/mapper/ProjectTier.mapper';
-import { LeaderboardProposal } from '@/models/Leaderboard.model';
+import { LeaderboardProposal } from '@/models/LeaderboardProposal.model';
 import { ProjectTier } from '@/models/Project.model';
 
 export default {
