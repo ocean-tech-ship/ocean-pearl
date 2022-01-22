@@ -1,45 +1,26 @@
 <template>
-  <table>
-    <tbody>
-      <tr>
-        <td class="text-right w-14">
-          {{ addPunctuation(proposal.requestedFunding) }}
-        </td>
-
-        <td class="pl-2">
-          {{
-            $t(
-              paymentOption === options.Usd
-                ? 'general.types.usd'
-                : 'general.types.ocean',
-            )
-          }}
-        </td>
-      </tr>
-
-      <tr
-        v-if="primary && proposal.receivedFunding !== proposal.requestedFunding"
-      >
-        <td class="text-right w-14">
-          {{ addPunctuation(proposal.receivedFunding) }}
-        </td>
-
-        <td class="pl-2">
-          {{
-            $t(
-              paymentOption === options.Usd
-                ? 'general.types.usd'
-                : 'general.types.ocean',
-            )
-          }}
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="flex flex-row items-center justify-center flex-grow w-44 px-2">
+    <span
+      v-if="receivedFunding !== requestedFunding && receivedFunding > 0"
+    >
+      {{ addPunctuation(receivedFunding) }}/
+    </span>
+    <span>
+      {{ addPunctuation(requestedFunding) }}
+    </span>
+    <span>
+      &nbsp;{{
+        $t(
+          paymentOption === options.Usd
+            ? 'general.types.usd'
+            : 'general.types.ocean',
+        )
+      }}
+    </span>
+  </div>
 </template>
 
 <script lang="ts">
-import { LeaderboardProposal } from '@/models/Leaderboard.model';
 import Numbers from '@/mixins/Numbers';
 import PaymentOptionEnum from '@/enums/PaymentOption.enum';
 
@@ -49,15 +30,14 @@ export default {
   mixins: [Numbers],
 
   props: {
-    proposal: {
-      type: Object as () => LeaderboardProposal,
+    receivedFunding: {
+      type: Number,
       required: true,
     },
 
-    primary: {
-      type: Boolean,
-      required: false,
-      default: false,
+    requestedFunding: {
+      type: Number,
+      required: true,
     },
 
     paymentOption: {
