@@ -1,13 +1,37 @@
 <template>
   <div
-    class="fixed w-full flex justify-end lg:top-1/2 bottom-5 pointer-events-none z-popup"
+    class="
+      fixed
+      w-full
+      flex
+      justify-end
+      lg:top-1/2
+      bottom-5
+      pointer-events-none
+      z-popup
+    "
   >
     <app-link :to="voteUrl" :data-analytics="dataAnalytics">
       <div
         class="bg-white rounded-l shadow p-4 pointer-events-auto text-center"
       >
         <div
-          class="bg-primary bg-opacity-10 relative rounded w-12 lg:w-16 h-12 lg:h-16 flex items-center justify-center transition duration-300 ease-in-out lg:hover:scale-125"
+          class="
+            bg-primary bg-opacity-10
+            relative
+            rounded
+            w-12
+            lg:w-16
+            h-12
+            lg:h-16
+            flex
+            items-center
+            justify-center
+            transition
+            duration-300
+            ease-in-out
+            lg:hover:scale-125
+          "
         >
           <app-icon class="text-primary" :size="36" :data="icons.vote" />
         </div>
@@ -38,18 +62,13 @@ export default {
       icons: {
         vote,
       },
+      voteUrl: 'https://vote.oceanprotocol.com/#/officialoceandao.eth',
     };
   },
 
   computed: {
     dataAnalytics() {
       return `"Vote: Click", {"props":{"url":"${this.voteUrl}","round":"${this.$props.leaderboard.round}"}}`;
-    },
-
-    voteUrl() {
-      const stdUrl = 'https://vote.oceanprotocol.com/#/officialoceandao.eth';
-      // API does not provide any special link to snapshot right now
-      return stdUrl;
     },
   },
 };
