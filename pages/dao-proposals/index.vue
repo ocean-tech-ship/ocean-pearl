@@ -113,12 +113,8 @@ export default Vue.extend({
   },
 
   // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, from, next) {
-    if (
-      Object.keys(to.query).length === 0 &&
-      Object.keys(from.query).length > 0 &&
-      to.path === '/dao-proposals'
-    ) {
+  beforeRouteUpdate(to, _from, next) {
+    if (Object.keys(to.query)[0] === 'all') {
       this.resetState().then(() =>
         this.fetchMetricsAndProposals().then((query) =>
           replaceQueryParams(this, query),
@@ -130,7 +126,7 @@ export default Vue.extend({
 
   // set exception pages where state should not be reset if navigated to
   beforeRouteLeave(to, _from, next) {
-    if (to.path !== '/dao-projects/:id' || to.path !== '/dao-projects') {
+    if (to.path !== '/dao-projects/:id') {
       this.resetState();
     }
     next();
