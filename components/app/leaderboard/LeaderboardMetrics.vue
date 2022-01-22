@@ -7,7 +7,7 @@
       :key="index"
       class="rounded shadow flex items-center p-2"
     >
-      <app-icon class="text-primary pr-2" :data="metric.icon" />
+      <app-icon class="w-12 text-primary pr-2" :data="metric.icon" />
 
       <div>
         <p class="text-primary small-text line-clamp-1">{{ metric.title }}</p>
@@ -22,7 +22,7 @@ import hashtag from '@iconify/icons-la/hashtag';
 import coins from '@iconify/icons-la/coins';
 import vote from '@iconify/icons-la/vote-yea';
 import rocket from '@iconify/icons-la/rocket';
-import fire from '@iconify/icons-la/fire';
+import recycle from '@iconify/icons-la/recycle';
 import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
 import PaymentOptionEnum from '~/enums/PaymentOption.enum';
@@ -45,6 +45,11 @@ export default {
   computed: {
     metrics() {
       const board = this.$props.leaderboard;
+      let remainingFunding = 0;
+
+      for (const [index, grantPool] of Object.entries(board.grantPools)) {
+        remainingFunding += grantPool.remainingFunding;
+      }
 
       return [
         {
@@ -90,30 +95,19 @@ export default {
           }),
         },
         {
-          icon: fire,
+          icon:
+            board.status === RoundStatusEnum.VotingFinished ? recycle : coins,
           title:
             board.status === RoundStatusEnum.VotingFinished
-              ? this.$t('leaderboard.metrics.burned.past')
-              : this.$t('leaderboard.metrics.burned.future'),
+              ? this.$t('leaderboard.metrics.unused.past')
+              : this.$t('leaderboard.metrics.unused.future'),
           subtitle:
             board.paymentOption === PaymentOptionEnum.Usd
               ? this.$t('general.usd', {
-                  usd: this.addPunctuation(
-                    Object.values(board.earmarks).reduce(
-                      (previous, current) =>
-                        previous + current.remainingFunding,
-                      board.remainingGeneralFunding,
-                    ),
-                  ),
+                  usd: this.addPunctuation(remainingFunding),
                 })
               : this.$t('general.ocean', {
-                  ocean: this.addPunctuation(
-                    Object.values(board.earmarks).reduce(
-                      (previous, current) =>
-                        previous + current.remainingFunding,
-                      board.remainingGeneralFunding,
-                    ),
-                  ),
+                  ocean: this.addPunctuation(remainingFunding),
                 }),
         },
       ];
