@@ -76,7 +76,7 @@ export default {
   methods: {
     getSubtitle(leaderboard: Leaderboard): string {
       const now = Date.now();
-      const start = new Date(leaderboard.voteStartDate).getTime();
+      const start = new Date(leaderboard.votingStartDate).getTime();
 
       return now < start
         ? 'leaderboard.voting.begins'
@@ -85,8 +85,8 @@ export default {
 
     getTimeLeft(leaderboard: Leaderboard): number {
       const now = Date.now();
-      const start = new Date(leaderboard.voteStartDate).getTime();
-      const end = new Date(leaderboard.voteEndDate).getTime();
+      const start = new Date(leaderboard.votingStartDate).getTime();
+      const end = new Date(leaderboard.votingEndDate).getTime();
 
       if (now < start) {
         return start - now;
