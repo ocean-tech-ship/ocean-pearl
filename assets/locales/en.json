@@ -253,8 +253,8 @@
         "no": "No Votes",
         "yes": "Yes Votes",
         "neededVotes": {
-          "fullyFunded": "Full: {votes}",
-          "partiallyFunded": "Partial: {votes}"
+          "fullyFunded": "Full",
+          "partiallyFunded": "Partial"
         }
       }
     },
