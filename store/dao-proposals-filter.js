@@ -1,6 +1,6 @@
 import { getDaoProposals, getDaoRoundMetrics } from '@/api';
 
-export const state = () => ({
+const initialState = {
   error: false,
   pending: true,
   daoProposals: null,
@@ -15,9 +15,15 @@ export const state = () => ({
     category: 'all',
     search: '',
   },
-});
+};
+
+export const state = () => initialState;
 
 export const mutations = {
+  state(state, payload) {
+    Object.assign(state, payload);
+  },
+
   error(state, payload) {
     state.error = payload;
   },
@@ -53,6 +59,10 @@ export const mutations = {
 };
 
 export const actions = {
+  resetState({ commit }) {
+    commit('state', initialState);
+  },
+
   setPending({ commit, state }, payload) {
     if (state.pending !== payload) commit('pending', payload);
   },

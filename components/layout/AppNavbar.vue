@@ -17,9 +17,13 @@
       <div
         class="flex-grow items-center justify-end md:space-x-8 lg:space-x-62px 2xl:space-x-128px hidden lg:flex"
       >
-        <NuxtLink to="/projects">{{ $t('navbar.navbarProjects') }}</NuxtLink>
+        <NuxtLink to="/projects?all">{{
+          $t('navbar.navbarProjects')
+        }}</NuxtLink>
 
-        <NuxtLink to="/dao-proposals">{{ $t('navbar.navbarDao') }}</NuxtLink>
+        <NuxtLink to="/dao-proposals?all">{{
+          $t('navbar.navbarDao')
+        }}</NuxtLink>
 
         <NuxtLink to="/dao-voting">{{ $t('leaderboard.meta.title') }}</NuxtLink>
 

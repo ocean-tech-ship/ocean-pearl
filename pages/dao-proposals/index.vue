@@ -112,6 +112,26 @@ export default Vue.extend({
     AppPagination,
   },
 
+  // reset state and refetch if same page is navigated to via navbar
+  beforeRouteUpdate(to, _from, next) {
+    if (Object.keys(to.query)[0] === 'all') {
+      this.resetState().then(() =>
+        this.fetchMetricsAndProposals().then((query) =>
+          replaceQueryParams(this, query),
+        ),
+      );
+    }
+    next();
+  },
+
+  // set exception pages where state should not be reset if navigated to
+  beforeRouteLeave(to, _from, next) {
+    if (to.path !== '/dao-projects/:id') {
+      this.resetState();
+    }
+    next();
+  },
+
   head() {
     return {
       title: 'DAO Proposals',
@@ -186,6 +206,9 @@ export default Vue.extend({
   },
 
   methods: {
+    resetState() {
+      return this.$store.dispatch('dao-proposals-filter/resetState');
+    },
     setPending(payload) {
       return this.$store.dispatch('dao-proposals-filter/setPending', payload);
     },
