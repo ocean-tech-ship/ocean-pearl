@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-col text-right items-right justify-center flex-grow w-52 px-2">
-    <div class="text-primary">
-      <span>{{addPunctuation(proposal.yesVotes)}}</span>
-      <span class="inline-block w-20">{{$t('leaderboard.proposal.votes.yes')}}</span>
-    </div>
-    <div>
+  <div class="flex flex-row justify-center flex-grow w-52 px-2">
+    <div class="flex flex-col text-right justify-center">
+      <span class="text-primary">{{addPunctuation(proposal.yesVotes)}}</span>
       <span>{{addPunctuation(proposal.noVotes)}}</span>
-      <span class="inline-block w-20">{{$t('leaderboard.proposal.votes.no')}}</span>
+    </div>
+    <div class="flex flex-col inline-block w-22 text-left items-center justify-center">
+      <span class="text-primary">&nbsp;{{$t('leaderboard.proposal.votes.yes')}}</span>
+      <span>&nbsp;{{$t('leaderboard.proposal.votes.no')}}</span>
     </div>
   </div>
 </template>
