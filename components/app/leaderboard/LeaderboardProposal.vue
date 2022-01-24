@@ -74,28 +74,45 @@
     </div>
 
     <!-- votes (from lg) -->
-    <proposal-votes
-      class="hidden lg:flex"
-      :proposal="proposal"
-    />
+    <proposal-votes class="hidden lg:flex" :proposal="proposal" />
 
     <!-- votes needed -->
     <div
       v-if="!primary"
-      class="hidden lg:flex w-40 pl-2 items-left justify-center flex-col"
+      class="
+        hidden
+        lg:flex
+        flex-row
+        justify-center
+        flex-grow
+        w-40
+        sm:w-44
+        mx-auto
+        px-2
+      "
     >
-      <span>
-        {{
-          $t('leaderboard.proposal.votes.neededVotes.fullyFunded', {
-            votes: addPunctuation(proposal.neededVotes.fullyFunded),
-          })
-        }}</span
-      >
-      <span v-if="proposal.neededVotes.partiallyFunded">{{
-        $t('leaderboard.proposal.votes.neededVotes.partiallyFunded', {
-          votes: addPunctuation(proposal.neededVotes.partiallyFunded),
-        })
-      }}</span>
+      <div class="flex flex-col text-right justify-center">
+        <span class="inline-block w-26">{{
+          addPunctuation(proposal.neededVotes.fullyFunded)
+        }}</span>
+        <span
+          class="inline-block w-26"
+          v-if="proposal.neededVotes.partiallyFunded"
+          >{{ addPunctuation(proposal.neededVotes.partiallyFunded) }}</span
+        >
+      </div>
+      <div class="flex flex-col text-right justify-center">
+        <span class="inline-block text-left w-14">&nbsp;{{
+          $t('leaderboard.proposal.votes.neededVotes.fullyFunded')
+        }}</span>
+        <span
+          class="inline-block text-left w-14"
+          v-if="proposal.neededVotes.partiallyFunded"
+          >&nbsp;{{
+            $t('leaderboard.proposal.votes.neededVotes.partiallyFunded')
+          }}</span
+        >
+      </div>
     </div>
 
     <!-- amount requested / received -->
