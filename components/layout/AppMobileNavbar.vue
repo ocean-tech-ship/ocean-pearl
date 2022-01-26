@@ -18,14 +18,16 @@
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="font-bold block px-4 py-3" to="/projects">{{
+            <NuxtLink class="font-bold block px-4 py-3" to="/projects?all">{{
               $t('navbar.navbarProjects')
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="font-bold block px-4 py-3" to="/dao-proposals">{{
-              $t('navbar.navbarDao')
-            }}</NuxtLink>
+            <NuxtLink
+              class="font-bold block px-4 py-3"
+              to="/dao-proposals?all"
+              >{{ $t('navbar.navbarDao') }}</NuxtLink
+            >
           </li>
           <li>
             <NuxtLink class="font-bold block px-4 py-3" to="/dao-voting">{{
