@@ -10,13 +10,11 @@
         </span>
       </h2>
 
-      <p>{{ $t('leaderboard.subtitle') }}</p>
+      <p class="pb-4">{{ $t('leaderboard.subtitle') }}</p>
 
       <!-- metrics -->
-      <div class="pt-4">
-        <leaderboard-metrics-skeleton v-if="$fetchState.pending" />
-        <leaderboard-metrics v-else :leaderboard="leaderboard" />
-      </div>
+      <leaderboard-metrics-skeleton v-if="$fetchState.pending" />
+      <leaderboard-metrics v-else :leaderboard="leaderboard" />
     </section-container>
 
     <app-gradient-background>
@@ -71,26 +69,24 @@
             />
           </div>
 
-          <div v-else class="space-y-4">
+          <div v-else class="space-y-2 mt-2 lg:space-y-4">
             <!-- empty hint (temporary solution) -->
             <div
               v-if="
                 !leaderboard.fundedProposals ||
                 leaderboard.fundedProposals.length === 0
               "
-              class="flex justify-center"
+              class="
+                flex
+                justify-center
+                border border-white
+                text-white text-center
+                rounded
+                px-2
+                py-1
+              "
             >
-              <div
-                class="
-                  border border-white
-                  text-white text-center
-                  rounded
-                  px-2
-                  py-1
-                "
-              >
-                {{ $t('leaderboard.empty') }}
-              </div>
+              {{ $t('leaderboard.empty') }}
             </div>
 
             <leaderboard-proposal
@@ -98,8 +94,7 @@
               :key="prop.id"
               :proposal="prop"
               :payment-option="leaderboard.paymentOption"
-              :index="index"
-              :index-offset="0"
+              :startIndex="index"
               :max-votes="leaderboard.maxVotes"
               primary
               class="rounded shadow"
@@ -109,133 +104,122 @@
       </section-container>
     </app-gradient-background>
 
+    <leaderboard-partially-funded-list
+      :leaderboard="leaderboard"
+      :isPending="$fetchState.pending"
+    >
+    </leaderboard-partially-funded-list>
+
     <!-- pending section -->
     <section-container class="pb-5">
-      <div class="flex flex-wrap lg:justify-between">
-        <div class="pt-8">
-          <round-indicator-skeleton v-if="$fetchState.pending" />
-          <round-indicator v-else :leaderboard="leaderboard" />
+      <h4 class="text-primary py-4">{{ $t('leaderboard.pending') }}</h4>
+
+      <proposal-header class="hidden lg:flex" />
+
+      <!-- mobile variant -->
+      <div class="lg:hidden space-y-2">
+        <div v-if="$fetchState.pending" class="space-y-2">
+          <leaderboard-proposal-skeleton
+            v-for="i in 5"
+            :key="i"
+            class="rounded border border-primary"
+          />
         </div>
 
-        <div class="flex-grow py-8 px-2 md:px-6 lg:px-12 xl:px-24">
-          <voting-countdown-skeleton v-if="$fetchState.pending" />
-          <voting-countdown v-else :leaderboard="leaderboard" />
-        </div>
-
-        <div class="pt-8 hidden lg:block">
-          <tier-legend />
-        </div>
-      </div>
-
-      <div class="py-4">
-        <h4 class="text-primary">{{ $t('leaderboard.pending') }}</h4>
-      </div>
-
-      <div class="space-y-4">
-        <proposal-header class="hidden lg:flex" />
-
-        <!-- mobile variant -->
-        <div class="lg:hidden space-y-2">
-          <div v-if="$fetchState.pending" class="space-y-2">
-            <leaderboard-proposal-skeleton
-              v-for="i in 5"
-              :key="i"
-              class="rounded border border-primary"
-            />
-          </div>
-
-          <div v-else class="space-y-2">
-            <!-- empty hint (temporary solution) -->
-            <div
-              v-if="
-                !leaderboard.notFundedProposals ||
-                leaderboard.notFundedProposals.length === 0
-              "
-              class="flex justify-center"
-            >
-              <div
-                class="
-                  border border-primary
-                  text-primary text-center
-                  rounded
-                  px-2
-                  py-1
-                "
-              >
-                {{ $t('leaderboard.empty') }}
-              </div>
-            </div>
-
-            <leaderboard-proposal
-              v-for="(prop, index) in leaderboard.notFundedProposals"
-              :key="prop.id"
-              :proposal="prop"
-              :payment-option="leaderboard.paymentOption"
-              :index="index"
-              :index-offset="leaderboard.fundedProposals.length"
-              :max-votes="leaderboard.maxVotes"
-              class="rounded border border-primary"
-            />
-          </div>
-        </div>
-
-        <!-- desktop variant -->
-        <div class="hidden lg:block">
+        <div v-else class="space-y-2">
+          <!-- empty hint (temporary solution) -->
           <div
-            v-if="$fetchState.pending"
-            class="rounded border border-primary divide-y divide-darkgrey"
-          >
-            <leaderboard-proposal-skeleton
-              v-for="(i, index) in 5"
-              :key="i"
-              :class="{
-                'rounded-t': index === 0,
-                'rounded-b': index === 4,
-              }"
-            />
-          </div>
-
-          <div
-            v-else-if="
+            v-if="
               !leaderboard.notFundedProposals ||
               leaderboard.notFundedProposals.length === 0
             "
+            class="
+              flex
+              justify-center
+              border border-primary
+              text-primary text-center
+              rounded
+              px-2
+              py-1
+            "
           >
-            <!-- empty hint (temporary solution) -->
-            <div class="flex justify-center">
-              <div
-                class="
-                  border border-primary
-                  text-primary text-center
-                  rounded
-                  px-2
-                  py-1
-                "
-              >
-                {{ $t('leaderboard.empty') }}
-              </div>
-            </div>
+            {{ $t('leaderboard.empty') }}
           </div>
 
-          <div
-            v-else
-            class="rounded border border-primary divide-y divide-darkgrey"
-          >
-            <leaderboard-proposal
-              v-for="(prop, index) in leaderboard.notFundedProposals"
-              :key="prop.id"
-              :proposal="prop"
-              :payment-option="leaderboard.paymentOption"
-              :index="index"
-              :index-offset="leaderboard.fundedProposals.length"
-              :max-votes="leaderboard.maxVotes"
-              :class="{
-                'rounded-t': index === 0,
-                'rounded-b':
-                  index === leaderboard.notFundedProposals.length - 1,
-              }"
-            />
+          <leaderboard-proposal
+            v-for="(proposal, index) in leaderboard.notFundedProposals"
+            :key="proposal.id"
+            :proposal="proposal"
+            :payment-option="leaderboard.paymentOption"
+            :startIndex="
+              index +
+              leaderboard.fundedProposals.length +
+              leaderboard.partiallyFundedProposals.length
+            "
+            :max-votes="leaderboard.maxVotes"
+            class="rounded border border-primary"
+          />
+        </div>
+      </div>
+
+      <!-- desktop variant -->
+      <div class="hidden lg:block">
+        <div
+          v-if="$fetchState.pending"
+          class="rounded border border-primary divide-y divide-darkgrey"
+        >
+          <leaderboard-proposal-skeleton
+            v-for="(i, index) in 5"
+            :key="i"
+            :class="{
+              'rounded-t': index === 0,
+              'rounded-b': index === 4,
+            }"
+          />
+        </div>
+
+        <div
+          v-else-if="
+            !leaderboard.notFundedProposals ||
+            leaderboard.notFundedProposals.length === 0
+          "
+        >
+          <!-- empty hint (temporary solution) -->
+          <div class="flex justify-center">
+            <div
+              class="
+                border border-primary
+                text-primary text-center
+                rounded
+                px-2
+                py-1
+              "
+            >
+              {{ $t('leaderboard.empty') }}
+            </div>
           </div>
+        </div>
+
+        <div
+          v-else
+          class="rounded border border-primary divide-y divide-darkgrey"
+        >
+          <leaderboard-proposal
+            v-for="(proposal, index) in leaderboard.notFundedProposals"
+            :key="proposal.id"
+            :proposal="proposal"
+            :payment-option="leaderboard.paymentOption"
+            :startIndex="
+              index +
+              leaderboard.fundedProposals.length +
+              leaderboard.partiallyFundedProposals.length
+            "
+            :max-votes="leaderboard.maxVotes"
+            :class="{
+              'rounded-t': index === 0,
+              'rounded-b': index === leaderboard.notFundedProposals.length - 1,
+            }"
+          />
         </div>
       </div>
     </section-container>
@@ -245,7 +229,6 @@
 <script>
 import Vue from 'vue';
 import { getLeaderboard } from '@/api';
-import getExampleResult from '@/pages/dao-voting/ExampleResult';
 import createHead from '@/pages/dao-voting/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
@@ -263,6 +246,7 @@ import RoundIndicatorSkeleton from '@/components/app/leaderboard/RoundIndicatorS
 import LeaderboardProposalSkeleton from '@/components/app/leaderboard/LeaderboardProposalSkeleton.vue';
 import AppLink from '@/components/common/AppLink';
 import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
+import LeaderboardPartiallyFundedList from '../../components/app/leaderboard/LeaderboardPartiallyFundedList.vue';
 
 export default Vue.extend({
   components: {
@@ -281,6 +265,7 @@ export default Vue.extend({
     LeaderboardProposal,
     AppGradientBackground,
     SectionContainer,
+    LeaderboardPartiallyFundedList,
   },
 
   data() {
@@ -311,8 +296,6 @@ export default Vue.extend({
   methods: {
     async fetchSilent() {
       this.$data.leaderboard = await getLeaderboard(this.$axios);
-      // Faked leaderboard results for easy build
-      // this.$data.leaderboard = await getExampleResult();
     },
   },
 });
