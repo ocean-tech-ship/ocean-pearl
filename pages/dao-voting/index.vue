@@ -1,6 +1,9 @@
 <template>
   <div>
-    <floating-vote-action :leaderboard="leaderboard" />
+    <floating-vote-action
+      v-if="$store.state['dao-voting-filter'].pending"
+      :leaderboard="$store.state['dao-voting-filter'].leaderboard"
+    />
 
     <section-container class="pb-8">
       <h2>
@@ -13,8 +16,13 @@
       <p class="pb-4">{{ $t('leaderboard.subtitle') }}</p>
 
       <!-- metrics -->
-      <leaderboard-metrics-skeleton v-if="$fetchState.pending" />
-      <leaderboard-metrics v-else :leaderboard="leaderboard" />
+      <leaderboard-metrics-skeleton
+        v-if="$store.state['dao-voting-filter'].pending"
+      />
+      <leaderboard-metrics
+        v-else
+        :leaderboard="$store.state['dao-voting-filter'].leaderboard"
+      />
     </section-container>
 
     <app-gradient-background>
@@ -22,13 +30,34 @@
       <section-container class="pb-8">
         <div class="flex flex-wrap lg:justify-between">
           <div class="pt-8">
-            <round-indicator-skeleton v-if="$fetchState.pending" primary />
-            <round-indicator v-else primary :leaderboard="leaderboard" />
+            <round-indicator-skeleton
+              v-if="$store.state['dao-voting-filter'].pending"
+              primary
+            />
+            <div v-else>
+              <round-indicator
+                primary
+                :leaderboard="$store.state['dao-voting-filter'].leaderboard"
+              />
+              <leaderboard-filter
+                :filter="$store.state['dao-voting-filter'].filter"
+                :rounds="$store.state['dao-voting-filter'].leaderboard.round"
+                :set-filter="setFilter"
+                :fetch-leaderboard="fetchLeaderboard"
+              />
+            </div>
           </div>
 
           <div class="flex-grow py-8 px-2 md:px-6 lg:px-12 xl:px-24">
-            <voting-countdown-skeleton v-if="$fetchState.pending" primary />
-            <voting-countdown v-else primary :leaderboard="leaderboard" />
+            <voting-countdown-skeleton
+              v-if="$store.state['dao-voting-filter'].pending"
+              primary
+            />
+            <voting-countdown
+              v-else
+              primary
+              :leaderboard="$store.state['dao-voting-filter'].leaderboard"
+            />
           </div>
 
           <div class="pt-8 hidden lg:block">
@@ -41,9 +70,12 @@
             <h4>{{ $t('leaderboard.funded') }}</h4>
 
             <live-indicator
-              v-if="leaderboard.status === statusEnum.VotingInProgress"
+              v-if="
+                $store.state['dao-voting-filter'].leaderboard.status ===
+                statusEnum.VotingInProgress
+              "
               class="pl-4"
-              @click="fetchSilent()"
+              @click="resetAndRefetch"
             />
           </div>
 
@@ -60,7 +92,10 @@
         <div class="space-y-4">
           <proposal-header primary class="hidden lg:flex" />
 
-          <div v-if="$fetchState.pending" class="space-y-4">
+          <div
+            v-if="$store.state['dao-voting-filter'].pending"
+            class="space-y-4"
+          >
             <leaderboard-proposal-skeleton
               v-for="i in 5"
               :key="i"
@@ -73,29 +108,28 @@
             <!-- empty hint (temporary solution) -->
             <div
               v-if="
-                !leaderboard.fundedProposals ||
-                leaderboard.fundedProposals.length === 0
+                !$store.state['dao-voting-filter'].leaderboard
+                  .fundedProposals ||
+                $store.state['dao-voting-filter'].leaderboard.fundedProposals
+                  .length === 0
               "
-              class="
-                flex
-                justify-center
-                border border-white
-                text-white text-center
-                rounded
-                px-2
-                py-1
-              "
+              class="flex justify-center border border-white text-white text-center rounded px-2 py-1"
             >
               {{ $t('leaderboard.empty') }}
             </div>
 
             <leaderboard-proposal
-              v-for="(prop, index) in leaderboard.fundedProposals"
+              v-for="(prop, index) in $store.state['dao-voting-filter']
+                .leaderboard.fundedProposals"
               :key="prop.id"
               :proposal="prop"
-              :payment-option="leaderboard.paymentOption"
-              :startIndex="index"
-              :max-votes="leaderboard.maxVotes"
+              :payment-option="
+                $store.state['dao-voting-filter'].leaderboard.paymentOption
+              "
+              :start-index="index"
+              :max-votes="
+                $store.state['dao-voting-filter'].leaderboard.maxVotes
+              "
               primary
               class="rounded shadow"
             />
@@ -105,8 +139,8 @@
     </app-gradient-background>
 
     <leaderboard-partially-funded-list
-      :leaderboard="leaderboard"
-      :isPending="$fetchState.pending"
+      :leaderboard="$store.state['dao-voting-filter'].leaderboard"
+      :is-pending="$store.state['dao-voting-filter'].pending"
     >
     </leaderboard-partially-funded-list>
 
@@ -118,7 +152,7 @@
 
       <!-- mobile variant -->
       <div class="lg:hidden space-y-2">
-        <div v-if="$fetchState.pending" class="space-y-2">
+        <div v-if="$store.state['dao-voting-filter'].pending" class="space-y-2">
           <leaderboard-proposal-skeleton
             v-for="i in 5"
             :key="i"
@@ -130,33 +164,32 @@
           <!-- empty hint (temporary solution) -->
           <div
             v-if="
-              !leaderboard.notFundedProposals ||
-              leaderboard.notFundedProposals.length === 0
+              !$store.state['dao-voting-filter'].leaderboard
+                .notFundedProposals ||
+              $store.state['dao-voting-filter'].leaderboard.notFundedProposals
+                .length === 0
             "
-            class="
-              flex
-              justify-center
-              border border-primary
-              text-primary text-center
-              rounded
-              px-2
-              py-1
-            "
+            class="flex justify-center border border-primary text-primary text-center rounded px-2 py-1"
           >
             {{ $t('leaderboard.empty') }}
           </div>
 
           <leaderboard-proposal
-            v-for="(proposal, index) in leaderboard.notFundedProposals"
+            v-for="(proposal, index) in $store.state['dao-voting-filter']
+              .leaderboard.notFundedProposals"
             :key="proposal.id"
             :proposal="proposal"
-            :payment-option="leaderboard.paymentOption"
+            :payment-option="
+              $store.state['dao-voting-filter'].leaderboard.paymentOption
+            "
             :startIndex="
               index +
-              leaderboard.fundedProposals.length +
-              leaderboard.partiallyFundedProposals.length
+              $store.state['dao-voting-filter'].leaderboard.fundedProposals
+                .length +
+              $store.state['dao-voting-filter'].leaderboard
+                .partiallyFundedProposals.length
             "
-            :max-votes="leaderboard.maxVotes"
+            :max-votes="$store.state['dao-voting-filter'].leaderboard.maxVotes"
             class="rounded border border-primary"
           />
         </div>
@@ -165,7 +198,7 @@
       <!-- desktop variant -->
       <div class="hidden lg:block">
         <div
-          v-if="$fetchState.pending"
+          v-if="$store.state['dao-voting-filter'].pending"
           class="rounded border border-primary divide-y divide-darkgrey"
         >
           <leaderboard-proposal-skeleton
@@ -180,20 +213,15 @@
 
         <div
           v-else-if="
-            !leaderboard.notFundedProposals ||
-            leaderboard.notFundedProposals.length === 0
+            !$store.state['dao-voting-filter'].leaderboard.notFundedProposals ||
+            $store.state['dao-voting-filter'].leaderboard.notFundedProposals
+              .length === 0
           "
         >
           <!-- empty hint (temporary solution) -->
           <div class="flex justify-center">
             <div
-              class="
-                border border-primary
-                text-primary text-center
-                rounded
-                px-2
-                py-1
-              "
+              class="border border-primary text-primary text-center rounded px-2 py-1"
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -205,19 +233,28 @@
           class="rounded border border-primary divide-y divide-darkgrey"
         >
           <leaderboard-proposal
-            v-for="(proposal, index) in leaderboard.notFundedProposals"
+            v-for="(proposal, index) in $store.state['dao-voting-filter']
+              .leaderboard.notFundedProposals"
             :key="proposal.id"
             :proposal="proposal"
-            :payment-option="leaderboard.paymentOption"
-            :startIndex="
-              index +
-              leaderboard.fundedProposals.length +
-              leaderboard.partiallyFundedProposals.length
+            :payment-option="
+              $store.state['dao-voting-filter'].leaderboard.paymentOption
             "
-            :max-votes="leaderboard.maxVotes"
+            :start-index="
+              index +
+              $store.state['dao-voting-filter'].leaderboard.fundedProposals
+                .length +
+              $store.state['dao-voting-filter'].leaderboard
+                .partiallyFundedProposals.length
+            "
+            :max-votes="$store.state['dao-voting-filter'].leaderboard.maxVotes"
             :class="{
               'rounded-t': index === 0,
-              'rounded-b': index === leaderboard.notFundedProposals.length - 1,
+              'rounded-b':
+                index ===
+                $store.state['dao-voting-filter'].leaderboard.notFundedProposals
+                  .length -
+                  1,
             }"
           />
         </div>
@@ -228,7 +265,6 @@
 
 <script>
 import Vue from 'vue';
-import { getLeaderboard } from '@/api';
 import createHead from '@/pages/dao-voting/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
@@ -247,9 +283,14 @@ import LeaderboardProposalSkeleton from '@/components/app/leaderboard/Leaderboar
 import AppLink from '@/components/common/AppLink';
 import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
 import LeaderboardPartiallyFundedList from '../../components/app/leaderboard/LeaderboardPartiallyFundedList.vue';
+import LeaderboardFilter from '~/components/app/leaderboard/LeaderboardFilter';
+import replaceQueryParams, {
+  processQueryToFilter,
+} from '~/helpers/windowHistory';
 
 export default Vue.extend({
   components: {
+    LeaderboardFilter,
     FloatingVoteAction,
     AppLink,
     LeaderboardProposalSkeleton,
@@ -268,25 +309,62 @@ export default Vue.extend({
     LeaderboardPartiallyFundedList,
   },
 
+  // reset state and refetch if same page is navigated to via navbar
+  beforeRouteUpdate(to, _from, next) {
+    if (Object.keys(to.query)[0] === 'current') {
+      this.resetState().then(() =>
+        this.fetchLeaderboard().then((query) =>
+          replaceQueryParams(this, query),
+        ),
+      );
+    }
+    next();
+  },
+
+  // set exception pages where state should not be reset if navigated to
+  beforeRouteLeave(_to, _from, next) {
+    this.resetState();
+    next();
+  },
+
   data() {
     return {
       statusEnum: RoundStatusEnum,
       timer: null,
-      leaderboard: {},
     };
-  },
-
-  async fetch() {
-    // Initial fetching with skeleton loader
-    await this.fetchSilent();
   },
 
   head() {
     return createHead(this.$config, this.$i18n);
   },
 
-  mounted() {
-    this.timer = setInterval(() => this.fetchSilent(), 1000 * 60 * 3);
+  /*created() {
+    this.fetchLeaderboard();
+    this.timer = setInterval(() => this.fetchLeaderboard(), 1000 * 60 * 3);
+  },*/
+
+  created() {
+    const newFilter = processQueryToFilter(
+      {
+        round: this.$route.query.round,
+      },
+      this.$store.state['dao-voting-filter'].filter,
+    );
+
+    if (Object.entries(newFilter).length) {
+      this.setPending(true).then(() =>
+        this.setFilter(newFilter).then(() =>
+          this.fetchLeaderboard().then((query) =>
+            replaceQueryParams(this, query),
+          ),
+        ),
+      );
+      return;
+    }
+
+    this.setPending(true).then(() =>
+      this.fetchLeaderboard().then((query) => replaceQueryParams(this, query)),
+    );
   },
 
   beforeDestroy() {
@@ -294,8 +372,24 @@ export default Vue.extend({
   },
 
   methods: {
-    async fetchSilent() {
-      this.$data.leaderboard = await getLeaderboard(this.$axios);
+    resetAndRefetch() {
+      this.resetState().then(() =>
+        this.fetchLeaderboard().then((query) =>
+          replaceQueryParams(this, query),
+        ),
+      );
+    },
+    resetState() {
+      return this.$store.dispatch('dao-voting-filter/resetState');
+    },
+    setPending(payload) {
+      return this.$store.dispatch('dao-voting-filter/setPending', payload);
+    },
+    setFilter(payload) {
+      return this.$store.dispatch('dao-voting-filter/setFilter', payload);
+    },
+    fetchLeaderboard() {
+      return this.$store.dispatch('dao-voting-filter/fetchLeaderboard');
     },
   },
 });
