@@ -11,6 +11,10 @@
         :payment-option="leaderboard.paymentOption"
         :startIndex="index + leaderboard.fundedProposals.length"
         :max-votes="leaderboard.maxVotes"
+        :primary="
+          $store.state['dao-voting-filter'].leaderboard.status &&
+          statusEnum !== 'votingFinished'
+        "
       />
     </div>
   </section-container>
@@ -22,6 +26,7 @@ import LeaderboardProposalSkeleton from './LeaderboardProposalSkeleton.vue';
 import SectionContainer from '../../common/SectionContainer.vue';
 import LeaderboardProposal from './LeaderboardProposal.vue';
 import ProposalHeader from './ProposalHeader.vue';
+import RoundStatusEnum from '~/enums/RoundStatus.enum';
 
 export default {
   name: 'PartiallyFundedList',
@@ -34,6 +39,7 @@ export default {
   },
 
   props: {
+    statusEnum: RoundStatusEnum,
     leaderboard: {
       type: Object as () => Leaderboard,
       required: true,

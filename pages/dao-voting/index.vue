@@ -184,7 +184,7 @@
             :payment-option="
               $store.state['dao-voting-filter'].leaderboard.paymentOption
             "
-            :startIndex="
+            :start-index="
               index +
               $store.state['dao-voting-filter'].leaderboard.fundedProposals
                 .length +
@@ -192,6 +192,10 @@
                 .partiallyFundedProposals.length
             "
             :max-votes="$store.state['dao-voting-filter'].leaderboard.maxVotes"
+            :primary="
+              $store.state['dao-voting-filter'].leaderboard.status &&
+              statusEnum !== 'votingFinished'
+            "
             class="rounded border border-primary"
           />
         </div>
@@ -250,6 +254,10 @@
                 .partiallyFundedProposals.length
             "
             :max-votes="$store.state['dao-voting-filter'].leaderboard.maxVotes"
+            :primary="
+              $store.state['dao-voting-filter'].leaderboard.status &&
+              statusEnum !== 'votingFinished'
+            "
             :class="{
               'rounded-t': index === 0,
               'rounded-b':
