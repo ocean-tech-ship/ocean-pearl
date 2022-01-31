@@ -41,7 +41,9 @@
               />
               <leaderboard-filter
                 :filter="$store.state['dao-voting-filter'].filter"
-                :rounds="$store.state['dao-voting-filter'].leaderboard.round"
+                :rounds="
+                  $store.state['dao-voting-filter'].leaderboard.currentRound
+                "
                 :set-filter="setFilter"
                 :fetch-leaderboard="fetchLeaderboard"
                 :set-fetch-interval="setFetchInterval"
