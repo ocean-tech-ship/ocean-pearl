@@ -36,8 +36,8 @@ export function getDaoRoundMetrics(axios, params) {
 }
 
 // leaderboard
-export function getLeaderboard(axios) {
-  return axios.$get('/leaderboard');
+export function getLeaderboard(axios, params) {
+  return axios.$get('/leaderboard', { params });
 }
 
 // account login
