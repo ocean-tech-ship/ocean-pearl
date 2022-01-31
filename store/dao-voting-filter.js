@@ -1,100 +1,5 @@
 import { getLeaderboard } from '@/api';
 
-const getLeaderBoardTest = async () =>
-  await new Promise((resolve) =>
-    resolve({
-      fundedProposals: [
-        {
-          id: 'string',
-          title: 'string',
-          project: {
-            id: 'string',
-            completedProposals: 0,
-            logoUrl: '',
-            title: 'string',
-          },
-          requestedFunding: 0,
-          receivedFunding: 0,
-          grantPoolShare: {},
-          yesVotes: 0,
-          noVotes: 0,
-          effectiveVotes: 0,
-          isEarmarked: true,
-          earmarkType: 'string',
-          tags: ['Outreach'],
-          voteUrl: 'string',
-          neededVotes: {
-            fullyFunded: 0,
-            partiallyFunded: 0,
-          },
-        },
-      ],
-      partiallyFundedProposals: [
-        {
-          id: 'string',
-          title: 'string',
-          project: {
-            id: 'string',
-            completedProposals: 0,
-            logoUrl: 'string',
-            title: 'string',
-          },
-          requestedFunding: 0,
-          receivedFunding: 0,
-          grantPoolShare: {},
-          yesVotes: 0,
-          noVotes: 0,
-          effectiveVotes: 0,
-          isEarmarked: true,
-          earmarkType: 'string',
-          tags: ['Outreach'],
-          voteUrl: 'string',
-          neededVotes: {
-            fullyFunded: 0,
-            partiallyFunded: 0,
-          },
-        },
-      ],
-      notFundedProposals: [
-        {
-          id: 'string',
-          title: 'string',
-          project: {
-            id: 'string',
-            completedProposals: 0,
-            logoUrl: 'string',
-            title: 'string',
-          },
-          requestedFunding: 0,
-          receivedFunding: 0,
-          grantPoolShare: {},
-          yesVotes: 0,
-          noVotes: 0,
-          effectiveVotes: 0,
-          isEarmarked: true,
-          earmarkType: 'string',
-          tags: ['Outreach'],
-          voteUrl: 'string',
-          neededVotes: {
-            fullyFunded: 1000000,
-            partiallyFunded: 0,
-          },
-        },
-      ],
-      amountProposals: 3,
-      maxVotes: 10000000,
-      grantPools: {},
-      paymentOption: 'OCEAN',
-      votingStartDate: '2022-01-30T14:02:14.172Z',
-      votingEndDate: '2022-01-30T14:02:14.172Z',
-      status: 'proposalSubmission',
-      round: 13,
-      overallFunding: 200000,
-      overallRequestedFunding: 129999,
-      totalVotes: 1000000,
-    }),
-  );
-
 const initialState = {
   error: false,
   pending: true,
@@ -155,8 +60,7 @@ export const actions = {
     if (query.round === 0) delete query.round;
 
     try {
-      /*const leaderBoardResponse = await getLeaderboard(this.$axios, query);*/
-      const leaderBoardResponse = await getLeaderBoardTest();
+      const leaderBoardResponse = await getLeaderboard(this.$axios, query);
 
       if (leaderBoardResponse.status === 204) {
         commit('error', 'general.error.retry');
@@ -164,6 +68,7 @@ export const actions = {
       } else {
         commit('leaderboard', leaderBoardResponse);
         commit('pending', false);
+
         // return query for url mutations
         return query;
       }
