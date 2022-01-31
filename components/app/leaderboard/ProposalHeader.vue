@@ -4,7 +4,7 @@
     class="flex items-center text-primary font-bold text-center"
   >
     <div
-      :class="{ 'w-2/5': !primary, 'w-1/2': primary }"
+      :class="{ 'w-2/5': displayNeededVotes, 'w-1/2': !displayNeededVotes }"
       class="pl-20 text-left"
     >
       {{ $t('leaderboard.proposal.header.name') }}
@@ -14,7 +14,7 @@
       {{ $t('leaderboard.proposal.header.votes') }}
     </div>
 
-    <div v-if="!primary" class="w-40 flex-grow">
+    <div v-if="displayNeededVotes" class="w-40 flex-grow">
       {{ $t('leaderboard.proposal.header.needed') }}
     </div>
 
@@ -22,7 +22,7 @@
       {{ $t('leaderboard.proposal.header.funding') }}
     </div>
 
-    <div class="w-14 flex-grow">
+    <div class="w-16 flex-grow">
       {{ $t('leaderboard.proposal.header.completed') }}
     </div>
   </div>
@@ -38,6 +38,11 @@ export default {
       required: false,
       default: false,
     },
+    displayNeededVotes: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
 };
 </script>
