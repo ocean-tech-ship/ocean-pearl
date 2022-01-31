@@ -124,22 +124,6 @@ export default {
           }),
         },
         {
-          icon:
-            board.status === RoundStatusEnum.VotingFinished ? recycle : coins,
-          title:
-            board.status === RoundStatusEnum.VotingFinished
-              ? this.$t('leaderboard.metrics.unused.past')
-              : this.$t('leaderboard.metrics.unused.future'),
-          subtitle:
-            board.paymentOption === PaymentOptionEnum.Usd
-              ? this.$t('general.usd', {
-                  usd: this.addPunctuation(remainingFunding),
-                })
-              : this.$t('general.ocean', {
-                  ocean: this.addPunctuation(remainingFunding),
-                }),
-        },
-        {
           icon: remainingFundingMetric.icon,
           title: remainingFundingMetric.title,
           subtitle: remainingFundingMetric.subtitle,
