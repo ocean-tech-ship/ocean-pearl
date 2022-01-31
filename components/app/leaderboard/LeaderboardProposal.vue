@@ -124,7 +124,7 @@
     />
 
     <!-- completed proposals gamification -->
-    <div class="hidden w-14 md:flex items-center justify-center flex-grow">
+    <div class="hidden w-16 md:flex items-center justify-center flex-grow">
       <project-tier :proposal="proposal" :background="primary" />
     </div>
   </div>
