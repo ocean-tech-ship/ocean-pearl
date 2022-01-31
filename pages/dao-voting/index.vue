@@ -41,9 +41,7 @@
               />
               <leaderboard-filter
                 :filter="$store.state['dao-voting-filter'].filter"
-                :rounds="
-                  $store.state['dao-voting-filter'].leaderboard.currentRound
-                "
+                :rounds="$store.state['dao-voting-filter'].currentRound"
                 :set-filter="setFilter"
                 :fetch-leaderboard="fetchLeaderboard"
                 :set-fetch-interval="setFetchInterval"
@@ -117,7 +115,15 @@
                 $store.state['dao-voting-filter'].leaderboard.fundedProposals
                   .length === 0
               "
-              class="flex justify-center border border-white text-white text-center rounded px-2 py-1"
+              class="
+                flex
+                justify-center
+                border border-white
+                text-white text-center
+                rounded
+                px-2
+                py-1
+              "
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -143,8 +149,11 @@
     </app-gradient-background>
 
     <leaderboard-partially-funded-list
+      v-if="
+        $store.state['dao-voting-filter'].leaderboard.partiallyFundedProposals
+          .length > 0
+      "
       :leaderboard="$store.state['dao-voting-filter'].leaderboard"
-      :is-pending="$store.state['dao-voting-filter'].pending"
     >
     </leaderboard-partially-funded-list>
 
@@ -152,7 +161,13 @@
     <section-container class="pb-5">
       <h4 class="text-primary py-4">{{ $t('leaderboard.pending') }}</h4>
 
-      <proposal-header class="hidden lg:flex" />
+      <proposal-header
+        :displayNeededVotes="
+          $store.state['dao-voting-filter'].leaderboard.status ===
+          statusEnum.VotingInProgress
+        "
+        class="hidden lg:flex"
+      />
 
       <!-- mobile variant -->
       <div class="lg:hidden space-y-2">
@@ -173,7 +188,15 @@
               $store.state['dao-voting-filter'].leaderboard.notFundedProposals
                 .length === 0
             "
-            class="flex justify-center border border-primary text-primary text-center rounded px-2 py-1"
+            class="
+              flex
+              justify-center
+              border border-primary
+              text-primary text-center
+              rounded
+              px-2
+              py-1
+            "
           >
             {{ $t('leaderboard.empty') }}
           </div>
@@ -195,8 +218,8 @@
             "
             :max-votes="$store.state['dao-voting-filter'].leaderboard.maxVotes"
             :primary="
-              $store.state['dao-voting-filter'].leaderboard.status &&
-              statusEnum !== 'votingFinished'
+              $store.state['dao-voting-filter'].leaderboard.status !==
+              statusEnum.VotingInProgress
             "
             class="rounded border border-primary"
           />
@@ -229,7 +252,13 @@
           <!-- empty hint (temporary solution) -->
           <div class="flex justify-center">
             <div
-              class="border border-primary text-primary text-center rounded px-2 py-1"
+              class="
+                border border-primary
+                text-primary text-center
+                rounded
+                px-2
+                py-1
+              "
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -257,8 +286,8 @@
             "
             :max-votes="$store.state['dao-voting-filter'].leaderboard.maxVotes"
             :primary="
-              $store.state['dao-voting-filter'].leaderboard.status &&
-              statusEnum !== 'votingFinished'
+              $store.state['dao-voting-filter'].leaderboard.status !==
+              statusEnum.VotingInProgress
             "
             :class="{
               'rounded-t': index === 0,
