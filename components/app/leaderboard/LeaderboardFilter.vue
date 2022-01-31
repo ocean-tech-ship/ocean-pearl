@@ -36,6 +36,14 @@ export default {
       type: Function,
       required: true,
     },
+    setFetchInterval: {
+      type: Function,
+      required: true,
+    },
+    clearFetchInterval: {
+      type: Function,
+      required: true,
+    },
   },
 
   methods: {
@@ -52,6 +60,12 @@ export default {
           replaceQueryParams(this, query),
         ),
       );
+
+      if (round === 0) {
+        this.setFetchInterval();
+      } else {
+        this.clearFetchInterval();
+      }
     },
   },
 };

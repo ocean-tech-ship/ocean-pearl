@@ -44,6 +44,8 @@
                 :rounds="$store.state['dao-voting-filter'].leaderboard.round"
                 :set-filter="setFilter"
                 :fetch-leaderboard="fetchLeaderboard"
+                :set-fetch-interval="setFetchInterval"
+                :clear-fetch-interval="clearFetchInterval"
               />
             </div>
           </div>
@@ -321,8 +323,9 @@ export default Vue.extend({
     next();
   },
 
-  // set exception pages where state should not be reset if navigated to
+  // set exception pages when page is left
   beforeRouteLeave(_to, _from, next) {
+    this.clearFetchInterval();
     this.resetState();
     next();
   },
@@ -337,11 +340,6 @@ export default Vue.extend({
   head() {
     return createHead(this.$config, this.$i18n);
   },
-
-  /*created() {
-    this.fetchLeaderboard();
-    this.timer = setInterval(() => this.fetchLeaderboard(), 1000 * 60 * 3);
-  },*/
 
   created() {
     const newFilter = processQueryToFilter(
@@ -359,26 +357,17 @@ export default Vue.extend({
           ),
         ),
       );
+      this.setFetchInterval();
       return;
     }
 
     this.setPending(true).then(() =>
       this.fetchLeaderboard().then((query) => replaceQueryParams(this, query)),
     );
-  },
-
-  beforeDestroy() {
-    clearInterval(this.timer);
+    this.setFetchInterval();
   },
 
   methods: {
-    resetAndRefetch() {
-      this.resetState().then(() =>
-        this.fetchLeaderboard().then((query) =>
-          replaceQueryParams(this, query),
-        ),
-      );
-    },
     resetState() {
       return this.$store.dispatch('dao-voting-filter/resetState');
     },
@@ -390,6 +379,19 @@ export default Vue.extend({
     },
     fetchLeaderboard() {
       return this.$store.dispatch('dao-voting-filter/fetchLeaderboard');
+    },
+    resetAndRefetch() {
+      this.resetState().then(() =>
+        this.fetchLeaderboard().then((query) =>
+          replaceQueryParams(this, query),
+        ),
+      );
+    },
+    setFetchInterval() {
+      this.timer = setInterval(() => this.fetchLeaderboard(), 1000 * 60 * 3);
+    },
+    clearFetchInterval() {
+      clearInterval(this.timer);
     },
   },
 });
