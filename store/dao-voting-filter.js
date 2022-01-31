@@ -3,7 +3,12 @@ import { getLeaderboard } from '@/api';
 const initialState = {
   error: false,
   pending: true,
-  leaderboard: {},
+  leaderboard: {
+    fundedProposals: [],
+    partiallyFundedProposals: [],
+    notFundedProposals: [],
+  },
+  currentRound: 0,
   filter: {
     round: 0,
   },
@@ -30,6 +35,10 @@ export const mutations = {
 
   leaderboard(state, payload) {
     state.leaderboard = payload;
+  },
+
+  currentRound(state, payload) {
+    state.currentRound = payload;
   },
 
   filter(state, payload) {
@@ -66,7 +75,8 @@ export const actions = {
         commit('error', 'general.error.retry');
         commit('leaderboard', {});
       } else {
-        commit('leaderboard', leaderBoardResponse);
+        commit('leaderboard', leaderBoardResponse.leaderboard);
+        commit('currentRound', leaderBoardResponse.currentRound);
         commit('pending', false);
 
         // return query for url mutations
