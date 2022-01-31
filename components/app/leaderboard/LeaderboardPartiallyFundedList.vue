@@ -1,7 +1,10 @@
 <template>
   <section-container>
     <h4 class="text-primary py-4">{{ $t('leaderboard.partiallyFunded') }}</h4>
-    <proposal-header class="hidden lg:flex" />
+    <proposal-header
+      :displayNeededVotes="leaderboard.status === roundStatusEnum.VotingInProgress"
+      class="hidden lg:flex"
+    />
     <div class="space-y-2 lg:space-y-4">
       <leaderboard-proposal
         class="rounded border border-primary"
@@ -11,10 +14,7 @@
         :payment-option="leaderboard.paymentOption"
         :startIndex="index + leaderboard.fundedProposals.length"
         :max-votes="leaderboard.maxVotes"
-        :primary="
-          $store.state['dao-voting-filter'].leaderboard.status &&
-          statusEnum !== 'votingFinished'
-        "
+        :primary="leaderboard.status !== roundStatusEnum.VotingInProgress"
       />
     </div>
   </section-container>
@@ -39,12 +39,17 @@ export default {
   },
 
   props: {
-    statusEnum: RoundStatusEnum,
     leaderboard: {
       type: Object as () => Leaderboard,
       required: true,
       default: false,
     },
+  },
+
+  data() {
+    return {
+      roundStatusEnum: RoundStatusEnum,
+    };
   },
 };
 </script>
