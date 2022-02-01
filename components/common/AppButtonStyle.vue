@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      inline-block
-      rounded
-      select-none
-      font-medium
-      py-2
-      px-6
-      shadow
-      items-center
-      justify-center
-      z-30
-    "
+    class="inline-block rounded select-none font-medium py-2 px-6 shadow items-center justify-center z-base"
     :class="[
       secondary ? 'bg-white text-primary' : 'call-to-action text-secondary',
     ]"
@@ -76,13 +65,13 @@ export default {
 
   &:before,
   &:after {
+    @apply z-backdrop;
     position: absolute;
     transition: 0.3s ease-in-out;
     content: '';
     height: 100%;
     top: 0;
     bottom: 0;
-    z-index: -1;
   }
 
   &:before {

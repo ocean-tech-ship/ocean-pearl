@@ -60,6 +60,10 @@ export const actions = {
         value.forEach((val) =>
           formData.append(val !== Object(val) ? `${key}[]` : key, val),
         );
+        if (value.length === 0) {
+          // Workaround for empty arrays
+          formData.append(key, null);
+        }
       } else if (value instanceof Object) {
         if (value instanceof File) {
           formData.append(key, value);

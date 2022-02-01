@@ -4,13 +4,13 @@
       class="flex flex-col 2sm:flex-row md:flex-col lg:flex-row"
       :filter="filter"
       :rounds="rounds"
-      @selected-items="setFilter"
+      @selected-items="setFilterAndFetch"
     />
     <AppSearchBar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
       placeholder="Search Proposals"
       :initial-value="filter.search"
-      @search="setFilter"
+      @search="setFilterAndFetch"
     />
   </div>
 </template>
@@ -28,68 +28,45 @@ export default {
     AppSearchBar,
     DaoProposalsDropdowns,
   },
+
   props: {
     rounds: {
       type: Number,
       required: true,
     },
-  },
-  data() {
-    return {
-      filter: {
-        round: 0,
-        category: 'all',
-        search: '',
-      },
-    };
-  },
-  watch: {
     filter: {
-      deep: true,
-      handler: function emit() {
-        // restructure filter items for backend compatibility
-        const filterRestructed = { ...this.filter };
-        if (filterRestructed.round === 0) delete filterRestructed.round;
-        if (filterRestructed.category === 'all')
-          delete filterRestructed.category;
-        if (filterRestructed.search === '') delete filterRestructed.search;
-
-        this.$emit('filter', filterRestructed);
-      },
+      type: Object,
+      required: true,
+    },
+    setFilter: {
+      type: Function,
+      required: true,
+    },
+    fetchMetricsAndProposals: {
+      type: Function,
+      required: true,
     },
   },
-  created() {
-    const { round, category, search } = this.$route.query;
 
-    // set new filter
-    this.filter = {
-      round:
-        round <= this.rounds && round > 0
-          ? parseInt(round, 10)
-          : this.filter.round,
-      category: Object.values(CategoryEnum).includes(category)
-        ? category
-        : this.filter.category,
-      search: search || search === '' ? search : this.filter.search,
-    };
-
-    // replace history state
-    replaceQueryParams(this, this.filter);
-  },
   methods: {
-    setFilter(payload) {
-      const { round, category, searchValue } = payload;
+    setFilterAndFetch(payload) {
+      const { round, category, search } = payload;
 
       // set new filter
-      this.filter = {
+      const newFilter = {
+        page: 1,
         round: round || round === 0 ? round : this.filter.round,
-        category: category || this.filter.category,
-        search:
-          searchValue || searchValue === '' ? searchValue : this.filter.search,
+        category: Object.values(CategoryEnum).includes(category)
+          ? category
+          : this.filter.category,
+        search: search || search === '' ? search : this.filter.search,
       };
 
-      // replace history state
-      replaceQueryParams(this, this.filter);
+      this.setFilter(newFilter).then(() =>
+        this.fetchMetricsAndProposals().then((query) =>
+          replaceQueryParams(this, query),
+        ),
+      );
     },
   },
 };

@@ -38,10 +38,10 @@
               >
                 <span class="line-clamp-1 break-all">
                   <span
-                    :class="{ 'text-primary': primary && index === 0 }"
+                    :class="{ 'text-primary': primary && startIndex === 0 }"
                     class="font-bold pr-1"
                   >
-                    {{ `#${index + indexOffset + 1}` }}
+                    {{ `#${startIndex + 1}` }}
                   </span>
                   {{ proposal.title }}
                 </span>
@@ -60,13 +60,13 @@
             </div>
 
             <!-- tags -->
-            <proposal-tags class="flex flex-wrap" :proposal="proposal" />
+            <proposal-tags :proposal="proposal" />
           </div>
         </div>
 
         <!-- votes & funding (until lg) -->
         <mobile-proposal-figures
-          class="flex lg:hidden"
+          class="lg:hidden"
           :proposal="proposal"
           :payment-option="paymentOption"
         />
@@ -74,30 +74,57 @@
     </div>
 
     <!-- votes (from lg) -->
-    <div class="hidden lg:flex items-center justify-center flex-grow">
-      <proposal-votes class="w-48" :proposal="proposal" />
-    </div>
+    <proposal-votes class="hidden lg:flex" :proposal="proposal" />
 
-    <!-- votes needed (non primary!) -->
+    <!-- votes needed -->
     <div
       v-if="!primary"
-      class="hidden w-28 lg:flex items-center justify-center flex-grow"
+      class="
+        hidden
+        lg:flex
+        flex-row
+        justify-center
+        flex-grow
+        w-40
+        sm:w-44
+        mx-auto
+        px-2
+      "
     >
-      <span>{{ addPunctuation(proposal.neededVotes) }}</span>
+      <div class="flex flex-col text-right justify-center">
+        <span class="inline-block w-26">{{
+          addPunctuation(proposal.neededVotes.fullyFunded)
+        }}</span>
+        <span
+          class="inline-block w-26"
+          v-if="proposal.neededVotes.partiallyFunded"
+          >{{ addPunctuation(proposal.neededVotes.partiallyFunded) }}</span
+        >
+      </div>
+      <div class="flex flex-col text-right justify-center">
+        <span class="inline-block text-left w-14">&nbsp;{{
+          $t('leaderboard.proposal.votes.neededVotes.fullyFunded')
+        }}</span>
+        <span
+          class="inline-block text-left w-14"
+          v-if="proposal.neededVotes.partiallyFunded"
+          >&nbsp;{{
+            $t('leaderboard.proposal.votes.neededVotes.partiallyFunded')
+          }}</span
+        >
+      </div>
     </div>
 
     <!-- amount requested / received -->
-    <div class="hidden lg:flex items-center justify-center flex-grow">
-      <proposal-funding
-        class="w-28"
-        :proposal="proposal"
-        :primary="primary"
-        :payment-option="paymentOption"
-      />
-    </div>
+    <proposal-funding
+      class="hidden lg:flex"
+      :requestedFunding="proposal.requestedFunding"
+      :receivedFunding="proposal.receivedFunding"
+      :payment-option="paymentOption"
+    />
 
     <!-- completed proposals gamification -->
-    <div class="hidden w-14 md:flex items-center justify-center flex-grow">
+    <div class="hidden w-16 md:flex items-center justify-center flex-grow">
       <project-tier :proposal="proposal" :background="primary" />
     </div>
   </div>
@@ -107,7 +134,7 @@
 import {
   LeaderboardProject,
   LeaderboardProposal,
-} from '@/models/Leaderboard.model';
+} from '@/models/LeaderboardProposal.model';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppProgressbar from '@/components/common/AppProgressbar.vue';
 import Numbers from '@/mixins/Numbers';
@@ -148,12 +175,7 @@ export default {
       default: () => PaymentOptionEnum.Ocean,
     },
 
-    indexOffset: {
-      type: Number,
-      required: true,
-    },
-
-    index: {
+    startIndex: {
       type: Number,
       required: true,
     },

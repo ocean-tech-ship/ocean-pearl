@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex flex-wrap">
     <app-link :to="targetCategoryPath(findCategory(proposal.tags))">
       <proposal-tag :tag="findCategory(proposal.tags)" />
     </app-link>
@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { LeaderboardProposal } from '@/models/Leaderboard.model';
+import { LeaderboardProposal } from '@/models/LeaderboardProposal.model';
 import CategoryEnum from '@/enums/Category.enum';
 import AppLink from '@/components/common/AppLink.vue';
 import ProposalTag from '@/components/app/leaderboard/ProposalTag.vue';

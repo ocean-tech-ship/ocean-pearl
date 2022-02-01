@@ -1,20 +1,43 @@
 <template>
   <div class="flex justify-between sm:justify-around">
-    <div class="rounded border border-darkgrey p-1 px-2">
-      <table>
-        <tbody>
-          <tr class="text-primary">
-            <td class="text-right sm:w-24">
-              {{ addPunctuation(proposal.yesVotes) }}
-            </td>
-            <td class="pl-1">{{ $t('leaderboard.proposal.votes.yes') }}</td>
-          </tr>
-          <tr>
-            <td class="text-right">{{ addPunctuation(proposal.noVotes) }}</td>
-            <td class="pl-1">{{ $t('leaderboard.proposal.votes.no') }}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div
+      class="
+        flex flex-col
+        text-right
+        items-right
+        justify-center
+        w-52
+        px-2
+        rounded
+        border border-darkgrey
+        p-1
+        px-2
+      "
+    >
+      <div
+        class="
+          flex flex-col
+          text-right
+          items-right
+          justify-center
+          flex-grow
+          w-52
+          px-4
+        "
+      >
+        <div class="text-primary">
+          <span>{{ addPunctuation(proposal.yesVotes) }}</span>
+          <span class="inline-block w-20">{{
+            $t('leaderboard.proposal.votes.yes')
+          }}</span>
+        </div>
+        <div>
+          <span>{{ addPunctuation(proposal.noVotes) }}</span>
+          <span class="inline-block w-20">{{
+            $t('leaderboard.proposal.votes.no')
+          }}</span>
+        </div>
+      </div>
     </div>
 
     <div class="self-center border border-darkgrey rounded p-1 px-2">
@@ -33,7 +56,7 @@
 
 <script lang="ts">
 import Numbers from '@/mixins/Numbers';
-import { LeaderboardProposal } from '~/models/Leaderboard.model';
+import { LeaderboardProposal } from '~/models/LeaderboardProposal.model';
 import PaymentOptionEnum from '~/enums/PaymentOption.enum';
 
 export default {

@@ -8,7 +8,7 @@
       lg:top-1/2
       bottom-5
       pointer-events-none
-      z-50
+      z-popup
     "
   >
     <app-link :to="voteUrl" :data-analytics="dataAnalytics">
@@ -62,18 +62,13 @@ export default {
       icons: {
         vote,
       },
+      voteUrl: 'https://vote.oceanprotocol.com/#/officialoceandao.eth',
     };
   },
 
   computed: {
     dataAnalytics() {
       return `"Vote: Click", {"props":{"url":"${this.voteUrl}","round":"${this.$props.leaderboard.round}"}}`;
-    },
-
-    voteUrl() {
-      const stdUrl = 'https://vote.oceanprotocol.com/#/officialoceandao.eth';
-      // API does not provide any special link to snapshot right now
-      return stdUrl;
     },
   },
 };

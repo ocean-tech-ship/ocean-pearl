@@ -104,6 +104,7 @@
     "analytics": "Analytics"
   },
   "general": {
+    "abort": "Abort",
     "add": "add",
     "button": "button",
     "delete": "delete",
@@ -148,7 +149,7 @@
       "title": "Connect with us."
     },
     "dao_proposals": {
-      "link_text": "See all DAO projects",
+      "link_text": "See all listed proposals",
       "requestedAmount": "Requested Amount",
       "text": "These projects are currently waiting or applying for a DAO funding.",
       "title": "Open DAO",
@@ -225,9 +226,10 @@
         "subtitle": "{n} USD",
         "title": "Funding amount"
       },
-      "burned": {
-        "future": "Will be burned",
-        "past": "Amount burned"
+      "unused": {
+        "burn": "Will be burned",
+        "future": "Available funding",
+        "past": "Recycled funding"
       },
       "requested": {
         "title": "Amount requested"
@@ -236,34 +238,33 @@
         "title": "Total Votes"
       }
     },
+    "partiallyFunded": "Proposals with partial funding",
     "pending": "Proposals without funding",
     "proposal": {
-      "funding": [
-        "{amount} {paymentOption}",
-        "requested"
-      ],
+      "funding": ["{amount} {paymentOption}", "requested"],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
         "name": "Name",
-        "needed": "Yes Votes needed",
+        "needed": "Needed Votes",
         "votes": "Votes"
       },
       "rank": "rank icon",
       "votes": {
         "no": "No Votes",
-        "yes": "Yes Votes"
+        "yes": "Yes Votes",
+        "neededVotes": {
+          "fullyFunded": "Full",
+          "partiallyFunded": "Partial"
+        }
       }
     },
-    "refresh": "The results are updated every 3 minutes.",
+    "refresh": "The results are updated every 5 minutes.",
     "round": {
       "title": "Round"
     },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
-    "title": [
-      "DAO",
-      "Voting"
-    ],
+    "title": ["DAO", "Voting"],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -271,7 +272,11 @@
     }
   },
   "manage": {
-    "admins": "Administrators",
+    "admins": {
+      "add": "Add wallet address",
+      "edit": "Manage Administrators",
+      "title": "Administrators"
+    },
     "auth": {
       "error": {
         "invalid": "Authentication was invalid. Please try again.",
@@ -292,6 +297,7 @@
       "description": "Description",
       "empty": "Hey sailor, no projects here so far.  Dive right in and add your first one now!",
       "logo": "Logo",
+      "one-liner": "One Liner",
       "pictures": {
         "limit": "You can only save a maximum of {count} images.",
         "title": "Project pictures",
@@ -305,10 +311,7 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"]
   },
   "navbar": {
     "logoText": "Ocean Pearl",

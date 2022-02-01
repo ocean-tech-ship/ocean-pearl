@@ -2,80 +2,105 @@
   <div class="min-h-screen">
     <projects-header />
 
-    <landing-section-container>
-      <projects-filter @filter="fetchProjects" />
-    </landing-section-container>
-
-    <landing-section-container v-if="error">
+    <section-container v-if="$store.state['projects-filter'].error">
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-      <p class="small-text">{{ $t(error) }}</p>
-    </landing-section-container>
+      <p class="small-text">{{ $t($store.state['projects-filter'].error) }}</p>
+    </section-container>
 
-    <landing-section-container v-else-if="pending">
+    <section-container v-else-if="$store.state['projects-filter'].pending">
       <app-skeleton-card-list>
         <projects-skeleton-card />
       </app-skeleton-card-list>
-    </landing-section-container>
+    </section-container>
 
-    <landing-section-container v-else-if="projects.length">
-      <projects-list :projects="projects" />
-    </landing-section-container>
+    <div v-else>
+      <section-container>
+        <projects-filter
+          :filter="$store.state['projects-filter'].filter"
+          :set-filter="setFilter"
+          :fetch-projects="fetchProjects"
+        />
+      </section-container>
 
-    <landing-section-container v-else>
-      <app-response-with-search
-        :no-search-text="{
-          headingMain: $t('projects.filterResponse.noSearch.heading.main'),
-          headingSecondary: $t(
-            'projects.filterResponse.noSearch.heading.secondary',
-          ),
-          paragraph: $t('projects.filterResponse.noSearch.paragraph'),
-          button: $t('projects.filterResponse.noSearch.button'),
-          link: 'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
-        }"
-        :search-text="{
-          headingMain: $t('projects.filterResponse.search.heading.main'),
-          headingSecondary: $t(
-            'projects.filterResponse.search.heading.secondary',
-          ),
-          paragraph: $t('projects.filterResponse.search.paragraph'),
-        }"
-        :search-used="searchUsed"
-      />
-    </landing-section-container>
+      <section-container v-if="$store.state['projects-filter'].projects.length">
+        <projects-list :projects="$store.state['projects-filter'].projects" />
+        <app-pagination
+          v-if="$store.state['projects-filter'].pagination"
+          :pagination="$store.state['projects-filter'].pagination"
+          :set-filter="setFilter"
+          :fetch-page="fetchProjects"
+        />
+      </section-container>
+
+      <section-container v-else>
+        <app-response-with-search
+          :no-search-text="{
+            headingMain: $t('projects.filterResponse.noSearch.heading.main'),
+            headingSecondary: $t(
+              'projects.filterResponse.noSearch.heading.secondary',
+            ),
+            paragraph: $t('projects.filterResponse.noSearch.paragraph'),
+            button: $t('projects.filterResponse.noSearch.button'),
+            link: 'https://github.com/oceanprotocol/oceandao/wiki/Grant-Proposal-Template',
+          }"
+          :search-text="{
+            headingMain: $t('projects.filterResponse.search.heading.main'),
+            headingSecondary: $t(
+              'projects.filterResponse.search.heading.secondary',
+            ),
+            paragraph: $t('projects.filterResponse.search.paragraph'),
+          }"
+          :search-used="$store.state['projects-filter'].searchUsed"
+        />
+      </section-container>
+    </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import { getProjects } from '@/api';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
+import SectionContainer from '@/components/common/SectionContainer';
 import ProjectsHeader from '@/components/app/projects/ProjectsHeader.vue';
 import ProjectsList from '@/components/app/projects/ProjectsList.vue';
 import ProjectsFilter from '@/components/app/projects/ProjectsFilter.vue';
 import ProjectsSkeletonCard from '@/components/app/projects/ProjectsSkeletonCard.vue';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
+import AppPagination from '@/components/common/AppPagination.vue';
+import replaceQueryParams, {
+  processQueryToFilter,
+} from '@/helpers/windowHistory';
 
 export default Vue.extend({
   name: 'ProjectOverview',
 
   components: {
+    SectionContainer,
     ProjectsHeader,
     ProjectsList,
-    LandingSectionContainer,
     ProjectsFilter,
     ProjectsSkeletonCard,
     AppResponseWithSearch,
     AppSkeletonCardList,
+    AppPagination,
   },
 
-  data() {
-    return {
-      pending: true,
-      projects: null,
-      error: null,
-      searchUsed: false,
-    };
+  // reset state and refetch if same page is navigated to via navbar
+  beforeRouteUpdate(to, _from, next) {
+    if (Object.keys(to.query)[0] === 'all') {
+      this.resetState().then(() =>
+        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+      );
+    }
+    next();
+  },
+
+  // set exception pages where state should not be reset if navigated to
+  beforeRouteLeave(to, _from, next) {
+    if (to.path !== '/dao-projects/:id') {
+      this.resetState();
+    }
+    next();
   },
 
   head() {
@@ -85,7 +110,8 @@ export default Vue.extend({
         {
           hid: 'description',
           name: 'description',
-          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+          content:
+            'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
         {
           hid: 'og:title',
@@ -95,7 +121,8 @@ export default Vue.extend({
         {
           hid: 'og:description',
           property: 'og:description',
-          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+          content:
+            'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
         {
           hid: 'og:url',
@@ -110,39 +137,50 @@ export default Vue.extend({
         {
           hid: 'twitter:description',
           property: 'twitter:description',
-          content: 'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
+          content:
+            'Get an overview of all projects that are in the Ocean Protocol ecosystem.',
         },
       ],
-      link: [
-        { rel: 'canonical', href: `${this.$config.rootURL}/projects` },
-      ]
+      link: [{ rel: 'canonical', href: `${this.$config.rootURL}/projects` }],
+    };
+  },
+
+  created() {
+    const newFilter = processQueryToFilter(
+      {
+        page: this.$route.query.page,
+        category: this.$route.query.category,
+        search: this.$route.query.search,
+      },
+      this.$store.state['projects-filter'].filter,
+    );
+
+    if (Object.entries(newFilter).length) {
+      this.setPending(true).then(() =>
+        this.setFilter(newFilter).then(() =>
+          this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+        ),
+      );
+      return;
     }
+
+    this.setPending(true).then(() =>
+      this.fetchProjects().then((query) => replaceQueryParams(this, query)),
+    );
   },
 
   methods: {
-    async fetchProjects(payload) {
-      try {
-        const projectsResponse = await getProjects(this.$axios, payload);
-
-        if (projectsResponse.status === 204) {
-          this.error = 'general.error.unknown';
-          this.projects = [];
-        }
-
-        this.pending = false;
-        this.error = null;
-        this.projects =
-          process.env.NODE_ENV === 'mirage'
-            ? projectsResponse.data.projects
-            : projectsResponse.data;
-
-        // set search used to true if there is a search term
-        payload.search ? (this.searchUsed = true) : (this.searchUsed = false);
-      } catch (error) {
-        this.pending = false;
-        this.error = 'general.error.retry';
-        this.projects = [];
-      }
+    resetState() {
+      return this.$store.dispatch('projects-filter/resetState');
+    },
+    setPending(payload) {
+      return this.$store.dispatch('projects-filter/setPending', payload);
+    },
+    setFilter(payload) {
+      return this.$store.dispatch('projects-filter/setFilter', payload);
+    },
+    fetchProjects() {
+      return this.$store.dispatch('projects-filter/fetchProjects');
     },
   },
 });

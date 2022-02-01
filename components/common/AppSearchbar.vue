@@ -39,7 +39,7 @@ export default {
   },
   watch: {
     searchValue: debounce(function () {
-      this.$emit('search', { searchValue: this.searchValue });
+      this.$emit('search', { search: this.searchValue });
     }, 500),
   },
 };
@@ -47,10 +47,10 @@ export default {
 
 <style lang="scss" scoped>
 label {
+  @apply z-label;
   top: 9.2px;
   left: 12px;
   transition: 200ms;
-  z-index: 30;
   background: #fff;
 }
 .isFocused {

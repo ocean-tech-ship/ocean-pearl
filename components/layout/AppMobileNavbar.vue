@@ -5,24 +5,11 @@
         alt="treasure icon navbar"
         class="h-10 w-10 cursor-pointer object-cover"
         src="@/assets/images/icons/treasure-card.svg"
-        @click="context.toggleOpen"
+        @click="toggleDropdown(context)"
       />
       <div
         v-if="context.open"
-        class="
-          dropdown-menu
-          shadow
-          origin-top-right
-          absolute
-          right-0
-          mt-2
-          w-64
-          bg-grey
-          border border-primary
-          rounded
-          overflow-hidden
-          shadow-md
-        "
+        class="z-dropdown shadow origin-top-right absolute right-0 mt-2 w-64 bg-grey border border-primary rounded overflow-hidden shadow-md"
       >
         <ul @click="context.toggleOpen">
           <li>
@@ -41,9 +28,11 @@
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="font-bold block px-4 py-3" to="/dao-voting">{{
-              $t('leaderboard.meta.title')
-            }}</NuxtLink>
+            <NuxtLink
+              class="font-bold block px-4 py-3"
+              to="/dao-voting?current"
+              >{{ $t('leaderboard.meta.title') }}</NuxtLink
+            >
           </li>
           <li v-if="!walletAddress">
             <button
@@ -121,13 +110,17 @@ export default {
       return this.accountWallet || this.$cookies.get(SESSION_NAME);
     },
   },
+
+  methods: {
+    toggleDropdown(context) {
+      this.$store.commit('alert/clear');
+      context.toggleOpen();
+    },
+  },
 };
 </script>
 
 <style scoped>
-.dropdown-menu {
-  z-index: 9999;
-}
 li > a:hover {
   background: #bb2c7636;
   transition: 200ms;

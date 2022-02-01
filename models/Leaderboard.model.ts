@@ -1,49 +1,29 @@
 import PaymentOptionEnum from '@/enums/PaymentOption.enum';
 import RoundStatusEnum from '@/enums/RoundStatus.enum';
 import EarmarkTypeEnum from '@/enums/EarmarkType.enum';
+import { LeaderboardProposal } from './LeaderboardProposal.model';
 
-export interface LeaderboardProject {
-  id: string;
-  completedProposals: number;
-  logoUrl: string;
-  title: string;
-}
-
-export interface LeaderboardProposal {
-  id: string;
-  title: string;
-  project: LeaderboardProject;
-  requestedFunding: number;
-  receivedFunding: number;
-  yesVotes: number;
-  noVotes: number;
-  effectiveVotes: number;
-  isEarmarked: boolean;
-  earmarkType: EarmarkTypeEnum;
-  tags: string[];
-  voteUrl: string;
-  neededVotes: number;
-}
-
-export interface LeaderboardEarmark {
-  type: EarmarkTypeEnum;
-  remainingFunding: number;
-}
-
-export type LeaderboardEarmarks = {
-  [key in EarmarkTypeEnum]: LeaderboardEarmark;
+export type LeaderboardGrantPools = {
+  [key in EarmarkTypeEnum]: GrantPool;
 };
+
+export interface GrantPool {
+  type: EarmarkTypeEnum;
+  totalFunding: number;
+  remainingFunding: number;
+  potentialRemainingFunding?: number;
+}
 
 export interface Leaderboard {
   fundedProposals: LeaderboardProposal[];
+  partiallyFundedProposals: LeaderboardProposal[];
   notFundedProposals: LeaderboardProposal[];
   amountProposals: number;
   maxVotes: number;
-  earmarks: LeaderboardEarmarks;
-  remainingGeneralFunding: number;
+  grantPools: LeaderboardGrantPools;
   paymentOption: PaymentOptionEnum;
-  voteStartDate: Date;
-  voteEndDate: Date;
+  votingStartDate: Date;
+  votingEndDate: Date;
   status: RoundStatusEnum;
   round: number;
   overallFunding: number;
