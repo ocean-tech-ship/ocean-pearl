@@ -2,7 +2,7 @@
   <section class="relative flex border w-full">
     <button
       tabindex="0"
-      :class="{ open: open }"
+      :class="[{ open }, buttonStyle]"
       class="flex items-center small-text relative w-full p-1"
       @click="
         (e) => {
@@ -16,7 +16,7 @@
 
       {{ selectedName }}
     </button>
-    <label class="label absolute p-1 z-10" :class="buttonBackground">
+    <label class="label absolute p-1 z-10" :class="labelStyle">
       {{ buttonName }}
     </label>
     <section
@@ -55,7 +55,12 @@ export default {
       required: true,
       default() {},
     },
-    buttonBackground: {
+    buttonStyle: {
+      type: String,
+      required: false,
+      default: '',
+    },
+    labelStyle: {
       type: String,
       required: false,
       default: 'bg-white',

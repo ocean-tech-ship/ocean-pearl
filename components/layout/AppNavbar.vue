@@ -25,7 +25,9 @@
           $t('navbar.navbarDao')
         }}</NuxtLink>
 
-        <NuxtLink to="/dao-voting">{{ $t('leaderboard.meta.title') }}</NuxtLink>
+        <NuxtLink to="/dao-voting?current">{{
+          $t('leaderboard.meta.title')
+        }}</NuxtLink>
 
         <app-button
           v-if="!walletAddress"

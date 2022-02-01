@@ -28,9 +28,11 @@
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="font-bold block px-4 py-3" to="/dao-voting">{{
-              $t('leaderboard.meta.title')
-            }}</NuxtLink>
+            <NuxtLink
+              class="font-bold block px-4 py-3"
+              to="/dao-voting?current"
+              >{{ $t('leaderboard.meta.title') }}</NuxtLink
+            >
           </li>
           <li v-if="!walletAddress">
             <button

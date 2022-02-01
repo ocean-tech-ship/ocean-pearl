@@ -227,6 +227,7 @@
         "title": "Funding amount"
       },
       "unused": {
+        "burn": "Will be burned",
         "future": "Available funding",
         "past": "Recycled funding"
       },

@@ -23,10 +23,12 @@ import coins from '@iconify/icons-la/coins';
 import vote from '@iconify/icons-la/vote-yea';
 import rocket from '@iconify/icons-la/rocket';
 import recycle from '@iconify/icons-la/recycle';
+import fire from '@iconify/icons-la/fire';
 import AppIcon from '@/components/common/AppIcon.vue';
 import Numbers from '@/mixins/Numbers';
 import PaymentOptionEnum from '~/enums/PaymentOption.enum';
 import RoundStatusEnum from '~/enums/RoundStatus.enum';
+import { RemainingFundingStrategyEnum } from '~/enums/RemainingFundingStrategy.enum';
 
 export default {
   name: 'LeaderboardMetrics',
@@ -50,6 +52,33 @@ export default {
       for (const [index, grantPool] of Object.entries(board.grantPools)) {
         remainingFunding += grantPool.remainingFunding;
       }
+
+      const remainingFundingMetric = {};
+
+      if (
+        board.remainingFundingStrategy === RemainingFundingStrategyEnum.Recycle
+      ) {
+        const isVotingFinished =
+          board.status === RoundStatusEnum.VotingFinished;
+        remainingFundingMetric.icon = isVotingFinished ? recycle : coins;
+        remainingFundingMetric.title = isVotingFinished
+          ? this.$t('leaderboard.metrics.unused.past')
+          : this.$t('leaderboard.metrics.unused.future');
+      } else {
+        remainingFundingMetric.icon = fire;
+        remainingFundingMetric.title = this.$t(
+          'leaderboard.metrics.unused.burn',
+        );
+      }
+
+      remainingFundingMetric.subtitle =
+        board.paymentOption === PaymentOptionEnum.Usd
+          ? this.$t('general.usd', {
+              usd: this.addPunctuation(remainingFunding),
+            })
+          : this.$t('general.ocean', {
+              ocean: this.addPunctuation(remainingFunding),
+            });
 
       return [
         {
@@ -95,20 +124,9 @@ export default {
           }),
         },
         {
-          icon:
-            board.status === RoundStatusEnum.VotingFinished ? recycle : coins,
-          title:
-            board.status === RoundStatusEnum.VotingFinished
-              ? this.$t('leaderboard.metrics.unused.past')
-              : this.$t('leaderboard.metrics.unused.future'),
-          subtitle:
-            board.paymentOption === PaymentOptionEnum.Usd
-              ? this.$t('general.usd', {
-                  usd: this.addPunctuation(remainingFunding),
-                })
-              : this.$t('general.ocean', {
-                  ocean: this.addPunctuation(remainingFunding),
-                }),
+          icon: remainingFundingMetric.icon,
+          title: remainingFundingMetric.title,
+          subtitle: remainingFundingMetric.subtitle,
         },
       ];
     },
