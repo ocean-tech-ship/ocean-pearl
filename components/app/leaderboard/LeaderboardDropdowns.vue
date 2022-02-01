@@ -15,7 +15,7 @@
 import ButtonEmitWithDropdown from '@/components/common/ButtonEmitWithDropdown.vue';
 
 export default {
-  name: 'LeaderBoardDropdowns',
+  name: 'LeaderboardDropdowns',
 
   components: {
     ButtonEmitWithDropdown,

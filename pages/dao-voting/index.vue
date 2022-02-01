@@ -115,15 +115,7 @@
                 $store.state['dao-voting-filter'].leaderboard.fundedProposals
                   .length === 0
               "
-              class="
-                flex
-                justify-center
-                border border-white
-                text-white text-center
-                rounded
-                px-2
-                py-1
-              "
+              class="flex justify-center border border-white text-white text-center rounded px-2 py-1"
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -188,15 +180,7 @@
               $store.state['dao-voting-filter'].leaderboard.notFundedProposals
                 .length === 0
             "
-            class="
-              flex
-              justify-center
-              border border-primary
-              text-primary text-center
-              rounded
-              px-2
-              py-1
-            "
+            class="flex justify-center border border-primary text-primary text-center rounded px-2 py-1"
           >
             {{ $t('leaderboard.empty') }}
           </div>
@@ -252,13 +236,7 @@
           <!-- empty hint (temporary solution) -->
           <div class="flex justify-center">
             <div
-              class="
-                border border-primary
-                text-primary text-center
-                rounded
-                px-2
-                py-1
-              "
+              class="border border-primary text-primary text-center rounded px-2 py-1"
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -306,6 +284,7 @@
 
 <script>
 import Vue from 'vue';
+import LeaderboardPartiallyFundedList from '../../components/app/leaderboard/LeaderboardPartiallyFundedList.vue';
 import createHead from '@/pages/dao-voting/index.head';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import AppGradientBackground from '@/components/common/AppPrimaryGradientBackground.vue';
@@ -323,7 +302,6 @@ import RoundIndicatorSkeleton from '@/components/app/leaderboard/RoundIndicatorS
 import LeaderboardProposalSkeleton from '@/components/app/leaderboard/LeaderboardProposalSkeleton.vue';
 import AppLink from '@/components/common/AppLink';
 import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
-import LeaderboardPartiallyFundedList from '../../components/app/leaderboard/LeaderboardPartiallyFundedList.vue';
 import LeaderboardFilter from '~/components/app/leaderboard/LeaderboardFilter';
 import replaceQueryParams, {
   processQueryToFilter,
