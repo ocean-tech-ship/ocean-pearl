@@ -14,7 +14,7 @@ const initialState = {
   },
 };
 
-export const state = () => initialState;
+export const state = () => ({ ...initialState });
 
 export const mutations = {
   state(state, payload) {
