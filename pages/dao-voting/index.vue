@@ -1,7 +1,7 @@
 <template>
   <div>
     <floating-vote-action
-      v-if="$store.state['dao-voting-filter'].pending"
+      v-if="!$store.state['dao-voting-filter'].pending"
       :leaderboard="$store.state['dao-voting-filter'].leaderboard"
     />
 
@@ -154,7 +154,7 @@
       <h4 class="text-primary py-4">{{ $t('leaderboard.pending') }}</h4>
 
       <proposal-header
-        :displayNeededVotes="
+        :display-needed-votes="
           $store.state['dao-voting-filter'].leaderboard.status ===
           statusEnum.VotingInProgress
         "
