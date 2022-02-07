@@ -163,11 +163,11 @@ export default {
 
       if (now > new Date(metrics.currentRound.endDate)) {
         // Round ended. Show next round if possible
-        if (metrics.nextRound && metrics.nextRound.startDate) {
+        if (metrics.nextRound && metrics.nextRound.submissionEndDate) {
           return {
             key: 'daoRoundData.submission.next.title',
             tooltip: 'daoRoundData.submission.next.tooltip',
-            timestamp: new Date(metrics.nextRound.startDate),
+            timestamp: new Date(metrics.nextRound.submissionEndDate),
           };
         }
       }

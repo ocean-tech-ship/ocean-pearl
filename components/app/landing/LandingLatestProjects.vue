@@ -36,10 +36,10 @@
         <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
-          card-class="card shadow rounded p-4 pb-12 h-275px text-center"
+          card-class="card shadow rounded flex items-center p-4 pb-12 h-275px text-center"
         >
           <app-logo
-            class="flex justify-center mt-3"
+            class="mt-3"
             :src="project.logo && project.logo.url"
             :alt="project.title"
             :size="64"
