@@ -2,7 +2,7 @@
   <transition name="fade">
     <div
       v-if="show"
-      class="fixed z-50 pt-20 pb-20 left-0 top-0 w-full h-full overflow-auto bg-grey"
+      class="fixed z-modal pt-20 pb-20 left-0 top-0 w-full h-full overflow-auto bg-grey"
     >
       <button
         type="button"
