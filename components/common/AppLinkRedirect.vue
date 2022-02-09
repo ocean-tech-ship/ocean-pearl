@@ -39,27 +39,11 @@ export default {
 
   computed: {
     internal() {
-      return this.isInternalLink(this.to);
+      return this.to && this.to.startsWith('/');
     },
 
     whitelisted() {
-      return this.isWhitelisted(this.to);
-    },
-  },
-
-  methods: {
-    getTargetLink(to) {
-      return this.internal || this.whitelisted
-        ? to
-        : `/redirect?url=${encodeURIComponent(to)}`;
-    },
-
-    isInternalLink(to) {
-      return to && to.startsWith('/');
-    },
-
-    isWhitelisted(to) {
-      const hostname = new URL(to).hostname.toLowerCase();
+      const hostname = new URL(this.to).hostname.toLowerCase();
 
       // Whitelisted hostnames - see SocialMedia
       return [
@@ -75,6 +59,14 @@ export default {
         'medium.com',
         'youtube.com',
       ].includes(hostname);
+    },
+  },
+
+  methods: {
+    getTargetLink(to) {
+      return this.internal || this.whitelisted
+        ? to
+        : `/redirect?url=${encodeURIComponent(to)}`;
     },
   },
 };
