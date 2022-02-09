@@ -112,6 +112,11 @@ export default {
     },
 
     updateSocial(socialId, newVal) {
+      if (!newVal.includes(':')) {
+        // Allow other protocol schemas and only prefix https if no protocol has been defined
+        newVal = `https://${newVal}`;
+      }
+
       this.$set(this.socials, socialId, newVal);
       this.$emit('change', this.socials);
     },
