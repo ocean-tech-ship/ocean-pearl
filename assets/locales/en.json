@@ -107,6 +107,7 @@
     "abort": "Abort",
     "add": "add",
     "button": "button",
+    "continue": "Continue",
     "delete": "delete",
     "edit": "edit",
     "error": {
@@ -423,5 +424,8 @@
       "dropDown1": "Latest",
       "dropDown2": "Category"
     }
+  },
+  "redirect": {
+    "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
   }
 }
