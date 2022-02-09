@@ -69,7 +69,9 @@ export default {
         'reddit.com',
         'facebook.com',
         'telegram.org',
+        't.me',
         'discord.com',
+        'discord.gg',
         'medium.com',
         'youtube.com',
       ].includes(hostname);
