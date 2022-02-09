@@ -27,7 +27,7 @@
               mt-4
               p-2
               w-44
-              z-50
+              z-popup
               bg-grey
               border border-primary
               rounded
@@ -112,6 +112,11 @@ export default {
     },
 
     updateSocial(socialId, newVal) {
+      if (!newVal.includes(':')) {
+        // Allow other protocol schemas and only prefix https if no protocol has been defined
+        newVal = `https://${newVal}`;
+      }
+
       this.$set(this.socials, socialId, newVal);
       this.$emit('change', this.socials);
     },
