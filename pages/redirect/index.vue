@@ -27,7 +27,10 @@
       <p class="break-all text-smbase leading-tight">{{ $route.query.url }}</p>
 
       <div>
-        <a :href="$route.query.url" rel="noopener noreferrer">
+        <a
+          :href="decodeURIComponent($route.query.url)"
+          rel="noopener noreferrer"
+        >
           <app-button-style class="px-12" :text="$t('general.continue')" />
         </a>
       </div>
