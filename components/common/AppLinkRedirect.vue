@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import { SocialMedia } from '@/models/SocialMedia';
+
 export default {
   name: 'AppLinkRedirect',
 
@@ -44,21 +46,11 @@ export default {
 
     whitelisted() {
       const hostname = new URL(this.to).hostname.toLowerCase();
-
-      // Whitelisted hostnames - see SocialMedia
-      return [
-        'github.com',
-        'twitter.com',
-        'linkedin.com',
-        'reddit.com',
-        'facebook.com',
-        'telegram.org',
-        't.me',
-        'discord.com',
-        'discord.gg',
-        'medium.com',
-        'youtube.com',
-      ].includes(hostname);
+      const whitelist = [].concat.apply(
+        [],
+        SocialMedia.list().map((social) => social.Domains),
+      );
+      return whitelist.includes(hostname);
     },
   },
 
