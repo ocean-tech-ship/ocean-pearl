@@ -49,92 +49,92 @@ h4 {
 
 h1 {
   @apply text-xl;
-  line-height: 54px;
+  @apply leading-14;
 }
 
 h2 {
   @apply text-lg;
-  line-height: 44px;
+  @apply leading-12;
 }
 
 h3 {
   @apply text-base;
-  line-height: 42px;
+  @apply leading-11;
 }
 
 h4 {
   @apply text-sm;
-  line-height: 26px;
+  @apply leading-sm;
 }
 
 p {
   @apply text-smbase;
-  line-height: 26px;
+  @apply leading-sm;
 }
 
 @screen md {
   h1 {
     @apply text-2xl;
-    line-height: 62px;
+    @apply leading-15;
   }
 
   h2 {
     @apply text-xl;
-    line-height: 54px;
+    @apply leading-14;
   }
 
   h3 {
     @apply text-lg;
-    line-height: 44px;
+    @apply leading-12;
   }
 
   h4 {
     @apply text-base;
-    line-height: 42px;
+    @apply leading-11;
   }
 
   p {
     @apply text-base;
-    line-height: 42px;
+    @apply leading-11;
   }
 }
 
 @screen lg {
   h1 {
     @apply text-3xl;
-    line-height: 70px;
+    @apply leading-16;
   }
 
   h2 {
     @apply text-2xl;
-    line-height: 62px;
+    @apply leading-15;
   }
 
   h3 {
     @apply text-xl;
-    line-height: 54px;
+    @apply leading-14;
   }
 
   h4 {
     @apply text-lg;
-    line-height: 44px;
+    @apply leading-12;
   }
 
   p {
     @apply text-base;
-    line-height: 42px;
+    @apply leading-11;
   }
 }
 
 .small-text {
   @apply text-sm;
-  line-height: 26px;
+  @apply leading-sm;
 }
 
 .thin-heading {
   @apply font-poppins-bold;
   @apply text-lg;
-  line-height: 12px;
+  @apply leading-3;
 }
 
 /* width vertical */
