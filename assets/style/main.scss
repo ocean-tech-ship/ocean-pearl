@@ -49,7 +49,7 @@ h4 {
 
 h1 {
   @apply text-xl;
-  @apply leading-14;
+  @apply leading-13;
 }
 
 h2 {
@@ -75,12 +75,12 @@ p {
 @screen md {
   h1 {
     @apply text-2xl;
-    @apply leading-15;
+    @apply leading-14;
   }
 
   h2 {
     @apply text-xl;
-    @apply leading-14;
+    @apply leading-13;
   }
 
   h3 {
@@ -102,17 +102,17 @@ p {
 @screen lg {
   h1 {
     @apply text-3xl;
-    @apply leading-16;
+    @apply leading-15;
   }
 
   h2 {
     @apply text-2xl;
-    @apply leading-15;
+    @apply leading-14;
   }
 
   h3 {
     @apply text-xl;
-    @apply leading-14;
+    @apply leading-13;
   }
 
   h4 {

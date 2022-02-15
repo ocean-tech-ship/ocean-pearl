@@ -41,10 +41,9 @@ module.exports = {
       sm: '1.625rem',
       11: '2.625rem',
       12: '2.75rem',
-      13: '2.75rem',
-      14: '3.375rem',
-      15: '3.875rem',
-      16: '4.375rem',
+      13: '3.375rem',
+      14: '3.875rem',
+      15: '4.375rem',
     },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
