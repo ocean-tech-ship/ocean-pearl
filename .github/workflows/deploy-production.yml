@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest,windows-latest,macos-latest ]
-        node: [ 16 ]
+        node: [ 16.13 ]
 
     steps:
       - name: Checkout 🛎
@@ -58,7 +58,7 @@ jobs:
     strategy:
       matrix:
         os: [ ubuntu-latest,windows-latest,macos-latest ]
-        node: [ 16 ]
+        node: [ 16.13 ]
 
     steps:
       - name: Checkout 🛎
