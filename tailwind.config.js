@@ -1,5 +1,4 @@
 import zIndex from './z-index.contants';
-const { lineHeight } = require('tailwindcss/defaultTheme');
 const colors = require('./tailwind.colors.json');
 
 module.exports = {
@@ -24,6 +23,14 @@ module.exports = {
         '300px': '300px',
         '330px': '330px',
       },
+      lineHeight: {
+        sm: '1.625rem',
+        11: '2.625rem',
+        12: '2.75rem',
+        13: '3.375rem',
+        14: '3.875rem',
+        15: '4.375rem',
+      },
     },
     screens: {
       '2sm': '375px',
@@ -36,15 +43,6 @@ module.exports = {
     },
     colors,
     zIndex,
-    lineHeight: {
-      ...lineHeight,
-      sm: '1.625rem',
-      11: '2.625rem',
-      12: '2.75rem',
-      13: '3.375rem',
-      14: '3.875rem',
-      15: '4.375rem',
-    },
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
       'poppins-bold': ['Poppins Bold', 'sans-serif'],
