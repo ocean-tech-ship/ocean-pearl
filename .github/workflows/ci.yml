@@ -14,7 +14,7 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
 
-    timeout-minutes: 12
+    timeout-minutes: 15
 
     strategy:
       matrix:
@@ -57,7 +57,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
 
-    timeout-minutes: 12
+    timeout-minutes: 15
 
     strategy:
       matrix:
