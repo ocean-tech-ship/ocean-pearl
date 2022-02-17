@@ -1,4 +1,5 @@
 module.exports = {
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',
@@ -16,18 +17,18 @@ module.exports = {
     '<rootDir>/pages/**/*.vue',
   ],
   reporters: [
-    "default",
+    'default',
     [
-      "jest-junit",
+      'jest-junit',
       {
-        "outputDirectory": "reports",
-        "outputName": "jest-junit.xml",
-        "ancestorSeparator": " › ",
-        "uniqueOutputName": "false",
-        "suiteNameTemplate": "{filepath}",
-        "classNameTemplate": "{classname}",
-        "titleTemplate": "{title}"
-      }
-    ]
-  ]
-}
+        outputDirectory: 'reports',
+        outputName: 'jest-junit.xml',
+        ancestorSeparator: ' › ',
+        uniqueOutputName: 'false',
+        suiteNameTemplate: '{filepath}',
+        classNameTemplate: '{classname}',
+        titleTemplate: '{title}',
+      },
+    ],
+  ],
+};
