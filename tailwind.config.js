@@ -2,8 +2,13 @@ import zIndex from './z-index.contants';
 const colors = require('./tailwind.colors.json');
 
 module.exports = {
-  mode: 'jit',
-  purge: [],
+  content: [
+    `components/**/*.{vue,js}`,
+    `layouts/**/*.vue`,
+    `pages/**/*.vue`,
+    `plugins/**/*.{js,ts}`,
+    `nuxt.config.{js,ts}`,
+  ],
   theme: {
     extend: {
       spacing: {
@@ -74,9 +79,9 @@ module.exports = {
       DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
     },
   },
-  variants: {},
   plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
   daisyui: {
+    logs: false,
     themes: [
       {
         pearl: {
