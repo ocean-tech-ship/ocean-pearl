@@ -79,9 +79,11 @@
             </button>
             <hr class="text-primary hidden sm:block sm:w-1/3" />
           </div>
-          <pre v-if="accOpen" class="w-full bg-grey p-3 small-text">{{
-            pgpKey
-          }}</pre>
+          <pre
+            v-if="accOpen"
+            class="w-full bg-grey p-3 small-text overflow-auto"
+            >{{ pgpKey }}</pre
+          >
         </div>
       </div>
       <div class="mt-4">
@@ -189,9 +191,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-pre {
-  overflow: auto;
-}
-</style>
