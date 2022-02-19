@@ -18,22 +18,24 @@
             }}</NuxtLink>
           </li>
           <li>
-            <NuxtLink class="font-bold block px-4 py-3" to="/projects?first">{{
-              $t('navbar.navbarProjects')
-            }}</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink
-              class="font-bold block px-4 py-3"
-              to="/dao-proposals?first"
-              >{{ $t('navbar.navbarDao') }}</NuxtLink
+            <span
+              class="cursor-pointer font-bold block px-4 py-3"
+              @click="to('/projects')"
+              >{{ $t('navbar.navbarProjects') }}</span
             >
           </li>
           <li>
-            <NuxtLink
-              class="font-bold block px-4 py-3"
-              to="/dao-voting?current"
-              >{{ $t('leaderboard.meta.title') }}</NuxtLink
+            <span
+              class="cursor-pointer font-bold block px-4 py-3"
+              @click="to('/dao-proposals')"
+              >{{ $t('navbar.navbarDao') }}</span
+            >
+          </li>
+          <li>
+            <span
+              class="cursor-pointer font-bold block px-4 py-3"
+              @click="to('/dao-voting')"
+              >{{ $t('leaderboard.meta.title') }}</span
             >
           </li>
           <li v-if="!walletAddress">
@@ -92,6 +94,7 @@ import Jazzicon from 'vue-jazzicon';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
+import { sameRouteReload } from '@/helpers/windowHistory';
 
 export default {
   name: 'AppMobileNavbar',
@@ -117,6 +120,9 @@ export default {
     toggleDropdown(context) {
       this.$store.commit('alert/clear');
       context.toggleOpen();
+    },
+    to(route) {
+      sameRouteReload(this, route, 'in');
     },
   },
 };

@@ -114,7 +114,7 @@ export default Vue.extend({
 
   // reset state and refetch if same page is navigated to via navbar
   beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query)[0] === 'first') {
+    if (Object.keys(to.query).includes('in')) {
       this.resetState().then(() =>
         this.fetchMetricsAndProposals().then((query) =>
           replaceQueryParams(this, query),

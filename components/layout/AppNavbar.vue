@@ -17,17 +17,17 @@
       <div
         class="flex-grow items-center justify-end md:space-x-8 lg:space-x-62px 2xl:space-x-128px hidden lg:flex"
       >
-        <NuxtLink to="/projects?first">{{
+        <span class="cursor-pointer" @click="to('/projects')">{{
           $t('navbar.navbarProjects')
-        }}</NuxtLink>
+        }}</span>
 
-        <NuxtLink to="/dao-proposals?first">{{
+        <span class="cursor-pointer" @click="to('/dao-proposals')">{{
           $t('navbar.navbarDao')
-        }}</NuxtLink>
+        }}</span>
 
-        <NuxtLink to="/dao-voting?current">{{
+        <span class="cursor-pointer" @click="to('/dao-voting')">{{
           $t('leaderboard.meta.title')
-        }}</NuxtLink>
+        }}</span>
 
         <app-button
           v-if="!walletAddress"
@@ -107,6 +107,7 @@ import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppButton from '@/components/common/AppButton';
+import { sameRouteReload } from '@/helpers/windowHistory';
 
 export default {
   components: {
@@ -134,6 +135,12 @@ export default {
 
     walletAddress() {
       return this.accountWallet || this.$cookies.get(SESSION_NAME);
+    },
+  },
+
+  methods: {
+    to(route) {
+      sameRouteReload(this, route, 'in');
     },
   },
 };
