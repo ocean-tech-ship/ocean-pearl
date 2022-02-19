@@ -1,10 +1,26 @@
 import CategoryEnum from '@/enums/Category.enum';
 
-export default function replaceQueryParams(_this: any, query: object): void {
-  if (!process.server) {
-    _this.$nuxt.$router.push({
-      path: _this.$nuxt.$route.path,
-      query,
+export default function replaceQueryParams(
+  _this: Record<string, any>,
+  query: object,
+): void {
+  _this.$router.push({
+    path: _this.$route.path,
+    query,
+  });
+}
+
+export function sameRouteReload(
+  _this: Record<string, any>,
+  route: string,
+  queryHook: string = 'in',
+): void {
+  if (_this.$route.path !== route) {
+    _this.$router.push({ path: route });
+  } else {
+    _this.$router.push({
+      path: route,
+      query: { [queryHook]: '' },
     });
   }
 }
@@ -12,8 +28,7 @@ export default function replaceQueryParams(_this: any, query: object): void {
 export function getFirstInstanceParam(
   queryParam: string | (string | null)[],
 ): string | null {
-  const fistInstance = Array.isArray(queryParam) ? queryParam[0] : queryParam;
-  return fistInstance;
+  return Array.isArray(queryParam) ? queryParam[0] : queryParam;
 }
 
 export function processQueryToFilter(
