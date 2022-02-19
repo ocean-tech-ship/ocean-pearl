@@ -34,7 +34,7 @@
           <app-button
             class="h-full w-full"
             text-class="small-text"
-            :text="$t(btnCopyEmailTitle)"
+            :text="btnCopyEmailTitle"
             secondary
             :icon="icons.contentCopy"
             @click="copyEmail"
@@ -66,14 +66,7 @@
           <div class="flex justify-center items-center">
             <hr class="text-primary hidden sm:block sm:w-1/3" />
             <button
-              class="
-                small-text
-                text-darkgey
-                sm:w-1/3
-                flex
-                justify-center
-                items-center
-              "
+              class="small-text text-darkgey sm:w-1/3 flex justify-center items-center"
               @click="toggleAccOpen"
             >
               <app-icon
@@ -129,7 +122,7 @@ import AppIcon from '@/components/common/AppIcon.vue';
 import AppModal from '@/components/common/AppModal.vue';
 import AppButton from '@/components/common/AppButton.vue';
 import AppLink from '@/components/common/AppLink.vue';
-import EmailEnum from '~/components/enums/Email.enum';
+import EmailEnum from '@/enums/Email.enum';
 
 export default {
   name: 'AppReportModal',
