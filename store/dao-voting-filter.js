@@ -60,7 +60,7 @@ export const actions = {
     commit('filter', payload);
   },
 
-  async fetchLeaderboard({ commit, state }) {
+  async fetchAll({ commit, state }) {
     // reset
     commit('error', null);
 
