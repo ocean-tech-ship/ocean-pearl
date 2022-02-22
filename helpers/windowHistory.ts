@@ -10,21 +10,6 @@ export default function replaceQueryParams(
   });
 }
 
-export function sameRouteReload(
-  _this: Record<string, any>,
-  route: string,
-  queryHook: string = 'in',
-): void {
-  if (_this.$route.path !== route) {
-    _this.$router.push({ path: route });
-  } else {
-    _this.$router.push({
-      path: route,
-      query: { [queryHook]: '' },
-    });
-  }
-}
-
 export function getFirstInstanceParam(
   queryParam: string | (string | null)[],
 ): string | null {
