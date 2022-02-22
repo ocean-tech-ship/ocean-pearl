@@ -1,6 +1,18 @@
 <template>
-  <nuxt-link v-if="isNuxtLink" :to="to" :data-analytics="dataAnalytics"><slot></slot></nuxt-link>
-  <a v-else :href="to" :data-analytics="dataAnalytics" target="_blank" rel="noopener noreferrer"
+  <span v-if="isNuxtLink && storeName" @click="resetStateOf(to)">
+    <nuxt-link :to="to" :data-analytics="dataAnalytics"
+      ><slot></slot
+    ></nuxt-link>
+  </span>
+  <nuxt-link v-else-if="isNuxtLink" :to="to" :data-analytics="dataAnalytics"
+    ><slot></slot
+  ></nuxt-link>
+  <a
+    v-else
+    :href="to"
+    :data-analytics="dataAnalytics"
+    target="_blank"
+    rel="noopener noreferrer"
     ><slot></slot>
   </a>
 </template>
@@ -12,7 +24,13 @@ export default {
   props: {
     to: {
       type: String,
-      required: true
+      required: true,
+    },
+
+    storeName: {
+      type: String,
+      required: false,
+      default: '',
     },
 
     dataAnalytics: {
@@ -28,6 +46,16 @@ export default {
         return this.to.substring(0, 1) === '/';
       }
       return false;
+    },
+  },
+
+  methods: {
+    resetStateOf(route) {
+      if (this.$route.path === route) {
+        this.$store
+          .dispatch(`${this.storeName}/resetState`)
+          .then(() => this.$store.dispatch(`${this.storeName}/fetchAll`));
+      }
     },
   },
 };
