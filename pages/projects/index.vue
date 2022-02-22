@@ -85,16 +85,6 @@ export default Vue.extend({
     AppPagination,
   },
 
-  // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query).includes('in')) {
-      this.resetState().then(() =>
-        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
-      );
-    }
-    next();
-  },
-
   // set exception pages where state should not be reset if navigated to
   beforeRouteLeave(to, _from, next) {
     if (to.path !== '/dao-projects/:id') {
@@ -180,7 +170,7 @@ export default Vue.extend({
       return this.$store.dispatch('projects-filter/setFilter', payload);
     },
     fetchProjects() {
-      return this.$store.dispatch('projects-filter/fetchProjects');
+      return this.$store.dispatch('projects-filter/fetchAll');
     },
   },
 });
