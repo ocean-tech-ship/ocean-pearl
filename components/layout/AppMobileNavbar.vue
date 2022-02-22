@@ -17,19 +17,20 @@
               $t('navbar.navbarLinkDefault')
             }}</NuxtLink>
           </li>
-          <li>
-            <span
-              class="cursor-pointer font-bold block px-4 py-3"
-              @click="to('/projects')"
-              >{{ $t('navbar.navbarProjects') }}</span
-            >
+          <li class="font-bold block px-4 py-3">
+            <app-link to="/projects" store-name="projects-filter">{{
+              $t('navbar.navbarProjects')
+            }}</app-link>
           </li>
-          <li>
-            <span
-              class="cursor-pointer font-bold block px-4 py-3"
-              @click="to('/dao-proposals')"
-              >{{ $t('navbar.navbarDao') }}</span
-            >
+          <li class="font-bold block px-4 py-3">
+            <app-link to="/dao-proposals" store-name="dao-proposals-filter">{{
+              $t('navbar.navbarDao')
+            }}</app-link>
+          </li>
+          <li class="font-bold block px-4 py-3">
+            <app-link to="/dao-voting" store-name="dao-voting-filter">{{
+              $t('leaderboard.meta.title')
+            }}</app-link>
           </li>
           <li>
             <span
@@ -94,7 +95,7 @@ import Jazzicon from 'vue-jazzicon';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
-import { sameRouteReload } from '@/helpers/windowHistory';
+import AppLink from '@/components/common/AppLink';
 
 export default {
   name: 'AppMobileNavbar',
@@ -102,6 +103,7 @@ export default {
   components: {
     MainDropdown,
     Jazzicon,
+    AppLink,
   },
 
   mixins: [EthAddress],

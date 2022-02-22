@@ -17,17 +17,17 @@
       <div
         class="flex-grow items-center justify-end md:space-x-8 lg:space-x-62px 2xl:space-x-128px hidden lg:flex"
       >
-        <span class="cursor-pointer" @click="to('/projects')">{{
+        <app-link to="/projects" store-name="projects-filter">{{
           $t('navbar.navbarProjects')
-        }}</span>
+        }}</app-link>
 
-        <span class="cursor-pointer" @click="to('/dao-proposals')">{{
+        <app-link to="/dao-proposals" store-name="dao-proposals-filter">{{
           $t('navbar.navbarDao')
-        }}</span>
+        }}</app-link>
 
-        <span class="cursor-pointer" @click="to('/dao-voting')">{{
+        <app-link to="/dao-voting" store-name="dao-voting-filter">{{
           $t('leaderboard.meta.title')
-        }}</span>
+        }}</app-link>
 
         <app-button
           v-if="!walletAddress"
@@ -107,7 +107,7 @@ import AppMobileNavbar from '@/components/layout/AppMobileNavbar.vue';
 import MainDropdown from '@/components/common/MainDropdown.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppButton from '@/components/common/AppButton';
-import { sameRouteReload } from '@/helpers/windowHistory';
+import AppLink from '@/components/common/AppLink';
 
 export default {
   components: {
@@ -116,6 +116,7 @@ export default {
     AppMobileNavbar,
     Jazzicon,
     MainDropdown,
+    AppLink,
   },
 
   mixins: [EthAddress],
@@ -137,16 +138,10 @@ export default {
       return this.accountWallet || this.$cookies.get(SESSION_NAME);
     },
   },
-
-  methods: {
-    to(route) {
-      sameRouteReload(this, route, 'in');
-    },
-  },
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 body {
   padding-top: 120px;
 
