@@ -46,9 +46,9 @@
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "counterVotes": "No Votes",
+      "noVotes": "No Votes",
       "requestedAmount": "Requested Amount",
-      "votes": "Yes Votes"
+      "yesVotes": "Yes Votes"
     }
   },
   "daoRoundData": {
