@@ -57,14 +57,14 @@
             </div>
             <p
               v-if="
-                daoProposal.requestedGrantUsd &&
-                daoProposal.requestedGrantUsd > 0
+                daoProposal.requestedFunding.usd &&
+                daoProposal.requestedFunding.usd > 0
               "
               class="small-text"
             >
               {{
                 $t('general.usd', {
-                  usd: addPunctuation(daoProposal.requestedGrantUsd),
+                  usd: addPunctuation(daoProposal.requestedFunding.usd),
                 })
               }}
             </p>
@@ -72,7 +72,7 @@
             <p v-else class="small-text">
               {{
                 $t('general.ocean', {
-                  ocean: addPunctuation(daoProposal.requestedGrantToken),
+                  ocean: addPunctuation(daoProposal.requestedFunding.ocean),
                 })
               }}
             </p>
@@ -81,13 +81,13 @@
             <div class="flex items-center text-primary">
               <app-icon class="pr-2" :size="20" :data="icons.check" />
               <p class="small-text">
-                {{ $t('dao-projects.projects.votes') }}
+                {{ $t('dao-projects.projects.yesVotes') }}
               </p>
             </div>
             <p class="small-text">
               {{
                 $t('general.ocean', {
-                  ocean: addPunctuation(daoProposal.votes),
+                  ocean: addPunctuation(daoProposal.yesVotes),
                 })
               }}
             </p>
@@ -96,13 +96,13 @@
             <div class="flex items-center text-primary">
               <app-icon class="pr-2" :size="20" :data="icons.times" />
               <p class="small-text">
-                {{ $t('dao-projects.projects.counterVotes') }}
+                {{ $t('dao-projects.projects.noVotes') }}
               </p>
             </div>
             <p class="small-text">
               {{
                 $t('general.ocean', {
-                  ocean: addPunctuation(daoProposal.counterVotes),
+                  ocean: addPunctuation(daoProposal.noVotes),
                 })
               }}
             </p>
