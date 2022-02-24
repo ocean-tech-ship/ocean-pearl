@@ -1573,15 +1573,22 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@iconify/icons-la@1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-la/-/icons-la-1.1.0.tgz#da00d0ed5686ff07d5addcf75a91175beb2629d3"
-  integrity sha512-9LEAEabzI2xMJzSh0wqeJmjYseWsDvN9mSZKcCoHlT+pZCJkMAwHoyoBgI7pO2Deo31VG2JiX5hx/4VyMtbE0Q==
+"@iconify/icons-la@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-la/-/icons-la-1.2.1.tgz#9b191466f33a0b17019d3546604fdb801773823f"
+  integrity sha512-QUxJLJpyQs2ns2t2kZiY3iBMuWRWPd6K3EfaT7rHwaSAR+w/jZt1Jk+RD9xdag8RAu4y3uSBlYToGIsAEpzDug==
+  dependencies:
+    "@iconify/types" "^1.0.12"
 
 "@iconify/icons-mdi@1.1.47":
   version "1.1.47"
   resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.47.tgz#4bbe1e5d126de7acde05a66addd869c66bd97ca0"
   integrity sha512-6AZfvWru20Rl9pXULStkVvTWnua6VG56zOIKdkCzLh25XVeTDEp6f1dL7iX9w+way5+1hI0BBuqTQd61qYaKdg==
+
+"@iconify/types@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/@iconify/types/-/types-1.0.12.tgz#839f1f784b7030b94482d51996570f4dbd7d6796"
+  integrity sha512-6er6wSGF3hgc1JEZqiGpg21CTCjHBYOUwqLmb2Idzkjiw6ogalGP0ZMLVutCzah+0WB4yP+Zd2oVPN8jvJ+Ftg==
 
 "@intlify/shared@^9.0.0":
   version "9.1.9"
