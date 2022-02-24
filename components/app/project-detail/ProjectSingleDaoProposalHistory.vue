@@ -30,7 +30,7 @@
             />
             <th
               class="p-2 px-4 text-right"
-              v-html="$t('project.proposal.history.granted')"
+              v-html="$t('project.proposal.history.status')"
             />
             <th
               class="p-2 px-4 text-right pr-4"
@@ -89,11 +89,7 @@
               </td>
 
               <td class="text-right p-4 py-3">
-                {{
-                  isGranted(proposal)
-                    ? $t('project.proposal.granted.yes')
-                    : $t('project.proposal.granted.no')
-                }}
+                {{ $t('project.proposal.status.' + proposal.status) }}
               </td>
 
               <td class="p-4 py-3 pr-4">
@@ -123,7 +119,6 @@
 import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
-import DaoProposalStatusEnum from '@/enums/DaoProposalStatus.enum';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
@@ -151,16 +146,5 @@ export default {
       },
     };
   },
-
-  methods: {
-    isGranted(proposal) {
-      return [
-        DaoProposalStatusEnum.Funded,
-        DaoProposalStatusEnum.Granted
-      ].includes(proposal.status);
-    }
-  }
 };
 </script>
-
-<style scoped></style>
