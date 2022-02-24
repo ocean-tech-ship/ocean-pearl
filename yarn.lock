@@ -1580,10 +1580,12 @@
   dependencies:
     "@iconify/types" "^1.0.12"
 
-"@iconify/icons-mdi@1.1.47":
-  version "1.1.47"
-  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.1.47.tgz#4bbe1e5d126de7acde05a66addd869c66bd97ca0"
-  integrity sha512-6AZfvWru20Rl9pXULStkVvTWnua6VG56zOIKdkCzLh25XVeTDEp6f1dL7iX9w+way5+1hI0BBuqTQd61qYaKdg==
+"@iconify/icons-mdi@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@iconify/icons-mdi/-/icons-mdi-1.2.1.tgz#69c111961b60bacdb5f4d8bc6ccbf91114d5957f"
+  integrity sha512-tHOIwiv/2rc0cDpisLraHZrd0fGYbaHa6MaTYWk6CgZgDhSgffMTfWfldLaNyJGmVS+bt+2pduy8qi+8XFD4HA==
+  dependencies:
+    "@iconify/types" "^1.0.12"
 
 "@iconify/types@^1.0.12":
   version "1.0.12"
