@@ -1,4 +1,4 @@
-const enviroments = {
+const environments = {
   mirage: process.env.NUXT_ENV_BASE_URL_LOCAL_MIRAGE,
   mongo: process.env.NUXT_ENV_BASE_URL_LOCAL_MONGO,
   stage: process.env.NUXT_ENV_BASE_URL_STAGE,
@@ -129,7 +129,7 @@ export default {
   },
 
   axios: {
-    baseURL: enviroments[process.env.NODE_ENV],
+    baseURL: environments[process.env.NODE_ENV],
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
