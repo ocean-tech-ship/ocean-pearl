@@ -1,5 +1,5 @@
-import zIndex from './z-index.contants';
-const colors = require('./tailwind.colors.json');
+import themes from './tailwind.themes.config';
+import zIndex from './tailwind.z-index.config';
 
 module.exports = {
   content: [
@@ -46,7 +46,7 @@ module.exports = {
       '2xl': '1300px',
       '3xl': '1600px',
     },
-    colors,
+    colors: {},
     zIndex,
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
@@ -82,42 +82,6 @@ module.exports = {
   plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
   daisyui: {
     logs: false,
-    themes: [
-      {
-        pearl: {
-          primary: colors.primary /* Primary color */,
-          'primary-focus': colors.primary /* Primary color - focused */,
-          'primary-content':
-            colors.white /* Foreground content color to use on primary color */,
-
-          secondary: colors.secondary /* Secondary color */,
-          'secondary-focus': colors.secondary /* Secondary color - focused */,
-          'secondary-content':
-            colors.white /* Foreground content color to use on secondary color */,
-
-          accent: colors.complementary /* Accent color */,
-          'accent-focus': colors.complementary /* Accent color - focused */,
-          'accent-content':
-            colors.white /* Foreground content color to use on accent color */,
-
-          neutral: '#3d4451' /* Neutral color */,
-          'neutral-focus': '#2a2e37' /* Neutral color - focused */,
-          'neutral-content':
-            colors.white /* Foreground content color to use on neutral color */,
-
-          'base-100':
-            colors.white /* Base color of page, used for blank backgrounds */,
-          'base-200': '#f9fafb' /* Base color, a little darker */,
-          'base-300': '#d1d5db' /* Base color, even more darker */,
-          'base-content':
-            '#1f2937' /* Foreground content color to use on base color */,
-
-          info: '#2094f3' /* Info */,
-          success: '#009485' /* Success */,
-          warning: '#ff9900' /* Warning */,
-          error: '#ff5724' /* Error */,
-        },
-      },
-    ],
+    themes,
   },
 };
