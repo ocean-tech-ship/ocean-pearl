@@ -20,7 +20,6 @@ export default {
         titleChunk ? `${titleChunk} | Ocean Pearl` : 'Ocean Pearl',
       htmlAttrs: {
         lang: 'en',
-        'data-theme': 'pearl',
       },
       meta: [
         { charset: 'utf-8' },
