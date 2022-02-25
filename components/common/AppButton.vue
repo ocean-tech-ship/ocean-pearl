@@ -6,8 +6,8 @@
     class="select-none rounded font-medium py-2 px-6 shadow items-center justify-center z-base"
     :class="[
       secondary
-        ? 'bg-white text-primary border border-primary'
-        : 'call-to-action text-secondary',
+        ? 'bg-primary-content border border-primary'
+        : 'call-to-action',
     ]"
     @click="$emit('click', $event)"
   >
@@ -27,7 +27,7 @@
       class="inline-block align-middle mr-2"
     />
 
-    <span :class="textClass"> {{ text }} </span>
+    <span :class="textClass">{{ text }}</span>
   </button>
 </template>
 
@@ -49,7 +49,7 @@ export default {
     },
     textClass: {
       type: String,
-      default: 'text-white',
+      default: 'text-primary-content',
     },
     secondary: {
       type: Boolean,
