@@ -10,7 +10,7 @@
             <p class="text-primary small-text line-clamp-1">
               {{ card.title }}
             </p>
-            <p class="small-text">{{ card.subtitle }}</p>
+            <p class="text-neutral small-text">{{ card.subtitle }}</p>
           </div>
         </div>
       </div>
