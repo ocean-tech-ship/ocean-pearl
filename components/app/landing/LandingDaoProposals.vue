@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2 class="text-base-content">
+    <h2>
       {{ $t('landing.dao_proposals.title') }}
       <span class="text-primary">
         {{ $t('landing.dao_proposals.titleHighlight') }}</span
