@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="pt-6">
-      <h1 class="text-base-content">
+      <h1>
         {{ $t('landing.hero.titlePart1') }}
         <span class="text-primary">
           {{ $t('landing.hero.titleHighlight') }}
