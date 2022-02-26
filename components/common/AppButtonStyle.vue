@@ -47,7 +47,7 @@ export default {
 
     textClass: {
       type: String,
-      default: 'text-base-content',
+      default: 'text-primary-content',
     },
 
     secondary: {
