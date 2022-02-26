@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <app-tooltip v-for="card in cards" :key="card.title" :hint="card.tooltip">
-      <div class="shadow bg-white rounded p-4 pb-4">
+      <div class="shadow bg-primary-content rounded p-4 pb-4">
         <div class="flex align-center">
           <div class="mr-3 mt-3 text-primary">
             <app-icon :data="card.icon" />

@@ -1,6 +1,6 @@
 <template>
-  <LandingSectionContainer class="my-32 py-12 gradient-background">
-    <h2 class="text-white">
+  <div class="background-turtle">
+    <h2 class="text-primary-content">
       {{
         $t('landing.pearl_dao.title') +
         ' ' +
@@ -8,7 +8,7 @@
       }}
     </h2>
 
-    <p class="text-white">{{ $t('landing.pearl_dao.text') }}</p>
+    <p class="text-primary-content">{{ $t('landing.pearl_dao.text') }}</p>
 
     <app-skeleton-card-list
       v-if="metrics === null"
@@ -20,14 +20,13 @@
 
     <round-metrics v-else class="mt-10" :metrics="metrics" />
 
-    <app-link-icon-right to="/dao-proposals" class="text-white">
+    <app-link-icon-right to="/dao-proposals" class="text-primary-content">
       {{ $t('landing.pearl_dao.link_text') }}
     </app-link-icon-right>
-  </LandingSectionContainer>
+  </div>
 </template>
 
 <script>
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import RoundMetrics from '@/components/app/dao-proposals/RoundMetrics.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import RoundMetricsSkeletonCard from '@/components/app/dao-proposals/RoundMetricsSkeletonCard.vue';
@@ -38,7 +37,6 @@ export default {
 
   components: {
     AppLinkIconRight,
-    LandingSectionContainer,
     RoundMetrics,
     RoundMetricsSkeletonCard,
     AppSkeletonCardList,
@@ -53,10 +51,9 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.gradient-background {
-  background-image: url('../../../assets/images/landing/turtle-grid.svg'),
-    linear-gradient(to bottom right, #7b3070 5%, #d45b8d);
+<style scoped>
+.background-turtle {
+  background-image: url('../../../assets/images/landing/turtle-grid.svg');
   background-position: right top;
   background-repeat: no-repeat;
   animation: animatedBackground 8s linear infinite alternate;
@@ -64,15 +61,15 @@ export default {
 
 @keyframes animatedBackground {
   from {
-    background-position: 100% 0%;
+    background-position: 100% 0;
   }
   to {
-    background-position: 80% 0%;
+    background-position: 80% 0;
   }
 }
 
 @media only screen and (max-width: 1100px) {
-  .gradient-background {
+  .background-turtle {
     background-position: -800%;
   }
 }
