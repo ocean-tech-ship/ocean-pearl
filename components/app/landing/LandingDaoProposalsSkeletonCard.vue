@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow rounded h-330px p-8">
+  <div class="shadow bg-base-200 rounded h-330px p-8">
     <div class="animate-pulse py-2 h-full flex flex-col">
       <div class="flex">
         <div class="mr-3">
