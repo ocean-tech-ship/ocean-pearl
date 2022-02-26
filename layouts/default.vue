@@ -1,5 +1,5 @@
 <template>
-  <div data-theme="dark" class="bg-base-100">
+  <div>
     <notification-bar />
     <app-navbar />
     <Nuxt />
