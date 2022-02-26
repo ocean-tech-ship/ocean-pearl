@@ -46,7 +46,15 @@ module.exports = {
       '2xl': '1300px',
       '3xl': '1600px',
     },
-    colors: {},
+    colors: {
+      // All other colors are specified in daisyUI themes configuration (see tailwind.themes.config.js)
+      'red-400': '#d16858',
+      'purple-800': '#7b3070',
+      'pink-100': '#ffdbfa',
+      'pink-300': '#d45b8d',
+      'pink-500': '#e562a9',
+      'pink-700': '#ff4aa7',
+    },
     zIndex,
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
