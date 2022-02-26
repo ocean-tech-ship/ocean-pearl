@@ -1,7 +1,7 @@
 <template>
   <div class="grid gap-4 lg:grid-cols-2 xl:gap-8">
     <!-- Funding Round -->
-    <div class="shadow rounded p-4">
+    <div class="shadow bg-base-200 rounded p-4">
       <div class="flex items-center">
         <app-icon
           class="mr-2 text-primary"
@@ -24,13 +24,9 @@
     </div>
 
     <!-- Requested Funding -->
-    <div class="shadow rounded p-4">
+    <div class="shadow bg-base-200 rounded p-4">
       <div class="flex items-center">
-        <app-icon
-          class="mr-2 text-primary"
-          :size="20"
-          :data="icons.coins"
-        />
+        <app-icon class="mr-2 text-primary" :size="20" :data="icons.coins" />
 
         <p class="small-text text-primary">
           {{ $t('project.proposal.requested') }}
@@ -38,19 +34,30 @@
       </div>
 
       <p
-        v-if="newestProposal.requestedGrantUsd && newestProposal.requestedGrantUsd > 0"
+        v-if="
+          newestProposal.requestedGrantUsd &&
+          newestProposal.requestedGrantUsd > 0
+        "
         class="small-text"
       >
-        {{ $t('general.usd', { usd: addPunctuation(newestProposal.requestedGrantUsd) }) }}
+        {{
+          $t('general.usd', {
+            usd: addPunctuation(newestProposal.requestedGrantUsd),
+          })
+        }}
       </p>
 
       <p v-else class="small-text">
-        {{ $t('general.ocean', { ocean: addPunctuation(newestProposal.requestedGrantToken) }) }}
+        {{
+          $t('general.ocean', {
+            ocean: addPunctuation(newestProposal.requestedGrantToken),
+          })
+        }}
       </p>
     </div>
 
     <!-- Project Wallet Address -->
-    <div class="shadow rounded p-4 lg:col-span-2">
+    <div class="shadow bg-base-200 rounded p-4 lg:col-span-2">
       <p class="small-text text-primary">
         {{ $t('project.proposal.wallet.title') }}
       </p>
@@ -65,7 +72,9 @@
 
       <!-- control action -->
       <div
-        v-if="project.associatedAddresses && project.associatedAddresses.length > 1"
+        v-if="
+          project.associatedAddresses && project.associatedAddresses.length > 1
+        "
         class="flex justify-center"
       >
         <button

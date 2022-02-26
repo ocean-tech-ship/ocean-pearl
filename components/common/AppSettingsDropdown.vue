@@ -20,7 +20,7 @@
       </button>
       <div
         v-if="open"
-        class="bg-white border border-primary rounded shadow absolute top-9 z-dropdown right-4"
+        class="bg-base-300 border border-primary rounded shadow absolute top-9 z-dropdown right-4"
       >
         <ul>
           <li

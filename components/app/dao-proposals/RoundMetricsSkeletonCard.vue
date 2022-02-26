@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow bg-primary-content rounded p-6 pb-6">
+  <div class="shadow bg-base-200 rounded p-6 pb-6">
     <div class="animate-pulse h-full flex items-center">
       <div class="mr-3">
         <div class="mr-2 w-6 h-6 rounded bg-primary opacity-70" />
