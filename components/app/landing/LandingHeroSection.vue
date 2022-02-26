@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
     <div class="pt-6">
       <h1 class="text-base-content">
         {{ $t('landing.hero.titlePart1') }}
