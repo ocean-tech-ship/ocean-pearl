@@ -1,7 +1,7 @@
 <template>
   <div>
     <section-container>
-      <landing-hero-section />
+      <landing-hero-section class="pb-4 xl:pb-16" />
     </section-container>
 
     <app-primary-gradient-background>
