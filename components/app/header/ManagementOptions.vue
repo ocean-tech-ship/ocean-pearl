@@ -39,7 +39,7 @@ import angleDown from '@iconify/icons-la/angle-down';
 import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
 import AppIcon from '@/components/common/AppIcon';
-import ManagementLinks from '~/components/layout/ManagementLinks';
+import ManagementLinks from '@/components/app/header/ManagementLinks';
 
 export default {
   name: 'ManagementOptions',

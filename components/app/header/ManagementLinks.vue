@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { SESSION_NAME } from '~/store/auth';
+import { SESSION_NAME } from '@/store/auth';
 
 export default {
   name: 'ManagementLinks',
