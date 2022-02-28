@@ -1,12 +1,7 @@
 <template>
   <div>
     <notification-bar />
-    <section-container>
-      <primary-navbar />
-    </section-container>
-    <!--
-    <app-navbar />
-    -->
+    <primary-navbar />
     <Nuxt />
     <footer-container />
   </div>
@@ -14,18 +9,14 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import AppNavbar from '@/components/layout/AppNavbar.vue';
 import FooterContainer from '@/components/app/footer/FooterContainer.vue';
-import NotificationBar from '@/components/layout/NotificationBar.vue';
-import PrimaryNavbar from '~/components/layout/PrimaryNavbar.vue';
-import SectionContainer from '~/components/common/SectionContainer.vue';
+import NotificationBar from '@/components/app/header/NotificationBar.vue';
+import PrimaryNavbar from '@/components/app/header/PrimaryNavbar.vue';
 
 export default Vue.extend({
   components: {
-    SectionContainer,
     PrimaryNavbar,
     NotificationBar,
-    AppNavbar,
     FooterContainer,
   },
 });
