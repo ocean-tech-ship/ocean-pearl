@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{ 'border-none drop-shadow-lg': primary }"
-    class="bg-white rounded divide-y divide-darkgrey border border-primary"
+    class="bg-base-200 rounded divide-y divide-neutral border border-primary"
   >
     <div v-for="(tier, index) in tiers" :key="index" class="flex">
       <div class="w-24 m-2 text-right">

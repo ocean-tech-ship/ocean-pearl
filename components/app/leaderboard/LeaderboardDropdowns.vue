@@ -2,9 +2,9 @@
   <div>
     <button-emit-with-dropdown
       button-name="Select Round"
-      class="rounded w-36 mt-10 border-white bg-white"
-      button-style="text-third"
-      label-style="-m-3 text-white"
+      class="rounded w-36 mt-10 bg-base-200 border-base-200"
+      button-style="text-base-content"
+      label-style="-m-3 text-primary-content"
       :menu-items="roundItems"
       @selected="setItems"
     />

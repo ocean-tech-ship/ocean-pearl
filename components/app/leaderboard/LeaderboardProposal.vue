@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white flex lg:divide-x lg:divide-darkgrey">
+  <div class="bg-base-200 flex lg:divide-x lg:divide-base-300">
     <div
       :class="{
         'w-full md:w-4/6 lg:w-1/2': primary,

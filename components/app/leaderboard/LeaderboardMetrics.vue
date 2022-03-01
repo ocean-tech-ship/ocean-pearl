@@ -5,7 +5,7 @@
     <div
       v-for="(metric, index) in metrics"
       :key="index"
-      class="rounded bg-base-200 shadow flex items-center p-2"
+      class="rounded shadow bg-base-200 flex items-center p-2"
     >
       <app-icon class="w-12 text-primary pr-2" :data="metric.icon" />
 

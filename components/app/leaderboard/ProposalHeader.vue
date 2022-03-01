@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ 'text-white': primary, 'text-sm': !primary }"
+    :class="{ 'text-base-200': primary, 'text-sm': !primary }"
     class="flex items-center text-primary font-bold text-center"
   >
     <div
