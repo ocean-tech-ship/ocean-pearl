@@ -88,7 +88,7 @@ export default function getExampleResult() {
         yesVotes: 282479,
         noVotes: 46617,
         effectiveVotes: 235862,
-        tags: ['buildAndIntegrate', 'earmark'],
+        tags: ['buildAndIntegrate'],
         voteUrl:
           'https://snapshot.org/#/officialoceandao.eth/proposal/QmZRZNHuoQqpA1KCiNa9oMaxx3i6u2o32eqVxRC8vANfuC',
         isEarmarked: true,
@@ -141,7 +141,7 @@ export default function getExampleResult() {
         yesVotes: 260293,
         noVotes: 47105,
         effectiveVotes: 213188,
-        tags: ['buildAndIntegrate', 'earmark'],
+        tags: ['buildAndIntegrate'],
         voteUrl:
           'https://snapshot.org/#/officialoceandao.eth/proposal/QmZRZNHuoQqpA1KCiNa9oMaxx3i6u2o32eqVxRC8vANfuC',
         isEarmarked: true,
@@ -211,7 +211,7 @@ export default function getExampleResult() {
         yesVotes: 91963,
         noVotes: 1263,
         effectiveVotes: 90700,
-        tags: ['unleashData', 'earmark'],
+        tags: ['unleashData'],
         voteUrl:
           'https://snapshot.org/#/officialoceandao.eth/proposal/QmZRZNHuoQqpA1KCiNa9oMaxx3i6u2o32eqVxRC8vANfuC',
         isEarmarked: true,
@@ -247,7 +247,7 @@ export default function getExampleResult() {
         yesVotes: 50611,
         noVotes: 1787,
         effectiveVotes: 48824,
-        tags: ['outreach', 'earmark'],
+        tags: ['outreach'],
         voteUrl:
           'https://snapshot.org/#/officialoceandao.eth/proposal/QmZRZNHuoQqpA1KCiNa9oMaxx3i6u2o32eqVxRC8vANfuC',
         isEarmarked: true,
@@ -283,7 +283,7 @@ export default function getExampleResult() {
         yesVotes: 28462,
         noVotes: 452,
         effectiveVotes: 28010,
-        tags: ['outreach', 'earmark'],
+        tags: ['outreach'],
         voteUrl:
           'https://snapshot.org/#/officialoceandao.eth/proposal/QmZRZNHuoQqpA1KCiNa9oMaxx3i6u2o32eqVxRC8vANfuC',
         isEarmarked: true,
@@ -383,7 +383,7 @@ export default function getExampleResult() {
     ],
     paymentOption: 'USD',
     overallFunding: 528658.425,
-    earmarks: {
+    grantPools: {
       newGeneral: {
         type: 'newGeneral',
         remainingFunding: 54468,

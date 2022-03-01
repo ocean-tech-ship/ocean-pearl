@@ -11,25 +11,7 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="
-          flex
-          items-center
-          flex-col
-          rounded
-          lg:flex-row
-          xl:flex-col
-          shadow
-          rounded-md
-          pb-12
-          pt-16
-          px-4
-          col-span-1
-          lg:col-span-2
-          xl:col-span-1
-          row-span-1
-          xl:row-span-2
-          listed-project-container
-        "
+        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow rounded-md pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
       >
         <img
           class="h-225px hidden sm:block"
@@ -99,7 +81,8 @@
               <p class="small-text">
                 {{
                   $t('general.ocean', {
-                    ocean: project.featuredDaoProposal[0].requestedGrantToken,
+                    ocean:
+                      project.featuredDaoProposal[0].requestedFunding.ocean,
                   })
                 }}
               </p>
@@ -135,8 +118,8 @@
 </template>
 
 <script>
-import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
 import LandingSectionContainer from './LandingSectionContainer';
+import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
 import AppLogo from '@/components/common/AppLogo';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';

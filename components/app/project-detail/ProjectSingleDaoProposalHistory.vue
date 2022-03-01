@@ -58,16 +58,16 @@
               </td>
 
               <td class="text-right p-4 py-3">
-                <span v-if="proposal.votes > 0">
-                  {{ addPunctuation(proposal.votes) }}
+                <span v-if="proposal.yesVotes > 0">
+                  {{ addPunctuation(proposal.yesVotes) }}
                 </span>
 
                 <span v-else>-</span>
               </td>
 
               <td class="text-right p-4 py-3">
-                <span v-if="proposal.counterVotes > 0">
-                  {{ addPunctuation(proposal.counterVotes) }}
+                <span v-if="proposal.noVotes > 0">
+                  {{ addPunctuation(proposal.noVotes) }}
                 </span>
 
                 <span v-else>-</span>
@@ -75,10 +75,10 @@
 
               <td class="text-right p-4 py-3">
                 <div
-                  v-if="proposal.grantedToken > 0"
+                  v-if="proposal.receivedFunding.ocean > 0"
                   class="flex items-center justify-end"
                 >
-                  {{ addPunctuation(proposal.grantedToken) }}
+                  {{ addPunctuation(proposal.receivedFunding.ocean) }}
 
                   <img
                     class="self-start pl-1"

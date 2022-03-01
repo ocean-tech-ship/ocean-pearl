@@ -35,14 +35,14 @@
 
       <p
         v-if="
-          newestProposal.requestedGrantUsd &&
-          newestProposal.requestedGrantUsd > 0
+          newestProposal.requestedFunding.usd &&
+          newestProposal.requestedFunding.usd > 0
         "
         class="small-text"
       >
         {{
           $t('general.usd', {
-            usd: addPunctuation(newestProposal.requestedGrantUsd),
+            usd: addPunctuation(newestProposal.requestedFunding.usd),
           })
         }}
       </p>
@@ -50,7 +50,7 @@
       <p v-else class="small-text">
         {{
           $t('general.ocean', {
-            ocean: addPunctuation(newestProposal.requestedGrantToken),
+            ocean: addPunctuation(newestProposal.requestedFunding.ocean),
           })
         }}
       </p>
