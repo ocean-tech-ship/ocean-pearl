@@ -58,7 +58,10 @@ export default {
           votingStartDate: new Date(),
           endDate: new Date(),
         },
-        totalRequestedFundingOcean: '',
+        totalRequestedFunding: {
+          usd: 0,
+          ocean: 0,
+        },
         totalVotes: '',
       }),
     },
@@ -113,12 +116,12 @@ export default {
             this.$props.metrics.paymentOption === 'ocean'
               ? this.$t('general.ocean', {
                   ocean: this.addPunctuation(
-                    this.$props.metrics.totalRequestedFundingOcean,
+                    this.$props.metrics.totalRequestedFunding.ocean,
                   ),
                 })
               : this.$t('general.usd', {
                   usd: this.addPunctuation(
-                    this.$props.metrics.totalRequestedFundingUsd,
+                    this.$props.metrics.totalRequestedFunding.usd,
                   ),
                 }),
           icon: coins,

@@ -1,3 +1,5 @@
+import { Funding } from './Funding.model';
+
 export interface Metrics {
   fundingRound: number;
   totalDaoProposals: number;
@@ -5,6 +7,6 @@ export interface Metrics {
   submissionEndDate: Date;
   votingStartDate: Date;
   endDate: Date;
-  totalRequestedFunding: number;
+  totalRequestedFunding: Funding;
   totalVotes: number;
 }
