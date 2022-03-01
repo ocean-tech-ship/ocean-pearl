@@ -18,7 +18,7 @@ export default {
 
   data() {
     return {
-      darkMode: false,
+      darkMode: this.$cookies.get('theme') === 'dark',
       icons: {
         moon,
         sun,
@@ -28,6 +28,10 @@ export default {
 
   watch: {
     darkMode(enable) {
+      this.$cookies.set('theme', enable ? 'dark' : 'light', {
+        maxAge: 60 * 60 * 24 * 365,
+      });
+
       document
         .querySelector('html')
         .setAttribute('data-theme', enable ? 'dark' : 'light');

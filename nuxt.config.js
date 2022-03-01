@@ -14,12 +14,13 @@ export default {
   target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head() {
+  head(context) {
     return {
       titleTemplate: (titleChunk) =>
         titleChunk ? `${titleChunk} | Ocean Pearl` : 'Ocean Pearl',
       htmlAttrs: {
         lang: 'en',
+        'data-theme': context.$cookies.get('theme') ?? 'light',
       },
       meta: [
         { charset: 'utf-8' },
@@ -111,6 +112,7 @@ export default {
     '@/plugins/vue-touch',
     { src: '@/plugins/vue-globals', ssr: true },
     { src: '@/plugins/plausible', ssr: false },
+    { src: '@/plugins/ui-theme', ssr: false },
   ],
 
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
