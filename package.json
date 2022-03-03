@@ -27,7 +27,7 @@
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/sitemap": "^2.4.0",
     "@tailwindcss/line-clamp": "^0.3.1",
-    "@walletconnect/web3-provider": "^1.7.1",
+    "@walletconnect/web3-provider": "^1.7.3",
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.21.1",
     "daisyui": "^1.25.4",
