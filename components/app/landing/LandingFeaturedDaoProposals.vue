@@ -99,7 +99,7 @@
               <p class="small-text">
                 {{
                   $t('general.ocean', {
-                    ocean: project.featuredDaoProposal[0].requestedGrantToken,
+                    ocean: project.featuredDaoProposal[0].requestedFunding.ocean,
                   })
                 }}
               </p>

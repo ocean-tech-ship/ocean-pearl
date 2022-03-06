@@ -76,14 +76,14 @@
             </div>
             <p
               v-if="
-                daoProposal.requestedGrantUsd &&
-                daoProposal.requestedGrantUsd > 0
+                daoProposal.requestedFunding.usd &&
+                daoProposal.requestedFunding.usd > 0
               "
               class="small-text"
             >
               {{
                 $t('general.usd', {
-                  usd: addPunctuation(daoProposal.requestedGrantUsd),
+                  usd: addPunctuation(daoProposal.requestedFunding.usd),
                 })
               }}
             </p>
@@ -91,7 +91,7 @@
             <p v-else class="small-text">
               {{
                 $t('general.ocean', {
-                  ocean: addPunctuation(daoProposal.requestedGrantToken),
+                  ocean: addPunctuation(daoProposal.requestedFunding.ocean),
                 })
               }}
             </p>

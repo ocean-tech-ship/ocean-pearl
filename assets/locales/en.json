@@ -46,9 +46,9 @@
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "counterVotes": "No Votes",
+      "noVotes": "No Votes",
       "requestedAmount": "Requested Amount",
-      "votes": "Yes Votes"
+      "yesVotes": "Yes Votes"
     }
   },
   "daoRoundData": {
@@ -345,9 +345,9 @@
       "grants": "no grant | {n} grant | {n} grants",
       "history": {
         "funding": "Granted<br>Funding",
-        "granted": "Granted",
         "no": "No<br>Votes",
         "round": "Round",
+        "status": "Status",
         "view": "View full<br>proposal",
         "yes": "Yes<br>Votes"
       },
@@ -355,6 +355,19 @@
       "round": {
         "numbered": "Round {round}",
         "title": "Funding Round"
+      },
+      "status": {
+        "downVoted": "Down Voted",
+        "ended": "Ended",
+        "funded": "Funded",
+        "granted": "Granted",
+        "notFunded": "Not Funded",
+        "notGranted": "Not Granted",
+        "received": "Received",
+        "rejected": "Rejected",
+        "running": "Running",
+        "unknown": "Unknown",
+        "withdrawn": "Withdrawn"
       },
       "submit": "Submit Proposal",
       "title": {
