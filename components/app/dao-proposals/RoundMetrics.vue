@@ -58,7 +58,10 @@ export default {
           votingStartDate: new Date(),
           endDate: new Date(),
         },
-        totalRequestedFundingOcean: '',
+        totalRequestedFunding: {
+          usd: 0,
+          ocean: 0,
+        },
         totalVotes: '',
       }),
     },
@@ -113,12 +116,12 @@ export default {
             this.$props.metrics.paymentOption === 'ocean'
               ? this.$t('general.ocean', {
                   ocean: this.addPunctuation(
-                    this.$props.metrics.totalRequestedFundingOcean,
+                    this.$props.metrics.totalRequestedFunding.ocean,
                   ),
                 })
               : this.$t('general.usd', {
                   usd: this.addPunctuation(
-                    this.$props.metrics.totalRequestedFundingUsd,
+                    this.$props.metrics.totalRequestedFunding.usd,
                   ),
                 }),
           icon: coins,
@@ -163,11 +166,11 @@ export default {
 
       if (now > new Date(metrics.currentRound.endDate)) {
         // Round ended. Show next round if possible
-        if (metrics.nextRound && metrics.nextRound.startDate) {
+        if (metrics.nextRound && metrics.nextRound.submissionEndDate) {
           return {
             key: 'daoRoundData.submission.next.title',
             tooltip: 'daoRoundData.submission.next.tooltip',
-            timestamp: new Date(metrics.nextRound.startDate),
+            timestamp: new Date(metrics.nextRound.submissionEndDate),
           };
         }
       }

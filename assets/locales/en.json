@@ -46,9 +46,9 @@
       "titleHighlight": "Pearl x DAO"
     },
     "projects": {
-      "counterVotes": "No Votes",
+      "noVotes": "No Votes",
       "requestedAmount": "Requested Amount",
-      "votes": "Yes Votes"
+      "yesVotes": "Yes Votes"
     }
   },
   "daoRoundData": {
@@ -69,8 +69,8 @@
         "tooltip": "Proposal submission begins on {timestamp}."
       },
       "next": {
-        "title": "Submit proposal next round",
-        "tooltip": "Proposal submission for the next round starts on {timestamp}."
+        "title": "Next round submission ends",
+        "tooltip": "Proposal submission for the next round ends on {timestamp}."
       }
     },
     "totalAmount": "Total Amount",
@@ -107,6 +107,7 @@
     "abort": "Abort",
     "add": "add",
     "button": "button",
+    "continue": "Continue",
     "delete": "delete",
     "edit": "edit",
     "error": {
@@ -226,13 +227,13 @@
         "subtitle": "{n} USD",
         "title": "Funding amount"
       },
+      "requested": {
+        "title": "Amount requested"
+      },
       "unused": {
         "burn": "Will be burned",
         "future": "Available funding",
         "past": "Recycled funding"
-      },
-      "requested": {
-        "title": "Amount requested"
       },
       "votes": {
         "title": "Total Votes"
@@ -241,7 +242,10 @@
     "partiallyFunded": "Proposals with partial funding",
     "pending": "Proposals without funding",
     "proposal": {
-      "funding": ["{amount} {paymentOption}", "requested"],
+      "funding": [
+        "{amount} {paymentOption}",
+        "requested"
+      ],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -251,12 +255,12 @@
       },
       "rank": "rank icon",
       "votes": {
-        "no": "No Votes",
-        "yes": "Yes Votes",
         "neededVotes": {
           "fullyFunded": "Full",
           "partiallyFunded": "Partial"
-        }
+        },
+        "no": "No Votes",
+        "yes": "Yes Votes"
       }
     },
     "refresh": "The results are updated every 5 minutes.",
@@ -264,7 +268,10 @@
       "title": "Round"
     },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
-    "title": ["DAO", "Voting"],
+    "title": [
+      "DAO",
+      "Voting"
+    ],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -311,7 +318,10 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": ["Management", "panel"]
+    "title": [
+      "Management",
+      "panel"
+    ]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
@@ -335,9 +345,9 @@
       "grants": "no grant | {n} grant | {n} grants",
       "history": {
         "funding": "Granted<br>Funding",
-        "granted": "Granted",
         "no": "No<br>Votes",
         "round": "Round",
+        "status": "Status",
         "view": "View full<br>proposal",
         "yes": "Yes<br>Votes"
       },
@@ -345,6 +355,19 @@
       "round": {
         "numbered": "Round {round}",
         "title": "Funding Round"
+      },
+      "status": {
+        "downVoted": "Down Voted",
+        "ended": "Ended",
+        "funded": "Funded",
+        "granted": "Granted",
+        "notFunded": "Not Funded",
+        "notGranted": "Not Granted",
+        "received": "Received",
+        "rejected": "Rejected",
+        "running": "Running",
+        "unknown": "Unknown",
+        "withdrawn": "Withdrawn"
       },
       "submit": "Submit Proposal",
       "title": {
@@ -414,5 +437,8 @@
       "dropDown1": "Latest",
       "dropDown2": "Category"
     }
+  },
+  "redirect": {
+    "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
   }
 }

@@ -56,7 +56,11 @@
         </div>
 
         <!-- manage administrator modal -->
-        <project-manage-admin id="admins" :project="selectedProject" />
+        <project-manage-admin
+          v-if="selectedProject"
+          id="admins"
+          :project="selectedProject"
+        />
       </div>
     </div>
   </div>

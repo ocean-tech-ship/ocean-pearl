@@ -30,7 +30,7 @@
             />
             <th
               class="p-2 px-4 text-right"
-              v-html="$t('project.proposal.history.granted')"
+              v-html="$t('project.proposal.history.status')"
             />
             <th
               class="p-2 px-4 text-right pr-4"
@@ -56,16 +56,16 @@
               </td>
 
               <td class="text-right p-4 py-3">
-                <span v-if="proposal.votes > 0">
-                  {{ addPunctuation(proposal.votes) }}
+                <span v-if="proposal.yesVotes > 0">
+                  {{ addPunctuation(proposal.yesVotes) }}
                 </span>
 
                 <span v-else>-</span>
               </td>
 
               <td class="text-right p-4 py-3">
-                <span v-if="proposal.counterVotes > 0">
-                  {{ addPunctuation(proposal.counterVotes) }}
+                <span v-if="proposal.noVotes > 0">
+                  {{ addPunctuation(proposal.noVotes) }}
                 </span>
 
                 <span v-else>-</span>
@@ -73,10 +73,10 @@
 
               <td class="text-right p-4 py-3">
                 <div
-                  v-if="proposal.grantedToken > 0"
+                  v-if="proposal.receivedFunding.ocean > 0"
                   class="flex items-center justify-end"
                 >
-                  {{ addPunctuation(proposal.grantedToken) }}
+                  {{ addPunctuation(proposal.receivedFunding.ocean) }}
 
                   <img
                     class="self-start pl-1"
@@ -89,11 +89,7 @@
               </td>
 
               <td class="text-right p-4 py-3">
-                {{
-                  isGranted(proposal)
-                    ? $t('project.proposal.granted.yes')
-                    : $t('project.proposal.granted.no')
-                }}
+                {{ $t('project.proposal.status.' + proposal.status) }}
               </td>
 
               <td class="p-4 py-3 pr-4">
@@ -123,7 +119,6 @@
 import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
-import DaoProposalStatusEnum from '@/enums/DaoProposalStatus.enum';
 import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
@@ -151,16 +146,5 @@ export default {
       },
     };
   },
-
-  methods: {
-    isGranted(proposal) {
-      return [
-        DaoProposalStatusEnum.Funded,
-        DaoProposalStatusEnum.Granted
-      ].includes(proposal.status);
-    }
-  }
 };
 </script>
-
-<style scoped></style>

@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="shadow lg:shadow-none bg-secondary fixed lg:relative z-nav top-0 w-full py-4 lg:py-16"
+    class="shadow lg:shadow-none bg-secondary sticky lg:relative z-nav top-0 w-full py-4 lg:py-16"
   >
     <div
       class="flex items-center justify-between 2sm:px-4 sm:px-16 md:px-32 mx-auto max-w-1440"
@@ -139,7 +139,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 body {
   padding-top: 120px;
 
