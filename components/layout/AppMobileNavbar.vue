@@ -32,20 +32,13 @@
               $t('leaderboard.meta.title')
             }}</app-link>
           </li>
-          <li>
-            <span
-              class="cursor-pointer font-bold block px-4 py-3"
-              @click="to('/dao-voting')"
-              >{{ $t('leaderboard.meta.title') }}</span
-            >
-          </li>
           <li v-if="!walletAddress">
             <button
               type="button"
               class="flex px-4 py-3 text-primary"
               @click="$store.dispatch('auth/login')"
             >
-              <p>{{ $t('manage.auth.login.action') }}</p>
+              {{ $t('manage.auth.login.action') }}
             </button>
           </li>
           <li v-if="walletAddress">
@@ -122,9 +115,6 @@ export default {
     toggleDropdown(context) {
       this.$store.commit('alert/clear');
       context.toggleOpen();
-    },
-    to(route) {
-      sameRouteReload(this, route, 'in');
     },
   },
 };
