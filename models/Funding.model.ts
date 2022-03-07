@@ -1,4 +1,4 @@
 export interface Funding {
   usd: number;
-  ocaen: number;
+  ocean: number;
 }
