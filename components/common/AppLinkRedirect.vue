@@ -45,7 +45,7 @@ export default {
     },
 
     whitelisted() {
-      const hostname = new URL(this.to).hostname.toLowerCase();
+      const hostname = this.getHostname(this.to);
       const whitelist = [].concat.apply(
         [],
         SocialMedia.list().map((social) => social.Domains),
@@ -59,6 +59,14 @@ export default {
       return this.internal || this.whitelisted
         ? to
         : `/redirect?url=${encodeURIComponent(to)}`;
+    },
+
+    getHostname(url) {
+      try {
+        return new URL(url).hostname.toLowerCase();
+      } catch {
+        return url;
+      }
     },
   },
 };
