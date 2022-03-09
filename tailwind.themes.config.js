@@ -21,7 +21,7 @@ export default [
   },
   {
     dark: {
-      primary: '#bb2c75',
+      primary: '#ff57ae',
       'primary-content': '#fff',
       secondary: '#818aa3',
       'secondary-content': '#fff',
