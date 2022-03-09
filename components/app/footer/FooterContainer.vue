@@ -1,9 +1,11 @@
 <template>
   <div class="bg-base-200">
     <section-container>
-      <footer class="footer py-10 text-base-content">
+      <footer
+        class="footer py-10 text-base-content grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
+      >
         <div v-for="item in footer1" :key="item.id">
-          <div class="grid grid-flow-col mb-2 uppercase font-bold">
+          <div class="grid grid-flow-col mb-2 font-bold">
             <img
               :src="item.img"
               :alt="`${item.name} ${$t('general.logo')}`"
@@ -21,21 +23,19 @@
         </div>
       </footer>
       <footer
-        class="footer py-4 border-t bg-base-200 text-base-content border-base-300"
+        class="py-4 border-t bg-base-200 text-base-content border-base-300 flex flex-col items-center md:flex-row md:justify-between gap-2"
       >
         <p class="text-2xs mb-0">
           {{ footer2.name }}
         </p>
-        <div class="md:place-self-center md:justify-self-end">
-          <div class="grid grid-flow-col gap-4">
-            <app-link
-              v-for="subItem in footer2.subItems"
-              :key="subItem.id"
-              :to="subItem.route"
-            >
-              <app-icon :data="subItem.icon" width="30" height="30" />
-            </app-link>
-          </div>
+        <div class="grid grid-flow-col gap-4">
+          <app-link
+            v-for="subItem in footer2.subItems"
+            :key="subItem.id"
+            :to="subItem.route"
+          >
+            <app-icon :data="subItem.icon" width="30" height="30" />
+          </app-link>
         </div>
       </footer>
     </section-container>
@@ -59,6 +59,7 @@ export default {
   },
   // TODO 1: Add translations
   // TODO 2: Add SVGs for dark mode
+  // TODO 3: Add subpage links and analytics to Ocean Pearl, add socials
   data() {
     return {
       footer1: [
@@ -88,7 +89,57 @@ export default {
           ],
         },
         {
-          id: 1,
+          id: 2,
+          name: 'Support',
+          // eslint-disable-next-line global-require
+          img: require('@/assets/images/logo/ocean-pearl.svg'),
+          route: '/',
+          class: 'text-primary',
+          subItems: [
+            {
+              id: 0,
+              name: 'Analytics',
+              route: 'https://twitter.com/oceanpearlio',
+            },
+            {
+              id: 1,
+              name: 'Server Status',
+              route: 'https://stats.uptimerobot.com/l0923I1O3y',
+            },
+            {
+              id: 2,
+              name: 'Contact',
+              route: 'https://github.com/ocean-tech-ship',
+            },
+          ],
+        },
+        {
+          id: 2,
+          name: 'Socials',
+          // eslint-disable-next-line global-require
+          img: require('@/assets/images/logo/ocean-pearl.svg'),
+          route: '/',
+          class: 'text-primary',
+          subItems: [
+            {
+              id: 0,
+              name: 'Analytics',
+              route: 'https://twitter.com/oceanpearlio',
+            },
+            {
+              id: 1,
+              name: 'Server Status',
+              route: 'https://stats.uptimerobot.com/l0923I1O3y',
+            },
+            {
+              id: 2,
+              name: 'Contact',
+              route: 'https://github.com/ocean-tech-ship',
+            },
+          ],
+        },
+        {
+          id: 2,
           name: 'Ocean Protocol',
           // eslint-disable-next-line global-require
           img: require('@/assets/images/logo/ocean-protocol.svg'),
@@ -119,7 +170,7 @@ export default {
         },
       ],
       footer2: {
-        name: '© 2022 Ocean Pearl - MIT License',
+        name: 'Ocean Pearl 2022',
         subItems: [
           {
             id: 0,
