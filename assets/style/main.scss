@@ -142,8 +142,12 @@ p {
   background: linear-gradient(93.9deg, #7B3056 0%, #D45B8D 101.18%);
 }
 
-.bg-gradient-primary-variant {
+[data-theme='light'] .bg-gradient-primary-variant {
   background: linear-gradient(93.07deg, #BB2C75 0%, rgba(255, 74, 167, 0.5) 99.79%);
+}
+
+[data-theme='dark'] .bg-gradient-primary-variant {
+  background: linear-gradient(93.07deg, #C8347F 0%, rgba(254, 129, 193, 0.9) 99.79%);
 }
 
 .bg-gradient-accent {
@@ -154,12 +158,12 @@ p {
   background: linear-gradient(303.29deg, #BB2C75 2.45%, #E6A33A 98.4%);;
 }
 
-/* handle width vertical */
+/* handle-width vertical */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
-/* handle height horizontal */
+/* handle-height horizontal */
 ::-webkit-scrollbar:horizontal {
   height: 8px;
 }
