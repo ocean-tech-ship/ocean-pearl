@@ -52,10 +52,11 @@
             <div v-if="primary" class="space-y-1 hidden lg:block">
               <app-progressbar
                 :percent="calcPercent(maxVotes, proposal.yesVotes)"
+                gradient="bg-gradient-primary-variant"
               />
               <app-progressbar
-                secondary
                 :percent="calcPercent(maxVotes, proposal.noVotes)"
+                gradient="bg-gradient-accent"
               />
             </div>
 
@@ -79,35 +80,25 @@
     <!-- votes needed -->
     <div
       v-if="!primary"
-      class="
-        hidden
-        lg:flex
-        flex-row
-        justify-center
-        flex-grow
-        w-40
-        sm:w-44
-        mx-auto
-        px-2
-      "
+      class="hidden lg:flex flex-row justify-center flex-grow w-40 sm:w-44 mx-auto px-2"
     >
       <div class="flex flex-col text-right justify-center">
         <span class="inline-block w-26">{{
           addPunctuation(proposal.neededVotes.fullyFunded)
         }}</span>
         <span
-          class="inline-block w-26"
           v-if="proposal.neededVotes.partiallyFunded"
+          class="inline-block w-26"
           >{{ addPunctuation(proposal.neededVotes.partiallyFunded) }}</span
         >
       </div>
       <div class="flex flex-col text-right justify-center">
-        <span class="inline-block text-left w-14">&nbsp;{{
-          $t('leaderboard.proposal.votes.neededVotes.fullyFunded')
-        }}</span>
+        <span class="inline-block text-left w-14">
+          &nbsp;{{ $t('leaderboard.proposal.votes.neededVotes.fullyFunded') }}
+        </span>
         <span
-          class="inline-block text-left w-14"
           v-if="proposal.neededVotes.partiallyFunded"
+          class="inline-block text-left w-14"
           >&nbsp;{{
             $t('leaderboard.proposal.votes.neededVotes.partiallyFunded')
           }}</span
@@ -118,8 +109,8 @@
     <!-- amount requested / received -->
     <proposal-funding
       class="hidden lg:flex"
-      :requestedFunding="proposal.requestedFunding"
-      :receivedFunding="proposal.receivedFunding"
+      :requested-funding="proposal.requestedFunding"
+      :received-funding="proposal.receivedFunding"
       :payment-option="paymentOption"
     />
 
