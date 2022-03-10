@@ -2,28 +2,34 @@
   <div class="bg-base-200">
     <section-container>
       <footer
-        class="footer py-10 text-base-content grid-cols-2 md:grid-cols-4 lg:grid-cols-5"
+        class="footer py-10 text-base-content grid-cols-2 grid-flow-row lg:grid-flow-col lg:grid-cols-5"
       >
-        <div v-for="item in footer1" :key="item.id">
+        <div
+          v-for="item in footer1"
+          :key="item.id"
+          class="w-full justify-center lg:justify-start"
+        >
           <div class="grid grid-flow-col mb-2 font-bold">
             <img
+              v-if="item.name !== 'Ocean Protocol'"
               :src="item.img"
               :alt="`${item.name} ${$t('general.logo')}`"
               class="w-5 h-5 block mx-auto"
             />
+            <svg-ocean-logo v-if="item.name === 'Ocean Protocol'" class="w-5" />
             <span :class="`${item.class} ml-2`">{{ item.name }}</span>
           </div>
           <app-link
             v-for="subItem in item.subItems"
             :key="subItem.id"
             :to="subItem.route"
-            class="link link-hover"
+            class="link link-hover w-full text-center lg:text-left"
             >{{ subItem.name }}</app-link
           >
         </div>
       </footer>
       <footer
-        class="py-4 border-t bg-base-200 text-base-content border-base-300 flex flex-col items-center md:flex-row md:justify-between gap-2"
+        class="py-4 border-t bg-base-200 text-base-content border-base-300 flex flex-col items-center lg:flex-row md:justify-between gap-2"
       >
         <p class="text-2xs mb-0">
           {{ footer2.name }}
@@ -47,19 +53,20 @@ import twitter from '@iconify/icons-la/twitter';
 import discord from '@iconify/icons-la/discord';
 import github from '@iconify/icons-la/github';
 import linkedin from '@iconify/icons-la/linkedin';
-import AppLink from '@/components/common/AppLink.vue';
-import AppIcon from '@/components/common/AppIcon.vue';
+import email from '@iconify/icons-la/envelope';
 import SectionContainer from '@/components/common/SectionContainer';
+import AppLink from '@/components/common/AppLink.vue';
+import AppIcon from '@/components/common/AppIcon';
+import SvgOceanLogo from '~/components/common/SvgOceanLogo';
+import EmailEnum from '@/components/enums/Email.enum';
 
 export default {
   components: {
     SectionContainer,
     AppLink,
     AppIcon,
+    SvgOceanLogo,
   },
-  // TODO 1: Add translations
-  // TODO 2: Add SVGs for dark mode
-  // TODO 3: Add subpage links and analytics to Ocean Pearl, add socials
   data() {
     return {
       footer1: [
@@ -68,92 +75,97 @@ export default {
           name: 'Ocean Pearl',
           // eslint-disable-next-line global-require
           img: require('@/assets/images/logo/ocean-pearl.svg'),
-          route: '/',
           class: 'text-primary',
           subItems: [
             {
               id: 0,
-              name: 'Analytics',
-              route: 'https://twitter.com/oceanpearlio',
+              name: this.$t('navbar.navbarLinkDefault'),
+              route: '/',
             },
             {
               id: 1,
-              name: 'Server Status',
-              route: 'https://stats.uptimerobot.com/l0923I1O3y',
+              name: this.$t('navbar.navbarProjects'),
+              route: '/projects',
             },
             {
               id: 2,
-              name: 'Contact',
-              route: 'https://github.com/ocean-tech-ship',
+              name: this.$t('navbar.navbarProposals'),
+              route: '/dao-proposals',
+            },
+            {
+              id: 3,
+              name: this.$t('navbar.navbarVoting'),
+              route: '/dao-voting',
             },
           ],
         },
         {
           id: 2,
-          name: 'Support',
+          name: this.$t('footer.socials.heading'),
           // eslint-disable-next-line global-require
           img: require('@/assets/images/logo/ocean-pearl.svg'),
-          route: '/',
           class: 'text-primary',
           subItems: [
             {
               id: 0,
-              name: 'Analytics',
+              name: 'Twitter',
               route: 'https://twitter.com/oceanpearlio',
             },
             {
               id: 1,
-              name: 'Server Status',
-              route: 'https://stats.uptimerobot.com/l0923I1O3y',
+              name: 'Discord',
+              route: 'https://discord.gg/eswPj8QZRH',
             },
             {
               id: 2,
-              name: 'Contact',
+              name: 'GitHub',
               route: 'https://github.com/ocean-tech-ship',
+            },
+            {
+              id: 3,
+              name: 'LinkedIn',
+              route: 'https://linkedin.com/company/oceanpearl',
+            },
+            {
+              id: 4,
+              name: 'Email',
+              route: `mailto:${EmailEnum.Address}`,
             },
           ],
         },
         {
-          id: 2,
-          name: 'Socials',
+          id: 3,
+          name: this.$t('footer.vitals.heading'),
           // eslint-disable-next-line global-require
           img: require('@/assets/images/logo/ocean-pearl.svg'),
-          route: '/',
           class: 'text-primary',
           subItems: [
             {
               id: 0,
-              name: 'Analytics',
+              name: this.$t('footer.vitals.analytics'),
               route: 'https://twitter.com/oceanpearlio',
             },
             {
               id: 1,
-              name: 'Server Status',
+              name: this.$t('footer.vitals.server'),
               route: 'https://stats.uptimerobot.com/l0923I1O3y',
-            },
-            {
-              id: 2,
-              name: 'Contact',
-              route: 'https://github.com/ocean-tech-ship',
             },
           ],
         },
         {
-          id: 2,
-          name: 'Ocean Protocol',
-          // eslint-disable-next-line global-require
-          img: require('@/assets/images/logo/ocean-protocol.svg'),
+          id: 4,
+          name: this.$t('footer.opf.heading'),
           route: 'https://oceanprotocol.com/',
-          class: 'base-200',
+          class: 'text-base-content',
           subItems: [
             {
               id: 0,
-              name: 'Website',
+              name: 'Home',
               route: 'https://oceanprotocol.com',
             },
             {
               id: 1,
-              name: 'Ocean Port',
+              name: 'Port',
               route: 'https://port.oceanprotocol.com/',
             },
             {
@@ -195,6 +207,12 @@ export default {
             name: 'Linkedin',
             icon: linkedin,
             route: 'https://linkedin.com/company/oceanpearl',
+          },
+          {
+            id: 4,
+            name: 'Email',
+            icon: email,
+            route: `mailto:${EmailEnum.Address}`,
           },
         ],
       },
