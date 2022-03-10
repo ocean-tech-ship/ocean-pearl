@@ -1,7 +1,7 @@
 <template>
   <div
-    :class="{ 'text-base-200': primary, 'text-sm': !primary }"
-    class="flex items-center text-primary font-bold text-center"
+    :class="{ 'text-primary-content': primary, 'text-primary': !primary }"
+    class="flex items-center font-bold text-center text-sm"
   >
     <div
       :class="{ 'w-2/5': displayNeededVotes, 'w-1/2': !displayNeededVotes }"
@@ -35,14 +35,12 @@ export default {
   props: {
     primary: {
       type: Boolean,
-      required: false,
       default: false,
     },
     displayNeededVotes: {
       type: Boolean,
-      required: false,
-      default: false
-    }
+      default: false,
+    },
   },
 };
 </script>

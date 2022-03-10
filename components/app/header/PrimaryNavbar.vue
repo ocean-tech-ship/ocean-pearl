@@ -42,16 +42,26 @@
             <app-icon class="w-10 h-10 text-primary" :data="icons.bars" />
           </label>
           <ul
+            tabindex="0"
             class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-box w-52 space-y-2"
           >
             <li>
-              <nuxt-link to="/" exact active-class="active">
+              <nuxt-link
+                to="/"
+                exact
+                active-class="active"
+                @click.native="removeFocus()"
+              >
                 {{ $t('navbar.navbarLinkDefault') }}
               </nuxt-link>
             </li>
 
             <li v-for="page in pages" :key="page.to">
-              <nuxt-link :to="page.to" active-class="active">
+              <nuxt-link
+                :to="page.to"
+                active-class="active"
+                @click.native="removeFocus()"
+              >
                 {{ page.title }}
               </nuxt-link>
             </li>
@@ -64,9 +74,7 @@
 
             <management-links />
 
-            <li>
-              <theme-switcher />
-            </li>
+            <theme-switcher />
           </ul>
         </div>
       </div>
@@ -113,6 +121,12 @@ export default {
         },
       ],
     };
+  },
+
+  methods: {
+    removeFocus() {
+      setTimeout(() => document.activeElement.blur(), 150);
+    },
   },
 };
 </script>

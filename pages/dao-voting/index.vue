@@ -68,7 +68,7 @@
 
         <div class="pt-4 pb-8 text-white">
           <div class="flex items-center">
-            <h4 class="text-base-200">{{ $t('leaderboard.funded') }}</h4>
+            <h4 class="text-primary-content">{{ $t('leaderboard.funded') }}</h4>
 
             <live-indicator
               v-if="
@@ -80,7 +80,7 @@
             />
           </div>
 
-          <p class="small-text text-base-200">
+          <p class="small-text text-primary-content">
             {{ $t('leaderboard.guarantee[0]') }}
             <app-link
               to="https://airtable.com/shrd5s7HSXc2vC1iC"

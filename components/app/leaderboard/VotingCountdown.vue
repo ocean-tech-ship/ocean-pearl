@@ -5,14 +5,7 @@
         v-slot="{ days, hours, minutes, seconds }"
         :time="getTimeLeft(leaderboard)"
         tag="div"
-        class="
-          flex
-          items-center
-          justify-around
-          rounded
-          border border-base-200
-          text-center text-base-200
-        "
+        class="flex items-center justify-around rounded border border-primary-content text-center text-primary-content"
       >
         <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ days }}</div>
@@ -36,10 +29,12 @@
       </app-countdown>
 
       <div class="text-center p-2">
-        <span class="text-base-200">{{ $t(getSubtitle(leaderboard)) }}</span>
+        <span class="text-primary-content">
+          {{ $t(getSubtitle(leaderboard)) }}
+        </span>
       </div>
 
-      <template slot="placeholder">
+      <template #placeholder>
         <voting-countdown-skeleton />
       </template>
     </client-only>

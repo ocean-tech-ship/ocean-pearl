@@ -80,11 +80,7 @@
                 >
                   {{ addPunctuation(proposal.receivedFunding.ocean) }}
 
-                  <img
-                    class="self-start pl-1"
-                    src="@/assets/images/icons/ocean.svg"
-                    alt="$OCEAN"
-                  />
+                  <svg-ocean class="pl-1 w-6" />
                 </div>
 
                 <span v-else>-</span>
@@ -122,11 +118,13 @@ import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
+import SvgOcean from '@/components/common/SvgOcean';
 
 export default {
   name: 'ProjectSingleDaoProposalHistory',
 
   components: {
+    SvgOcean,
     AppIcon,
     AppLink,
   },
