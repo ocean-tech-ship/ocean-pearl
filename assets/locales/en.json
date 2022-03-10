@@ -101,7 +101,17 @@
     "seconds": "seconds"
   },
   "footer": {
-    "analytics": "Analytics"
+    "socials": {
+      "heading": "Socials"
+    },
+    "vitals": {
+      "heading": "Web Vitals",
+      "analytics": "Analytics",
+      "server": "Server"
+    },
+    "opf": {
+      "heading": "Ocean Protocol"
+    }
   },
   "general": {
     "abort": "Abort",
@@ -146,7 +156,7 @@
   },
   "landing": {
     "connect_social": {
-      "text": "Ocean Pearl is all about community. Help building us this vision!",
+      "text": "Ocean Pearl is all about community. Help us build this vision!",
       "title": "Connect with us."
     },
     "dao_proposals": {
@@ -242,10 +252,7 @@
     "partiallyFunded": "Proposals with partial funding",
     "pending": "Proposals without funding",
     "proposal": {
-      "funding": [
-        "{amount} {paymentOption}",
-        "requested"
-      ],
+      "funding": ["{amount} {paymentOption}", "requested"],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -268,10 +275,7 @@
       "title": "Round"
     },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
-    "title": [
-      "DAO",
-      "Voting"
-    ],
+    "title": ["DAO", "Voting"],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -318,17 +322,16 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
     "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
-    "navbarProjects": "Projects"
+    "navbarProjects": "Projects",
+    "navbarProposals": "DAO Proposals",
+    "navbarVoting": "DAO Voting"
   },
   "project": {
     "added": "added at",
