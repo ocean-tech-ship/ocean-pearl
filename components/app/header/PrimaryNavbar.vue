@@ -108,15 +108,15 @@ export default {
       },
       pages: [
         {
-          title: 'Projects',
+          title: this.$t('navbar.navbarProjects'),
           to: '/projects',
         },
         {
-          title: 'DAO Proposals',
+          title: this.$t('navbar.navbarProposals'),
           to: '/dao-proposals',
         },
         {
-          title: 'DAO Voting',
+          title: this.$t('navbar.navbarVoting'),
           to: '/dao-voting',
         },
       ],
