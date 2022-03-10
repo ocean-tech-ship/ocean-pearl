@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-base-200">
+  <footer class="bg-base-200">
     <section-container>
-      <footer
+      <div
         class="footer py-10 text-base-content grid-cols-2 grid-flow-row lg:grid-flow-col lg:grid-cols-5"
       >
         <div
@@ -27,8 +27,8 @@
             >{{ subItem.name }}</app-link
           >
         </div>
-      </footer>
-      <footer
+      </div>
+      <div
         class="py-4 border-t bg-base-200 text-base-content border-base-300 flex flex-col items-center lg:flex-row md:justify-between gap-2"
       >
         <p class="text-2xs mb-0">
@@ -43,9 +43,9 @@
             <app-icon :data="subItem.icon" width="30" height="30" />
           </app-link>
         </div>
-      </footer>
+      </div>
     </section-container>
-  </div>
+  </footer>
 </template>
 
 <script>
