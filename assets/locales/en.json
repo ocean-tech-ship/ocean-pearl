@@ -101,16 +101,16 @@
     "seconds": "seconds"
   },
   "footer": {
+    "opf": {
+      "heading": "Ocean Protocol"
+    },
     "socials": {
       "heading": "Socials"
     },
     "vitals": {
-      "heading": "Vitals",
       "analytics": "Analytics",
+      "heading": "Vitals",
       "server": "Server"
-    },
-    "opf": {
-      "heading": "Ocean Protocol"
     }
   },
   "general": {
@@ -252,7 +252,10 @@
     "partiallyFunded": "Proposals with partial funding",
     "pending": "Proposals without funding",
     "proposal": {
-      "funding": ["{amount} {paymentOption}", "requested"],
+      "funding": [
+        "{amount} {paymentOption}",
+        "requested"
+      ],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -275,7 +278,10 @@
       "title": "Round"
     },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
-    "title": ["DAO", "Voting"],
+    "title": [
+      "DAO",
+      "Voting"
+    ],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -303,6 +309,37 @@
       },
       "timeout": "Authentication timeout. Please login again."
     },
+    "landing": {
+      "cards": {
+        "create-project": {
+          "action": "create",
+          "subtitle": "Create a new project with which you can apply for grants. ",
+          "title": [
+            "Create",
+            "Project"
+          ]
+        },
+        "create-proposal": {
+          "action": "propose",
+          "subtitle": "Create a new proposal and submit it to the OceanDAO grants program.",
+          "title": [
+            "Create",
+            "Proposal"
+          ]
+        },
+        "manage-project": {
+          "action": "manage",
+          "subtitle": "Manage your existing projects and their associated proposals.",
+          "title": [
+            "Management",
+            "Panel"
+          ]
+        }
+      },
+      "subtitle": "Ocean Pearl is all about community. Help us to realize this vision!",
+      "title": "What are you doing next?",
+      "unlock": "Create Project to unlock"
+    },
     "project": {
       "changed": "The changes were saved successfully.",
       "description": "Description",
@@ -322,7 +359,10 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": ["Management", "panel"]
+    "title": [
+      "Management",
+      "panel"
+    ]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
