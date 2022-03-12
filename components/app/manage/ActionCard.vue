@@ -29,8 +29,8 @@
     </div>
 
     <!-- content -->
-    <div class="flex flex-col items-center p-4 space-y-6">
-      <div class="flex items-center text-primary">
+    <div class="w-full flex flex-col items-center p-4 space-y-6">
+      <div class="self-start sm:self-center flex items-center text-primary">
         <app-icon class="pr-2" :size="32" :data="card.icon" />
         <h4 class="text-base">
           {{ $t('manage.landing.cards.' + card.key + '.title')[0] }}
