@@ -46,7 +46,10 @@
         alt=""
       />
 
-      <p v-if="expand" class="small-text px-4 text-base-content text-center">
+      <p
+        v-if="expand"
+        class="md:hidden small-text px-4 text-base-content text-center"
+      >
         {{ $t('manage.landing.cards.' + card.key + '.subtitle') }}
       </p>
 
@@ -54,13 +57,20 @@
         {{ $t('manage.landing.cards.' + card.key + '.subtitle') }}
       </p>
 
-      <button v-if="expand" type="button" class="btn btn-outline btn-primary">
+      <nuxt-link
+        v-if="expand"
+        :to="card.target"
+        class="md:hidden btn btn-outline btn-primary"
+      >
         {{ $t('manage.landing.cards.' + card.key + '.action') }}
-      </button>
+      </nuxt-link>
 
-      <button type="button" class="hidden md:block btn btn-outline btn-primary">
+      <nuxt-link
+        :to="card.target"
+        class="hidden md:flex btn btn-outline btn-primary"
+      >
         {{ $t('manage.landing.cards.' + card.key + '.action') }}
-      </button>
+      </nuxt-link>
     </div>
   </app-card>
 </template>
