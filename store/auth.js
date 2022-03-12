@@ -25,6 +25,9 @@ export const actions = {
       return;
     }
 
+    // Wait one second before next action to prevent wallet apps from freezing
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     const timestamp = new Date();
     const doc = `oceanpearl.io - login @ ${timestamp.toISOString()}`;
 
