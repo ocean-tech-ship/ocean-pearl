@@ -22,6 +22,19 @@
     "menuItemCopyLink": "Copy project link",
     "menuItemReport": "Report project"
   },
+  "creator": {
+    "project": {
+      "steps": [
+        "Basic",
+        "Description",
+        "Wallet",
+        "Category",
+        "Socials",
+        "Images",
+        "Team"
+      ]
+    }
+  },
   "dao-projects": {
     "filterResponse": {
       "noSearch": {
@@ -369,6 +382,7 @@
     "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
+    "navbarManage": "Manage",
     "navbarProjects": "Projects",
     "navbarProposals": "DAO Proposals",
     "navbarVoting": "DAO Voting"

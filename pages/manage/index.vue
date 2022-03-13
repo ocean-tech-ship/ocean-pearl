@@ -17,7 +17,7 @@ import plus from '@iconify/icons-la/plus';
 import clipboardList from '@iconify/icons-la/clipboard-list';
 import star from '@iconify/icons-la/star';
 import SectionContainer from '@/components/common/SectionContainer';
-import ActionCard from '~/components/app/manage/ActionCard';
+import ActionCard from '@/components/app/manage/ActionCard';
 
 export default Vue.extend({
   components: { ActionCard, SectionContainer },
