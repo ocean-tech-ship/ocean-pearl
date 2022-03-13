@@ -3,7 +3,7 @@
     <!-- navigation drawer -->
     <div class="w-80 h-screen p-2">
       <div
-        class="h-full rounded shadow gradient-background flex flex-col items-center text-primary-content"
+        class="h-full p-4 rounded shadow gradient-background flex flex-col items-center text-primary-content"
       >
         <!-- corporate -->
         <nuxt-link class="btn btn-ghost normal-case text-lg" to="/">
@@ -23,9 +23,9 @@
     <!-- content -->
     <div class="flex-grow">
       <!-- navigation -->
-      <div class="flex py-6">
+      <div class="flex py-6 px-8">
         <div class="flex-grow flex justify-center">
-          <ul class="menu menu-horizontal p-0 xl:space-x-8">
+          <ul class="menu menu-horizontal p-0 2xl:space-x-8">
             <li v-for="page in pages" :key="page.to">
               <nuxt-link :to="page.to" active-class="text-primary">
                 {{ page.title }}
@@ -33,7 +33,7 @@
             </li>
           </ul>
         </div>
-        <div class="flex">
+        <div class="flex items-center">
           <management-options />
           <theme-switcher class="pl-4" />
         </div>
