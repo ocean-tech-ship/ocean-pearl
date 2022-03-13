@@ -1,5 +1,5 @@
 <template>
-  <label class="swap swap-rotate">
+  <label class="swap swap-rotate w-20 h-20">
     <input v-model="darkMode" type="checkbox" />
     <app-icon class="swap-on fill-current w-10 h-10" :data="icons.sun" />
     <app-icon class="swap-off fill-current w-10 h-10" :data="icons.moon" />

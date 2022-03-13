@@ -37,7 +37,7 @@
 
       <!-- mobile navbar (until xl) -->
       <div class="xl:hidden navbar-end">
-        <div class="dropdown dropdown-end">
+        <div class="dropdown dropdown-open dropdown-end">
           <label tabindex="0" class="btn btn-ghost btn-circle">
             <app-icon class="w-10 h-10 text-primary" :data="icons.bars" />
           </label>
@@ -74,7 +74,7 @@
 
             <management-links />
 
-            <theme-switcher />
+            <theme-switcher class="self-center" />
           </ul>
         </div>
       </div>

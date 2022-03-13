@@ -6,7 +6,7 @@
     <li>
       <button
         type="button"
-        class="btn btn-ghost normal-case"
+        class="btn btn-ghost justify-start font-normal normal-case"
         @click="$store.dispatch('auth/logout')"
       >
         {{ $t('manage.auth.logout.title') }}
