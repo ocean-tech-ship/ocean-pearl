@@ -1,7 +1,7 @@
 <template>
   <manage-scaffold>
+    <!-- stepper navigation -->
     <template #navigation>
-      <!-- stepper navigation -->
       <ul class="steps steps-vertical py-8">
         <li
           v-for="(stepName, index) in $t('creator.project.steps')"
@@ -19,9 +19,10 @@
         </li>
       </ul>
     </template>
+
+    <!-- walk through project creation -->
+    <!-- every step needs to be registered here -->
     <main class="px-8">
-      <!-- walk through project creation -->
-      <!-- every step needs to be registered here -->
       <app-stepper :step="step">
         <template #0>
           <div>first</div>
