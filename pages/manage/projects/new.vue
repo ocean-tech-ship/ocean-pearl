@@ -11,7 +11,7 @@
         >
           <button
             type="button"
-            class="btn btn-ghost font-normal mx-2"
+            class="btn btn-ghost normal-case font-normal mx-2"
             @click="step = index"
           >
             {{ stepName }}
