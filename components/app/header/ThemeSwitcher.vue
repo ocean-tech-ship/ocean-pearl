@@ -37,5 +37,10 @@ export default {
         .setAttribute('data-theme', enable ? 'dark' : 'light');
     },
   },
+
+  mounted() {
+    if (!this.$cookies.get('theme'))
+      this.darkMode = window.matchMedia('(prefers-color-scheme:dark)').matches;
+  },
 };
 </script>

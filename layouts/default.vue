@@ -3,13 +3,13 @@
     <notification-bar />
     <primary-navbar />
     <Nuxt />
-    <footer-container />
+    <primary-footer />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import FooterContainer from '@/components/app/footer/FooterContainer.vue';
+import PrimaryFooter from '@/components/app/footer/PrimaryFooter.vue';
 import NotificationBar from '@/components/app/header/NotificationBar.vue';
 import PrimaryNavbar from '@/components/app/header/PrimaryNavbar.vue';
 
@@ -17,7 +17,7 @@ export default Vue.extend({
   components: {
     PrimaryNavbar,
     NotificationBar,
-    FooterContainer,
+    PrimaryFooter,
   },
 });
 </script>

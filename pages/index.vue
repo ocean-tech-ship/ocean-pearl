@@ -19,7 +19,7 @@
     <app-primary-gradient-background>
       <app-waves-background>
         <section-container>
-          <landing-connect-social class="mt-32 mb-16 py-12" />
+          <landing-connect-social class="mt-32 py-12" />
         </section-container>
       </app-waves-background>
     </app-primary-gradient-background>
