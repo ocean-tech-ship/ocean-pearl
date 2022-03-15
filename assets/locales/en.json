@@ -130,6 +130,7 @@
   "general": {
     "abort": "Abort",
     "add": "add",
+    "back": "Back",
     "button": "button",
     "continue": "Continue",
     "delete": "delete",

@@ -1,8 +1,9 @@
 <template>
-  <creator-scaffold>
+  <creator-scaffold @back="goTo(-1)" @continue="goTo(+1)">
     <!-- stepper navigation -->
     <template #navigation>
       <ul class="steps steps-vertical py-8">
+        <!-- TODO: could be replaced by StepsOverview right now but might be kept if StepsOverview changes -->
         <li
           v-for="(stepName, index) in $t('creator.project.steps')"
           :key="index"
@@ -23,15 +24,22 @@
     <!-- mobile nav support -->
     <template #mobile-nav-support>
       <div class="flex items-center">
-        <span class="text-primary font-bold flex-grow">
-          Step {{ step + 1 }}: {{ $t('creator.project.steps')[step] }}
-        </span>
+        <div class="flex-grow text-primary font-bold">
+          <span v-if="isNaN(step)">{{ $t('creator.project.overview') }}</span>
+          <span v-else>
+            Step {{ step + 1 }}: {{ $t('creator.project.steps')[step] }}
+          </span>
+        </div>
 
         <button type="button" class="btn btn-ghost btn-sm m-2">
           {{ $t('general.exit') }}
         </button>
 
-        <button type="button" class="btn btn-primary btn-outline btn-sm m-2">
+        <button
+          type="button"
+          class="btn btn-primary btn-outline btn-sm m-2"
+          @click="toggleOverview()"
+        >
           {{ $t('creator.project.overview') }}
         </button>
       </div>
@@ -41,6 +49,15 @@
     <!-- every step needs to be registered here -->
     <main class="px-8">
       <app-stepper :step="step">
+        <template #overview>
+          <div class="flex justify-center">
+            <steps-overview
+              :steps="$t('creator.project.steps')"
+              :active="lastStep"
+              @click="step = $event"
+            />
+          </div>
+        </template>
         <template #0>
           <div>first</div>
         </template>
@@ -54,18 +71,36 @@
 
 <script>
 import Vue from 'vue';
-import CreatorScaffold from '@/components/app/manage/CreatorScaffold';
+import CreatorScaffold from '@/components/app/manage/creator/CreatorScaffold';
 import AppStepper from '@/components/common/AppStepper';
+import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
 
 export default Vue.extend({
-  components: { AppStepper, CreatorScaffold },
+  components: { StepsOverview, AppStepper, CreatorScaffold },
 
   layout: 'creator',
 
   data() {
     return {
+      lastStep: 0,
       step: 0,
     };
+  },
+
+  watch: {
+    step(_newVal, oldVal) {
+      this.lastStep = oldVal;
+    },
+  },
+
+  methods: {
+    toggleOverview() {
+      this.step = this.step === 'overview' ? this.lastStep : 'overview';
+    },
+    goTo(increment) {
+      // TODO: apply logic for exit and last page
+      this.step += increment;
+    },
   },
 });
 </script>
