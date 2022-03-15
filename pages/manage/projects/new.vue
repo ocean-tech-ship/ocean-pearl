@@ -47,7 +47,7 @@
 
     <!-- walk through project creation -->
     <!-- every step needs to be registered here -->
-    <main class="px-8">
+    <main class="p-2 px-4 md:px-8">
       <app-stepper :step="step">
         <template #overview>
           <div class="flex justify-center">
