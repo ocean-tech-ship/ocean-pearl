@@ -16,7 +16,7 @@
     <!-- content -->
     <div class="flex-grow">
       <!-- navigation -->
-      <div class="navbar px-8">
+      <div class="navbar px-4 md:px-8">
         <!-- corporate (only if nav drawer is hidden < xl) -->
         <div class="navbar-start xl:hidden">
           <logo-branding class="text-primary" />
@@ -43,7 +43,7 @@
       </div>
 
       <!-- nav support (until xl) -->
-      <div class="xl:hidden w-full px-8 bg-primary bg-opacity-30">
+      <div class="xl:hidden w-full px-4 md:px-8 bg-primary bg-opacity-30">
         <slot name="mobile-nav-support" />
       </div>
 

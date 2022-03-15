@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-base-300 p-2 px-4 flex justify-between">
+  <div class="bg-base-300 p-2 px-4 md:px-8 flex justify-between">
     <button
       type="button"
       class="btn btn-primary btn-outline"
