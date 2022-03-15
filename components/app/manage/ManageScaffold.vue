@@ -1,19 +1,12 @@
 <template>
   <div class="flex">
     <!-- navigation drawer -->
-    <div class="w-80 h-screen p-2">
+    <div class="hidden xl:block w-80 h-screen p-2">
       <div
         class="h-full p-4 rounded shadow gradient-background flex flex-col items-center text-primary-content"
       >
         <!-- corporate -->
-        <nuxt-link class="btn btn-ghost normal-case text-lg" to="/">
-          <img
-            class="pr-2"
-            src="@/assets/images/pearl-logo.svg"
-            :alt="$t('general.logo')"
-          />
-          {{ $t('navbar.logoText') }}
-        </nuxt-link>
+        <logo-branding class="text-primary-content" />
 
         <!-- navigation slot -->
         <slot name="navigation" />
@@ -23,8 +16,13 @@
     <!-- content -->
     <div class="flex-grow">
       <!-- navigation -->
-      <div class="flex py-6 px-8">
-        <div class="flex-grow flex justify-center">
+      <div class="navbar px-8">
+        <!-- corporate (only if nav drawer is hidden < xl) -->
+        <div class="navbar-start xl:hidden">
+          <logo-branding class="text-primary" />
+        </div>
+
+        <div class="hidden xl:flex flex-grow justify-center w-full">
           <ul class="menu menu-horizontal p-0 2xl:space-x-8">
             <li v-for="page in pages" :key="page.to">
               <nuxt-link :to="page.to" active-class="text-primary">
@@ -33,13 +31,23 @@
             </li>
           </ul>
         </div>
-        <div class="flex items-center">
+        <div class="hidden xl:flex navbar-end">
           <management-options />
           <theme-switcher class="pl-4" />
         </div>
+
+        <!-- mobile variant (until xl) -->
+        <div class="xl:hidden navbar-end">
+          <mobile-nav-dropdown :pages="pages" />
+        </div>
       </div>
 
-      <!-- default slot -->
+      <!-- nav support (until xl) -->
+      <div class="xl:hidden w-full px-8 bg-primary bg-opacity-30">
+        <slot name="mobile-nav-support" />
+      </div>
+
+      <!-- content (default slot) -->
       <slot />
     </div>
   </div>
@@ -48,11 +56,18 @@
 <script>
 import ManagementOptions from '@/components/app/header/ManagementOptions';
 import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
+import LogoBranding from '@/components/app/header/LogoBranding';
+import MobileNavDropdown from '@/components/app/header/MobileNavDropdown';
 
 export default {
   name: 'ManageScaffold',
 
-  components: { ThemeSwitcher, ManagementOptions },
+  components: {
+    MobileNavDropdown,
+    LogoBranding,
+    ThemeSwitcher,
+    ManagementOptions,
+  },
 
   data() {
     return {

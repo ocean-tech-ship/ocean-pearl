@@ -24,6 +24,7 @@
   },
   "creator": {
     "project": {
+      "overview": "Overview",
       "steps": [
         "Basic",
         "Description",
@@ -141,6 +142,7 @@
         "type": "Only the following file types are allowed: {types}"
       }
     },
+    "exit": "Exit",
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
     "icon": "icon",

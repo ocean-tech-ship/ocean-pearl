@@ -20,6 +20,23 @@
       </ul>
     </template>
 
+    <!-- mobile nav support -->
+    <template #mobile-nav-support>
+      <div class="flex items-center">
+        <span class="text-primary font-bold flex-grow">
+          Step {{ step + 1 }}: {{ $t('creator.project.steps')[step] }}
+        </span>
+
+        <button type="button" class="btn btn-ghost btn-sm m-2">
+          {{ $t('general.exit') }}
+        </button>
+
+        <button type="button" class="btn btn-primary btn-outline btn-sm m-2">
+          {{ $t('creator.project.overview') }}
+        </button>
+      </div>
+    </template>
+
     <!-- walk through project creation -->
     <!-- every step needs to be registered here -->
     <main class="px-8">
