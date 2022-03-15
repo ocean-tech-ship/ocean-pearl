@@ -60,7 +60,7 @@ import LogoBranding from '@/components/app/header/LogoBranding';
 import MobileNavDropdown from '@/components/app/header/MobileNavDropdown';
 
 export default {
-  name: 'ManageScaffold',
+  name: 'CreatorScaffold',
 
   components: {
     MobileNavDropdown,

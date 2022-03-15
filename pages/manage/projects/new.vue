@@ -1,5 +1,5 @@
 <template>
-  <manage-scaffold>
+  <creator-scaffold>
     <!-- stepper navigation -->
     <template #navigation>
       <ul class="steps steps-vertical py-8">
@@ -49,18 +49,18 @@
         </template>
       </app-stepper>
     </main>
-  </manage-scaffold>
+  </creator-scaffold>
 </template>
 
 <script>
 import Vue from 'vue';
-import ManageScaffold from '@/components/app/manage/ManageScaffold';
+import CreatorScaffold from '@/components/app/manage/CreatorScaffold';
 import AppStepper from '@/components/common/AppStepper';
 
 export default Vue.extend({
-  components: { AppStepper, ManageScaffold },
+  components: { AppStepper, CreatorScaffold },
 
-  layout: 'manage',
+  layout: 'creator',
 
   data() {
     return {
