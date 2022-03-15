@@ -31,7 +31,11 @@
           </span>
         </div>
 
-        <button type="button" class="btn btn-ghost btn-sm m-2">
+        <button
+          type="button"
+          class="btn btn-ghost btn-sm m-2"
+          @click="$router.go(-1)"
+        >
           {{ $t('general.exit') }}
         </button>
 
@@ -98,7 +102,11 @@ export default Vue.extend({
       this.step = this.step === 'overview' ? this.lastStep : 'overview';
     },
     goTo(increment) {
-      // TODO: apply logic for exit and last page
+      if (this.step + increment < 0) {
+        this.$router.go(-1);
+        return;
+      }
+      // TODO: apply logic for last page
       this.step += increment;
     },
   },
