@@ -124,8 +124,8 @@ export default {
 <style lang="scss" scoped>
 label {
   font-size: 0.7rem;
-  top: -13px;
-  left: 12px;
+  top: -25px;
+  left: 5px;
   transition: 200ms;
 }
 
