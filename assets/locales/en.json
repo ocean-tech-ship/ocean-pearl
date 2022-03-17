@@ -33,7 +33,8 @@
         "Socials",
         "Images",
         "Team"
-      ]
+      ],
+      "title": "New Project"
     }
   },
   "dao-projects": {
@@ -115,16 +116,16 @@
     "seconds": "seconds"
   },
   "footer": {
+    "opf": {
+      "heading": "Ocean Protocol"
+    },
     "socials": {
       "heading": "Socials"
     },
     "vitals": {
-      "heading": "Vitals",
       "analytics": "Analytics",
+      "heading": "Vitals",
       "systems": "Status"
-    },
-    "opf": {
-      "heading": "Ocean Protocol"
     }
   },
   "general": {

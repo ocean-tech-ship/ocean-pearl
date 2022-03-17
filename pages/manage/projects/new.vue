@@ -84,6 +84,7 @@ import Vue from 'vue';
 import CreatorScaffold from '@/components/app/manage/creator/CreatorScaffold';
 import AppStepper from '@/components/common/AppStepper';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
+import createHead from '@/pages/manage/projects/new.head';
 
 export default Vue.extend({
   components: { StepsOverview, AppStepper, CreatorScaffold },
@@ -95,6 +96,10 @@ export default Vue.extend({
       lastStep: 0,
       step: 0,
     };
+  },
+
+  head() {
+    return createHead(this.$config, this.$i18n);
   },
 
   watch: {
