@@ -53,7 +53,7 @@
         {{ $t('manage.landing.cards.' + card.key + '.subtitle') }}
       </p>
 
-      <p class="hidden md:block small-text px-4 text-base-content text-center">
+      <p class="hidden md:block small-text h-16 px-4 text-base-content text-center">
         {{ $t('manage.landing.cards.' + card.key + '.subtitle') }}
       </p>
 
