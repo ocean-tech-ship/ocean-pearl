@@ -32,20 +32,16 @@
         </p>
         <div class="my-4 grid grid-cols-1 gap-2">
           <app-button
-            class="h-full w-full"
-            text-class="small-text"
-            :text="$t(btnCopyEmailTitle)"
-            secondary
+            class="btn-primary btn-outline w-full"
             :icon="icons.contentCopy"
+            :value="$t(btnCopyEmailTitle)"
             @click="copyEmail"
           />
           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             <app-button
-              class="h-full w-full"
-              text-class="small-text"
-              :text="$t(btnCopyPgpTitle)"
-              secondary
+              class="btn-primary btn-outline w-full"
               :icon="icons.contentCopy"
+              :value="$t(btnCopyPgpTitle)"
               @click="copyPgp"
             />
             <a
@@ -53,11 +49,10 @@
               download
             >
               <app-button
-                class="h-full w-full"
-                text-class="small-text"
-                secondary
+                class="btn-primary btn-outline w-full"
+                type="label"
                 :icon="icons.download"
-                :text="$t('appReportModal.btnDownloadPgpTitle')"
+                :value="$t('appReportModal.btnDownloadPgpTitle')"
               />
             </a>
           </div>
@@ -66,14 +61,7 @@
           <div class="flex justify-center items-center">
             <hr class="text-primary hidden sm:block sm:w-1/3" />
             <button
-              class="
-                small-text
-                text-darkgey
-                sm:w-1/3
-                flex
-                justify-center
-                items-center
-              "
+              class="small-text text-darkgey sm:w-1/3 flex justify-center items-center"
               @click="toggleAccOpen"
             >
               <app-icon
@@ -127,7 +115,7 @@ import discord from '@iconify/icons-la/discord';
 import download from '@iconify/icons-la/download';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppModal from '@/components/common/AppModal.vue';
-import AppButton from '@/components/common/AppButton.vue';
+import AppButton from '~/components/common/AppButton.vue';
 import AppLink from '@/components/common/AppLink.vue';
 import EmailEnum from '~/components/enums/Email.enum';
 

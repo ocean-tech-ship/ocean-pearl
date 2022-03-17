@@ -2,21 +2,11 @@
   <div
     v-if="pagination.totalPages > 1"
     ref="paginationWrapper"
-    class="my-12 flex justify-center"
+    class="mt-12 flex justify-center"
   >
     <div class="btn-group">
       <button
-        class="
-          btn btn-xs btn-outline
-          no-animation
-          w-[30px]
-          h-[30px]
-          mr-1
-          mb-1
-          sm:btn-sm
-          md:btn-md
-          sm:w-[40px] sm:h-auto
-        "
+        class="btn btn-xs btn-outline no-animation w-[30px] h-[30px] mr-1 mb-1 sm:btn-sm md:btn-md sm:w-[40px] sm:h-auto"
         :class="{ 'btn-primary': pagination.page !== 1 }"
         :disabled="pagination.page === 1"
         @click="goToPage(pagination.page - 1)"
@@ -27,17 +17,7 @@
         v-for="(page, index) in displayedPages"
         :id="`page${page}`"
         :key="index"
-        class="
-          btn btn-xs btn-outline
-          no-animation
-          w-[30px]
-          h-[30px]
-          mx-1
-          mb-1
-          sm:btn-sm
-          md:btn-md
-          sm:w-[40px] sm:h-auto
-        "
+        class="btn btn-xs btn-outline no-animation w-[30px] h-[30px] mx-1 mb-1 sm:btn-sm md:btn-md sm:w-[40px] sm:h-auto"
         name="pagination"
         :class="{
           'btn-active': pagination.page === page,
@@ -49,17 +29,7 @@
         {{ page }}
       </button>
       <button
-        class="
-          btn btn-xs btn-outline
-          no-animation
-          w-[30px]
-          h-[30px]
-          ml-1
-          mb-1
-          sm:btn-sm
-          md:btn-md
-          sm:w-[40px] sm:h-auto
-        "
+        class="btn btn-xs btn-outline no-animation w-[30px] h-[30px] ml-1 mb-1 sm:btn-sm md:btn-md sm:w-[40px] sm:h-auto"
         :class="{ 'btn-primary': pagination.page !== pagination.totalPages }"
         :disabled="pagination.page === pagination.totalPages"
         @click="goToPage(pagination.page + 1)"

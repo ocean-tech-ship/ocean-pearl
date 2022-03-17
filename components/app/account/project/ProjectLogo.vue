@@ -25,13 +25,9 @@
         </div>
 
         <div class="mx-2">
-          <app-button
-            class="border-none shadow-none"
-            text-class="text-third"
-            secondary
-            :text="$t('general.delete')"
-            @click="deleteLogo()"
-          />
+          <app-button class="btn-primary btn-outline" @click="deleteLogo">{{
+            $t('general.delete')
+          }}</app-button>
         </div>
       </div>
     </div>

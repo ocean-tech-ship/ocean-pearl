@@ -103,11 +103,13 @@
     <!-- vote action -->
     <div class="lg:col-span-2">
       <app-link :to="voteUrl" :data-analytics="dataAnalytics">
-        <app-button-style
-          class="w-full text-center"
+        <app-button
+          class="btn-gradient-primary-variant border-0 w-full"
+          type="label"
           :icon="icons.vote"
-          :text="$t('project.proposal.vote')"
-        />
+        >
+          {{ $t('project.proposal.vote') }}
+        </app-button>
       </app-link>
     </div>
   </div>
@@ -120,18 +122,18 @@ import vote from '@iconify/icons-mdi/vote-outline';
 import menuDown from '@iconify/icons-mdi/menu-down';
 import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import WalletAddress from '@/components/common/WalletAddress.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'ProjectSingleDaoProposalMetrics',
 
   components: {
+    AppButton,
     AppIcon,
     WalletAddress,
     AppLink,
-    AppButtonStyle,
   },
 
   mixins: [Numbers],

@@ -70,7 +70,12 @@
 
         <!-- save action -->
         <div class="flex justify-center pt-8">
-          <app-button :text="$t('general.save')" @click="saveProject()" />
+          <app-button
+            class="btn-gradient-primary-variant border-0"
+            @click="saveProject()"
+          >
+            {{ $t('general.save') }}
+          </app-button>
         </div>
       </section-container>
     </div>
@@ -81,7 +86,7 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 import SectionContainer from '@/components/common/SectionContainer.vue';
-import AppButton from '@/components/common/AppButton.vue';
+import AppButton from '~/components/common/AppButton.vue';
 import AccountHeader from '@/components/app/account/AccountHeader.vue';
 import EmptyAccount from '@/components/app/account/EmptyAccount.vue';
 import ProjectTitle from '@/components/app/account/project/ProjectTitle.vue';

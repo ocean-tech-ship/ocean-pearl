@@ -24,7 +24,11 @@
           {{ card.title }}
         </span>
         <AppLink :to="card.buttonTarget" class="mb-70px px-2 mt-auto">
-          <AppButtonStyle :text="card.buttonText" />
+          <app-button
+            type="label"
+            class="btn-gradient-primary-variant border-0"
+            >{{ card.buttonText }}</app-button
+          >
         </AppLink>
       </div>
     </div>
@@ -32,13 +36,13 @@
 </template>
 
 <script>
-import AppButtonStyle from '@/components/common/AppButtonStyle';
 import AppLink from '@/components/common/AppLink';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'LandingPearlSpaceSection',
   components: {
-    AppButtonStyle,
+    AppButton,
     AppLink,
   },
   data() {

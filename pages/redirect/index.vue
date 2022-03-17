@@ -31,7 +31,12 @@
           :href="decodeURIComponent($route.query.url)"
           rel="noopener noreferrer"
         >
-          <app-button-style class="px-12" :text="$t('general.continue')" />
+          <app-button
+            type="label"
+            class="btn-gradient-primary-variant border-0"
+          >
+            {{ $t('general.continue') }}
+          </app-button>
         </a>
       </div>
     </div>
@@ -42,14 +47,14 @@
 import exclamationCircle from '@iconify/icons-la/exclamation-circle';
 import Vue from 'vue';
 import AppPrimaryGradientBackground from '@/components/common/AppPrimaryGradientBackground';
-import AppButtonStyle from '@/components/common/AppButtonStyle';
 import AppIcon from '@/components/common/AppIcon';
+import AppButton from '@/components/common/AppButton';
 
 export default Vue.extend({
   name: 'RedirectConsent',
   components: {
+    AppButton,
     AppIcon,
-    AppButtonStyle,
     AppPrimaryGradientBackground,
   },
 

@@ -8,11 +8,13 @@
 
     <div v-if="!!oceanProtocolPortUrl" class="mt-4">
       <app-link :to="oceanProtocolPortUrl">
-        <app-button-style
-          class="text-center"
+        <app-button
+          class="btn-gradient-primary-variant border-0"
+          type="label"
           :icon="icons.readme"
-          :text="$t('project.readFull')"
-        />
+        >
+          {{ $t('project.readFull') }}
+        </app-button>
       </app-link>
     </div>
   </div>
@@ -21,14 +23,14 @@
 <script>
 import readme from '@iconify/icons-la/readme';
 import AppLink from '@/components/common/AppLink.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'ProjectSingleDescription',
 
   components: {
+    AppButton,
     AppLink,
-    AppButtonStyle,
   },
 
   props: {

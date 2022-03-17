@@ -12,10 +12,9 @@
         {{ noSearchText.paragraph }}
       </p>
       <app-link v-if="noSearchText.link" :to="noSearchText.link">
-        <app-button-style
-          class="text-center mt-4"
-          :text="noSearchText.button"
-        />
+        <app-button class="btn-gradient-primary-variant mt-4 border-0">{{
+          noSearchText.button
+        }}</app-button>
       </app-link>
     </div>
     <div v-if="searchUsed" class="text-center mt-8">
@@ -29,7 +28,9 @@
         {{ searchText.paragraph }}
       </p>
       <app-link v-if="searchText.link" :to="searchText.link">
-        <app-button-style class="text-center mt-4" :text="searchText.button" />
+        <app-button class="btn-gradient-primary-variant mt-4 border-0">{{
+          searchText.button
+        }}</app-button>
       </app-link>
     </div>
   </div>
@@ -39,7 +40,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vue, { PropType } from 'vue';
 import AppLink from './AppLink.vue';
-import AppButtonStyle from './AppButtonStyle.vue';
+import AppButton from '@/components/common/AppButton.vue';
 
 interface TextSchema {
   headingMain: string;
@@ -51,7 +52,7 @@ interface TextSchema {
 
 export default Vue.extend({
   name: 'AppResponseWithSearch',
-  components: { AppLink, AppButtonStyle },
+  components: { AppButton, AppLink },
   props: {
     noSearchText: {
       type: Object as PropType<TextSchema>,

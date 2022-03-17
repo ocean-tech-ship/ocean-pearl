@@ -1,102 +1,61 @@
 <template>
-  <!-- don't use <button> if you navigate to another page (use AppButtonStyle within AppLink instead for accessibility) -->
-  <!-- use this one for forms and interaction with the current page -->
-  <button
-    type="button"
-    class="select-none rounded font-medium py-2 px-6 shadow items-center justify-center z-base"
-    :class="[
-      secondary
-        ? 'bg-primary-content border border-primary'
-        : 'call-to-action',
-    ]"
+  <!-- Use type label inside anchor tags and for daisyUI button style labels (dropdowns etc.) -->
+  <label
+    v-if="type === 'label'"
+    :tabindex="tabIndex || -1"
+    class="btn gap-2 normal-case"
     @click="$emit('click', $event)"
   >
-    <img
-      v-if="icon && typeof icon === 'string'"
-      :src="icon"
-      :alt="`${$t('general.button')} ${$t('general.icon')}`"
-      class="inline-block mr-2"
-      width="20"
-    />
+    <app-icon v-if="icon" :data="icon" :size="20" />
 
-    <app-icon
-      v-if="icon && typeof icon === 'object'"
-      :data="icon"
-      :size="20"
-      :class="textClass"
-      class="inline-block align-middle mr-2"
-    />
+    <!-- provide value via default slot or prop  -->
+    <slot v-if="$slots.default" />
+    <span v-else>{{ value }}</span>
+  </label>
 
-    <span :class="textClass">{{ text }}</span>
+  <button
+    v-else
+    :type="type"
+    :disabled="disabled"
+    :tabindex="tabIndex"
+    class="btn gap-2 normal-case"
+    @click="$emit('click', $event)"
+  >
+    <app-icon v-if="icon" :data="icon" :size="20" />
+
+    <!-- provide value via default slot or prop  -->
+    <slot v-if="$slots.default" />
+    <span v-else>{{ value }}</span>
   </button>
 </template>
 
 <script>
-import AppIcon from '@/components/common/AppIcon.vue';
+import AppIcon from '@/components/common/AppIcon';
 
 export default {
   name: 'AppButton',
   components: { AppIcon },
   props: {
-    icon: {
-      type: [Object, String],
-      required: false,
-      default: '',
-    },
-    text: {
+    type: {
       type: String,
-      default: '',
+      default: 'button',
     },
-    textClass: {
-      type: String,
-      default: 'text-primary-content',
-    },
-    secondary: {
+    disabled: {
       type: Boolean,
       default: false,
+    },
+    tabIndex: {
+      type: Number,
+      default: 0,
+    },
+    icon: {
+      type: Object,
+      default: null,
+    },
+    value: {
+      type: String,
+      default: null,
     },
   },
 };
 </script>
-
-<style scoped lang="scss">
-.call-to-action {
-  position: relative;
-  overflow: hidden;
-
-  &:before,
-  &:after {
-    @apply z-backdrop;
-    position: absolute;
-    transition: 0.3s ease-in-out;
-    content: '';
-    height: 100%;
-    top: 0;
-    bottom: 0;
-  }
-
-  &:before {
-    width: 100%;
-    background: linear-gradient(to right, #bb2c75 1%, #ff98cd);
-    right: 0;
-  }
-
-  &:after {
-    width: 0;
-    background: #bb2c75;
-    transform: skew(-24deg);
-    left: -10%;
-  }
-
-  &:hover {
-    &:after {
-      width: 120%;
-    }
-  }
-}
-
-button:not(.call-to-action):hover {
-  transition: ease-in-out 200ms;
-  box-shadow: 0 0 0 1px #bb2c75;
-}
-</style>
