@@ -147,7 +147,7 @@ export default {
             },
             {
               id: 1,
-              name: this.$t('footer.vitals.server'),
+              name: this.$t('footer.vitals.systems'),
               route: 'https://stats.uptimerobot.com/l0923I1O3y',
             },
           ],

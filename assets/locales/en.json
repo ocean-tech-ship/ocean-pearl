@@ -115,16 +115,16 @@
     "seconds": "seconds"
   },
   "footer": {
-    "opf": {
-      "heading": "Ocean Protocol"
-    },
     "socials": {
       "heading": "Socials"
     },
     "vitals": {
-      "analytics": "Analytics",
       "heading": "Vitals",
-      "server": "Server"
+      "analytics": "Analytics",
+      "systems": "Status"
+    },
+    "opf": {
+      "heading": "Ocean Protocol"
     }
   },
   "general": {

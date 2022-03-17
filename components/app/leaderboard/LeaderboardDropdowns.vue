@@ -4,7 +4,7 @@
       button-name="Select Round"
       class="rounded w-36 mt-10 bg-base-200 border-base-200"
       button-style="text-base-content"
-      label-style="-m-3 text-primary-content"
+      label-style="text-primary-content"
       :menu-items="roundItems"
       @selected="setItems"
     />

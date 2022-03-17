@@ -30,8 +30,8 @@
             <app-link-icon-right
               :to="card.route"
               class="mt-auto"
-              link-class="text-base-content bounce-right"
-              paragraph-class="text-base-content text-smbase mr-2"
+              link-class="text-primary bounce-right"
+              paragraph-class="text-primary text-smbase mr-2"
             >
               {{ card.LinkText }}
             </app-link-icon-right>
