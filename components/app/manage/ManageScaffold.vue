@@ -70,7 +70,7 @@ import MobileNavDropdown from '@/components/app/header/MobileNavDropdown';
 import CreatorMobileFooter from '@/components/app/manage/creator/CreatorMobileFooter';
 
 export default {
-  name: 'CreatorScaffold',
+  name: 'ManageScaffold',
 
   components: {
     CreatorMobileFooter,
