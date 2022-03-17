@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <!-- navigation drawer -->
-    <div class="hidden xl:block w-80 h-screen p-2">
+    <div class="hidden xl:block w-80 min-h-screen p-2">
       <div
         class="h-full p-4 rounded shadow gradient-background flex flex-col items-center text-primary-content"
       >
@@ -14,7 +14,7 @@
     </div>
 
     <!-- content -->
-    <div class="flex-grow">
+    <div class="flex-grow flex flex-col min-h-screen">
       <!-- navigation -->
       <div class="navbar px-4 md:px-8">
         <!-- corporate (only if nav drawer is hidden < xl) -->
@@ -48,11 +48,13 @@
       </div>
 
       <!-- content (default slot) -->
-      <slot />
+      <div class="flex-grow">
+        <slot />
+      </div>
 
       <!-- mobile footer / navigation (until xl) -->
       <creator-mobile-footer
-        class="xl:hidden"
+        class="xl:hidden sticky bottom-0"
         @back="$emit('back')"
         @continue="$emit('continue')"
       />

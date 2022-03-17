@@ -68,6 +68,12 @@
         <template #1>
           <div>second</div>
         </template>
+        <template #2>
+          <div class="text-primary-content">
+            content
+            <div v-for="n in 100" :key="n">{{ n }}</div>
+          </div>
+        </template>
       </app-stepper>
     </main>
   </creator-scaffold>
