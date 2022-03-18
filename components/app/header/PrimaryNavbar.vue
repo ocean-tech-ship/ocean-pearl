@@ -10,10 +10,17 @@
 
       <!-- main pages (>= xl) -->
       <div class="navbar-center hidden xl:flex">
-        <ul class="menu menu-horizontal p-0 xl:space-x-8">
+        <ul class="menu menu-horizontal p-0 2xl:space-x-8">
           <li v-for="page in pages" :key="page.to">
             <nuxt-link :to="page.to" active-class="text-primary">
               {{ page.title }}
+            </nuxt-link>
+          </li>
+
+          <!-- highlight manage if logged-in -->
+          <li v-if="wallet">
+            <nuxt-link to="/manage" active-class="text-primary">
+              {{ $t('navbar.navbarManage') }}
             </nuxt-link>
           </li>
         </ul>
@@ -22,7 +29,7 @@
       <!-- management / options (>= xl) -->
       <div class="hidden xl:flex navbar-end">
         <management-options />
-        <theme-switcher class="pl-4" />
+        <theme-switcher />
       </div>
 
       <!-- mobile navbar (until xl) -->
@@ -39,6 +46,7 @@ import ManagementOptions from '@/components/app/header/ManagementOptions';
 import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
 import LogoBranding from '@/components/app/header/LogoBranding';
 import MobileNavDropdown from '@/components/app/header/MobileNavDropdown';
+import { SESSION_NAME } from '@/store/auth';
 
 export default {
   name: 'PrimaryNavbar',
@@ -68,6 +76,14 @@ export default {
         },
       ],
     };
+  },
+
+  computed: {
+    wallet() {
+      return (
+        this.$store.state.account.wallet ?? this.$cookies.get(SESSION_NAME)
+      );
+    },
   },
 };
 </script>
