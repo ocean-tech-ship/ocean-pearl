@@ -2,15 +2,15 @@
   <!-- Use type label inside anchor tags and for daisyUI button style labels (dropdowns etc.) -->
   <label
     v-if="type === 'label'"
-    :tabindex="tabIndex || -1"
+    :tabindex="tabIndex"
     class="btn gap-2 normal-case"
     @click="$emit('click', $event)"
   >
-    <app-icon v-if="icon" :data="icon" :size="20" />
+    <app-icon v-if="icon" :data="icon" :size="iconSize" />
 
-    <!-- provide value via default slot or prop  -->
+    <!-- provide btn text via default slot or prop  -->
     <slot v-if="$slots.default" />
-    <span v-else>{{ value }}</span>
+    <span v-else>{{ btnText }}</span>
   </label>
 
   <button
@@ -18,14 +18,17 @@
     :type="type"
     :disabled="disabled"
     :tabindex="tabIndex"
+    :name="name"
+    :value="value"
     class="btn gap-2 normal-case"
+    :class="{ 'btn-active': active }"
     @click="$emit('click', $event)"
   >
-    <app-icon v-if="icon" :data="icon" :size="20" />
+    <app-icon v-if="icon" :data="icon" :size="iconSize" />
 
-    <!-- provide value via default slot or prop  -->
+    <!-- provide btn text via default slot or prop  -->
     <slot v-if="$slots.default" />
-    <span v-else>{{ value }}</span>
+    <span v-else>{{ btnText }}</span>
   </button>
 </template>
 
@@ -44,15 +47,31 @@ export default {
       type: Boolean,
       default: false,
     },
+    active: {
+      type: Boolean,
+      default: false,
+    },
+    name: {
+      type: String,
+      default: null,
+    },
+    value: {
+      type: String,
+      default: null,
+    },
     tabIndex: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: '0',
     },
     icon: {
       type: Object,
       default: null,
     },
-    value: {
+    iconSize: {
+      type: Number,
+      default: 20,
+    },
+    btnText: {
       type: String,
       default: null,
     },
