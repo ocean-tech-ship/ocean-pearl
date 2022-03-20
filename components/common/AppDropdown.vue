@@ -1,12 +1,13 @@
 <template>
   <div class="dropdown">
-    <slot v-if="$slots.button" />
+    <slot v-if="$slots.button" name="button" />
     <app-button
       v-else
       type="label"
       class="btn-primary btn-outline btn-block"
-      :icon="icons.menuDown"
       :btn-text="btnText"
+      :icon="icon"
+      :icon-size="iconSize"
     />
 
     <!-- provide menu via default slot -->
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-import menuDown from '@iconify/icons-la/caret-down';
 import AppButton from '@/components/common/AppButton';
 
 export default {
@@ -24,18 +24,18 @@ export default {
   components: { AppButton },
 
   props: {
+    icon: {
+      type: Object,
+      default: null,
+    },
+    iconSize: {
+      type: Number,
+      default: 20,
+    },
     btnText: {
       type: String,
       default: null,
     },
-  },
-
-  data() {
-    return {
-      icons: {
-        menuDown,
-      },
-    };
   },
 };
 </script>
