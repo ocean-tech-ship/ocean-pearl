@@ -4,9 +4,9 @@
     <app-button
       v-else
       type="label"
-      class="btn-primary btn-outline"
-      :icon="icons.caretDown"
-      :value="label"
+      class="btn-primary btn-outline btn-block"
+      :icon="icons.menuDown"
+      :btn-text="btnText"
     />
 
     <!-- provide menu via default slot -->
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import caretDown from '@iconify/icons-la/caret-down-solid';
+import menuDown from '@iconify/icons-la/caret-down';
 import AppButton from '@/components/common/AppButton';
 
 export default {
@@ -24,11 +24,7 @@ export default {
   components: { AppButton },
 
   props: {
-    labelType: {
-      type: String,
-      default: null,
-    },
-    label: {
+    btnText: {
       type: String,
       default: null,
     },
@@ -37,7 +33,7 @@ export default {
   data() {
     return {
       icons: {
-        caretDown,
+        menuDown,
       },
     };
   },

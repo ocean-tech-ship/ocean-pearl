@@ -6,7 +6,22 @@
       :menu-items="categoryItems"
       @selected="setItems"
     />
-    <app-dropdown label="Catgeories" />
+    <app-dropdown btn-text="Catgeories">
+      <app-dropdown-menu
+        class="mb-1 h-60 overflow-y-auto border border-primary"
+      >
+        <li v-for="category in categoryItems" :key="category.id">
+          <app-button
+            class="btn-ghost"
+            :name="category.content"
+            :value="category.id"
+            :active="category.selected"
+          >
+            <span class="text-left w-full">{{ category.content }}</span>
+          </app-button>
+        </li>
+      </app-dropdown-menu>
+    </app-dropdown>
   </div>
 </template>
 
@@ -15,9 +30,13 @@ import CategoryEnum from '../../../enums/Category.enum';
 import ButtonEmitWithDropdown from '@/components/common/ButtonEmitWithDropdown.vue';
 import { CategoryMap } from '~/components/constants/CategoryMap.constant';
 import AppDropdown from '~/components/common/AppDropdown';
+import AppDropdownMenu from '~/components/common/AppDropdownMenu';
+import AppButton from '~/components/common/AppButton';
 
 export default {
   components: {
+    AppButton,
+    AppDropdownMenu,
     AppDropdown,
     ButtonEmitWithDropdown,
   },
