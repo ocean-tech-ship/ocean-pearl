@@ -6,6 +6,7 @@
       :menu-items="categoryItems"
       @selected="setItems"
     />
+    <app-dropdown label="Catgeories" />
   </div>
 </template>
 
@@ -13,9 +14,11 @@
 import CategoryEnum from '../../../enums/Category.enum';
 import ButtonEmitWithDropdown from '@/components/common/ButtonEmitWithDropdown.vue';
 import { CategoryMap } from '~/components/constants/CategoryMap.constant';
+import AppDropdown from '~/components/common/AppDropdown';
 
 export default {
   components: {
+    AppDropdown,
     ButtonEmitWithDropdown,
   },
   props: {
