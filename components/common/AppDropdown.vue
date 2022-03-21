@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown">
+  <div class="dropdown z-dropdown">
     <slot v-if="$slots.button" name="button" />
     <app-button
       v-else
