@@ -1,8 +1,16 @@
 <template>
   <app-card class="relative bg-base-200 rounded shadow flex justify-center">
-    <!-- unlock overlay -->
+    <!-- loading indicator -->
     <div
-      v-if="card.key !== 'create-project'"
+      v-if="loading"
+      class="absolute rounded bg-neutral bg-opacity-80 z-label w-full h-full flex items-center justify-center"
+    >
+      <app-loading-spinner class="w-12 h-12" />
+    </div>
+
+    <!-- locked overlay -->
+    <div
+      v-if="!loading && lockedText"
       class="absolute rounded bg-neutral bg-opacity-80 z-label w-full h-full flex flex-col items-center"
     >
       <div class="flex-grow flex items-center">
@@ -13,7 +21,7 @@
       </div>
 
       <span class="hidden md:block pb-6">
-        {{ $t('manage.landing.unlock') }}
+        {{ $t(lockedText) }}
       </span>
     </div>
 
@@ -82,15 +90,24 @@ import info from '@iconify/icons-la/info';
 import lock from '@iconify/icons-la/lock';
 import AppCard from '@/components/common/AppCard';
 import AppIcon from '@/components/common/AppIcon';
+import AppLoadingSpinner from '@/components/common/AppLoadingSpinner';
 
 export default {
   name: 'ActionCard',
-  components: { AppIcon, AppCard },
+  components: { AppLoadingSpinner, AppIcon, AppCard },
 
   props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
     card: {
       type: Object,
       required: true,
+    },
+    lockedText: {
+      type: String,
+      default: null,
     },
   },
 

@@ -5,13 +5,20 @@
       <p>{{ $t('manage.landing.subtitle') }}</p>
 
       <div class="py-12 grid xl:grid-cols-3 gap-8">
-        <action-card v-for="card in cards" :key="card.key" :card="card" />
+        <action-card
+          v-for="card in cards"
+          :key="card.key"
+          :card="card"
+          :loading="loading"
+          :locked-text="projects ? null : 'manage.landing.unlock'"
+        />
       </div>
     </section-container>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Vue from 'vue';
 import plus from '@iconify/icons-la/plus';
 import clipboardList from '@iconify/icons-la/clipboard-list';
@@ -46,6 +53,17 @@ export default Vue.extend({
         },
       ],
     };
+  },
+
+  async fetch() {
+    await this.$store.dispatch('profile/softLoad');
+  },
+
+  computed: {
+    ...mapState('profile', {
+      loading: 'loading',
+      projects: 'projects',
+    }),
   },
 });
 </script>
