@@ -2,7 +2,8 @@
   <div class="text-primary">
     <app-dropdown
       class="min-w-[190px]"
-      :btn-text="filter.category"
+      :btn-text="btnText"
+      btn-alignment="left"
       :icon="icons.caretDown"
     >
       <app-dropdown-menu
@@ -14,7 +15,7 @@
             :name="categoryItem.content"
             :value="categoryItem.id"
             :active="categoryItem.selected"
-            @click="setItems(categoryItem.id)"
+            @click="setItems(categoryItem.id, categoryItem.content)"
           >
             <span class="text-left w-full">{{ categoryItem.content }}</span>
           </app-button>
@@ -50,6 +51,7 @@ export default {
   data() {
     return {
       watching: false,
+      btnText: 'All',
       categoryItems: [],
       icons: {
         caretDown,
@@ -90,17 +92,23 @@ export default {
           selected: this.filter.category === value,
         },
       ];
+
+      if (this.filter.category === value) {
+        this.btnText = CategoryMap[value];
+      }
     });
   },
 
   methods: {
-    setItems(id) {
+    setItems(id, content) {
       this.watching = true;
 
       this.categoryItems.forEach(
         // eslint-disable-next-line no-param-reassign
         (categoryItem) => (categoryItem.selected = categoryItem.id === id),
       );
+
+      this.btnText = content;
     },
   },
 };
