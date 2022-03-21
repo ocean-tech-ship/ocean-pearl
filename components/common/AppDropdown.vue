@@ -4,7 +4,8 @@
     <app-button
       v-else
       type="label"
-      class="btn-primary btn-outline btn-block"
+      class="btn-primary btn-outline btn-block bg-base-200"
+      :class="{ 'justify-start': btnAlignment === 'left' }"
       :btn-text="btnText"
       :icon="icon"
       :icon-size="iconSize"
@@ -35,6 +36,10 @@ export default {
     btnText: {
       type: String,
       default: null,
+    },
+    btnAlignment: {
+      type: String,
+      default: '',
     },
   },
 };
