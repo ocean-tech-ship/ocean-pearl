@@ -5,6 +5,8 @@
     :tabindex="tabIndex"
     class="btn gap-2 normal-case"
     @click="$emit('click', $event)"
+    @blur="$emit('blur', $event)"
+    @focus="$emit('focus', $event)"
   >
     <app-icon v-if="icon" :data="icon" :size="iconSize" />
 
@@ -23,6 +25,8 @@
     class="btn gap-2 normal-case"
     :class="{ 'btn-active': active }"
     @click="$emit('click', $event)"
+    @blur="$emit('blur', $event)"
+    @focus="$emit('focus', $event)"
   >
     <app-icon v-if="icon" :data="icon" :size="iconSize" />
 
