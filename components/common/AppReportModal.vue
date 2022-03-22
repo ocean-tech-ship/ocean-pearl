@@ -34,16 +34,16 @@
           <app-button
             class="btn-primary btn-outline w-full"
             :icon="icons.contentCopy"
-            :value="btnCopyEmailTitle"
             @click="copyEmail"
-          />
+            >{{ btnCopyEmailTitle }}</app-button
+          >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             <app-button
               class="btn-primary btn-outline w-full"
               :icon="icons.contentCopy"
-              :value="$t(btnCopyPgpTitle)"
               @click="copyPgp"
-            />
+              >{{ $t(btnCopyPgpTitle) }}</app-button
+            >
             <a
               href="/files/publickey_oceanpearlio@protonmail_com_933640351c18940026d5777ca9da8f14cbff1efa.asc"
               download
@@ -52,8 +52,9 @@
                 class="btn-primary btn-outline w-full"
                 type="label"
                 :icon="icons.download"
-                :value="$t('appReportModal.btnDownloadPgpTitle')"
-              />
+              >
+                {{ $t('appReportModal.btnDownloadPgpTitle') }}
+              </app-button>
             </a>
           </div>
         </div>
@@ -167,7 +168,7 @@ export default {
 
     copyEmail() {
       navigator.clipboard.writeText(this.btnCopyEmailTitle).then(() => {
-        this.btnCopyEmailTitle = 'appReportModal.btnCopied';
+        this.btnCopyEmailTitle = this.$t('appReportModal.btnCopied');
         setTimeout(() => (this.btnCopyEmailTitle = EmailEnum.Address), 1500);
       });
     },
