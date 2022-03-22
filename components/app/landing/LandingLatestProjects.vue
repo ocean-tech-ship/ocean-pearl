@@ -1,10 +1,10 @@
 <template>
-  <LandingSectionContainer class="my-32">
+  <div>
     <h2>
       {{ $t('landing.latest_projects.title') }}
-      <span class="text-primary">{{
-        $t('landing.latest_projects.titleHighlight')
-      }}</span>
+      <span class="text-primary">
+        {{ $t('landing.latest_projects.titleHighlight') }}
+      </span>
     </h2>
     <p>{{ $t('landing.latest_projects.text') }}</p>
 
@@ -23,20 +23,13 @@
 
     <div
       v-else
-      class="
-        grid grid-cols-1
-        md:grid-cols-2
-        lg:grid-cols-3
-        2xl:grid-cols-5
-        gap-4
-        mt-10
-      "
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 gap-4 mt-10"
     >
       <div v-for="project in projects" :key="project._id">
         <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(project)}`"
-          card-class="card shadow rounded flex items-center p-4 pb-12 h-275px text-center"
+          card-class="card bg-base-200 shadow rounded flex items-center p-4 pb-12 h-275px text-center"
         >
           <app-logo
             class="mt-3"
@@ -62,12 +55,11 @@
     <app-link-icon-right to="/projects">
       {{ $t('landing.latest_projects.link_text') }}
     </app-link-icon-right>
-  </LandingSectionContainer>
+  </div>
 </template>
 
 <script>
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
@@ -82,7 +74,6 @@ export default {
     AppLogo,
     AppLinkCard,
     AppLinkIconRight,
-    LandingSectionContainer,
     LandingLatestProjectsSkeletonCard,
     AppSkeletonCardList,
   },

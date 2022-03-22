@@ -1,15 +1,19 @@
 <template>
-  <LandingSectionContainer class="my-32 py-16 gradient-background">
-    <div class="mb-42px">
-      <h2 class="text-white">
+  <div class="space-y-8">
+    <div>
+      <h2 class="text-primary-content">
         {{ $t('landing.connect_social.title') }}
       </h2>
-      <p class="text-white">{{ $t('landing.connect_social.text') }}</p>
+      <p class="text-primary-content">
+        {{ $t('landing.connect_social.text') }}
+      </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
       <div v-for="card in cards" :key="card.title">
-        <div class="shadow bg-white rounded p-8 pb-4 min-h-full flex flex-col">
+        <div
+          class="shadow bg-base-200 rounded p-8 pb-4 min-h-full flex flex-col"
+        >
           <div class="mr-3">
             <app-icon class="mb-4 text-primary" :size="40" :data="card.icon" />
           </div>
@@ -26,8 +30,8 @@
             <app-link-icon-right
               :to="card.route"
               class="mt-auto"
-              paragraph-class="text-smbase mr-2"
-              icon-class="mdi mdi-arrow-right-thick text-smbase"
+              link-class="text-primary bounce-right"
+              paragraph-class="text-primary text-smbase mr-2"
             >
               {{ card.LinkText }}
             </app-link-icon-right>
@@ -35,13 +39,12 @@
         </div>
       </div>
     </div>
-  </LandingSectionContainer>
+  </div>
 </template>
 
 <script>
 import discord from '@iconify/icons-la/discord';
 import github from '@iconify/icons-la/github';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 
@@ -50,7 +53,6 @@ export default {
   components: {
     AppIcon,
     AppLinkIconRight,
-    LandingSectionContainer,
   },
   data() {
     return {
@@ -76,19 +78,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-.gradient-background {
-  background-image: url('../../../assets/images/landing/waves.svg'),
-    linear-gradient(to bottom right, #7b3070 5%, #d45b8d);
-  background-position: center top;
-  background-repeat: no-repeat;
-  animation: animatedBackground 8s linear infinite alternate;
-}
-
-@media only screen and (max-width: 1100px) {
-  .gradient-background {
-    background-position: center center;
-  }
-}
-</style>

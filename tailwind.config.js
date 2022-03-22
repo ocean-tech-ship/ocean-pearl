@@ -1,14 +1,9 @@
-import zIndex from './z-index.contants';
-const colors = require('./tailwind.colors.json');
+import themes from './tailwind.themes.config';
+import zIndex from './tailwind.z-index.config';
 
 module.exports = {
-  content: [
-    `components/**/*.{vue,js}`,
-    `layouts/**/*.vue`,
-    `pages/**/*.vue`,
-    `plugins/**/*.{js,ts}`,
-    `nuxt.config.{js,ts}`,
-  ],
+  mode: 'jit',
+  purge: [],
   theme: {
     extend: {
       spacing: {
@@ -46,7 +41,15 @@ module.exports = {
       '2xl': '1300px',
       '3xl': '1600px',
     },
-    colors,
+    colors: {
+      // All other colors are specified in daisyUI themes configuration (see tailwind.themes.config.js)
+      'red-400': '#d16858',
+      'purple-800': '#7b3070',
+      'pink-100': '#ffdbfa',
+      'pink-300': '#d45b8d',
+      'pink-500': '#e562a9',
+      'pink-700': '#ff4aa7',
+    },
     zIndex,
     fontFamily: {
       main: ['Poppins Regular', 'sans-serif'],
@@ -79,45 +82,10 @@ module.exports = {
       DEFAULT: '4px 4px 20px rgba(0, 0, 0, 0.1)',
     },
   },
+  variants: {},
   plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
   daisyui: {
     logs: false,
-    themes: [
-      {
-        pearl: {
-          primary: colors.primary /* Primary color */,
-          'primary-focus': colors.primary /* Primary color - focused */,
-          'primary-content':
-            colors.white /* Foreground content color to use on primary color */,
-
-          secondary: colors.secondary /* Secondary color */,
-          'secondary-focus': colors.secondary /* Secondary color - focused */,
-          'secondary-content':
-            colors.white /* Foreground content color to use on secondary color */,
-
-          accent: colors.complementary /* Accent color */,
-          'accent-focus': colors.complementary /* Accent color - focused */,
-          'accent-content':
-            colors.white /* Foreground content color to use on accent color */,
-
-          neutral: '#3d4451' /* Neutral color */,
-          'neutral-focus': '#2a2e37' /* Neutral color - focused */,
-          'neutral-content':
-            colors.white /* Foreground content color to use on neutral color */,
-
-          'base-100':
-            colors.white /* Base color of page, used for blank backgrounds */,
-          'base-200': '#f9fafb' /* Base color, a little darker */,
-          'base-300': '#d1d5db' /* Base color, even more darker */,
-          'base-content':
-            '#1f2937' /* Foreground content color to use on base color */,
-
-          info: '#2094f3' /* Info */,
-          success: '#009485' /* Success */,
-          warning: '#ff9900' /* Warning */,
-          error: '#ff5724' /* Error */,
-        },
-      },
-    ],
+    themes,
   },
 };
