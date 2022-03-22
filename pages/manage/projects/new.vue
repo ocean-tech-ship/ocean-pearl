@@ -1,5 +1,5 @@
 <template>
-  <manage-scaffold @back="goTo(-1)" @continue="goTo(+1)">
+  <manage-scaffold mobile-footer @back="goTo(-1)" @continue="goTo(+1)">
     <!-- stepper navigation -->
     <template #navigation>
       <ul class="steps steps-vertical py-8">

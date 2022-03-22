@@ -54,6 +54,7 @@
 
       <!-- mobile footer / navigation (until xl) -->
       <creator-mobile-footer
+        v-if="mobileFooter"
         class="xl:hidden sticky bottom-0"
         @back="$emit('back')"
         @continue="$emit('continue')"
@@ -78,6 +79,13 @@ export default {
     LogoBranding,
     ThemeSwitcher,
     ManagementOptions,
+  },
+
+  props: {
+    mobileFooter: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   data() {
