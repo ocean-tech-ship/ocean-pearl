@@ -57,8 +57,8 @@ import email from '@iconify/icons-la/envelope';
 import SectionContainer from '@/components/common/SectionContainer';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon';
-import SvgOceanLogo from '~/components/common/SvgOceanLogo';
-import EmailEnum from '@/components/enums/Email.enum';
+import SvgOceanLogo from '@/components/common/SvgOceanLogo';
+import EmailEnum from '@/enums/Email.enum';
 
 export default {
   components: {

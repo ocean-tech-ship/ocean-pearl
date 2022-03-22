@@ -34,7 +34,7 @@
           <app-button
             class="btn-primary btn-outline w-full"
             :icon="icons.contentCopy"
-            :value="$t(btnCopyEmailTitle)"
+            :value="btnCopyEmailTitle"
             @click="copyEmail"
           />
           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
@@ -117,7 +117,7 @@ import AppIcon from '@/components/common/AppIcon.vue';
 import AppModal from '@/components/common/AppModal.vue';
 import AppButton from '~/components/common/AppButton.vue';
 import AppLink from '@/components/common/AppLink.vue';
-import EmailEnum from '~/components/enums/Email.enum';
+import EmailEnum from '@/enums/Email.enum';
 
 export default {
   name: 'AppReportModal',
@@ -184,9 +184,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-pre {
-  overflow: auto;
-}
-</style>
