@@ -1,27 +1,33 @@
 <template>
   <div class="text-primary">
-    <app-dropdown
-      class="min-w-[190px]"
-      :btn-text="btnText"
-      btn-alignment="left"
-      :icon="icons.caretDown"
-    >
-      <app-dropdown-menu
-        class="mb-1 h-60 overflow-y-auto border border-primary"
+    <app-form-control>
+      <template #label>
+        <span class="label-text text-primary">Categories</span>
+      </template>
+      <app-dropdown
+        class="min-w-[190px]"
+        :btn-text="btnText"
+        btn-class="justify-start btn-primary btn-outline btn-block  bg-base-200"
+        :icon="icons.caretDown"
+        :icon-active="icons.caretUp"
       >
-        <li v-for="categoryItem in categoryItems" :key="categoryItem.id">
-          <app-button
-            class="btn-ghost"
-            :name="categoryItem.content"
-            :value="categoryItem.id"
-            :active="categoryItem.selected"
-            @click="setItems(categoryItem.id, categoryItem.content)"
-          >
-            <span class="text-left w-full">{{ categoryItem.content }}</span>
-          </app-button>
-        </li>
-      </app-dropdown-menu>
-    </app-dropdown>
+        <app-dropdown-menu
+          class="mb-1 h-60 overflow-y-auto border border-primary"
+        >
+          <li v-for="categoryItem in categoryItems" :key="categoryItem.id">
+            <app-button
+              class="btn-ghost"
+              :name="categoryItem.content"
+              :value="categoryItem.id"
+              :active="categoryItem.selected"
+              @click="setItems(categoryItem.id, categoryItem.content)"
+            >
+              <span class="text-left w-full">{{ categoryItem.content }}</span>
+            </app-button>
+          </li>
+        </app-dropdown-menu>
+      </app-dropdown>
+    </app-form-control>
   </div>
 </template>
 
@@ -33,9 +39,11 @@ import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppDropdown from '@/components/common/AppDropdown';
 import AppDropdownMenu from '@/components/common/AppDropdownMenu';
 import AppButton from '@/components/common/AppButton';
+import AppFormControl from '~/components/common/AppFormControl';
 
 export default {
   components: {
+    AppFormControl,
     AppButton,
     AppDropdownMenu,
     AppDropdown,
