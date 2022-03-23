@@ -21,7 +21,7 @@
       <li v-for="page in pages" :key="page.to">
         <nuxt-link
           :to="page.to"
-          active-class="active"
+          exact-active-class="active"
           @click.native="removeFocus()"
         >
           {{ page.title }}
