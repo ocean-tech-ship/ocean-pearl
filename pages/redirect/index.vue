@@ -31,12 +31,9 @@
           :href="decodeURIComponent($route.query.url)"
           rel="noopener noreferrer"
         >
-          <app-button
-            type="label"
-            class="btn-gradient-primary-variant border-0"
-          >
+          <div class="btn-gradient-primary-variant border-0">
             {{ $t('general.continue') }}
-          </app-button>
+          </div>
         </a>
       </div>
     </div>

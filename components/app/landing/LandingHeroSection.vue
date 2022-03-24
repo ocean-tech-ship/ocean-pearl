@@ -11,14 +11,14 @@
       <p class="pt-6 mb-8 text-base-content">
         {{ $t('landing.hero.text') }}
       </p>
-      <AppLink to="/projects">
-        <app-button
-          class="btn-gradient-primary-variant border-0"
-          :icon="icons.sailboat"
-        >
-          {{ $t('landing.hero.buttonText') }}
-        </app-button>
-      </AppLink>
+      <app-button
+        as="link"
+        to="/projects"
+        class="btn-gradient-primary-variant border-0"
+        :icon="icons.sailboat"
+      >
+        {{ $t('landing.hero.buttonText') }}
+      </app-button>
     </div>
     <div class="hidden md:flex">
       <img

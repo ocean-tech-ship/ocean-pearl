@@ -11,11 +11,14 @@
       <p v-if="noSearchText.paragraph" class="mt-1">
         {{ noSearchText.paragraph }}
       </p>
-      <app-link v-if="noSearchText.link" :to="noSearchText.link">
-        <app-button class="btn-gradient-primary-variant mt-4 border-0">{{
-          noSearchText.button
-        }}</app-button>
-      </app-link>
+
+      <app-button
+        v-if="noSearchText.link"
+        as="link"
+        :to="noSearchText.link"
+        class="btn-gradient-primary-variant mt-4 border-0"
+        >{{ noSearchText.button }}</app-button
+      >
     </div>
     <div v-if="searchUsed" class="text-center mt-8">
       <h3>
@@ -27,11 +30,13 @@
       <p v-if="searchText.paragraph" class="mt-1">
         {{ searchText.paragraph }}
       </p>
-      <app-link v-if="searchText.link" :to="searchText.link">
-        <app-button class="btn-gradient-primary-variant mt-4 border-0">{{
-          searchText.button
-        }}</app-button>
-      </app-link>
+      <app-button
+        v-if="searchText.link"
+        as="link"
+        :to="searchText.link"
+        class="btn-gradient-primary-variant mt-4 border-0"
+        >{{ searchText.button }}</app-button
+      >
     </div>
   </div>
 </template>

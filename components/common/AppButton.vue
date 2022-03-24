@@ -1,7 +1,7 @@
 <template>
   <!-- Use type label inside anchor tags and for daisyUI button style labels (dropdowns etc.) -->
   <label
-    v-if="type === 'label'"
+    v-if="as === 'label'"
     :tabindex="tabIndex"
     class="btn gap-2 normal-case"
     @click="$emit('click', $event)"
@@ -14,6 +14,20 @@
     <slot v-if="$slots.default" />
     <span v-else>{{ btnText }}</span>
   </label>
+
+  <app-link
+    v-else-if="as === 'link'"
+    :tabindex="tabIndex"
+    :to="to"
+    :data-analytics="dataAnalytics"
+    class="btn gap-2 normal-case"
+  >
+    <app-icon v-if="icon" :data="icon" :size="iconSize" />
+
+    <!-- provide btn text via default slot or prop  -->
+    <slot v-if="$slots.default" />
+    <span v-else>{{ btnText }}</span>
+  </app-link>
 
   <button
     v-else
@@ -38,11 +52,24 @@
 
 <script>
 import AppIcon from '@/components/common/AppIcon';
+import AppLink from '@/components/common/AppLink';
 
 export default {
   name: 'AppButton',
-  components: { AppIcon },
+  components: { AppLink, AppIcon },
   props: {
+    as: {
+      type: String,
+      default: '',
+    },
+    to: {
+      type: String,
+      default: '#',
+    },
+    dataAnalytics: {
+      type: String,
+      default: null,
+    },
     type: {
       type: String,
       default: 'button',

@@ -7,15 +7,15 @@
     <p class="small-text">{{ project.description }}</p>
 
     <div v-if="!!oceanProtocolPortUrl" class="mt-4">
-      <app-link :to="oceanProtocolPortUrl">
-        <app-button
-          class="btn-gradient-primary-variant border-0"
-          type="label"
-          :icon="icons.readme"
-        >
-          {{ $t('project.readFull') }}
-        </app-button>
-      </app-link>
+      <app-button
+        as="link"
+        :to="oceanProtocolPortUrl"
+        class="btn-gradient-primary-variant border-0"
+        type="label"
+        :icon="icons.readme"
+      >
+        {{ $t('project.readFull') }}
+      </app-button>
     </div>
   </div>
 </template>

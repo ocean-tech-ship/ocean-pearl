@@ -102,15 +102,16 @@
 
     <!-- vote action -->
     <div class="lg:col-span-2">
-      <app-link :to="voteUrl" :data-analytics="dataAnalytics">
-        <app-button
-          class="btn-gradient-primary-variant border-0 w-full"
-          type="label"
-          :icon="icons.vote"
-        >
-          {{ $t('project.proposal.vote') }}
-        </app-button>
-      </app-link>
+      <app-button
+        as="link"
+        :to="voteUrl"
+        :data-analytics="dataAnalytics"
+        class="btn-gradient-primary-variant border-0 w-full"
+        type="label"
+        :icon="icons.vote"
+      >
+        {{ $t('project.proposal.vote') }}
+      </app-button>
     </div>
   </div>
 </template>
