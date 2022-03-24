@@ -44,7 +44,6 @@
 <script lang="ts">
 // eslint-disable-next-line import/no-extraneous-dependencies
 import Vue, { PropType } from 'vue';
-import AppLink from './AppLink.vue';
 import AppButton from '@/components/common/AppButton.vue';
 
 interface TextSchema {
@@ -57,7 +56,7 @@ interface TextSchema {
 
 export default Vue.extend({
   name: 'AppResponseWithSearch',
-  components: { AppButton, AppLink },
+  components: { AppButton },
   props: {
     noSearchText: {
       type: Object as PropType<TextSchema>,

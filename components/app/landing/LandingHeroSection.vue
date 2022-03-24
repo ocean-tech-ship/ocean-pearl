@@ -32,7 +32,6 @@
 
 <script>
 import sailboat from '@iconify/icons-mdi/sail-boat';
-import AppLink from '@/components/common/AppLink.vue';
 import AppButton from '@/components/common/AppButton';
 
 export default {
@@ -40,7 +39,6 @@ export default {
 
   components: {
     AppButton,
-    AppLink,
   },
 
   data() {

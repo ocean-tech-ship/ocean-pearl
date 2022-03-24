@@ -122,7 +122,6 @@ import coins from '@iconify/icons-la/coins';
 import vote from '@iconify/icons-mdi/vote-outline';
 import menuDown from '@iconify/icons-mdi/menu-down';
 import Numbers from '@/mixins/Numbers';
-import AppLink from '@/components/common/AppLink.vue';
 import WalletAddress from '@/components/common/WalletAddress.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppButton from '@/components/common/AppButton';
@@ -134,7 +133,6 @@ export default {
     AppButton,
     AppIcon,
     WalletAddress,
-    AppLink,
   },
 
   mixins: [Numbers],

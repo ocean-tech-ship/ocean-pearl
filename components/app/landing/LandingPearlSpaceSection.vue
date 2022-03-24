@@ -35,14 +35,12 @@
 </template>
 
 <script>
-import AppLink from '@/components/common/AppLink';
 import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'LandingPearlSpaceSection',
   components: {
     AppButton,
-    AppLink,
   },
   data() {
     return {

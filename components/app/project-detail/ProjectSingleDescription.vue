@@ -22,7 +22,6 @@
 
 <script>
 import readme from '@iconify/icons-la/readme';
-import AppLink from '@/components/common/AppLink.vue';
 import AppButton from '@/components/common/AppButton';
 
 export default {
@@ -30,7 +29,6 @@ export default {
 
   components: {
     AppButton,
-    AppLink,
   },
 
   props: {
