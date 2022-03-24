@@ -1,5 +1,4 @@
 <template>
-  <!-- Use type label inside anchor tags and for daisyUI button style labels (dropdowns etc.) -->
   <label
     v-if="as === 'label'"
     :tabindex="tabIndex"

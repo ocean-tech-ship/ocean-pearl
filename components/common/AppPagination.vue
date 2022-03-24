@@ -134,23 +134,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-/* buttons */
-button:disabled {
-  background: #c4c4c4;
-  color: #ffffff;
-  &.btn-outline {
-    background: #ffffff;
-    color: #c4c4c4;
-    border-color: #c4c4c4;
-  }
-}
-
-.btn-primary:hover {
-  color: #bb2c75 !important;
-  background-color: #ffffff !important;
-  transition: ease-in-out 200ms;
-  box-shadow: 0 0 0 1px #bb2c75;
-}
-</style>
