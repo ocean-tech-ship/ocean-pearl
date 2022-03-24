@@ -34,12 +34,12 @@
 <script>
 import caretDown from '@iconify/icons-la/caret-down';
 import caretUp from '@iconify/icons-la/caret-up';
-import CategoryEnum from '../../../enums/Category.enum';
+import CategoryEnum from '@/enums/Category.enum';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppDropdown from '@/components/common/AppDropdown';
 import AppDropdownMenu from '@/components/common/AppDropdownMenu';
 import AppButton from '@/components/common/AppButton';
-import AppFormControl from '~/components/common/AppFormControl';
+import AppFormControl from '@/components/common/AppFormControl';
 
 export default {
   components: {

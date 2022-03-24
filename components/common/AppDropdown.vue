@@ -72,9 +72,6 @@ export default {
     },
     handleDropdownBlur() {
       this.currentIcon = this.icon;
-      setTimeout(() => {
-        this.isActive = false;
-      }, 100);
     },
   },
 };

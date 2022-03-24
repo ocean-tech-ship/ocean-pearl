@@ -2,6 +2,7 @@
   <ul
     tabindex="0"
     class="mt-2 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-box w-52 space-y-2"
+    @click="handleMenuClick"
   >
     <!--  provide menu items via default slot  -->
     <slot />
@@ -16,6 +17,12 @@ export default {
     tabIndex: {
       type: String,
       default: '0',
+    },
+  },
+
+  methods: {
+    handleMenuClick() {
+      this.$parent.$data.isActive = !this.$parent.$data.isActive;
     },
   },
 };
