@@ -1,17 +1,17 @@
 <template>
   <div class="dropdown z-dropdown">
-    <slot v-if="$slots.label" name="label" />
     <label
-      v-else
-      ref="button"
       tabindex="0"
       class="btn gap-2 normal-case"
       :class="btnClass"
       @mousedown="handleDropdownClicked"
       @blur="handleDropdownBlur"
     >
-      <app-icon v-if="icon" :data="currentIcon" :size="iconSize" />
-      <span>{{ btnText }}</span>
+      <slot v-if="$slots.icon" name="icon"></slot>
+      <app-icon v-else-if="icon" :data="currentIcon" :size="iconSize" />
+
+      <slot v-if="$slots.label" name="label" />
+      <span v-else>{{ btnText }}</span>
     </label>
 
     <!-- provide menu via default slot -->
