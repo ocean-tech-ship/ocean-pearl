@@ -163,6 +163,13 @@ p {
 .btn-gradient-accent-variant {
   background: linear-gradient(303.29deg, #BB2C75 2.45%, #E6A33A 98.4%);
 }
+.btn-gradient-primary,
+.btn-gradient-primary-variant,
+.btn-gradient-accent,
+.btn-gradient-accent-variant {
+  @apply text-primary-content;
+}
+
 
 [data-theme='light'] .btn-gradient-primary:hover,
 [data-theme='light'] .btn-gradient-primary-variant:hover,

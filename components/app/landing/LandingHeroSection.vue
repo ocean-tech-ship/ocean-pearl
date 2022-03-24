@@ -14,7 +14,7 @@
       <app-button
         as="link"
         to="/projects"
-        class="btn-gradient-primary-variant border-0 text-primary-content"
+        class="btn-gradient-primary-variant border-0"
         :icon="icons.sailboat"
       >
         {{ $t('landing.hero.buttonText') }}
