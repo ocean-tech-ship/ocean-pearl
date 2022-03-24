@@ -2,7 +2,7 @@
   <div>
     <app-form-control class="mt-3 w-40">
       <template #label>
-        <span class="label-text text-neutral-content">Select Round</span>
+        <span class="label-text text-primary-content">Select Round</span>
       </template>
       <app-dropdown
         :btn-text="btnText"
