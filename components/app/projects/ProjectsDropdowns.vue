@@ -1,5 +1,5 @@
 <template>
-  <div class="text-primary">
+  <div>
     <app-form-control>
       <template #label>
         <span class="label-text text-primary">Categories</span>
@@ -7,13 +7,11 @@
       <app-dropdown
         class="min-w-[190px]"
         :btn-text="btnText"
-        btn-class="justify-start btn-primary btn-outline btn-block  bg-base-200"
+        btn-class="justify-start btn-primary btn-outline btn-block bg-base-200"
         :icon="icons.caretDown"
         :icon-active="icons.caretUp"
       >
-        <app-dropdown-menu
-          class="mb-1 h-60 overflow-y-auto border border-primary"
-        >
+        <app-dropdown-menu class="mb-1 h-60 overflow-y-auto">
           <li v-for="categoryItem in categoryItems" :key="categoryItem.id">
             <app-button
               class="btn-ghost"

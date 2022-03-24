@@ -1,5 +1,5 @@
 <template>
-  <div class="text-primary">
+  <div>
     <app-form-control class="mr-2 md:w-[190px]">
       <template #label>
         <span class="label-text text-primary">Rounds</span>
@@ -10,9 +10,7 @@
         :icon="icons.caretDown"
         :icon-active="icons.caretUp"
       >
-        <app-dropdown-menu
-          class="mb-1 h-60 overflow-y-auto border border-primary"
-        >
+        <app-dropdown-menu class="mb-1 h-60 overflow-y-auto">
           <li v-for="roundItem in roundItems" :key="roundItem.id">
             <app-button
               class="btn-ghost"
@@ -44,7 +42,8 @@
         :icon-active="icons.caretUp"
       >
         <app-dropdown-menu
-          class="mb-1 h-60 overflow-y-auto border border-primary"
+          :close-time-clicked="200"
+          class="mb-1 h-60 overflow-y-auto"
         >
           <li v-for="categoryItem in categoryItems" :key="categoryItem.id">
             <app-button
