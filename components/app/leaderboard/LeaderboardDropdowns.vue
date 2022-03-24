@@ -6,7 +6,7 @@
       </template>
       <app-dropdown
         :btn-text="btnText"
-        btn-class="justify-start btn-block border-0 bg-base-200 text-base-content"
+        btn-class="justify-start bg-base-200 hover:bg-base-300 btn-block border-0 text-base-content"
         :icon="icons.caretDown"
         :icon-active="icons.caretUp"
       >
