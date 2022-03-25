@@ -57,7 +57,6 @@
             />
             <voting-countdown
               v-else
-              primary
               :leaderboard="$store.state['dao-voting-filter'].leaderboard"
             />
           </div>
@@ -69,7 +68,7 @@
 
         <div class="pt-4 pb-8 text-white">
           <div class="flex items-center">
-            <h4>{{ $t('leaderboard.funded') }}</h4>
+            <h4 class="text-primary-content">{{ $t('leaderboard.funded') }}</h4>
 
             <live-indicator
               v-if="
@@ -81,7 +80,7 @@
             />
           </div>
 
-          <p class="small-text">
+          <p class="small-text text-primary-content">
             {{ $t('leaderboard.guarantee[0]') }}
             <app-link
               to="https://airtable.com/shrd5s7HSXc2vC1iC"
@@ -115,7 +114,7 @@
                 $store.state['dao-voting-filter'].leaderboard.fundedProposals
                   .length === 0
               "
-              class="flex justify-center border border-white text-white text-center rounded px-2 py-1"
+              class="flex justify-center border border-base-200 text-base-200 text-center rounded px-2 py-1"
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -214,7 +213,7 @@
       <div class="hidden lg:block">
         <div
           v-if="$store.state['dao-voting-filter'].pending"
-          class="rounded border border-primary divide-y divide-darkgrey"
+          class="rounded border border-primary divide-y divide-base-300"
         >
           <leaderboard-proposal-skeleton
             v-for="(i, index) in 5"
@@ -245,7 +244,7 @@
 
         <div
           v-else
-          class="rounded border border-primary divide-y divide-darkgrey"
+          class="rounded border border-primary divide-y divide-base-300"
         >
           <leaderboard-proposal
             v-for="(proposal, index) in $store.state['dao-voting-filter']

@@ -1,5 +1,5 @@
 <template>
-  <LandingSectionContainer class="my-32">
+  <div>
     <h2>
       {{ $t('landing.dao_proposals.title') }}
       <span class="text-primary">
@@ -24,21 +24,13 @@
 
     <div
       v-else
-      class="
-        grid grid-cols-1
-        md:grid-cols-2
-        lg:grid-cols-2
-        xl:grid-cols-4
-        2xl:grid-cols-4
-        gap-4
-        mt-10
-      "
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4 mt-10"
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal._id">
         <app-link-card
           :prefetch="false"
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
-          card-class="card shadow rounded h-330px p-8"
+          card-class="card bg-base-200 shadow rounded h-330px p-8"
         >
           <div class="flex">
             <div class="mr-3">
@@ -103,12 +95,11 @@
     <app-link-icon-right to="/dao-proposals">
       {{ $t('landing.dao_proposals.link_text') }}
     </app-link-icon-right>
-  </LandingSectionContainer>
+  </div>
 </template>
 
 <script>
 import coins from '@iconify/icons-la/coins';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkCard from '~/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
@@ -127,7 +118,6 @@ export default {
     AppLogo,
     AppLinkCard,
     AppLinkIconRight,
-    LandingSectionContainer,
     LandingDaoProposalsSkeletonCard,
     AppSkeletonCardList,
   },

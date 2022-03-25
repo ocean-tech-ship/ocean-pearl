@@ -21,7 +21,7 @@
     </label>
     <section
       v-if="open"
-      class="border bg-grey rounded shadow absolute top-10 z-dropdown"
+      class="border rounded shadow absolute top-10 z-dropdown"
     >
       <ul>
         <li
@@ -124,8 +124,8 @@ export default {
 <style lang="scss" scoped>
 label {
   font-size: 0.7rem;
-  top: -13px;
-  left: 12px;
+  top: -25px;
+  left: 5px;
   transition: 200ms;
 }
 
@@ -133,7 +133,7 @@ ul {
   min-width: 140px;
   max-height: 222px;
   overflow-y: scroll;
-  background: white;
+  @apply bg-base-300;
   border-radius: 7px;
 }
 li {

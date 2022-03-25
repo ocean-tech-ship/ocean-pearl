@@ -5,15 +5,7 @@
         v-slot="{ days, hours, minutes, seconds }"
         :time="getTimeLeft(leaderboard)"
         tag="div"
-        :class="{ 'border-white text-white': primary }"
-        class="
-          flex
-          items-center
-          justify-around
-          rounded
-          border border-primary
-          text-center text-primary
-        "
+        class="flex items-center justify-around rounded border border-primary-content text-center text-primary-content"
       >
         <div class="p-2 md:p-4">
           <div class="text-xl font-bold leading-none">{{ days }}</div>
@@ -36,15 +28,14 @@
         </div>
       </app-countdown>
 
-      <div
-        :class="{ 'text-white': primary }"
-        class="text-center text-primary p-2"
-      >
-        <span>{{ $t(getSubtitle(leaderboard)) }}</span>
+      <div class="text-center p-2">
+        <span class="text-primary-content">
+          {{ $t(getSubtitle(leaderboard)) }}
+        </span>
       </div>
 
-      <template slot="placeholder">
-        <voting-countdown-skeleton :primary="primary" />
+      <template #placeholder>
+        <voting-countdown-skeleton />
       </template>
     </client-only>
   </div>
@@ -64,12 +55,6 @@ export default {
     leaderboard: {
       type: Object as () => Leaderboard,
       required: true,
-    },
-
-    primary: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
   },
 

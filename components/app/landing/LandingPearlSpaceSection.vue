@@ -1,5 +1,5 @@
 <template>
-  <LandingSectionContainer class="my-32">
+  <div>
     <div class="mb-42px">
       <h2>
         {{ $t('landing.pearl_space.title') }}
@@ -10,20 +10,12 @@
       <p>{{ $t('landing.pearl_space.text') }}</p>
     </div>
     <div
-      class="
-        grid
-        gap-16px
-        md:gap-31px
-        lg:gap-62px
-        grid-cols-1
-        md:grid-cols-2
-        lg:grid-cols-3
-      "
+      class="grid gap-16px md:gap-31px lg:gap-62px grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
     >
       <div
         v-for="card in cards"
         :key="card.title"
-        class="card shadow flex flex-col items-center rounded"
+        class="card bg-base-200 shadow flex flex-col items-center rounded"
       >
         <div class="h-275px pt-42px px-42px pb-62px flex items-center">
           <img class="w-full" :src="card.imageURL" :alt="card.title" />
@@ -36,11 +28,10 @@
         </AppLink>
       </div>
     </div>
-  </LandingSectionContainer>
+  </div>
 </template>
 
 <script>
-import LandingSectionContainer from './LandingSectionContainer';
 import AppButtonStyle from '@/components/common/AppButtonStyle';
 import AppLink from '@/components/common/AppLink';
 
@@ -48,7 +39,6 @@ export default {
   name: 'LandingPearlSpaceSection',
   components: {
     AppButtonStyle,
-    LandingSectionContainer,
     AppLink,
   },
   data() {

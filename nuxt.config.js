@@ -1,4 +1,4 @@
-const enviroments = {
+const environments = {
   mirage: process.env.NUXT_ENV_BASE_URL_LOCAL_MIRAGE,
   mongo: process.env.NUXT_ENV_BASE_URL_LOCAL_MONGO,
   stage: process.env.NUXT_ENV_BASE_URL_STAGE,
@@ -14,13 +14,13 @@ export default {
   target: 'server',
 
   // Global page headers: https://go.nuxtjs.dev/config-head
-  head() {
+  head(context) {
     return {
       titleTemplate: (titleChunk) =>
         titleChunk ? `${titleChunk} | Ocean Pearl` : 'Ocean Pearl',
       htmlAttrs: {
         lang: 'en',
-        'data-theme': 'pearl',
+        'data-theme': context.$cookies.get('theme') ?? 'light',
       },
       meta: [
         { charset: 'utf-8' },
@@ -112,6 +112,7 @@ export default {
     '@/plugins/vue-touch',
     { src: '@/plugins/vue-globals', ssr: true },
     { src: '@/plugins/plausible', ssr: false },
+    { src: '@/plugins/ui-theme', ssr: false },
   ],
 
   // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
@@ -129,7 +130,7 @@ export default {
   },
 
   axios: {
-    baseURL: enviroments[process.env.NODE_ENV],
+    baseURL: environments[process.env.NODE_ENV],
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components

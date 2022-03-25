@@ -1,19 +1,12 @@
 <template>
   <div class="mt-10">
     <div
-      class="
-        grid grid-cols-1
-        md:grid-cols-2
-        lg:grid-cols-2
-        xl:grid-cols-4
-        2xl:grid-cols-4
-        gap-4
-      "
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-4 gap-4"
     >
       <div v-for="daoProposal in daoProposals" :key="daoProposal.id">
         <app-link-card
           :to="`/projects/${beautifyProjectId(daoProposal.project)}`"
-          card-class="shadow rounded p-8 h-full"
+          card-class="shadow bg-base-200 rounded p-8 h-full"
         >
           <div class="flex">
             <div class="mr-3">

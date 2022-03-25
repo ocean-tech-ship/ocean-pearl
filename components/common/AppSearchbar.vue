@@ -4,7 +4,7 @@
       id="search-bar"
       v-model="searchValue"
       type="text"
-      class="py-3 pl-3 w-1/1 border-primary rounded border min-w-full"
+      class="py-3 pl-3 w-1/1 bg-base-200 border-primary rounded border min-w-full"
       @focus="focused = true"
       @blur="focused = false"
     />
@@ -12,8 +12,9 @@
       class="absolute text-primary p-1"
       :class="{ isFocused: focused || searchValue }"
       for="search-bar"
-      >{{ placeholder }}</label
     >
+      {{ placeholder }}
+    </label>
   </div>
 </template>
 
@@ -51,7 +52,6 @@ label {
   top: 9.2px;
   left: 12px;
   transition: 200ms;
-  background: #fff;
 }
 .isFocused {
   font-size: 0.7rem;
