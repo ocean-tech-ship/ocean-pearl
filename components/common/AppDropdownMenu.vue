@@ -1,6 +1,6 @@
 <template>
   <ul
-    tabindex="0"
+    :tabindex="tabIndex"
     class="mt-2 p-2 drop-shadow-md menu menu-compact dropdown-content bg-base-200 rounded-box w-52 space-y-2"
     @click="handleMenuClick"
   >

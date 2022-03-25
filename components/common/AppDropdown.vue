@@ -1,7 +1,7 @@
 <template>
   <div class="dropdown z-dropdown">
     <label
-      tabindex="0"
+      :tabindex="tabIndex"
       class="btn gap-2 normal-case"
       :class="btnClass"
       @mousedown="handleDropdownClicked"
@@ -10,7 +10,7 @@
       <slot v-if="$slots.icon" name="icon"></slot>
       <app-icon v-else-if="icon" :data="currentIcon" :size="iconSize" />
 
-      <slot v-if="$slots.label" name="label" />
+      <slot v-if="$slots.btnText" name="btnText" />
       <span v-else>{{ btnText }}</span>
     </label>
 
@@ -28,6 +28,10 @@ export default {
   components: { AppIcon },
 
   props: {
+    tabIndex: {
+      type: String,
+      default: '0',
+    },
     icon: {
       type: Object,
       default: null,
