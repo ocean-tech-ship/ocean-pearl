@@ -1,10 +1,17 @@
 <template>
   <span v-if="isNuxtLink && storeName" @click="resetStateOf(to)">
-    <nuxt-link :to="to" :data-analytics="dataAnalytics"
+    <nuxt-link
+      :to="to"
+      :data-analytics="dataAnalytics"
+      :active-class="activeClass"
       ><slot></slot
     ></nuxt-link>
   </span>
-  <nuxt-link v-else-if="isNuxtLink" :to="to" :data-analytics="dataAnalytics"
+  <nuxt-link
+    v-else-if="isNuxtLink"
+    :to="to"
+    :data-analytics="dataAnalytics"
+    :active-class="activeClass"
     ><slot></slot
   ></nuxt-link>
   <a
@@ -34,6 +41,12 @@ export default {
     },
 
     dataAnalytics: {
+      type: String,
+      required: false,
+      default: null,
+    },
+
+    activeClass: {
       type: String,
       required: false,
       default: null,
