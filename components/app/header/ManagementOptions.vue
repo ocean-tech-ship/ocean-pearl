@@ -36,17 +36,17 @@
 <script>
 import Jazzicon from 'vue-jazzicon';
 import angleDown from '@iconify/icons-la/angle-down';
-import { SESSION_NAME } from '@/store/auth';
-import EthAddress from '@/mixins/EthAddress';
 import AppIcon from '@/components/common/AppIcon';
 import ManagementLinks from '@/components/app/header/ManagementLinks';
+import EthAddress from '@/mixins/EthAddress';
+import ConnectedWallet from '@/mixins/ConnectedWallet';
 
 export default {
   name: 'ManagementOptions',
 
   components: { ManagementLinks, AppIcon, Jazzicon },
 
-  mixins: [EthAddress],
+  mixins: [ConnectedWallet, EthAddress],
 
   data() {
     return {
@@ -54,14 +54,6 @@ export default {
         angleDown,
       },
     };
-  },
-
-  computed: {
-    wallet() {
-      return (
-        this.$store.state.account.wallet ?? this.$cookies.get(SESSION_NAME)
-      );
-    },
   },
 };
 </script>

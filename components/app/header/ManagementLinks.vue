@@ -1,9 +1,6 @@
 <template>
   <ul v-if="wallet">
     <li>
-      <nuxt-link to="/management">{{ $t('manage.subtitle') }}</nuxt-link>
-    </li>
-    <li>
       <button
         type="button"
         class="btn btn-ghost justify-start font-normal normal-case"
@@ -16,17 +13,11 @@
 </template>
 
 <script>
-import { SESSION_NAME } from '@/store/auth';
+import ConnectedWallet from '@/mixins/ConnectedWallet';
 
 export default {
   name: 'ManagementLinks',
 
-  computed: {
-    wallet() {
-      return (
-        this.$store.state.account.wallet ?? this.$cookies.get(SESSION_NAME)
-      );
-    },
-  },
+  mixins: [ConnectedWallet],
 };
 </script>
