@@ -1,5 +1,6 @@
 <template>
   <div tabindex="0">
+    <notification-bar />
     <manage-scaffold>
       <!-- project navigator -->
       <template #navigation>
@@ -68,10 +69,11 @@
 import { mapState } from 'vuex';
 import Vue from 'vue';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
+import NotificationBar from '@/components/app/header/NotificationBar';
 import PrimaryFooter from '@/components/app/footer/PrimaryFooter';
 
 export default Vue.extend({
-  components: { PrimaryFooter, ManageScaffold },
+  components: { NotificationBar, PrimaryFooter, ManageScaffold },
 
   async fetch() {
     await this.$store.dispatch('profile/softLoad');
