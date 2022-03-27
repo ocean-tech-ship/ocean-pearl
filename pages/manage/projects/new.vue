@@ -23,11 +23,16 @@
 
     <!-- mobile nav support -->
     <template #mobile-nav-support>
-      <div class="flex items-center">
-        <div class="flex-grow text-primary font-bold">
+      <div class="flex items-center px-4 md:px-8">
+        <div class="flex-grow text-primary font-bold line-clamp-1">
           <span v-if="isNaN(step)">{{ $t('creator.project.overview') }}</span>
           <span v-else>
-            Step {{ step + 1 }}: {{ $t('creator.project.steps')[step] }}
+            {{
+              $t('creator.project.step', {
+                index: step + 1,
+                title: $t('creator.project.steps')[step],
+              })
+            }}
           </span>
         </div>
 
@@ -47,6 +52,12 @@
           {{ $t('creator.project.overview') }}
         </button>
       </div>
+
+      <!-- progress bar indicator -->
+      <div
+        class="bg-primary h-[2px]"
+        :style="{ width: `${progressPercentage}%` }"
+      />
     </template>
 
     <!-- walk through project creation -->
@@ -100,6 +111,13 @@ export default Vue.extend({
 
   head() {
     return createHead(this.$config, this.$i18n);
+  },
+
+  computed: {
+    progressPercentage() {
+      const steps = this.$t('creator.project.steps').length;
+      return this.step === 'overview' ? 0 : (100 / steps) * (this.step + 1);
+    },
   },
 
   watch: {

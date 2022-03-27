@@ -28,7 +28,7 @@
 
       <!-- mobile nav support -->
       <template #mobile-nav-support>
-        <div class="flex items-center">
+        <div class="flex items-center px-4 md:px-8">
           <div class="flex-grow text-primary font-bold line-clamp-1">
             <span v-if="selectedProject">
               {{ selectedProject.title }}

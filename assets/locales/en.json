@@ -25,6 +25,7 @@
   "creator": {
     "project": {
       "overview": "Overview",
+      "step": "Step {index}: {title}",
       "steps": [
         "Basic",
         "Description",

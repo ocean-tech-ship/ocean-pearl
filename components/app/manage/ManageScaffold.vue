@@ -43,7 +43,7 @@
       </div>
 
       <!-- nav support (until xl) -->
-      <div class="xl:hidden w-full px-4 md:px-8 bg-primary bg-opacity-10">
+      <div class="xl:hidden w-full bg-primary bg-opacity-10">
         <slot name="mobile-nav-support" />
       </div>
 
