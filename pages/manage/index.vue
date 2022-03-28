@@ -48,8 +48,7 @@ export default Vue.extend({
           key: 'create-proposal',
           icon: star,
           img: require('assets/images/manage/create-proposal.svg'),
-          // TODO: invent sth like action to select project to create the proposal with
-          target: '/',
+          target: '/manage/proposals/new',
         },
       ],
     };

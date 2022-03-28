@@ -36,6 +36,9 @@
         "Team"
       ],
       "title": "New Project"
+    },
+    "proposal": {
+      "title": "New Proposal"
     }
   },
   "dao-projects": {
