@@ -6,6 +6,8 @@
         :step="step"
         :total-steps="totalSteps"
         :progress-percentage="progressPercentage"
+        @back="goTo(-1)"
+        @continue="goTo(+1)"
       />
     </template>
 
@@ -27,6 +29,12 @@
         </template>
         <template #1>
           second
+        </template>
+        <template #2>
+          <div class="text-primary-content">
+            content
+            <div v-for="n in 100" :key="n">{{ n }}</div>
+          </div>
         </template>
       </app-stepper-content>
     </main>
