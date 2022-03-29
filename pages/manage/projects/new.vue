@@ -63,7 +63,7 @@
     <!-- walk through project creation -->
     <!-- every step needs to be registered here -->
     <main class="p-2 px-4 md:px-8">
-      <app-stepper :step="step">
+      <app-stepper-content :step="step">
         <template #overview>
           <div class="flex justify-center">
             <steps-overview
@@ -85,20 +85,20 @@
             <div v-for="n in 100" :key="n">{{ n }}</div>
           </div>
         </template>
-      </app-stepper>
+      </app-stepper-content>
     </main>
   </manage-scaffold>
 </template>
 
 <script>
 import Vue from 'vue';
-import ManageScaffold from '~/components/app/manage/ManageScaffold';
-import AppStepper from '@/components/common/AppStepper';
+import ManageScaffold from '@/components/app/manage/ManageScaffold';
+import AppStepperContent from '@/components/common/AppStepperContent';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
 import createHead from '@/pages/manage/projects/new.head';
 
 export default Vue.extend({
-  components: { StepsOverview, AppStepper, ManageScaffold },
+  components: { StepsOverview, AppStepperContent, ManageScaffold },
 
   layout: 'creator',
 

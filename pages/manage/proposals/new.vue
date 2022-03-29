@@ -17,6 +17,19 @@
         :progress-percentage="progressPercentage"
       />
     </template>
+
+    <!-- walk through proposal creation -->
+    <!-- every step needs to be registered here -->
+    <main class="p-2 px-4 md:px-8">
+      <app-stepper-content :step="step">
+        <template #0>
+          first
+        </template>
+        <template #1>
+          second
+        </template>
+      </app-stepper-content>
+    </main>
   </manage-scaffold>
 </template>
 
@@ -26,9 +39,15 @@ import createHead from '@/pages/manage/proposals/new.head';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import NavigationDrawer from '@/components/app/manage/creator/proposal/NavigationDrawer';
 import MobileNavSupport from '@/components/app/manage/creator/proposal/MobileNavSupport';
+import AppStepperContent from '@/components/common/AppStepperContent';
 
 export default Vue.extend({
-  components: { MobileNavSupport, ManageScaffold, NavigationDrawer },
+  components: {
+    AppStepperContent,
+    MobileNavSupport,
+    ManageScaffold,
+    NavigationDrawer,
+  },
 
   layout: 'creator',
 
@@ -59,7 +78,12 @@ export default Vue.extend({
 
   methods: {
     goTo(increment) {
-      // TODO
+      if (this.step + increment < 0) {
+        this.$router.go(-1);
+        return;
+      }
+      // TODO: apply logic for last page
+      this.step += increment;
     },
   },
 });

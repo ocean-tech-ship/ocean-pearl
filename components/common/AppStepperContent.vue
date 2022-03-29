@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'AppStepper',
+  name: 'AppStepperContent',
 
   props: {
     step: {
