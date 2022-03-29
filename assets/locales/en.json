@@ -23,9 +23,9 @@
     "menuItemReport": "Report project"
   },
   "creator": {
+    "overview": "Overview",
+    "progress": "Progress: {progress}%",
     "project": {
-      "overview": "Overview",
-      "step": "Step {index}: {title}",
       "steps": [
         "Basic",
         "Description",
@@ -38,7 +38,27 @@
       "title": "New Project"
     },
     "proposal": {
+      "motivate": "Keep going... nearly there!",
+      "steps": [
+        "Funding Amount",
+        "Wallet",
+        "Project Name",
+        "One Liner",
+        "Description",
+        "Goals",
+        "Category",
+        "Final Product",
+        "Value Added",
+        "Socials",
+        "Team"
+      ],
       "title": "New Proposal"
+    },
+    "step": {
+      "detailed": "Step {index}: {title}",
+      "short": "Step {step}",
+      "title": "Step",
+      "total": "of {total}"
     }
   },
   "dao-projects": {
@@ -153,6 +173,7 @@
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
+    "next": "Next",
     "ocean": "{ocean} OCEAN",
     "remove": "remove",
     "save": "save changes",

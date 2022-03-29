@@ -25,10 +25,10 @@
     <template #mobile-nav-support>
       <div class="flex items-center px-4 md:px-8">
         <div class="flex-grow text-primary font-bold line-clamp-1">
-          <span v-if="isNaN(step)">{{ $t('creator.project.overview') }}</span>
+          <span v-if="isNaN(step)">{{ $t('creator.overview') }}</span>
           <span v-else>
             {{
-              $t('creator.project.step', {
+              $t('creator.step.detailed', {
                 index: step + 1,
                 title: $t('creator.project.steps')[step],
               })
@@ -49,7 +49,7 @@
           class="btn btn-primary btn-outline btn-sm m-2"
           @click="toggleOverview()"
         >
-          {{ $t('creator.project.overview') }}
+          {{ $t('creator.overview') }}
         </button>
       </div>
 
@@ -116,7 +116,9 @@ export default Vue.extend({
   computed: {
     progressPercentage() {
       const steps = this.$t('creator.project.steps').length;
-      return this.step === 'overview' ? 0 : (100 / steps) * (this.step + 1);
+      return this.step === 'overview'
+        ? 0
+        : Math.round((100 / steps) * (this.step + 1));
     },
   },
 
