@@ -8,6 +8,15 @@
         :progress-percentage="progressPercentage"
       />
     </template>
+
+    <!-- mobile nav support -->
+    <template #mobile-nav-support>
+      <mobile-nav-support
+        :step="step"
+        :total-steps="totalSteps"
+        :progress-percentage="progressPercentage"
+      />
+    </template>
   </manage-scaffold>
 </template>
 
@@ -16,9 +25,10 @@ import Vue from 'vue';
 import createHead from '@/pages/manage/proposals/new.head';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import NavigationDrawer from '@/components/app/manage/creator/proposal/NavigationDrawer';
+import MobileNavSupport from '@/components/app/manage/creator/proposal/MobileNavSupport';
 
 export default Vue.extend({
-  components: { ManageScaffold, NavigationDrawer },
+  components: { MobileNavSupport, ManageScaffold, NavigationDrawer },
 
   layout: 'creator',
 
