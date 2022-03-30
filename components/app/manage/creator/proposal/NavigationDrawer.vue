@@ -56,7 +56,7 @@
       </button>
     </div>
 
-    <button type="button" class="btn">
+    <button type="button" class="btn" @click="$emit('overview')">
       {{ $t('creator.overview') }}
     </button>
   </div>

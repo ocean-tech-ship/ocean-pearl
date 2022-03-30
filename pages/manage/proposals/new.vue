@@ -8,6 +8,7 @@
         :progress-percentage="progressPercentage"
         @back="goTo(-1)"
         @continue="goTo(+1)"
+        @overview="toggleOverview()"
       />
     </template>
 
@@ -17,6 +18,7 @@
         :step="step"
         :total-steps="totalSteps"
         :progress-percentage="progressPercentage"
+        @overview="toggleOverview()"
       />
     </template>
 
@@ -24,6 +26,13 @@
     <!-- every step needs to be registered here -->
     <main class="p-2 px-4 md:px-8">
       <app-stepper-content :step="step">
+        <!-- TODO: we should invent an optional step #project if project has not been specified yet -->
+        <template #overview>
+          <steps-overview
+            :steps="$t('creator.proposal.steps2')"
+            :step="lastStep"
+          />
+        </template>
         <template #0>
           first
         </template>
@@ -48,9 +57,11 @@ import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import NavigationDrawer from '@/components/app/manage/creator/proposal/NavigationDrawer';
 import MobileNavSupport from '@/components/app/manage/creator/proposal/MobileNavSupport';
 import AppStepperContent from '@/components/common/AppStepperContent';
+import StepsOverview from '@/components/app/manage/creator/proposal/StepsOverview';
 
 export default Vue.extend({
   components: {
+    StepsOverview,
     AppStepperContent,
     MobileNavSupport,
     ManageScaffold,
@@ -85,6 +96,9 @@ export default Vue.extend({
   },
 
   methods: {
+    toggleOverview() {
+      this.step = this.step === 'overview' ? this.lastStep : 'overview';
+    },
     goTo(increment) {
       if (this.step + increment < 0) {
         this.$router.go(-1);

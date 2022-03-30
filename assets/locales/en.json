@@ -39,6 +39,24 @@
     },
     "proposal": {
       "motivate": "Keep going... nearly there!",
+      "steps2": [
+        {
+          "title": "Funding Amount",
+          "subtitle": "Define requested OCEAN"
+        },
+        {
+          "title": "Wallet",
+          "subtitle": "Provide Wallet with 500 $OCEAN"
+        },
+        {
+          "title": "Project Name",
+          "subtitle": "Choose project name"
+        },
+        {
+          "title": "One Liner",
+          "subtitle": "One sentence about your proposal"
+        }
+      ],
       "steps": [
         "Funding Amount",
         "Wallet",
