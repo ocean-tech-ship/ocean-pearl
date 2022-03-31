@@ -9,7 +9,7 @@
       >
         {{ $t('creator.step.title') }}
         <br />
-        {{ step }}
+        {{ step + 1 }}
       </div>
     </div>
 

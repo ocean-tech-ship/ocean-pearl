@@ -16,7 +16,7 @@
     </div>
 
     <!-- progress animation -->
-    <progress-circle class="my-4" :step="step + 1" />
+    <progress-circle class="my-4" :step="step" />
 
     <!-- progress figures -->
     <div class="my-8 w-full">
@@ -75,7 +75,7 @@ export default {
 
   props: {
     step: {
-      type: Number,
+      type: [Number, String],
       required: true,
     },
     totalSteps: {
