@@ -56,27 +56,28 @@
       </button>
     </div>
 
-    <button
-      type="button"
-      class="btn"
-      :class="{ 'btn-primary': showOverview }"
+    <app-button
+      class="btn-ghost"
+      :class="{ 'btn-outline': showOverview }"
+      :icon="icons.clipboardList"
+      :btn-text="$t('creator.overview')"
       @click="$emit('overview')"
-    >
-      {{ $t('creator.overview') }}
-    </button>
+    />
   </div>
 </template>
 
 <script>
+import clipboardList from '@iconify/icons-la/clipboard-list';
 import arrowLeft from '@iconify/icons-la/arrow-left';
 import arrowRight from '@iconify/icons-la/arrow-right';
 import AppIcon from '@/components/common/AppIcon';
 import ProgressCircle from '@/components/app/manage/creator/proposal/ProgressCircle';
+import AppButton from '~/components/common/AppButton';
 
 export default {
   name: 'NavigationDrawer',
 
-  components: { ProgressCircle, AppIcon },
+  components: { AppButton, ProgressCircle, AppIcon },
 
   props: {
     step: {
@@ -100,6 +101,7 @@ export default {
   data() {
     return {
       icons: {
+        clipboardList,
         arrowLeft,
         arrowRight,
       },

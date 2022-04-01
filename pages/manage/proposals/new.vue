@@ -19,6 +19,7 @@
         :step="step"
         :total-steps="totalSteps"
         :progress-percentage="progressPercentage"
+        :show-overview="showOverview"
         @overview="toggleOverview()"
       />
     </template>

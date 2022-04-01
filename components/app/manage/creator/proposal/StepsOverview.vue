@@ -2,7 +2,7 @@
   <div class="space-y-2 xl:space-y-4">
     <h4>{{ $t('creator.overview') }}</h4>
 
-    <div class="p-4 border rounded border-base-content">
+    <div class="p-4 2xl:border rounded border-base-content">
       <div class="2xl:hidden">
         <steps-overview-list :steps="getChunkedSteps(1)[0]" />
       </div>
