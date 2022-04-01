@@ -1,5 +1,5 @@
 <template>
-  <manage-scaffold mobile-footer @back="goTo(-1)" @continue="goTo(+1)">
+  <manage-scaffold mobile-footer @navigate="navigate($event)">
     <!-- navigation -->
     <template #navigation>
       <navigation-drawer
@@ -7,8 +7,7 @@
         :total-steps="totalSteps"
         :progress-percentage="progressPercentage"
         :show-overview="showOverview"
-        @back="goTo(-1)"
-        @continue="goTo(+1)"
+        @navigate="navigate($event)"
         @overview="toggleOverview()"
       />
     </template>
@@ -19,20 +18,24 @@
         :step="step"
         :total-steps="totalSteps"
         :progress-percentage="progressPercentage"
-        :show-overview="showOverview"
         @overview="toggleOverview()"
       />
     </template>
 
-    <!-- walk through proposal creation -->
-    <!-- every step needs to be registered here -->
     <main class="p-2 px-4 md:px-8">
+      <!-- overview -->
       <steps-overview
         v-if="showOverview"
         :step="step"
         :steps="$t('creator.proposal.steps2')"
+        @goTo="
+          showOverview = false;
+          step = $event;
+        "
       />
 
+      <!-- walk through proposal creation -->
+      <!-- every step needs to be registered here -->
       <app-stepper-content v-else :step="step">
         <!-- TODO: we should invent an optional step '#1 - project' if project has not been specified yet -->
         <template #0> first </template>
@@ -84,7 +87,6 @@ export default Vue.extend({
 
   computed: {
     progressPercentage() {
-      // TODO: handle overview
       return Math.round((100 / this.totalSteps) * this.step);
     },
   },
@@ -99,7 +101,7 @@ export default Vue.extend({
     toggleOverview() {
       this.showOverview = !this.showOverview;
     },
-    goTo(increment) {
+    navigate(increment) {
       if (this.showOverview) {
         this.toggleOverview();
       }

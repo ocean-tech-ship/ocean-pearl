@@ -1,78 +1,39 @@
 <template>
-  <manage-scaffold mobile-footer @back="goTo(-1)" @continue="goTo(+1)">
-    <!-- stepper navigation -->
+  <manage-scaffold mobile-footer @navigate="navigate($event)">
+    <!-- navigation -->
     <template #navigation>
-      <ul class="steps steps-vertical py-8">
-        <!-- TODO: could be replaced by StepsOverview right now but might be kept if StepsOverview changes -->
-        <li
-          v-for="(stepName, index) in $t('creator.project.steps')"
-          :key="index"
-          :class="{ 'step-primary': index === step }"
-          class="step"
-        >
-          <button
-            type="button"
-            class="btn btn-ghost normal-case font-normal mx-2"
-            @click="step = index"
-          >
-            {{ stepName }}
-          </button>
-        </li>
-      </ul>
+      <navigation-drawer
+        :steps="steps"
+        :step="step"
+        @goTo="step = $event"
+        @navigate="navigate($event)"
+      />
     </template>
 
     <!-- mobile nav support -->
     <template #mobile-nav-support>
-      <div class="flex items-center px-4 md:px-8">
-        <div class="flex-grow text-primary font-bold line-clamp-1">
-          <span v-if="isNaN(step)">{{ $t('creator.overview') }}</span>
-          <span v-else>
-            {{
-              $t('creator.step.detailed', {
-                index: step + 1,
-                title: $t('creator.project.steps')[step],
-              })
-            }}
-          </span>
-        </div>
-
-        <button
-          type="button"
-          class="btn btn-ghost btn-sm m-2"
-          @click="$router.go(-1)"
-        >
-          {{ $t('general.exit') }}
-        </button>
-
-        <button
-          type="button"
-          class="btn btn-primary btn-outline btn-sm m-2"
-          @click="toggleOverview()"
-        >
-          {{ $t('creator.overview') }}
-        </button>
-      </div>
-
-      <!-- progress bar indicator -->
-      <div
-        class="bg-primary h-[2px]"
-        :style="{ width: `${progressPercentage}%` }"
+      <mobile-nav-support
+        :step="step"
+        :progress-percentage="progressPercentage"
+        @overview="toggleOverview()"
       />
     </template>
 
-    <!-- walk through project creation -->
-    <!-- every step needs to be registered here -->
     <main class="p-2 px-4 md:px-8">
-      <app-stepper-content :step="step">
-        <template #overview>
-          <div class="flex justify-center">
-            <steps-overview
-              :steps="$t('creator.project.steps')"
-              :active="lastStep"
-              @click="step = $event"
-            />
-          </div>
-        </template>
+      <!-- overview -->
+      <steps-overview
+        v-if="showOverview"
+        :steps="$t('creator.project.steps')"
+        :step="step"
+        @goTo="
+          showOverview = false;
+          step = $event;
+        "
+      />
+
+      <!-- walk through project creation -->
+      <!-- every step needs to be registered here -->
+      <app-stepper-content v-else :step="step">
         <template #0>
           <div>first</div>
         </template>
@@ -93,17 +54,28 @@
 <script>
 import Vue from 'vue';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
+import MobileNavSupport from '@/components/app/manage/creator/project/MobileNavSupport';
+import NavigationDrawer from '@/components/app/manage/creator/project/NavigationDrawer';
 import AppStepperContent from '@/components/common/AppStepperContent';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
 import createHead from '@/pages/manage/projects/new.head';
 
 export default Vue.extend({
-  components: { StepsOverview, AppStepperContent, ManageScaffold },
+  components: {
+    MobileNavSupport,
+    NavigationDrawer,
+    StepsOverview,
+    AppStepperContent,
+    ManageScaffold,
+  },
 
   layout: 'creator',
 
   data() {
     return {
+      // TODO: Maybe we need to create a better steps list
+      steps: this.$t('creator.project.steps'),
+      showOverview: false,
       lastStep: 0,
       step: 0,
     };
@@ -115,10 +87,7 @@ export default Vue.extend({
 
   computed: {
     progressPercentage() {
-      const steps = this.$t('creator.project.steps').length;
-      return this.step === 'overview'
-        ? 0
-        : Math.round((100 / steps) * (this.step + 1));
+      return Math.round((100 / this.steps.length) * this.step);
     },
   },
 
@@ -130,9 +99,12 @@ export default Vue.extend({
 
   methods: {
     toggleOverview() {
-      this.step = this.step === 'overview' ? this.lastStep : 'overview';
+      this.showOverview = !this.showOverview;
     },
-    goTo(increment) {
+    navigate(increment) {
+      if (this.showOverview) {
+        this.toggleOverview();
+      }
       if (this.step + increment < 0) {
         this.$router.go(-1);
         return;

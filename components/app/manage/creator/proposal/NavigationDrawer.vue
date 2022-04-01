@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="w-full flex flex-col items-center">
     <!-- step information -->
     <div class="w-full my-8">
       <span class="small-text">
@@ -37,11 +37,16 @@
       </div>
     </div>
 
+    <!-- divider -->
     <hr class="my-8 w-full bg-primary-content" />
 
     <!-- actions -->
     <div class="my-8 w-full flex justify-between">
-      <button type="button" class="btn btn-ghost gap-2" @click="$emit('back')">
+      <button
+        type="button"
+        class="btn btn-ghost gap-2"
+        @click="$emit('navigate', -1)"
+      >
         <app-icon :data="icons.arrowLeft" />
         {{ $t('general.back') }}
       </button>
@@ -49,7 +54,7 @@
       <button
         type="button"
         class="btn btn-ghost gap-2"
-        @click="$emit('continue')"
+        @click="$emit('navigate', +1)"
       >
         {{ $t('general.next') }}
         <app-icon :data="icons.arrowRight" />

@@ -3,7 +3,7 @@
     <button
       type="button"
       class="btn btn-primary btn-outline"
-      @click="$emit('back')"
+      @click="$emit('navigate', -1)"
     >
       {{ $t('general.back') }}
     </button>
@@ -11,7 +11,7 @@
     <button
       type="button"
       class="btn bg-gradient-primary-variant"
-      @click="$emit('continue')"
+      @click="$emit('navigate', +1)"
     >
       {{ $t('general.continue') }}
     </button>

@@ -56,8 +56,7 @@
       <creator-mobile-footer
         v-if="mobileFooter"
         class="xl:hidden sticky bottom-0"
-        @back="$emit('back')"
-        @continue="$emit('continue')"
+        @navigate="$emit('navigate', $event)"
       />
     </div>
   </div>

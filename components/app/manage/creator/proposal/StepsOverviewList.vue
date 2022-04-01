@@ -9,7 +9,7 @@
       <button
         type="button"
         class="btn btn-ghost items-center"
-        @click="$emit('click', step.index)"
+        @click="$emit('goTo', step.index)"
       >
         <div
           class="flex flex-col items-start justify-end normal-case leading-none"
