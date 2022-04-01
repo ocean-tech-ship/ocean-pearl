@@ -5,7 +5,10 @@
       <navigation-drawer
         :steps="steps"
         :step="step"
-        @goTo="step = $event"
+        @goTo="
+          showOverview = false;
+          step = $event;
+        "
         @navigate="navigate($event)"
       />
     </template>
