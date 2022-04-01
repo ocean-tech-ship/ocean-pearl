@@ -6,6 +6,7 @@
         :step="step"
         :total-steps="totalSteps"
         :progress-percentage="progressPercentage"
+        :show-overview="showOverview"
         @back="goTo(-1)"
         @continue="goTo(+1)"
         @overview="toggleOverview()"
@@ -25,20 +26,16 @@
     <!-- walk through proposal creation -->
     <!-- every step needs to be registered here -->
     <main class="p-2 px-4 md:px-8">
-      <app-stepper-content :step="step">
-        <!-- TODO: we should invent an optional step #project if project has not been specified yet -->
-        <template #overview>
-          <steps-overview
-            :steps="$t('creator.proposal.steps2')"
-            :step="lastStep"
-          />
-        </template>
-        <template #0>
-          first
-        </template>
-        <template #1>
-          second
-        </template>
+      <steps-overview
+        v-if="showOverview"
+        :step="step"
+        :steps="$t('creator.proposal.steps2')"
+      />
+
+      <app-stepper-content v-else :step="step">
+        <!-- TODO: we should invent an optional step '#1 - project' if project has not been specified yet -->
+        <template #0> first </template>
+        <template #1> second </template>
         <template #2>
           <div class="text-primary-content">
             content
@@ -72,6 +69,8 @@ export default Vue.extend({
 
   data() {
     return {
+      // TODO: We might need to invent a data list for all steps
+      showOverview: false,
       totalSteps: this.$t('creator.proposal.steps').length,
       lastStep: 0,
       step: 0,
@@ -85,7 +84,7 @@ export default Vue.extend({
   computed: {
     progressPercentage() {
       // TODO: handle overview
-      return Math.round((100 / this.totalSteps) * (this.step + 1));
+      return Math.round((100 / this.totalSteps) * this.step);
     },
   },
 
@@ -97,9 +96,12 @@ export default Vue.extend({
 
   methods: {
     toggleOverview() {
-      this.step = this.step === 'overview' ? this.lastStep : 'overview';
+      this.showOverview = !this.showOverview;
     },
     goTo(increment) {
+      if (this.showOverview) {
+        this.toggleOverview();
+      }
       if (this.step + increment < 0) {
         this.$router.go(-1);
         return;

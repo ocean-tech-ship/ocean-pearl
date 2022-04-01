@@ -1,42 +1,29 @@
 <template>
   <div class="space-y-2 xl:space-y-4">
     <h4>{{ $t('creator.overview') }}</h4>
-    <div class="p-4 grid xl:grid-cols-3 border rounded border-base-content">
-      <ul
-        v-for="(chunks, chunkIndex) in chunkedSteps"
-        :key="chunkIndex"
-        class="steps steps-vertical"
-      >
-        <li
-          v-for="(chunkedStep, stepIndex) in chunks"
-          :key="stepIndex"
-          :data-content="chunkedStep.index"
-          class="step step-primary my-1"
-        >
-          <button
-            type="button"
-            class="btn btn-ghost items-center"
-            @click="$emit('click', chunkedStep.index)"
-          >
-            <div
-              class="flex flex-col items-start justify-end normal-case leading-none"
-            >
-              <span class="text-base font-bold">{{ chunkedStep.title }}</span>
-              <span class="small-text font-normal">
-                {{ chunkedStep.subtitle }}
-              </span>
-            </div>
-          </button>
-        </li>
-      </ul>
+
+    <div class="p-4 border rounded border-base-content">
+      <div class="2xl:hidden">
+        <steps-overview-list :steps="getChunkedSteps(1)[0]" />
+      </div>
+
+      <div class="hidden 2xl:grid grid-cols-3">
+        <steps-overview-list
+          v-for="(chunk, index) in getChunkedSteps(3)"
+          :key="index"
+          :steps="chunk"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import StepsOverviewList from '@/components/app/manage/creator/proposal/StepsOverviewList';
+
 export default {
   name: 'StepsOverview',
-
+  components: { StepsOverviewList },
   props: {
     steps: {
       type: Array,
@@ -48,12 +35,11 @@ export default {
     },
   },
 
-  computed: {
-    /* Divides the provided steps into 3 ~equal sized~ chunks */
-    chunkedSteps() {
+  methods: {
+    getChunkedSteps(chunks) {
       const all = this.steps.map((step, index) => ({ ...step, index }));
       const result = [];
-      for (let i = 3; i > 0; i--) {
+      for (let i = chunks; i > 0; i--) {
         result.push(all.splice(0, Math.ceil(all.length / i)));
       }
       return result;

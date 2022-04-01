@@ -56,7 +56,12 @@
       </button>
     </div>
 
-    <button type="button" class="btn" @click="$emit('overview')">
+    <button
+      type="button"
+      class="btn"
+      :class="{ 'btn-primary': showOverview }"
+      @click="$emit('overview')"
+    >
       {{ $t('creator.overview') }}
     </button>
   </div>
@@ -84,6 +89,10 @@ export default {
     },
     progressPercentage: {
       type: Number,
+      required: true,
+    },
+    showOverview: {
+      type: Boolean,
       required: true,
     },
   },
