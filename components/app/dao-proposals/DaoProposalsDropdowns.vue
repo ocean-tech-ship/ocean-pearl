@@ -1,28 +1,89 @@
 <template>
-  <div class="text-primary">
-    <ButtonEmitWithDropdown
-      button-name="Rounds"
-      class="rounded bg-base-200 my-2 mr-2 w-1/1 2sm:w-1/2 sm:w-44"
-      :menu-items="roundItems"
-      @selected="setItems"
-    />
-    <ButtonEmitWithDropdown
-      button-name="Category"
-      class="rounded bg-base-200 my-2 w-1/1 2sm:w-1/2 sm:w-44"
-      :menu-items="categoryItems"
-      @selected="setItems"
-    />
+  <div>
+    <app-form-control class="mr-2 md:w-[190px]">
+      <template #label>
+        <span class="label-text text-primary">Rounds</span>
+      </template>
+      <app-dropdown
+        :btn-text="btnTextRound"
+        btn-class="justify-start btn-primary btn-outline btn-block bg-base-200"
+        :icon="icons.caretDown"
+        :icon-active="icons.caretUp"
+      >
+        <app-dropdown-menu class="mb-1 h-60 overflow-y-auto">
+          <li v-for="roundItem in roundItems" :key="roundItem.id">
+            <app-button
+              class="btn-ghost"
+              :name="roundItem.content"
+              :value="roundItem.id"
+              :active="roundItem.selected"
+              @click="
+                setItems({
+                  type: 'rounds',
+                  id: roundItem.id,
+                  content: roundItem.content,
+                })
+              "
+            >
+              <span class="text-left w-full">{{ roundItem.content }}</span>
+            </app-button>
+          </li>
+        </app-dropdown-menu>
+      </app-dropdown>
+    </app-form-control>
+    <app-form-control class="lg:mr-4 md:w-[190px]">
+      <template #label>
+        <span class="label-text text-primary">Categories</span>
+      </template>
+      <app-dropdown
+        :btn-text="btnTextCategories"
+        btn-class="justify-start btn-primary btn-outline btn-block bg-base-200"
+        :icon="icons.caretDown"
+        :icon-active="icons.caretUp"
+      >
+        <app-dropdown-menu
+          :close-time-clicked="200"
+          class="mb-1 h-60 overflow-y-auto"
+        >
+          <li v-for="categoryItem in categoryItems" :key="categoryItem.id">
+            <app-button
+              class="btn-ghost"
+              :name="categoryItem.content"
+              :value="categoryItem.id"
+              :active="categoryItem.selected"
+              @click="
+                setItems({
+                  type: 'categories',
+                  id: categoryItem.id,
+                  content: categoryItem.content,
+                })
+              "
+            >
+              <span class="text-left w-full">{{ categoryItem.content }}</span>
+            </app-button>
+          </li>
+        </app-dropdown-menu>
+      </app-dropdown>
+    </app-form-control>
   </div>
 </template>
 
 <script>
-import CategoryEnum from '../../../enums/Category.enum';
-import ButtonEmitWithDropdown from '@/components/common/ButtonEmitWithDropdown.vue';
-import { CategoryMap } from '~/components/constants/CategoryMap.constant';
+import caretDown from '@iconify/icons-la/caret-down';
+import caretUp from '@iconify/icons-la/caret-up';
+import CategoryEnum from '@/enums/Category.enum';
+import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import AppDropdown from '@/components/common/AppDropdown';
+import AppDropdownMenu from '@/components/common/AppDropdownMenu';
+import AppButton from '@/components/common/AppButton';
+import AppFormControl from '@/components/common/AppFormControl';
 
 export default {
   components: {
-    ButtonEmitWithDropdown,
+    AppFormControl,
+    AppButton,
+    AppDropdownMenu,
+    AppDropdown,
   },
   props: {
     rounds: {
@@ -34,9 +95,12 @@ export default {
       required: true,
     },
   },
+
   data() {
     return {
       watching: false,
+      btnTextRound: 'All',
+      btnTextCategories: 'All',
       roundItems: [
         {
           type: 'rounds',
@@ -46,8 +110,13 @@ export default {
         },
       ],
       categoryItems: [],
+      icons: {
+        caretDown,
+        caretUp,
+      },
     };
   },
+
   watch: {
     $data: {
       deep: true,
@@ -77,6 +146,7 @@ export default {
       },
     },
   },
+
   created() {
     // set categories button content
     Object.values(CategoryEnum).forEach((value) => {
@@ -89,6 +159,10 @@ export default {
           selected: this.filter.category === value,
         },
       ];
+
+      if (this.filter.category === value) {
+        this.btnTextCategories = CategoryMap[value];
+      }
     });
 
     // set rounds button content
@@ -102,13 +176,17 @@ export default {
           selected: this.filter.round === i,
         },
       ];
+
+      if (this.filter.round === i) {
+        this.btnTextRound = `Round ${i}`;
+      }
     }
   },
+
   methods: {
     setItems(payload) {
       this.watching = true;
-
-      const { type, id } = payload;
+      const { type, id, content } = payload;
 
       switch (type) {
         case 'rounds':
@@ -116,12 +194,14 @@ export default {
             // eslint-disable-next-line no-param-reassign
             (roundItem) => (roundItem.selected = roundItem.id === id),
           );
+          this.btnTextRound = content;
           break;
         case 'categories':
           this.categoryItems.forEach(
             // eslint-disable-next-line no-param-reassign
             (categoryItem) => (categoryItem.selected = categoryItem.id === id),
           );
+          this.btnTextCategories = content;
           break;
         default:
       }

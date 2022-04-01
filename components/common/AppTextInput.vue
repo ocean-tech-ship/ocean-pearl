@@ -5,6 +5,7 @@
     :value="value"
     :disabled="disabled"
     class="input w-full"
+    @input="$emit('input', $event.target.value)"
   />
 </template>
 

@@ -32,33 +32,29 @@
         </p>
         <div class="my-4 grid grid-cols-1 gap-2">
           <app-button
-            class="h-full w-full"
-            text-class="small-text"
-            :text="btnCopyEmailTitle"
-            secondary
+            class="btn-primary btn-outline w-full"
             :icon="icons.contentCopy"
             @click="copyEmail"
-          />
+            >{{ btnCopyEmailTitle }}</app-button
+          >
           <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
             <app-button
-              class="h-full w-full"
-              text-class="small-text"
-              :text="$t(btnCopyPgpTitle)"
-              secondary
+              class="btn-primary btn-outline w-full"
               :icon="icons.contentCopy"
               @click="copyPgp"
-            />
+              >{{ $t(btnCopyPgpTitle) }}</app-button
+            >
             <a
               href="/files/publickey_oceanpearlio@protonmail_com_933640351c18940026d5777ca9da8f14cbff1efa.asc"
               download
             >
               <app-button
-                class="h-full w-full"
-                text-class="small-text"
-                secondary
+                class="btn-primary btn-outline w-full"
+                type="label"
                 :icon="icons.download"
-                :text="$t('appReportModal.btnDownloadPgpTitle')"
-              />
+              >
+                {{ $t('appReportModal.btnDownloadPgpTitle') }}
+              </app-button>
             </a>
           </div>
         </div>
@@ -79,11 +75,9 @@
             </button>
             <hr class="text-primary hidden sm:block sm:w-1/3" />
           </div>
-          <pre
-            v-if="accOpen"
-            class="w-full bg-grey p-3 small-text overflow-auto"
-            >{{ pgpKey }}</pre
-          >
+          <pre v-if="accOpen" class="w-full bg-grey p-3 small-text">{{
+            pgpKey
+          }}</pre>
         </div>
       </div>
       <div class="mt-4">
@@ -122,7 +116,7 @@ import discord from '@iconify/icons-la/discord';
 import download from '@iconify/icons-la/download';
 import AppIcon from '@/components/common/AppIcon.vue';
 import AppModal from '@/components/common/AppModal.vue';
-import AppButton from '@/components/common/AppButton.vue';
+import AppButton from '~/components/common/AppButton.vue';
 import AppLink from '@/components/common/AppLink.vue';
 import EmailEnum from '@/enums/Email.enum';
 
@@ -174,7 +168,7 @@ export default {
 
     copyEmail() {
       navigator.clipboard.writeText(this.btnCopyEmailTitle).then(() => {
-        this.btnCopyEmailTitle = 'appReportModal.btnCopied';
+        this.btnCopyEmailTitle = this.$t('appReportModal.btnCopied');
         setTimeout(() => (this.btnCopyEmailTitle = EmailEnum.Address), 1500);
       });
     },

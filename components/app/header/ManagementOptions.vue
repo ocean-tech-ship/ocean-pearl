@@ -23,14 +23,13 @@
   </div>
 
   <!-- call to login -->
-  <button
+  <app-button
     v-else
-    type="button"
-    class="btn normal-case border-0 bg-gradient-primary-variant"
+    class="btn-gradient-primary-variant border-0"
     @click="$store.dispatch('auth/login')"
   >
     {{ $t('manage.auth.login.action') }}
-  </button>
+  </app-button>
 </template>
 
 <script>
@@ -38,13 +37,14 @@ import Jazzicon from 'vue-jazzicon';
 import angleDown from '@iconify/icons-la/angle-down';
 import AppIcon from '@/components/common/AppIcon';
 import ManagementLinks from '@/components/app/header/ManagementLinks';
+import AppButton from '@/components/common/AppButton';
 import EthAddress from '@/mixins/EthAddress';
 import ConnectedWallet from '@/mixins/ConnectedWallet';
 
 export default {
   name: 'ManagementOptions',
 
-  components: { ManagementLinks, AppIcon, Jazzicon },
+  components: { AppButton, ManagementLinks, AppIcon, Jazzicon },
 
   mixins: [ConnectedWallet, EthAddress],
 

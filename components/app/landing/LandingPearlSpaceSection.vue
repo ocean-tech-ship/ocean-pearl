@@ -23,23 +23,24 @@
         <span class="font-poppins-bold text-lg px-2 pb-31px text-center">
           {{ card.title }}
         </span>
-        <AppLink :to="card.buttonTarget" class="mb-70px px-2 mt-auto">
-          <AppButtonStyle :text="card.buttonText" />
-        </AppLink>
+        <app-button
+          as="link"
+          :to="card.buttonTarget"
+          class="btn-gradient-primary-variant border-0 mb-70px mt-auto"
+          >{{ card.buttonText }}</app-button
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import AppButtonStyle from '@/components/common/AppButtonStyle';
-import AppLink from '@/components/common/AppLink';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'LandingPearlSpaceSection',
   components: {
-    AppButtonStyle,
-    AppLink,
+    AppButton,
   },
   data() {
     return {
