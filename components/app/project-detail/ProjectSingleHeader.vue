@@ -29,7 +29,6 @@
       </div>
 
       <app-settings-dropdown
-        btn-class="text-primary"
         :icon-size="40"
         :project-title="project.title"
         :project-link="`/projects/${beautifyProjectId(project)}`"

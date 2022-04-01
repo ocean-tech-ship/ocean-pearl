@@ -7,7 +7,7 @@
     />
     <AppSearchBar
       class="rw-1/1 mt-2 md:w-1/2 xl:w-1/3 md:m-0"
-      placeholder="Search Project"
+      label="Search Project"
       :initial-value="filter.search"
       @search="setFilterAndFetch"
     />

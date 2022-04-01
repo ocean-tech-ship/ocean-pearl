@@ -23,14 +23,13 @@
   </div>
 
   <!-- call to login -->
-  <button
+  <app-button
     v-else
-    type="button"
-    class="btn normal-case border-0 bg-gradient-primary-variant"
+    class="btn-gradient-primary-variant border-0"
     @click="$store.dispatch('auth/login')"
   >
     {{ $t('manage.auth.login.action') }}
-  </button>
+  </app-button>
 </template>
 
 <script>
@@ -40,11 +39,12 @@ import { SESSION_NAME } from '@/store/auth';
 import EthAddress from '@/mixins/EthAddress';
 import AppIcon from '@/components/common/AppIcon';
 import ManagementLinks from '@/components/app/header/ManagementLinks';
+import AppButton from '~/components/common/AppButton';
 
 export default {
   name: 'ManagementOptions',
 
-  components: { ManagementLinks, AppIcon, Jazzicon },
+  components: { AppButton, ManagementLinks, AppIcon, Jazzicon },
 
   mixins: [EthAddress],
 

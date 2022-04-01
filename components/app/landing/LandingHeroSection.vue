@@ -11,12 +11,14 @@
       <p class="pt-6 mb-8 text-base-content">
         {{ $t('landing.hero.text') }}
       </p>
-      <AppLink to="/projects">
-        <app-button-style
-          :icon="icons.sailboat"
-          :text="$t('landing.hero.buttonText')"
-        />
-      </AppLink>
+      <app-button
+        as="link"
+        to="/projects"
+        class="btn-gradient-primary-variant border-0"
+        :icon="icons.sailboat"
+      >
+        {{ $t('landing.hero.buttonText') }}
+      </app-button>
     </div>
     <div class="hidden md:flex">
       <img
@@ -30,15 +32,13 @@
 
 <script>
 import sailboat from '@iconify/icons-mdi/sail-boat';
-import AppLink from '@/components/common/AppLink.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'LandingHeroSection',
 
   components: {
-    AppButtonStyle,
-    AppLink,
+    AppButton,
   },
 
   data() {

@@ -45,11 +45,11 @@ export default {
     },
     linkClass: {
       type: String,
-      default: () => 'text-primary-content bounce-right',
+      default: () => 'text-base-content bounce-right',
     },
     paragraphClass: {
       type: String,
-      default: () => 'mr-2 text-primary-content',
+      default: () => 'mr-2 text-base-content',
     },
   },
 

@@ -37,14 +37,14 @@
 
       <!-- mobile navbar (until xl) -->
       <div class="xl:hidden navbar-end">
-        <div class="dropdown dropdown-end">
-          <label tabindex="0" class="btn btn-ghost btn-circle">
+        <app-dropdown
+          class="dropdown-end"
+          btn-class="btn btn-ghost btn-circle gap-0"
+        >
+          <template #icon>
             <app-icon class="w-10 h-10 text-primary" :data="icons.bars" />
-          </label>
-          <ul
-            tabindex="0"
-            class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-200 rounded-box w-52 space-y-2"
-          >
+          </template>
+          <app-dropdown-menu class="mt-4" :close-time-clicked="null">
             <li>
               <nuxt-link
                 to="/"
@@ -75,8 +75,8 @@
             <management-links />
 
             <theme-switcher />
-          </ul>
-        </div>
+          </app-dropdown-menu>
+        </app-dropdown>
       </div>
     </section-container>
   </nav>
@@ -89,11 +89,15 @@ import ManagementOptions from '@/components/app/header/ManagementOptions';
 import ManagementLinks from '@/components/app/header/ManagementLinks';
 import AppIcon from '@/components/common/AppIcon';
 import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
+import AppDropdown from '~/components/common/AppDropdown';
+import AppDropdownMenu from '~/components/common/AppDropdownMenu';
 
 export default {
   name: 'PrimaryNavbar',
 
   components: {
+    AppDropdownMenu,
+    AppDropdown,
     SectionContainer,
     ManagementOptions,
     ManagementLinks,
