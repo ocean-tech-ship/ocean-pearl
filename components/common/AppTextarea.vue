@@ -6,6 +6,8 @@
     :maxlength="maxlength"
     :disabled="disabled"
     class="textarea w-full"
+    @input="$emit('input', $event.target.value)"
+    @change="$emit('change', $event.target.value)"
   />
 </template>
 
