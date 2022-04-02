@@ -2,6 +2,8 @@
   <textarea
     :placeholder="placeholder"
     :value="value"
+    :rows="rows"
+    :maxlength="maxlength"
     :disabled="disabled"
     class="textarea w-full"
   />
@@ -17,6 +19,14 @@ export default {
     },
     value: {
       type: String,
+      default: null,
+    },
+    rows: {
+      type: Number,
+      default: null,
+    },
+    maxlength: {
+      type: Number,
       default: null,
     },
     disabled: {
