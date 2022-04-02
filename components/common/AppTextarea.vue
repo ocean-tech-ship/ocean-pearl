@@ -14,6 +14,7 @@
 <script>
 export default {
   name: 'AppTextarea',
+
   props: {
     placeholder: {
       type: String,
