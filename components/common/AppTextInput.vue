@@ -5,7 +5,7 @@
     :value="value"
     :maxlength="maxlength"
     :disabled="disabled"
-    class="input w-full"
+    class="input"
     @input="$emit('input', $event.target.value)"
     @change="$emit('change', $event.target.value)"
   />

@@ -5,7 +5,7 @@
     :rows="rows"
     :maxlength="maxlength"
     :disabled="disabled"
-    class="textarea w-full"
+    class="textarea"
     @input="$emit('input', $event.target.value)"
     @change="$emit('change', $event.target.value)"
   />
