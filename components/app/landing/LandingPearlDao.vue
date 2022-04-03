@@ -20,7 +20,11 @@
 
     <round-metrics v-else class="mt-10" :metrics="metrics" />
 
-    <app-link-icon-right to="/dao-proposals">
+    <app-link-icon-right
+      to="/dao-proposals"
+      link-class="text-primary-content bounce-right"
+      paragraph-class="text-primary-content mr-2"
+    >
       {{ $t('landing.pearl_dao.link_text') }}
     </app-link-icon-right>
   </div>

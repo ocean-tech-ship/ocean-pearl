@@ -137,6 +137,11 @@ export const actions = {
     // reset
     commit('error', null);
 
+    // check if search was used
+    state.filter.search
+      ? commit('searchUsed', true)
+      : commit('searchUsed', false);
+
     // prepare query object
     const query = { ...state.filter };
     if (query.category === 'all') delete query.category;

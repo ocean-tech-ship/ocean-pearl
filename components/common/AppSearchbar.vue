@@ -1,41 +1,41 @@
 <template>
-  <div class="w-full relative">
-    <input
-      id="search-bar"
+  <app-form-control>
+    <template #label>
+      <span class="label-text text-primary">{{ label }}</span>
+    </template>
+    <app-text-input
       v-model="searchValue"
       type="text"
-      class="py-3 pl-3 w-1/1 bg-base-200 border-primary rounded border min-w-full"
-      @focus="focused = true"
-      @blur="focused = false"
+      :placeholder="placeholder"
+      class="input-primary bg-base-200"
     />
-    <label
-      class="absolute text-primary p-1"
-      :class="{ isFocused: focused || searchValue }"
-      for="search-bar"
-    >
-      {{ placeholder }}
-    </label>
-  </div>
+  </app-form-control>
 </template>
 
 <script>
-import debounce from '~/helpers/debounce.ts';
+import debounce from '@/helpers/debounce.ts';
+import AppFormControl from '@/components/common/AppFormControl';
+import AppTextInput from '@/components/common/AppTextInput';
 
 export default {
+  components: { AppTextInput, AppFormControl },
   props: {
+    label: {
+      type: String,
+      default: '',
+    },
     placeholder: {
       type: String,
-      default: () => 'Search Projects',
+      default: '',
     },
     initialValue: {
       type: String,
-      default: () => '',
+      default: '',
     },
   },
   data() {
     return {
       searchValue: this.initialValue,
-      focused: false,
     };
   },
   watch: {
@@ -45,16 +45,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-label {
-  @apply z-label;
-  top: 9.2px;
-  left: 12px;
-  transition: 200ms;
-}
-.isFocused {
-  font-size: 0.7rem;
-  top: -11.7px;
-}
-</style>
