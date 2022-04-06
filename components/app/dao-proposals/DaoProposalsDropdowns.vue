@@ -36,6 +36,7 @@
         <span class="label-text text-primary">Categories</span>
       </template>
       <app-dropdown
+        class="dropdown-end"
         :btn-text="btnTextCategories"
         btn-class="justify-start btn-primary btn-outline btn-block bg-base-200"
         :icon="icons.caretDown"
