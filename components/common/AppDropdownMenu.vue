@@ -35,3 +35,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+ul * {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+</style>
