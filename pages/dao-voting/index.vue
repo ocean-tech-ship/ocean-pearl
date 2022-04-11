@@ -111,7 +111,7 @@
             <p class="small-text">
               <span class="font-bold">Warning:</span>
               Official voting page by OceanDAO is not available at the moment.
-              moment. You can use
+              You can use
               <a
                 target="_blank"
                 rel="noopener noreferrer"
