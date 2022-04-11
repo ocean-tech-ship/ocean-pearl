@@ -38,7 +38,7 @@ export default {
       icons: {
         vote,
       },
-      voteUrl: 'https://vote.oceanprotocol.com/#/officialoceandao.eth',
+      voteUrl: 'https://snapshot.org/#/officialoceandao.eth',
     };
   },
 
