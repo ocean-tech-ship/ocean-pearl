@@ -160,7 +160,7 @@ export default {
     },
 
     voteUrl() {
-      const stdUrl = 'https://vote.oceanprotocol.com/#/officialoceandao.eth';
+      const stdUrl = 'https://snapshot.org/#/officialoceandao.eth';
       const proposal = this.newestProposal;
       return proposal && proposal.ipfsHash
         ? `${stdUrl}/proposal/${proposal.ipfsHash}`
