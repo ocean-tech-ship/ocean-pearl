@@ -91,43 +91,6 @@
           </p>
         </div>
 
-        <div
-          class="mb-4 p-4 rounded shadow bg-[#F87272] text-primary-content flex items-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="stroke-current flex-shrink-0 h-10 w-10 pr-2"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-            />
-          </svg>
-          <div>
-            <p class="small-text">
-              <span class="font-bold">Warning:</span>
-              Official voting page by OceanDAO is not available at the moment.
-              You can use
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                class="font-bold"
-                href="https://snapshot.org/#/officialoceandao.eth"
-                >https://snapshot.org/#/officialoceandao.eth</a
-              >
-              as a backup.
-            </p>
-            <p class="small-text">
-              The results on Ocean Pearl are not correct until the OceanDAO page
-              is restored.
-            </p>
-          </div>
-        </div>
-
         <div class="space-y-4">
           <proposal-header primary class="hidden lg:flex" />
 
