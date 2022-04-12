@@ -133,7 +133,7 @@ export const actions = {
     }
   },
 
-  async fetchMetricsAndProposals({ commit, state }) {
+  async fetchAll({ commit, state }) {
     // reset
     commit('error', null);
 

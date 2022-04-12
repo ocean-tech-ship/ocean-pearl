@@ -22,9 +22,13 @@
       <div class="navbar-center hidden xl:flex">
         <ul class="menu menu-horizontal p-0 xl:space-x-8">
           <li v-for="page in pages" :key="page.to">
-            <nuxt-link :to="page.to" active-class="text-primary">
+            <app-link
+              :to="page.to"
+              active-class="text-primary"
+              :store-name="page.storeName"
+            >
               {{ page.title }}
-            </nuxt-link>
+            </app-link>
           </li>
         </ul>
       </div>
@@ -57,13 +61,14 @@
             </li>
 
             <li v-for="page in pages" :key="page.to">
-              <nuxt-link
+              <app-link
                 :to="page.to"
                 active-class="active"
+                :store-name="page.storeName"
                 @click.native="removeFocus()"
               >
                 {{ page.title }}
-              </nuxt-link>
+              </app-link>
             </li>
 
             <hr class="my-2 text-base-300" />
@@ -89,6 +94,7 @@ import ManagementOptions from '@/components/app/header/ManagementOptions';
 import ManagementLinks from '@/components/app/header/ManagementLinks';
 import AppIcon from '@/components/common/AppIcon';
 import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
+import AppLink from '~/components/common/AppLink';
 import AppDropdown from '~/components/common/AppDropdown';
 import AppDropdownMenu from '~/components/common/AppDropdownMenu';
 
@@ -96,6 +102,7 @@ export default {
   name: 'PrimaryNavbar',
 
   components: {
+    AppLink,
     AppDropdownMenu,
     AppDropdown,
     SectionContainer,
@@ -114,14 +121,17 @@ export default {
         {
           title: this.$t('navbar.navbarProjects'),
           to: '/projects',
+          storeName: 'projects-filter',
         },
         {
           title: this.$t('navbar.navbarProposals'),
           to: '/dao-proposals',
+          storeName: 'dao-proposals-filter',
         },
         {
           title: this.$t('navbar.navbarVoting'),
           to: '/dao-voting',
+          storeName: 'dao-voting-filter',
         },
       ],
     };

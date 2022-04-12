@@ -327,18 +327,6 @@ export default Vue.extend({
     LeaderboardPartiallyFundedList,
   },
 
-  // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query)[0] === 'current') {
-      this.resetState().then(() =>
-        this.fetchLeaderboard().then((query) =>
-          replaceQueryParams(this, query),
-        ),
-      );
-    }
-    next();
-  },
-
   // set exception pages when page is left
   beforeRouteLeave(_to, _from, next) {
     this.clearFetchInterval();
@@ -394,7 +382,7 @@ export default Vue.extend({
       return this.$store.dispatch('dao-voting-filter/setFilter', payload);
     },
     fetchLeaderboard() {
-      return this.$store.dispatch('dao-voting-filter/fetchLeaderboard');
+      return this.$store.dispatch('dao-voting-filter/fetchAll');
     },
     resetAndRefetch() {
       this.resetState().then(() =>
