@@ -12,8 +12,7 @@ const below = -1; // only for constants below base
 const backdrop = below + base;
 const label = above + base;
 const dropdown = above + label;
-const dropdown2 = above + dropdown;
-const nav = above + dropdown2;
+const nav = above + dropdown;
 const tooltip = above + nav;
 const popup = above + tooltip;
 const modal = above + popup;
@@ -23,7 +22,6 @@ export default {
   base,
   label,
   dropdown,
-  dropdown2,
   nav,
   tooltip,
   popup,

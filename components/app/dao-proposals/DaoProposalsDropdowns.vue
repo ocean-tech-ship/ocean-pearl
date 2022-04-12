@@ -5,7 +5,6 @@
         <span class="label-text text-primary">Rounds</span>
       </template>
       <app-dropdown
-        class="z-dropdown2"
         :btn-text="btnTextRound"
         btn-class="justify-start btn-primary btn-outline btn-block bg-base-200"
         :icon="icons.caretDown"
