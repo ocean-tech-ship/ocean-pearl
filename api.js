@@ -64,3 +64,29 @@ export function updateProject(axios, projectId, formData) {
     },
   });
 }
+
+// logo upload
+export function uploadLogo(axios, file) {
+  const data = new FormData();
+  data.append('logo', file);
+
+  return axios.post('/account/logos', data, {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
+
+// images upload
+export function uploadImages(axios, files) {
+  const data = new FormData();
+  Array.from(files).forEach((file) => data.append('images', file));
+
+  return axios.$post('/account/images', data, {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
