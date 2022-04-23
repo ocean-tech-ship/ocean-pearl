@@ -1,7 +1,7 @@
 <template>
   <div class="my-8 flex flex-col justify-between lg:flex-row lg:items-center">
     <DaoProposalsDropdowns
-      class="flex flex-col 2sm:flex-row lg:flex-row"
+      class="flex flex-col sm:flex-row lg:flex-row"
       :filter="filter"
       :rounds="rounds"
       @selected-items="setFilterAndFetch"

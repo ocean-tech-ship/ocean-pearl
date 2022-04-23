@@ -1,7 +1,7 @@
 <template>
   <ul
     :tabindex="tabIndex"
-    class="mt-2 p-2 drop-shadow-md menu menu-compact dropdown-content bg-base-200 rounded-box w-52 space-y-2"
+    class="mt-2 p-2 drop-shadow-md menu menu-compact dropdown-content bg-base-200 rounded-box w-52 space-y-2 !z-dropdown"
     @click="handleMenuClick"
   >
     <!--  provide menu items via default slot  -->
@@ -35,3 +35,9 @@ export default {
   },
 };
 </script>
+
+<style scoped lang="scss">
+ul * {
+  -webkit-transform: translate3d(0, 0, 0);
+}
+</style>

@@ -143,7 +143,7 @@ export default {
             {
               id: 0,
               name: this.$t('footer.vitals.analytics'),
-              route: 'https://twitter.com/oceanpearlio',
+              route: 'https://plausible.io/oceanpearl.io',
             },
             {
               id: 1,
