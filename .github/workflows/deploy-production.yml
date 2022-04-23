@@ -18,7 +18,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.2
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v3.0.0
@@ -62,7 +62,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.2
 
       - name: Setup node env 🏗
         uses: actions/setup-node@v3.0.0
@@ -96,7 +96,7 @@ jobs:
       - run: echo "Deploying to production environment..."
 
       - name: Checkout 🛎
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.2
 
       - name: Deploy to Heroku 👾
         uses: akhileshns/heroku-deploy@v3.12.12
