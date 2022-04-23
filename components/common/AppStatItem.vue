@@ -7,13 +7,8 @@
       <app-icon class="inline-block" :data="icon" :size="iconSize" />
     </div>
 
-    <!-- provide stats via props or default slot -->
+    <!-- provide stats via props or default slot (actions can only be provided via default slot) -->
     <slot />
-
-    <!-- provide actions via actions slot -->
-    <div v-if="$slots.actions" class="stat-actions">
-      <slot name="actions" />
-    </div>
   </div>
 </template>
 
