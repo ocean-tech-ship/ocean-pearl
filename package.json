@@ -29,7 +29,7 @@
     "@tailwindcss/line-clamp": "^0.3.1",
     "@walletconnect/web3-provider": "^1.7.7",
     "cookie-universal-nuxt": "^2.1.5",
-    "core-js": "^3.21.1",
+    "core-js": "^3.22.2",
     "daisyui": "^2.14.1",
     "date-fns": "^2.28.0",
     "jdenticon": "^3.1.1",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
-    "@commitlint/cli": "^16.2.1",
+    "@commitlint/cli": "^16.2.3",
     "@commitlint/config-conventional": "^16.2.1",
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.0.4",
@@ -68,7 +68,7 @@
     "jest-junit": "^13.0.0",
     "miragejs": "^0.1.43",
     "prettier": "^2.5.1",
-    "sass": "^1.49.9",
+    "sass": "^1.50.1",
     "sass-loader": "^10.2.1",
     "ts-jest": "^27.1.3",
     "vue-jest": "^3.0.4"
