@@ -21,7 +21,9 @@ export const actions = {
       wallet = await dispatch('wallet/connect', null, { root: true });
     } catch (error) {
       console.error('Could not connect wallet', error);
-      dispatch('alert/error', 'manage.auth.error.wallet', { root: true });
+      dispatch('alert/error', this.$i18n.t('manage.auth.error.wallet'), {
+        root: true,
+      });
       return;
     }
 
@@ -35,7 +37,9 @@ export const actions = {
       signature = await dispatch('wallet/signData', doc, { root: true });
     } catch (error) {
       console.error('Could not sign login request', error);
-      dispatch('alert/error', 'manage.auth.error.sign', { root: true });
+      dispatch('alert/error', this.$i18n.t('manage.auth.error.sign'), {
+        root: true,
+      });
       return;
     }
 
@@ -59,7 +63,9 @@ export const actions = {
       }
 
       console.error('Error on backend communication', error);
-      dispatch('alert/error', 'general.error.retry', { root: true });
+      dispatch('alert/error', this.$i18n.t('general.error.retry'), {
+        root: true,
+      });
     }
   },
 
@@ -73,7 +79,7 @@ export const actions = {
     // Logout was successful
     dispatch(
       'alert/success',
-      { content: 'manage.auth.logout.completed', autoFade: true },
+      { content: this.$i18n.t('manage.auth.logout.completed'), autoFade: true },
       { root: true },
     );
 
@@ -85,7 +91,9 @@ export const actions = {
   },
 
   timeout({ dispatch }) {
-    dispatch('alert/warning', 'manage.auth.timeout', { root: true });
+    dispatch('alert/warning', this.$i18n.t('manage.auth.timeout'), {
+      root: true,
+    });
     this.$cookies.remove(SESSION_NAME);
   },
 };

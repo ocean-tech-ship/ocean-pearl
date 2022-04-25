@@ -69,7 +69,10 @@ export default Vue.extend({
       this.daoProposals = data.daoProposals;
       this.metrics = data.metrics;
     } catch (error) {
-      await this.$store.dispatch('alert/error', 'general.error.retry');
+      await this.$store.dispatch(
+        'alert/error',
+        this.$i18n.t('general.error.retry'),
+      );
     }
   },
 
