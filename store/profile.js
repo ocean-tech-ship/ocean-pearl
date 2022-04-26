@@ -1,4 +1,4 @@
-import { getAccount } from '@/api';
+import { getAccount, updateProject } from '@/api';
 
 /* Store for managing the connected projects and proposals of a connected wallet */
 /* TODO: drop-in replacement for account store */
@@ -32,6 +32,7 @@ export const actions = {
       await dispatch('load');
     }
   },
+
   async load({ commit, dispatch }) {
     commit('alert/clear', null, { root: true });
     commit('loading', true);
@@ -43,12 +44,51 @@ export const actions = {
     } catch (error) {
       if (error.response?.status === 401) {
         // Auth timeout
-        await dispatch('auth/timeout', null, { roo: true });
-        throw new Error('401 - Unauthorized');
+        await dispatch('auth/timeout', null, { root: true });
       } else {
         // Generic error
-        dispatch('alert/error', 'general.error.retry', { root: true });
+        dispatch(
+          'alert/error',
+          { content: this.$i18n.t('general.error.retry'), autoFade: true },
+          {
+            root: true,
+          },
+        );
         throw new Error(error);
+      }
+    } finally {
+      commit('loading', false);
+    }
+  },
+
+  async update({ commit, dispatch }, payload) {
+    commit('alert/clear', null, { root: true });
+    commit('loading', true);
+
+    try {
+      const response = await updateProject(this.$axios, payload);
+      commit('projects', response.data);
+      dispatch(
+        'alert/success',
+        {
+          content: this.$i18n.t('manage.project.changed'),
+          autoFade: true,
+        },
+        { root: true },
+      );
+    } catch (error) {
+      if (error.response?.status === 401) {
+        // Auth timeout
+        await dispatch('auth/timeout', null, { root: true });
+      } else {
+        // Generic error
+        dispatch(
+          'alert/error',
+          { content: this.$i18n.t('general.error.retry'), autoFade: true },
+          {
+            root: true,
+          },
+        );
       }
     } finally {
       commit('loading', false);
