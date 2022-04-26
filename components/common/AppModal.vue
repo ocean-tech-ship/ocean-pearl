@@ -16,11 +16,11 @@
       >
         <app-icon :data="icons.closeIcon" />
       </button>
-      <div class="modal-content">
+      <div class="modal-content h-full flex flex-col">
         <header class="modal-header flex items-center">
           <slot name="header" />
         </header>
-        <section class="modal-body">
+        <section class="modal-body flex-grow">
           <slot name="body" />
         </section>
         <footer class="modal-footer">
