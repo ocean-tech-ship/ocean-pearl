@@ -25,7 +25,7 @@
         <div class="hidden xl:flex flex-grow justify-center w-full">
           <ul class="menu menu-horizontal p-0 2xl:space-x-8">
             <li v-for="page in navbarPages" :key="page.to">
-              <nuxt-link :to="page.to" exact-active-class="text-primary">
+              <nuxt-link :to="page.to" active-class="text-primary">
                 {{ page.title }}
               </nuxt-link>
             </li>
