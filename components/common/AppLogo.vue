@@ -1,13 +1,13 @@
 <template>
   <img
-    v-if="!!src"
+    v-if="project.logo && project.logo.url"
     class="max-w-none max-h-none object-contain"
-    :style="{ width: `${size}px`, height: `${size}px`}"
-    :src="src"
-    :alt="`${alt} ${$t('general.logo')}`"
+    :style="{ width: `${size}px`, height: `${size}px` }"
+    :src="project.logo.url"
+    :alt="`${project.title} ${$t('general.logo')}`"
   />
 
-  <app-identicon v-else :value="alt" :size="size" />
+  <app-identicon v-else :value="project.title" :size="size" />
 </template>
 
 <script>
@@ -21,25 +21,15 @@ export default {
   },
 
   props: {
-    src: {
-      type: String,
+    project: {
+      type: Object,
       required: true,
-      default: '',
     },
-
     size: {
       type: Number,
       required: false,
       default: 64,
     },
-
-    alt: {
-      type: String,
-      required: true,
-      default: '',
-    },
   },
 };
 </script>
-
-<style scoped></style>

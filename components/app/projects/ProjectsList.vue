@@ -9,12 +9,7 @@
         card-class="card bg-base-200 shadow rounded p-2 pb-8 text-center h-full"
       >
         <div class="mt-3">
-          <app-logo
-            class="inline-block"
-            :src="project.logo && project.logo.url"
-            :alt="project.title"
-            :size="64"
-          />
+          <app-logo class="inline-block" :project="project" :size="64" />
         </div>
         <div class="mt-4">
           <p class="text-primary leading-snug line-clamp-1 break-all">
@@ -36,7 +31,7 @@
 
 <script>
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppLinkCard from '~/components/common/AppLinkCard.vue';
+import AppLinkCard from '@/components/common/AppLinkCard.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 

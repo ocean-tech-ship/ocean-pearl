@@ -11,24 +11,7 @@
       class="w-full pt-6 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4"
     >
       <div
-        class="
-          flex
-          items-center
-          flex-col
-          rounded
-          lg:flex-row
-          xl:flex-col
-          shadow
-          pb-12
-          pt-16
-          px-4
-          col-span-1
-          lg:col-span-2
-          xl:col-span-1
-          row-span-1
-          xl:row-span-2
-          listed-project-container
-        "
+        class="flex items-center flex-col rounded lg:flex-row xl:flex-col shadow pb-12 pt-16 px-4 col-span-1 lg:col-span-2 xl:col-span-1 row-span-1 xl:row-span-2 listed-project-container"
       >
         <img
           class="max-h-260px lg:max-h-none hidden sm:block"
@@ -53,8 +36,7 @@
               <div class="mr-3">
                 <app-logo
                   class="inline-block h-10 w-10 rounded-full"
-                  :src="project.logo"
-                  :alt="project.title"
+                  :project="project"
                 />
               </div>
               <div>
