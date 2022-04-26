@@ -10,7 +10,7 @@
           :key="card.key"
           :card="card"
           :loading="loading"
-          :locked-text="projects ? null : 'manage.landing.unlock'"
+          :locked-text="card.lockedText"
         />
       </div>
     </section-container>
@@ -31,31 +31,6 @@ export default Vue.extend({
 
   middleware: 'session',
 
-  data() {
-    return {
-      cards: [
-        {
-          key: 'create-project',
-          icon: plus,
-          img: require('assets/images/manage/create-project.svg'),
-          target: '/manage/projects/new',
-        },
-        {
-          key: 'manage-project',
-          icon: clipboardList,
-          img: require('assets/images/manage/manage-project.svg'),
-          target: '/manage/projects',
-        },
-        {
-          key: 'create-proposal',
-          icon: star,
-          img: require('assets/images/manage/create-proposal.svg'),
-          target: '/manage/proposals/new',
-        },
-      ],
-    };
-  },
-
   async fetch() {
     await this.$store.dispatch('account/softLoad');
   },
@@ -65,6 +40,34 @@ export default Vue.extend({
       loading: 'loading',
       projects: 'projects',
     }),
+    cards() {
+      return [
+        {
+          key: 'create-project',
+          icon: plus,
+          img: require('assets/images/manage/create-project.svg'),
+          target: '/manage/projects/new',
+          lockedText: 'coming soon',
+        },
+        {
+          key: 'manage-project',
+          icon: clipboardList,
+          img: require('assets/images/manage/manage-project.svg'),
+          target: '/manage/projects',
+          lockedText:
+            this.projects?.length > 0
+              ? null
+              : this.$i18n.t('manage.landing.unlock'),
+        },
+        {
+          key: 'create-proposal',
+          external: true,
+          icon: star,
+          img: require('assets/images/manage/create-proposal.svg'),
+          target: 'https://seed.oceandao.org',
+        },
+      ];
+    },
   },
 });
 </script>

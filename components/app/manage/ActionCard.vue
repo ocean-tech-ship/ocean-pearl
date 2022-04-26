@@ -21,7 +21,7 @@
       </div>
 
       <span class="hidden md:block pb-6">
-        {{ $t(lockedText) }}
+        {{ lockedText }}
       </span>
     </div>
 
@@ -67,6 +67,26 @@
         {{ $t('manage.landing.cards.' + card.key + '.subtitle') }}
       </p>
 
+      <app-button
+        v-if="expand"
+        as="link"
+        :to="card.target"
+        :icon="card.external ? icons.externalLinkAlt : null"
+        class="md:hidden btn-outline btn-primary"
+      >
+        {{ $t('manage.landing.cards.' + card.key + '.action') }}
+      </app-button>
+
+      <app-button
+        as="link"
+        :to="card.target"
+        :icon="card.external ? icons.externalLinkAlt : null"
+        class="hidden md:flex btn-outline btn-primary"
+      >
+        {{ $t('manage.landing.cards.' + card.key + '.action') }}
+      </app-button>
+
+      <!--
       <nuxt-link
         v-if="expand"
         :to="card.target"
@@ -81,20 +101,23 @@
       >
         {{ $t('manage.landing.cards.' + card.key + '.action') }}
       </nuxt-link>
+      -->
     </div>
   </app-card>
 </template>
 
 <script>
+import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import info from '@iconify/icons-la/info';
 import lock from '@iconify/icons-la/lock';
 import AppCard from '@/components/common/AppCard';
 import AppIcon from '@/components/common/AppIcon';
 import AppLoadingSpinner from '@/components/common/AppLoadingSpinner';
+import AppButton from '~/components/common/AppButton';
 
 export default {
   name: 'ActionCard',
-  components: { AppLoadingSpinner, AppIcon, AppCard },
+  components: { AppButton, AppLoadingSpinner, AppIcon, AppCard },
 
   props: {
     loading: {
@@ -116,6 +139,7 @@ export default {
       expand: false,
 
       icons: {
+        externalLinkAlt,
         info,
         lock,
       },

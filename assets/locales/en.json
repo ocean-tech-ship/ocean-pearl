@@ -374,7 +374,7 @@
       "cards": {
         "create-project": {
           "action": "create",
-          "subtitle": "Create a new project with which you can apply for grants. ",
+          "subtitle": "Create your personal Ocean Protocol related project and share updates.",
           "title": [
             "Create",
             "Project"
@@ -382,7 +382,7 @@
         },
         "create-proposal": {
           "action": "propose",
-          "subtitle": "Create a new proposal and submit it to the OceanDAO grants program.",
+          "subtitle": "Create a new proposal for the OceanDAO grants program.",
           "title": [
             "Create",
             "Proposal"
@@ -390,7 +390,7 @@
         },
         "manage-project": {
           "action": "manage",
-          "subtitle": "Manage your existing projects and their associated proposals.",
+          "subtitle": "Manage your personal and associated projects and publish updates.",
           "title": [
             "Management",
             "Panel"
