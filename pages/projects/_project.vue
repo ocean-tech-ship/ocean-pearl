@@ -7,9 +7,7 @@
 
     <div class="bg-grey py-8 md:py-16">
       <!-- design with gallery -->
-      <section-container
-        v-if="project.pictures && project.pictures.length > 0"
-      >
+      <section-container v-if="project.images && project.images.length > 0">
         <div class="grid gap-8 xl:grid-cols-2">
           <div>
             <project-single-description :project="project" />
@@ -44,10 +42,7 @@
         <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
           <div>
             <project-single-description :project="project" />
-            <project-single-socials
-              class="justify-start"
-              :project="project"
-            />
+            <project-single-socials class="justify-start" :project="project" />
             <project-single-team class="py-4" :project="project" />
           </div>
 
@@ -163,7 +158,9 @@ export default Vue.extend({
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${this.$config.rootURL}/projects/${this.beautifyProjectId(this.project)}`,
+          content: `${this.$config.rootURL}/projects/${this.beautifyProjectId(
+            this.project,
+          )}`,
         },
         {
           hid: 'twitter:title',
@@ -194,15 +191,17 @@ export default Vue.extend({
       link: [
         {
           rel: 'canonical',
-          href: `${this.$config.rootURL}/projects/${this.beautifyProjectId(this.project)}`,
+          href: `${this.$config.rootURL}/projects/${this.beautifyProjectId(
+            this.project,
+          )}`,
         },
-      ]
+      ],
     };
   },
 
   computed: {
     coverImage() {
-      return this.project?.pictures?[0]?.url : null;
+      return this.project?.pictures ? [0]?.url : null;
     },
   },
 
