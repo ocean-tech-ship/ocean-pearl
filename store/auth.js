@@ -54,7 +54,7 @@ export const actions = {
 
       // Login was successful
       commit('loggedInAddress', response.data.wallet);
-      await this.$router.push('/management');
+      await this.$router.push('/manage');
       await dispatch('wallet/disconnect', null, { root: true });
     } catch (error) {
       if (error.response && error.response.status === 401) {
@@ -90,10 +90,23 @@ export const actions = {
     commit('account/projects', null, { root: true });
   },
 
-  timeout({ dispatch }) {
-    dispatch('alert/warning', this.$i18n.t('manage.auth.timeout'), {
-      root: true,
-    });
+  async timeout({ commit, dispatch }) {
+    dispatch(
+      'alert/warning',
+      {
+        content: this.$i18n.t('manage.auth.timeout'),
+        autoFade: true,
+      },
+      {
+        root: true,
+      },
+    );
+
     this.$cookies.remove(SESSION_NAME);
+    await this.$router.push('/');
+
+    // Reset state
+    commit('account/wallet', null, { root: true });
+    commit('account/projects', null, { root: true });
   },
 };

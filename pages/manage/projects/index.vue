@@ -12,12 +12,15 @@ import createHead from '@/pages/manage/projects/index.head';
 export default Vue.extend({
   layout: 'project-manager',
 
-  middleware({ store, redirect }) {
-    // Redirect to project at first index
-    if (store.state.profile.projects.length > 0) {
-      redirect(`/manage/projects/${store.state.profile.projects[0].id}`);
-    }
-  },
+  middleware: [
+    'session',
+    ({ store, redirect }) => {
+      // Redirect to project at first index
+      if (store.state.account.projects.length > 0) {
+        redirect(`/manage/projects/${store.state.account.projects[0].id}`);
+      }
+    },
+  ],
 
   head() {
     return createHead(this.$config, this.$i18n);
@@ -25,9 +28,9 @@ export default Vue.extend({
 
   mounted() {
     // Redirect to project at first index
-    if (this.$store.state.profile.projects.length > 0) {
+    if (this.$store.state.account.projects.length > 0) {
       this.$router.push(
-        `/manage/projects/${this.$store.state.profile.projects[0].id}`,
+        `/manage/projects/${this.$store.state.account.projects[0].id}`,
       );
     }
   },

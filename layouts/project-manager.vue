@@ -76,7 +76,7 @@ export default Vue.extend({
   components: { NotificationBar, PrimaryFooter, ManageScaffold },
 
   async fetch() {
-    await this.$store.dispatch('profile/softLoad');
+    await this.$store.dispatch('account/softLoad');
   },
 
   head() {
@@ -86,7 +86,7 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapState('profile', {
+    ...mapState('account', {
       loading: 'loading',
       projects: 'projects',
     }),

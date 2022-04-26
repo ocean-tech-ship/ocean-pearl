@@ -71,6 +71,8 @@ export default Vue.extend({
 
   layout: 'creator',
 
+  middleware: 'session',
+
   data() {
     return {
       // TODO: We might need to invent a data list for all steps

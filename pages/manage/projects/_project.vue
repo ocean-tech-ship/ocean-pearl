@@ -77,7 +77,7 @@ import ProjectTeam from '@/components/app/manage/project/ProjectTeam';
 import ProjectSocials from '@/components/app/manage/project/ProjectSocials';
 import ProjectImages from '@/components/app/manage/project/ProjectImages';
 import ProjectTitle from '@/components/app/manage/project/ProjectTitle';
-import ProjectAdmins from '~/components/app/manage/project/ProjectAdmins';
+import ProjectAdmins from '@/components/app/manage/project/ProjectAdmins';
 
 export default Vue.extend({
   components: {
@@ -94,6 +94,8 @@ export default Vue.extend({
 
   layout: 'project-manager',
 
+  middleware: 'session',
+
   data() {
     return {
       changes: {},
@@ -105,7 +107,7 @@ export default Vue.extend({
   },
 
   computed: {
-    ...mapState('profile', {
+    ...mapState('account', {
       loading: 'loading',
       projects: 'projects',
     }),
@@ -147,7 +149,7 @@ export default Vue.extend({
       this.changes = changes;
     },
     async saveChanges() {
-      await this.$store.dispatch('profile/update', {
+      await this.$store.dispatch('account/update', {
         id: this.originProject.id,
         ...this.changes,
       });

@@ -29,6 +29,8 @@ import ActionCard from '@/components/app/manage/ActionCard';
 export default Vue.extend({
   components: { ActionCard, SectionContainer },
 
+  middleware: 'session',
+
   data() {
     return {
       cards: [
@@ -55,11 +57,11 @@ export default Vue.extend({
   },
 
   async fetch() {
-    await this.$store.dispatch('profile/softLoad');
+    await this.$store.dispatch('account/softLoad');
   },
 
   computed: {
-    ...mapState('profile', {
+    ...mapState('account', {
       loading: 'loading',
       projects: 'projects',
     }),
