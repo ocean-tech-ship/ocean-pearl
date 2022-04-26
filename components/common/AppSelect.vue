@@ -1,9 +1,9 @@
 <template>
-  <select class="select w-full">
+  <select :name="name" class="select w-full">
     <app-option
       v-for="option in options"
-      :key="option.id"
-      :value="option.id"
+      :key="option.value"
+      :value="option.value"
       :selected="option.selected"
       :disabled="option.disabled"
       :content="option.content"
@@ -20,6 +20,10 @@ export default {
   name: 'AppSelect',
   components: { AppOption },
   props: {
+    name: {
+      type: String,
+      default: '',
+    },
     options: {
       type: Array,
       default: null,
