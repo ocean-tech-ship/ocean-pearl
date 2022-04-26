@@ -52,7 +52,7 @@ import usersCog from '@iconify/icons-la/users-cog';
 import AppModal from '@/components/common/AppModal';
 import AppButton from '@/components/common/AppButton';
 import ProjectAdminsItem from '@/components/app/manage/project/ProjectAdminsItem';
-import AppTextInput from '~/components/common/AppTextInput';
+import AppTextInput from '@/components/common/AppTextInput';
 
 export default {
   name: 'ProjectAdmins',
