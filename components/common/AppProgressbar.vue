@@ -2,10 +2,9 @@
   <div class="relative">
     <div class="overflow-hidden h-2 text-xs flex drop-shadow-lg">
       <div
-        :style="{ width: `${delayedPercent}%` }"
+        :style="`--delayedPercent: ${delayedPercent}%`"
         :class="gradient"
-        style="transition: width 1s; transition-delay: 0.3s"
-        class="flex flex-col text-center whitespace-nowrap text-white justify-center bg-darkgrey rounded"
+        class="progress-bar flex flex-col text-center whitespace-nowrap text-white justify-center bg-darkgrey rounded"
       />
     </div>
   </div>
@@ -43,3 +42,20 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.progress-bar {
+  background-color: #e4c465;
+  animation: progressBar 2.5s ease-in-out;
+  animation-fill-mode: forwards;
+
+  @keyframes progressBar {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: var(--delayedPercent);
+    }
+  }
+}
+</style>
