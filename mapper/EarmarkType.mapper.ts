@@ -6,4 +6,5 @@ export const EarmarkTypeMap: { [key in EarmarkTypeEnum]: string } = {
   [EarmarkTypeEnum.NewEntrants]: 'New Entrants',
   [EarmarkTypeEnum.CoreTech]: 'Core Tech',
   [EarmarkTypeEnum.NewGeneral]: 'New General',
+  [EarmarkTypeEnum.SecondAndThirdGrant]: '2nd/3rd Grant',
 };
