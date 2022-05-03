@@ -6,19 +6,10 @@
         v-for="index in numberOfPictures"
         :key="index"
         type="button"
-        class="
-          w-3
-          h-3
-          mx-1 mx-2
-          rounded-full
-          transition
-          duration-300
-          ease-in-out
-          hover:scale-125
-        "
+        class="w-3 h-3 mx-1 mx-2 rounded-full transition duration-300 ease-in-out hover:scale-125"
         :class="{
           'bg-primary': currentIndex === index - 1,
-          'bg-third': currentIndex !== index - 1,
+          'bg-base-content': currentIndex !== index - 1,
         }"
         @click="goTo(index - 1)"
       />
@@ -35,13 +26,7 @@
         <div class="hidden lg:block">
           <button @click="previous()">
             <app-icon
-              class="
-                text-third
-                transition
-                duration-300
-                ease-in-out
-                hover:scale-125
-              "
+              class="text-base-content transition duration-300 ease-in-out hover:scale-125"
               :size="32"
               :data="icons.angleLeft"
             />
@@ -57,20 +42,7 @@
             <div v-for="i in [currentIndex]" :key="i">
               <img
                 v-touch:swipe="onSwipe"
-                class="
-                  absolute
-                  top-0
-                  left-0
-                  bottom-0
-                  right-0
-                  object-contain
-                  w-full
-                  h-64
-                  lg:h-80
-                  hover:opacity-70
-                  ease-in-out
-                  duration-300
-                "
+                class="absolute top-0 left-0 bottom-0 right-0 object-contain w-full h-64 lg:h-80 hover:opacity-70 ease-in-out duration-300"
                 :src="currentPicture"
                 alt=""
                 @click="showModal = true"
@@ -82,13 +54,7 @@
         <div class="hidden lg:block">
           <button @click="next()">
             <app-icon
-              class="
-                text-third
-                transition
-                duration-300
-                ease-in-out
-                hover:scale-125
-              "
+              class="text-third transition duration-300 ease-in-out hover:scale-125"
               :size="32"
               :data="icons.angleRight"
             />

@@ -1,0 +1,147 @@
+<template>
+  <nav
+    class="sticky top-0 w-full z-nav shadow bg-base-100 xl:relative xl:shadow-none"
+  >
+    <section-container class="navbar px-0 py-4 xl:py-16">
+      <!-- corporate (always) -->
+      <div class="navbar-start">
+        <nuxt-link
+          class="pl-0 btn btn-ghost normal-case text-lg text-primary"
+          to="/"
+        >
+          <img
+            class="pr-2"
+            src="@/assets/images/pearl-logo.svg"
+            :alt="$t('general.logo')"
+          />
+          {{ $t('navbar.logoText') }}
+        </nuxt-link>
+      </div>
+
+      <!-- main pages (>= xl) -->
+      <div class="navbar-center hidden xl:flex">
+        <ul class="menu menu-horizontal p-0 xl:space-x-8">
+          <li v-for="page in pages" :key="page.to">
+            <app-link
+              :to="page.to"
+              active-class="text-primary"
+              :store-name="page.storeName"
+            >
+              {{ page.title }}
+            </app-link>
+          </li>
+        </ul>
+      </div>
+
+      <!-- management / options (>= xl) -->
+      <div class="hidden xl:flex navbar-end">
+        <management-options />
+        <theme-switcher class="pl-4" />
+      </div>
+
+      <!-- mobile navbar (until xl) -->
+      <div class="xl:hidden navbar-end">
+        <app-dropdown
+          class="dropdown-end"
+          btn-class="btn btn-ghost btn-circle gap-0"
+        >
+          <template #icon>
+            <app-icon class="w-10 h-10 text-primary" :data="icons.bars" />
+          </template>
+          <app-dropdown-menu class="mt-4" :close-time-clicked="null">
+            <li>
+              <nuxt-link
+                to="/"
+                exact
+                active-class="active"
+                @click.native="removeFocus()"
+              >
+                {{ $t('navbar.navbarLinkDefault') }}
+              </nuxt-link>
+            </li>
+
+            <li v-for="page in pages" :key="page.to">
+              <app-link
+                :to="page.to"
+                link-class="w-full"
+                active-class="active"
+                :store-name="page.storeName"
+                @click.native="removeFocus()"
+              >
+                {{ page.title }}
+              </app-link>
+            </li>
+
+            <hr class="my-2 text-base-300" />
+
+            <li>
+              <management-options />
+            </li>
+
+            <management-links />
+
+            <theme-switcher />
+          </app-dropdown-menu>
+        </app-dropdown>
+      </div>
+    </section-container>
+  </nav>
+</template>
+
+<script>
+import bars from '@iconify/icons-la/bars';
+import SectionContainer from '@/components/common/SectionContainer';
+import ManagementOptions from '@/components/app/header/ManagementOptions';
+import ManagementLinks from '@/components/app/header/ManagementLinks';
+import AppIcon from '@/components/common/AppIcon';
+import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
+import AppLink from '~/components/common/AppLink';
+import AppDropdown from '~/components/common/AppDropdown';
+import AppDropdownMenu from '~/components/common/AppDropdownMenu';
+
+export default {
+  name: 'PrimaryNavbar',
+
+  components: {
+    AppLink,
+    AppDropdownMenu,
+    AppDropdown,
+    SectionContainer,
+    ManagementOptions,
+    ManagementLinks,
+    AppIcon,
+    ThemeSwitcher,
+  },
+
+  data() {
+    return {
+      icons: {
+        bars,
+      },
+      pages: [
+        {
+          title: this.$t('navbar.navbarProjects'),
+          to: '/projects',
+          storeName: 'projects-filter',
+        },
+        {
+          title: this.$t('navbar.navbarProposals'),
+          to: '/dao-proposals',
+          storeName: 'dao-proposals-filter',
+        },
+        {
+          title: this.$t('navbar.navbarVoting'),
+          to: '/dao-voting',
+          storeName: 'dao-voting-filter',
+        },
+      ],
+    };
+  },
+
+  methods: {
+    removeFocus() {
+      setTimeout(() => document.activeElement.blur(), 150);
+    },
+  },
+};
+</script>

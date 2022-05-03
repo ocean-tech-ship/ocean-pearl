@@ -57,7 +57,6 @@
             />
             <voting-countdown
               v-else
-              primary
               :leaderboard="$store.state['dao-voting-filter'].leaderboard"
             />
           </div>
@@ -69,7 +68,7 @@
 
         <div class="pt-4 pb-8 text-white">
           <div class="flex items-center">
-            <h4>{{ $t('leaderboard.funded') }}</h4>
+            <h4 class="text-primary-content">{{ $t('leaderboard.funded') }}</h4>
 
             <live-indicator
               v-if="
@@ -81,7 +80,7 @@
             />
           </div>
 
-          <p class="small-text">
+          <p class="small-text text-primary-content">
             {{ $t('leaderboard.guarantee[0]') }}
             <app-link
               to="https://airtable.com/shrd5s7HSXc2vC1iC"
@@ -115,7 +114,7 @@
                 $store.state['dao-voting-filter'].leaderboard.fundedProposals
                   .length === 0
               "
-              class="flex justify-center border border-white text-white text-center rounded px-2 py-1"
+              class="flex justify-center border border-base-200 text-base-200 text-center rounded px-2 py-1"
             >
               {{ $t('leaderboard.empty') }}
             </div>
@@ -154,10 +153,6 @@
       <h4 class="text-primary py-4">{{ $t('leaderboard.pending') }}</h4>
 
       <proposal-header
-        :display-needed-votes="
-          $store.state['dao-voting-filter'].leaderboard.status ===
-          statusEnum.VotingInProgress
-        "
         class="hidden lg:flex"
       />
 
@@ -214,7 +209,7 @@
       <div class="hidden lg:block">
         <div
           v-if="$store.state['dao-voting-filter'].pending"
-          class="rounded border border-primary divide-y divide-darkgrey"
+          class="rounded border border-primary divide-y divide-base-300"
         >
           <leaderboard-proposal-skeleton
             v-for="(i, index) in 5"
@@ -245,7 +240,7 @@
 
         <div
           v-else
-          class="rounded border border-primary divide-y divide-darkgrey"
+          class="rounded border border-primary divide-y divide-base-300"
         >
           <leaderboard-proposal
             v-for="(proposal, index) in $store.state['dao-voting-filter']
@@ -328,18 +323,6 @@ export default Vue.extend({
     LeaderboardPartiallyFundedList,
   },
 
-  // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query)[0] === 'current') {
-      this.resetState().then(() =>
-        this.fetchLeaderboard().then((query) =>
-          replaceQueryParams(this, query),
-        ),
-      );
-    }
-    next();
-  },
-
   // set exception pages when page is left
   beforeRouteLeave(_to, _from, next) {
     this.clearFetchInterval();
@@ -395,7 +378,7 @@ export default Vue.extend({
       return this.$store.dispatch('dao-voting-filter/setFilter', payload);
     },
     fetchLeaderboard() {
-      return this.$store.dispatch('dao-voting-filter/fetchLeaderboard');
+      return this.$store.dispatch('dao-voting-filter/fetchAll');
     },
     resetAndRefetch() {
       this.resetState().then(() =>

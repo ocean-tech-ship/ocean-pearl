@@ -6,7 +6,7 @@
       <app-link-card
         :prefetch="false"
         :to="`/projects/${beautifyProjectId(project)}`"
-        card-class="card shadow rounded p-2 pb-8 text-center h-full"
+        card-class="card bg-base-200 shadow rounded p-2 pb-8 text-center h-full"
       >
         <div class="mt-3">
           <app-logo

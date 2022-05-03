@@ -1,12 +1,6 @@
 <template>
-  <div class="bg-white flex lg:divide-x lg:divide-darkgrey">
-    <div
-      :class="{
-        'w-full md:w-4/6 lg:w-1/2': primary,
-        'w-full md:w-4/6 lg:w-2/5': !primary,
-      }"
-      class="flex p-2"
-    >
+  <div class="bg-base-200 flex lg:divide-x lg:divide-base-300">
+    <div class="w-full md:w-4/6 lg:w-1/2 flex p-2">
       <div class="flex-1 space-y-1">
         <div class="flex">
           <!-- logo -->
@@ -52,10 +46,11 @@
             <div v-if="primary" class="space-y-1 hidden lg:block">
               <app-progressbar
                 :percent="calcPercent(maxVotes, proposal.yesVotes)"
+                gradient="bg-gradient-primary-variant"
               />
               <app-progressbar
-                secondary
                 :percent="calcPercent(maxVotes, proposal.noVotes)"
+                gradient="bg-gradient-accent"
               />
             </div>
 
@@ -76,50 +71,12 @@
     <!-- votes (from lg) -->
     <proposal-votes class="hidden lg:flex" :proposal="proposal" />
 
-    <!-- votes needed -->
-    <div
-      v-if="!primary"
-      class="
-        hidden
-        lg:flex
-        flex-row
-        justify-center
-        flex-grow
-        w-40
-        sm:w-44
-        mx-auto
-        px-2
-      "
-    >
-      <div class="flex flex-col text-right justify-center">
-        <span class="inline-block w-26">{{
-          addPunctuation(proposal.neededVotes.fullyFunded)
-        }}</span>
-        <span
-          class="inline-block w-26"
-          v-if="proposal.neededVotes.partiallyFunded"
-          >{{ addPunctuation(proposal.neededVotes.partiallyFunded) }}</span
-        >
-      </div>
-      <div class="flex flex-col text-right justify-center">
-        <span class="inline-block text-left w-14">&nbsp;{{
-          $t('leaderboard.proposal.votes.neededVotes.fullyFunded')
-        }}</span>
-        <span
-          class="inline-block text-left w-14"
-          v-if="proposal.neededVotes.partiallyFunded"
-          >&nbsp;{{
-            $t('leaderboard.proposal.votes.neededVotes.partiallyFunded')
-          }}</span
-        >
-      </div>
-    </div>
-
     <!-- amount requested / received -->
     <proposal-funding
       class="hidden lg:flex"
-      :requestedFunding="proposal.requestedFunding"
-      :receivedFunding="proposal.receivedFunding"
+      :requested-funding="proposal.requestedFunding"
+      :received-funding="proposal.receivedFunding"
+      :minimum-requested-funding="proposal.minimumRequestedFunding"
       :payment-option="paymentOption"
     />
 

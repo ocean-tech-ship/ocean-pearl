@@ -1,7 +1,7 @@
 <template>
   <div class="grid gap-4 lg:grid-cols-2 xl:gap-8">
     <!-- Funding Round -->
-    <div class="shadow rounded p-4">
+    <div class="shadow bg-base-200 rounded p-4">
       <div class="flex items-center">
         <app-icon
           class="mr-2 text-primary"
@@ -24,13 +24,9 @@
     </div>
 
     <!-- Requested Funding -->
-    <div class="shadow rounded p-4">
+    <div class="shadow bg-base-200 rounded p-4">
       <div class="flex items-center">
-        <app-icon
-          class="mr-2 text-primary"
-          :size="20"
-          :data="icons.coins"
-        />
+        <app-icon class="mr-2 text-primary" :size="20" :data="icons.coins" />
 
         <p class="small-text text-primary">
           {{ $t('project.proposal.requested') }}
@@ -38,19 +34,30 @@
       </div>
 
       <p
-        v-if="newestProposal.requestedFunding.usd && newestProposal.requestedFunding.usd > 0"
+        v-if="
+          newestProposal.requestedFunding.usd &&
+          newestProposal.requestedFunding.usd > 0
+        "
         class="small-text"
       >
-        {{ $t('general.usd', { usd: addPunctuation(newestProposal.requestedFunding.usd) }) }}
+        {{
+          $t('general.usd', {
+            usd: addPunctuation(newestProposal.requestedFunding.usd),
+          })
+        }}
       </p>
 
       <p v-else class="small-text">
-        {{ $t('general.ocean', { ocean: addPunctuation(newestProposal.requestedFunding.ocean) }) }}
+        {{
+          $t('general.ocean', {
+            ocean: addPunctuation(newestProposal.requestedFunding.ocean),
+          })
+        }}
       </p>
     </div>
 
     <!-- Project Wallet Address -->
-    <div class="shadow rounded p-4 lg:col-span-2">
+    <div class="shadow bg-base-200 rounded p-4 lg:col-span-2">
       <p class="small-text text-primary">
         {{ $t('project.proposal.wallet.title') }}
       </p>
@@ -65,7 +72,9 @@
 
       <!-- control action -->
       <div
-        v-if="project.associatedAddresses && project.associatedAddresses.length > 1"
+        v-if="
+          project.associatedAddresses && project.associatedAddresses.length > 1
+        "
         class="flex justify-center"
       >
         <button
@@ -93,13 +102,16 @@
 
     <!-- vote action -->
     <div class="lg:col-span-2">
-      <app-link :to="voteUrl" :data-analytics="dataAnalytics">
-        <app-button-style
-          class="w-full text-center"
-          :icon="icons.vote"
-          :text="$t('project.proposal.vote')"
-        />
-      </app-link>
+      <app-button
+        as="link"
+        :to="voteUrl"
+        :data-analytics="dataAnalytics"
+        class="btn-gradient-primary-variant border-0 w-full"
+        type="label"
+        :icon="icons.vote"
+      >
+        {{ $t('project.proposal.vote') }}
+      </app-button>
     </div>
   </div>
 </template>
@@ -110,19 +122,17 @@ import coins from '@iconify/icons-la/coins';
 import vote from '@iconify/icons-mdi/vote-outline';
 import menuDown from '@iconify/icons-mdi/menu-down';
 import Numbers from '@/mixins/Numbers';
-import AppLink from '@/components/common/AppLink.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
 import WalletAddress from '@/components/common/WalletAddress.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'ProjectSingleDaoProposalMetrics',
 
   components: {
+    AppButton,
     AppIcon,
     WalletAddress,
-    AppLink,
-    AppButtonStyle,
   },
 
   mixins: [Numbers],

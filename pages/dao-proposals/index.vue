@@ -2,14 +2,20 @@
   <div class="min-h-screen">
     <dao-proposals-header />
 
-    <section-container v-if="$store.state['dao-proposals-filter'].error">
+    <section-container
+      v-if="$store.state['dao-proposals-filter'].error"
+      class="pb-4 xl:pb-16"
+    >
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">
         {{ $t($store.state['dao-proposals-filter'].error) }}
       </p>
     </section-container>
 
-    <section-container v-else-if="$store.state['dao-proposals-filter'].pending">
+    <section-container
+      v-else-if="$store.state['dao-proposals-filter'].pending"
+      class="pb-4 xl:pb-16"
+    >
       <app-skeleton-card-list
         custom-class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
         :quantity="6"
@@ -41,6 +47,7 @@
 
       <section-container
         v-if="$store.state['dao-proposals-filter'].daoProposals.length"
+        class="pb-4 xl:pb-16"
       >
         <dao-proposals-list
           :dao-proposals="$store.state['dao-proposals-filter'].daoProposals"
@@ -53,7 +60,7 @@
         />
       </section-container>
 
-      <section-container v-else>
+      <section-container v-else class="pb-4 xl:pb-16">
         <app-response-with-search
           :no-search-text="{
             headingMain: $t(
@@ -110,18 +117,6 @@ export default Vue.extend({
     DaoProposalsSkeletonCard,
     AppSkeletonCardList,
     AppPagination,
-  },
-
-  // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query)[0] === 'first') {
-      this.resetState().then(() =>
-        this.fetchMetricsAndProposals().then((query) =>
-          replaceQueryParams(this, query),
-        ),
-      );
-    }
-    next();
   },
 
   // set exception pages where state should not be reset if navigated to
@@ -219,9 +214,7 @@ export default Vue.extend({
       return this.$store.dispatch('dao-proposals-filter/fetchDaoProposals');
     },
     fetchMetricsAndProposals() {
-      return this.$store.dispatch(
-        'dao-proposals-filter/fetchMetricsAndProposals',
-      );
+      return this.$store.dispatch('dao-proposals-filter/fetchAll');
     },
   },
 });

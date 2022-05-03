@@ -1,22 +1,28 @@
 <template>
   <div>
-    <landing-hero-section />
+    <section-container>
+      <landing-hero-section class="pb-4 xl:pb-16" />
+    </section-container>
 
-    <landingSectionContainer
-      v-if="$fetchState.error || error"
-      class="h-screen my-32"
-    >
-      <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
-      <p class="small-text">{{ $t(error) }}</p>
-    </landingSectionContainer>
+    <app-primary-gradient-background>
+      <section-container>
+        <landing-pearl-dao class="my-32 py-12" :metrics="metrics" />
+      </section-container>
+    </app-primary-gradient-background>
 
-    <div v-else>
-      <landing-pearl-dao :metrics="metrics" />
+    <section-container class="space-y-32">
       <landing-dao-proposals :dao-proposals="daoProposals" />
       <landing-pearl-space-section />
       <landing-latest-projects :projects="latestProjects" />
-      <landing-connect-social />
-    </div>
+    </section-container>
+
+    <app-primary-gradient-background>
+      <app-waves-background>
+        <section-container>
+          <landing-connect-social class="mt-32 py-12" />
+        </section-container>
+      </app-waves-background>
+    </app-primary-gradient-background>
   </div>
 </template>
 
@@ -27,24 +33,27 @@ import LandingHeroSection from '@/components/app/landing/LandingHeroSection.vue'
 import LandingDaoProposals from '@/components/app/landing/LandingDaoProposals.vue';
 import LandingPearlSpaceSection from '@/components/app/landing/LandingPearlSpaceSection.vue';
 import LandingLatestProjects from '@/components/app/landing/LandingLatestProjects.vue';
-import LandingSectionContainer from '@/components/app/landing/LandingSectionContainer.vue';
 import LandingConnectSocial from '@/components/app/landing/LandingConnectSocial.vue';
-import LandingPearlDao from '~/components/app/landing/LandingPearlDao.vue';
+import LandingPearlDao from '@/components/app/landing/LandingPearlDao.vue';
+import SectionContainer from '@/components/common/SectionContainer';
+import AppPrimaryGradientBackground from '@/components/common/AppPrimaryGradientBackground';
+import AppWavesBackground from '@/components/common/AppWavesBackground';
 
 export default Vue.extend({
   components: {
+    AppWavesBackground,
+    AppPrimaryGradientBackground,
+    SectionContainer,
     LandingHeroSection,
     LandingDaoProposals,
     LandingLatestProjects,
     LandingPearlSpaceSection,
     LandingPearlDao,
     LandingConnectSocial,
-    LandingSectionContainer,
   },
 
   data() {
     return {
-      error: null,
       latestProjects: null,
       daoProposals: null,
       metrics: null,
@@ -54,23 +63,13 @@ export default Vue.extend({
   async fetch() {
     try {
       const indexResponse = await getLandingData(this.$axios);
-
-      if (indexResponse.status === 204) {
-        this.error = 'general.error.unknown';
-        this.latestProjects = [];
-        this.daoProposals = [];
-      }
-
       const { data } = indexResponse;
 
-      this.error = null;
       this.latestProjects = data.latestProjects;
       this.daoProposals = data.daoProposals;
       this.metrics = data.metrics;
     } catch (error) {
-      this.error = 'general.error.retry';
-      this.latestProjects = [];
-      this.daoProposals = [];
+      await this.$store.dispatch('alert/error', 'general.error.retry');
     }
   },
 
@@ -83,10 +82,8 @@ export default Vue.extend({
           content: this.$config.rootURL,
         },
       ],
-      link: [
-        { rel: 'canonical', href: this.$config.rootURL },
-      ],
-    }
+      link: [{ rel: 'canonical', href: this.$config.rootURL }],
+    };
   },
 });
 </script>

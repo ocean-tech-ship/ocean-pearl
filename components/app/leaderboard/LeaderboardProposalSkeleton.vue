@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white flex lg:divide-x lg:divide-darkgrey">
+  <div class="bg-base-200 flex lg:divide-x lg:divide-base-300">
     <div
       :class="{
         'w-full md:w-4/6 lg:w-1/2': primary,
@@ -91,14 +91,6 @@
         <div class="w-1/2 h-3 rounded bg-primary opacity-70 animate-pulse" />
         <div class="w-1/2 h-3 rounded bg-primary opacity-70 animate-pulse" />
       </div>
-    </div>
-
-    <!-- votes needed (non primary!) -->
-    <div
-      v-if="!primary"
-      class="hidden w-28 lg:flex items-center justify-center flex-grow"
-    >
-      <div class="w-2/5 h-3 rounded bg-primary opacity-70" />
     </div>
 
     <!-- amount requested / received -->

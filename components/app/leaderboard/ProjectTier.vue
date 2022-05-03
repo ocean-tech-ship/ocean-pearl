@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{ 'bg-primary bg-opacity-10': background }"
+    :class="{ 'bg-secondary bg-opacity-10': background }"
     class="
       relative
       rounded

@@ -1,13 +1,19 @@
 <template>
-  <div class="min-h-screen">
+  <div>
     <projects-header />
 
-    <section-container v-if="$store.state['projects-filter'].error">
+    <section-container
+      v-if="$store.state['projects-filter'].error"
+      class="pb-4 xl:pb-16"
+    >
       <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
       <p class="small-text">{{ $t($store.state['projects-filter'].error) }}</p>
     </section-container>
 
-    <section-container v-else-if="$store.state['projects-filter'].pending">
+    <section-container
+      v-else-if="$store.state['projects-filter'].pending"
+      class="pb-4 xl:pb-16"
+    >
       <app-skeleton-card-list>
         <projects-skeleton-card />
       </app-skeleton-card-list>
@@ -22,7 +28,10 @@
         />
       </section-container>
 
-      <section-container v-if="$store.state['projects-filter'].projects.length">
+      <section-container
+        v-if="$store.state['projects-filter'].projects.length"
+        class="pb-4 xl:pb-16"
+      >
         <projects-list :projects="$store.state['projects-filter'].projects" />
         <app-pagination
           v-if="$store.state['projects-filter'].pagination"
@@ -32,7 +41,7 @@
         />
       </section-container>
 
-      <section-container v-else>
+      <section-container v-else class="pb-4 xl:pb-16">
         <app-response-with-search
           :no-search-text="{
             headingMain: $t('projects.filterResponse.noSearch.heading.main'),
@@ -83,16 +92,6 @@ export default Vue.extend({
     AppResponseWithSearch,
     AppSkeletonCardList,
     AppPagination,
-  },
-
-  // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query)[0] === 'first') {
-      this.resetState().then(() =>
-        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
-      );
-    }
-    next();
   },
 
   // set exception pages where state should not be reset if navigated to
@@ -180,7 +179,7 @@ export default Vue.extend({
       return this.$store.dispatch('projects-filter/setFilter', payload);
     },
     fetchProjects() {
-      return this.$store.dispatch('projects-filter/fetchProjects');
+      return this.$store.dispatch('projects-filter/fetchAll');
     },
   },
 });

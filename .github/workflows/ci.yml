@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.2
 
       - name: Setup node env 🏗
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.1
         with:
           node-version: ${{ matrix.node }}
           cache: 'yarn'
@@ -41,7 +41,7 @@ jobs:
         run: yarn test:ci
 
       - name: Upload test artifacts 🦴
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: success() || failure()
         with:
           name: test-results-${{ matrix.os }}
@@ -66,10 +66,10 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.2
 
       - name: Setup node env 🏗
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.1
         with:
           node-version: ${{ matrix.node }}
           cache: 'yarn'

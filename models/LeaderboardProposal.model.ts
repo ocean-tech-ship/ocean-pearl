@@ -22,6 +22,7 @@ export interface LeaderboardProject {
     project: LeaderboardProject;
     requestedFunding: number;
     receivedFunding: number;
+    minimumRequestedFunding: number;
     grantPoolShare: GrantPoolShare;
     yesVotes: number;
     noVotes: number;

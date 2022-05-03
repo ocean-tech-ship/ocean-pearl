@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'bg-complementary text-third bg-opacity-70 hover:opacity-100': isEarmark,
+      'bg-accent text-accent-content bg-opacity-70 hover:opacity-100': isEarmark,
     }"
     class="
       rounded

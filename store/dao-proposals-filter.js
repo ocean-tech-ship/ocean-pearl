@@ -133,9 +133,14 @@ export const actions = {
     }
   },
 
-  async fetchMetricsAndProposals({ commit, state }) {
+  async fetchAll({ commit, state }) {
     // reset
     commit('error', null);
+
+    // check if search was used
+    state.filter.search
+      ? commit('searchUsed', true)
+      : commit('searchUsed', false);
 
     // prepare query object
     const query = { ...state.filter };

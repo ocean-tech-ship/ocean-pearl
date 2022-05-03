@@ -7,28 +7,28 @@
     <p class="small-text">{{ project.description }}</p>
 
     <div v-if="!!oceanProtocolPortUrl" class="mt-4">
-      <app-link :to="oceanProtocolPortUrl">
-        <app-button-style
-          class="text-center"
-          :icon="icons.readme"
-          :text="$t('project.readFull')"
-        />
-      </app-link>
+      <app-button
+        as="link"
+        :to="oceanProtocolPortUrl"
+        class="btn-gradient-primary-variant border-0"
+        type="label"
+        :icon="icons.readme"
+      >
+        {{ $t('project.readFull') }}
+      </app-button>
     </div>
   </div>
 </template>
 
 <script>
 import readme from '@iconify/icons-la/readme';
-import AppLink from '@/components/common/AppLink.vue';
-import AppButtonStyle from '@/components/common/AppButtonStyle.vue';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'ProjectSingleDescription',
 
   components: {
-    AppLink,
-    AppButtonStyle,
+    AppButton,
   },
 
   props: {

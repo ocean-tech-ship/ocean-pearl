@@ -3,17 +3,9 @@
     <div class="overflow-hidden h-2 text-xs flex drop-shadow-lg">
       <div
         :style="{ width: `${delayedPercent}%` }"
-        :class="{ 'background-primary': !secondary }"
+        :class="gradient"
         style="transition: width 1s; transition-delay: 0.3s"
-        class="
-          flex flex-col
-          text-center
-          whitespace-nowrap
-          text-white
-          justify-center
-          bg-darkgrey
-          rounded
-        "
+        class="flex flex-col text-center whitespace-nowrap text-white justify-center bg-darkgrey rounded"
       />
     </div>
   </div>
@@ -28,11 +20,9 @@ export default {
       type: Number,
       required: true,
     },
-
-    secondary: {
-      type: Boolean,
-      required: false,
-      default: false,
+    gradient: {
+      type: String,
+      required: true,
     },
   },
 
@@ -53,9 +43,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.background-primary {
-  background: linear-gradient(to bottom right, #7b3070 5%, #d45b8d);
-}
-</style>

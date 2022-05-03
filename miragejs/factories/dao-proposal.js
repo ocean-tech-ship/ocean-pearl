@@ -11,7 +11,7 @@ export default {
     yesVotes: 40000,
     noVotes: 3000,
     requestedFunding: {
-      usd:24000,
+      usd: 24000,
       ocean: 24000,
     },
     receivedFunding: {

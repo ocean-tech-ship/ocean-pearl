@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow rounded p-4">
+  <div class="shadow bg-base-200 rounded p-4">
     <p class="small-text text-primary">
       {{ $t('project.proposal.title.plural') }}
       <span class="text-third">
@@ -50,7 +50,9 @@
               "
             >
               <td class="text-left p-4 py-3 pl-4 flex">
-                <div class="rounded border border-darkgrey w-10 text-center py-1 px-2">
+                <div
+                  class="rounded border border-darkgrey w-10 text-center py-1 px-2"
+                >
                   <span>{{ proposal.fundingRound.round }}</span>
                 </div>
               </td>
@@ -78,11 +80,7 @@
                 >
                   {{ addPunctuation(proposal.receivedFunding.ocean) }}
 
-                  <img
-                    class="self-start pl-1"
-                    src="@/assets/images/icons/ocean.svg"
-                    alt="$OCEAN"
-                  />
+                  <svg-ocean class="pl-1 w-6" />
                 </div>
 
                 <span v-else>-</span>
@@ -120,11 +118,13 @@ import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import Numbers from '@/mixins/Numbers';
 import AppLink from '@/components/common/AppLink.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
+import SvgOcean from '@/components/common/SvgOcean';
 
 export default {
   name: 'ProjectSingleDaoProposalHistory',
 
   components: {
+    SvgOcean,
     AppIcon,
     AppLink,
   },
