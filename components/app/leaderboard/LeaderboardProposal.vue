@@ -1,12 +1,6 @@
 <template>
   <div class="bg-base-200 flex lg:divide-x lg:divide-base-300">
-    <div
-      :class="{
-        'w-full md:w-4/6 lg:w-1/2': primary,
-        'w-full md:w-4/6 lg:w-2/5': !primary,
-      }"
-      class="flex p-2"
-    >
+    <div class="w-full md:w-4/6 lg:w-1/2 flex p-2">
       <div class="flex-1 space-y-1">
         <div class="flex">
           <!-- logo -->
@@ -76,35 +70,6 @@
 
     <!-- votes (from lg) -->
     <proposal-votes class="hidden lg:flex" :proposal="proposal" />
-
-    <!-- votes needed -->
-    <div
-      v-if="!primary"
-      class="hidden lg:flex flex-row justify-center flex-grow w-40 sm:w-44 mx-auto px-2"
-    >
-      <div class="flex flex-col text-right justify-center">
-        <span class="inline-block w-26">{{
-          addPunctuation(proposal.neededVotes.fullyFunded)
-        }}</span>
-        <span
-          v-if="proposal.neededVotes.partiallyFunded"
-          class="inline-block w-26"
-          >{{ addPunctuation(proposal.neededVotes.partiallyFunded) }}</span
-        >
-      </div>
-      <div class="flex flex-col text-right justify-center">
-        <span class="inline-block text-left w-14">
-          &nbsp;{{ $t('leaderboard.proposal.votes.neededVotes.fullyFunded') }}
-        </span>
-        <span
-          v-if="proposal.neededVotes.partiallyFunded"
-          class="inline-block text-left w-14"
-          >&nbsp;{{
-            $t('leaderboard.proposal.votes.neededVotes.partiallyFunded')
-          }}</span
-        >
-      </div>
-    </div>
 
     <!-- amount requested / received -->
     <proposal-funding

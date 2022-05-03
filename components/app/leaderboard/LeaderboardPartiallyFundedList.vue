@@ -2,7 +2,6 @@
   <section-container>
     <h4 class="text-primary py-4">{{ $t('leaderboard.partiallyFunded') }}</h4>
     <proposal-header
-      :displayNeededVotes="leaderboard.status === roundStatusEnum.VotingInProgress"
       class="hidden lg:flex"
     />
     <div class="space-y-2 lg:space-y-4">
