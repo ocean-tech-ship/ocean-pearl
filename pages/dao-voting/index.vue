@@ -153,10 +153,6 @@
       <h4 class="text-primary py-4">{{ $t('leaderboard.pending') }}</h4>
 
       <proposal-header
-        :display-needed-votes="
-          $store.state['dao-voting-filter'].leaderboard.status ===
-          statusEnum.VotingInProgress
-        "
         class="hidden lg:flex"
       />
 
