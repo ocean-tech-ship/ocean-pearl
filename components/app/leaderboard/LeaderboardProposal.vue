@@ -76,6 +76,7 @@
       class="hidden lg:flex"
       :requested-funding="proposal.requestedFunding"
       :received-funding="proposal.receivedFunding"
+      :minimum-requested-funding="proposal.minimumRequestedFunding"
       :payment-option="paymentOption"
     />
 
