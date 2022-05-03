@@ -27,6 +27,7 @@ export default {
   methods: {
     handleMenuClick() {
       if (typeof this.closeTimeClicked === 'number') {
+        console.log('close menu');
         setTimeout(() => {
           this.$parent.$data.isActive = !this.$parent.$data.isActive;
         }, this.closeTimeClicked);
