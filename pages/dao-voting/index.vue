@@ -23,6 +23,12 @@
         v-else
         :leaderboard="$store.state['dao-voting-filter'].leaderboard"
       />
+
+      <grant-pools
+        class="pt-4"
+        :loading="$store.state['dao-voting-filter'].pending"
+        :leaderboard="$store.state['dao-voting-filter'].leaderboard"
+      />
     </section-container>
 
     <app-gradient-background>
@@ -152,9 +158,7 @@
     <section-container class="pb-5">
       <h4 class="text-primary py-4">{{ $t('leaderboard.pending') }}</h4>
 
-      <proposal-header
-        class="hidden lg:flex"
-      />
+      <proposal-header class="hidden lg:flex" />
 
       <!-- mobile variant -->
       <div class="lg:hidden space-y-2">
@@ -301,9 +305,11 @@ import LeaderboardFilter from '~/components/app/leaderboard/LeaderboardFilter';
 import replaceQueryParams, {
   processQueryToFilter,
 } from '~/helpers/windowHistory';
+import GrantPools from '~/components/app/leaderboard/GrantPools';
 
 export default Vue.extend({
   components: {
+    GrantPools,
     LeaderboardFilter,
     FloatingVoteAction,
     AppLink,
