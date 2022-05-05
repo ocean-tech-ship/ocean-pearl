@@ -11,6 +11,7 @@ const initialState = {
   currentRound: 0,
   filter: {
     round: 0,
+    pools: [],
   },
 };
 
@@ -42,8 +43,7 @@ export const mutations = {
   },
 
   filter(state, payload) {
-    const newFilter = { ...state.filter, ...payload };
-    state.filter = newFilter;
+    state.filter = { ...state.filter, ...payload };
   },
 };
 
@@ -63,11 +63,11 @@ export const actions = {
   async fetchAll({ commit, state }) {
     // reset
     commit('error', null);
-    commit('pending', true);
 
     // prepare query object
     const query = { ...state.filter };
     if (query.round === 0) delete query.round;
+    delete query.grantPools; // Backend does not need to take care about filtered pools
 
     try {
       const leaderBoardResponse = await getLeaderboard(this.$axios, query);
@@ -88,5 +88,18 @@ export const actions = {
       commit('error', 'general.error.retry');
       commit('leaderboard', {});
     }
+  },
+
+  filterPool({ commit, state }, payload) {
+    const poolFilter = [...state.filter.pools];
+    const index = poolFilter.findIndex((pool) => pool === payload);
+
+    if (index > -1) {
+      poolFilter.splice(index, 1);
+    } else {
+      poolFilter.push(payload);
+    }
+
+    commit('filter', { pools: poolFilter });
   },
 };
