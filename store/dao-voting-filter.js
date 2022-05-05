@@ -63,6 +63,7 @@ export const actions = {
   async fetchAll({ commit, state }) {
     // reset
     commit('error', null);
+    commit('pending', true);
 
     // prepare query object
     const query = { ...state.filter };
