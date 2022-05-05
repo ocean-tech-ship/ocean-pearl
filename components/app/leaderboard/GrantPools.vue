@@ -39,24 +39,45 @@
       <div
         v-for="pool in pools"
         :key="pool.type"
-        class="shadow rounded bg-base-200 p-2"
+        :class="{ 'border-accent': filter.pools.includes(pool.type) }"
+        class="shadow rounded bg-base-200 p-2 flex items-center justify-between border border-base-200"
       >
-        <p class="text-primary small-text">
-          {{ grantPoolMapper[pool.type] }}
-        </p>
-        <span>{{ getPoolFunding(pool) }}</span>
+        <div>
+          <p class="text-primary small-text">
+            {{ grantPoolMapper[pool.type] }}
+          </p>
+          <span>{{ getPoolFunding(pool) }}</span>
+        </div>
+
+        <button
+          type="button"
+          class="btn btn-sm btn-circle btn-ghost"
+          @click="filterPool(pool.type)"
+        >
+          <app-icon
+            :data="
+              filter.pools.includes(pool.type)
+                ? icons.filterCheck
+                : icons.filter
+            "
+          />
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import caretDown from '@iconify/icons-la/caret-down';
 import caretUp from '@iconify/icons-la/caret-up';
-import { GrantPoolTypeMap } from '@/mapper/GrantPoolType.mapper';
+import filter from '@iconify/icons-mdi/filter';
+import filterCheck from '@iconify/icons-mdi/filter-check';
 import Numbers from '@/mixins/Numbers';
-import PaymentOptionEnum from '~/enums/PaymentOption.enum';
-import AppIcon from '~/components/common/AppIcon';
+import AppIcon from '@/components/common/AppIcon';
+import { GrantPoolTypeMap } from '@/mapper/GrantPoolType.mapper';
+import PaymentOptionEnum from '@/enums/PaymentOption.enum';
+import { replaceQueryParams } from '@/helpers/windowHistory';
 
 export default {
   name: 'GrantPools',
@@ -80,6 +101,8 @@ export default {
       icons: {
         caretUp,
         caretDown,
+        filter,
+        filterCheck,
       },
       expand: false,
       grantPoolMapper: GrantPoolTypeMap,
@@ -87,6 +110,9 @@ export default {
   },
 
   computed: {
+    ...mapState('dao-voting-filter', {
+      filter: 'filter',
+    }),
     pools() {
       const rawPools = this.$props.leaderboard.grantPools;
       return Object.keys(rawPools)
@@ -112,6 +138,11 @@ export default {
       return this.$props.leaderboard.paymentOption === PaymentOptionEnum.Ocean
         ? this.$i18n.t('general.ocean', { ocean: funding })
         : this.$i18n.t('general.usd', { usd: funding });
+    },
+
+    filterPool(pool) {
+      this.$store.dispatch('dao-voting-filter/filterPool', pool);
+      replaceQueryParams(this, this.filter);
     },
   },
 };
