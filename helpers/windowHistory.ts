@@ -1,9 +1,25 @@
 import CategoryEnum from '@/enums/Category.enum';
+import GrantPoolTypeEnum from '~/enums/GrantPoolType.enum';
 
-export default function replaceQueryParams(
+const SPLITERATOR = ',';
+
+export function replaceQueryParams(
   _this: Record<string, any>,
-  query: object,
+  query: any,
 ): void {
+  query = { ...query };
+  if (query.round === 0) {
+    delete query.round;
+  }
+
+  if (query.pools) {
+    if (query.pools.length === 0) {
+      delete query.pools;
+    } else {
+      query.pools = query.pools.join(SPLITERATOR);
+    }
+  }
+
   _this.$router.push({
     path: _this.$route.path,
     query,
@@ -55,9 +71,17 @@ export function processQueryToFilter(
         case 'search':
           newFilter.search =
             paramValue || paramValue === '' ? paramValue : filter.search;
+          break;
+        case 'pools':
+          newFilter.pools =
+            paramValue
+              .split(SPLITERATOR)
+              .filter((pool: any) =>
+                Object.values(GrantPoolTypeEnum).includes(pool),
+              ) ?? filter.pools;
+          break;
       }
     }
   });
-
   return newFilter;
 }
