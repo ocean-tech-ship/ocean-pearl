@@ -22,7 +22,7 @@
       class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4"
     >
       <div
-        v-for="i in 5"
+        v-for="i in SKELETON_LOADER_COUNT"
         :key="i"
         class="shadow rounded bg-base-200 p-2 space-y-3 py-4"
       >
@@ -76,6 +76,7 @@ export default {
 
   data() {
     return {
+      SKELETON_LOADER_COUNT: 5,
       icons: {
         caretUp,
         caretDown,
