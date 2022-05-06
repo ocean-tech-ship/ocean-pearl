@@ -99,8 +99,9 @@ import SectionContainer from '@/components/common/SectionContainer';
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppPagination from '@/components/common/AppPagination.vue';
-import replaceQueryParams, {
+import {
   processQueryToFilter,
+  replaceQueryParams,
 } from '@/helpers/windowHistory';
 
 export default Vue.extend({

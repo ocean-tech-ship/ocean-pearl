@@ -32,10 +32,10 @@
               >
                 <span class="line-clamp-1 break-all">
                   <span
-                    :class="{ 'text-primary': primary && startIndex === 0 }"
+                    :class="{ 'text-primary': primary && proposal.index === 0 }"
                     class="font-bold pr-1"
                   >
-                    {{ `#${startIndex + 1}` }}
+                    {{ `#${proposal.index + 1}` }}
                   </span>
                   {{ proposal.title }}
                 </span>
@@ -102,7 +102,7 @@ import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';
 import AppLink from '@/components/common/AppLink.vue';
 import ProposalFunding from '@/components/app/leaderboard/ProposalFunding.vue';
 import PaymentOptionEnum from '@/enums/PaymentOption.enum';
-import MobileProposalFigures from '~/components/app/leaderboard/MobileProposalFigures.vue';
+import MobileProposalFigures from '@/components/app/leaderboard/MobileProposalFigures.vue';
 
 export default {
   name: 'LeaderboardProposal',
@@ -130,11 +130,6 @@ export default {
       type: String as () => PaymentOptionEnum,
       required: false,
       default: () => PaymentOptionEnum.Ocean,
-    },
-
-    startIndex: {
-      type: Number,
-      required: true,
     },
 
     maxVotes: {
