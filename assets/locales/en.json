@@ -101,16 +101,16 @@
     "seconds": "seconds"
   },
   "footer": {
+    "opf": {
+      "heading": "Ocean Protocol"
+    },
     "socials": {
       "heading": "Socials"
     },
     "vitals": {
-      "heading": "Vitals",
       "analytics": "Analytics",
+      "heading": "Vitals",
       "systems": "Status"
-    },
-    "opf": {
-      "heading": "Ocean Protocol"
     }
   },
   "general": {
@@ -251,8 +251,12 @@
     },
     "partiallyFunded": "Proposals with partial funding",
     "pending": "Proposals without funding",
+    "pools": "Grant Pools",
     "proposal": {
-      "funding": ["{amount} {paymentOption}", "requested"],
+      "funding": [
+        "{amount} {paymentOption}",
+        "requested"
+      ],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -275,7 +279,10 @@
       "title": "Round"
     },
     "subtitle": "An overview of the highest voted proposals decided by the community.",
-    "title": ["DAO", "Voting"],
+    "title": [
+      "DAO",
+      "Voting"
+    ],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -322,7 +329,10 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": ["Management", "panel"]
+    "title": [
+      "Management",
+      "panel"
+    ]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
