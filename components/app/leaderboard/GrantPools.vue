@@ -4,7 +4,7 @@
     <div class="divider pb-2">
       <button
         type="button"
-        class="btn btn-sm btn-ghost"
+        class="btn btn-sm btn-ghost text-primary"
         @click="expand = !expand"
       >
         {{ $t('leaderboard.pools') }}
@@ -19,7 +19,7 @@
     <!-- skeleton loader -->
     <div
       v-if="loading && expand"
-      class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4"
+      class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-4"
     >
       <div
         v-for="i in SKELETON_LOADER_COUNT"
@@ -34,13 +34,15 @@
     <!-- content -->
     <div
       v-else-if="expand"
-      class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4"
+      class="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-5 gap-4"
     >
       <div
         v-for="pool in pools"
         :key="pool.type"
-        :class="{ 'border-accent': filter.pools.includes(pool.type) }"
-        class="shadow rounded bg-base-200 p-2 flex items-center justify-between border border-base-200"
+        :class="
+          filter.pools.includes(pool.type) ? 'border-accent' : 'border-base-200'
+        "
+        class="shadow rounded bg-base-200 p-2 flex items-center justify-between border"
       >
         <div>
           <p class="text-primary small-text">
@@ -55,6 +57,7 @@
           @click="filterPool(pool.type)"
         >
           <app-icon
+            class="text-primary"
             :data="
               filter.pools.includes(pool.type)
                 ? icons.filterCheck
