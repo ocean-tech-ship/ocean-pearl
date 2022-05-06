@@ -3,14 +3,12 @@
     <div
       class="bg-base-200 shadow rounded p-6 w-11/12 md:w-4/5 xl:w-1/3 text-center space-y-3 md:space-y-5"
     >
-      <NuxtLink to="/">
-        <div class="flex items-center justify-center">
-          <img src="@/assets/images/pearl-logo.svg" alt="pearl-logo" />
-          <p class="pl-2 text-third">
-            {{ $t('navbar.logoText') }}
-          </p>
-        </div>
-      </NuxtLink>
+      <nuxt-link class="btn btn-ghost normal-case text-lg text-primary" to="/">
+        <img src="@/assets/images/pearl-logo.svg" alt="pearl-logo" />
+        <p class="pl-2 text-third">
+          {{ $t('navbar.logoText') }}
+        </p>
+      </nuxt-link>
 
       <div class="flex justify-center">
         <app-icon
