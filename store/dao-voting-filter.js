@@ -1,12 +1,12 @@
 import { getLeaderboard } from '@/api';
 
 const initialState = {
-  error: false,
   pending: true,
   leaderboard: {
     fundedProposals: [],
     partiallyFundedProposals: [],
     notFundedProposals: [],
+    grantPools: [],
   },
   currentRound: 0,
   filter: {
@@ -60,10 +60,7 @@ export const actions = {
     commit('filter', payload);
   },
 
-  async fetchAll({ commit, state }) {
-    // reset
-    commit('error', null);
-
+  async fetchAll({ commit, dispatch, state }) {
     // prepare query object
     const query = { ...state.filter };
     if (query.round === 0) delete query.round;
@@ -73,20 +70,24 @@ export const actions = {
       const leaderBoardResponse = await getLeaderboard(this.$axios, query);
 
       if (leaderBoardResponse.status === 204) {
-        commit('error', 'general.error.retry');
-        commit('leaderboard', {});
+        dispatch('resetState');
+        dispatch('alert/error', this.$i18n.t('general.error.retry'), {
+          root: true,
+        });
       } else {
         commit('leaderboard', leaderBoardResponse.leaderboard);
         commit('currentRound', leaderBoardResponse.currentRound);
-        commit('pending', false);
 
         // return query for url mutations
         return query;
       }
     } catch {
+      dispatch('resetState');
+      dispatch('alert/error', this.$i18n.t('general.error.retry'), {
+        root: true,
+      });
+    } finally {
       commit('pending', false);
-      commit('error', 'general.error.retry');
-      commit('leaderboard', {});
     }
   },
 
