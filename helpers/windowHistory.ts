@@ -1,7 +1,7 @@
 import CategoryEnum from '@/enums/Category.enum';
 import GrantPoolTypeEnum from '~/enums/GrantPoolType.enum';
 
-const SPLITERATOR = ',';
+const DELIMITER = ',';
 
 export function replaceQueryParams(
   _this: Record<string, any>,
@@ -16,7 +16,7 @@ export function replaceQueryParams(
     if (query.pools.length === 0) {
       delete query.pools;
     } else {
-      query.pools = query.pools.join(SPLITERATOR);
+      query.pools = query.pools.join(DELIMITER);
     }
   }
 
@@ -75,7 +75,7 @@ export function processQueryToFilter(
         case 'pools':
           newFilter.pools =
             paramValue
-              .split(SPLITERATOR)
+              .split(DELIMITER)
               .filter((pool: any) =>
                 Object.values(GrantPoolTypeEnum).includes(pool),
               ) ?? filter.pools;
