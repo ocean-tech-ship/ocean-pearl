@@ -1,6 +1,6 @@
 <template>
   <div>
-    <floating-vote-action v-if="pending" :leaderboard="leaderboard" />
+    <floating-vote-action v-if="!pending" :leaderboard="leaderboard" />
 
     <section-container class="pb-8">
       <h2>
