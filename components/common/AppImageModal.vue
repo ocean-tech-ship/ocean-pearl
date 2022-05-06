@@ -87,7 +87,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .fade-enter-active {
   animation: fade 0.2s;
 }
