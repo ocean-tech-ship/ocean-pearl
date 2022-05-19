@@ -24,6 +24,13 @@
         </template>
       </i18n>
 
+      <!-- optional cms hint notification -->
+      <nuxt-content
+        v-if="hint.body.children.length > 0"
+        class="mb-4"
+        :document="hint"
+      />
+
       <!-- metrics -->
       <leaderboard-metrics-skeleton v-if="pending" />
       <leaderboard-metrics v-else :leaderboard="leaderboard" />
