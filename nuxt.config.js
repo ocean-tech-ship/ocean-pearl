@@ -152,7 +152,10 @@ export default {
     '@nuxtjs/axios',
     'cookie-universal-nuxt',
     '@nuxtjs/sitemap',
+    '@nuxt/content',
   ],
+
+  content: {},
 
   sitemap: {
     filter({ routes }) {
