@@ -10,7 +10,19 @@
         </span>
       </h2>
 
-      <p class="pb-4">{{ $t('leaderboard.subtitle') }}</p>
+      <i18n path="leaderboard.subtitle" tag="p" class="pb-4">
+        <template #disclaimer>
+          <span class="font-bold">
+            <br />
+            {{ $t('leaderboard.disclaimer') }}
+          </span>
+        </template>
+        <template #source>
+          <app-link to="https://airtable.com/shrd5s7HSXc2vC1iC" class="link">
+            {{ $t('leaderboard.airtable') }}</app-link
+          >
+        </template>
+      </i18n>
 
       <!-- metrics -->
       <leaderboard-metrics-skeleton v-if="pending" />
@@ -49,7 +61,7 @@
         </div>
 
         <!-- funded proposals -->
-        <div class="pt-4 pb-8 text-white">
+        <div class="pt-4 pb-4 text-white">
           <div class="flex items-center">
             <h4 class="text-primary-content">{{ $t('leaderboard.funded') }}</h4>
 
@@ -59,15 +71,6 @@
               @click="resetAndRefetch"
             />
           </div>
-
-          <p class="small-text text-primary-content">
-            {{ $t('leaderboard.guarantee[0]') }}
-            <app-link
-              to="https://airtable.com/shrd5s7HSXc2vC1iC"
-              class="underline"
-              >{{ $t('leaderboard.guarantee[1]') }}</app-link
-            >
-          </p>
         </div>
 
         <div class="space-y-4">
@@ -263,6 +266,11 @@ export default Vue.extend({
     this.clearFetchInterval();
     this.resetState();
     next();
+  },
+
+  async asyncData({ $content }) {
+    const hint = await $content('leaderboard/hint').fetch();
+    return { hint };
   },
 
   data() {
