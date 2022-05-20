@@ -155,7 +155,9 @@ export default {
     '@nuxt/content',
   ],
 
-  content: {},
+  content: {
+    liveEdit: false,
+  },
 
   sitemap: {
     filter({ routes }) {
