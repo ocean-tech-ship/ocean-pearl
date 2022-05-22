@@ -5,7 +5,10 @@
     @click="backdropClose"
   >
     <div
-      class="modal-box relative overflow-y-scroll h-[490px] md:h-[520px] md:min-w-[690px]"
+      class="modal-box relative overflow-y-scroll"
+      :class="
+        large ? 'h-4/5 max-w-1440' : 'h-[490px] md:h-[520px] md:min-w-[690px]'
+      "
       role="dialog"
     >
       <div v-if="closeButton" class="absolute top-5 right-3">
@@ -53,6 +56,10 @@ export default {
       default: () => false,
     },
     closeButton: {
+      type: Boolean,
+      required: false,
+    },
+    large: {
       type: Boolean,
       required: false,
     },
