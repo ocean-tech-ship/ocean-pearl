@@ -83,7 +83,11 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [require('daisyui'), require('@tailwindcss/line-clamp')],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography'),
+    require('daisyui'),
+  ],
   daisyui: {
     logs: false,
     themes,
