@@ -110,6 +110,7 @@ export default {
   plugins: [
     '@/plugins/mirage.js',
     '@/plugins/vue-touch',
+    '@/plugins/vue-dompurify',
     { src: '@/plugins/vue-globals', ssr: true },
     { src: '@/plugins/plausible', ssr: false },
     { src: '@/plugins/ui-theme', ssr: false },
