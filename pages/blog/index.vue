@@ -1,6 +1,9 @@
 <template>
   <section-container>
-    <h2>Blog <span class="text-primary">Posts</span></h2>
+    <h2>
+      {{ $t('blog.title')[0] }}
+      <span class="text-primary">{{ $t('blog.title')[1] }}</span>
+    </h2>
 
     <p>{{ $t('blog.meta.description') }}</p>
 
@@ -25,9 +28,9 @@
 
 <script>
 import Vue from 'vue';
-import SectionContainer from '~/components/common/SectionContainer';
-import BlogMeta from '~/components/app/blog/BlogMeta';
-import createHead from '~/pages/blog/index.head';
+import SectionContainer from '@/components/common/SectionContainer';
+import BlogMeta from '@/components/app/blog/BlogMeta';
+import createHead from '@/pages/blog/index.head';
 
 export default Vue.extend({
   components: { BlogMeta, SectionContainer },
