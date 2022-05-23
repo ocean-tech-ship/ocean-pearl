@@ -240,6 +240,7 @@ import AppLink from '@/components/common/AppLink';
 import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
 import LeaderboardFilter from '@/components/app/leaderboard/LeaderboardFilter';
 import GrantPools from '@/components/app/leaderboard/GrantPools';
+import AlertBox from '~/components/common/AlertBox';
 import GrantPoolTypeEnum from '@/enums/GrantPoolType.enum';
 import RoundStatusEnum from '@/enums/RoundStatus.enum';
 import {
@@ -249,6 +250,8 @@ import {
 
 export default Vue.extend({
   components: {
+    // eslint-disable-next-line vue/no-unused-components
+    AlertBox,
     GrantPools,
     LeaderboardFilter,
     FloatingVoteAction,
