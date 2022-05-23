@@ -3,7 +3,7 @@
     <h2 class="text-primary">{{ doc.title }}</h2>
     <blog-meta :article="doc" class="pb-3" />
 
-    <nuxt-content :document="doc" tag="article" />
+    <nuxt-content :document="doc" tag="article" class="prose max-w-none" />
 
     <div class="divider" />
 
