@@ -1,16 +1,19 @@
 <template>
   <section-container>
     <h2 class="text-primary">{{ doc.title }}</h2>
-    <blog-meta :article="doc" class="pb-3" />
+    <blog-meta :article="doc" class="pb-8" />
 
     <nuxt-content :document="doc" tag="article" class="prose max-w-none" />
 
     <div class="divider" />
 
-    <p class="small-text pb-4">
-      Did you like this post? Discover also our other
-      <nuxt-link to="/blog" class="link">blog posts</nuxt-link>.
-    </p>
+    <i18n tag="p" class="small-text pb-4" path="blog.discover.title">
+      <template #posts>
+        <nuxt-link to="/blog" class="link">{{
+          $t('blog.discover.posts')
+        }}</nuxt-link>
+      </template>
+    </i18n>
   </section-container>
 </template>
 
