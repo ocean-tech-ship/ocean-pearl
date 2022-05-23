@@ -15,7 +15,7 @@ export default function createHead(config, i18n, article) {
       {
         hid: 'og:description',
         property: 'og:description',
-        content: article.description,
+        content: article.oneLiner,
       },
       {
         hid: 'og:url',
@@ -30,7 +30,7 @@ export default function createHead(config, i18n, article) {
       {
         hid: 'twitter:description',
         property: 'twitter:description',
-        content: article.description,
+        content: article.oneLiner,
       },
     ],
     link: [
