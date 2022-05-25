@@ -16,6 +16,11 @@ export function getDaoProposals(axios, params) {
   return axios.get('/dao-proposals', { params });
 }
 
+// fulltext-proposal
+export function getFulltextProposal(axios, id) {
+  return axios.get(`/dao-proposals/${id}/fulltext`);
+}
+
 export function getFeaturedDaoProposals(axios, limit) {
   return axios.$get(`/dao-proposals/paginated/1/${limit}`);
 }

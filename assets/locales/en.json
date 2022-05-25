@@ -465,6 +465,9 @@
       "dropDown2": "Category"
     }
   },
+  "proposal": {
+    "excerpt": "Excerpt from {src}."
+  },
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
   }

@@ -2,6 +2,11 @@
   <div>
     <floating-vote-action v-if="!pending" :leaderboard="leaderboard" />
 
+    <fulltext-proposal
+      :proposal="expandProposal"
+      @close="expandProposal = null"
+    />
+
     <section-container class="pb-8">
       <h2>
         {{ $t('leaderboard.title[0]') }}
@@ -110,6 +115,7 @@
               :max-votes="leaderboard.maxVotes"
               primary
               class="rounded shadow"
+              @expand="expandProposal = proposal"
             />
           </div>
         </div>
@@ -129,6 +135,7 @@
           :payment-option="leaderboard.paymentOption"
           :max-votes="leaderboard.maxVotes"
           :primary="leaderboard.status !== roundStatusEnum.VotingInProgress"
+          @expand="expandProposal = proposal"
         />
       </div>
     </section-container>
@@ -166,6 +173,7 @@
             :max-votes="leaderboard.maxVotes"
             :primary="leaderboard.status !== roundStatusEnum.VotingInProgress"
             class="rounded border border-primary"
+            @expand="expandProposal = proposal"
           />
         </div>
       </div>
@@ -212,6 +220,7 @@
               'rounded-t': index === 0,
               'rounded-b': index === notFundedProposals.length - 1,
             }"
+            @expand="expandProposal = proposal"
           />
         </div>
       </div>
@@ -247,9 +256,11 @@ import {
   processQueryToFilter,
   replaceQueryParams,
 } from '@/helpers/windowHistory';
+import FulltextProposal from '~/components/app/dao-proposals/FulltextProposalModal';
 
 export default Vue.extend({
   components: {
+    FulltextProposal,
     // eslint-disable-next-line vue/no-unused-components
     AlertBox,
     GrantPools,
@@ -288,6 +299,7 @@ export default Vue.extend({
       SKELETON_LOADER_COUNT: 5,
       roundStatusEnum: RoundStatusEnum,
       timer: null,
+      expandProposal: null,
     };
   },
 
