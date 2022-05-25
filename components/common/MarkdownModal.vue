@@ -1,5 +1,5 @@
 <template>
-  <app-modal :open="open" close-button large>
+  <app-modal :open="open" close-button :large="large">
     <template #body>
       <div
         v-dompurify-html="renderedMarkdown"
@@ -14,7 +14,7 @@ import AppModal from '@/components/common/AppModal';
 import Markdown from '@/mixins/Markdown';
 
 export default {
-  name: 'ProposalModal',
+  name: 'MarkdownModal',
 
   components: { AppModal },
 
@@ -24,6 +24,11 @@ export default {
     open: {
       type: Boolean,
       required: true,
+      default: false,
+    },
+    large: {
+      type: Boolean,
+      required: false,
       default: false,
     },
     markdown: {
