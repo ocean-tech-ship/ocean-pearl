@@ -10,7 +10,7 @@
 
       <div class="">
         <h3 class="text-primary leading-tight">{{ project.title }}</h3>
-        <app-link :to="targetCategoryLink(project.category)">
+        <app-link :to="targetCategoryLink(project.category)" link-style>
           <p class="leading-tight">{{ categoryMap[project.category] }}</p>
         </app-link>
       </div>
