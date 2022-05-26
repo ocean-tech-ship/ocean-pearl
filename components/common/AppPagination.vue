@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import replaceQueryParams from '@/helpers/windowHistory';
+import { replaceQueryParams } from '@/helpers/windowHistory';
 
 export default {
   name: 'AppPagination',

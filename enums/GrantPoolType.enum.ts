@@ -1,5 +1,5 @@
-/** @deprecated can be replaced by GrantPoolTypeEnum **/
-enum EarmarkTypeEnum {
+enum GrantPoolTypeEnum {
+  General = 'general',
   Outreach = 'outreach',
   NewOutreach = 'newOutreach',
   NewEntrants = 'newEntrants',
@@ -8,4 +8,4 @@ enum EarmarkTypeEnum {
   SecondAndThirdGrant = 'secondAndThirdGrant',
 }
 
-export default EarmarkTypeEnum;
+export default GrantPoolTypeEnum;

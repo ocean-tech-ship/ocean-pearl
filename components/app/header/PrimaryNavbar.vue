@@ -63,6 +63,7 @@
             <li v-for="page in pages" :key="page.to">
               <app-link
                 :to="page.to"
+                link-class="w-full"
                 active-class="active"
                 :store-name="page.storeName"
                 @click.native="removeFocus()"

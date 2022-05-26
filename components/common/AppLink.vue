@@ -3,6 +3,7 @@
     <nuxt-link
       :to="to"
       :data-analytics="dataAnalytics"
+      :class="linkClass"
       :active-class="activeClass"
       ><slot></slot
     ></nuxt-link>
@@ -29,6 +30,11 @@ export default {
   name: 'AppLink',
 
   props: {
+    linkClass: {
+      type: String,
+      default: '',
+    },
+
     to: {
       type: String,
       required: true,

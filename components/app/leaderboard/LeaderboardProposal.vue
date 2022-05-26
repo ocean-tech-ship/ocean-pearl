@@ -1,12 +1,6 @@
 <template>
   <div class="bg-base-200 flex lg:divide-x lg:divide-base-300">
-    <div
-      :class="{
-        'w-full md:w-4/6 lg:w-1/2': primary,
-        'w-full md:w-4/6 lg:w-2/5': !primary,
-      }"
-      class="flex p-2"
-    >
+    <div class="w-full md:w-4/6 lg:w-1/2 flex p-2">
       <div class="flex-1 space-y-1">
         <div class="flex">
           <!-- logo -->
@@ -38,10 +32,10 @@
               >
                 <span class="line-clamp-1 break-all">
                   <span
-                    :class="{ 'text-primary': primary && startIndex === 0 }"
+                    :class="{ 'text-primary': primary && proposal.index === 0 }"
                     class="font-bold pr-1"
                   >
-                    {{ `#${startIndex + 1}` }}
+                    {{ `#${proposal.index + 1}` }}
                   </span>
                   {{ proposal.title }}
                 </span>
@@ -77,40 +71,12 @@
     <!-- votes (from lg) -->
     <proposal-votes class="hidden lg:flex" :proposal="proposal" />
 
-    <!-- votes needed -->
-    <div
-      v-if="!primary"
-      class="hidden lg:flex flex-row justify-center flex-grow w-40 sm:w-44 mx-auto px-2"
-    >
-      <div class="flex flex-col text-right justify-center">
-        <span class="inline-block w-26">{{
-          addPunctuation(proposal.neededVotes.fullyFunded)
-        }}</span>
-        <span
-          v-if="proposal.neededVotes.partiallyFunded"
-          class="inline-block w-26"
-          >{{ addPunctuation(proposal.neededVotes.partiallyFunded) }}</span
-        >
-      </div>
-      <div class="flex flex-col text-right justify-center">
-        <span class="inline-block text-left w-14">
-          &nbsp;{{ $t('leaderboard.proposal.votes.neededVotes.fullyFunded') }}
-        </span>
-        <span
-          v-if="proposal.neededVotes.partiallyFunded"
-          class="inline-block text-left w-14"
-          >&nbsp;{{
-            $t('leaderboard.proposal.votes.neededVotes.partiallyFunded')
-          }}</span
-        >
-      </div>
-    </div>
-
     <!-- amount requested / received -->
     <proposal-funding
       class="hidden lg:flex"
       :requested-funding="proposal.requestedFunding"
       :received-funding="proposal.receivedFunding"
+      :minimum-requested-funding="proposal.minimumRequestedFunding"
       :payment-option="paymentOption"
     />
 
@@ -136,7 +102,7 @@ import ProposalVotes from '@/components/app/leaderboard/ProposalVotes.vue';
 import AppLink from '@/components/common/AppLink.vue';
 import ProposalFunding from '@/components/app/leaderboard/ProposalFunding.vue';
 import PaymentOptionEnum from '@/enums/PaymentOption.enum';
-import MobileProposalFigures from '~/components/app/leaderboard/MobileProposalFigures.vue';
+import MobileProposalFigures from '@/components/app/leaderboard/MobileProposalFigures.vue';
 
 export default {
   name: 'LeaderboardProposal',
@@ -164,11 +130,6 @@ export default {
       type: String as () => PaymentOptionEnum,
       required: false,
       default: () => PaymentOptionEnum.Ocean,
-    },
-
-    startIndex: {
-      type: Number,
-      required: true,
     },
 
     maxVotes: {

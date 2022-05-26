@@ -93,14 +93,6 @@
       </div>
     </div>
 
-    <!-- votes needed (non primary!) -->
-    <div
-      v-if="!primary"
-      class="hidden w-28 lg:flex items-center justify-center flex-grow"
-    >
-      <div class="w-2/5 h-3 rounded bg-primary opacity-70" />
-    </div>
-
     <!-- amount requested / received -->
     <div class="hidden lg:flex items-center justify-center flex-grow">
       <div class="w-28 h-3 rounded bg-primary opacity-70 animate-pulse" />
