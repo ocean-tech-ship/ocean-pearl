@@ -45,7 +45,6 @@ export default {
 
 <style lang="scss" scoped>
 .progress-bar {
-  background-color: #e4c465;
   animation: progressBar 2.5s ease-in-out;
   animation-fill-mode: forwards;
 
