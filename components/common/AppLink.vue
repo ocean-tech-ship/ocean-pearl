@@ -1,15 +1,6 @@
 <template>
-  <span v-if="isNuxtLink && storeName" @click="resetStateOf(to)">
-    <nuxt-link
-      :to="to"
-      :data-analytics="dataAnalytics"
-      :class="linkClass"
-      :active-class="activeClass"
-      ><slot></slot
-    ></nuxt-link>
-  </span>
   <nuxt-link
-    v-else-if="isNuxtLink"
+    v-if="isNuxtLink"
     :to="to"
     :data-analytics="dataAnalytics"
     :active-class="activeClass"
@@ -30,20 +21,9 @@ export default {
   name: 'AppLink',
 
   props: {
-    linkClass: {
-      type: String,
-      default: '',
-    },
-
     to: {
       type: String,
       required: true,
-    },
-
-    storeName: {
-      type: String,
-      required: false,
-      default: '',
     },
 
     dataAnalytics: {
@@ -65,16 +45,6 @@ export default {
         return this.to.substring(0, 1) === '/';
       }
       return false;
-    },
-  },
-
-  methods: {
-    resetStateOf(route) {
-      if (this.$route.path === route) {
-        this.$store
-          .dispatch(`${this.storeName}/resetState`)
-          .then(() => this.$store.dispatch(`${this.storeName}/fetchAll`));
-      }
     },
   },
 };
