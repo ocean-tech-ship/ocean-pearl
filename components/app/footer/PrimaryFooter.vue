@@ -23,7 +23,8 @@
             v-for="subItem in item.subItems"
             :key="subItem.id"
             :to="subItem.route"
-            class="link link-hover w-full text-center lg:text-left"
+            class="w-full text-center lg:text-left"
+            link-style
             >{{ subItem.name }}</app-link
           >
         </div>
