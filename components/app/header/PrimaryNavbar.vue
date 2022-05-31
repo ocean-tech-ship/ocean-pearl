@@ -25,7 +25,6 @@
             <app-link
               :to="page.to"
               active-class="text-primary"
-              :store-name="page.storeName"
             >
               {{ page.title }}
             </app-link>
@@ -63,9 +62,7 @@
             <li v-for="page in pages" :key="page.to">
               <app-link
                 :to="page.to"
-                link-class="w-full"
                 active-class="active"
-                :store-name="page.storeName"
                 @click.native="removeFocus()"
               >
                 {{ page.title }}
@@ -122,17 +119,14 @@ export default {
         {
           title: this.$t('navbar.navbarProjects'),
           to: '/projects',
-          storeName: 'projects-filter',
         },
         {
           title: this.$t('navbar.navbarProposals'),
           to: '/dao-proposals',
-          storeName: 'dao-proposals-filter',
         },
         {
           title: this.$t('navbar.navbarVoting'),
           to: '/dao-voting',
-          storeName: 'dao-voting-filter',
         },
       ],
     };

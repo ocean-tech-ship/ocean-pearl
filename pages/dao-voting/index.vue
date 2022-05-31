@@ -258,13 +258,6 @@ export default Vue.extend({
     SectionContainer,
   },
 
-  // set exception pages when page is left
-  beforeRouteLeave(_to, _from, next) {
-    this.clearFetchInterval();
-    this.resetState();
-    next();
-  },
-
   data() {
     return {
       SKELETON_LOADER_COUNT: 5,
@@ -333,6 +326,11 @@ export default Vue.extend({
       this.fetchLeaderboard().then((query) => replaceQueryParams(this, query)),
     );
     this.setFetchInterval();
+  },
+
+  beforeDestroy() {
+    this.clearFetchInterval();
+    this.resetState();
   },
 
   methods: {
