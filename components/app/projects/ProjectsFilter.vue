@@ -18,7 +18,7 @@
 import ProjectsDropdowns from './ProjectsDropdowns.vue';
 import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/enums/Category.enum';
-import replaceQueryParams from '@/helpers/windowHistory';
+import { replaceQueryParams } from '@/helpers/windowHistory';
 
 export default {
   name: 'ProjectsFilter',

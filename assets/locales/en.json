@@ -311,6 +311,7 @@
     },
     "partiallyFunded": "Proposals with partial funding",
     "pending": "Proposals without funding",
+    "pools": "Grant Pools",
     "proposal": {
       "funding": [
         "{amount} {paymentOption}",

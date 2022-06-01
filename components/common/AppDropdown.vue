@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown z-dropdown">
+  <div class="dropdown">
     <label
       :tabindex="tabIndex"
       class="btn gap-2 normal-case"

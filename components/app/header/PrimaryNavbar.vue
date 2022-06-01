@@ -12,9 +12,9 @@
       <div class="navbar-center hidden xl:flex">
         <ul class="menu menu-horizontal p-0 2xl:space-x-8">
           <li v-for="page in navbarPages" :key="page.to">
-            <nuxt-link :to="page.to" active-class="text-primary">
+            <app-link :to="page.to" active-class="text-primary">
               {{ page.title }}
-            </nuxt-link>
+            </app-link>
           </li>
         </ul>
       </div>
@@ -34,12 +34,13 @@
 </template>
 
 <script>
+import NavbarPages from '@/mixins/NavbarPages';
 import SectionContainer from '@/components/common/SectionContainer';
 import ManagementOptions from '@/components/app/header/ManagementOptions';
 import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
 import LogoBranding from '@/components/app/header/LogoBranding';
+import AppLink from '@/components/common/AppLink';
 import MobileNavDropdown from '@/components/app/header/MobileNavDropdown';
-import NavbarPages from '@/mixins/NavbarPages';
 
 export default {
   name: 'PrimaryNavbar',
@@ -47,6 +48,7 @@ export default {
   components: {
     MobileNavDropdown,
     LogoBranding,
+    AppLink,
     SectionContainer,
     ManagementOptions,
     ThemeSwitcher,

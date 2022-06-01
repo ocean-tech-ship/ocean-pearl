@@ -76,8 +76,9 @@ import ProjectsSkeletonCard from '@/components/app/projects/ProjectsSkeletonCard
 import AppResponseWithSearch from '@/components/common/AppResponseWithSearch.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
 import AppPagination from '@/components/common/AppPagination.vue';
-import replaceQueryParams, {
+import {
   processQueryToFilter,
+  replaceQueryParams,
 } from '@/helpers/windowHistory';
 
 export default Vue.extend({
@@ -92,24 +93,6 @@ export default Vue.extend({
     AppResponseWithSearch,
     AppSkeletonCardList,
     AppPagination,
-  },
-
-  // reset state and refetch if same page is navigated to via navbar
-  beforeRouteUpdate(to, _from, next) {
-    if (Object.keys(to.query)[0] === 'first') {
-      this.resetState().then(() =>
-        this.fetchProjects().then((query) => replaceQueryParams(this, query)),
-      );
-    }
-    next();
-  },
-
-  // set exception pages where state should not be reset if navigated to
-  beforeRouteLeave(to, _from, next) {
-    if (to.path !== '/dao-projects/:id') {
-      this.resetState();
-    }
-    next();
   },
 
   head() {
@@ -178,6 +161,10 @@ export default Vue.extend({
     );
   },
 
+  beforeDestroy() {
+    this.resetState();
+  },
+
   methods: {
     resetState() {
       return this.$store.dispatch('projects-filter/resetState');
@@ -189,7 +176,7 @@ export default Vue.extend({
       return this.$store.dispatch('projects-filter/setFilter', payload);
     },
     fetchProjects() {
-      return this.$store.dispatch('projects-filter/fetchProjects');
+      return this.$store.dispatch('projects-filter/fetchAll');
     },
   },
 });

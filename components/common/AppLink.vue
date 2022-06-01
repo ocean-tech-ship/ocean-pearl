@@ -1,6 +1,51 @@
 <template>
-  <nuxt-link v-if="isNuxtLink" :to="to" :data-analytics="dataAnalytics"><slot></slot></nuxt-link>
-  <a v-else :href="to" :data-analytics="dataAnalytics" target="_blank" rel="noopener noreferrer"
+  <!-- Links with daisyUI link styling -->
+  <nuxt-link
+    v-if="isNuxtLink && linkStyle"
+    class="link"
+    :class="{
+      'link-hover': linkHover,
+      'link-primary': linkPrimary,
+      'link-secondary': linkSecondary,
+      'link-accent': linkAccent,
+      'link-neutral': linkNeutral,
+    }"
+    :to="to"
+    :data-analytics="dataAnalytics"
+    :active-class="activeClass"
+    ><slot></slot
+  ></nuxt-link>
+  <a
+    v-else-if="!isNuxtLink && linkStyle"
+    class="link"
+    :class="{
+      'link-hover': linkHover,
+      'link-primary': linkPrimary,
+      'link-secondary': linkSecondary,
+      'link-accent': linkAccent,
+      'link-neutral': linkNeutral,
+    }"
+    :href="to"
+    :data-analytics="dataAnalytics"
+    target="_blank"
+    rel="noopener noreferrer"
+    ><slot></slot>
+  </a>
+
+  <!-- Links without daisyUI link styling -->
+  <nuxt-link
+    v-else-if="isNuxtLink"
+    :to="to"
+    :data-analytics="dataAnalytics"
+    :active-class="activeClass"
+    ><slot></slot
+  ></nuxt-link>
+  <a
+    v-else
+    :href="to"
+    :data-analytics="dataAnalytics"
+    target="_blank"
+    rel="noopener noreferrer"
     ><slot></slot>
   </a>
 </template>
@@ -12,13 +57,49 @@ export default {
   props: {
     to: {
       type: String,
-      required: true
+      required: true,
     },
 
     dataAnalytics: {
       type: String,
       required: false,
       default: null,
+    },
+
+    activeClass: {
+      type: String,
+      required: false,
+      default: null,
+    },
+
+    linkStyle: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkHover: {
+      type: Boolean,
+      default: true,
+    },
+
+    linkPrimary: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkSecondary: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkAccent: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkNeutral: {
+      type: Boolean,
+      default: false,
     },
   },
 

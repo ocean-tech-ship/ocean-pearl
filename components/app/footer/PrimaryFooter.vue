@@ -23,7 +23,8 @@
             v-for="subItem in item.subItems"
             :key="subItem.id"
             :to="subItem.route"
-            class="link link-hover w-full text-center lg:text-left"
+            class="w-full text-center lg:text-left"
+            link-style
             >{{ subItem.name }}</app-link
           >
         </div>
@@ -143,7 +144,7 @@ export default {
             {
               id: 0,
               name: this.$t('footer.vitals.analytics'),
-              route: 'https://twitter.com/oceanpearlio',
+              route: 'https://plausible.io/oceanpearl.io',
             },
             {
               id: 1,

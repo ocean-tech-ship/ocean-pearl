@@ -92,8 +92,12 @@
 
               <td class="p-4 py-3 pr-4">
                 <div class="flex justify-end">
-                  <app-link :to="proposal.oceanProtocolPortUrl">
-                    <div class="flex items-center text-primary">
+                  <app-link
+                    :to="proposal.oceanProtocolPortUrl"
+                    link-style
+                    link-primary
+                  >
+                    <div class="flex items-center">
                       <app-icon
                         class="mr-1"
                         :size="17"

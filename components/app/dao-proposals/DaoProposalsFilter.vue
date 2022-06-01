@@ -1,7 +1,7 @@
 <template>
   <div class="my-8 flex flex-col justify-between lg:flex-row lg:items-center">
     <DaoProposalsDropdowns
-      class="flex flex-col 2sm:flex-row lg:flex-row"
+      class="flex flex-col sm:flex-row lg:flex-row"
       :filter="filter"
       :rounds="rounds"
       @selected-items="setFilterAndFetch"
@@ -19,7 +19,7 @@
 import DaoProposalsDropdowns from './DaoProposalsDropdowns.vue';
 import AppSearchBar from '@/components/common/AppSearchbar.vue';
 import CategoryEnum from '@/enums/Category.enum';
-import replaceQueryParams from '@/helpers/windowHistory.ts';
+import { replaceQueryParams } from '@/helpers/windowHistory.ts';
 
 export default {
   name: 'DaoProposalsFilter',

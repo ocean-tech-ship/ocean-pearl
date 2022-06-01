@@ -1,19 +1,35 @@
 import CategoryEnum from '@/enums/Category.enum';
+import GrantPoolTypeEnum from '~/enums/GrantPoolType.enum';
 
-export default function replaceQueryParams(_this: any, query: object): void {
-  if (!process.server) {
-    _this.$nuxt.$router.push({
-      path: _this.$nuxt.$route.path,
-      query,
-    });
+const DELIMITER = ',';
+
+export function replaceQueryParams(
+  _this: Record<string, any>,
+  query: any,
+): void {
+  query = { ...query };
+  if (query.round === 0) {
+    delete query.round;
   }
+
+  if (query.pools) {
+    if (query.pools.length === 0) {
+      delete query.pools;
+    } else {
+      query.pools = query.pools.join(DELIMITER);
+    }
+  }
+
+  _this.$router.push({
+    path: _this.$route.path,
+    query,
+  });
 }
 
 export function getFirstInstanceParam(
   queryParam: string | (string | null)[],
 ): string | null {
-  const fistInstance = Array.isArray(queryParam) ? queryParam[0] : queryParam;
-  return fistInstance;
+  return Array.isArray(queryParam) ? queryParam[0] : queryParam;
 }
 
 export function processQueryToFilter(
@@ -55,9 +71,17 @@ export function processQueryToFilter(
         case 'search':
           newFilter.search =
             paramValue || paramValue === '' ? paramValue : filter.search;
+          break;
+        case 'pools':
+          newFilter.pools =
+            paramValue
+              .split(DELIMITER)
+              .filter((pool: any) =>
+                Object.values(GrantPoolTypeEnum).includes(pool),
+              ) ?? filter.pools;
+          break;
       }
     }
   });
-
   return newFilter;
 }

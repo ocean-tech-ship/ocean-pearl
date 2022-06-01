@@ -25,9 +25,9 @@
         </div>
         <p class="small-text mt-1">
           {{ $t('appReportModal.subtextEmail.part1') }}
-          <app-link class="text-primary inline" to="https://protonmail.com">
-            Protonmail
-          </app-link>
+          <app-link to="https://protonmail.com" link-style link-primary
+            >Protonmail</app-link
+          >
           {{ $t('appReportModal.subtextEmail.part2') }}
         </p>
         <div class="my-4 grid grid-cols-1 gap-2">
@@ -94,11 +94,12 @@
         <p class="small-text mt-1">
           {{ $t('appReportModal.subtextSocial.part1') }}
           <app-link
-            class="text-primary"
             to="https://discord.com/invite/eswPj8QZRH"
+            link-style
+            link-primary
           >
-            Discord
-          </app-link>
+            Discord</app-link
+          >
           {{ $t('appReportModal.subtextSocial.part2') }}
         </p>
       </div>
