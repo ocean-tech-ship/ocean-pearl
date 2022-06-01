@@ -1,6 +1,6 @@
 <template>
   <div class="p-4 rounded shadow bg-base-200">
-    <app-select
+    <app-select-dropdown
       :label="$t('project.category')"
       :items="categories"
       :value="project.category"
@@ -10,13 +10,13 @@
 </template>
 
 <script>
-import AppSelect from '@/components/common/AppSelect';
-import CategoryEnum from '@/enums/Category.enum';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
+import CategoryEnum from '@/enums/Category.enum';
+import AppSelectDropdown from '@/components/common/AppSelectDropdown';
 
 export default {
   name: 'ProjectCategory',
-  components: { AppSelect },
+  components: { AppSelectDropdown },
 
   props: {
     project: {
