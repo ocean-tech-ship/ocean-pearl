@@ -1,13 +1,38 @@
 <template>
-  <span v-if="isNuxtLink && storeName" @click="resetStateOf(to)">
-    <nuxt-link
-      :to="to"
-      :data-analytics="dataAnalytics"
-      :class="linkClass"
-      :active-class="activeClass"
-      ><slot></slot
-    ></nuxt-link>
-  </span>
+  <!-- Links with daisyUI link styling -->
+  <nuxt-link
+    v-if="isNuxtLink && linkStyle"
+    class="link"
+    :class="{
+      'link-hover': linkHover,
+      'link-primary': linkPrimary,
+      'link-secondary': linkSecondary,
+      'link-accent': linkAccent,
+      'link-neutral': linkNeutral,
+    }"
+    :to="to"
+    :data-analytics="dataAnalytics"
+    :active-class="activeClass"
+    ><slot></slot
+  ></nuxt-link>
+  <a
+    v-else-if="!isNuxtLink && linkStyle"
+    class="link"
+    :class="{
+      'link-hover': linkHover,
+      'link-primary': linkPrimary,
+      'link-secondary': linkSecondary,
+      'link-accent': linkAccent,
+      'link-neutral': linkNeutral,
+    }"
+    :href="to"
+    :data-analytics="dataAnalytics"
+    target="_blank"
+    rel="noopener noreferrer"
+    ><slot></slot>
+  </a>
+
+  <!-- Links without daisyUI link styling -->
   <nuxt-link
     v-else-if="isNuxtLink"
     :to="to"
@@ -30,20 +55,9 @@ export default {
   name: 'AppLink',
 
   props: {
-    linkClass: {
-      type: String,
-      default: '',
-    },
-
     to: {
       type: String,
       required: true,
-    },
-
-    storeName: {
-      type: String,
-      required: false,
-      default: '',
     },
 
     dataAnalytics: {
@@ -57,6 +71,36 @@ export default {
       required: false,
       default: null,
     },
+
+    linkStyle: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkHover: {
+      type: Boolean,
+      default: true,
+    },
+
+    linkPrimary: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkSecondary: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkAccent: {
+      type: Boolean,
+      default: false,
+    },
+
+    linkNeutral: {
+      type: Boolean,
+      default: false,
+    },
   },
 
   computed: {
@@ -65,16 +109,6 @@ export default {
         return this.to.substring(0, 1) === '/';
       }
       return false;
-    },
-  },
-
-  methods: {
-    resetStateOf(route) {
-      if (this.$route.path === route) {
-        this.$store
-          .dispatch(`${this.storeName}/resetState`)
-          .then(() => this.$store.dispatch(`${this.storeName}/fetchAll`));
-      }
     },
   },
 };

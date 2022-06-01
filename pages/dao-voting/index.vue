@@ -249,14 +249,14 @@ import AppLink from '@/components/common/AppLink';
 import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
 import LeaderboardFilter from '@/components/app/leaderboard/LeaderboardFilter';
 import GrantPools from '@/components/app/leaderboard/GrantPools';
-import AlertBox from '~/components/common/AlertBox';
+import AlertBox from '@/components/common/AlertBox';
 import GrantPoolTypeEnum from '@/enums/GrantPoolType.enum';
 import RoundStatusEnum from '@/enums/RoundStatus.enum';
 import {
   processQueryToFilter,
   replaceQueryParams,
 } from '@/helpers/windowHistory';
-import FulltextProposal from '~/components/app/dao-proposals/FulltextProposalModal';
+import FulltextProposal from '@/components/app/dao-proposals/FulltextProposalModal';
 
 export default Vue.extend({
   components: {
@@ -280,13 +280,6 @@ export default Vue.extend({
     LeaderboardProposal,
     AppGradientBackground,
     SectionContainer,
-  },
-
-  // set exception pages when page is left
-  beforeRouteLeave(_to, _from, next) {
-    this.clearFetchInterval();
-    this.resetState();
-    next();
   },
 
   async asyncData({ $content }) {
@@ -363,6 +356,11 @@ export default Vue.extend({
       this.fetchLeaderboard().then((query) => replaceQueryParams(this, query)),
     );
     this.setFetchInterval();
+  },
+
+  beforeDestroy() {
+    this.clearFetchInterval();
+    this.resetState();
   },
 
   methods: {
