@@ -85,23 +85,6 @@
       >
         {{ $t('manage.landing.cards.' + card.key + '.action') }}
       </app-button>
-
-      <!--
-      <nuxt-link
-        v-if="expand"
-        :to="card.target"
-        class="md:hidden btn btn-outline btn-primary"
-      >
-        {{ $t('manage.landing.cards.' + card.key + '.action') }}
-      </nuxt-link>
-
-      <nuxt-link
-        :to="card.target"
-        class="hidden md:flex btn btn-outline btn-primary"
-      >
-        {{ $t('manage.landing.cards.' + card.key + '.action') }}
-      </nuxt-link>
-      -->
     </div>
   </app-card>
 </template>
@@ -113,10 +96,11 @@ import lock from '@iconify/icons-la/lock';
 import AppCard from '@/components/common/AppCard';
 import AppIcon from '@/components/common/AppIcon';
 import AppLoadingSpinner from '@/components/common/AppLoadingSpinner';
-import AppButton from '~/components/common/AppButton';
+import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'ActionCard',
+
   components: { AppButton, AppLoadingSpinner, AppIcon, AppCard },
 
   props: {
