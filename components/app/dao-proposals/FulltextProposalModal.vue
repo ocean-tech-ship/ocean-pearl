@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { getFulltextProposal } from '@/api';
+import { getFulltextProposalHtml } from '@/api';
 import AppModal from '@/components/common/AppModal';
 import FulltextProposalSkeleton from '@/components/app/dao-proposals/FulltextProposalSkeleton';
 import AppLink from '@/components/common/AppLink';
@@ -64,7 +64,7 @@ export default {
       this.loading = true;
 
       try {
-        const response = await getFulltextProposal(
+        const response = await getFulltextProposalHtml(
           this.$axios,
           this.$props.proposal.id,
         );

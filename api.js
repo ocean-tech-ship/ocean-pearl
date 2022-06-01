@@ -17,8 +17,8 @@ export function getDaoProposals(axios, params) {
 }
 
 // fulltext-proposal
-export function getFulltextProposal(axios, id) {
-  return axios.get(`/dao-proposals/${id}/fulltext`);
+export function getFulltextProposalHtml(axios, proposalId) {
+  return axios.get(`/dao-proposals/${proposalId}/fulltext`);
 }
 
 export function getFeaturedDaoProposals(axios, limit) {
