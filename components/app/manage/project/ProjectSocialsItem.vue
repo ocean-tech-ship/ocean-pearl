@@ -2,7 +2,7 @@
   <div class="flex items-center flex-wrap">
     <app-icon class="text-primary" :size="20" :data="social.Icon" />
 
-    <span class="mx-2 w-20">{{ social.Title }}</span>
+    <span class="mx-2 w-24">{{ social.Title }}</span>
 
     <div class="py-2 flex-grow flex items-center">
       <app-text-input
