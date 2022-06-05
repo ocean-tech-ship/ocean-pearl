@@ -8,6 +8,7 @@ import telegram from '@iconify/icons-la/telegram';
 import discord from '@iconify/icons-la/discord';
 import medium from '@iconify/icons-la/medium';
 import youtube from '@iconify/icons-la/youtube';
+import instagram from '@iconify/icons-la/instagram';
 
 export class SocialMedia {
   public static list(): SocialMedia[] {
@@ -44,6 +45,9 @@ export class SocialMedia {
 
   public static MEDIUM = new SocialMedia('Medium', medium, ['medium.com']);
   public static YOUTUBE = new SocialMedia('YouTube', youtube, ['youtube.com']);
+  public static INSTAGRAM = new SocialMedia('Instagram', instagram, [
+    'instagram.com',
+  ]);
 
   public get Id(): string {
     return this.title.toUpperCase();
