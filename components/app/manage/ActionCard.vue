@@ -26,10 +26,12 @@
     </div>
 
     <!-- expand action (until md) -->
-    <div class="md:hidden absolute p-4 w-full flex justify-end text-primary">
+    <div
+      class="md:hidden absolute p-4 w-full flex justify-end text-primary pointer-events-none"
+    >
       <button
         type="button"
-        class="btn btn-primary btn-circle btn-sm"
+        class="btn btn-primary btn-circle btn-sm pointer-events-auto"
         @click="expand = !expand"
       >
         <app-icon :size="24" :data="icons.info" />
@@ -38,14 +40,16 @@
 
     <!-- content -->
     <div class="w-full flex flex-col items-center p-4 space-y-6">
-      <div class="self-start sm:self-center flex items-center text-primary">
-        <app-icon class="pr-2" :size="32" :data="card.icon" />
-        <h4 class="text-base">
-          {{ $t('manage.landing.cards.' + card.key + '.title')[0] }}
-          <span class="text-base-content">
-            {{ $t('manage.landing.cards.' + card.key + '.title')[1] }}
-          </span>
-        </h4>
+      <div class="self-start sm:self-center">
+        <app-link :to="card.target" class="flex items-center text-primary">
+          <app-icon class="pr-2" :size="32" :data="card.icon" />
+          <h4 class="text-base">
+            {{ $t('manage.landing.cards.' + card.key + '.title')[0] }}
+            <span class="text-base-content">
+              {{ $t('manage.landing.cards.' + card.key + '.title')[1] }}
+            </span>
+          </h4>
+        </app-link>
       </div>
 
       <img
@@ -97,11 +101,12 @@ import AppCard from '@/components/common/AppCard';
 import AppIcon from '@/components/common/AppIcon';
 import AppLoadingSpinner from '@/components/common/AppLoadingSpinner';
 import AppButton from '@/components/common/AppButton';
+import AppLink from '~/components/common/AppLink';
 
 export default {
   name: 'ActionCard',
 
-  components: { AppButton, AppLoadingSpinner, AppIcon, AppCard },
+  components: { AppLink, AppButton, AppLoadingSpinner, AppIcon, AppCard },
 
   props: {
     loading: {
