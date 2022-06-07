@@ -1,5 +1,5 @@
 <template>
-  <app-modal :open="open" @close="toggleOpen">
+  <app-modal :open="open" close-button @close="toggleOpen">
     <template #header>
       <div class="flex items-center text-primary">
         <app-icon class="mr-2 mb-4" :data="icons.alertCircleOutline" />

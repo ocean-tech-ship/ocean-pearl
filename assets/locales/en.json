@@ -22,6 +22,21 @@
     "menuItemCopyLink": "Copy project link",
     "menuItemReport": "Report project"
   },
+  "blog": {
+    "action": "read more...",
+    "discover": {
+      "posts": "blog posts",
+      "title": "Did you like this post? Discover also our other {posts}."
+    },
+    "meta": {
+      "description": "Dive into our latest blog posts to learn more about the entire project and our collaboration with OceanDAO.",
+      "title": "Blog"
+    },
+    "title": [
+      "Blog",
+      "Posts"
+    ]
+  },
   "dao-projects": {
     "filterResponse": {
       "noSearch": {
@@ -217,15 +232,13 @@
     }
   },
   "leaderboard": {
+    "airtable": "OceanDAO's Airtable",
+    "disclaimer": "Disclaimer: ",
     "empty": "This list is empty right now. Check back later.",
     "funded": "Proposals with funding",
-    "guarantee": [
-      "All data is received from the OceanDAO Airtable which can be found",
-      "here"
-    ],
     "live": "Live",
     "meta": {
-      "description": "Get a real-time overview of OceanDAO's current funding round and find out which proposals can count on funding and which can't.",
+      "description": "Track the current and previous voting results of the OceanDAO grants program and get deep insights into how funds are allocated.",
       "title": "DAO Voting"
     },
     "metrics": {
@@ -278,7 +291,7 @@
     "round": {
       "title": "Round"
     },
-    "subtitle": "An overview of the highest voted proposals decided by the community.",
+    "subtitle": "Track the current and previous voting results of the OceanDAO grants program. {disclaimer} All data is received from {source}.",
     "title": [
       "DAO",
       "Voting"
@@ -336,6 +349,7 @@
   },
   "navbar": {
     "logoText": "Ocean Pearl",
+    "navbarBlog": "Blog",
     "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
@@ -450,6 +464,9 @@
       "dropDown1": "Latest",
       "dropDown2": "Category"
     }
+  },
+  "proposal": {
+    "excerpt": "Excerpt from {src}."
   },
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
