@@ -27,7 +27,7 @@
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/sitemap": "^2.4.0",
-    "@tailwindcss/line-clamp": "^0.3.1",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "0.4.1",
     "@walletconnect/web3-provider": "^1.7.7",
     "cookie-universal-nuxt": "^2.1.5",
