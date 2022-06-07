@@ -1,12 +1,12 @@
 <template>
-  <div class="flex">
+  <div class="md:flex space-y-2 md:space-y-0">
     <blog-meta-item :icon="icons.user" :value="article.author" />
-    <span class="px-3">•</span>
+    <span class="px-3 hidden md:block">•</span>
     <blog-meta-item
       :icon="icons.calendar"
       :value="$dateFns.format(article.createdAt, 'yyyy-MM-dd')"
     />
-    <span class="px-3">•</span>
+    <span class="px-3 hidden md:block">•</span>
     <blog-meta-item :icon="icons.clock" :value="article.readDuration" />
   </div>
 </template>
