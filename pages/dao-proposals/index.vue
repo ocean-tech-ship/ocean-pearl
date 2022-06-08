@@ -120,14 +120,6 @@ export default Vue.extend({
     AppPagination,
   },
 
-  // set exception pages where state should not be reset if navigated to
-  beforeRouteLeave(to, _from, next) {
-    if (to.path !== '/dao-projects/:id') {
-      this.resetState();
-    }
-    next();
-  },
-
   head() {
     return {
       title: 'DAO Proposals',
@@ -199,6 +191,10 @@ export default Vue.extend({
         replaceQueryParams(this, query),
       ),
     );
+  },
+
+  beforeDestroy() {
+    this.resetState();
   },
 
   methods: {
