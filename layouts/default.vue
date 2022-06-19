@@ -1,8 +1,8 @@
 <template>
-  <div tabindex="0">
+  <div tabindex="0" class="flex flex-col min-h-screen">
     <notification-bar />
     <primary-navbar />
-    <Nuxt />
+    <Nuxt class="flex-grow" />
     <primary-footer />
   </div>
 </template>

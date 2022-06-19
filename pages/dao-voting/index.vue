@@ -2,6 +2,11 @@
   <div>
     <floating-vote-action v-if="!pending" :leaderboard="leaderboard" />
 
+    <fulltext-proposal
+      :proposal="expandProposal"
+      @close="expandProposal = null"
+    />
+
     <section-container class="pb-8">
       <h2>
         {{ $t('leaderboard.title[0]') }}
@@ -10,7 +15,26 @@
         </span>
       </h2>
 
-      <p class="pb-4">{{ $t('leaderboard.subtitle') }}</p>
+      <i18n path="leaderboard.subtitle" tag="p" class="pb-4">
+        <template #disclaimer>
+          <span class="font-bold">
+            <br />
+            {{ $t('leaderboard.disclaimer') }}
+          </span>
+        </template>
+        <template #source>
+          <app-link to="https://airtable.com/shrd5s7HSXc2vC1iC" class="link">
+            {{ $t('leaderboard.airtable') }}</app-link
+          >
+        </template>
+      </i18n>
+
+      <!-- optional cms hint notification -->
+      <nuxt-content
+        v-if="hint.body.children.length > 0"
+        class="mb-4"
+        :document="hint"
+      />
 
       <!-- metrics -->
       <leaderboard-metrics-skeleton v-if="pending" />
@@ -49,7 +73,7 @@
         </div>
 
         <!-- funded proposals -->
-        <div class="pt-4 pb-8 text-white">
+        <div class="pt-4 pb-4 text-white">
           <div class="flex items-center">
             <h4 class="text-primary-content">{{ $t('leaderboard.funded') }}</h4>
 
@@ -59,15 +83,6 @@
               @click="resetAndRefetch"
             />
           </div>
-
-          <p class="small-text text-primary-content">
-            {{ $t('leaderboard.guarantee[0]') }}
-            <app-link
-              to="https://airtable.com/shrd5s7HSXc2vC1iC"
-              class="underline"
-              >{{ $t('leaderboard.guarantee[1]') }}</app-link
-            >
-          </p>
         </div>
 
         <div class="space-y-4">
@@ -100,6 +115,7 @@
               :max-votes="leaderboard.maxVotes"
               primary
               class="rounded shadow"
+              @expand="expandProposal = proposal"
             />
           </div>
         </div>
@@ -119,6 +135,7 @@
           :payment-option="leaderboard.paymentOption"
           :max-votes="leaderboard.maxVotes"
           :primary="leaderboard.status !== roundStatusEnum.VotingInProgress"
+          @expand="expandProposal = proposal"
         />
       </div>
     </section-container>
@@ -156,6 +173,7 @@
             :max-votes="leaderboard.maxVotes"
             :primary="leaderboard.status !== roundStatusEnum.VotingInProgress"
             class="rounded border border-primary"
+            @expand="expandProposal = proposal"
           />
         </div>
       </div>
@@ -202,6 +220,7 @@
               'rounded-t': index === 0,
               'rounded-b': index === notFundedProposals.length - 1,
             }"
+            @expand="expandProposal = proposal"
           />
         </div>
       </div>
@@ -230,15 +249,20 @@ import AppLink from '@/components/common/AppLink';
 import FloatingVoteAction from '@/components/app/leaderboard/FloatingVoteAction';
 import LeaderboardFilter from '@/components/app/leaderboard/LeaderboardFilter';
 import GrantPools from '@/components/app/leaderboard/GrantPools';
+import AlertBox from '@/components/common/AlertBox';
 import GrantPoolTypeEnum from '@/enums/GrantPoolType.enum';
 import RoundStatusEnum from '@/enums/RoundStatus.enum';
 import {
   processQueryToFilter,
   replaceQueryParams,
 } from '@/helpers/windowHistory';
+import FulltextProposal from '@/components/app/dao-proposals/FulltextProposalModal';
 
 export default Vue.extend({
   components: {
+    FulltextProposal,
+    // eslint-disable-next-line vue/no-unused-components
+    AlertBox,
     GrantPools,
     LeaderboardFilter,
     FloatingVoteAction,
@@ -258,11 +282,17 @@ export default Vue.extend({
     SectionContainer,
   },
 
+  async asyncData({ $content }) {
+    const hint = await $content('leaderboard/hint').fetch();
+    return { hint };
+  },
+
   data() {
     return {
       SKELETON_LOADER_COUNT: 5,
       roundStatusEnum: RoundStatusEnum,
       timer: null,
+      expandProposal: null,
     };
   },
 

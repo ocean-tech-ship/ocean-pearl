@@ -24,7 +24,7 @@
 
           <!-- details -->
           <div class="px-2 flex-grow space-y-1">
-            <div>
+            <div class="flex">
               <app-link
                 :to="targetProjectLink(proposal.project, beautifyProjectId)"
               >
@@ -38,6 +38,14 @@
                   {{ proposal.title }}
                 </span>
               </app-link>
+
+              <button
+                type="button"
+                class="btn btn-xs btn-circle ml-2"
+                @click="$emit('expand')"
+              >
+                <app-icon :data="icons.info" :size="18" />
+              </button>
             </div>
 
             <!-- progress bars -->
@@ -86,6 +94,7 @@
 </template>
 
 <script lang="ts">
+import info from '@iconify/icons-la/info';
 import {
   LeaderboardProject,
   LeaderboardProposal,
@@ -101,11 +110,13 @@ import AppLink from '@/components/common/AppLink.vue';
 import ProposalFunding from '@/components/app/leaderboard/ProposalFunding.vue';
 import PaymentOptionEnum from '@/enums/PaymentOption.enum';
 import MobileProposalFigures from '@/components/app/leaderboard/MobileProposalFigures.vue';
+import AppIcon from '@/components/common/AppIcon.vue';
 
 export default {
   name: 'LeaderboardProposal',
 
   components: {
+    AppIcon,
     MobileProposalFigures,
     AppLink,
     ProposalVotes,
@@ -140,6 +151,14 @@ export default {
       required: false,
       default: false,
     },
+  },
+
+  data() {
+    return {
+      icons: {
+        info,
+      },
+    };
   },
 
   methods: {

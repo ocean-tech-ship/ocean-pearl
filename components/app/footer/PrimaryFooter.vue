@@ -98,6 +98,11 @@ export default {
               name: this.$t('navbar.navbarVoting'),
               route: '/dao-voting',
             },
+            {
+              id: 4,
+              name: this.$t('navbar.navbarBlog'),
+              route: '/blog',
+            },
           ],
         },
         {

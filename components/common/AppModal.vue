@@ -5,22 +5,28 @@
     @click="backdropClose"
   >
     <div
-      class="modal-box relative overflow-y-scroll h-[490px] md:h-[520px] md:min-w-[690px]"
+      class="modal-box relative overflow-y-scroll"
+      :class="
+        large ? 'h-4/5 max-w-1440' : 'h-[490px] md:h-[520px] md:min-w-[690px]'
+      "
       role="dialog"
     >
-      <button
-        type="button"
-        class="btn-close text-smbase text-primary absolute top-3 right-3"
-        aria-label="Close modal"
-        @click="close"
-      >
-        <app-icon :data="icons.closeIcon" />
-      </button>
-      <div class="modal-content h-full flex flex-col">
+      <div v-if="closeButton" class="absolute top-5 right-3">
+        <button
+          type="button"
+          class="btn btn-sm btn-primary btn-circle btn-outline"
+          aria-label="Close modal"
+          @click="close()"
+        >
+          <app-icon :data="icons.closeIcon" />
+        </button>
+      </div>
+
+      <div class="modal-content">
         <header class="modal-header flex items-center">
           <slot name="header" />
         </header>
-        <section class="modal-body flex-grow">
+        <section class="modal-body">
           <slot name="body" />
         </section>
         <footer class="modal-footer">
@@ -48,6 +54,14 @@ export default {
       type: Boolean,
       required: true,
       default: () => false,
+    },
+    closeButton: {
+      type: Boolean,
+      required: false,
+    },
+    large: {
+      type: Boolean,
+      required: false,
     },
   },
 
