@@ -36,8 +36,7 @@
             <div class="mr-3">
               <app-logo
                 class="inline-block"
-                :src="daoProposal.project.logo && daoProposal.project.logo.url"
-                :alt="daoProposal.project.title"
+                :project="daoProposal.project"
                 :size="45"
               />
             </div>
@@ -101,8 +100,8 @@
 <script>
 import coins from '@iconify/icons-la/coins';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppLinkCard from '~/components/common/AppLinkCard.vue';
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import AppLinkCard from '@/components/common/AppLinkCard.vue';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import LandingDaoProposalsSkeletonCard from '@/components/app/landing/LandingDaoProposalsSkeletonCard.vue';

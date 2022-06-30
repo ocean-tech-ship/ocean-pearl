@@ -1,7 +1,7 @@
 <template>
   <!-- logged-in - visualize connected wallet -->
   <div v-if="wallet" class="block xl:flex items-center">
-    <nuxt-link to="/management" class="btn btn-outline bg-base-300">
+    <nuxt-link to="/manage" class="btn btn-outline bg-base-300">
       {{ shrinkAddress(wallet) }}
 
       <jazzicon class="pl-2 w-6 h-6" :address="wallet" :diameter="24" />
@@ -35,18 +35,18 @@
 <script>
 import Jazzicon from 'vue-jazzicon';
 import angleDown from '@iconify/icons-la/angle-down';
-import { SESSION_NAME } from '@/store/auth';
-import EthAddress from '@/mixins/EthAddress';
 import AppIcon from '@/components/common/AppIcon';
 import ManagementLinks from '@/components/app/header/ManagementLinks';
-import AppButton from '~/components/common/AppButton';
+import AppButton from '@/components/common/AppButton';
+import EthAddress from '@/mixins/EthAddress';
+import ConnectedWallet from '@/mixins/ConnectedWallet';
 
 export default {
   name: 'ManagementOptions',
 
   components: { AppButton, ManagementLinks, AppIcon, Jazzicon },
 
-  mixins: [EthAddress],
+  mixins: [ConnectedWallet, EthAddress],
 
   data() {
     return {
@@ -54,14 +54,6 @@ export default {
         angleDown,
       },
     };
-  },
-
-  computed: {
-    wallet() {
-      return (
-        this.$store.state.account.wallet ?? this.$cookies.get(SESSION_NAME)
-      );
-    },
   },
 };
 </script>

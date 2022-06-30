@@ -41,8 +41,7 @@
                 <div class="mr-3">
                   <app-logo
                     class="inline-block h-10 w-10 rounded-full"
-                    :src="project.logo"
-                    :alt="project.title"
+                    :project="project"
                   />
                 </div>
                 <div>
@@ -121,7 +120,7 @@
 import LandingSectionContainer from './LandingSectionContainer';
 import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleSocials';
 import AppLogo from '@/components/common/AppLogo';
-import ProjectBeautifyId from '~/mixins/ProjectBeautifyId';
+import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 
 export default {
