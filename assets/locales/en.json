@@ -32,10 +32,7 @@
       "description": "Dive into our latest blog posts to learn more about the entire project and our collaboration with OceanDAO.",
       "title": "Blog"
     },
-    "title": [
-      "Blog",
-      "Posts"
-    ]
+    "title": ["Blog", "Posts"]
   },
   "dao-projects": {
     "filterResponse": {
@@ -266,10 +263,7 @@
     "pending": "Proposals without funding",
     "pools": "Grant Pools",
     "proposal": {
-      "funding": [
-        "{amount} {paymentOption}",
-        "requested"
-      ],
+      "funding": ["{amount} {paymentOption}", "requested"],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -292,10 +286,7 @@
       "title": "Round"
     },
     "subtitle": "Track the current and previous voting results of the OceanDAO grants program. {disclaimer} All data is received from {source}.",
-    "title": [
-      "DAO",
-      "Voting"
-    ],
+    "title": ["DAO", "Voting"],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -342,10 +333,7 @@
       "title": "Title"
     },
     "subtitle": "Management Panel",
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
@@ -470,5 +458,12 @@
   },
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
+  },
+  "notFound": {
+    "title": {
+      "primary": "Oops!",
+      "secondary": "We couldn't find that page."
+    },
+    "text": "Maybe what you are looking for can be found here?"
   }
 }
