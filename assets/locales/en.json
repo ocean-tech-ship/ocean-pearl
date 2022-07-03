@@ -32,10 +32,64 @@
       "description": "Dive into our latest blog posts to learn more about the entire project and our collaboration with OceanDAO.",
       "title": "Blog"
     },
-    "title": [
-      "Blog",
-      "Posts"
-    ]
+    "title": ["Blog", "Posts"]
+  },
+  "creator": {
+    "overview": "Overview",
+    "progress": "Progress: {progress}%",
+    "project": {
+      "steps": [
+        "Basic",
+        "Description",
+        "Wallet",
+        "Category",
+        "Socials",
+        "Images",
+        "Team"
+      ],
+      "title": "New Project"
+    },
+    "proposal": {
+      "motivate": "Keep going... nearly there!",
+      "steps": [
+        "Funding Amount",
+        "Wallet",
+        "Project Name",
+        "One Liner",
+        "Description",
+        "Goals",
+        "Category",
+        "Final Product",
+        "Value Added",
+        "Socials",
+        "Team"
+      ],
+      "steps2": [
+        {
+          "title": "Funding Amount",
+          "subtitle": "Define requested OCEAN"
+        },
+        {
+          "title": "Wallet",
+          "subtitle": "Provide Wallet with 500 $OCEAN"
+        },
+        {
+          "title": "Project Name",
+          "subtitle": "Choose project name"
+        },
+        {
+          "title": "One Liner",
+          "subtitle": "One sentence about your proposal"
+        }
+      ],
+      "title": "New Proposal"
+    },
+    "step": {
+      "detailed": "Step {index}: {title}",
+      "short": "Step {step}",
+      "title": "Step",
+      "total": "of {total}"
+    }
   },
   "dao-projects": {
     "filterResponse": {
@@ -131,6 +185,7 @@
   "general": {
     "abort": "Abort",
     "add": "add",
+    "back": "Back",
     "button": "button",
     "continue": "Continue",
     "delete": "delete",
@@ -143,10 +198,12 @@
         "type": "Only the following file types are allowed: {types}"
       }
     },
+    "exit": "Exit",
     "fetchingError": "An error occurred :(",
     "fetchingLoading": "Loading...",
     "icon": "icon",
     "logo": "logo",
+    "next": "Next",
     "ocean": "{ocean} OCEAN",
     "remove": "remove",
     "save": "save changes",
@@ -266,10 +323,7 @@
     "pending": "Proposals without funding",
     "pools": "Grant Pools",
     "proposal": {
-      "funding": [
-        "{amount} {paymentOption}",
-        "requested"
-      ],
+      "funding": ["{amount} {paymentOption}", "requested"],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -292,10 +346,7 @@
       "title": "Round"
     },
     "subtitle": "Track the current and previous voting results of the OceanDAO grants program. {disclaimer} All data is received from {source}.",
-    "title": [
-      "DAO",
-      "Voting"
-    ],
+    "title": ["DAO", "Voting"],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -306,7 +357,7 @@
     "admins": {
       "add": "Add wallet address",
       "edit": "Manage Administrators",
-      "title": "Administrators"
+      "title": "Manage Administrators"
     },
     "auth": {
       "error": {
@@ -315,7 +366,8 @@
         "wallet": "Could not connect wallet. Please try again."
       },
       "login": {
-        "action": "Login via Wallet"
+        "action": "Login via Wallet",
+        "success": "Successfully logged in."
       },
       "logout": {
         "completed": "Successfully logged out.",
@@ -323,10 +375,48 @@
       },
       "timeout": "Authentication timeout. Please login again."
     },
+    "landing": {
+      "cards": {
+        "create-project": {
+          "action": "create",
+          "subtitle": "Create your personal Ocean Protocol related project and share updates.",
+          "title": [
+            "Create",
+            "Project"
+          ]
+        },
+        "create-proposal": {
+          "action": "propose",
+          "subtitle": "Create a new proposal for the OceanDAO grants program.",
+          "title": [
+            "Create",
+            "Proposal"
+          ]
+        },
+        "manage-project": {
+          "action": "manage",
+          "subtitle": "Manage your personal and associated projects and publish updates.",
+          "title": [
+            "Management",
+            "Panel"
+          ]
+        }
+      },
+      "subtitle": "Ocean Pearl is all about community. Help us to realize this vision!",
+      "title": "What are you doing next?",
+      "unlock": "Create Project to unlock"
+    },
     "project": {
       "changed": "The changes were saved successfully.",
       "description": "Description",
       "empty": "Hey sailor, no projects here so far.  Dive right in and add your first one now!",
+      "images": {
+        "limit": "Image upload limit exceeded. A maximum of {limit} images can be saved.",
+        "size": "Images must be smaller than {size}",
+        "title": "Images",
+        "types": "Only the following file types are allowed: {types}",
+        "upload": "Upload new Image"
+      },
       "logo": "Logo",
       "one-liner": "One Liner",
       "pictures": {
@@ -335,17 +425,24 @@
         "upload": "upload new image"
       },
       "socials": {
-        "empty": "No social has been added yet.",
+        "empty": "No social has been added yet",
         "title": "Project Socials",
         "url": "Paste your URL here"
       },
-      "title": "Title"
+      "title": "Title",
+      "view": "View project profile on Ocean Pearl"
+    },
+    "projects": {
+      "associated": "Associated Projects",
+      "empty": "Hey sailor, no projects here so far. Dive right in and add your first one now!",
+      "meta": {
+        "title": "Manage Projects",
+        "title-single": "Manage {project}"
+      },
+      "title": "Projects"
     },
     "subtitle": "Management Panel",
-    "title": [
-      "Management",
-      "panel"
-    ]
+    "title": ["Management", "panel"]
   },
   "navbar": {
     "logoText": "Ocean Pearl",
@@ -353,6 +450,7 @@
     "navbarDao": "DAO Proposals",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
+    "navbarManage": "Manage",
     "navbarProjects": "Projects",
     "navbarProposals": "DAO Proposals",
     "navbarVoting": "DAO Voting"
@@ -419,6 +517,7 @@
       "success-chance": "Chance of Success",
       "title": "ROI"
     },
+    "socials": "Socials",
     "team": "Team",
     "tier": {
       "existing": "Existing Project Tier",
@@ -470,5 +569,12 @@
   },
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
+  },
+  "notFound": {
+    "title": {
+      "primary": "Oops!",
+      "secondary": "We couldn't find that page."
+    },
+    "text": "Maybe what you are looking for can be found here?"
   }
 }

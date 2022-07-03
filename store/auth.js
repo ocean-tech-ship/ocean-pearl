@@ -20,10 +20,12 @@ export const actions = {
     try {
       wallet = await dispatch('wallet/connect', null, { root: true });
     } catch (error) {
-      console.error('Could not connect wallet', error);
-      dispatch('alert/error', 'manage.auth.error.wallet', { root: true });
+      // User aborted wallet provider - no additional action needed
       return;
     }
+
+    // Wait one second before next action to prevent wallet apps from freezing
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
     const timestamp = new Date();
     const doc = `oceanpearl.io - login @ ${timestamp.toISOString()}`;
@@ -31,8 +33,16 @@ export const actions = {
     try {
       signature = await dispatch('wallet/signData', doc, { root: true });
     } catch (error) {
-      console.error('Could not sign login request', error);
-      dispatch('alert/error', 'manage.auth.error.sign', { root: true });
+      dispatch(
+        'alert/error',
+        {
+          content: this.$i18n.t('manage.auth.error.sign'),
+          autoFade: true,
+        },
+        {
+          root: true,
+        },
+      );
       return;
     }
 
@@ -47,30 +57,41 @@ export const actions = {
 
       // Login was successful
       commit('loggedInAddress', response.data.wallet);
-      await this.$router.push('/management');
+      await this.$router.push('/manage');
       await dispatch('wallet/disconnect', null, { root: true });
+
+      // Wait before displaying alert to fix glitching
+      await new Promise((resolve) => setTimeout(resolve, 500));
+
+      await dispatch(
+        'alert/success',
+        {
+          content: this.$i18n.t('manage.auth.login.success'),
+          autoFade: true,
+        },
+        { root: true },
+      );
     } catch (error) {
       if (error.response && error.response.status === 401) {
         dispatch('alert/error', 'manage.auth.error.invalid', { root: true });
         return;
       }
 
-      console.error('Error on backend communication', error);
-      dispatch('alert/error', 'general.error.retry', { root: true });
+      dispatch('alert/error', this.$i18n.t('general.error.retry'), {
+        root: true,
+      });
     }
   },
 
   async logout({ commit, dispatch }) {
     try {
       await logout(this.$axios);
-    } catch (error) {
-      console.error('Error on logging out', error);
-    }
+    } catch (error) {}
 
     // Logout was successful
     dispatch(
       'alert/success',
-      { content: 'manage.auth.logout.completed', autoFade: true },
+      { content: this.$i18n.t('manage.auth.logout.completed'), autoFade: true },
       { root: true },
     );
 
@@ -81,8 +102,23 @@ export const actions = {
     commit('account/projects', null, { root: true });
   },
 
-  timeout({ dispatch }) {
-    dispatch('alert/warning', 'manage.auth.timeout', { root: true });
+  async timeout({ commit, dispatch }) {
+    dispatch(
+      'alert/warning',
+      {
+        content: this.$i18n.t('manage.auth.timeout'),
+        autoFade: true,
+      },
+      {
+        root: true,
+      },
+    );
+
     this.$cookies.remove(SESSION_NAME);
+    await this.$router.push('/');
+
+    // Reset state
+    commit('account/wallet', null, { root: true });
+    commit('account/projects', null, { root: true });
   },
 };

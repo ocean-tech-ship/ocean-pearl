@@ -12,8 +12,7 @@
             <div class="mr-3">
               <app-logo
                 class="inline-block"
-                :src="daoProposal.project.logo && daoProposal.project.logo.url"
-                :alt="daoProposal.project.title"
+                :project="daoProposal.project"
                 :size="45"
               />
             </div>
@@ -113,7 +112,7 @@ import times from '@iconify/icons-la/times';
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import AppLogo from '@/components/common/AppLogo.vue';
 import AppLabel from '@/components/common/AppLabel.vue';
-import AppLinkCard from '~/components/common/AppLinkCard.vue';
+import AppLinkCard from '@/components/common/AppLinkCard.vue';
 import AppIcon from '@/components/common/AppIcon.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import Numbers from '@/mixins/Numbers';

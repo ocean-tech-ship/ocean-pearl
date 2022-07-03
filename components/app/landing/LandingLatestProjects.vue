@@ -31,12 +31,8 @@
           :to="`/projects/${beautifyProjectId(project)}`"
           card-class="card bg-base-200 shadow rounded flex items-center p-4 pb-12 h-275px text-center"
         >
-          <app-logo
-            class="mt-3"
-            :src="project.logo && project.logo.url"
-            :alt="project.title"
-            :size="64"
-          />
+          <app-logo class="mt-3" :project="project" :size="64" />
+
           <div class="mt-4 h-62px">
             <p class="text-primary leading-snug line-clamp-1 break-all">
               {{ project.title }}
@@ -62,7 +58,7 @@
 import { CategoryMap } from '@/components/constants/CategoryMap.constant';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLogo from '@/components/common/AppLogo.vue';
-import AppLinkCard from '~/components/common/AppLinkCard.vue';
+import AppLinkCard from '@/components/common/AppLinkCard.vue';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import LandingLatestProjectsSkeletonCard from '@/components/app/landing/LandingLatestProjectsSkeletonCard.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';

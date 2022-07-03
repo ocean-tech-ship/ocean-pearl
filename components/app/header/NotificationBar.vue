@@ -19,7 +19,7 @@
         <div class="flex-1 items-center">
           <app-icon class="pr-2" :data="alert.icon" :size="24" />
 
-          <label class="flex-1">{{ $t(alert.content) }}</label>
+          <label class="flex-1">{{ alert.content }}</label>
 
           <button
             v-if="alert.closeable"

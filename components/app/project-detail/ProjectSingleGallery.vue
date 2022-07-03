@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- controls -->
-    <div v-if="numberOfPictures > 1" class="flex justify-center pb-4">
+    <div v-if="numberOfImages > 1" class="flex justify-center pb-4">
       <button
-        v-for="index in numberOfPictures"
+        v-for="index in numberOfImages"
         :key="index"
         type="button"
         class="w-3 h-3 mx-1 mx-2 rounded-full transition duration-300 ease-in-out hover:scale-125"
@@ -16,8 +16,8 @@
     </div>
 
     <!-- wallpaper (single image) -->
-    <div v-if="numberOfPictures === 1">
-      <img class="object-contain" width="100%" :src="currentPicture" alt="" />
+    <div v-if="numberOfImages === 1">
+      <img class="object-contain" width="100%" :src="currentImage" alt="" />
     </div>
 
     <!-- slider (gallery) -->
@@ -43,7 +43,7 @@
               <img
                 v-touch:swipe="onSwipe"
                 class="absolute top-0 left-0 bottom-0 right-0 object-contain w-full h-64 lg:h-80 hover:opacity-70 ease-in-out duration-300"
-                :src="currentPicture"
+                :src="currentImage"
                 alt=""
                 @click="showModal = true"
               />
@@ -64,7 +64,7 @@
 
       <app-image-modal
         :show="showModal"
-        :src="currentPicture"
+        :src="currentImage"
         @close="showModal = false"
       />
     </div>
@@ -103,15 +103,15 @@ export default {
   },
 
   computed: {
-    numberOfPictures() {
-      const { pictures } = this.$props.project;
-      return pictures ? pictures.length : 0;
+    numberOfImages() {
+      const { images } = this.$props.project;
+      return images ? images.length : 0;
     },
 
-    currentPicture() {
-      const { pictures } = this.$props.project;
-      return pictures
-        ? pictures[Math.abs(this.currentIndex) % pictures.length].url
+    currentImage() {
+      const { images } = this.$props.project;
+      return images
+        ? images[Math.abs(this.currentIndex) % images.length].url
         : null;
     },
   },
@@ -120,10 +120,10 @@ export default {
     goTo(index) {
       this.previousIndex = this.currentIndex;
 
-      if (index >= this.numberOfPictures) {
+      if (index >= this.numberOfImages) {
         this.currentIndex = 0;
       } else if (index < 0) {
-        this.currentIndex = this.numberOfPictures - 1;
+        this.currentIndex = this.numberOfImages - 1;
       } else {
         this.currentIndex = index;
       }

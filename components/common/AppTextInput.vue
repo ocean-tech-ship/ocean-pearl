@@ -3,15 +3,18 @@
     :type="type"
     :placeholder="placeholder"
     :value="value"
+    :maxlength="maxlength"
     :disabled="disabled"
-    class="input w-full"
+    class="input"
     @input="$emit('input', $event.target.value)"
+    @change="$emit('change', $event.target.value)"
   />
 </template>
 
 <script>
 export default {
   name: 'AppTextInput',
+
   props: {
     type: {
       type: String,
@@ -23,6 +26,10 @@ export default {
     },
     value: {
       type: String,
+      default: null,
+    },
+    maxlength: {
+      type: Number,
       default: null,
     },
     disabled: {

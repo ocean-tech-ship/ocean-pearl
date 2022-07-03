@@ -60,9 +60,32 @@ export function getAccount(axios) {
   return axios.get('/account', { withCredentials: true });
 }
 
-// account save changes
-export function updateProject(axios, projectId, formData) {
-  return axios.put(`/account/project/${projectId}`, formData, {
+// update project data
+export function updateProject(axios, payload) {
+  return axios.put('/account/project', payload, {
+    withCredentials: true,
+  });
+}
+
+// logo upload
+export function uploadLogo(axios, file) {
+  const data = new FormData();
+  data.append('logo', file);
+
+  return axios.$post('/account/logos', data, {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
+
+// images upload
+export function uploadImages(axios, files) {
+  const data = new FormData();
+  Array.from(files).forEach((file) => data.append('images', file));
+
+  return axios.$post('/account/images', data, {
     withCredentials: true,
     headers: {
       'Content-Type': 'multipart/form-data',

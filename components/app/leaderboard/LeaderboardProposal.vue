@@ -11,15 +11,13 @@
               <app-logo
                 class="lg:hidden"
                 :size="48"
-                :src="proposal.project.logoUrl"
-                :alt="proposal.project.title"
+                :project="proposal.project"
               />
 
               <app-logo
                 class="hidden lg:block"
                 :size="64"
-                :src="proposal.project.logoUrl"
-                :alt="proposal.project.title"
+                :project="proposal.project"
               />
             </app-link>
           </div>

@@ -9,4 +9,5 @@ export interface SocialMedia {
   discord: string;
   medium: string;
   youtube: string;
+  instagram: string;
 }
