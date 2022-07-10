@@ -2,7 +2,9 @@
   <app-link-card
     :prefetch="false"
     :to="`/project-updates/${beautifyProjectId(projectUpdate)}`"
-    :card-class="`card bg-base-200 shadow rounded flex p-8 h-[264px] ${!singleColVariant} && lg:h-275px`"
+    :card-class="`card bg-base-200 shadow rounded flex p-8 h-275px ${
+      !singleColVariant && 'md:h-300px'
+    }`"
   >
     <div :class="{ 'md:min-h-[62px]': !singleColVariant }">
       <p class="text-primary leading-snug line-clamp-2">
@@ -11,7 +13,7 @@
     </div>
 
     <div class="mt-5 h-128px">
-      <p class="small-text line-clamp-2">
+      <p class="small-text line-clamp-3">
         {{ projectUpdate.oneLiner }}
       </p>
     </div>
