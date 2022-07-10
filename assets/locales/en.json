@@ -286,6 +286,12 @@
       "text": "These are the main features of ocean pearl.",
       "title": "Pearl",
       "titleHighlight": "space"
+    },
+    "project_updates": {
+      "title": "Latest project",
+      "titleHighlight": "updates",
+      "text": "These projects are currently waiting or applying for a DAO funding.",
+      "link_text": "See all update news"
     }
   },
   "leaderboard": {
@@ -380,26 +386,17 @@
         "create-project": {
           "action": "create",
           "subtitle": "Create your personal Ocean Protocol related project and share updates.",
-          "title": [
-            "Create",
-            "Project"
-          ]
+          "title": ["Create", "Project"]
         },
         "create-proposal": {
           "action": "propose",
           "subtitle": "Create a new proposal for the OceanDAO grants program.",
-          "title": [
-            "Create",
-            "Proposal"
-          ]
+          "title": ["Create", "Proposal"]
         },
         "manage-project": {
           "action": "manage",
           "subtitle": "Manage your personal and associated projects and publish updates.",
-          "title": [
-            "Management",
-            "Panel"
-          ]
+          "title": ["Management", "Panel"]
         }
       },
       "subtitle": "Ocean Pearl is all about community. Help us to realize this vision!",
