@@ -1,6 +1,8 @@
 <template>
   <div class="p-4 rounded shadow bg-base-200 space-y-1.5">
-    <span class="label-text text-primary">{{ $t('manage.project.logo') }}</span>
+    <span v-if="label" class="label-text text-primary">{{
+      $t('manage.project.logo')
+    }}</span>
     <div class="flex justify-between items-center">
       <!-- logo preview -->
       <app-logo :project="project" />
@@ -53,6 +55,11 @@ export default {
     project: {
       type: Object,
       required: true,
+    },
+    label: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 

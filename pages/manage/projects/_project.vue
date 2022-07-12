@@ -18,6 +18,7 @@
       />
 
       <project-logo
+        label
         class="flex-grow md:flex-initial"
         :project="project"
         @change="updateProperty('logo', $event)"
