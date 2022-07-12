@@ -38,7 +38,7 @@
       <!-- every step needs to be registered here -->
       <app-stepper-content v-else :step="step">
         <template #0>
-          <div>first</div>
+          <BasicStep :project="project" @update="updateData" />
         </template>
         <template #1>
           <div>second</div>
@@ -62,9 +62,11 @@ import NavigationDrawer from '@/components/app/manage/creator/project/Navigation
 import AppStepperContent from '@/components/common/AppStepperContent';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
 import createHead from '@/pages/manage/projects/new.head';
+import BasicStep from '~/components/app/manage/creator/project/steps/BasicStep';
 
 export default Vue.extend({
   components: {
+    BasicStep,
     MobileNavSupport,
     NavigationDrawer,
     StepsOverview,
@@ -83,6 +85,10 @@ export default Vue.extend({
       showOverview: false,
       lastStep: 0,
       step: 0,
+      project: {
+        title: '',
+        oneLiner: null,
+      },
     };
   },
 
@@ -116,6 +122,9 @@ export default Vue.extend({
       }
       // TODO: apply logic for last page
       this.step += increment;
+    },
+    updateData(payload) {
+      this.$data.project = { ...this.$data.project, ...payload };
     },
   },
 });
