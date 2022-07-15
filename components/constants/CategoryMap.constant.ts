@@ -1,5 +1,8 @@
 import CategoryEnum from '../../enums/Category.enum';
 
+/**
+ * @deprecated should be replaced by ProjectCategoryMapper and ProposalCategoryMapper
+ */
 export const CategoryMap: { [key in CategoryEnum]: string } = {
   [CategoryEnum.All]: 'All',
   [CategoryEnum.BuildAndIntegrate]: 'Build & Integrate',

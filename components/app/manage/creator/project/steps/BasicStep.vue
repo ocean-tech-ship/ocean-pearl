@@ -6,7 +6,7 @@
       label="What's the name of your project?"
       placeholder="Write the name of your project..."
       :max-length="64"
-      @input="$emit('update', { title: $event })"
+      @input="$emit('change', { title: $event })"
     />
 
     <!-- one-liner -->
@@ -15,7 +15,7 @@
       label="Your project in one sentence"
       placeholder="Write a short description of your project..."
       :max-length="128"
-      @input="$emit('update', { oneLiner: $event })"
+      @input="$emit('change', { oneLiner: $event })"
     />
 
     <!-- logo -->
@@ -23,7 +23,7 @@
       <div class="flex">
         <project-logo
           :project="project"
-          @change="$emit('update', { logo: $event })"
+          @change="$emit('change', { logo: $event })"
         />
       </div>
     </form-control>

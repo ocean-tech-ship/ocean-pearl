@@ -38,16 +38,25 @@
       <!-- every step needs to be registered here -->
       <app-stepper-content v-else :step="step">
         <template #0>
-          <BasicStep :project="project" @update="updateData" />
+          <WalletStep />
         </template>
         <template #1>
-          <div>second</div>
+          <BasicStep :project="project" @change="updateData" />
         </template>
         <template #2>
-          <div class="text-primary-content">
-            content
-            <div v-for="n in 100" :key="n">{{ n }}</div>
-          </div>
+          <DescriptionStep :project="project" @change="updateData" />
+        </template>
+        <template #3>
+          <CategoryStep :project="project" @change="updateData" />
+        </template>
+        <template #4>
+          <SocialsStep :project="project" @change="updateData" />
+        </template>
+        <template #5>
+          <ImagesStep :project="project" @change="updateData" />
+        </template>
+        <template #6>
+          <FinalStep :project="project" />
         </template>
       </app-stepper-content>
     </main>
@@ -56,16 +65,28 @@
 
 <script>
 import Vue from 'vue';
+import createHead from '@/pages/manage/projects/new.head';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import MobileNavSupport from '@/components/app/manage/creator/project/MobileNavSupport';
 import NavigationDrawer from '@/components/app/manage/creator/project/NavigationDrawer';
 import AppStepperContent from '@/components/common/AppStepperContent';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
-import createHead from '@/pages/manage/projects/new.head';
-import BasicStep from '~/components/app/manage/creator/project/steps/BasicStep';
+import BasicStep from '@/components/app/manage/creator/project/steps/BasicStep';
+import WalletStep from '@/components/app/manage/creator/project/steps/WalletStep';
+import CategoryStep from '@/components/app/manage/creator/project/steps/CategoryStep';
+import SocialsStep from '@/components/app/manage/creator/project/steps/SocialsStep';
+import ImagesStep from '@/components/app/manage/creator/project/steps/ImagesStep';
+import DescriptionStep from '@/components/app/manage/creator/project/steps/DescriptionStep';
+import FinalStep from '@/components/app/manage/creator/project/steps/FinalStep';
 
 export default Vue.extend({
   components: {
+    FinalStep,
+    DescriptionStep,
+    ImagesStep,
+    SocialsStep,
+    CategoryStep,
+    WalletStep,
     BasicStep,
     MobileNavSupport,
     NavigationDrawer,
@@ -88,6 +109,8 @@ export default Vue.extend({
       project: {
         title: '',
         oneLiner: null,
+        socialMedia: {},
+        images: [],
       },
     };
   },
