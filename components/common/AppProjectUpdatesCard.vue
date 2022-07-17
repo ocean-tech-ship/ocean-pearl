@@ -38,7 +38,7 @@ import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkCard from '@/components/common/AppLinkCard.vue';
 
 export default {
-  name: 'AppProjectUpdateCard',
+  name: 'AppProjectUpdatesCard',
 
   components: {
     AppLogo,
