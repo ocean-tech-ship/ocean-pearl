@@ -16,7 +16,7 @@
         mt-10"
       :quantity="3"
     >
-      <app-project-updates-skeleton-card />
+      <project-updates-skeleton-card />
     </app-skeleton-card-list>
 
     <div
@@ -24,7 +24,7 @@
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-10"
     >
       <div v-for="projectUpdate in projectUpdates" :key="projectUpdate.id">
-        <app-project-updates-card :project-update="projectUpdate" />
+        <project-updates-card :project-update="projectUpdate" />
       </div>
     </div>
 
@@ -38,15 +38,15 @@
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
-import AppProjectUpdatesCard from '@/components/common/AppProjectUpdatesCard';
-import AppProjectUpdatesSkeletonCard from '@/components/common/AppProjectUpdatesSkeletonCard';
+import ProjectUpdatesSkeletonCard from '@/components/app/project-updates/ProjectUpdatesSkeletonCard';
+import ProjectUpdatesCard from '@/components/app/project-updates/ProjectUpdatesCard';
 
 export default {
   name: 'LandingProjectUpdates',
 
   components: {
-    AppProjectUpdatesSkeletonCard,
-    AppProjectUpdatesCard,
+    ProjectUpdatesCard,
+    ProjectUpdatesSkeletonCard,
     AppLinkIconRight,
     AppSkeletonCardList,
   },

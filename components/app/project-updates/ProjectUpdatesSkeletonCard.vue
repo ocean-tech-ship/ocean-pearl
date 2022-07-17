@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  name: 'AppProjectUpdatesSkeletonCard',
+  name: 'ProjectUpdatesSkeletonCard',
 
   data() {
     return {

@@ -2,46 +2,47 @@
   <app-link-card
     :prefetch="false"
     :to="`/project-updates/${beautifyProjectId(projectUpdate)}`"
-    :card-class="`card bg-base-200 shadow rounded flex p-8 h-275px ${
-      !singleColVariant && 'md:h-300px'
+    :card-class="`card bg-base-200 shadow rounded p-8 h-275px ${
+      singleColVariant ? 'md:h-[220px]' : 'md:h-[300px]'
     }`"
   >
     <div :class="{ 'md:min-h-[62px]': !singleColVariant }">
-      <p class="text-primary leading-snug line-clamp-2">
+      <p
+        class="text-primary leading-snug line-clamp-2"
+        :class="{ 'md:line-clamp-1': singleColVariant }"
+      >
         {{ projectUpdate.title }}
       </p>
     </div>
 
     <div class="mt-5 h-128px">
-      <p class="small-text line-clamp-3">
+      <p
+        class="small-text line-clamp-3"
+        :class="{ 'md:line-clamp-2': singleColVariant }"
+      >
         {{ projectUpdate.oneLiner }}
       </p>
     </div>
 
-    <div class="mt-4 flex items-center">
-      <app-logo class="mr-4" :project="projectUpdate.project" :size="34" />
-      <div class="flex items-start flex-col">
-        <p class="small-text text-primary line-clamp-1">
-          {{ projectUpdate.project.title }}
-        </p>
-        <p class="small-text">
-          {{ formatDistance(projectUpdate.createdAt) }}
-        </p>
-      </div>
+    <div class="mt-4">
+      <project-updates-meta
+        :project-update="projectUpdate"
+        :single-col-variant="singleColVariant"
+      />
     </div>
   </app-link-card>
 </template>
 
 <script>
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
-import AppLogo from '@/components/common/AppLogo.vue';
 import AppLinkCard from '@/components/common/AppLinkCard.vue';
+import ProjectUpdatesMeta from '~/components/app/project-updates/ProjectUpdatesMeta';
 
 export default {
-  name: 'AppProjectUpdatesCard',
+  name: 'ProjectUpdatesCard',
 
   components: {
-    AppLogo,
+    ProjectUpdatesMeta,
     AppLinkCard,
   },
 
@@ -50,6 +51,7 @@ export default {
   props: {
     singleColVariant: {
       type: Boolean,
+      required: false,
       default: false,
     },
     projectUpdate: {

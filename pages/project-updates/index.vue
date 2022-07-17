@@ -15,12 +15,12 @@
         mt-10"
         :quantity="3"
       >
-        <app-project-updates-skeleton-card />
+        <project-updates-skeleton-card single-col-variant />
       </app-skeleton-card-list>
 
       <div v-else class="grid grid-cols-1 gap-4 mt-10">
         <div v-for="projectUpdate in projectUpdates" :key="projectUpdate.id">
-          <app-project-update-card
+          <project-updates-card
             :project-update="projectUpdate"
             single-col-variant
           />
@@ -34,15 +34,15 @@
 import SectionContainer from '@/components/common/SectionContainer';
 import ProjectUpdatesHeader from '@/components/app/project-updates/ProjectUpdatesHeader';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList';
-import AppProjectUpdateCard from '~/components/common/AppProjectUpdatesCard';
-import AppProjectUpdatesSkeletonCard from '@/components/common/AppProjectUpdatesSkeletonCard';
+import ProjectUpdatesSkeletonCard from '@/components/app/project-updates/ProjectUpdatesSkeletonCard';
+import ProjectUpdatesCard from '@/components/app/project-updates/ProjectUpdatesCard';
 
 export default {
   name: 'ProjectOverview',
 
   components: {
-    AppProjectUpdatesSkeletonCard,
-    AppProjectUpdateCard,
+    ProjectUpdatesCard,
+    ProjectUpdatesSkeletonCard,
     AppSkeletonCardList,
     ProjectUpdatesHeader,
     SectionContainer,
@@ -93,7 +93,8 @@ export default {
         {
           id: '2384094238fz0fsd9fs90ds4',
           createdAt: '2022-07-07T22:01:25.594Z',
-          title: 'Create and connect your world on web3',
+          title:
+            'Create and connect your world on web3 A new data era is on the horizon... A new data era is on the horizon...',
           oneLiner:
             'The essential web3 toolkit for sharing and funding anything. From writing about your latest idea, to building a home for the next big DAO. The essential web3 toolkit for sharing and funding anything. From writing about your latest idea, to building a home for the next big DAO.',
           project: {
