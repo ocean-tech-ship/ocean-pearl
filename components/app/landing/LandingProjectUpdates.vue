@@ -16,7 +16,7 @@
         mt-10"
       :quantity="3"
     >
-      <landing-latest-projects-skeleton-card />
+      <app-project-updates-skeleton-card />
     </app-skeleton-card-list>
 
     <div
@@ -24,7 +24,7 @@
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-10"
     >
       <div v-for="projectUpdate in projectUpdates" :key="projectUpdate.id">
-        <app-project-update-card :project-update="projectUpdate" />
+        <app-project-updates-card :project-update="projectUpdate" />
       </div>
     </div>
 
@@ -37,17 +37,17 @@
 <script>
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
-import LandingLatestProjectsSkeletonCard from '@/components/app/landing/LandingLatestProjectsSkeletonCard.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
-import AppProjectUpdateCard from '~/components/common/AppProjectUpdateCard';
+import AppProjectUpdatesCard from '@/components/common/AppProjectUpdatesCard';
+import AppProjectUpdatesSkeletonCard from '@/components/common/AppProjectUpdatesSkeletonCard';
 
 export default {
   name: 'LandingProjectUpdates',
 
   components: {
-    AppProjectUpdateCard,
+    AppProjectUpdatesSkeletonCard,
+    AppProjectUpdatesCard,
     AppLinkIconRight,
-    LandingLatestProjectsSkeletonCard,
     AppSkeletonCardList,
   },
 
@@ -60,6 +60,7 @@ export default {
     },
   },
 
+  // TODO: Remove dummy data and implement fetching
   data() {
     return {
       projectUpdates: [
