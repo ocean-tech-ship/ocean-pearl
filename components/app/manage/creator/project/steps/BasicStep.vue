@@ -3,6 +3,7 @@
     <!-- title -->
     <TextField
       :value="project.title"
+      required
       label="What's the name of your project?"
       placeholder="Write the name of your project..."
       :max-length="PROJECT_TITLE_MAX_LENGTH"

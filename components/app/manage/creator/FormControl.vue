@@ -16,7 +16,11 @@
 
     <slot />
 
-    <template v-if="maxLength" #hint>
+    <template v-if="$slots.hint" #hint>
+      <slot name="hint" />
+    </template>
+
+    <template v-if="maxLength" #altHint>
       <span class="label-text-alt">{{ `${value.length} / ${maxLength}` }}</span>
     </template>
   </AppFormControl>
