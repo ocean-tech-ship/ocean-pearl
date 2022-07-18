@@ -51,9 +51,7 @@ export default {
         throw new Error(`Cannot find web3 provider for network ${network}`);
       }
 
-      const provider = new Web3.providers.HttpProvider(
-        this.$config.web3Providers[network],
-      );
+      const provider = new Web3.providers.HttpProvider(providerUrl);
 
       return new Web3(provider);
     },
