@@ -11,6 +11,7 @@
 
     <!-- one-liner -->
     <TextArea
+      :value="project.oneLiner"
       :rows="2"
       label="Your project in one sentence"
       placeholder="Write a short description of your project..."

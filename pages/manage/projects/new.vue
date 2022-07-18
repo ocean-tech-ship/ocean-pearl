@@ -108,7 +108,7 @@ export default Vue.extend({
       step: 0,
       project: {
         title: '',
-        oneLiner: null,
+        oneLiner: '',
         socialMedia: {},
         images: [],
       },
