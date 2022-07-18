@@ -2,8 +2,8 @@
   <FormControl label="Verify your wallet balance">
     <div class="space-y-4 flex flex-col">
       <span class="px-1">
-        You need at least 500+ $OCEAN to create an project on Ocean Pearl. Don't
-        worry, this service is free of charge.
+        You need at least 500+ $OCEAN on a specific network to create an project
+        on Ocean Pearl. Don't worry, this service is free of charge.
       </span>
 
       <div class="bg-base-200 rounded p-4">
@@ -114,7 +114,10 @@ export default {
       for (const network of Object.values(NetworkTypeEnum)) {
         this.checkingNetwork = network;
 
-        const balance = await this.getOceanBalance(network, this.wallet);
+        const balance = await this.getOceanBalance(
+          network,
+          '0xb4e1cdae1d357a913212f884c6890cf482ebc66c',
+        );
 
         this.checks[network] = balance;
 
