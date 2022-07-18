@@ -34,31 +34,38 @@
         "
       />
 
-      <!-- walk through project creation -->
-      <!-- every step needs to be registered here -->
-      <app-stepper-content v-else :step="step">
-        <template #0>
-          <WalletStep />
-        </template>
-        <template #1>
-          <BasicStep :project="project" @change="updateData" />
-        </template>
-        <template #2>
-          <DescriptionStep :project="project" @change="updateData" />
-        </template>
-        <template #3>
-          <CategoryStep :project="project" @change="updateData" />
-        </template>
-        <template #4>
-          <SocialsStep :project="project" @change="updateData" />
-        </template>
-        <template #5>
-          <ImagesStep :project="project" @change="updateData" />
-        </template>
-        <template #6>
-          <FinalStep :project="project" />
-        </template>
-      </app-stepper-content>
+      <div v-else>
+        <!-- desktop step sub-title -->
+        <span class="hidden xl:block text-primary pl-1">
+          {{ `Step ${step + 1}: ${steps[step]}` }}
+        </span>
+
+        <!-- walk through project creation -->
+        <!-- every step needs to be registered here -->
+        <app-stepper-content :step="step">
+          <template #0>
+            <WalletStep />
+          </template>
+          <template #1>
+            <BasicStep :project="project" @change="updateData" />
+          </template>
+          <template #2>
+            <DescriptionStep :project="project" @change="updateData" />
+          </template>
+          <template #3>
+            <CategoryStep :project="project" @change="updateData" />
+          </template>
+          <template #4>
+            <SocialsStep :project="project" @change="updateData" />
+          </template>
+          <template #5>
+            <ImagesStep :project="project" @change="updateData" />
+          </template>
+          <template #6>
+            <FinalStep :project="project" />
+          </template>
+        </app-stepper-content>
+      </div>
     </main>
   </manage-scaffold>
 </template>

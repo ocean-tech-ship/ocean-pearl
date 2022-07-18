@@ -1,5 +1,5 @@
 <template>
-  <FormControl label="Add some images to your project's image gallery">
+  <FormControl solo label="Add some images to your project's image gallery">
     <ProjectImages
       :project="project"
       @change="$emit('change', { images: $event })"

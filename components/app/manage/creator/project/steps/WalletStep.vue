@@ -1,6 +1,6 @@
 <template>
   <FormControl label="Verify your wallet balance">
-    <div class="space-y-4 flex flex-col">
+    <div class="space-y-6 flex flex-col">
       <span class="px-1">
         You need at least 500+ $OCEAN on a specific network to create an project
         on Ocean Pearl. Don't worry, this service is free of charge.

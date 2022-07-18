@@ -1,9 +1,9 @@
 <template>
   <TextArea
-    :value="project.description"
     label="Describe your project in a few sentences"
     placeholder="Project description..."
     :rows="6"
+    :value="project.description"
     :max-length="PROJECT_DESCRIPTION_MAX_LENGTH"
     @input="$emit('change', { description: $event })"
   />

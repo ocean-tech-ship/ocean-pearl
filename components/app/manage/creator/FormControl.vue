@@ -1,7 +1,9 @@
 <template>
   <AppFormControl>
     <template #label>
-      <span class="text-primary font-bold">{{ label }}</span>
+      <span class="text-primary font-bold text-smbase">
+        {{ label }}
+      </span>
     </template>
 
     <template v-if="hint" #altLabel>

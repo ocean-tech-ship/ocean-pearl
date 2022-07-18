@@ -1,6 +1,6 @@
 <template>
   <FormControl label="Select the category of your project">
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8 pt-6">
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
       <button
         v-for="category in categories"
         :key="category.id"
