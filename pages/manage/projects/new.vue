@@ -109,6 +109,7 @@ export default Vue.extend({
       project: {
         title: '',
         oneLiner: '',
+        description: '',
         socialMedia: {},
         images: [],
       },

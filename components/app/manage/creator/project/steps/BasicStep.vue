@@ -5,7 +5,7 @@
       :value="project.title"
       label="What's the name of your project?"
       placeholder="Write the name of your project..."
-      :max-length="64"
+      :max-length="PROJECT_TITLE_MAX_LENGTH"
       @input="$emit('change', { title: $event })"
     />
 
@@ -15,7 +15,7 @@
       :rows="2"
       label="Your project in one sentence"
       placeholder="Write a short description of your project..."
-      :max-length="128"
+      :max-length="PROJECT_ONE_LINER_MAX_LENGTH"
       @input="$emit('change', { oneLiner: $event })"
     />
 
@@ -35,8 +35,8 @@
 import TextField from '@/components/app/manage/creator/TextField';
 import TextArea from '@/components/app/manage/creator/TextArea';
 import FormControl from '@/components/app/manage/creator/FormControl';
-import ImageConstants from '@/mixins/ImageConstants';
 import ProjectLogo from '@/components/app/manage/project/ProjectLogo';
+import ProjectConstants from '@/mixins/ProjectConstants';
 
 export default {
   name: 'BasicStep',
@@ -48,7 +48,7 @@ export default {
     TextField,
   },
 
-  mixins: [ImageConstants],
+  mixins: [ProjectConstants],
 
   props: {
     project: {

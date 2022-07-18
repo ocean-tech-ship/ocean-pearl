@@ -1,16 +1,24 @@
 <template>
-  <FormControl label="Describe your project in a few sentences">
-    desc
-  </FormControl>
+  <TextArea
+    :value="project.description"
+    label="Describe your project in a few sentences"
+    placeholder="Project description..."
+    :rows="6"
+    :max-length="PROJECT_DESCRIPTION_MAX_LENGTH"
+    @input="$emit('change', { description: $event })"
+  />
 </template>
 
 <script>
-import FormControl from '@/components/app/manage/creator/FormControl';
+import TextArea from '@/components/app/manage/creator/TextArea';
+import ProjectConstants from '@/mixins/ProjectConstants';
 
 export default {
   name: 'DescriptionStep',
 
-  components: { FormControl },
+  components: { TextArea },
+
+  mixins: [ProjectConstants],
 
   props: {
     project: {
