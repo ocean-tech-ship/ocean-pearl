@@ -114,10 +114,7 @@ export default {
       for (const network of Object.values(NetworkTypeEnum)) {
         this.checkingNetwork = network;
 
-        const balance = await this.getOceanBalance(
-          network,
-          '0xb4e1cdae1d357a913212f884c6890cf482ebc66c',
-        );
+        const balance = await this.getOceanBalance(network, this.wallet);
 
         this.checks[network] = balance;
 
