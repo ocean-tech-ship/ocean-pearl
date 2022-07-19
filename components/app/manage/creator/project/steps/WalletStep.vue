@@ -86,6 +86,13 @@ export default {
 
   mixins: [ProjectConstants, ConnectedWallet, WalletBalance, Numbers],
 
+  props: {
+    checks: {
+      type: Object,
+      required: true,
+    },
+  },
+
   data() {
     return {
       icons: {
@@ -94,37 +101,45 @@ export default {
         networkWired,
       },
       networkMap: NetworkTypeMapper,
-      checks: {},
-      loading: true,
       checkingNetwork: null,
-      verified: false,
     };
   },
 
+  computed: {
+    loading() {
+      return Object.keys(this.checks).length === 0;
+    },
+
+    verified() {
+      return Object.values(this.checks).some(
+        (balance) => balance >= this.PROJECT_REQUIRED_OCEAN,
+      );
+    },
+  },
+
   mounted() {
-    this.verifyBalance();
+    if (!this.verified) {
+      this.verifyBalance();
+    }
   },
 
   methods: {
     async verifyBalance() {
-      this.loading = true;
-      this.checks = {};
-      this.verified = false;
+      this.$emit('change', {}); // Reset
+      const checks = {};
 
       for (const network of Object.values(NetworkTypeEnum)) {
         this.checkingNetwork = network;
 
         const balance = await this.getOceanBalance(network, this.wallet);
-
-        this.checks[network] = balance;
+        checks[network] = balance;
 
         if (balance >= this.PROJECT_REQUIRED_OCEAN) {
-          this.verified = true;
           break;
         }
       }
 
-      this.loading = false;
+      this.$emit('change', checks);
     },
   },
 };

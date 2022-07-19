@@ -44,7 +44,10 @@
         <!-- every step needs to be registered here -->
         <app-stepper-content :step="step">
           <template #0>
-            <WalletStep />
+            <WalletStep
+              :checks="walletChecks"
+              @change="walletChecks = $event"
+            />
           </template>
           <template #1>
             <BasicStep :project="project" @change="updateData" />
@@ -113,6 +116,7 @@ export default Vue.extend({
       showOverview: false,
       lastStep: 0,
       step: 0,
+      walletChecks: {},
       project: {
         title: '',
         oneLiner: '',
