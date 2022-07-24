@@ -1,12 +1,12 @@
 <template>
   <div>
     <h2>
-      {{ $t('landing.project_updates.title') }}
+      {{ $t('landing.latest_project_posts.title') }}
       <span class="text-primary">
-        {{ $t('landing.project_updates.titleHighlight') }}
+        {{ $t('landing.latest_project_posts.titleHighlight') }}
       </span>
     </h2>
-    <p>{{ $t('landing.project_updates.text') }}</p>
+    <p>{{ $t('landing.latest_project_posts.text') }}</p>
 
     <app-skeleton-card-list
       v-if="projectPosts === null"
@@ -29,7 +29,7 @@
     </div>
 
     <app-link-icon-right to="/feed">
-      {{ $t('landing.project_updates.link_text') }}
+      {{ $t('landing.latest_project_posts.link_text') }}
     </app-link-icon-right>
   </div>
 </template>

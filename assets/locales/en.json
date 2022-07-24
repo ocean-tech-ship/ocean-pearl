@@ -287,10 +287,10 @@
       "title": "Pearl",
       "titleHighlight": "space"
     },
-    "project_updates": {
+    "latest_project_posts": {
       "title": "Latest project",
       "titleHighlight": "posts",
-      "text": "These projects are currently waiting or applying for a DAO funding.",
+      "text": "These posts and updates where created by projects recently.",
       "link_text": "See project feed"
     }
   },
@@ -579,7 +579,7 @@
     "header": {
       "title": "Project",
       "titleHighlight": "feed",
-      "text": "These projects are currently waiting or applying for a DAO funding."
+      "text": "See all project posts and updates."
     },
     "post": {
       "unknown": "The requested post could not be found."
