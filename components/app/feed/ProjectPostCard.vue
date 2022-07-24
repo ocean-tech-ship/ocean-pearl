@@ -1,7 +1,7 @@
 <template>
   <app-link-card
     :prefetch="false"
-    :to="`/project-updates/${beautifyProjectId(projectUpdate)}`"
+    :to="`/feed/${beautifyProjectId(projectPost)}`"
     :card-class="`card bg-base-200 shadow rounded p-8 h-275px ${
       singleColVariant ? 'md:h-[220px]' : 'md:h-[300px]'
     }`"
@@ -11,7 +11,7 @@
         class="text-primary leading-snug line-clamp-2"
         :class="{ 'md:line-clamp-1': singleColVariant }"
       >
-        {{ projectUpdate.title }}
+        {{ projectPost.title }}
       </p>
     </div>
 
@@ -20,13 +20,13 @@
         class="small-text line-clamp-3"
         :class="{ 'md:line-clamp-2': singleColVariant }"
       >
-        {{ projectUpdate.oneLiner }}
+        {{ projectPost.oneLiner }}
       </p>
     </div>
 
     <div class="mt-4">
-      <project-updates-meta
-        :project-update="projectUpdate"
+      <project-post-meta
+        :project-post="projectPost"
         :single-col-variant="singleColVariant"
       />
     </div>
@@ -36,13 +36,13 @@
 <script>
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLinkCard from '@/components/common/AppLinkCard.vue';
-import ProjectUpdatesMeta from '~/components/app/project-updates/ProjectUpdatesMeta';
+import ProjectPostMeta from '@/components/app/feed/ProjectPostMeta';
 
 export default {
-  name: 'ProjectUpdatesCard',
+  name: 'ProjectPostCard',
 
   components: {
-    ProjectUpdatesMeta,
+    ProjectPostMeta,
     AppLinkCard,
   },
 
@@ -54,7 +54,7 @@ export default {
       required: false,
       default: false,
     },
-    projectUpdate: {
+    projectPost: {
       type: Object,
       required: true,
     },

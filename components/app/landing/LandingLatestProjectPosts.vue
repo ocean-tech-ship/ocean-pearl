@@ -9,26 +9,26 @@
     <p>{{ $t('landing.project_updates.text') }}</p>
 
     <app-skeleton-card-list
-      v-if="projectUpdates === null"
+      v-if="projectPosts === null"
       custom-class="grid grid-cols-1
         md:grid-cols-2 xl:grid-cols-3
         gap-4
         mt-10"
       :quantity="3"
     >
-      <project-updates-skeleton-card />
+      <project-post-skeleton-card />
     </app-skeleton-card-list>
 
     <div
       v-else
       class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-10"
     >
-      <div v-for="projectUpdate in projectUpdates" :key="projectUpdate.id">
-        <project-updates-card :project-update="projectUpdate" />
+      <div v-for="projectPost in projectPosts" :key="projectPost.id">
+        <project-post-card :project-post="projectPost" />
       </div>
     </div>
 
-    <app-link-icon-right to="/project-updates">
+    <app-link-icon-right to="/feed">
       {{ $t('landing.project_updates.link_text') }}
     </app-link-icon-right>
   </div>
@@ -38,15 +38,15 @@
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId';
 import AppLinkIconRight from '@/components/common/AppLinkIconRight.vue';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList.vue';
-import ProjectUpdatesSkeletonCard from '@/components/app/project-updates/ProjectUpdatesSkeletonCard';
-import ProjectUpdatesCard from '@/components/app/project-updates/ProjectUpdatesCard';
+import ProjectPostSkeletonCard from '@/components/app/feed/ProjectPostSkeletonCard';
+import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
 
 export default {
-  name: 'LandingProjectUpdates',
+  name: 'LandingLatestProjectPosts',
 
   components: {
-    ProjectUpdatesCard,
-    ProjectUpdatesSkeletonCard,
+    ProjectPostCard,
+    ProjectPostSkeletonCard,
     AppLinkIconRight,
     AppSkeletonCardList,
   },
@@ -63,7 +63,7 @@ export default {
   // TODO: Remove dummy data and implement fetching
   data() {
     return {
-      projectUpdates: [
+      projectPosts: [
         {
           id: '2384094238fz0fsd9fs90dsf',
           createdAt: '2022-07-07T22:01:25.594Z',

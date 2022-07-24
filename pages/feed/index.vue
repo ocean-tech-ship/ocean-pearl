@@ -1,29 +1,26 @@
 <template>
   <div>
-    <!--  Project updates header  -->
+    <!--  Feed header  -->
     <section-container>
-      <project-updates-header />
+      <feed-header />
     </section-container>
 
-    <!-- Project updates feed   -->
+    <!-- Project post feed   -->
     <section-container class="pb-4 xl:pb-16">
       <app-skeleton-card-list
-        v-if="projectUpdates === null"
+        v-if="porjectPosts === null"
         custom-class="grid grid-cols-1
         md:grid-cols-2 xl:grid-cols-3
         gap-4
         mt-10"
         :quantity="3"
       >
-        <project-updates-skeleton-card single-col-variant />
+        <project-post-skeleton-card single-col-variant />
       </app-skeleton-card-list>
 
       <div v-else class="grid grid-cols-1 gap-4 mt-10">
-        <div v-for="projectUpdate in projectUpdates" :key="projectUpdate.id">
-          <project-updates-card
-            :project-update="projectUpdate"
-            single-col-variant
-          />
+        <div v-for="porjectPost in porjectPosts" :key="porjectPost.id">
+          <project-post-card :project-post="porjectPost" single-col-variant />
         </div>
       </div>
     </section-container>
@@ -32,26 +29,24 @@
 
 <script>
 import SectionContainer from '@/components/common/SectionContainer';
-import ProjectUpdatesHeader from '@/components/app/project-updates/ProjectUpdatesHeader';
+import FeedHeader from '@/components/app/feed/FeedHeader';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList';
-import ProjectUpdatesSkeletonCard from '@/components/app/project-updates/ProjectUpdatesSkeletonCard';
-import ProjectUpdatesCard from '@/components/app/project-updates/ProjectUpdatesCard';
+import ProjectPostSkeletonCard from '@/components/app/feed/ProjectPostSkeletonCard';
+import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
 
 export default {
-  name: 'ProjectOverview',
-
   components: {
-    ProjectUpdatesCard,
-    ProjectUpdatesSkeletonCard,
+    ProjectPostCard,
+    ProjectPostSkeletonCard,
     AppSkeletonCardList,
-    ProjectUpdatesHeader,
+    FeedHeader,
     SectionContainer,
   },
 
   // TODO: Remove dummy data and implement fetching
   data() {
     return {
-      projectUpdates: [
+      porjectPosts: [
         {
           id: '2384094238fz0fsd9fs90dsf',
           createdAt: '2022-07-07T22:01:25.594Z',
@@ -116,7 +111,7 @@ export default {
 
   head() {
     return {
-      title: 'Project Updates',
+      title: 'Project Update Feed',
       meta: [
         {
           hid: 'description',
@@ -138,7 +133,7 @@ export default {
         {
           hid: 'og:url',
           property: 'og:url',
-          content: `${this.$config.rootURL}/project-updates`,
+          content: `${this.$config.rootURL}/feed`,
         },
         {
           hid: 'twitter:title',
@@ -152,9 +147,7 @@ export default {
             'See all updates from projects which are currently waiting or applying for DAO funding.',
         },
       ],
-      link: [
-        { rel: 'canonical', href: `${this.$config.rootURL}/project-updates` },
-      ],
+      link: [{ rel: 'canonical', href: `${this.$config.rootURL}/feed` }],
     };
   },
 };

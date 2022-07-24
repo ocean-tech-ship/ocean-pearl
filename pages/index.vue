@@ -39,7 +39,7 @@ import LandingPearlDao from '@/components/app/landing/LandingPearlDao.vue';
 import SectionContainer from '@/components/common/SectionContainer';
 import AppPrimaryGradientBackground from '@/components/common/AppPrimaryGradientBackground';
 import AppWavesBackground from '@/components/common/AppWavesBackground';
-import LandingProjectUpdates from '@/components/app/landing/LandingProjectUpdates';
+import LandingProjectUpdates from '~/components/app/landing/LandingLatestProjectPosts';
 
 export default Vue.extend({
   components: {

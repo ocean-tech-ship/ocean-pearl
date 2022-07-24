@@ -1,12 +1,13 @@
 <template>
   <div class="flex">
-    <project-updates-meta-item :project-for-logo="projectUpdate.project" />
+    <project-post-meta-item :project-for-logo="projectPost.project" />
     <div
       class="items-center small-text pl-3 text-primary"
       :class="{ 'md:flex': singleColVariant }"
     >
-      <project-updates-meta-item
-        :value="projectUpdate.project.title"
+      <project-post-meta-item
+        :value="projectPost.project.title"
+        :to="to"
         line-clamp
       />
       <span
@@ -14,22 +15,27 @@
         :class="{ 'md:block': singleColVariant }"
         >•</span
       >
-      <project-updates-meta-item
+      <project-post-meta-item
         class="opacity-70"
-        :value="formatDistance(projectUpdate.createdAt)"
+        :value="formatDistance(projectPost.createdAt)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import ProjectUpdatesMetaItem from '@/components/app/project-updates/ProjectUpdatesMetaItem';
+import ProjectPostMetaItem from '@/components/app/feed/ProjectPostMetaItem';
 
 export default {
-  name: 'ProjectUpdatesMeta',
-  components: { ProjectUpdatesMetaItem },
+  name: 'ProjectPostMeta',
+  components: { ProjectPostMetaItem },
   props: {
-    projectUpdate: {
+    to: {
+      type: [String, null],
+      required: false,
+      default: null,
+    },
+    projectPost: {
       type: Object,
       required: true,
     },
