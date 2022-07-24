@@ -1,22 +1,25 @@
 <template>
   <div>
     <section-container>
-      <div class="flex items-center justify-between mb-4">
+      <div
+        class="flex mb-4 flex-col-reverse lg:flex-row lg:items-center lg:justify-between"
+      >
         <project-post-meta
           :project-post="projectPost"
           :to="`/projects/${beautifyProjectId(projectPost.project)}`"
           single-col-variant
         />
+
         <div class="flex gap-4 py-5">
           <app-button
-            class="btn-gradient-primary border-0"
+            class="btn-sm lg:btn-md btn-gradient-primary border-0"
             as="link"
             to="/feed"
             btn-text="Feed"
             :icon="icons.arrowLeft"
           />
           <app-button
-            class="btn-primary btn-outline"
+            class="btn-sm lg:btn-md btn-primary btn-outline"
             as="link"
             :to="`/projects/${beautifyProjectId(projectPost.project)}`"
             btn-text="Project Profile"
