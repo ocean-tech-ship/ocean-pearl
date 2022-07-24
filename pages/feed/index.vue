@@ -33,6 +33,7 @@ import FeedHeader from '@/components/app/feed/FeedHeader';
 import AppSkeletonCardList from '@/components/common/AppSkeletonCardList';
 import ProjectPostSkeletonCard from '@/components/app/feed/ProjectPostSkeletonCard';
 import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
+import createHead from '@/pages/feed/index.head';
 
 export default {
   components: {
@@ -110,45 +111,7 @@ export default {
   },
 
   head() {
-    return {
-      title: 'Project Update Feed',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'See all updates from projects which are currently waiting or applying for DAO funding.',
-        },
-        {
-          hid: 'og:title',
-          property: 'og:title',
-          content: 'Projects',
-        },
-        {
-          hid: 'og:description',
-          property: 'og:description',
-          content:
-            'See all updates from projects which are currently waiting or applying for DAO funding.',
-        },
-        {
-          hid: 'og:url',
-          property: 'og:url',
-          content: `${this.$config.rootURL}/feed`,
-        },
-        {
-          hid: 'twitter:title',
-          property: 'twitter:title',
-          content: `Project Updates | Ocean Pearl`,
-        },
-        {
-          hid: 'twitter:description',
-          property: 'twitter:description',
-          content:
-            'See all updates from projects which are currently waiting or applying for DAO funding.',
-        },
-      ],
-      link: [{ rel: 'canonical', href: `${this.$config.rootURL}/feed` }],
-    };
+    return createHead(this.$config, this.$i18n);
   },
 };
 </script>

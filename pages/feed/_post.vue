@@ -42,6 +42,7 @@ import SectionContainer from '@/components/common/SectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId.js';
 import ProjectPostMeta from '@/components/app/feed/ProjectPostMeta';
 import AppButton from '@/components/common/AppButton';
+import createHead from '@/pages/feed/_post.head';
 
 export default Vue.extend({
   components: {
@@ -1115,6 +1116,10 @@ export default Vue.extend({
         arrowLeft,
       },
     };
+  },
+
+  head() {
+    return createHead(this.$config, this.$i18n, this.projectPost);
   },
 });
 </script>
