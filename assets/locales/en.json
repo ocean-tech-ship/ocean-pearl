@@ -450,7 +450,8 @@
     "navbarManage": "Manage",
     "navbarProjects": "Projects",
     "navbarProposals": "DAO Proposals",
-    "navbarVoting": "DAO Voting"
+    "navbarVoting": "DAO Voting",
+    "navbarFeed": "Feed"
   },
   "project": {
     "added": "added at",
