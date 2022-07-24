@@ -289,9 +289,9 @@
     },
     "project_updates": {
       "title": "Latest project",
-      "titleHighlight": "updates",
+      "titleHighlight": "posts",
       "text": "These projects are currently waiting or applying for a DAO funding.",
-      "link_text": "See all update news"
+      "link_text": "See project feed"
     }
   },
   "leaderboard": {
@@ -574,11 +574,14 @@
     },
     "text": "Maybe what you are looking for can be found here?"
   },
-  "projectUpdates": {
+  "feed": {
     "header": {
-      "title": "Project update",
+      "title": "Project",
       "titleHighlight": "feed",
       "text": "These projects are currently waiting or applying for a DAO funding."
+    },
+    "post": {
+      "unknown": "The requested post could not be found."
     }
   }
 }
