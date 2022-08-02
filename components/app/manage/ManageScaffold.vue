@@ -1,9 +1,9 @@
 <template>
   <div class="flex">
     <!-- navigation drawer -->
-    <div class="hidden xl:block w-80 min-h-screen p-2">
+    <div class="hidden xl:block w-80 min-h-screen p-2 flex-none">
       <div
-        class="h-full p-4 rounded shadow gradient-background flex flex-col items-center text-primary-content"
+        class="h-full w-full p-4 rounded shadow gradient-background flex flex-col items-center text-primary-content"
       >
         <!-- corporate -->
         <logo-branding class="text-primary-content" />
