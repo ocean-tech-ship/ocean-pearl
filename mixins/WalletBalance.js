@@ -34,9 +34,9 @@ export default {
         case NetworkTypeEnum.Polygon:
           contractAddress = '0x282d8efCe846A88B159800bd4130ad77443Fa1A1';
           break;
-        // case NetworkTypeEnum.BSC:
-        //   contractAddress = '0xDCe07662CA8EbC241316a15B611c89711414Dd1a';
-        //   break;
+        case NetworkTypeEnum.BSC:
+          contractAddress = '0xDCe07662CA8EbC241316a15B611c89711414Dd1a';
+          break;
         default:
           throw new Error(`Unknown network type ${network}`);
       }
