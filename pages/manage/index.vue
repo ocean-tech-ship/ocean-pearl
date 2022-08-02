@@ -25,9 +25,13 @@ import clipboardList from '@iconify/icons-la/clipboard-list';
 import star from '@iconify/icons-la/star';
 import SectionContainer from '@/components/common/SectionContainer';
 import ActionCard from '@/components/app/manage/ActionCard';
+import ProjectConstants from '@/mixins/ProjectConstants';
+import ConnectedWallet from '~/mixins/ConnectedWallet';
 
 export default Vue.extend({
   components: { ActionCard, SectionContainer },
+
+  mixins: [ProjectConstants, ConnectedWallet],
 
   middleware: 'session',
 
@@ -47,7 +51,12 @@ export default Vue.extend({
           icon: plus,
           img: require('assets/images/manage/create-project.svg'),
           target: '/manage/projects/new',
-          lockedText: 'coming soon',
+          lockedText:
+            this.projects?.filter(
+              (project) => project.author?.address === this.wallet,
+            ).length >= this.PROJECT_COUNT_MAX
+              ? this.$i18n.t('creator.project.limit')
+              : null,
         },
         {
           key: 'manage-project',

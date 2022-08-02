@@ -41,6 +41,7 @@
     "overview": "Overview",
     "progress": "Progress: {progress}%",
     "project": {
+      "limit": "max limit reached",
       "steps": [
         "500 $OCEAN",
         "Basic",
