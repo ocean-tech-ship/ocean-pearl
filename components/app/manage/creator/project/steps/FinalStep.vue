@@ -17,13 +17,13 @@
         </p>
       </div>
       <div class="p-4 rounded bg-primary/10 space-y-4">
-        <div class="flex">
+        <div class="flex items-center">
           <img
             class="pr-2"
             src="@/assets/images/pearl-logo.svg"
             :alt="$t('general.logo')"
           />
-          <p class="text-primary text-lg font-medium">
+          <p class="text-primary 3xl:text-lg font-medium">
             Ocean Pearl Project Guidelines
           </p>
         </div>
@@ -31,7 +31,7 @@
         <div
           v-for="guideline in $t('creator.project.guidelines')"
           :key="guideline"
-          class="bg-primary-content text-base-300 rounded px-4 py-2 flex items-center"
+          class="bg-base-200 text-base-content rounded px-4 py-2 flex items-center"
         >
           <app-icon :data="icons.checkCircle" class="text-primary mr-4" />
           <span>{{ guideline }}</span>
