@@ -14,6 +14,7 @@
     <TextArea
       :value="project.oneLiner"
       :rows="2"
+      required
       label="Your project in one sentence"
       placeholder="Write a short description of your project..."
       :max-length="PROJECT_ONE_LINER_MAX_LENGTH"

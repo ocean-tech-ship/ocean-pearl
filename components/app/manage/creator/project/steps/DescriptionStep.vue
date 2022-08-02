@@ -2,6 +2,7 @@
   <TextArea
     label="Describe your project in a few sentences"
     placeholder="Project description..."
+    required
     :rows="6"
     :value="project.description"
     :max-length="PROJECT_DESCRIPTION_MAX_LENGTH"
