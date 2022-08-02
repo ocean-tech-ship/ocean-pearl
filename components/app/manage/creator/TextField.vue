@@ -19,7 +19,7 @@
     />
 
     <template #hint>
-      <span class="label-text text-error">
+      <span class="label-text-alt text-error">
         {{ details }}
       </span>
     </template>
