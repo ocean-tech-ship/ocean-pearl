@@ -1,19 +1,38 @@
-export const state = () => ({
+import ProjectCategoryEnum from '@/enums/ProjectCategory.enum';
+
+const getDefaultState = () => ({
   /* we only allow one project draft at the same time */
-  /* derived from our Open-Proposal-Standard */
-  // TODO: need to link img upload (ids) | waiting for new backend api
+  /* BE: create-project.model.ts */
   project: {
-    name: null,
-    oneLiner: null,
-    description: null,
-    category: null,
-    walletAddresses: [],
-    links: [],
-    team: [],
+    title: '',
+    oneLiner: '',
+    description: '',
+    category: ProjectCategoryEnum.Other,
+    mediaHandles: {},
+    logo: undefined,
+    images: [],
   },
-  // TODO: for proposals we need to decide if we want to support multiple at the same time
+  loading: false,
 });
 
-export const mutations = {};
+export const state = () => getDefaultState();
 
-export const actions = {};
+export const mutations = {
+  // payload: { key: value, ... }
+  updateProperty(state, payload) {
+    // Merge rather than replace, so we don't lose observers
+    // https://github.com/vuejs/vuex/issues/1118
+    Object.assign(state.project, payload);
+  },
+  reset(state) {
+    // Merge rather than replace, so we don't lose observers
+    // https://github.com/vuejs/vuex/issues/1118
+    Object.assign(state, getDefaultState());
+  },
+};
+
+export const actions = {
+  submit({ state }) {
+    console.log('submit project', state.project);
+  },
+};

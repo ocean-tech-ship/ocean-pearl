@@ -50,19 +50,19 @@
             />
           </template>
           <template #1>
-            <BasicStep :project="project" @change="updateData" />
+            <BasicStep :project="project" @change="updateProperty" />
           </template>
           <template #2>
-            <DescriptionStep :project="project" @change="updateData" />
+            <DescriptionStep :project="project" @change="updateProperty" />
           </template>
           <template #3>
-            <CategoryStep :project="project" @change="updateData" />
+            <CategoryStep :project="project" @change="updateProperty" />
           </template>
           <template #4>
-            <SocialsStep :project="project" @change="updateData" />
+            <SocialsStep :project="project" @change="updateProperty" />
           </template>
           <template #5>
-            <ImagesStep :project="project" @change="updateData" />
+            <ImagesStep :project="project" @change="updateProperty" />
           </template>
           <template #6>
             <FinalStep :project="project" />
@@ -75,6 +75,7 @@
 
 <script>
 import Vue from 'vue';
+import { mapState } from 'vuex';
 import createHead from '@/pages/manage/projects/new.head';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import MobileNavSupport from '@/components/app/manage/creator/project/MobileNavSupport';
@@ -117,13 +118,6 @@ export default Vue.extend({
       lastStep: 0,
       step: 0,
       walletChecks: {},
-      project: {
-        title: '',
-        oneLiner: '',
-        description: '',
-        socialMedia: {},
-        images: [],
-      },
     };
   },
 
@@ -132,6 +126,9 @@ export default Vue.extend({
   },
 
   computed: {
+    ...mapState('creator', {
+      project: 'project',
+    }),
     progressPercentage() {
       return Math.round((100 / this.steps.length) * this.step);
     },
@@ -158,8 +155,8 @@ export default Vue.extend({
       // TODO: apply logic for last page
       this.step += increment;
     },
-    updateData(payload) {
-      this.$data.project = { ...this.$data.project, ...payload };
+    updateProperty(payload) {
+      this.$store.commit('creator/updateProperty', payload);
     },
   },
 });

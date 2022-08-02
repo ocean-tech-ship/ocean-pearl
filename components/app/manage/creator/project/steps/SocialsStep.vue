@@ -2,7 +2,7 @@
   <FormControl label="Add the social links of your project">
     <ProjectSocials
       :project="project"
-      @change="$emit('change', { socialMedia: $event })"
+      @change="$emit('change', { mediaHandles: $event })"
     />
   </FormControl>
 </template>
