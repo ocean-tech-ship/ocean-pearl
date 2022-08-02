@@ -41,6 +41,11 @@
     "overview": "Overview",
     "progress": "Progress: {progress}%",
     "project": {
+      "guidelines": [
+        "Double check all your provided data",
+        " Stay nice and don't use violent language",
+        "Check if the image quality is high enough"
+      ],
       "limit": "max limit reached",
       "steps": [
         "500 $OCEAN",
