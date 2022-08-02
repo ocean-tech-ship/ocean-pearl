@@ -62,7 +62,7 @@ export function getAccount(axios) {
 
 // update project data
 export function updateProject(axios, payload) {
-  return axios.put('/account/project', payload, {
+  return axios.put('/account/projects', payload, {
     withCredentials: true,
   });
 }
