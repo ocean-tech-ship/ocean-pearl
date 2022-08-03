@@ -67,6 +67,13 @@ export function updateProject(axios, payload) {
   });
 }
 
+// project creation
+export function createProject(axios, payload) {
+  return axios.post('/account/projects', payload, {
+    withCredentials: true,
+  });
+}
+
 // logo upload
 export function uploadLogo(axios, file) {
   const data = new FormData();
