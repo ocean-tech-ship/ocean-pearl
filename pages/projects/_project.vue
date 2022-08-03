@@ -25,14 +25,16 @@
 
         <hr class="text-primary my-8" />
 
-        <project-single-dao-proposal-header class="pb-4" />
+        <div v-if="project.daoProposals">
+          <project-single-dao-proposal-header class="pb-4" />
 
-        <div class="block 2xl:flex 2xl:justify-between">
-          <div class="pb-8 2xl:pb-0">
-            <project-single-dao-proposal-metrics :project="project" />
-          </div>
-          <div>
-            <project-single-dao-proposal-history :project="project" />
+          <div class="block 2xl:flex 2xl:justify-between">
+            <div class="pb-8 2xl:pb-0">
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+            <div>
+              <project-single-dao-proposal-history :project="project" />
+            </div>
           </div>
         </div>
       </section-container>
@@ -46,13 +48,14 @@
             <project-single-team class="py-4" :project="project" />
           </div>
 
-          <div>
+          <div v-if="project.daoProposals">
             <project-single-dao-proposal-header class="pb-4" />
             <project-single-dao-proposal-metrics :project="project" />
           </div>
         </div>
 
         <project-single-dao-proposal-history
+          v-if="project.daoProposals"
           class="mt-4 xl:mt-8"
           :project="project"
         />
