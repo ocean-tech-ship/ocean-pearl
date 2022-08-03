@@ -1,7 +1,7 @@
 <template>
   <form-control
     :value="value"
-    :label="label"
+    :label="required ? `* ${label}` : label"
     :hint="hint"
     :max-length="maxLength"
   >
