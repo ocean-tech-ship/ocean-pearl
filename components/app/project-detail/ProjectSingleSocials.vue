@@ -1,5 +1,5 @@
 <template>
-  <div v-if="!!project.socialMedia" class="flex flex-wrap">
+  <div v-if="!!project.mediaHandles" class="flex flex-wrap">
     <project-single-socials-item
       v-for="(url, type) in filteredSocials"
       :key="type"
@@ -33,12 +33,12 @@ export default {
     filteredSocials() {
       const socials = {};
 
-      if (!this.$props.project.socialMedia) {
+      if (!this.$props.project.mediaHandles) {
         return socials;
       }
 
       for (const [type, url] of Object.entries(
-        this.$props.project.socialMedia,
+        this.$props.project.mediaHandles,
       )) {
         if (SocialMedia.parse(type) != null) {
           socials[type] = url;
@@ -50,5 +50,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
