@@ -22,6 +22,14 @@
       />
     </template>
 
+    <!-- mobile footer -->
+    <template #mobile-footer>
+      <creator-mobile-footer
+        :next="step < steps.length - 1"
+        @navigate="navigate($event)"
+      />
+    </template>
+
     <main class="p-2 px-4 md:px-8">
       <!-- overview -->
       <steps-overview
@@ -80,6 +88,7 @@ import createHead from '@/pages/manage/projects/new.head';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import MobileNavSupport from '@/components/app/manage/creator/project/MobileNavSupport';
 import NavigationDrawer from '@/components/app/manage/creator/project/NavigationDrawer';
+import CreatorMobileFooter from '@/components/app/manage/creator/CreatorMobileFooter';
 import AppStepperContent from '@/components/common/AppStepperContent';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
 import BasicStep from '@/components/app/manage/creator/project/steps/BasicStep';
@@ -92,6 +101,7 @@ import FinalStep from '@/components/app/manage/creator/project/steps/FinalStep';
 
 export default Vue.extend({
   components: {
+    CreatorMobileFooter,
     FinalStep,
     DescriptionStep,
     ImagesStep,

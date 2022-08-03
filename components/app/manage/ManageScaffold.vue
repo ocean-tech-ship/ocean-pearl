@@ -53,11 +53,9 @@
       </div>
 
       <!-- mobile footer / navigation (until xl) -->
-      <creator-mobile-footer
-        v-if="mobileFooter"
-        class="xl:hidden sticky bottom-0"
-        @navigate="$emit('navigate', $event)"
-      />
+      <div class="xl:hidden sticky bottom-0">
+        <slot name="mobile-footer" />
+      </div>
     </div>
   </div>
 </template>
@@ -67,14 +65,12 @@ import ManagementOptions from '@/components/app/header/ManagementOptions';
 import ThemeSwitcher from '@/components/app/header/ThemeSwitcher';
 import LogoBranding from '@/components/app/header/LogoBranding';
 import MobileNavDropdown from '@/components/app/header/MobileNavDropdown';
-import CreatorMobileFooter from '@/components/app/manage/creator/CreatorMobileFooter';
 import NavbarPages from '@/mixins/NavbarPages';
 
 export default {
   name: 'ManageScaffold',
 
   components: {
-    CreatorMobileFooter,
     MobileNavDropdown,
     LogoBranding,
     ThemeSwitcher,
@@ -82,13 +78,6 @@ export default {
   },
 
   mixins: [NavbarPages],
-
-  props: {
-    mobileFooter: {
-      type: Boolean,
-      default: false,
-    },
-  },
 };
 </script>
 

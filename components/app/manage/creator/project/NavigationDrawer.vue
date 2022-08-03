@@ -25,6 +25,7 @@
       <button
         type="button"
         class="btn btn-ghost gap-2"
+        :disabled="step >= steps.length - 1"
         @click="$emit('navigate', +1)"
       >
         {{ $t('general.next') }}
