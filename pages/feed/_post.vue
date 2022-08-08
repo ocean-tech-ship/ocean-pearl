@@ -15,15 +15,15 @@
             class="btn-sm lg:btn-md btn-gradient-primary border-0"
             as="link"
             to="/feed"
-            btn-text="Feed"
             :icon="icons.arrowLeft"
-          />
+            >{{ $t('feed.post.btnProject') }}</app-button
+          >
           <app-button
             class="btn-sm lg:btn-md btn-primary btn-outline"
             as="link"
             :to="`/projects/${beautifyProjectId(projectPost.project)}`"
-            btn-text="Project Profile"
-          />
+            >{{ $t('feed.post.btnProject') }}</app-button
+          >
         </div>
       </div>
 

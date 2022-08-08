@@ -524,7 +524,12 @@
       "veteran": "Veteran Project Tier"
     },
     "unknown": "The requested project could not be found.",
-    "wallet": "Project Wallet Address"
+    "wallet": "Project Wallet Address",
+    "posts": {
+      "title": "Project",
+      "titleHighlight": "posts",
+      "btnLoadMore": "load more"
+    }
   },
   "project_detail": {
     "fundHereButton": "fund here",
@@ -582,6 +587,8 @@
       "text": "See all project posts and updates."
     },
     "post": {
+      "btnBack": "Feed",
+      "btnProject": "Project Profile",
       "unknown": "The requested post could not be found."
     },
     "meta": {
