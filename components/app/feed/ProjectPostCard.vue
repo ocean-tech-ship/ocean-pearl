@@ -3,7 +3,7 @@
     :prefetch="false"
     :to="`/feed/${beautifyProjectId(projectPost)}`"
     :card-class="`card bg-base-200 shadow rounded p-8 h-275px ${
-      singleColVariant ? 'md:h-[220px]' : 'md:h-[300px]'
+      singleColVariant ? 'md:h-[200px]' : 'md:h-[300px]'
     }`"
   >
     <div :class="{ 'md:min-h-[62px]': !singleColVariant }">
@@ -15,10 +15,10 @@
       </p>
     </div>
 
-    <div class="mt-5 h-128px">
+    <div class="mt-5 h-128px" :class="{ 'md:h-[90px]': singleColVariant }">
       <p
         class="small-text line-clamp-3"
-        :class="{ 'md:line-clamp-2': singleColVariant }"
+        :class="{ 'md:line-clamp-1': singleColVariant }"
       >
         {{ projectPost.oneLiner }}
       </p>

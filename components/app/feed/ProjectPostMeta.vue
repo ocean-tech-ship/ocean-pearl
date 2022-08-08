@@ -11,12 +11,12 @@
         line-clamp
       />
       <span
-        class="px-3 hidden opacity-70"
+        class="px-3 hidden text-base-content"
         :class="{ 'md:block': singleColVariant }"
         >•</span
       >
       <project-post-meta-item
-        class="opacity-70"
+        class="text-base-content"
         :value="formatDistance(projectPost.createdAt)"
       />
     </div>
