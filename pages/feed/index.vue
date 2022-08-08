@@ -8,7 +8,7 @@
     <!-- Project post feed   -->
     <section-container class="pb-4 xl:pb-16">
       <app-skeleton-card-list
-        v-if="porjectPosts === null"
+        v-if="projectPosts === null"
         custom-class="grid grid-cols-1
         md:grid-cols-2 xl:grid-cols-3
         gap-4
@@ -19,8 +19,8 @@
       </app-skeleton-card-list>
 
       <div v-else class="grid grid-cols-1 gap-4 mt-10">
-        <div v-for="porjectPost in porjectPosts" :key="porjectPost.id">
-          <project-post-card :project-post="porjectPost" single-col-variant />
+        <div v-for="projectPost in projectPosts" :key="projectPost.id">
+          <project-post-card :project-post="projectPost" single-col-variant />
         </div>
       </div>
     </section-container>
@@ -47,7 +47,7 @@ export default {
   // TODO: Remove dummy data and implement fetching
   data() {
     return {
-      porjectPosts: [
+      projectPosts: [
         {
           id: '2384094238fz0fsd9fs90dsf',
           createdAt: '2022-07-07T22:01:25.594Z',
