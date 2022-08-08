@@ -39,7 +39,7 @@
 
       <!-- without gallery -->
       <section-container v-else>
-        <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
+        <div class="grid xl:gap-12 lg:grid-cols-2">
           <div>
             <project-single-description :project="project" />
             <project-single-socials class="justify-start" :project="project" />
@@ -47,7 +47,7 @@
           </div>
 
           <div>
-            <project-single-dao-proposal-header class="pb-4" />
+            <project-single-dao-proposal-header class="pt-16 pb-6 md:pt-0" />
             <project-single-dao-proposal-metrics :project="project" />
           </div>
         </div>
@@ -56,6 +56,10 @@
           class="mt-4 xl:mt-8"
           :project="project"
         />
+      </section-container>
+
+      <section-container>
+        <project-single-posts :project="project" />
       </section-container>
     </div>
   </div>
@@ -74,11 +78,13 @@ import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleS
 import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader.vue';
 import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics.vue';
 import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory.vue';
+import ProjectSinglePosts from '~/components/app/project-detail/ProjectSinglePosts';
 
 export default Vue.extend({
   name: 'ProjectDetail',
 
   components: {
+    ProjectSinglePosts,
     // ProjectSingleRoiStrategy,
     SectionContainer,
     ProjectSingleDescription,
@@ -100,13 +106,38 @@ export default Vue.extend({
         ProjectBeautifyId.methods.readBeautifiedProjectId(params.project),
       );
 
-      return {
+      // TODO: Return object remove dummy data (return {error: null, project: ...})
+      const data = {
         error: null,
         project:
           process.env.NODE_ENV === 'mirage'
             ? response.data.project
             : response.data,
       };
+
+      data.project.posts = [
+        {
+          id: '2384094238fz0fsd9fs90dsf',
+          createdAt: '2022-07-07T22:01:25.594Z',
+          title: 'Post it. Fund it. Back it. Drop it. Split it. Mint it.',
+          oneLiner:
+            'Mirror’s robust plugin ecosystem supercharges your ideas and projects. The possibilities are endless.',
+          project: {
+            title: 'Indian Ocean program',
+            id: '66B9ee8d21',
+            logo: {
+              key: '8bBA8cdA37-Ad6F1BE5f9',
+              url: 'https://d2ap5e9vgx7wei.cloudfront.net/8bBA8cdA37-Ad6F1BE5f9.png',
+              fileExtension: 'png',
+              id: 'fb0b4e2888',
+              createdAt: '2022-07-03T13:54:07.535Z',
+              updatedAt: '2022-07-03T13:54:07.535Z',
+            },
+          },
+        },
+      ];
+
+      return data;
     } catch (ex) {
       if (ex?.response?.status === 404) {
         return error({ statusCode: 404, message: i18n.t('project.unknown') });
