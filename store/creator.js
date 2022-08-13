@@ -40,13 +40,23 @@ export const actions = {
     commit('setLoading', true);
 
     try {
-      await createProject(this.$axios, state.project);
-      await this.$router.push('/manage/projects');
+      const { data: projects } = await createProject(
+        this.$axios,
+        state.project,
+      );
+
+      commit('account/projects', projects, { root: true });
+
+      await this.$router.push(
+        `/manage/projects/${projects[projects.length - 1].id}`,
+      );
+
       dispatch(
         'alert/success',
         'Your project has been successfully submitted for review. You can view the current status in the management page.',
         { root: true },
       );
+
       commit('reset');
     } catch (ex) {
       // Validation errors
