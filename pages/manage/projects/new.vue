@@ -3,6 +3,7 @@
     <!-- navigation -->
     <template #navigation>
       <navigation-drawer
+        class="overflow-y-auto"
         :steps="steps"
         :step="step"
         @goTo="

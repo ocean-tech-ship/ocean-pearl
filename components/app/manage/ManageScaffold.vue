@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <!-- navigation drawer -->
-    <div class="hidden xl:block w-80 min-h-screen p-2 flex-none">
+    <div class="hidden xl:block sticky top-0 w-80 h-screen p-2 flex-none">
       <div
         class="h-full w-full p-4 rounded shadow gradient-background flex flex-col items-center text-primary-content"
       >
