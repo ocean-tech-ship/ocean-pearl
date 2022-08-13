@@ -53,7 +53,7 @@ export const actions = {
 
       dispatch(
         'alert/success',
-        'Your project has been successfully submitted for review. You can view the current status in the management page.',
+        'Your project has been successfully submitted for review.',
         { root: true },
       );
 
