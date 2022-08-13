@@ -7,7 +7,7 @@
         class="flex items-center rounded px-2 py-1 space-x-1"
         :class="badge.class"
       >
-        <app-icon :data="badge.icon" />
+        <app-icon :data="badge.icon" :size="20" />
         <span>{{ badge.text }}</span>
       </div>
     </div>
@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import home from '@iconify/icons-la/home';
-import userTie from '@iconify/icons-la/user-tie';
+import redo from '@iconify/icons-la/redo';
+import userShield from '@iconify/icons-la/user-shield';
 import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import AppIcon from '@/components/common/AppIcon';
 import { OriginTypeMap } from '@/mapper/OriginType.mapper';
@@ -51,8 +51,8 @@ export default {
       originTypeMap: OriginTypeMap,
       reviewStatusMap: ReviewStatusMap,
       icons: {
-        home,
-        userTie,
+        redo,
+        userShield,
         externalLinkAlt,
       },
     };
@@ -62,12 +62,12 @@ export default {
     badges() {
       return [
         {
-          icon: this.icons.home,
+          icon: this.icons.redo,
           class: 'bg-info',
           text: OriginTypeMap[this.project.origin],
         },
         {
-          icon: this.icons.userTie,
+          icon: this.icons.userShield,
           class: this.getReviewStatusColor(this.project.reviewStatus),
           text: ReviewStatusMap[this.project.reviewStatus],
         },
