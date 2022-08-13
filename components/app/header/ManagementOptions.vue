@@ -1,10 +1,10 @@
 <template>
   <!-- logged-in - visualize connected wallet -->
   <div v-if="wallet" class="block xl:flex items-center">
-    <nuxt-link to="/manage" class="btn btn-outline bg-base-300">
+    <nuxt-link to="/manage" class="btn btn-sm btn-outline bg-base-300">
       {{ shrinkAddress(wallet) }}
 
-      <jazzicon class="pl-2 w-6 h-6" :address="wallet" :diameter="24" />
+      <jazzicon class="pl-1 w-5 h-5" :address="wallet" :diameter="20" />
     </nuxt-link>
 
     <!-- account options (>= xl) -->
