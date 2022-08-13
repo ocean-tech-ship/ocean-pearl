@@ -125,6 +125,7 @@ export default {
     web3Provider: {
       ethereum: process.env.NUXT_ENV_WEB3_ETHEREUM,
       polygon: process.env.NUXT_ENV_WEB3_POLYGON,
+      bsc: process.env.NUXT_ENV_WEB3_BSC,
     },
   },
 
