@@ -51,7 +51,7 @@ export default {
 
   computed: {
     explorerUrl() {
-      return `https://etherscan.io/address/${this.$props.address}`;
+      return `https://blockscan.com/address/${this.$props.address}`;
     },
   },
 };

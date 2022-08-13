@@ -531,7 +531,7 @@
         "less": "show less",
         "more": "show all",
         "title": "Project Wallet Address",
-        "view": "View on Etherscan"
+        "view": "View on Blockscan"
       }
     },
     "readFull": "read full proposal",
