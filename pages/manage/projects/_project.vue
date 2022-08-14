@@ -1,5 +1,8 @@
 <template>
   <div class="relative space-y-6">
+    <project-header :project="project" />
+
+    <!--
     <div class="flex flex-wrap justify-between items-center">
       <project-title class="py-4" :project="project" />
 
@@ -9,6 +12,9 @@
         @change="updateProperty('accessAddresses', $event)"
       />
     </div>
+    -->
+
+    <nuxt-child :project="project" />
 
     <div class="space-y-6 md:space-y-0 md:flex justify-between items-start">
       <project-category
@@ -79,9 +85,11 @@ import ProjectSocials from '@/components/app/manage/project/ProjectSocials';
 import ProjectImages from '@/components/app/manage/project/ProjectImages';
 import ProjectTitle from '@/components/app/manage/project/ProjectTitle';
 import ProjectAdmins from '@/components/app/manage/project/ProjectAdmins';
+import ProjectHeader from '~/components/app/manage/project/ProjectHeader';
 
 export default Vue.extend({
   components: {
+    ProjectHeader,
     ProjectAdmins,
     ProjectTitle,
     ProjectImages,

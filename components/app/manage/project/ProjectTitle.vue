@@ -34,6 +34,9 @@ import { OriginTypeMap } from '@/mapper/OriginType.mapper';
 import { ReviewStatusMap } from '@/mapper/ReviewStatus.mapper';
 import ReviewStatusEnum from '~/enums/ReviewStatus.enum';
 
+/**
+ * @deprecated
+ */
 export default {
   name: 'ProjectTitle',
 
