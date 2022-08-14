@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="flex gap-2">
+    <div class="flex gap-2 pb-1">
       <div
         v-for="badge in badges"
         :key="badge.text"
-        class="flex items-center rounded px-2 py-1 space-x-1"
+        class="flex items-center rounded shadow px-2 py-1 space-x-1"
         :class="badge.class"
       >
         <app-icon :data="badge.icon" :size="20" />
