@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="flex gap-2 pb-4">
+    <div class="flex gap-2 pb-2">
       <span
         v-for="badge in badges"
         :key="badge.text"
@@ -134,7 +134,7 @@ export default {
       return [
         {
           icon: this.icons.redo,
-          class: 'bg-info',
+          class: 'badge-info',
           text: OriginTypeMap[this.project.origin],
         },
         {
