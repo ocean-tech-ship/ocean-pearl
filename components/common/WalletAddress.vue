@@ -13,7 +13,7 @@
       :data-tip="$t('project.proposal.wallet.view')"
       :to="explorerUrl"
     >
-      <app-icon class="text-primary" :size="16" :data="icons.externalLinkAlt" />
+      <app-icon class="text-primary" :size="18" :data="icons.externalLinkAlt" />
     </app-link>
   </div>
 </template>
