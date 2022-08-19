@@ -13,7 +13,7 @@
 
     <project-admins
       :project="project"
-      @change="$emit('change', { accessAddresses: $event })"
+      @change="updateProperty('accessAddresses', $event)"
     />
   </div>
 </template>
@@ -29,6 +29,15 @@ export default Vue.extend({
     project: {
       type: Object,
       required: true,
+    },
+  },
+
+  methods: {
+    updateProperty(property, value) {
+      this.$emit('change', {
+        property,
+        value,
+      });
     },
   },
 });

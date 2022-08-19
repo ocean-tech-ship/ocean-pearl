@@ -395,6 +395,13 @@
       },
       "timeout": "Authentication timeout. Please login again."
     },
+    "general": {
+      "subtitle": "Manage the general settings of your project.",
+      "title": [
+        "General",
+        "information"
+      ]
+    },
     "landing": {
       "cards": {
         "create-project": {
@@ -465,7 +472,14 @@
     "title": [
       "Management",
       "panel"
-    ]
+    ],
+    "updates": {
+      "subtitle": "Share an update with your community.",
+      "title": [
+        "Post an",
+        "Update"
+      ]
+    }
   },
   "navbar": {
     "logoText": "Ocean Pearl",

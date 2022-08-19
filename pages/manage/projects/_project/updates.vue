@@ -1,9 +1,18 @@
 <template>
   <div>
     <h4>
-      Post an
-      <span class="text-primary"> Update </span>
+      {{ $t('manage.updates.title')[0] }}
+      <span class="text-primary">
+        {{ $t('manage.updates.title')[1] }}
+      </span>
     </h4>
+
+    <span>
+      {{ $t('manage.updates.subtitle') }}
+    </span>
+
+    <project-updates-input />
+
     <h4>
       Update
       <span class="text-primary"> history </span>
@@ -13,6 +22,9 @@
 
 <script>
 import Vue from 'vue';
+import ProjectUpdatesInput from '@/components/app/manage/project/ProjectUpdatesInput';
 
-export default Vue.extend({});
+export default Vue.extend({
+  components: { ProjectUpdatesInput },
+});
 </script>

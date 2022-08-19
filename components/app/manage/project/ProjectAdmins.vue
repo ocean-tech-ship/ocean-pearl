@@ -31,7 +31,7 @@ export default {
 
   methods: {
     deleteAddress(address) {
-      const admins = [...this.project.accessAddreses].filter(
+      const admins = [...this.project.accessAddresses].filter(
         (item) => item !== address,
       );
       this.$emit('change', admins);
