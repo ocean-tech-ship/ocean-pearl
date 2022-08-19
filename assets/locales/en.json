@@ -222,7 +222,8 @@
     },
     "undo": "undo",
     "upload": "upload",
-    "usd": "{usd} USD"
+    "usd": "{usd} USD",
+    "you": "you"
   },
   "jobs": {
     "header": {
@@ -370,9 +371,13 @@
   },
   "manage": {
     "admins": {
-      "add": "Add wallet address",
+      "add": "Add a new wallet address...",
       "edit": "Manage Administrators",
-      "title": "Manage Administrators"
+      "subtitle": "These listed wallet addresses have access to manage this project.",
+      "title": [
+        "Project",
+        "Administrators"
+      ]
     },
     "auth": {
       "error": {
