@@ -216,6 +216,7 @@
     "ocean": "{ocean} OCEAN",
     "remove": "remove",
     "save": "save changes",
+    "submit-review": "Submit for review",
     "types": {
       "ocean": "OCEAN",
       "usd": "USD"
@@ -474,6 +475,23 @@
       "panel"
     ],
     "updates": {
+      "history": {
+        "subtitle": "Recently posted updates with their review status.",
+        "title": [
+          "Update",
+          "history"
+        ]
+      },
+      "new": {
+        "description": {
+          "label": "Content",
+          "placeholer": "Here you can report in detail about the update..."
+        },
+        "title": {
+          "label": "Headline",
+          "placeholder": "Describe your update in a short sentence..."
+        }
+      },
       "subtitle": "Share an update with your community.",
       "title": [
         "Post an",

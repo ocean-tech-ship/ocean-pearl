@@ -1,32 +1,62 @@
 <template>
-  <div class="my-4 p-4 rounded bg-base-200">
-    <app-form-control>
-      <input type="text" class="input" placeholder="A title" />
-    </app-form-control>
+  <div class="my-4 p-4 rounded shadow bg-base-200">
+    <text-field
+      required
+      :label="$t('manage.updates.new.title.label')"
+      :placeholder="$t('manage.updates.new.title.placeholder')"
+      :max-length="PROJECT_UPDATE_TITLE_MAX_LENGTH"
+      :value="title"
+      @input="title = $event"
+    />
 
-    <app-form-control>
-      <textarea class="textarea" rows="4" />
-    </app-form-control>
+    <text-area
+      required
+      :label="$t('manage.updates.new.description.label')"
+      :placeholder="$t('manage.updates.new.description.placeholer')"
+      :max-length="PROJECT_UPDATE_DESCRIPTION_MAX_LENGTH"
+      :value="description"
+      :rows="3"
+      @input="description = $event"
+    />
 
-    <button type="button" class="btn btn-primary btn-block">
-      submit for review
+    <button
+      type="button"
+      class="btn btn-primary btn-block mt-6"
+      :class="{ 'btn-disabled': !isValidInput }"
+      @click="handleSubmit()"
+    >
+      {{ $t('general.submit-review') }}
     </button>
   </div>
 </template>
 
 <script>
-import AppFormControl from '@/components/common/AppFormControl';
+import ProjectConstants from '@/mixins/ProjectConstants';
+import TextField from '@/components/app/manage/creator/TextField';
+import TextArea from '@/components/app/manage/creator/TextArea';
 
 export default {
   name: 'ProjectUpdatesInput',
 
-  components: { AppFormControl },
+  components: { TextArea, TextField },
+
+  mixins: [ProjectConstants],
 
   data() {
     return {
       title: '',
       description: '',
     };
+  },
+
+  computed: {
+    isValidInput() {
+      return this.title.length > 0 && this.description.length > 0;
+    },
+  },
+
+  methods: {
+    async handleSubmit() {},
   },
 };
 </script>
