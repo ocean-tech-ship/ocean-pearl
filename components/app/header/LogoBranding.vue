@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link class="pl-0 btn btn-ghost normal-case text-lg" to="/">
+  <nuxt-link class="pl-0 btn btn-ghost normal-case text-base lg:text-lg" to="/">
     <img
       class="pr-2"
       src="@/assets/images/pearl-logo.svg"
