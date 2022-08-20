@@ -13,7 +13,7 @@
     </div>
 
     <div class="rounded shadow bg-base-200 p-4 flex">
-      <div class="flex-1 block">
+      <div class="hidden xl:block flex-1">
         <h4 class="line-clamp-1">{{ project.title }}</h4>
 
         <nuxt-link
@@ -27,12 +27,12 @@
       </div>
 
       <!-- child view navigation -->
-      <div class="flex-none self-center px-4 space-x-2">
+      <div class="flex-none flex flex-wrap self-center px-4 space-x-2">
         <nuxt-link
           v-for="view in views"
           :key="view.path"
           :to="`/manage/projects/${project.id}${view.path}`"
-          class="btn"
+          class="btn btn-xs 2sm:btn-sm sm:btn-md"
           exact-active-class="btn-primary"
         >
           {{ view.title }}
@@ -40,47 +40,6 @@
       </div>
     </div>
   </div>
-
-  <!--
-  <div class="flex justify-between">
-    <div>
-      <div class="flex gap-2">
-        <div
-          v-for="badge in badges"
-          :key="badge.text"
-          class="flex items-center rounded shadow px-2 py-1 space-x-1"
-          :class="badge.class"
-        >
-          <app-icon :data="badge.icon" :size="20" />
-          <span>{{ badge.text }}</span>
-        </div>
-      </div>
-
-      <h4 class="hidden xl:block">{{ project.title }}</h4>
-
-      <nuxt-link
-        class="flex text-primary small-text italic"
-        target="_blank"
-        :to="`/projects/${project.id}`"
-      >
-        {{ $t('manage.project.view') }}
-        <app-icon class="pl-2" :data="icons.externalLinkAlt" />
-      </nuxt-link>
-    </div>
-
-    <div class="tabs">
-      <nuxt-link
-        v-for="view in views"
-        :key="view.path"
-        class="tab tab-lifted"
-        exact-active-class="tab-active"
-        :to="`/manage/projects/${project.id}${view.path}`"
-      >
-        {{ view.title }}
-      </nuxt-link>
-    </div>
-  </div>
-  -->
 </template>
 
 <script>
@@ -90,7 +49,7 @@ import externalLinkAlt from '@iconify/icons-la/external-link-alt';
 import AppIcon from '@/components/common/AppIcon';
 import { OriginTypeMap } from '@/mapper/OriginType.mapper';
 import { ReviewStatusMap } from '@/mapper/ReviewStatus.mapper';
-import ReviewStatusEnum from '~/enums/ReviewStatus.enum';
+import ReviewStatusEnum from '@/enums/ReviewStatus.enum';
 
 export default {
   name: 'ProjectHeader',
