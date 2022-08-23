@@ -44,10 +44,7 @@
               @click="copyPgp"
               >{{ $t(btnCopyPgpTitle) }}</app-button
             >
-            <a
-              href="/files/publickey_oceanpearlio@protonmail_com_933640351c18940026d5777ca9da8f14cbff1efa.asc"
-              download
-            >
+            <a href="/licenses.json" download>
               <app-button
                 class="btn-primary btn-outline w-full"
                 type="label"

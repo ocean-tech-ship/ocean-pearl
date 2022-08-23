@@ -1,3 +1,5 @@
+import WebpackLicensePlugin from 'webpack-license-plugin';
+
 const environments = {
   mirage: process.env.NUXT_ENV_BASE_URL_LOCAL_MIRAGE,
   mongo: process.env.NUXT_ENV_BASE_URL_LOCAL_MONGO,
@@ -205,5 +207,19 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    plugins: [
+      new WebpackLicensePlugin({
+        excludedPackageTest: (packageName) => {
+          return (
+            packageName.startsWith('@iconify/') ||
+            packageName.startsWith('jsonify') ||
+            packageName.startsWith('oboe') ||
+            packageName.startsWith('semaphore')
+          );
+        },
+        outputFilename: 'licenses.json',
+      }),
+    ],
+  },
 };
