@@ -2420,10 +2420,10 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
-"@tailwindcss/line-clamp@^0.3.1":
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.3.1.tgz#4d8441b509b87ece84e94f28a4aa9998413ab849"
-  integrity sha512-pNr0T8LAc3TUx/gxCfQZRe9NB2dPEo/cedPHzUGIPxqDMhgjwNm6jYxww4W5l0zAsAddxr+XfZcqttGiFDgrGg==
+"@tailwindcss/line-clamp@^0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.4.1.tgz#b7be60dca53a2f03dd2ad1e1e8ca52ca192ce4c8"
+  integrity sha512-aeA3Dv4pjxIyIlsxZ9LX7KPI8U7T9oNpV1B2Xax7P57VuJH9Lh+p2H8Ad6+FXP+waR+Gu90Ga3rtkWHKcr3Y/A==
 
 "@tailwindcss/typography@0.4.1":
   version "0.4.1"
