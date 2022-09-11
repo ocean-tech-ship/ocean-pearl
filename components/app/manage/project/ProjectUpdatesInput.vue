@@ -22,7 +22,7 @@
     <button
       type="button"
       class="btn btn-primary btn-block mt-6"
-      :class="{ 'btn-disabled': !isValidInput }"
+      :class="{ 'btn-disabled': !isValidInput, loading: submitting }"
       @click="handleSubmit()"
     >
       {{ $t('general.submit-review') }}
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import ProjectConstants from '@/mixins/ProjectConstants';
 import TextField from '@/components/app/manage/creator/TextField';
 import TextArea from '@/components/app/manage/creator/TextArea';
@@ -50,13 +51,31 @@ export default {
   },
 
   computed: {
+    ...mapState('posts', {
+      submitting: 'submitting',
+      posts: 'posts',
+    }),
     isValidInput() {
       return this.title.length > 0 && this.description.length > 0;
     },
   },
 
+  watch: {
+    posts() {
+      // Reset form if the underlying store overrides the state (e.g. by submitting a post)
+      this.title = '';
+      this.description = '';
+    },
+  },
+
   methods: {
-    async handleSubmit() {},
+    async handleSubmit() {
+      await this.$store.dispatch('posts/submit', {
+        project: this.$route.params.project,
+        title: this.title,
+        text: this.description,
+      });
+    },
   },
 };
 </script>

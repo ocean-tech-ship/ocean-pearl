@@ -492,6 +492,7 @@
           "placeholder": "Describe your update in a short sentence..."
         }
       },
+      "submit": "The post has been saved successfully",
       "subtitle": "Share an update with your community.",
       "title": [
         "Post an",

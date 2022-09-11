@@ -34,5 +34,9 @@ import ProjectUpdatesInput from '@/components/app/manage/project/ProjectUpdatesI
 
 export default Vue.extend({
   components: { ProjectUpdatesInput },
+
+  async fetch(ctx) {
+    await ctx.store.dispatch('posts/load', ctx.params.project);
+  },
 });
 </script>

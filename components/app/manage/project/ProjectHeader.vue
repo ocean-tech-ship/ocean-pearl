@@ -81,8 +81,8 @@ export default {
           path: '/admins',
         },
         {
-          title: 'Updates',
-          path: '/updates',
+          title: 'Posts',
+          path: '/posts',
         },
       ],
     };
