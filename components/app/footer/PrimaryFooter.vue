@@ -103,6 +103,11 @@ export default {
               name: this.$t('navbar.navbarBlog'),
               route: '/blog',
             },
+            {
+              id: 5,
+              name: this.$t('navbar.navbarLicenses'),
+              route: '/licenses',
+            },
           ],
         },
         {
