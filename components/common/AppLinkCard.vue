@@ -1,14 +1,16 @@
 <template>
-  <NuxtLink :prefetch="prefetch" :to="to">
+  <app-link :to="to">
     <div :class="cardClass" class="card">
       <slot />
     </div>
-  </NuxtLink>
+  </app-link>
 </template>
 
 <script>
+import AppLink from '@/components/common/AppLink';
 export default {
   name: 'AppLinkCard',
+  components: { AppLink },
   props: {
     prefetch: {
       type: Boolean,
