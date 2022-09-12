@@ -1,4 +1,4 @@
-import WebpackLicensePlugin from 'webpack-license-plugin';
+import LicensePlugin from 'webpack-license-plugin';
 
 const environments = {
   mirage: process.env.NUXT_ENV_BASE_URL_LOCAL_MIRAGE,
@@ -208,18 +208,23 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    plugins: [
-      new WebpackLicensePlugin({
-        excludedPackageTest: (packageName) => {
-          return (
-            packageName.startsWith('@iconify/') ||
-            packageName.startsWith('jsonify') ||
-            packageName.startsWith('oboe') ||
-            packageName.startsWith('semaphore')
-          );
-        },
-        outputFilename: 'licenses.json',
-      }),
-    ],
+    plugins:
+      process.env.NODE_ENV === 'production'
+        ? [
+            // Extract dep licenses in json format: https://www.npmjs.com/package/webpack-license-plugin
+            new LicensePlugin({
+              excludedPackageTest: (packageName) =>
+                packageName.startsWith('jsonify'),
+              outputFilename: 'licenses.json',
+              // Overrides for packages using no SPDX identifiers for license
+              licenseOverrides: {
+                '@iconify/icons-la@1.2.1': 'Apache-2.0',
+                '@iconify/icons-mdi@1.2.8': 'Apache-2.0',
+                'oboe@2.1.5': 'FreeBSD-DOC',
+                'semaphore@1.1.0': 'MIT',
+              },
+            }),
+          ]
+        : [],
   },
 };
