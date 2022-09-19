@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@iconify/icons-la": "1.2.1",
-    "@iconify/icons-mdi": "1.2.8",
+    "@iconify/icons-mdi": "1.2.31",
     "@nuxt/content": "^1.15.1",
     "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/sitemap": "^2.4.0",
