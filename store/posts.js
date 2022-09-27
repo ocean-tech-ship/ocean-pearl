@@ -1,11 +1,10 @@
 import { createPost } from '@/api';
 
-/* Store for fetching and posting project updates */
+/* Store for posting project updates */
 
 export const state = () => ({
   fetching: false,
   submitting: false,
-  posts: [],
 });
 
 export const mutations = {
@@ -15,16 +14,9 @@ export const mutations = {
   submitting(state, submitting) {
     state.submitting = submitting;
   },
-  posts(state, posts) {
-    state.posts = posts;
-  },
 };
 
 export const actions = {
-  async load(state, projectId) {
-    // TODO: load posts backend endpoint
-    console.log('fetch posts for project', projectId);
-  },
   async submit({ commit, dispatch }, payload) {
     commit('alert/clear', null, { root: true });
     commit('submitting', true);

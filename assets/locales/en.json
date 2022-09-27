@@ -178,6 +178,22 @@
     "minutes": "minutes",
     "seconds": "seconds"
   },
+  "feed": {
+    "header": {
+      "text": "See all project posts and updates.",
+      "title": "Project",
+      "titleHighlight": "feed"
+    },
+    "meta": {
+      "description": "See all project posts and updates.",
+      "title": "Feed"
+    },
+    "post": {
+      "btnBack": "Feed",
+      "btnProject": "Project Profile",
+      "unknown": "The requested post could not be found."
+    }
+  },
   "footer": {
     "opf": {
       "heading": "Ocean Protocol"
@@ -281,6 +297,12 @@
       "title": "Job",
       "titleHighlight": "offers"
     },
+    "latest_project_posts": {
+      "link_text": "See project feed",
+      "text": "These posts and updates where created by projects recently.",
+      "title": "Latest project",
+      "titleHighlight": "posts"
+    },
     "latest_projects": {
       "link_text": "See all listed projects",
       "text": "The listed projects shown were added by members of the community.",
@@ -297,12 +319,6 @@
       "text": "These are the main features of ocean pearl.",
       "title": "Pearl",
       "titleHighlight": "space"
-    },
-    "latest_project_posts": {
-      "title": "Latest project",
-      "titleHighlight": "posts",
-      "text": "These posts and updates where created by projects recently.",
-      "link_text": "See project feed"
     }
   },
   "leaderboard": {
@@ -414,17 +430,26 @@
         "create-project": {
           "action": "create",
           "subtitle": "Create your personal Ocean Protocol related project and share updates.",
-          "title": ["Create", "Project"]
+          "title": [
+            "Create",
+            "Project"
+          ]
         },
         "create-proposal": {
           "action": "propose",
           "subtitle": "Create a new proposal for the OceanDAO grants program.",
-          "title": ["Create", "Proposal"]
+          "title": [
+            "Create",
+            "Proposal"
+          ]
         },
         "manage-project": {
           "action": "manage",
           "subtitle": "Manage your personal and associated projects and publish updates.",
-          "title": ["Management", "Panel"]
+          "title": [
+            "Management",
+            "Panel"
+          ]
         }
       },
       "subtitle": "Ocean Pearl is all about community. Help us to realize this vision!",
@@ -473,6 +498,7 @@
     ],
     "updates": {
       "history": {
+        "empty": "No post has been published yet.",
         "subtitle": "Recently posted updates with their review status.",
         "title": [
           "Update",
@@ -501,13 +527,20 @@
     "logoText": "Ocean Pearl",
     "navbarBlog": "Blog",
     "navbarDao": "DAO Proposals",
+    "navbarFeed": "Feed",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarManage": "Manage",
     "navbarProjects": "Projects",
     "navbarProposals": "DAO Proposals",
-    "navbarVoting": "DAO Voting",
-    "navbarFeed": "Feed"
+    "navbarVoting": "DAO Voting"
+  },
+  "notFound": {
+    "text": "Maybe what you are looking for can be found here?",
+    "title": {
+      "primary": "Oops!",
+      "secondary": "We couldn't find that page."
+    }
   },
   "project": {
     "added": "added at",
@@ -515,6 +548,11 @@
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
+    "posts": {
+      "btnLoadMore": "load more",
+      "title": "Project",
+      "titleHighlight": "posts"
+    },
     "proposal": {
       "empty": "no funding yet",
       "granted": {
@@ -580,12 +618,7 @@
       "veteran": "Veteran Project Tier"
     },
     "unknown": "The requested project could not be found.",
-    "wallet": "Project Wallet Address",
-    "posts": {
-      "title": "Project",
-      "titleHighlight": "posts",
-      "btnLoadMore": "load more"
-    }
+    "wallet": "Project Wallet Address"
   },
   "project_detail": {
     "fundHereButton": "fund here",
@@ -628,28 +661,5 @@
   },
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
-  },
-  "notFound": {
-    "title": {
-      "primary": "Oops!",
-      "secondary": "We couldn't find that page."
-    },
-    "text": "Maybe what you are looking for can be found here?"
-  },
-  "feed": {
-    "header": {
-      "title": "Project",
-      "titleHighlight": "feed",
-      "text": "See all project posts and updates."
-    },
-    "post": {
-      "btnBack": "Feed",
-      "btnProject": "Project Profile",
-      "unknown": "The requested post could not be found."
-    },
-    "meta": {
-      "description": "See all project posts and updates.",
-      "title": "Feed"
-    }
   }
 }

@@ -13,30 +13,45 @@
 
     <project-updates-input />
 
-    <h4>
-      {{ $t('manage.updates.history.title')[0] }}
-      <span class="text-primary">
-        {{ $t('manage.updates.history.title')[1] }}
+    <div>
+      <h4>
+        {{ $t('manage.updates.history.title')[0] }}
+        <span class="text-primary">
+          {{ $t('manage.updates.history.title')[1] }}
+        </span>
+      </h4>
+
+      <span>
+        {{ $t('manage.updates.history.subtitle') }}
       </span>
-    </h4>
+    </div>
 
-    <span>
-      {{ $t('manage.updates.history.subtitle') }}
-    </span>
+    <alert-box v-if="project.posts.length === 0" type="info" icon>
+      {{ $t('manage.updates.history.empty') }}
+    </alert-box>
 
-    <!-- TODO: use brian's components here and wrap them with a review status badge + review message -->
+    <project-post-card
+      v-for="post in project.posts"
+      :key="post.id"
+      :post="{ ...post, project }"
+    />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 import ProjectUpdatesInput from '@/components/app/manage/project/ProjectUpdatesInput';
+import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
+import AlertBox from '~/components/common/AlertBox';
 
 export default Vue.extend({
-  components: { ProjectUpdatesInput },
+  components: { AlertBox, ProjectPostCard, ProjectUpdatesInput },
 
-  async fetch(ctx) {
-    await ctx.store.dispatch('posts/load', ctx.params.project);
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
   },
 });
 </script>
