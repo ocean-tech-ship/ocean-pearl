@@ -1,7 +1,7 @@
 <template>
   <app-link-card
     :prefetch="false"
-    :to="`/feed/${beautifyProjectId(projectPost)}`"
+    :to="`/feed/${beautifyProjectId(post)}`"
     :card-class="`card bg-base-200 shadow rounded p-8 h-275px ${
       singleColVariant ? 'md:h-[200px]' : 'md:h-[300px]'
     }`"
@@ -11,7 +11,7 @@
         class="text-primary leading-snug line-clamp-2"
         :class="{ 'md:line-clamp-1': singleColVariant }"
       >
-        {{ projectPost.title }}
+        {{ post.title }}
       </p>
     </div>
 
@@ -20,15 +20,12 @@
         class="small-text line-clamp-3"
         :class="{ 'md:line-clamp-1': singleColVariant }"
       >
-        {{ projectPost.oneLiner }}
+        {{ post.text }}
       </p>
     </div>
 
     <div class="mt-4">
-      <project-post-meta
-        :project-post="projectPost"
-        :single-col-variant="singleColVariant"
-      />
+      <project-post-meta :post="post" :single-col-variant="singleColVariant" />
     </div>
   </app-link-card>
 </template>
@@ -54,7 +51,7 @@ export default {
       required: false,
       default: false,
     },
-    projectPost: {
+    post: {
       type: Object,
       required: true,
     },

@@ -1,15 +1,11 @@
 <template>
   <div class="flex">
-    <project-post-meta-item :project-for-logo="projectPost.project" />
+    <project-post-meta-item :project-for-logo="post.project" />
     <div
       class="items-center small-text pl-3 text-primary"
       :class="{ 'md:flex': singleColVariant }"
     >
-      <project-post-meta-item
-        :value="projectPost.project.title"
-        :to="to"
-        line-clamp
-      />
+      <project-post-meta-item :value="post.project.title" :to="to" line-clamp />
       <span
         class="px-3 hidden text-base-content"
         :class="{ 'md:block': singleColVariant }"
@@ -17,7 +13,7 @@
       >
       <project-post-meta-item
         class="text-base-content"
-        :value="formatDistance(projectPost.createdAt)"
+        :value="formatDistance(post.createdAt)"
       />
     </div>
   </div>
@@ -35,7 +31,7 @@ export default {
       required: false,
       default: null,
     },
-    projectPost: {
+    post: {
       type: Object,
       required: true,
     },

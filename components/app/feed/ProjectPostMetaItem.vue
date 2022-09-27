@@ -28,7 +28,7 @@ import AppLogo from '~/components/common/AppLogo';
 import AppLink from '~/components/common/AppLink';
 
 export default {
-  name: 'PorjectPostMetaItem',
+  name: 'ProjectPostMetaItem',
   components: { AppLink, AppIcon, AppLogo },
 
   props: {
