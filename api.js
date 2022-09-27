@@ -30,6 +30,15 @@ export function getJobs(axios) {
   return axios.$get('/jobs'); // not implemented yet
 }
 
+// posts
+export function getPosts(axios) {
+  return axios.get('/posts');
+}
+
+export function getPostById(axios, id) {
+  return axios.get(`/posts/${id}`); // dont filter for data object
+}
+
 // landing page
 export function getLandingData(axios) {
   return axios.get('/pages/index'); // dont filter for data object

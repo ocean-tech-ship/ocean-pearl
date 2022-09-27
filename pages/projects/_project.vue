@@ -109,38 +109,13 @@ export default Vue.extend({
         ProjectBeautifyId.methods.readBeautifiedProjectId(params.project),
       );
 
-      // TODO: Return object remove dummy data (return {error: null, project: ...})
-      const data = {
+      return {
         error: null,
         project:
           process.env.NODE_ENV === 'mirage'
             ? response.data.project
             : response.data,
       };
-
-      data.project.posts = [
-        {
-          id: '2384094238fz0fsd9fs90dsf',
-          createdAt: '2022-07-07T22:01:25.594Z',
-          title: 'Post it. Fund it. Back it. Drop it. Split it. Mint it.',
-          oneLiner:
-            'Mirror’s robust plugin ecosystem supercharges your ideas and projects. The possibilities are endless.',
-          project: {
-            title: 'Indian Ocean program',
-            id: '66B9ee8d21',
-            logo: {
-              key: '8bBA8cdA37-Ad6F1BE5f9',
-              url: 'https://d2ap5e9vgx7wei.cloudfront.net/8bBA8cdA37-Ad6F1BE5f9.png',
-              fileExtension: 'png',
-              id: 'fb0b4e2888',
-              createdAt: '2022-07-03T13:54:07.535Z',
-              updatedAt: '2022-07-03T13:54:07.535Z',
-            },
-          },
-        },
-      ];
-
-      return data;
     } catch (ex) {
       if (ex?.response?.status === 404) {
         return error({ statusCode: 404, message: i18n.t('project.unknown') });
