@@ -100,6 +100,11 @@ export default {
             },
             {
               id: 4,
+              name: this.$t('navbar.navbarFeed'),
+              route: '/feed',
+            },
+            {
+              id: 5,
               name: this.$t('navbar.navbarBlog'),
               route: '/blog',
             },
