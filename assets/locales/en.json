@@ -61,11 +61,21 @@
         "label": "Describe your project in a few sentences",
         "placeholder": "Project description..."
       },
-      "guidelines": [
-        "Double check all your provided data",
-        " Stay nice and don't use violent language",
-        "Check if the image quality is high enough"
-      ],
+      "final": {
+        "description": "Add some final touches and double check that all the provided information is correct. Our guidelines should help you with that.",
+        "label": "Last but not least",
+        "note": "After submission we will take a manual review of your project and make it publicity available if it does not violate our guidelines. This process can take up to 3 business days.",
+        "subtitle": "Finish it",
+        "title": "Almost there!"
+      },
+      "guidelines": {
+        "items": [
+          "Double check all your provided data",
+          " Stay nice and don't use violent language",
+          "Check if the image quality is high enough"
+        ],
+        "title": "Ocean Pearl Project Guidelines"
+      },
       "limit": "max limit reached",
       "steps": [
         "500 $OCEAN",

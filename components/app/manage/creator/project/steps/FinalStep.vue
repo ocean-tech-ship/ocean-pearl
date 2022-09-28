@@ -1,5 +1,5 @@
 <template>
-  <FormControl label="Last but not least">
+  <FormControl :label="$t('creator.project.final.label')">
     <div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
       <div class="p-4 rounded border border-primary">
         <img
@@ -8,12 +8,15 @@
           alt=""
         />
 
-        <span class="text-primary">Finish it</span>
-        <h4 class="text-primary">Almost there!</h4>
+        <span class="text-primary">
+          {{ $t('creator.project.final.subtitle') }}
+        </span>
+        <h4 class="text-primary">
+          {{ $t('creator.project.final.title') }}
+        </h4>
 
         <p class="small-text">
-          Add some final touches and double check that all the provided
-          information is correct. Our guidelines should help you with that.
+          {{ $t('creator.project.final.description') }}
         </p>
       </div>
       <div class="p-4 rounded bg-primary/10 space-y-4">
@@ -24,12 +27,12 @@
             :alt="$t('general.logo')"
           />
           <p class="text-primary 3xl:text-lg font-medium">
-            Ocean Pearl Project Guidelines
+            {{ $t('creator.project.guidelines.title') }}
           </p>
         </div>
 
         <div
-          v-for="guideline in $t('creator.project.guidelines')"
+          v-for="guideline in $t('creator.project.guidelines.items')"
           :key="guideline"
           class="bg-base-200/60 text-base-content rounded px-4 py-2 flex items-center"
         >
@@ -40,9 +43,7 @@
     </div>
 
     <alert-box type="info" icon class="my-8">
-      After submission we will take a manual review of your project and make it
-      publicity available if it does not violate our guidelines. This process
-      can take up to 3 business days.
+      {{ $t('creator.project.final.note') }}
     </alert-box>
 
     <hr class="text-primary" />
@@ -53,7 +54,7 @@
       :class="{ loading }"
       @click="$store.dispatch('creator/submit')"
     >
-      submit for review
+      {{ $t('general.submit-review') }}
     </button>
   </FormControl>
 </template>
