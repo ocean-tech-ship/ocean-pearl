@@ -54,6 +54,9 @@
           "placeholder": "Write the name of your project..."
         }
       },
+      "category": {
+        "label": "Select the category of your project"
+      },
       "guidelines": [
         "Double check all your provided data",
         " Stay nice and don't use violent language",

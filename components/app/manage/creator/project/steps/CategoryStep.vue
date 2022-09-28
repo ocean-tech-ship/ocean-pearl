@@ -1,5 +1,5 @@
 <template>
-  <FormControl label="Select the category of your project">
+  <FormControl :label="$t('creator.project.category.label')">
     <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
       <button
         v-for="category in categories"
