@@ -53,7 +53,9 @@ export default {
 
   async fetch() {
     try {
-      this.posts = await getPosts(this.$axios);
+      // TODO: pagination, search field
+      const response = await getPosts(this.$axios);
+      this.posts = response.data.docs;
     } catch (error) {
       await this.$store.dispatch(
         'alert/error',
