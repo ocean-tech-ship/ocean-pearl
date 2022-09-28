@@ -8,8 +8,8 @@
     </h4>
 
     <div class="grid grid-cols-1 gap-4">
-      <div v-for="projectPost in project.posts" :key="projectPost.id">
-        <project-post-card :project-post="projectPost" single-col-variant />
+      <div v-for="post in project.posts" :key="post.id">
+        <project-post-card :post="{ ...post, project }" single-col-variant />
       </div>
     </div>
 
@@ -17,8 +17,9 @@
       <app-button
         class="btn-md btn-gradient-primary-variant border-0"
         as="button"
-        >{{ $t('project.posts.btnLoadMore') }}</app-button
       >
+        {{ $t('project.posts.btnLoadMore') }}
+      </app-button>
     </div>
   </div>
 </template>
@@ -26,6 +27,7 @@
 <script>
 import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
 import AppButton from '@/components/common/AppButton';
+
 export default {
   name: 'ProjectSinglePosts',
 
@@ -35,10 +37,7 @@ export default {
     project: {
       type: Object,
       required: true,
-      default: () => {},
     },
   },
 };
 </script>
-
-<style scoped></style>
