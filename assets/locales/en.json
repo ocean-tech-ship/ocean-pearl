@@ -57,6 +57,10 @@
       "category": {
         "label": "Select the category of your project"
       },
+      "description": {
+        "label": "Describe your project in a few sentences",
+        "placeholder": "Project description..."
+      },
       "guidelines": [
         "Double check all your provided data",
         " Stay nice and don't use violent language",

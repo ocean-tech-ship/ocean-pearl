@@ -1,7 +1,7 @@
 <template>
   <TextArea
-    label="Describe your project in a few sentences"
-    placeholder="Project description..."
+    :label="$t('creator.project.description.label')"
+    :placeholder="$t('creator.project.description.placeholder')"
     required
     :rows="6"
     :value="project.description"
