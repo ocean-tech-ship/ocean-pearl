@@ -35,8 +35,9 @@ export function getPosts(axios) {
   return axios.get('/posts');
 }
 
+// post by id
 export function getPostById(axios, id) {
-  return axios.get(`/posts/${id}`); // dont filter for data object
+  return axios.get(`/posts/${id}`);
 }
 
 // landing page
