@@ -30,11 +30,9 @@
       {{ $t('manage.updates.history.empty') }}
     </alert-box>
 
-    <project-post-card
-      v-for="post in project.posts"
-      :key="post.id"
-      :post="{ ...post, project }"
-    />
+    <div v-for="post in project.posts" :key="post.id">
+      <project-post-card :post="{ ...post, project }" single-col-variant />
+    </div>
   </div>
 </template>
 
