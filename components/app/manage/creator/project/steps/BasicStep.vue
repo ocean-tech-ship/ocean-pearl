@@ -4,8 +4,8 @@
     <TextField
       :value="project.title"
       required
-      label="What's the name of your project?"
-      placeholder="Write the name of your project..."
+      :label="$t('creator.project.basic.title.label')"
+      :placeholder="$t('creator.project.basic.title.placeholder')"
       :max-length="PROJECT_TITLE_MAX_LENGTH"
       @input="$emit('change', { title: $event })"
     />
@@ -15,14 +15,14 @@
       :value="project.oneLiner"
       :rows="2"
       required
-      label="Your project in one sentence"
-      placeholder="Write a short description of your project..."
+      :label="$t('creator.project.basic.oneLiner.label')"
+      :placeholder="$t('creator.project.basic.oneLiner.placeholder')"
       :max-length="PROJECT_ONE_LINER_MAX_LENGTH"
       @input="$emit('change', { oneLiner: $event })"
     />
 
     <!-- logo -->
-    <form-control label="Add your wonderful project logo">
+    <form-control :label="$t('creator.project.basic.logo.label')">
       <div class="flex">
         <project-logo
           :project="project"

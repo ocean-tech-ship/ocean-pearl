@@ -41,6 +41,19 @@
     "overview": "Overview",
     "progress": "Progress: {progress}%",
     "project": {
+      "basic": {
+        "logo": {
+          "label": "Add your wonderful project logo"
+        },
+        "oneLiner": {
+          "label": "Your project in one sentence",
+          "placeholder": "Write a short description of your project..."
+        },
+        "title": {
+          "label": "What's the name of your project?",
+          "placeholder": "Write the name of your project..."
+        }
+      },
       "guidelines": [
         "Double check all your provided data",
         " Stay nice and don't use violent language",
