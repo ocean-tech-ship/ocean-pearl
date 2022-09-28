@@ -16,8 +16,9 @@
             as="link"
             to="/feed"
             :icon="icons.arrowLeft"
-            >{{ $t('feed.post.btnProject') }}</app-button
           >
+            {{ $t('feed.post.btnProject') }}
+          </app-button>
           <app-button
             class="btn-sm lg:btn-md btn-primary btn-outline"
             as="link"
