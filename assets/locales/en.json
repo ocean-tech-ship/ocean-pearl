@@ -92,7 +92,18 @@
         "Images",
         "Final"
       ],
-      "title": "New Project"
+      "title": "New Project",
+      "wallet": {
+        "description": "You need at least 500+ $OCEAN on a specific network to create an project on Ocean Pearl. Don't worry, this service is free of charge.",
+        "label": "Verify your wallet balance",
+        "network": {
+          "check": "Checking {network} Network...",
+          "initial": "No network has been checked yet.",
+          "insufficient": "Insufficient Funds",
+          "label": "Checked networks",
+          "sufficient": "Sufficient Funds"
+        }
+      }
     },
     "proposal": {
       "motivate": "Keep going... nearly there!",

@@ -1,9 +1,8 @@
 <template>
-  <FormControl label="Verify your wallet balance">
+  <FormControl :label="$t('creator.project.wallet.label')">
     <div class="space-y-6 flex flex-col">
       <span class="px-1">
-        You need at least 500+ $OCEAN on a specific network to create an project
-        on Ocean Pearl. Don't worry, this service is free of charge.
+        {{ $t('creator.project.wallet.description') }}
       </span>
 
       <div class="bg-base-200 rounded p-4">
@@ -11,9 +10,9 @@
       </div>
 
       <!-- checked networks -->
-      <FormControl label="Checked networks">
+      <FormControl :label="$t('creator.project.wallet.network.label')">
         <span v-if="Object.keys(checks).length === 0" class="italic">
-          No network has been checked yet.
+          {{ $t('creator.project.wallet.network.initial') }}
         </span>
         <div class="space-y-2">
           <div
@@ -37,7 +36,11 @@
           >
             <AppLoadingSpinner class="w-12 h-12 text-primary" />
             <span v-if="checkingNetwork">
-              {{ `Checking ${networkMap[checkingNetwork]} Network...` }}
+              {{
+                $t('creator.project.wallet.network.check', {
+                  network: networkMap[checkingNetwork],
+                })
+              }}
             </span>
           </div>
 
@@ -47,7 +50,9 @@
             class="flex flex-col place-items-center space-y-4 text-success"
           >
             <app-icon :data="icons.check" :size="64" />
-            <span>Sufficient Funds</span>
+            <span>
+              {{ $t('creator.project.wallet.network.sufficient') }}
+            </span>
           </div>
 
           <!-- insufficient balance -->
@@ -56,7 +61,9 @@
             class="flex flex-col place-items-center space-y-4 text-error"
           >
             <app-icon :data="icons.times" :size="64" />
-            <span>Insufficient Funds</span>
+            <span>
+              {{ $t('creator.project.wallet.network.insufficient') }}
+            </span>
           </div>
         </div>
       </div>
