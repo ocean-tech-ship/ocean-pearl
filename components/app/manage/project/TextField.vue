@@ -3,22 +3,24 @@
     <!-- label -->
     <template #label>
       <span class="label-text text-primary">
-        {{ $t('manage.project.one-liner') }}
+        {{ label }}
       </span>
     </template>
 
     <!-- character counter -->
-    <template #altLabel>
+    <template v-if="!!maxLength" #altLabel>
       <span class="label-text-alt">
-        {{ `(${project.oneLiner.length} / ${PROJECT_ONE_LINER_MAX_LENGTH})` }}
+        {{ `(${value.length} / ${maxLength})` }}
       </span>
     </template>
 
     <!-- input field -->
     <app-text-input
-      :value="project.oneLiner"
-      :maxlength="PROJECT_ONE_LINER_MAX_LENGTH"
-      @input="$emit('change', $event)"
+      :value="value"
+      :maxlength="maxLength"
+      :placeholder="placeholder"
+      @input="$emit('input', $event)"
+      @change="$emit('change', $event)"
     />
   </app-form-control>
 </template>
@@ -26,20 +28,30 @@
 <script>
 import AppFormControl from '@/components/common/AppFormControl';
 import AppTextInput from '@/components/common/AppTextInput';
-import ProjectConstants from '@/mixins/ProjectConstants';
 
-/** @deprecated can be replaced with project/TextField */
 export default {
-  name: 'ProjectOneLiner',
-
+  name: 'TextField',
   components: { AppTextInput, AppFormControl },
 
-  mixins: [ProjectConstants],
-
   props: {
-    project: {
-      type: Object,
+    value: {
+      type: String,
       required: true,
+    },
+    maxLength: {
+      type: Number,
+      required: false,
+      default: null,
+    },
+    label: {
+      type: String,
+      required: false,
+      default: null,
+    },
+    placeholder: {
+      type: String,
+      required: false,
+      default: null,
     },
   },
 };

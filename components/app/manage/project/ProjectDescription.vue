@@ -31,6 +31,7 @@ import AppFormControl from '@/components/common/AppFormControl';
 import AppTextarea from '@/components/common/AppTextarea';
 import ProjectConstants from '@/mixins/ProjectConstants';
 
+/** @deprecated can be replaced with project/TextArea */
 export default {
   name: 'ProjectDescription',
 

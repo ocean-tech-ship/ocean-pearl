@@ -33,8 +33,8 @@
 <script>
 import { mapState } from 'vuex';
 import ProjectConstants from '@/mixins/ProjectConstants';
-import TextField from '@/components/app/manage/creator/TextField';
-import TextArea from '@/components/app/manage/creator/TextArea';
+import TextField from '@/components/app/manage/project/TextField';
+import TextArea from '@/components/app/manage/project/TextArea';
 
 export default {
   name: 'ProjectUpdatesInput',
