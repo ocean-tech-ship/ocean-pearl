@@ -43,6 +43,13 @@ export default {
 
   mixins: [ProjectConstants],
 
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+    },
+  },
+
   data() {
     return {
       title: '',
@@ -53,7 +60,6 @@ export default {
   computed: {
     ...mapState('posts', {
       submitting: 'submitting',
-      posts: 'posts',
     }),
     isValidInput() {
       return this.title.length > 0 && this.description.length > 0;

@@ -11,7 +11,7 @@
       {{ $t('manage.updates.subtitle') }}
     </span>
 
-    <project-updates-input />
+    <project-updates-input :posts="project.posts" />
 
     <div>
       <h4>

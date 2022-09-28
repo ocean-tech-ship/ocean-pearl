@@ -3,14 +3,10 @@ import { createPost } from '@/api';
 /* Store for posting project updates */
 
 export const state = () => ({
-  fetching: false,
   submitting: false,
 });
 
 export const mutations = {
-  fetching(state, fetching) {
-    state.fetching = fetching;
-  },
   submitting(state, submitting) {
     state.submitting = submitting;
   },
@@ -23,6 +19,7 @@ export const actions = {
 
     try {
       await createPost(this.$axios, payload);
+      await dispatch('account/load', null, { root: true }); // Fetch account to visualize new posts
       dispatch('alert/success', this.$i18n.t('manage.updates.submit'), {
         root: true,
       });
