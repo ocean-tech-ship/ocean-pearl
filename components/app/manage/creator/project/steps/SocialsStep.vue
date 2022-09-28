@@ -1,5 +1,5 @@
 <template>
-  <FormControl label="Add the social links of your project">
+  <FormControl :label="$t('creator.project.socials.label')">
     <ProjectSocials
       :project="project"
       @change="$emit('change', { mediaHandles: $event })"

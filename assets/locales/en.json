@@ -80,6 +80,9 @@
         "label": "Add some images to your project's image gallery"
       },
       "limit": "max limit reached",
+      "socials": {
+        "label": "Add the social links of your project"
+      },
       "steps": [
         "500 $OCEAN",
         "Basic",
