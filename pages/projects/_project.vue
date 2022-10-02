@@ -88,7 +88,6 @@ export default Vue.extend({
 
   components: {
     ProjectSinglePosts,
-    // ProjectSingleRoiStrategy,
     SectionContainer,
     ProjectSingleDescription,
     ProjectSingleHeader,
