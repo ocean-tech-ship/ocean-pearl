@@ -163,7 +163,6 @@ export default Vue.extend({
         this.$router.go(-1);
         return;
       }
-      // TODO: apply logic for last page
       this.step += increment;
     },
     updateProperty(payload) {
