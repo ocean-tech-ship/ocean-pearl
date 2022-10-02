@@ -708,5 +708,10 @@
   },
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
+  },
+  "validation": {
+    "field": {
+      "required": "This field is required"
+    }
   }
 }

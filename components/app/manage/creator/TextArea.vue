@@ -79,7 +79,7 @@ export default {
     validate(val) {
       this.details =
         this.required && (!val || val.length === 0)
-          ? 'This field is required'
+          ? this.$i18n.t('validation.field.required')
           : null;
     },
   },
