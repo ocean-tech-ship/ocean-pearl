@@ -12,7 +12,7 @@
     <text-area
       required
       :label="$t('manage.updates.new.description.label')"
-      :placeholder="$t('manage.updates.new.description.placeholer')"
+      :placeholder="$t('manage.updates.new.description.placeholder')"
       :max-length="PROJECT_UPDATE_DESCRIPTION_MAX_LENGTH"
       :value="description"
       :rows="3"

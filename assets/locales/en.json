@@ -47,11 +47,11 @@
         },
         "oneLiner": {
           "label": "Your project in one sentence",
-          "placeholder": "Write a short description of your project..."
+          "placeholder": "Write a short description of your project"
         },
         "title": {
           "label": "What's the name of your project?",
-          "placeholder": "Write the name of your project..."
+          "placeholder": "Write the name of your project"
         }
       },
       "category": {
@@ -59,7 +59,7 @@
       },
       "description": {
         "label": "Describe your project in a few sentences",
-        "placeholder": "Project description..."
+        "placeholder": "Project description"
       },
       "final": {
         "description": "Add some final touches and double check that all the provided information is correct. Our guidelines should help you with that.",
@@ -71,7 +71,7 @@
       "guidelines": {
         "items": [
           "Double check all your provided data",
-          " Stay nice and don't use violent language",
+          "Stay nice and don't use violent language",
           "Check if the image quality is high enough"
         ],
         "title": "Ocean Pearl Project Guidelines"
@@ -555,11 +555,11 @@
       "new": {
         "description": {
           "label": "Content",
-          "placeholer": "Here you can report in detail about the update..."
+          "placeholder": "Here you can report in detail about the update"
         },
         "title": {
           "label": "Headline",
-          "placeholder": "Describe your update in a short sentence..."
+          "placeholder": "Describe your update in a short sentence"
         }
       },
       "submit": "The post has been saved successfully",
