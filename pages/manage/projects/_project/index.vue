@@ -27,13 +27,18 @@
     </div>
 
     <div class="p-4 shadow rounded bg-base-200">
-      <project-one-liner
-        :project="project"
-        @change="updateProperty('oneLiner', $event)"
+      <text-field
+        :label="$t('manage.project.one-liner')"
+        :max-length="PROJECT_ONE_LINER_MAX_LENGTH"
+        :value="project.oneLiner"
+        @input="updateProperty('oneLiner', $event)"
       />
-      <project-description
-        :project="project"
-        @change="updateProperty('description', $event)"
+      <text-area
+        :rows="3"
+        :label="$t('manage.project.description')"
+        :max-length="PROJECT_DESCRIPTION_MAX_LENGTH"
+        :value="project.description"
+        @input="updateProperty('description', $event)"
       />
     </div>
 
@@ -53,20 +58,23 @@
 import Vue from 'vue';
 import ProjectCategory from '@/components/app/manage/project/ProjectCategory';
 import ProjectLogo from '@/components/app/manage/project/ProjectLogo';
-import ProjectOneLiner from '@/components/app/manage/project/ProjectOneLiner';
-import ProjectDescription from '@/components/app/manage/project/ProjectDescription';
 import ProjectSocials from '@/components/app/manage/project/ProjectSocials';
 import ProjectImages from '@/components/app/manage/project/ProjectImages';
+import TextField from '@/components/app/manage/project/TextField';
+import TextArea from '@/components/app/manage/project/TextArea';
+import ProjectConstants from '@/mixins/ProjectConstants';
 
 export default Vue.extend({
   components: {
+    TextField,
+    TextArea,
     ProjectImages,
     ProjectSocials,
-    ProjectDescription,
-    ProjectOneLiner,
     ProjectLogo,
     ProjectCategory,
   },
+
+  mixins: [ProjectConstants],
 
   props: {
     project: {
