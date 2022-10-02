@@ -122,6 +122,11 @@ export default {
     baseURL: process.env.NUXT_ENV_BASE_URL || 'http://localhost:3000',
     plausibleDomain: process.env.NUXT_ENV_PLAUSIBLE_DOMAIN,
     infuraId: process.env.NUXT_ENV_INFURA_ID,
+    web3Provider: {
+      ethereum: process.env.NUXT_ENV_WEB3_ETHEREUM,
+      polygon: process.env.NUXT_ENV_WEB3_POLYGON,
+      bsc: process.env.NUXT_ENV_WEB3_BSC,
+    },
   },
 
   ssr: process.env.NODE_ENV !== 'mirage', // Disable Server Side rendering for development because of miragejs

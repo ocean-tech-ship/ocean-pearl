@@ -13,7 +13,7 @@
       :data-tip="$t('project.proposal.wallet.view')"
       :to="explorerUrl"
     >
-      <app-icon class="text-primary" :size="16" :data="icons.externalLinkAlt" />
+      <app-icon class="text-primary" :size="18" :data="icons.externalLinkAlt" />
     </app-link>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
 
   computed: {
     explorerUrl() {
-      return `https://etherscan.io/address/${this.$props.address}`;
+      return `https://blockscan.com/address/${this.$props.address}`;
     },
   },
 };

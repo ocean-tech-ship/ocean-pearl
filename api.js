@@ -30,6 +30,16 @@ export function getJobs(axios) {
   return axios.$get('/jobs'); // not implemented yet
 }
 
+// posts
+export function getPosts(axios) {
+  return axios.get('/posts');
+}
+
+// post by id
+export function getPostById(axios, id) {
+  return axios.get(`/posts/${id}`);
+}
+
 // landing page
 export function getLandingData(axios) {
   return axios.get('/pages/index'); // dont filter for data object
@@ -62,7 +72,21 @@ export function getAccount(axios) {
 
 // update project data
 export function updateProject(axios, payload) {
-  return axios.put('/account/project', payload, {
+  return axios.put('/account/projects', payload, {
+    withCredentials: true,
+  });
+}
+
+// project creation
+export function createProject(axios, payload) {
+  return axios.post('/account/projects', payload, {
+    withCredentials: true,
+  });
+}
+
+// post creation
+export function createPost(axios, payload) {
+  return axios.post('/account/posts', payload, {
     withCredentials: true,
   });
 }

@@ -1,5 +1,5 @@
 <template>
-  <section class="px-1 2sm:px-4 sm:px-16 md:px-32 mx-auto max-w-1440">
+  <section class="px-1 2sm:px-4 sm:px-16 md:px-32 mx-auto w-full max-w-1440">
     <slot />
   </section>
 </template>
@@ -9,5 +9,3 @@ export default {
   name: 'SectionContainer',
 };
 </script>
-
-<style scoped></style>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 69">
+<defs>
+<style>.cls-1{fill:none;stroke:#ff7bac;stroke-miterlimit:10;stroke-width:2px;}</style>
+</defs>
+<circle class="cls-1" cx="45" cy="46" r="6"/>
+<circle class="cls-1" cx="7" cy="62" r="6"/>
+<circle class="cls-1" cx="7" cy="7" r="6"/>
+<line class="cls-1" x1="7" y1="13" x2="7" y2="56"/>
+<path class="cls-1" d="M149,148H132c-7,0-15-7.8-15-17" transform="translate(-110 -102)"/>
+</svg>

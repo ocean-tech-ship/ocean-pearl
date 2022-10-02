@@ -25,37 +25,44 @@
 
         <hr class="text-primary my-8" />
 
-        <project-single-dao-proposal-header class="pb-4" />
+        <div v-if="project.daoProposals">
+          <project-single-dao-proposal-header class="pb-4" />
 
-        <div class="block 2xl:flex 2xl:justify-between">
-          <div class="pb-8 2xl:pb-0">
-            <project-single-dao-proposal-metrics :project="project" />
-          </div>
-          <div>
-            <project-single-dao-proposal-history :project="project" />
+          <div class="block 2xl:flex 2xl:justify-between">
+            <div class="pb-8 2xl:pb-0">
+              <project-single-dao-proposal-metrics :project="project" />
+            </div>
+            <div>
+              <project-single-dao-proposal-history :project="project" />
+            </div>
           </div>
         </div>
       </section-container>
 
       <!-- without gallery -->
       <section-container v-else>
-        <div class="grid gap-8 xl:gap-12 lg:grid-cols-2">
+        <div class="grid xl:gap-12 lg:grid-cols-2">
           <div>
             <project-single-description :project="project" />
             <project-single-socials class="justify-start" :project="project" />
             <project-single-team class="py-4" :project="project" />
           </div>
 
-          <div>
-            <project-single-dao-proposal-header class="pb-4" />
+          <div v-if="project.daoProposals">
+            <project-single-dao-proposal-header class="pt-16 pb-6 md:pt-0" />
             <project-single-dao-proposal-metrics :project="project" />
           </div>
         </div>
 
         <project-single-dao-proposal-history
+          v-if="project.daoProposals"
           class="mt-4 xl:mt-8"
           :project="project"
         />
+      </section-container>
+
+      <section-container>
+        <project-single-posts :project="project" />
       </section-container>
     </div>
   </div>
@@ -74,12 +81,13 @@ import ProjectSingleSocials from '@/components/app/project-detail/ProjectSingleS
 import ProjectSingleDaoProposalHeader from '@/components/app/project-detail/ProjectSingleDaoProposalHeader.vue';
 import ProjectSingleDaoProposalMetrics from '@/components/app/project-detail/ProjectSingleDaoProposalMetrics.vue';
 import ProjectSingleDaoProposalHistory from '@/components/app/project-detail/ProjectSingleDaoProposalHistory.vue';
+import ProjectSinglePosts from '@/components/app/project-detail/ProjectSinglePosts';
 
 export default Vue.extend({
   name: 'ProjectDetail',
 
   components: {
-    // ProjectSingleRoiStrategy,
+    ProjectSinglePosts,
     SectionContainer,
     ProjectSingleDescription,
     ProjectSingleHeader,

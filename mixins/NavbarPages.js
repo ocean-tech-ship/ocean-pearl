@@ -19,6 +19,10 @@ export default {
           title: this.$t('navbar.navbarVoting'),
           to: '/dao-voting',
         },
+        {
+          title: this.$t('navbar.navbarFeed'),
+          to: '/feed',
+        },
       ];
 
       // Management - only if connected
