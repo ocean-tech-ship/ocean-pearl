@@ -54,7 +54,10 @@ export default Vue.extend({
 
   async asyncData({ $axios, params, error, i18n }) {
     try {
-      const response = await getPostById($axios, params.post);
+      const response = await getPostById(
+        $axios,
+        ProjectBeautifyId.methods.readBeautifiedProjectId(params.post),
+      );
 
       return {
         post: response.data,
