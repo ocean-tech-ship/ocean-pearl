@@ -17,12 +17,11 @@
 
 <script>
 import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
-import AppButton from '@/components/common/AppButton';
 
 export default {
   name: 'ProjectSinglePosts',
 
-  components: { AppButton, ProjectPostCard },
+  components: { ProjectPostCard },
 
   props: {
     project: {
