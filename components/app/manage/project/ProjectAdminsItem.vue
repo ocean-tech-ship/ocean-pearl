@@ -1,20 +1,27 @@
 <template>
-  <div class="flex items-center">
+  <div
+    class="rounded shadow p-2 my-2 bg-base-300 flex items-center justify-between gap-4"
+  >
+    <wallet-address :address="address" />
+
+    <span v-if="isMyAddress()" class="badge badge-lg badge-info my-1">
+      {{ $t('general.you') }}
+    </span>
+
     <button
+      v-else
       type="button"
-      class="mr-5 btn btn-circle btn-xs btn-warning"
+      class="btn btn-circle btn-sm btn-error"
       :disabled="isMyAddress(address)"
       @click="$emit('delete')"
     >
-      <app-icon :data="icons.times" :size="20" />
+      <app-icon :data="icons.trashAlt" :size="20" />
     </button>
-
-    <wallet-address :address="address" />
   </div>
 </template>
 
 <script>
-import times from '@iconify/icons-la/times';
+import trashAlt from '@iconify/icons-la/trash-alt';
 import AppIcon from '@/components/common/AppIcon';
 import WalletAddress from '@/components/common/WalletAddress';
 import ConnectedWallet from '@/mixins/ConnectedWallet';
@@ -36,14 +43,14 @@ export default {
   data() {
     return {
       icons: {
-        times,
+        trashAlt,
       },
     };
   },
 
   methods: {
-    isMyAddress(address) {
-      return address.toLowerCase() === this.wallet.toLowerCase();
+    isMyAddress() {
+      return this.address === this.wallet;
     },
   },
 };

@@ -3,7 +3,7 @@ import iconSuccess from '@iconify/icons-la/check-circle';
 import iconWarning from '@iconify/icons-la/wrench';
 import iconError from '@iconify/icons-la/exclamation-triangle';
 
-const FADE_TIMEOUT = 4000;
+const FADE_TIMEOUT = 3500;
 
 export const state = () => ({
   alerts: [],
@@ -31,7 +31,7 @@ export const actions = {
     const alert = {
       type: payload.type,
       content: payload.content,
-      closeable: payload.closeable ?? true,
+      closeable: !payload.autoFade,
       timestamp: payload.timestamp ?? Date.now(),
       icon: payload.icon,
     };
@@ -52,11 +52,31 @@ export const actions = {
       ...payload,
       type: 'info',
       content: payload.content ?? payload,
+      autoFade: true,
+      icon: iconInfo,
+    });
+  },
+
+  stickyInfo({ dispatch }, payload) {
+    dispatch('custom', {
+      ...payload,
+      type: 'info',
+      content: payload.content ?? payload,
       icon: iconInfo,
     });
   },
 
   success({ dispatch }, payload) {
+    dispatch('custom', {
+      ...payload,
+      type: 'success',
+      content: payload.content ?? payload,
+      autoFade: true,
+      icon: iconSuccess,
+    });
+  },
+
+  stickySuccess({ dispatch }, payload) {
     dispatch('custom', {
       ...payload,
       type: 'success',
@@ -70,11 +90,31 @@ export const actions = {
       ...payload,
       type: 'warning',
       content: payload.content ?? payload,
+      autoFade: true,
+      icon: iconWarning,
+    });
+  },
+
+  stickyWarning({ dispatch }, payload) {
+    dispatch('custom', {
+      ...payload,
+      type: 'warning',
+      content: payload.content ?? payload,
       icon: iconWarning,
     });
   },
 
   error({ dispatch }, payload) {
+    dispatch('custom', {
+      ...payload,
+      type: 'error',
+      content: payload.content ?? payload,
+      autoFade: true,
+      icon: iconError,
+    });
+  },
+
+  stickyError({ dispatch }, payload) {
     dispatch('custom', {
       ...payload,
       type: 'error',

@@ -14,6 +14,7 @@
       <landing-dao-proposals :dao-proposals="daoProposals" />
       <landing-pearl-space-section />
       <landing-latest-projects :projects="latestProjects" />
+      <landing-latest-project-posts :posts="latestPosts" />
     </section-container>
 
     <app-primary-gradient-background>
@@ -38,9 +39,11 @@ import LandingPearlDao from '@/components/app/landing/LandingPearlDao.vue';
 import SectionContainer from '@/components/common/SectionContainer';
 import AppPrimaryGradientBackground from '@/components/common/AppPrimaryGradientBackground';
 import AppWavesBackground from '@/components/common/AppWavesBackground';
+import LandingLatestProjectPosts from '@/components/app/landing/LandingLatestProjectPosts';
 
 export default Vue.extend({
   components: {
+    LandingLatestProjectPosts,
     AppWavesBackground,
     AppPrimaryGradientBackground,
     SectionContainer,
@@ -55,6 +58,7 @@ export default Vue.extend({
   data() {
     return {
       latestProjects: null,
+      latestPosts: null,
       daoProposals: null,
       metrics: null,
     };
@@ -66,6 +70,7 @@ export default Vue.extend({
       const { data } = indexResponse;
 
       this.latestProjects = data.latestProjects;
+      this.latestPosts = data.latestPosts;
       this.daoProposals = data.daoProposals;
       this.metrics = data.metrics;
     } catch (error) {

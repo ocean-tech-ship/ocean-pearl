@@ -13,7 +13,7 @@
         :icon-size="22"
       >
         <app-dropdown-menu class="bg-base-300 h-60 overflow-y-auto">
-          <li v-for="social in socialMediaList" :key="social.Id">
+          <li v-for="social in socialsList" :key="social.Id">
             <app-button
               class="btn-ghost"
               :icon="social.Icon"
@@ -28,7 +28,7 @@
     <!-- social items -->
     <div class="pt-4">
       <project-socials-item
-        v-for="(value, propertyName) in project.socialMedia"
+        v-for="(value, propertyName) in project.mediaHandles"
         :key="propertyName"
         :type="propertyName"
         :url="value"
@@ -38,10 +38,11 @@
 
       <!-- empty hint -->
       <span
-        v-if="Object.values(project.socialMedia).length === 0"
+        v-if="Object.values(project.mediaHandles).length === 0"
         class="italic"
-        >{{ $t('manage.project.socials.empty') }}</span
       >
+        {{ $t('manage.project.socials.empty') }}
+      </span>
     </div>
   </div>
 </template>
@@ -80,24 +81,24 @@ export default {
   },
 
   computed: {
-    socialMediaList() {
+    socialsList() {
       return Object.values(SocialMedia);
     },
   },
 
   methods: {
     addSocial(social) {
-      const socials = { ...this.project.socialMedia };
+      const socials = { ...this.project.mediaHandles };
       socials[social.Id.toLowerCase()] = '';
       this.$emit('change', socials);
     },
     updateSocial(social, value) {
-      const socials = { ...this.project.socialMedia };
+      const socials = { ...this.project.mediaHandles };
       socials[social] = value;
       this.$emit('change', socials);
     },
     deleteSocial(social) {
-      const socials = { ...this.project.socialMedia };
+      const socials = { ...this.project.mediaHandles };
       delete socials[social];
       this.$emit('change', socials);
     },

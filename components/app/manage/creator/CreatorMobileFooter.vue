@@ -10,7 +10,8 @@
 
     <button
       type="button"
-      class="btn bg-gradient-primary-variant"
+      class="btn btn-primary"
+      :disabled="!next"
       @click="$emit('navigate', +1)"
     >
       {{ $t('general.continue') }}
@@ -21,5 +22,13 @@
 <script>
 export default {
   name: 'CreatorMobileFooter',
+
+  props: {
+    next: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
 };
 </script>

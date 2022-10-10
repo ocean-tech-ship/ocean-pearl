@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57.1 59.1">
+<defs>
+<style>.cls-1,.cls-4,.cls-5{fill:none;}.cls-1,.cls-3,.cls-4,.cls-5{stroke:#ff7bac;}.cls-1{stroke-linecap:round;stroke-linejoin:round;}.cls-1,.cls-5{stroke-width:2px;}.cls-2,.cls-3{fill:#ff7bac;}.cls-3,.cls-4,.cls-5{stroke-miterlimit:10;}.cls-4{stroke-width:0.94px;}</style>
+</defs>
+<path class="cls-1" d="M127.1,133.1s7,15,8.9,19.2-3.8,8.4-8,4.7-5.1-9.8-6.5-11.2-7.5-6.1-8.4-10.8-.5-20.1-.5-20.1" transform="translate(-106.9 -113.9)"/>
+<path class="cls-1" d="M132.7,114.9s15.4,15,15,21.5" transform="translate(-106.9 -113.9)"/>
+<path class="cls-2" d="M151.4,159.8h-1.8v3.7H121v-3.7h-2.3a2.7,2.7,0,0,0-2.8,2.8,2.8,2.8,0,0,0,2.8,2.8h32.7a2.8,2.8,0,0,0,2.8-2.8A2.7,2.7,0,0,0,151.4,159.8Z" transform="translate(-106.9 -113.9)"/>
+<path class="cls-3" d="M149.6,135.9H128.4l.5,1h20.2V163H121.5V145.8h0a4.5,4.5,0,0,0-1-.9v18.6a.5.5,0,0,0,.5.5h28.6a.5.5,0,0,0,.4-.5V136.4A.5.5,0,0,0,149.6,135.9Z" transform="translate(-106.9 -113.9)"/>
+<path class="cls-4" d="M121.1,153" transform="translate(-106.9 -113.9)"/>
+<path class="cls-5" d="M121.1,153h-7.6a2.6,2.6,0,0,0-2.5,2l-3.1,14.7a1.9,1.9,0,0,0,1.9,2.2h50.8a2.4,2.4,0,0,0,2.3-2.9l-3.3-14.2a2.5,2.5,0,0,0-2.3-1.8h-7.9" transform="translate(-106.9 -113.9)"/>
+</svg>

@@ -1,3 +1,6 @@
+/**
+ * @deprecated should be split into ProjectCategory and ProposalCategory
+ */
 enum CategoryEnum {
   All = 'all',
   Other = 'other',

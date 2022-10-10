@@ -3,6 +3,7 @@
     <!-- navigation -->
     <template #navigation>
       <navigation-drawer
+        class="overflow-y-auto overflow-x-hidden"
         :steps="steps"
         :step="step"
         @goTo="
@@ -22,6 +23,14 @@
       />
     </template>
 
+    <!-- mobile footer -->
+    <template #mobile-footer>
+      <creator-mobile-footer
+        :next="step < steps.length - 1"
+        @navigate="navigate($event)"
+      />
+    </template>
+
     <main class="p-2 px-4 md:px-8">
       <!-- overview -->
       <steps-overview
@@ -34,37 +43,73 @@
         "
       />
 
-      <!-- walk through project creation -->
-      <!-- every step needs to be registered here -->
-      <app-stepper-content v-else :step="step">
-        <template #0>
-          <div>first</div>
-        </template>
-        <template #1>
-          <div>second</div>
-        </template>
-        <template #2>
-          <div class="text-primary-content">
-            content
-            <div v-for="n in 100" :key="n">{{ n }}</div>
-          </div>
-        </template>
-      </app-stepper-content>
+      <div v-else>
+        <!-- desktop step sub-title -->
+        <span class="hidden xl:block text-primary pl-1">
+          {{ `Step ${step + 1}: ${steps[step]}` }}
+        </span>
+
+        <!-- walk through project creation -->
+        <!-- every step needs to be registered here -->
+        <app-stepper-content :step="step">
+          <template #0>
+            <WalletStep
+              :checks="walletChecks"
+              @change="walletChecks = $event"
+            />
+          </template>
+          <template #1>
+            <BasicStep :project="project" @change="updateProperty" />
+          </template>
+          <template #2>
+            <DescriptionStep :project="project" @change="updateProperty" />
+          </template>
+          <template #3>
+            <CategoryStep :project="project" @change="updateProperty" />
+          </template>
+          <template #4>
+            <SocialsStep :project="project" @change="updateProperty" />
+          </template>
+          <template #5>
+            <ImagesStep :project="project" @change="updateProperty" />
+          </template>
+          <template #6>
+            <FinalStep :project="project" />
+          </template>
+        </app-stepper-content>
+      </div>
     </main>
   </manage-scaffold>
 </template>
 
 <script>
 import Vue from 'vue';
+import { mapState } from 'vuex';
+import createHead from '@/pages/manage/projects/new.head';
 import ManageScaffold from '@/components/app/manage/ManageScaffold';
 import MobileNavSupport from '@/components/app/manage/creator/project/MobileNavSupport';
 import NavigationDrawer from '@/components/app/manage/creator/project/NavigationDrawer';
+import CreatorMobileFooter from '@/components/app/manage/creator/CreatorMobileFooter';
 import AppStepperContent from '@/components/common/AppStepperContent';
 import StepsOverview from '@/components/app/manage/creator/project/StepsOverview';
-import createHead from '@/pages/manage/projects/new.head';
+import BasicStep from '@/components/app/manage/creator/project/steps/BasicStep';
+import WalletStep from '@/components/app/manage/creator/project/steps/WalletStep';
+import CategoryStep from '@/components/app/manage/creator/project/steps/CategoryStep';
+import SocialsStep from '@/components/app/manage/creator/project/steps/SocialsStep';
+import ImagesStep from '@/components/app/manage/creator/project/steps/ImagesStep';
+import DescriptionStep from '@/components/app/manage/creator/project/steps/DescriptionStep';
+import FinalStep from '@/components/app/manage/creator/project/steps/FinalStep';
 
 export default Vue.extend({
   components: {
+    CreatorMobileFooter,
+    FinalStep,
+    DescriptionStep,
+    ImagesStep,
+    SocialsStep,
+    CategoryStep,
+    WalletStep,
+    BasicStep,
     MobileNavSupport,
     NavigationDrawer,
     StepsOverview,
@@ -83,6 +128,7 @@ export default Vue.extend({
       showOverview: false,
       lastStep: 0,
       step: 0,
+      walletChecks: {},
     };
   },
 
@@ -91,6 +137,9 @@ export default Vue.extend({
   },
 
   computed: {
+    ...mapState('creator', {
+      project: 'project',
+    }),
     progressPercentage() {
       return Math.round((100 / this.steps.length) * this.step);
     },
@@ -114,8 +163,10 @@ export default Vue.extend({
         this.$router.go(-1);
         return;
       }
-      // TODO: apply logic for last page
       this.step += increment;
+    },
+    updateProperty(payload) {
+      this.$store.commit('creator/updateProperty', payload);
     },
   },
 });

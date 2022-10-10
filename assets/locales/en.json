@@ -32,22 +32,78 @@
       "description": "Dive into our latest blog posts to learn more about the entire project and our collaboration with OceanDAO.",
       "title": "Blog"
     },
-    "title": ["Blog", "Posts"]
+    "title": [
+      "Blog",
+      "Posts"
+    ]
   },
   "creator": {
     "overview": "Overview",
     "progress": "Progress: {progress}%",
     "project": {
+      "basic": {
+        "logo": {
+          "label": "Add your wonderful project logo"
+        },
+        "oneLiner": {
+          "label": "Your project in one sentence",
+          "placeholder": "Write a short description of your project"
+        },
+        "title": {
+          "label": "What's the name of your project?",
+          "placeholder": "Write the name of your project"
+        }
+      },
+      "category": {
+        "label": "Select the category of your project"
+      },
+      "description": {
+        "label": "Describe your project in a few sentences",
+        "placeholder": "Project description"
+      },
+      "final": {
+        "description": "Add some final touches and double check that all the provided information is correct. Our guidelines should help you with that.",
+        "label": "Last but not least",
+        "note": "After submission we will take a manual review of your project and make it publicity available if it does not violate our guidelines. This process can take up to 3 business days.",
+        "subtitle": "Finish it",
+        "title": "Almost there!"
+      },
+      "guidelines": {
+        "items": [
+          "Double check all your provided data",
+          "Stay nice and don't use violent language",
+          "Check if the image quality is high enough"
+        ],
+        "title": "Ocean Pearl Project Guidelines"
+      },
+      "images": {
+        "label": "Add some images to your project's image gallery"
+      },
+      "limit": "max limit reached",
+      "socials": {
+        "label": "Add the social links of your project"
+      },
       "steps": [
+        "500 $OCEAN",
         "Basic",
         "Description",
-        "Wallet",
         "Category",
         "Socials",
         "Images",
-        "Team"
+        "Final"
       ],
-      "title": "New Project"
+      "title": "New Project",
+      "wallet": {
+        "description": "You need at least 500+ $OCEAN on a specific network to create an project on Ocean Pearl. Don't worry, this service is free of charge.",
+        "label": "Verify your wallet balance",
+        "network": {
+          "check": "Checking {network} Network...",
+          "initial": "No network has been checked yet.",
+          "insufficient": "Insufficient Funds",
+          "label": "Checked networks",
+          "sufficient": "Sufficient Funds"
+        }
+      }
     },
     "proposal": {
       "motivate": "Keep going... nearly there!",
@@ -169,6 +225,22 @@
     "minutes": "minutes",
     "seconds": "seconds"
   },
+  "feed": {
+    "header": {
+      "text": "See all project posts and updates.",
+      "title": "Project",
+      "titleHighlight": "feed"
+    },
+    "meta": {
+      "description": "See all project posts and updates.",
+      "title": "Feed"
+    },
+    "post": {
+      "btnBack": "Feed",
+      "btnProject": "Project Profile",
+      "unknown": "The requested post could not be found."
+    }
+  },
   "footer": {
     "opf": {
       "heading": "Ocean Protocol"
@@ -207,13 +279,15 @@
     "ocean": "{ocean} OCEAN",
     "remove": "remove",
     "save": "save changes",
+    "submit-review": "Submit for review",
     "types": {
       "ocean": "OCEAN",
       "usd": "USD"
     },
     "undo": "undo",
     "upload": "upload",
-    "usd": "{usd} USD"
+    "usd": "{usd} USD",
+    "you": "you"
   },
   "jobs": {
     "header": {
@@ -270,6 +344,12 @@
       "title": "Job",
       "titleHighlight": "offers"
     },
+    "latest_project_posts": {
+      "link_text": "See project feed",
+      "text": "These posts and updates where created by projects recently.",
+      "title": "Latest project",
+      "titleHighlight": "posts"
+    },
     "latest_projects": {
       "link_text": "See all listed projects",
       "text": "The listed projects shown were added by members of the community.",
@@ -323,7 +403,10 @@
     "pending": "Proposals without funding",
     "pools": "Grant Pools",
     "proposal": {
-      "funding": ["{amount} {paymentOption}", "requested"],
+      "funding": [
+        "{amount} {paymentOption}",
+        "requested"
+      ],
       "header": {
         "completed": "Completed Proposals",
         "funding": "Funding",
@@ -346,7 +429,10 @@
       "title": "Round"
     },
     "subtitle": "Track the current and previous voting results of the OceanDAO grants program. {disclaimer} All data is received from {source}.",
-    "title": ["DAO", "Voting"],
+    "title": [
+      "DAO",
+      "Voting"
+    ],
     "vote": "Vote",
     "voting": {
       "begins": "time until voting for proposals begins",
@@ -355,9 +441,13 @@
   },
   "manage": {
     "admins": {
-      "add": "Add wallet address",
+      "add": "Add a new wallet address...",
       "edit": "Manage Administrators",
-      "title": "Manage Administrators"
+      "subtitle": "These listed wallet addresses have access to manage this project.",
+      "title": [
+        "Project",
+        "Administrators"
+      ]
     },
     "auth": {
       "error": {
@@ -374,6 +464,13 @@
         "title": "Logout"
       },
       "timeout": "Authentication timeout. Please login again."
+    },
+    "general": {
+      "subtitle": "Manage the general settings of your project.",
+      "title": [
+        "General",
+        "information"
+      ]
     },
     "landing": {
       "cards": {
@@ -442,12 +539,42 @@
       "title": "Projects"
     },
     "subtitle": "Management Panel",
-    "title": ["Management", "panel"]
+    "title": [
+      "Management",
+      "panel"
+    ],
+    "updates": {
+      "history": {
+        "empty": "No post has been published yet.",
+        "subtitle": "Recently posted updates with their review status.",
+        "title": [
+          "Update",
+          "history"
+        ]
+      },
+      "new": {
+        "description": {
+          "label": "Content",
+          "placeholder": "Here you can report in detail about the update"
+        },
+        "title": {
+          "label": "Headline",
+          "placeholder": "Describe your update in a short sentence"
+        }
+      },
+      "submit": "The post has been saved successfully",
+      "subtitle": "Share an update with your community.",
+      "title": [
+        "Post an",
+        "Update"
+      ]
+    }
   },
   "navbar": {
     "logoText": "Ocean Pearl",
     "navbarBlog": "Blog",
     "navbarDao": "DAO Proposals",
+    "navbarFeed": "Feed",
     "navbarJobs": "Jobs",
     "navbarLinkDefault": "Home",
     "navbarManage": "Manage",
@@ -455,12 +582,24 @@
     "navbarProposals": "DAO Proposals",
     "navbarVoting": "DAO Voting"
   },
+  "notFound": {
+    "text": "Maybe what you are looking for can be found here?",
+    "title": {
+      "primary": "Oops!",
+      "secondary": "We couldn't find that page."
+    }
+  },
   "project": {
     "added": "added at",
     "category": "Category",
     "copied": "copied!",
     "copy": "copy project link",
     "description": "Description",
+    "posts": {
+      "btnLoadMore": "load more",
+      "title": "Project",
+      "titleHighlight": "posts"
+    },
     "proposal": {
       "empty": "no funding yet",
       "granted": {
@@ -506,7 +645,7 @@
         "less": "show less",
         "more": "show all",
         "title": "Project Wallet Address",
-        "view": "View on Etherscan"
+        "view": "View on Blockscan"
       }
     },
     "readFull": "read full proposal",
@@ -570,11 +709,9 @@
   "redirect": {
     "consent": "You are about to leave Ocean Pearl. Are you sure you want to go the following page?"
   },
-  "notFound": {
-    "title": {
-      "primary": "Oops!",
-      "secondary": "We couldn't find that page."
-    },
-    "text": "Maybe what you are looking for can be found here?"
+  "validation": {
+    "field": {
+      "required": "This field is required"
+    }
   }
 }
