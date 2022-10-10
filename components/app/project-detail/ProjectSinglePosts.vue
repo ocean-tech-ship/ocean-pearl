@@ -12,15 +12,6 @@
         <project-post-card :post="{ ...post, project }" single-col-variant />
       </div>
     </div>
-
-    <div class="flex justify-center pt-12">
-      <app-button
-        class="btn-md btn-gradient-primary-variant border-0"
-        as="button"
-      >
-        {{ $t('project.posts.btnLoadMore') }}
-      </app-button>
-    </div>
   </div>
 </template>
 
