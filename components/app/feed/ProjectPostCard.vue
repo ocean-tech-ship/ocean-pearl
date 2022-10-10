@@ -17,7 +17,7 @@
 
     <div class="mt-5 h-128px" :class="{ 'md:h-[90px]': singleColVariant }">
       <p
-        class="small-text line-clamp-3"
+        class="small-text whitespace-pre line-clamp-3"
         :class="{ 'md:line-clamp-1': singleColVariant }"
       >
         {{ post.text }}

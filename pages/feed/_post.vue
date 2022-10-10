@@ -28,7 +28,10 @@
         </div>
       </div>
 
-      <div v-dompurify-html="post.text" class="prose max-w-none" />
+      <div
+        v-dompurify-html="post.text"
+        class="prose max-w-none whitespace-pre"
+      />
     </section-container>
   </div>
 </template>
