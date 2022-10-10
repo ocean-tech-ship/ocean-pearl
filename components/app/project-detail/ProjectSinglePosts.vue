@@ -1,5 +1,5 @@
 <template>
-  <div v-if="project.posts.length">
+  <div v-if="project.posts && project.posts.length">
     <h4 class="pt-16 pb-6">
       {{ $t('project.posts.title') }}
       <span class="text-primary">
