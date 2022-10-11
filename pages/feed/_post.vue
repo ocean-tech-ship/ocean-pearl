@@ -30,7 +30,7 @@
 
       <div
         v-dompurify-html="post.text"
-        class="prose max-w-none whitespace-pre"
+        class="prose max-w-none whitespace-pre-line"
       />
     </section-container>
   </div>
