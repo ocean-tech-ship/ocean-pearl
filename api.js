@@ -31,8 +31,8 @@ export function getJobs(axios) {
 }
 
 // posts
-export function getPosts(axios) {
-  return axios.get('/posts');
+export function getPosts(axios, params) {
+  return axios.get('/posts', { params });
 }
 
 // post by id
