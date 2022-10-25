@@ -6,9 +6,16 @@
     </section-container>
 
     <!-- Project post feed   -->
-    <section-container class="pb-4 xl:pb-16">
+    <section-container ref="postsWrapper" class="pb-4 xl:pb-16">
+      <div v-if="$store.state['feed-filter'].error">
+        <h1 class="text-primary">{{ $t('general.fetchingError') }}</h1>
+        <p class="small-text">
+          {{ $t($store.state['projects-filter'].error) }}
+        </p>
+      </div>
+
       <app-skeleton-card-list
-        v-if="posts === null"
+        v-else-if="$store.state['feed-filter'].pending"
         custom-class="grid grid-cols-1
         md:grid-cols-2 xl:grid-cols-3
         gap-4
@@ -19,7 +26,7 @@
       </app-skeleton-card-list>
 
       <div v-else class="grid grid-cols-1 gap-4 mt-10">
-        <div v-for="post in posts" :key="post.id">
+        <div v-for="post in $store.state['feed-filter'].posts" :key="post.id">
           <project-post-card :post="post" single-col-variant />
         </div>
       </div>
@@ -34,9 +41,11 @@ import AppSkeletonCardList from '@/components/common/AppSkeletonCardList';
 import ProjectPostSkeletonCard from '@/components/app/feed/ProjectPostSkeletonCard';
 import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
 import createHead from '@/pages/feed/index.head';
-import { getPosts } from '@/api';
+import debounce from '~/helpers/debounce';
 
 export default {
+  name: 'Feed',
+
   components: {
     ProjectPostCard,
     ProjectPostSkeletonCard,
@@ -45,23 +54,46 @@ export default {
     SectionContainer,
   },
 
-  data() {
-    return {
-      posts: null,
-    };
+  mounted() {
+    this.setPending(true).then(() =>
+      this.fetchPosts().then(this.handleScrolling),
+    );
   },
 
-  async fetch() {
-    try {
-      // TODO: pagination, search field
-      const response = await getPosts(this.$axios);
-      this.posts = response.data.docs;
-    } catch (error) {
-      await this.$store.dispatch(
-        'alert/error',
-        this.$i18n.t('general.error.retry'),
-      );
-    }
+  beforeDestroy() {
+    this.resetState();
+    window.onscroll = null;
+  },
+
+  methods: {
+    handleScrolling() {
+      const _this = this;
+      window.onscroll = debounce(function () {
+        const filterLimit = _this.$store.state['feed-filter'].filter.limit;
+        const paginationLimit =
+          _this.$store.state['feed-filter'].pagination.limit;
+        const limit = filterLimit + paginationLimit;
+        const scrollTop = document.documentElement.scrollTop;
+        const postsWrapperBottom =
+          _this.$refs.postsWrapper.$el.getBoundingClientRect().bottom;
+
+        if (scrollTop > postsWrapperBottom) {
+          _this.setFilter({ limit }).then(() => _this.fetchPosts());
+        }
+      }, 100);
+    },
+    resetState() {
+      return this.$store.dispatch('feed-filter/resetState');
+    },
+    setPending(payload) {
+      return this.$store.dispatch('feed-filter/setPending', payload);
+    },
+    setFilter(payload) {
+      return this.$store.dispatch('feed-filter/setFilter', payload);
+    },
+    fetchPosts() {
+      return this.$store.dispatch('feed-filter/fetchAll');
+    },
   },
 
   head() {

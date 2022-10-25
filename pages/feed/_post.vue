@@ -17,7 +17,7 @@
             to="/feed"
             :icon="icons.arrowLeft"
           >
-            {{ $t('feed.post.btnProject') }}
+            {{ $t('feed.post.btnBack') }}
           </app-button>
           <app-button
             class="btn-sm lg:btn-md btn-primary btn-outline"
@@ -47,6 +47,8 @@ import createHead from '@/pages/feed/_post.head';
 import { getPostById } from '@/api';
 
 export default Vue.extend({
+  name: 'PostDetail',
+
   components: {
     AppButton,
     ProjectPostMeta,
