@@ -545,6 +545,7 @@
     ],
     "updates": {
       "history": {
+        "deleted": "The post was successfully removed.",
         "empty": "No post has been published yet.",
         "subtitle": "Recently posted updates with their review status.",
         "title": [

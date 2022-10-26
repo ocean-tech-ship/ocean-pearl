@@ -31,25 +31,43 @@
     </alert-box>
 
     <div v-for="post in project.posts" :key="post.id">
-      <project-post-card :post="{ ...post, project }" single-col-variant />
+      <div class="relative">
+        <project-post-card :post="{ ...post, project }" single-col-variant />
+        <button
+          class="absolute top-0 right-0 m-3 btn btn-sm btn-circle btn-error"
+          @click="$store.dispatch('posts/remove', post.id)"
+        >
+          <app-icon :data="icons.trashAlt" />
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
+import trashAlt from '@iconify/icons-la/trash-alt';
 import ProjectUpdatesInput from '@/components/app/manage/project/ProjectUpdatesInput';
 import ProjectPostCard from '@/components/app/feed/ProjectPostCard';
 import AlertBox from '~/components/common/AlertBox';
+import AppIcon from '@/components/common/AppIcon';
 
 export default Vue.extend({
-  components: { AlertBox, ProjectPostCard, ProjectUpdatesInput },
+  components: { AppIcon, AlertBox, ProjectPostCard, ProjectUpdatesInput },
 
   props: {
     project: {
       type: Object,
       required: true,
     },
+  },
+
+  data() {
+    return {
+      icons: {
+        trashAlt,
+      },
+    };
   },
 });
 </script>

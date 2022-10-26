@@ -1,4 +1,4 @@
-import { createPost } from '@/api';
+import { createPost, deletePostById } from '@/api';
 
 /* Store for posting project updates */
 
@@ -39,6 +39,33 @@ export const actions = {
       }
     } finally {
       commit('submitting', false);
+    }
+  },
+  async remove({ commit, dispatch }, postId) {
+    commit('alert/clear', null, { root: true });
+
+    try {
+      await deletePostById(this.$axios, postId);
+      await dispatch('account/load', null, { root: true }); // Fetch account to visualize updated posts
+      await dispatch(
+        'alert/success',
+        this.$i18n.t('manage.updates.history.deleted'),
+        { root: true },
+      );
+    } catch (error) {
+      if (error.response?.status === 401) {
+        // Auth timeout
+        await dispatch('auth/timeout', null, { root: true });
+      } else {
+        // Generic error
+        dispatch(
+          'alert/error',
+          { content: this.$i18n.t('general.error.retry'), autoFade: true },
+          {
+            root: true,
+          },
+        );
+      }
     }
   },
 };

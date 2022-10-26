@@ -91,6 +91,13 @@ export function createPost(axios, payload) {
   });
 }
 
+// post deletion
+export function deletePostById(axios, id) {
+  return axios.delete(`/account/posts/${id}`, {
+    withCredentials: true,
+  });
+}
+
 // logo upload
 export function uploadLogo(axios, file) {
   const data = new FormData();
