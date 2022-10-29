@@ -29,7 +29,7 @@
       </div>
 
       <div
-        v-dompurify-html="post.text"
+        v-dompurify-html="post.compiledMarkdown"
         class="prose max-w-none whitespace-pre-line"
       />
     </section-container>
@@ -39,6 +39,7 @@
 <script>
 import Vue from 'vue';
 import arrowLeft from '@iconify/icons-la/arrow-left';
+import { marked } from 'marked';
 import SectionContainer from '@/components/common/SectionContainer.vue';
 import ProjectBeautifyId from '@/mixins/ProjectBeautifyId.js';
 import ProjectPostMeta from '@/components/app/feed/ProjectPostMeta';
@@ -65,7 +66,10 @@ export default Vue.extend({
       );
 
       return {
-        post: response.data,
+        post: {
+          ...response.data,
+          compiledMarkdown: marked(response.data.text),
+        },
       };
     } catch (ex) {
       if (ex?.response?.status === 404) {

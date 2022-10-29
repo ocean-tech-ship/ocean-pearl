@@ -225,6 +225,9 @@
     "minutes": "minutes",
     "seconds": "seconds"
   },
+  "editor": {
+    "markdown": "Markdown support"
+  },
   "feed": {
     "header": {
       "text": "See all project posts and updates.",
@@ -545,6 +548,7 @@
     ],
     "updates": {
       "history": {
+        "deleted": "The post was successfully removed.",
         "empty": "No post has been published yet.",
         "subtitle": "Recently posted updates with their review status.",
         "title": [

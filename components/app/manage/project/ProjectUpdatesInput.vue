@@ -9,13 +9,13 @@
       @input="title = $event"
     />
 
-    <text-area
+    <markdown-editor
       required
       :label="$t('manage.updates.new.description.label')"
       :placeholder="$t('manage.updates.new.description.placeholder')"
       :max-length="PROJECT_UPDATE_DESCRIPTION_MAX_LENGTH"
       :value="description"
-      :rows="3"
+      :rows="4"
       @input="description = $event"
     />
 
@@ -34,12 +34,12 @@
 import { mapState } from 'vuex';
 import ProjectConstants from '@/mixins/ProjectConstants';
 import TextField from '@/components/app/manage/project/TextField';
-import TextArea from '@/components/app/manage/project/TextArea';
+import MarkdownEditor from '~/components/common/MarkdownEditor';
 
 export default {
   name: 'ProjectUpdatesInput',
 
-  components: { TextArea, TextField },
+  components: { MarkdownEditor, TextField },
 
   mixins: [ProjectConstants],
 
