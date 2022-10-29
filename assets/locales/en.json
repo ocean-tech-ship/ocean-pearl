@@ -225,6 +225,9 @@
     "minutes": "minutes",
     "seconds": "seconds"
   },
+  "editor": {
+    "markdown": "Markdown support"
+  },
   "feed": {
     "header": {
       "text": "See all project posts and updates.",
