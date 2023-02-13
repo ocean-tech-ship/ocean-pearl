@@ -99,7 +99,7 @@ jobs:
         uses: actions/checkout@v3.0.2
 
       - name: Deploy to Heroku 👾
-        uses: akhileshns/heroku-deploy@v3.12.12
+        uses: akhileshns/heroku-deploy@v3.12.13
         with:
           branch: main
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
